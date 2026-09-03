@@ -1,0 +1,85 @@
+{
+  "version": "2.1.0",
+  "contracts": {
+    "retrieval_candidate": {
+      "producer": "deterministic_retriever",
+      "consumer": "llm_extractor",
+      "required": ["id","mechanism_id","query_id","phase","signal","query","title","url","source_name","published_at","retrieved_at"],
+      "template": {
+        "id": "sha20",
+        "mechanism_id": "DIESEL_REFINING_CRISIS",
+        "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
+        "phase": "LEAD",
+        "signal": "REFINERY_AVAILABILITY",
+        "query": "exact versioned query",
+        "title": "source title",
+        "url": "https://source.example/item",
+        "source_name": "source",
+        "source_domain": "source.example",
+        "published_at": "ISO-8601",
+        "retrieved_at": "ISO-8601"
+      }
+    },
+    "extracted_evidence": {
+      "producer": "llm_extractor",
+      "consumer": "deterministic_scorer",
+      "required": ["candidate_id","query_id","phase","signal","fact_type","claim","direction","relevance","contradiction","source_url","source_grade","valid"],
+      "template": {
+        "candidate_id": "must reference deterministic candidate",
+        "query_id": "exact query that found it",
+        "phase": "LEAD|CONFIRM|LAG",
+        "signal": "canonical signal id",
+        "fact_type": "FACT|INFERENCE",
+        "claim": "atomic evidence statement",
+        "direction": "UP|DOWN|FLAT|MIXED|UNKNOWN",
+        "relevance": 0.82,
+        "contradiction": false,
+        "source_url": "https://...",
+        "source_grade": 0.92,
+        "valid": true
+      }
+    },
+    "mechanism_state": {
+      "producer": "deterministic_scorer",
+      "consumer": "alpha_gate_and_dashboard",
+      "required": ["id","state","score","sensors","market","alpha","last_run"],
+      "template": {
+        "id": "DIESEL_REFINING_CRISIS",
+        "state": "UNKNOWN|DORMANT|WATCH|ARMING|ACTIVE|SATURATED|STALE|INVALIDATED",
+        "score": 0,
+        "sensors": {"lead":0,"confirm":0,"lag":0},
+        "market": {"score":0,"crowding":0,"breadth":0},
+        "alpha": {"eligible":false,"score":0,"reason":"GATE_NOT_MET"},
+        "last_run": "ISO-8601"
+      }
+    },
+    "alpha_click": {
+      "producer": "alpha_gate",
+      "consumer": "performance_ledger",
+      "required": ["signal_id","mechanism_id","created_at","mechanism_score","market_score","crowding","tickers","scoring_version"],
+      "template": {
+        "signal_id": "immutable id",
+        "mechanism_id": "mechanism id",
+        "created_at": "ISO-8601",
+        "mechanism_score": 78,
+        "market_score": 34,
+        "crowding": 22,
+        "tickers": ["ASC"],
+        "scoring_version": "2.x",
+        "future_returns": {"d1":null,"d5":null,"d20":null}
+      }
+    },
+    "causal_edge_memory": {
+      "producer": "correlation_engine",
+      "consumer": "future_alpha_gate_and_dashboard",
+      "required": ["from","to","samples","propagation_rate","best_empirical_lag"],
+      "template": {
+        "from": "DIESEL_REFINING_CRISIS",
+        "to": "PRODUCT_TANKER_TONMILES",
+        "samples": 0,
+        "propagation_rate": null,
+        "best_empirical_lag": {"runs":null,"r":null}
+      }
+    }
+  }
+}
