@@ -1,4 +1,4 @@
-name: GearWatch Scan
+name: GearWatch V2 Causal Scan
 
 on:
   workflow_dispatch:
@@ -9,13 +9,13 @@ permissions:
   contents: write
 
 concurrency:
-  group: gearwatch-scan
+  group: gearwatch-v2-scan
   cancel-in-progress: false
 
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
         with:
@@ -25,16 +25,36 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Create immutable run id
+        shell: bash
+        run: echo "GEARWATCH_RUN_ID=run_$(date -u +'%Y-%m-%dT%H-%M-%SZ')" >> "$GITHUB_ENV"
+
       - name: Collect deterministic market data
         run: npm run market
 
-      - name: Run causal mechanism sensors
+      - name: Deterministic upstream retrieval
+        run: npm run retrieve
+
+      - name: Extract facts with free LLM
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-oss-20b:free' }}
-        run: npm run scan
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-oss-120b:free' }}
+        run: npm run extract
 
-      - name: Persist Living Bible state
+      - name: Red-team only strongest early mechanisms
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-oss-120b:free' }}
+        run: npm run verify
+
+      - name: Deterministic state and Alpha Click
+        run: npm run assemble
+
+      - name: Update empirical correlation memory
+        run: npm run correlate
+
+      - name: Persist Living Bible and all traces
+        shell: bash
         run: |
           git config user.name 'gearwatch-bot'
           git config user.email 'gearwatch-bot@users.noreply.github.com'
@@ -42,6 +62,6 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No state changes'
           else
-            git commit -m "data: autonomous mechanism scan $(date -u +'%Y-%m-%dT%H:%MZ')"
+            git commit -m "data(v2): causal scan ${GEARWATCH_RUN_ID}"
             git push
           fi
