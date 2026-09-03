@@ -1,0 +1,313 @@
+{
+  "version": "2.0.0",
+  "defaults": {
+    "window_hours": 30,
+    "max_results_per_query": 8,
+    "retrievers": ["gdelt", "google_news"],
+    "lead_weight": 1.0,
+    "confirm_weight": 1.25,
+    "lag_weight": 0.45
+  },
+  "mechanisms": {
+    "DIESEL_CRISIS": {
+      "lead": [
+        {"id":"diesel_maint","q":"refinery hydrocracker outage maintenance extension diesel gasoil jet fuel","signal":"REFINERY_AVAILABILITY"},
+        {"id":"diesel_tender","q":"diesel gasoil jet fuel tender cargo Mediterranean Europe Turkey","signal":"PHYSICAL_CARGO_DEMAND"}
+      ],
+      "confirm": [
+        {"id":"diesel_stock","q":"ARA gasoil stocks distillate inventories diesel crack Brent Europe Singapore gasoil crack","signal":"DISTILLATE_TIGHTNESS"}
+      ],
+      "lag": [
+        {"id":"diesel_earn","q":"refiner earnings margin guidance diesel jet fuel exports HELLENiQ Motor Oil PBF Par Pacific","signal":"REFINER_EARNINGS"}
+      ]
+    },
+    "PRODUCT_TANKER_TONMILES": {
+      "lead": [
+        {"id":"mr_fixture","q":"MR tanker fixture diesel cargo US Gulf Europe India Europe Cape route","signal":"MR_FIXTURES"},
+        {"id":"war_risk","q":"tanker war risk premium P&I Hormuz exclusion charter cancellation Fujairah","signal":"SHIPPING_RISK"}
+      ],
+      "confirm": [
+        {"id":"mr_tce","q":"MR tanker TCE rates LR1 LR2 rates ton miles product tanker utilization","signal":"FREIGHT_RATES"}
+      ],
+      "lag": [
+        {"id":"tanker_earn","q":"Ardmore TORM Hafnia Pyxis earnings TCE guidance dividend","signal":"TANKER_EARNINGS"}
+      ]
+    },
+    "CRUDE_TANKER_DISLOCATION": {
+      "lead": [
+        {"id":"vlcc_route","q":"VLCC fixture West Africa Brazil Guyana US Gulf Asia Cape route STS Oman","signal":"CRUDE_ROUTE_SHIFT"},
+        {"id":"sts","q":"ship to ship crude transfer Oman Fujairah Saudi Aramco China Hormuz","signal":"STS_ACTIVITY"}
+      ],
+      "confirm": [
+        {"id":"vlcc_tce","q":"VLCC Suezmax TCE rates ton mile demand vessel availability","signal":"CRUDE_FREIGHT"}
+      ],
+      "lag": [
+        {"id":"crude_tanker_earn","q":"International Seaways Okeanis Frontline DHT earnings TCE guidance","signal":"CRUDE_TANKER_EARNINGS"}
+      ]
+    },
+    "ATLANTIC_BARREL_PREMIUM": {
+      "lead": [
+        {"id":"origin_shift","q":"Japan Korea crude imports United States Brazil Guyana Angola Gabon replace Middle East barrels","signal":"IMPORT_ORIGIN_SHIFT"},
+        {"id":"diffs","q":"West Africa crude differential Angola Gabon Brazil Guyana premium Brent Asia Europe","signal":"ATLANTIC_DIFFERENTIALS"}
+      ],
+      "confirm": [
+        {"id":"export_vol","q":"US Brazil Guyana Angola crude exports record barrels per day Asia Europe","signal":"ATLANTIC_EXPORT_VOLUME"}
+      ],
+      "lag": [
+        {"id":"ep_earn","q":"Afentra Panoro Vista VAALCO Petrobras Gran Tierra earnings realized oil price guidance","signal":"E_AND_P_EARNINGS"}
+      ]
+    },
+    "CEYHAN_BYPASS": {
+      "lead": [
+        {"id":"iraq_turkey","q":"Iraq Turkey pipeline Ceyhan agreement Kurdish oil payments SOMO export settlement","signal":"POLITICAL_CLEARANCE"},
+        {"id":"kurd_prod","q":"Kurdistan oil production restart DNO Gulf Keystone Genel pipeline Ceyhan","signal":"KURDISTAN_PRODUCTION"}
+      ],
+      "confirm": [
+        {"id":"ceyhan_flow","q":"Ceyhan Iraq Turkey pipeline exports barrels per day loading cargo","signal":"CEYHAN_FLOW"}
+      ],
+      "lag": [
+        {"id":"kurd_earn","q":"Gulf Keystone Genel DNO cash flow dividend export payment earnings","signal":"KURDISTAN_EARNINGS"}
+      ]
+    },
+    "LNG_REROUTING": {
+      "lead": [
+        {"id":"lng_sts","q":"Qatar LNG ship to ship Oman Fujairah Hormuz transfer cargo diversion","signal":"LNG_STS"},
+        {"id":"lng_route","q":"LNG vessel Cape route Qatar UAE Atlantic Pacific rerouting","signal":"LNG_ROUTE_SHIFT"}
+      ],
+      "confirm": [
+        {"id":"lng_price","q":"JKM TTF LNG shipping rates spot charter vessel availability spread","signal":"LNG_PRICE_FREIGHT"}
+      ],
+      "lag": [
+        {"id":"lng_earn","q":"Cheniere Golar Flex LNG Excelerate earnings utilization guidance","signal":"LNG_EARNINGS"}
+      ]
+    },
+    "ARSENAL_DEPLETION": {
+      "lead": [
+        {"id":"proc_rfq","q":"Pentagon RFQ multiyear procurement Patriot THAAD Tomahawk SM-6 AMRAAM JASSM LRASM 155mm","signal":"PROCUREMENT_CHANGE"},
+        {"id":"inventory","q":"Patriot THAAD interceptor inventory stockpile depletion production target Pentagon","signal":"INVENTORY_STRESS"}
+      ],
+      "confirm": [
+        {"id":"multiyear","q":"Pentagon seven year contract missile production increase annual output target","signal":"MULTIYEAR_CONTRACT"}
+      ],
+      "lag": [
+        {"id":"prime_earn","q":"RTX Lockheed General Dynamics Northrop backlog missile production earnings guidance","signal":"PRIME_EARNINGS"}
+      ]
+    },
+    "ROCKET_MOTOR_SHORTAGE": {
+      "lead": [
+        {"id":"motor_permit","q":"solid rocket motor factory expansion permit hiring qualification Aerojet L3Harris Northrop","signal":"MOTOR_CAPACITY"},
+        {"id":"propellant","q":"ammonium perchlorate solid propellant shortage tender rocket motor supply chain","signal":"PROPELLANT_INPUT"}
+      ],
+      "confirm": [
+        {"id":"motor_award","q":"DoD investment solid rocket motor capacity L3Harris Aerojet production award","signal":"GOVERNMENT_CAPACITY_AWARD"}
+      ],
+      "lag": [
+        {"id":"motor_earn","q":"L3Harris missile solutions backlog rocket motor revenue Karman earnings","signal":"MOTOR_EARNINGS"}
+      ]
+    },
+    "ENERGETICS_SHORTAGE": {
+      "lead": [
+        {"id":"energetics_hire","q":"RDX HMX TNT nitrocellulose propellant energetics plant expansion hiring Europe US","signal":"ENERGETICS_CAPACITY"},
+        {"id":"energetics_tender","q":"energetics explosive propellant procurement tender NATO ammunition supplier","signal":"ENERGETICS_PROCUREMENT"}
+      ],
+      "confirm": [
+        {"id":"energetics_award","q":"government funding energetics factory Chemring CSG Rheinmetall ammunition capacity","signal":"CAPACITY_AWARD"}
+      ],
+      "lag": [
+        {"id":"energetics_earn","q":"Chemring CSG Rheinmetall backlog energetics margin earnings","signal":"ENERGETICS_EARNINGS"}
+      ]
+    },
+    "STRATEGIC_ALUMINIUM": {
+      "lead": [
+        {"id":"hpa_stock","q":"high purity aluminium defense stockpile shortage Pentagon HPA United States","signal":"HPA_STOCKPILE"},
+        {"id":"smelter","q":"aluminium smelter outage capacity high purity military Century Aluminum Emirates","signal":"SMELTER_CAPACITY"}
+      ],
+      "confirm": [
+        {"id":"al_premium","q":"US Midwest aluminium premium high purity aluminium price defense demand","signal":"ALUMINIUM_PREMIUM"}
+      ],
+      "lag": [
+        {"id":"al_earn","q":"Century Aluminum Alcoa earnings government funding new smelter capacity","signal":"ALUMINIUM_EARNINGS"}
+      ]
+    },
+    "RARE_EARTH_MAGNET_SHORTAGE": {
+      "lead": [
+        {"id":"china_license","q":"China rare earth export license dysprosium terbium NdFeB magnet restrictions Japan US","signal":"EXPORT_RESTRICTION"},
+        {"id":"magnet_supply","q":"permanent magnet shortage lead time NdFeB defense drone robot motor supplier","signal":"MAGNET_SUPPLY"}
+      ],
+      "confirm": [
+        {"id":"ree_trade","q":"China dysprosium terbium magnet exports customs Japan United States rare earth volumes","signal":"RARE_EARTH_TRADE"}
+      ],
+      "lag": [
+        {"id":"ree_earn","q":"MP Materials Energy Fuels Lynas magnet production government contract earnings","signal":"RARE_EARTH_EARNINGS"}
+      ]
+    },
+    "CHEAP_DRONE_SCALING": {
+      "lead": [
+        {"id":"drone_rfq","q":"military drone tender tens thousands attritable autonomous drones procurement Taiwan US Europe","signal":"DRONE_PROCUREMENT"},
+        {"id":"drone_factory","q":"drone factory capacity expansion hiring production line low cost military autonomous","signal":"DRONE_CAPACITY"}
+      ],
+      "confirm": [
+        {"id":"drone_award","q":"contract award thousands drones unit cost AeroVironment Kratos Red Cat","signal":"DRONE_AWARD"}
+      ],
+      "lag": [
+        {"id":"drone_earn","q":"AeroVironment Kratos Red Cat backlog drone revenue earnings","signal":"DRONE_EARNINGS"}
+      ]
+    },
+    "COUNTER_UAS_COST_CURVE": {
+      "lead": [
+        {"id":"cuas_trial","q":"counter UAS test cheap interceptor electronic warfare laser gun cost per intercept trial","signal":"COUNTER_UAS_TRIAL"},
+        {"id":"cuas_rfq","q":"counter drone RFQ radar electronic warfare cheap interceptor procurement","signal":"COUNTER_UAS_PROCUREMENT"}
+      ],
+      "confirm": [
+        {"id":"cuas_award","q":"counter UAS contract award quantity cost per intercept Saab Kongsberg Leonardo RTX","signal":"COUNTER_UAS_AWARD"}
+      ],
+      "lag": [
+        {"id":"cuas_earn","q":"counter UAS revenue backlog radar electronic warfare earnings","signal":"COUNTER_UAS_EARNINGS"}
+      ]
+    },
+    "UNDERWATER_SECURITY": {
+      "lead": [
+        {"id":"mine_incident","q":"naval mine incident Hormuz Black Sea Baltic shipping lane mine warning","signal":"MINE_RISK"},
+        {"id":"subsea_incident","q":"submarine cable pipeline sabotage Baltic North Sea underwater infrastructure incident","signal":"SUBSEA_RISK"}
+      ],
+      "confirm": [
+        {"id":"mcm_award","q":"mine countermeasure UUV USV sonar contract award navy Fincantieri Kongsberg Saab Thales","signal":"UNDERWATER_PROCUREMENT"}
+      ],
+      "lag": [
+        {"id":"underwater_earn","q":"Fincantieri Kongsberg Saab Thales underwater backlog earnings","signal":"UNDERWATER_EARNINGS"}
+      ]
+    },
+    "AI_TIME_TO_POWER": {
+      "lead": [
+        {"id":"grid_deposit","q":"data center utility interconnection deposit substation permit transformer order gigawatt","signal":"REAL_POWER_COMMITMENT"},
+        {"id":"lead_time","q":"large power transformer lead time switchgear lead time data center utility","signal":"EQUIPMENT_LEAD_TIME"}
+      ],
+      "confirm": [
+        {"id":"power_order","q":"data center transformer switchgear gas turbine order backlog Powell Vertiv GE Vernova Eaton","signal":"POWER_EQUIPMENT_ORDERS"}
+      ],
+      "lag": [
+        {"id":"power_earn","q":"Powell Vertiv GE Vernova Eaton data center backlog earnings guidance","signal":"POWER_EQUIPMENT_EARNINGS"}
+      ]
+    },
+    "AI_GHOST_DEMAND": {
+      "lead": [
+        {"id":"queue_withdraw","q":"data center interconnection request withdrawn duplicate utility deposit queue cancellation","signal":"QUEUE_ATTRITION"},
+        {"id":"project_cancel","q":"AI data center project cancelled delayed tenant commitment financing power","signal":"PROJECT_ATTRITION"}
+      ],
+      "confirm": [
+        {"id":"real_commit","q":"data center signed PPA construction start utility deposit tenant commitment","signal":"REAL_VS_GHOST"}
+      ],
+      "lag": [
+        {"id":"developer_earn","q":"data center developer guidance cancelled projects capex earnings","signal":"DEVELOPER_EARNINGS"}
+      ]
+    },
+    "BEHIND_METER_AI_POWER": {
+      "lead": [
+        {"id":"onsite_permit","q":"data center onsite power microgrid gas turbine fuel cell permit behind the meter","signal":"ONSITE_POWER_PERMIT"},
+        {"id":"turbine_reservation","q":"data center gas turbine reservation generator order microgrid Bloom GE Vernova Caterpillar","signal":"ONSITE_EQUIPMENT_ORDER"}
+      ],
+      "confirm": [
+        {"id":"microgrid_award","q":"data center microgrid contract onsite generation commissioning megawatt","signal":"MICROGRID_DEPLOYMENT"}
+      ],
+      "lag": [
+        {"id":"microgrid_earn","q":"Bloom GE Vernova Caterpillar Vertiv microgrid data center earnings backlog","signal":"MICROGRID_EARNINGS"}
+      ]
+    },
+    "ROBOTICS_ACTUATOR_SCALE": {
+      "lead": [
+        {"id":"supplier_order","q":"humanoid robot actuator harmonic reducer servo ball screw supplier order factory qualification","signal":"ROBOT_COMPONENT_ORDER"},
+        {"id":"robot_repeat","q":"industrial humanoid repeat order paid deployment utilization hours factory ROI","signal":"REPEAT_ROBOT_ORDER"}
+      ],
+      "confirm": [
+        {"id":"component_capacity","q":"Harmonic Drive Nabtesco Schaeffler robot reducer capacity expansion backlog","signal":"ACTUATOR_CAPACITY"}
+      ],
+      "lag": [
+        {"id":"robot_earn","q":"robotics actuator reducer revenue guidance humanoid earnings","signal":"ROBOTICS_EARNINGS"}
+      ]
+    },
+    "ROBOTICS_DECOUPLING": {
+      "lead": [
+        {"id":"robot_tariff","q":"US tariff Chinese robots humanoid drones components national security procurement restriction","signal":"ROBOTICS_TRADE_BARRIER"},
+        {"id":"local_content","q":"robotics domestic content mandate government procurement China supplier exclusion US Europe","signal":"LOCAL_CONTENT"}
+      ],
+      "confirm": [
+        {"id":"reshore_order","q":"robotics supplier new US factory reshoring actuator reducer motor contract","signal":"ROBOTICS_RESHORING"}
+      ],
+      "lag": [
+        {"id":"robot_decouple_earn","q":"robotics domestic supplier earnings tariff benefit backlog","signal":"ROBOTICS_DECOUPLING_EARNINGS"}
+      ]
+    },
+    "JAPAN_CARRY_UNWIND": {
+      "lead": [
+        {"id":"boj_signal","q":"Bank of Japan rate hike hawkish JGB purchase reduction inflation wage policy","signal":"BOJ_TIGHTENING"},
+        {"id":"japan_flows","q":"Japan investors sell foreign bonds buy JGB weekly securities flows Ministry Finance","signal":"CAPITAL_REPATRIATION"}
+      ],
+      "confirm": [
+        {"id":"jgb_yen","q":"JGB 10 year 30 year yield yen USDJPY carry trade unwind","signal":"JGB_YEN_CONFIRM"}
+      ],
+      "lag": [
+        {"id":"global_duration","q":"Treasury selloff Japanese investors global bonds duration Japan yields","signal":"GLOBAL_DURATION_IMPACT"}
+      ]
+    },
+    "GLOBAL_REFINANCING_STRESS": {
+      "lead": [
+        {"id":"amend_extend","q":"amend and extend refinancing private credit covenant maturity wall leveraged loan","signal":"REFINANCING_FRICTION"},
+        {"id":"cre_refi","q":"commercial real estate refinancing default maturity extension cap rate debt service","signal":"CRE_REFINANCING"}
+      ],
+      "confirm": [
+        {"id":"spreads","q":"high yield spread investment grade spread MOVE index Treasury 10 year 30 year refinancing","signal":"CREDIT_MARKET_STRESS"}
+      ],
+      "lag": [
+        {"id":"defaults","q":"corporate default bankruptcy private credit loss refinancing failure","signal":"CREDIT_LOSSES"}
+      ]
+    },
+    "OT_CYBER_SHOCK": {
+      "lead": [
+        {"id":"ics_advisory","q":"CISA ICS advisory energy utility refinery pipeline PLC vulnerability active exploitation","signal":"OT_VULNERABILITY"},
+        {"id":"intrusion","q":"utility refinery pipeline cyber intrusion operational technology disruption","signal":"OT_INTRUSION"}
+      ],
+      "confirm": [
+        {"id":"physical_impact","q":"cyber attack power outage refinery shutdown pipeline disruption operational technology","signal":"CYBER_PHYSICAL_IMPACT"}
+      ],
+      "lag": [
+        {"id":"security_award","q":"OT cybersecurity contract utility industrial network security budget Tenable Fortinet Palo Alto","signal":"OT_SECURITY_SPEND"}
+      ]
+    },
+    "NUCLEAR_FUEL_SOVEREIGNTY": {
+      "lead": [
+        {"id":"haleu_tender","q":"DOE HALEU LEU enrichment solicitation centrifuge capacity uranium contract","signal":"ENRICHMENT_PROCUREMENT"},
+        {"id":"uranium_restrict","q":"Russian uranium restriction enriched uranium import waiver United States Europe","signal":"URANIUM_SUPPLY_POLICY"}
+      ],
+      "confirm": [
+        {"id":"enrich_award","q":"Centrus enrichment contract HALEU production award DOE capacity","signal":"ENRICHMENT_CAPACITY"}
+      ],
+      "lag": [
+        {"id":"nuclear_earn","q":"Centrus Energy Fuels BWXT uranium enrichment backlog earnings","signal":"NUCLEAR_FUEL_EARNINGS"}
+      ]
+    },
+    "MILITARY_ENERGY_AUTONOMY": {
+      "lead": [
+        {"id":"base_microgrid","q":"DoD military base microgrid microreactor resilient power solicitation","signal":"BASE_RESILIENCE_PROCUREMENT"},
+        {"id":"microreactor_test","q":"Army microreactor test deployment Janus Pele BWXT nuclear base power","signal":"MICROREACTOR_MILESTONE"}
+      ],
+      "confirm": [
+        {"id":"base_award","q":"military microreactor contract award base microgrid deployment BWXT","signal":"MILITARY_POWER_AWARD"}
+      ],
+      "lag": [
+        {"id":"milpower_earn","q":"BWXT microreactor backlog military nuclear earnings","signal":"MILITARY_POWER_EARNINGS"}
+      ]
+    },
+    "EUROPE_STRATEGIC_AUTONOMY": {
+      "lead": [
+        {"id":"eu_tender","q":"European preference procurement satellite missile air defense drone sovereign cloud contract EU supplier","signal":"EU_LOCAL_PROCUREMENT"},
+        {"id":"eu_funding","q":"European Defence Fund strategic autonomy funding satellite communications IRIS2 missile drone","signal":"EU_STRATEGIC_FUNDING"}
+      ],
+      "confirm": [
+        {"id":"eu_award","q":"European company contract award OHB SES Eutelsat Leonardo Saab Thales Rheinmetall Fincantieri","signal":"EU_CONTRACT_AWARD"}
+      ],
+      "lag": [
+        {"id":"eu_earn","q":"European defense space backlog earnings strategic autonomy","signal":"EU_STRATEGIC_EARNINGS"}
+      ]
+    }
+  }
+}
