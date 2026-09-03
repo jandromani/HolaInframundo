@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 55
     env:
       OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-      OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-oss-20b:free' }}
+      OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-oss-20b' }}
       OPENROUTER_VERIFIER_MODEL: ${{ vars.OPENROUTER_VERIFIER_MODEL || 'openai/gpt-oss-120b' }}
     steps:
       - uses: actions/checkout@v4
@@ -44,7 +44,7 @@ jobs:
         run: npm run upstream
       - name: Sparse web rescue only where free and official retrieval are blind
         run: npm run discover
-      - name: Extract facts with resilient free-model pool
+      - name: Extract facts with reliable low-cost structured model
         run: npm run extract
       - name: Red-team strongest early mechanisms with bounded judge budget
         run: npm run verify
