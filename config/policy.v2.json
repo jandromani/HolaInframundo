@@ -1,0 +1,17 @@
+{
+  "version":"2.0.0",
+  "model":"openai/gpt-oss-120b:free",
+  "scheduler":{"utc_hours":[0,6,12,18],"minute":17,"inter_request_ms":3400,"max_retry_429":1,"max_retry_other":1},
+  "budgets":{"max_llm_requests_per_run":26,"max_llm_requests_per_day":140,"max_web_verifiers_per_run":4,"max_web_verifiers_per_day":12,"max_web_results":8},
+  "web_verifier":{"engine":"parallel","mode":"turbo","estimated_cost_per_search_usd":0.001},
+  "state_gates":{"watch":25,"arming":45,"active":65,"saturated_crowding":72,"max_stale_hours":18},
+  "alpha":{"min_causal":60,"min_market":20,"max_market":58,"max_crowding":62,"min_independent_domains":2,"require_confirm":true,"max_lag_share":0.45,"min_empirical_reliability":0.35,"reliability_gate_after_samples":5},
+  "principles":[
+    "LLM extracts evidence; code decides state",
+    "missing data becomes UNKNOWN or STALE, never negative evidence",
+    "no ACTIVE state without independent confirmation",
+    "no Alpha Click without early market confirmation",
+    "no chasing when crowding or lag evidence dominates",
+    "the first euro and the last euro belong to someone else"
+  ]
+}
