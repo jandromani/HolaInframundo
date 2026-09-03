@@ -16,6 +16,9 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     timeout-minutes: 55
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-oss-120b:free' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -29,22 +32,19 @@ jobs:
         shell: bash
         run: echo "GEARWATCH_RUN_ID=run_$(date -u +'%Y-%m-%dT%H-%M-%SZ')" >> "$GITHUB_ENV"
 
+      - name: Read live OpenRouter quota safely
+        run: npm run quota
+
       - name: Collect deterministic market data
         run: npm run market
 
       - name: Deterministic upstream retrieval
         run: npm run retrieve
 
-      - name: Extract facts with free LLM
-        env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-oss-120b:free' }}
+      - name: Extract facts with free LLM inside adaptive quota
         run: npm run extract
 
-      - name: Red-team only strongest early mechanisms
-        env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-oss-120b:free' }}
+      - name: Red-team strongest early mechanisms inside reserved quota
         run: npm run verify
 
       - name: Deterministic state and Alpha Click
