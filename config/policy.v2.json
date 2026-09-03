@@ -1,5 +1,5 @@
 {
-  "version":"2.2.0",
+  "version":"2.3.0",
   "model":"openai/gpt-oss-20b:free",
   "model_pool":[
     "openai/gpt-oss-20b:free",
@@ -21,18 +21,56 @@
     "source_timeout_ms":6500,
     "gdelt_circuit_breaker_failures":2,
     "rss_cache":true,
-    "fallback_when_candidates_below":2
+    "fallback_when_candidates_below":2,
+    "official_upstream_window_hours":96,
+    "official_upstream_max_items_per_source":30
+  },
+  "event_clustering":{
+    "claim_jaccard_threshold":0.58,
+    "max_time_gap_hours":72,
+    "min_token_length":4
+  },
+  "market":{
+    "benchmark_default":"^GSPC",
+    "intraday_interval":"15m",
+    "intraday_range":"5d",
+    "min_intraday_names":1,
+    "relative_confirm_5d":0.75,
+    "relative_confirm_2h":0.25,
+    "relative_strong_2h":0.75
   },
   "web_verifier":{"engine":"parallel","mode":"turbo","estimated_cost_per_search_usd":0.001},
-  "state_gates":{"watch":25,"arming":45,"active":65,"saturated_crowding":72,"max_stale_hours":18,"active_confirmation_runs":2,"deactivate_confirmation_runs":2,"fast_path_causal":86},
-  "alpha":{"min_causal":60,"min_market":20,"max_market":58,"max_crowding":62,"min_independent_domains":2,"require_confirm":true,"max_lag_share":0.45,"min_empirical_reliability":0.35,"reliability_gate_after_samples":5},
+  "state_gates":{
+    "watch":25,
+    "arming":45,
+    "active":65,
+    "saturated_crowding":72,
+    "max_stale_hours":18,
+    "active_confirmation_runs":2,
+    "deactivate_confirmation_runs":2,
+    "fast_path_causal":86
+  },
+  "alpha":{
+    "min_causal":60,
+    "min_market":20,
+    "max_market":64,
+    "max_crowding":66,
+    "min_independent_domains":2,
+    "require_confirm":true,
+    "require_stable_active":true,
+    "max_lag_share":0.45,
+    "min_empirical_reliability":0.35,
+    "reliability_gate_after_samples":5
+  },
   "principles":[
     "LLM extracts evidence; code decides state",
     "missing data becomes UNKNOWN or STALE, never negative evidence",
     "no ACTIVE state without independent confirmation",
     "one syndicated event counts once regardless of mirrors",
     "state changes require persistence unless fast-path physical evidence is overwhelming",
-    "no Alpha Click without early market confirmation",
+    "market confirmation is relative to a benchmark and includes intraday breadth",
+    "official upstream sources run before paid web discovery",
+    "no Alpha Click without stable causal state and early market confirmation",
     "no chasing when crowding or lag evidence dominates",
     "the first euro and the last euro belong to someone else"
   ]
