@@ -1,0 +1,49 @@
+name: GearWatch V2 Final CI
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax check every JavaScript module
+        run: |
+          set -e
+          for f in scripts/*.mjs; do
+            echo "Checking $f"
+            node --check "$f"
+          done
+      - name: Parse all core JSON
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const files=[
+            'config/mechanisms.json','config/queries.v2.json','config/edges.v2.json','config/policy.v2.json',
+            'data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json','data/openrouter-quota.json'
+          ];
+          for(const f of files){JSON.parse(fs.readFileSync(f,'utf8'));console.log('OK',f)}
+          NODE
+      - name: Validate V2 mechanism coverage
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const m=JSON.parse(fs.readFileSync('config/mechanisms.json','utf8')).mechanisms;
+          const q=JSON.parse(fs.readFileSync('config/queries.v2.json','utf8')).mechanisms;
+          const missing=m.filter(x=>!q[x.id]).map(x=>x.id);
+          if(missing.length) throw new Error('Missing V2 query configs: '+missing.join(','));
+          for(const x of m){
+            const z=q[x.id];
+            if(!z.lead?.length||!z.confirm?.length||!z.lag?.length)throw new Error('Incomplete phases for '+x.id);
+          }
+          console.log('Coverage OK:',m.length,'mechanisms');
+          NODE
