@@ -28,7 +28,7 @@ jobs:
           node - <<'NODE'
           const fs=require('fs');
           const files=[
-            'config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json',
+            'config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json','config/sources.v2.json','config/contracts.v2.json',
             'data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json','data/openrouter-quota.json'
           ];
           for(const f of files){JSON.parse(fs.readFileSync(f,'utf8'));console.log('OK',f)}
@@ -43,9 +43,8 @@ jobs:
           const q={...q1,...q2};
           const missing=m.filter(x=>!q[x.id]).map(x=>x.id);
           if(missing.length) throw new Error('Missing V2 query configs: '+missing.join(','));
-          for(const x of m){
-            const z=q[x.id];
-            if(!z.lead?.length||!z.confirm?.length||!z.lag?.length)throw new Error('Incomplete phases for '+x.id);
-          }
+          for(const x of m){const z=q[x.id];if(!z.lead?.length||!z.confirm?.length||!z.lag?.length)throw new Error('Incomplete phases for '+x.id)}
           console.log('Coverage OK:',m.length,'mechanisms');
           NODE
+      - name: Deterministic V2.3 regression suite
+        run: npm run selftest
