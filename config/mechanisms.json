@@ -1,0 +1,265 @@
+{
+  "version": "2026-09-03.1",
+  "mechanisms": [
+    {
+      "id": "DIESEL_REFINING_CRISIS",
+      "tier": "A",
+      "label": "Diesel / refining crisis",
+      "keywords": ["diesel crack Europe", "gasoil crack", "ARA diesel inventories", "US distillate inventories", "Russian diesel exports", "refinery outage Europe Middle East", "jet fuel premium"],
+      "leading_sensors": ["refinery maintenance extension", "export tender", "inventory draw", "physical cargo premium", "crack spread divergence"],
+      "prompt_focus": "Determine whether middle-distillate scarcity is tightening independently of crude. Distinguish crude shortage from refining bottleneck. Look specifically for falling/stable Brent while diesel or jet premiums remain elevated.",
+      "positive": ["ELPE.AT", "MOH.AT", "PARR", "PBF", "DK"],
+      "negative": ["DAL", "UAL", "AAL"]
+    },
+    {
+      "id": "PRODUCT_TANKER_TONMILES",
+      "tier": "A",
+      "label": "Product tanker ton-miles",
+      "keywords": ["MR tanker TCE", "LR1 rates", "LR2 rates", "Hormuz product tanker transits", "Cape rerouting diesel", "US Europe diesel cargoes", "India Europe diesel cargoes"],
+      "leading_sensors": ["AIS route deviation", "ballast positioning", "charter fixture", "insurance premium", "voyage duration"],
+      "prompt_focus": "Test whether refined-product cargoes are travelling materially farther and whether effective fleet supply is tightening. Oil price alone is not evidence.",
+      "positive": ["ASC", "TRMD", "HAFN", "PXS", "STNG"],
+      "negative": []
+    },
+    {
+      "id": "CRUDE_TANKER_DISLOCATION",
+      "tier": "A",
+      "label": "Crude tanker dislocation",
+      "keywords": ["VLCC TCE", "Suezmax TCE", "STS crude transfer", "Cape crude routing", "US Gulf Asia crude", "Brazil Asia crude", "West Africa Asia crude"],
+      "leading_sensors": ["STS transfer", "ballast position", "fixture rate", "origin shift", "ton-mile growth"],
+      "prompt_focus": "Measure whether crude sourcing shifts are increasing VLCC/Suezmax ton-mile demand and fleet utilization.",
+      "positive": ["INSW", "ECO", "TEN", "DHT", "FRO", "PSHG"],
+      "negative": []
+    },
+    {
+      "id": "ATLANTIC_BARREL_PREMIUM",
+      "tier": "B",
+      "label": "Atlantic barrels replace Gulf supply",
+      "keywords": ["Japan US crude imports", "Korea US crude imports", "Angola crude premium", "Gabon crude exports", "Brazil crude exports", "Guyana crude exports", "Vaca Muerta exports"],
+      "leading_sensors": ["buyer origin diversification", "cargo premium", "export nomination", "new term contract"],
+      "prompt_focus": "Determine whether buyers are structurally replacing Gulf barrels with Americas/Africa supply rather than making a one-off substitution.",
+      "positive": ["AET.L", "PEN.OL", "VIST", "EGY", "PBR", "GTE", "PTAL.L"],
+      "negative": []
+    },
+    {
+      "id": "CEYHAN_BYPASS",
+      "tier": "A",
+      "label": "Ceyhan / Kurdistan bypass",
+      "keywords": ["Iraq Turkey pipeline Ceyhan flow", "Kurdistan exports Ceyhan", "Gulf Keystone production", "Genel production", "DNO Kurdistan exports"],
+      "leading_sensors": ["daily pipeline flow", "payment settlement", "field restart", "export nomination"],
+      "prompt_focus": "Monitor sustained physical flow through Iraq-Turkey-Ceyhan. Announcements without barrels do not count.",
+      "positive": ["GKP.L", "GENL.L", "DNO.OL"],
+      "negative": []
+    },
+    {
+      "id": "LNG_REROUTING",
+      "tier": "B",
+      "label": "LNG rerouting",
+      "keywords": ["Qatar LNG Hormuz", "UAE LNG STS", "JKM TTF spread", "LNG shipping rates", "Cape LNG routing", "US LNG Europe exports"],
+      "leading_sensors": ["STS transfer", "route deviation", "charter rate", "JKM TTF spread"],
+      "prompt_focus": "Test whether Gulf LNG disruption is creating a logistics shortage and rerouting demand toward Atlantic LNG.",
+      "positive": ["LNG", "EE", "GLNG", "FLNG"],
+      "negative": []
+    },
+    {
+      "id": "ARSENAL_DEPLETION",
+      "tier": "A",
+      "label": "Arsenal depletion / replenishment",
+      "keywords": ["Patriot interceptor inventory", "THAAD inventory", "Tomahawk production target", "SM-6 production", "AMRAAM production", "155mm production target", "multi-year missile procurement"],
+      "leading_sensors": ["RFQ", "appropriation", "multi-year contract", "production target change", "supplier hiring"],
+      "prompt_focus": "Find evidence that governments are changing procurement architecture or production targets because inventories are constrained. Ignore generic defense-spending headlines.",
+      "positive": ["RTX", "LMT", "GD", "NOC"],
+      "negative": []
+    },
+    {
+      "id": "ROCKET_MOTOR_SHORTAGE",
+      "tier": "A",
+      "label": "Rocket motor bottleneck",
+      "keywords": ["solid rocket motor capacity", "Aerojet Rocketdyne capacity", "missile motor factory expansion", "propulsion qualification", "rocket motor lead time"],
+      "leading_sensors": ["plant expansion", "qualification test", "government capital injection", "long-lead order"],
+      "prompt_focus": "Determine whether rocket propulsion is the binding constraint on higher missile output. Prefer supplier-level evidence over prime-contractor narrative.",
+      "positive": ["LHX", "NOC", "KRMN"],
+      "negative": []
+    },
+    {
+      "id": "ENERGETICS_SHORTAGE",
+      "tier": "A",
+      "label": "Energetics / explosives shortage",
+      "keywords": ["RDX capacity", "HMX capacity", "TNT capacity", "nitrocellulose shortage", "propellant factory expansion", "energetics contract"],
+      "leading_sensors": ["new plant", "capacity expansion", "long-term contract", "raw-material shortage"],
+      "prompt_focus": "Investigate shortages in explosives, propellants, primers and energetic materials that can limit ammunition and missile output.",
+      "positive": ["CHG.L", "CSG.AS", "RHM.DE", "GD"],
+      "negative": []
+    },
+    {
+      "id": "STRATEGIC_ALUMINIUM",
+      "tier": "B",
+      "label": "Strategic aluminium",
+      "keywords": ["high purity aluminium defense", "US aluminium stockpile", "Midwest aluminium premium", "Century Aluminum expansion", "military aluminium shortage"],
+      "leading_sensors": ["stockpile tender", "physical premium", "smelter utilization", "government financing"],
+      "prompt_focus": "Determine whether military/electrical demand is colliding with limited high-purity domestic aluminium capacity.",
+      "positive": ["CENX", "AA"],
+      "negative": []
+    },
+    {
+      "id": "RARE_EARTH_MAGNET_SHORTAGE",
+      "tier": "B",
+      "label": "Rare-earth magnets",
+      "keywords": ["China dysprosium exports", "China terbium exports", "NdPr price", "permanent magnet export license", "US rare earth separation", "Japan magnet imports"],
+      "leading_sensors": ["customs flow", "export licence", "magnet price", "stockpile tender", "separation capacity"],
+      "prompt_focus": "Locate the actual bottleneck: mining, separation, refining or magnet production. Connect it to defense, drones and robotics only where direct material exposure exists.",
+      "positive": ["MP", "UUUU", "LYC.AX"],
+      "negative": []
+    },
+    {
+      "id": "CHEAP_DRONE_SCALING",
+      "tier": "B",
+      "label": "Cheap-drone scaling",
+      "keywords": ["mass drone procurement", "attack drone procurement quantity", "Taiwan drone order", "US autonomous drone contract", "drone unit cost"],
+      "leading_sensors": ["paid procurement quantity", "repeat order", "factory capacity", "domestic-content rule"],
+      "prompt_focus": "Require real procurement volumes and unit economics. Demonstrations and prototype announcements do not activate the mechanism.",
+      "positive": ["AVAV", "KTOS", "RCAT"],
+      "negative": []
+    },
+    {
+      "id": "COUNTER_UAS_COST_CURVE",
+      "tier": "B",
+      "label": "Counter-UAS cost curve",
+      "keywords": ["counter drone cost per intercept", "EW counter UAS contract", "laser counter UAS", "gun counter drone", "interceptor drone procurement"],
+      "leading_sensors": ["combat deployment", "cost per kill", "procurement quantity", "radar/EW order"],
+      "prompt_focus": "Test whether militaries are replacing expensive missile intercepts with cheaper EW, guns, lasers or interceptor drones.",
+      "positive": ["SAAB-B.ST", "KOG.OL", "LDO.MI", "RTX", "KTOS"],
+      "negative": []
+    },
+    {
+      "id": "UNDERWATER_SECURITY",
+      "tier": "B",
+      "label": "Mine / underwater security",
+      "keywords": ["Hormuz mines", "mine countermeasure contract", "UUV order", "USV mine warfare", "subsea cable sabotage", "pipeline underwater security"],
+      "leading_sensors": ["confirmed mine", "cable incident", "mine-clearance deployment", "UUV procurement"],
+      "prompt_focus": "Find sustained demand for autonomous mine countermeasures, sonar and underwater security. Require confirmed physical incidents or procurement.",
+      "positive": ["FCT.MI", "KOG.OL", "SAAB-B.ST", "HO.PA"],
+      "negative": []
+    },
+    {
+      "id": "AI_TIME_TO_POWER",
+      "tier": "A",
+      "label": "AI time-to-power",
+      "keywords": ["data center interconnection queue", "transformer lead time", "switchgear lead time", "gas turbine backlog data center", "substation backlog", "data center power delay"],
+      "leading_sensors": ["utility filing", "interconnection deposit", "transformer order", "turbine order", "commissioning delay"],
+      "prompt_focus": "Determine whether electricity/interconnection rather than GPU supply is the binding constraint on AI infrastructure.",
+      "positive": ["POWL", "VRT", "GEV", "ETN", "PWR"],
+      "negative": []
+    },
+    {
+      "id": "AI_GHOST_DEMAND",
+      "tier": "B",
+      "label": "AI ghost demand",
+      "keywords": ["data center interconnection request cancelled", "utility data center deposit", "duplicate data center request", "data center project cancellation", "signed PPA tenant commitment"],
+      "leading_sensors": ["deposit requirement", "queue withdrawal", "project cancellation", "signed PPA", "construction start"],
+      "prompt_focus": "Separate speculative interconnection requests from financed construction. A large fall in requested GW after deposit requirements is bearish for speculative developers but positive for suppliers with contracted backlog.",
+      "positive": ["VRT", "POWL", "GEV"],
+      "negative": []
+    },
+    {
+      "id": "BEHIND_METER_AI_POWER",
+      "tier": "B",
+      "label": "Behind-the-meter AI power",
+      "keywords": ["data center microgrid", "behind the meter data center", "onsite gas turbine data center", "fuel cell data center power", "microgrid data center contract"],
+      "leading_sensors": ["onsite generation order", "microgrid acquisition", "utility delay", "PPA"],
+      "prompt_focus": "Test whether data centers are bypassing utility queues with onsite generation and microgrids.",
+      "positive": ["GEV", "VRT", "CAT", "BE", "CMI"],
+      "negative": []
+    },
+    {
+      "id": "ROBOTICS_ACTUATOR_SCALE",
+      "tier": "C",
+      "label": "Robotics actuator scale",
+      "keywords": ["humanoid paid order", "humanoid repeat order", "robot factory utilization", "harmonic reducer order", "RV reducer demand", "robot actuator lead time"],
+      "leading_sensors": ["paid delivery", "repeat order", "utilization hours", "factory ROI", "supplier purchase order"],
+      "prompt_focus": "Do not activate on demos. Require paid orders, deliveries, repeat demand and measurable industrial utilization before inferring component-scale demand.",
+      "positive": ["6324.T", "6268.T", "RRX", "SHA.DE"],
+      "negative": []
+    },
+    {
+      "id": "ROBOTICS_DECOUPLING",
+      "tier": "B",
+      "label": "Robotics decoupling",
+      "keywords": ["US tariff Chinese robot", "Chinese drone tariff", "robot procurement domestic content", "robot export control", "US robotics factory"],
+      "leading_sensors": ["tariff rule", "procurement restriction", "OEM sourcing change", "domestic factory"],
+      "prompt_focus": "Determine whether policy is creating protected Western robotics supply chains and identify suppliers benefiting specifically from lost Chinese competition.",
+      "positive": ["RRX", "6324.T", "6268.T", "SHA.DE"],
+      "negative": []
+    },
+    {
+      "id": "JAPAN_CARRY_UNWIND",
+      "tier": "A",
+      "label": "Japan carry unwind",
+      "keywords": ["JGB 10 year yield", "JGB 30 year auction", "Japan bond bid to cover", "USDJPY", "Japan foreign bond flows", "BOJ rate hike expectations"],
+      "leading_sensors": ["auction tail", "bid-to-cover", "yen strengthening", "foreign bond sales", "swap spread"],
+      "prompt_focus": "Test whether rising Japanese yields plus yen strength and/or outward-flow reversal are tightening global financial conditions.",
+      "positive": ["8306.T", "8316.T"],
+      "negative": ["TLT"]
+    },
+    {
+      "id": "GLOBAL_REFINANCING_STRESS",
+      "tier": "A",
+      "label": "Global refinancing stress",
+      "keywords": ["Treasury 30 year yield", "MOVE index", "high yield spread", "private credit default", "amend extend debt", "commercial real estate refinancing", "interest coverage ratio"],
+      "leading_sensors": ["auction tail", "spread widening", "amend-and-extend", "default", "interest coverage deterioration"],
+      "prompt_focus": "Distinguish bond-market volatility from actual transmission into corporate cash flow and credit quality.",
+      "positive": [],
+      "negative": ["TLT", "IWM"]
+    },
+    {
+      "id": "OT_CYBER_SHOCK",
+      "tier": "B",
+      "label": "Cyber to physical infrastructure",
+      "keywords": ["utility cyber outage", "refinery cyber shutdown", "pipeline cyber outage", "industrial PLC cyberattack", "port cyber disruption"],
+      "leading_sensors": ["confirmed operational outage", "PLC incident", "physical consequence", "mandatory remediation"],
+      "prompt_focus": "Require confirmed operational or physical consequence. Generic cybersecurity headlines do not count.",
+      "positive": ["PANW", "FTNT", "TENB"],
+      "negative": []
+    },
+    {
+      "id": "NUCLEAR_FUEL_SOVEREIGNTY",
+      "tier": "C",
+      "label": "Nuclear fuel sovereignty",
+      "keywords": ["HALEU contract", "US uranium enrichment", "DOE enrichment award", "Russian uranium restriction", "centrifuge capacity", "LEU enrichment backlog"],
+      "leading_sensors": ["DOE solicitation", "contract award", "centrifuge capacity", "fuel delivery"],
+      "prompt_focus": "Determine whether enrichment/fuel availability rather than reactor construction is becoming the binding constraint.",
+      "positive": ["LEU", "UUUU", "BWXT"],
+      "negative": []
+    },
+    {
+      "id": "MILITARY_ENERGY_AUTONOMY",
+      "tier": "C",
+      "label": "Military energy autonomy",
+      "keywords": ["Army microreactor contract", "military base microgrid", "DoD microreactor", "base energy resilience procurement"],
+      "leading_sensors": ["deployment milestone", "fuel contract", "base microgrid award", "procurement quantity"],
+      "prompt_focus": "Test whether militaries are moving from pilots toward deployable autonomous power at bases.",
+      "positive": ["BWXT", "LEU", "GEV", "VRT"],
+      "negative": []
+    },
+    {
+      "id": "EUROPE_STRATEGIC_AUTONOMY",
+      "tier": "C",
+      "label": "European strategic autonomy",
+      "keywords": ["European sovereign satellite contract", "European defense procurement preference", "IRIS2 contract", "European missile procurement", "European cloud sovereignty"],
+      "leading_sensors": ["European-only tender", "multi-year contract", "domestic-content requirement", "capacity expansion"],
+      "prompt_focus": "Find procurement where European governments explicitly reduce strategic dependence on non-European suppliers.",
+      "positive": ["OHB.DE", "SESG.PA", "ETL.PA", "LDO.MI", "SAAB-B.ST", "HO.PA", "RHM.DE", "FCT.MI"],
+      "negative": []
+    },
+    {
+      "id": "OIL_SERVICE_CAPEX_SECOND_WAVE",
+      "tier": "C",
+      "label": "Oil-service CAPEX second wave",
+      "keywords": ["oil producer capex increase", "completion activity increase", "offshore drilling backlog", "oilfield service bookings", "rig utilization"],
+      "leading_sensors": ["producer capex revision", "rig tender", "book-to-bill", "backlog", "utilization"],
+      "prompt_focus": "Activate only when sustained high oil prices convert into producer CAPEX, drilling and completion orders. This is a lagged second-wave mechanism.",
+      "positive": ["OIS", "BORR", "NINE", "KLXE", "ACDC"],
+      "negative": []
+    }
+  ]
+}
