@@ -19,10 +19,17 @@ jobs:
           node-version: '22'
       - name: Syntax check JavaScript
         run: |
+          set -e
           for f in scripts/*.mjs; do
             echo "Checking $f"
             node --check "$f"
           done
       - name: Parse JSON configuration and state seeds
         run: |
-          node -e "for (const f of ['config/mechanisms.json','config/queries.v2.json','config/edges.v2.json','config/policy.v2.json','data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json']) JSON.parse(require('fs').readFileSync(f,'utf8')); console.log('JSON OK')"
+          node - <<'NODE'
+          const fs=require('fs');
+          const files=['config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json','config/sources.v2.json','config/contracts.v2.json','data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json'];
+          for(const f of files){JSON.parse(fs.readFileSync(f,'utf8'));console.log('OK',f)}
+          NODE
+      - name: Deterministic V2.3 regression suite
+        run: npm run selftest
