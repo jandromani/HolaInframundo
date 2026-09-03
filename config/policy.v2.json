@@ -1,19 +1,19 @@
 {
   "version":"2.3.0",
-  "model":"openai/gpt-oss-20b:free",
+  "model":"openai/gpt-oss-20b",
   "model_pool":[
-    "openai/gpt-oss-20b:free",
-    "google/gemma-4-26b-a4b-it:free",
+    "openai/gpt-oss-20b",
     "openrouter/free"
   ],
   "verifier_model":"openai/gpt-oss-120b",
-  "scheduler":{"utc_hours":[0,6,12,18],"minute":17,"inter_request_ms":3200,"max_retry_429":1,"max_retry_other":1},
+  "scheduler":{"utc_hours":[0,6,12,18],"minute":17,"inter_request_ms":900,"max_retry_429":0,"max_retry_other":1},
   "budgets":{
     "max_llm_requests_per_run":26,
     "max_llm_requests_per_day":140,
     "max_web_verifiers_per_run":4,
     "max_web_verifiers_per_day":12,
     "max_web_results":8,
+    "max_paid_extractor_usd_per_day":0.05,
     "max_paid_verifier_usd_per_day":0.08,
     "max_fallback_searches_per_run":6
   },
@@ -70,6 +70,7 @@
     "state changes require persistence unless fast-path physical evidence is overwhelming",
     "market confirmation is relative to a benchmark and includes intraday breadth",
     "official upstream sources run before paid web discovery",
+    "extractor reliability is worth a few cents but is hard-capped daily",
     "no Alpha Click without stable causal state and early market confirmation",
     "no chasing when crowding or lag evidence dominates",
     "the first euro and the last euro belong to someone else"
