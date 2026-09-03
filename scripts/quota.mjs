@@ -4,7 +4,6 @@ const key=process.env.OPENROUTER_API_KEY;
 if(!key){console.error('OPENROUTER_API_KEY missing');process.exit(2)}
 const policy=JSON.parse(await fs.readFile('config/policy.v2.json','utf8'));
 const now=new Date();
-const fallback=50;
 let raw=null,error=null;
 try{
   const r=await fetch('https://openrouter.ai/api/v1/key',{headers:{Authorization:`Bearer ${key}`},signal:AbortSignal.timeout(15000)});
@@ -13,13 +12,17 @@ try{
   raw=JSON.parse(text)?.data||{};
 }catch(e){error=String(e.message||e)}
 
-// Never persist the key, key label, user identity or any auth material.
+// Never persist the key, key label, user identity or auth material.
 const isFree=raw?.is_free_tier;
 const documentedFreeModelRpd=isFree===false?1000:50;
 const reportedRemaining=Number.isFinite(raw?.limit_remaining)?Number(raw.limit_remaining):null;
 const policyCap=policy.budgets?.max_llm_requests_per_day||140;
 const safeDailyRequests=Math.max(1,Math.min(policyCap,documentedFreeModelRpd));
-const verifierReserve=Math.min(policy.budgets?.max_web_verifiers_per_day||12,Math.max(2,Math.floor(safeDailyRequests*.18)));
+// Under the strict 50/day free tier we reserve one verifier per 6h cycle.
+// If the account has the higher free-model allowance, normal policy limits apply.
+const verifierReserve=safeDailyRequests<=50
+  ? Math.min(4,policy.budgets?.max_web_verifiers_per_day||12)
+  : Math.min(policy.budgets?.max_web_verifiers_per_day||12,Math.max(4,Math.floor(safeDailyRequests*.10)));
 const extractionDailyCap=Math.max(1,safeDailyRequests-verifierReserve);
 const out={
   version:'2.0.0',checked_at:now.toISOString(),ok:!error,error,
