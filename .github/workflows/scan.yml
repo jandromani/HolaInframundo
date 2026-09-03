@@ -36,17 +36,19 @@ jobs:
         run: echo "GEARWATCH_RUN_ID=run_$(date -u +'%Y-%m-%dT%H-%M-%SZ')" >> "$GITHUB_ENV"
       - name: Read live OpenRouter quota safely
         run: npm run quota
-      - name: Collect deterministic market data
+      - name: Collect daily and intraday market telemetry
         run: npm run market
-      - name: Free deterministic upstream retrieval
+      - name: Free deterministic news retrieval
         run: npm run retrieve
-      - name: Sparse web rescue only where free retrieval is blind
+      - name: Official upstream sources
+        run: npm run upstream
+      - name: Sparse web rescue only where free and official retrieval are blind
         run: npm run discover
       - name: Extract facts with resilient free-model pool
         run: npm run extract
       - name: Red-team strongest early mechanisms with bounded judge budget
         run: npm run verify
-      - name: Deterministic state and Alpha Click
+      - name: Cluster events, apply hysteresis, score relative market vote and Alpha Click
         run: npm run assemble
       - name: Update empirical correlation memory
         run: npm run correlate
