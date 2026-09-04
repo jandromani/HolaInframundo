@@ -1,7 +1,7 @@
 {
   "version": "2.5.0",
-  "updated_at": "2026-09-04T15:20:09.766Z",
-  "run_id": "run_2026-09-04T15-17-29Z",
+  "updated_at": "2026-09-04T16:05:30.900Z",
+  "run_id": "run_2026-09-04T16-03-33Z",
   "health": {
     "retrieval_errors": 2,
     "upstream_errors": 0,
@@ -12,123 +12,27 @@
   },
   "transitions": [
     {
-      "mechanism_id": "DIESEL_REFINING_CRISIS",
-      "from": "ARMING",
-      "to": "UNKNOWN",
-      "raw_to": "UNKNOWN",
-      "score": 0,
-      "delta": -51,
-      "hysteresis": {
-        "raw_state": "UNKNOWN",
-        "pending": null,
-        "reason": "DIRECT_NONCRITICAL_TRANSITION",
-        "applied": false
-      },
-      "memory": {
-        "observed_items": 2,
-        "carried_items": 0,
-        "avg_carry_weight": 0,
-        "observed_score": 0,
-        "raw_combined_score": 0,
-        "decayed_score": 0
-      },
-      "at": "2026-09-04T15:20:09.766Z"
-    },
-    {
-      "mechanism_id": "LNG_REROUTING",
-      "from": "UNKNOWN",
-      "to": "DORMANT",
-      "raw_to": "DORMANT",
-      "score": 20,
-      "delta": 20,
-      "hysteresis": {
-        "raw_state": "DORMANT",
-        "pending": null,
-        "reason": "INITIAL",
-        "applied": false
-      },
-      "memory": {
-        "observed_items": 1,
-        "carried_items": 0,
-        "avg_carry_weight": 0,
-        "observed_score": 20,
-        "raw_combined_score": 20,
-        "decayed_score": 20
-      },
-      "at": "2026-09-04T15:20:09.766Z"
-    },
-    {
-      "mechanism_id": "AI_TIME_TO_POWER",
-      "from": "UNKNOWN",
-      "to": "WATCH",
-      "raw_to": "WATCH",
-      "score": 31,
-      "delta": 31,
-      "hysteresis": {
-        "raw_state": "WATCH",
-        "pending": null,
-        "reason": "INITIAL",
-        "applied": false
-      },
-      "memory": {
-        "observed_items": 4,
-        "carried_items": 0,
-        "avg_carry_weight": 0,
-        "observed_score": 31,
-        "raw_combined_score": 31,
-        "decayed_score": 31
-      },
-      "at": "2026-09-04T15:20:09.766Z"
-    },
-    {
-      "mechanism_id": "AI_GHOST_DEMAND",
-      "from": "UNKNOWN",
-      "to": "DORMANT",
-      "raw_to": "DORMANT",
-      "score": 15,
-      "delta": 15,
-      "hysteresis": {
-        "raw_state": "DORMANT",
-        "pending": null,
-        "reason": "INITIAL",
-        "applied": false
-      },
-      "memory": {
-        "observed_items": 1,
-        "carried_items": 0,
-        "avg_carry_weight": 0,
-        "observed_score": 15,
-        "raw_combined_score": 15,
-        "decayed_score": 15
-      },
-      "at": "2026-09-04T15:20:09.766Z"
-    },
-    {
       "mechanism_id": "JAPAN_CARRY_UNWIND",
       "from": "WATCH",
-      "to": "WATCH",
+      "to": "ACTIVE",
       "raw_to": "ACTIVE",
-      "score": 73,
-      "delta": 34,
+      "score": 72,
+      "delta": -1,
       "hysteresis": {
         "raw_state": "ACTIVE",
-        "pending": {
-          "candidate": "ACTIVE",
-          "streak": 1,
-          "required": 2
-        },
-        "reason": "AWAITING_ACTIVE_CONFIRMATION",
+        "pending": null,
+        "reason": "ACTIVE_CONFIRMED",
         "applied": true
       },
       "memory": {
-        "observed_items": 8,
-        "carried_items": 0,
-        "avg_carry_weight": 0,
-        "observed_score": 73,
+        "observed_items": 0,
+        "carried_items": 8,
+        "avg_carry_weight": 0.987,
+        "observed_score": 0,
         "raw_combined_score": 73,
-        "decayed_score": 73
+        "decayed_score": 72
       },
-      "at": "2026-09-04T15:20:09.766Z"
+      "at": "2026-09-04T16:05:30.900Z"
     }
   ],
   "mechanisms": {
@@ -139,68 +43,11 @@
       "state": "UNKNOWN",
       "raw_state": "UNKNOWN",
       "score": 0,
-      "previous_state": "ARMING",
-      "score_delta": -51,
-      "summary": "Evidence indicates that middle‑distillate markets are tightening independently of crude price movements, as shown by elevated crack spreads.",
-      "material_change": true,
-      "observed_evidence": [
-        {
-          "candidate_id": "0064cdf6bed37f75e7c8",
-          "query_id": "OFFICIAL:EIA_TODAY:DIESEL_REFINING_CRISIS:OFFICIAL_DISTILLATE_DATA",
-          "phase": "CONFIRM",
-          "signal": "OFFICIAL_DISTILLATE_DATA",
-          "family": "OFFICIAL",
-          "fact_type": "INFERENCE",
-          "claim": "EIA Today in Energy reports that crack spreads have remained elevated since May, indicating sustained distillate tightness.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "EIA is an official U.S. government source providing authoritative market data.",
-          "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68104",
-          "source_name": "EIA Today in Energy",
-          "source_domain": "eia.gov",
-          "source_grade": 1,
-          "official": true,
-          "engine": "official_rss",
-          "published_at": "2026-09-04T14:00:00.000Z",
-          "retrieved_at": "2026-09-04T15:18:39.347Z",
-          "valid": false,
-          "evidence_key": "2a2e9414a940ae4de6ca98c8",
-          "first_seen_at": "2026-09-04T15:18:39.347Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "c49065937cd7fd6e7061",
-          "query_id": "DIESEL_REFINING_CRISIS:confirm:diesel_stock",
-          "phase": "CONFIRM",
-          "signal": "DISTILLATE_TIGHTNESS",
-          "family": "PRICE",
-          "fact_type": "INFERENCE",
-          "claim": "West of Suez: EBOB crack spread near $60/b signals tightening of middle‑distillate supply.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "Quantum Commodity Intelligence is a primary market intelligence source that reports real‑time crack spread data.",
-          "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQYUVRVUJfSWZfT1hDWm1zb2V0OEtYVWNyLUJha2FhU0VjckhtNG1WeVdibWYtdmx0cng2N0UtWk1sWGVqWGFoOFRHX3R3T1pJSTRZeUZ2ajV4LWpnRGVGU0FoaHpTOVNmN0oxLWt4ZkNsRjhVWkNWbWF2RjZIWkFhaVBHLWdRYXpXV2pONzIwX1N2cmZhWHpPXw?oc=5",
-          "source_name": "Quantum Commodity Intelligence",
-          "source_domain": "qcintel.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-02T21:09:43.000Z",
-          "retrieved_at": "2026-09-04T15:18:34.584Z",
-          "valid": false,
-          "evidence_key": "47b362ebeb110b6f707c8d73",
-          "first_seen_at": "2026-09-04T15:18:34.584Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
+      "previous_state": "UNKNOWN",
+      "score_delta": 0,
+      "summary": "No evidence of diesel or jet premium tightening independently of crude; available data shows elevated gasoline crack spreads but no specific diesel price or Brent trend.",
+      "material_change": false,
+      "observed_evidence": [],
       "evidence": [
         {
           "candidate_id": "0064cdf6bed37f75e7c8",
@@ -226,9 +73,9 @@
           "evidence_key": "2a2e9414a940ae4de6ca98c8",
           "first_seen_at": "2026-09-04T14:26:51.271Z",
           "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9856,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 0.76
         },
         {
           "candidate_id": "c49065937cd7fd6e7061",
@@ -254,9 +101,9 @@
           "evidence_key": "47b362ebeb110b6f707c8d73",
           "first_seen_at": "2026-09-04T13:34:03.209Z",
           "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9856,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 0.76
         }
       ],
       "verified": [],
@@ -273,23 +120,21 @@
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 2,
-        "carried_items": 0,
-        "avg_carry_weight": 0,
+        "observed_items": 0,
+        "carried_items": 2,
+        "avg_carry_weight": 0.986,
         "observed_score": 0,
         "raw_combined_score": 0,
         "decayed_score": 0
       },
-      "expected_next": [
-        "Crude prices (Brent) have been consolidating gains, not driving the elevated crack spreads."
-      ],
+      "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 57,
-        "crowding": 57.6,
-        "breadth": 1,
+        "score": 56,
+        "crowding": 58,
+        "breadth": 0.875,
         "relative_breadth": 0.875,
-        "intraday_breadth": 0.375,
+        "intraday_breadth": 0.5,
         "quality": "HIGH",
         "n": 8,
         "intraday_n": 8,
@@ -297,21 +142,21 @@
         "above50": 1,
         "benchmark": "XLE",
         "avg": {
-          "r1": -0.44,
-          "r5": 2.5,
-          "r20": 19.16,
-          "rel5": 1.94,
-          "rel20": 16.29,
-          "r30m": 0.13,
-          "r2h": 0.42,
-          "rel30m": 0.13,
-          "rel2h": 0.26,
-          "volumeZ": -1.39
+          "r1": -0.26,
+          "r5": 2.69,
+          "r20": 19.39,
+          "rel5": 2.09,
+          "rel20": 16.49,
+          "r30m": 0.12,
+          "r2h": 0.22,
+          "rel30m": 0.12,
+          "rel2h": 0.15,
+          "volumeZ": -1.32
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 4.9,
+        "score": 4.6,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -335,7 +180,7 @@
       "hysteresis": {
         "raw_state": "UNKNOWN",
         "pending": null,
-        "reason": "DIRECT_NONCRITICAL_TRANSITION",
+        "reason": "INITIAL",
         "applied": false
       },
       "sensors": {
@@ -359,32 +204,32 @@
         "UAL",
         "AAL"
       ],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1792,
-        "completion_tokens": 817,
-        "total_tokens": 2609,
-        "cost": 0.00015997,
+        "prompt_tokens": 1057,
+        "completion_tokens": 718,
+        "total_tokens": 1775,
+        "cost": 0.00009294,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 64,
+          "cached_tokens": 0,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00015997,
-          "upstream_inference_prompt_cost": 0.00005376,
-          "upstream_inference_completions_cost": 0.00010621
+          "upstream_inference_cost": 0.00009294,
+          "upstream_inference_prompt_cost": 0.00002114,
+          "upstream_inference_completions_cost": 0.0000718
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 550,
+          "reasoning_tokens": 666,
           "image_tokens": 0,
           "audio_tokens": 0
         }
       },
-      "candidate_count": 4,
+      "candidate_count": 2,
       "official_candidate_count": 2,
       "query_trace": [
         {
@@ -424,25 +269,6 @@
               "ttl_hours": 5
             }
           }
-        },
-        {
-          "query_id": "DIESEL_REFINING_CRISIS:confirm:diesel_stock",
-          "phase": "CONFIRM",
-          "signal": "DISTILLATE_TIGHTNESS",
-          "q": "ARA gasoil stocks distillate inventories diesel crack Brent Europe Singapore gasoil crack",
-          "engines": {
-            "gdelt": {
-              "ok": false,
-              "skipped": "CIRCUIT_OPEN",
-              "ttl_hours": 10
-            },
-            "google_news": {
-              "ok": true,
-              "count": 2,
-              "cached": true,
-              "ttl_hours": 10
-            }
-          }
         }
       ]
     },
@@ -452,9 +278,9 @@
       "tier": "A",
       "state": "DORMANT",
       "raw_state": "DORMANT",
-      "score": 23,
+      "score": 22,
       "previous_state": "DORMANT",
-      "score_delta": 0,
+      "score_delta": -1,
       "summary": "No fresh deterministic candidates in this cycle.",
       "material_change": false,
       "observed_evidence": [],
@@ -483,9 +309,9 @@
           "evidence_key": "d0613ec0f33c583d2cb410fa",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T13:34:08.111Z",
-          "memory_weight": 0.9831,
+          "memory_weight": 0.976,
           "memory_status": "CARRIED",
-          "memory_age_hours": 1.77
+          "memory_age_hours": 2.52
         },
         {
           "candidate_id": "b425d65068827e623be9",
@@ -511,9 +337,9 @@
           "evidence_key": "aa880420b7581764a7742c49",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T13:34:08.111Z",
-          "memory_weight": 0.9831,
+          "memory_weight": 0.976,
           "memory_status": "CARRIED",
-          "memory_age_hours": 1.77
+          "memory_age_hours": 2.52
         }
       ],
       "verified": [],
@@ -532,19 +358,19 @@
       "memory": {
         "observed_items": 0,
         "carried_items": 2,
-        "avg_carry_weight": 0.983,
+        "avg_carry_weight": 0.976,
         "observed_score": 0,
         "raw_combined_score": 23,
-        "decayed_score": 23
+        "decayed_score": 22
       },
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 71,
-        "crowding": 61.4,
+        "score": 56,
+        "crowding": 57.3,
         "breadth": 1,
         "relative_breadth": 1,
-        "intraday_breadth": 0.8,
+        "intraday_breadth": 0.2,
         "quality": "HIGH",
         "n": 5,
         "intraday_n": 5,
@@ -552,26 +378,25 @@
         "above50": 1,
         "benchmark": "XLE",
         "avg": {
-          "r1": 2.2,
-          "r5": 8.92,
-          "r20": 16.91,
-          "rel5": 6.65,
-          "rel20": 5.42,
-          "r30m": -0.03,
-          "r2h": 0.83,
-          "rel30m": -0.02,
-          "rel2h": 0.2,
-          "volumeZ": -1.04
+          "r1": 2.04,
+          "r5": 8.75,
+          "r20": 16.75,
+          "rel5": 6.34,
+          "rel20": 5.12,
+          "r30m": 0.07,
+          "r2h": -0.14,
+          "rel30m": 0.08,
+          "rel2h": -0.42,
+          "volumeZ": -0.89
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 25.6,
+        "score": 22.8,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
-          "NO_CONFIRM",
-          "TOO_CROWDED"
+          "NO_CONFIRM"
         ],
         "empirical": {
           "samples": 0,
@@ -612,7 +437,7 @@
         "STNG"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -667,7 +492,7 @@
       "score": 0,
       "previous_state": "UNKNOWN",
       "score_delta": 0,
-      "summary": "No evidence supporting crude tanker dislocation mechanism found in provided candidates.",
+      "summary": "No evidence supporting crude tanker dislocation mechanism found in provided candidate set.",
       "material_change": false,
       "observed_evidence": [],
       "evidence": [
@@ -695,9 +520,9 @@
           "evidence_key": "993e77d26c40183d9a139d46",
           "first_seen_at": "2026-09-04T14:26:53.571Z",
           "last_seen_at": "2026-09-04T14:32:00.983Z",
-          "memory_weight": 0.9923,
+          "memory_weight": 0.9851,
           "memory_status": "CARRIED",
-          "memory_age_hours": 0.8
+          "memory_age_hours": 1.56
         },
         {
           "candidate_id": "0b665008a97d625f7d97",
@@ -723,9 +548,9 @@
           "evidence_key": "61576216d461de603d1b6257",
           "first_seen_at": "2026-09-04T14:26:53.571Z",
           "last_seen_at": "2026-09-04T14:32:00.983Z",
-          "memory_weight": 0.9923,
+          "memory_weight": 0.9851,
           "memory_status": "CARRIED",
-          "memory_age_hours": 0.8
+          "memory_age_hours": 1.56
         },
         {
           "candidate_id": "d21f7b8d6b8c9bf16ea8",
@@ -751,9 +576,9 @@
           "evidence_key": "3ee1925eadacb5be9f93792b",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T14:32:00.983Z",
-          "memory_weight": 0.9923,
+          "memory_weight": 0.9851,
           "memory_status": "CARRIED",
-          "memory_age_hours": 0.8
+          "memory_age_hours": 1.56
         },
         {
           "candidate_id": "362b3c525286cec90f6e",
@@ -779,9 +604,9 @@
           "evidence_key": "bf01d16654113bdf10b57f01",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T13:34:08.111Z",
-          "memory_weight": 0.9831,
+          "memory_weight": 0.976,
           "memory_status": "CARRIED",
-          "memory_age_hours": 1.77
+          "memory_age_hours": 2.52
         }
       ],
       "verified": [],
@@ -800,45 +625,41 @@
       "memory": {
         "observed_items": 0,
         "carried_items": 4,
-        "avg_carry_weight": 0.99,
+        "avg_carry_weight": 0.983,
         "observed_score": 0,
         "raw_combined_score": 0,
         "decayed_score": 0
       },
-      "expected_next": [
-        "LEAD",
-        "CONFIRM",
-        "LAG"
-      ],
+      "expected_next": [],
       "invalidation": [],
       "market": {
         "score": 56,
-        "crowding": 13.2,
+        "crowding": 12.6,
         "breadth": 1,
         "relative_breadth": 0.833,
-        "intraday_breadth": 0,
+        "intraday_breadth": 0.167,
         "quality": "HIGH",
         "n": 6,
         "intraday_n": 6,
-        "above20": 0.833,
-        "above50": 0.833,
+        "above20": 1,
+        "above50": 1,
         "benchmark": "XLE",
         "avg": {
-          "r1": 1.76,
-          "r5": 4.47,
+          "r1": 1.78,
+          "r5": 4.5,
           "r20": 10.73,
-          "rel5": 2.2,
-          "rel20": -0.76,
-          "r30m": 0.2,
-          "r2h": -0.22,
-          "rel30m": 0.21,
-          "rel2h": -0.85,
-          "volumeZ": -1.49
+          "rel5": 2.09,
+          "rel20": -0.9,
+          "r30m": 0.11,
+          "r2h": -0.38,
+          "rel30m": 0.12,
+          "rel2h": -0.66,
+          "volumeZ": -1.37
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 14.4,
+        "score": 14.5,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -883,27 +704,27 @@
         "PSHG"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
         "prompt_tokens": 867,
-        "completion_tokens": 362,
-        "total_tokens": 1229,
-        "cost": 0.00007967,
+        "completion_tokens": 367,
+        "total_tokens": 1234,
+        "cost": 0.00008973,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 64,
+          "cached_tokens": 0,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00007967,
-          "upstream_inference_prompt_cost": 0.00002537,
-          "upstream_inference_completions_cost": 0.0000543
+          "upstream_inference_cost": 0.00008973,
+          "upstream_inference_prompt_cost": 0.00003468,
+          "upstream_inference_completions_cost": 0.00005505
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 355,
+          "reasoning_tokens": 333,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -989,10 +810,10 @@
       "invalidation": [],
       "market": {
         "score": 41,
-        "crowding": 16.1,
+        "crowding": 15.1,
         "breadth": 0.857,
         "relative_breadth": 0.714,
-        "intraday_breadth": 0.286,
+        "intraday_breadth": 0.429,
         "quality": "HIGH",
         "n": 7,
         "intraday_n": 7,
@@ -1000,21 +821,21 @@
         "above50": 1,
         "benchmark": "XLE",
         "avg": {
-          "r1": -0.82,
-          "r5": 4.11,
-          "r20": 13.76,
-          "rel5": 1.84,
-          "rel20": 2.27,
-          "r30m": 0.31,
-          "r2h": 0.43,
-          "rel30m": 0.32,
-          "rel2h": -0.2,
-          "volumeZ": -1.08
+          "r1": -0.79,
+          "r5": 4.15,
+          "r20": 13.77,
+          "rel5": 1.74,
+          "rel20": 2.14,
+          "r30m": -0.22,
+          "r2h": -0.24,
+          "rel30m": -0.21,
+          "rel2h": -0.52,
+          "volumeZ": -0.95
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 10.5,
+        "score": 10.7,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -1060,7 +881,7 @@
         "PTAL.L"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -1143,8 +964,8 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 42,
-        "crowding": 17.3,
+        "score": 46,
+        "crowding": 26.3,
         "breadth": 0.333,
         "relative_breadth": 0.333,
         "intraday_breadth": 0.667,
@@ -1155,21 +976,21 @@
         "above50": 0.667,
         "benchmark": "XLE",
         "avg": {
-          "r1": -4.37,
-          "r5": -4.04,
-          "r20": 10.99,
-          "rel5": -6.31,
-          "rel20": -0.5,
-          "r30m": -0.07,
-          "r2h": 1.75,
-          "rel30m": -0.06,
-          "rel2h": 1.12,
-          "volumeZ": 1.39
+          "r1": -4.7,
+          "r5": -4.36,
+          "r20": 10.6,
+          "rel5": -6.77,
+          "rel20": -1.03,
+          "r30m": 0.39,
+          "r2h": 2.31,
+          "rel30m": 0.4,
+          "rel2h": 2.03,
+          "volumeZ": 1.67
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 10.4,
+        "score": 9.3,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -1211,7 +1032,7 @@
         "DNO.OL"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -1264,10 +1085,10 @@
       "state": "DORMANT",
       "raw_state": "DORMANT",
       "score": 20,
-      "previous_state": "UNKNOWN",
-      "score_delta": 20,
-      "summary": "U.S. LNG export volumes for 2026 are higher than 2025, with a projected increase into 2027.",
-      "material_change": true,
+      "previous_state": "DORMANT",
+      "score_delta": 0,
+      "summary": "The only available evidence indicates that U.S. LNG exports rose 23 % in the first half of 2026, averaging 17.4 Bcf/d.",
+      "material_change": false,
       "observed_evidence": [
         {
           "candidate_id": "79539f10e91d61198838",
@@ -1276,7 +1097,7 @@
           "signal": "OFFICIAL_LNG_DATA",
           "family": "OFFICIAL",
           "fact_type": "FACT",
-          "claim": "U.S. LNG exports are projected to average 17.3 Bcf/d in the second half of 2026 and 18.7 Bcf/d in the first half of 2027.",
+          "claim": "U.S. LNG exports averaged 17.4 billion cubic feet per day (Bcf/d) in the first six months of 2026, 23 % higher than the same period in 2025.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
@@ -1288,11 +1109,11 @@
           "official": true,
           "engine": "official_rss",
           "published_at": "2026-09-01T14:00:00.000Z",
-          "retrieved_at": "2026-09-04T15:18:39.347Z",
+          "retrieved_at": "2026-09-04T16:04:50.255Z",
           "valid": true,
           "evidence_key": "70dc4a0667adebe71246c8b3",
-          "first_seen_at": "2026-09-04T15:18:39.347Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "first_seen_at": "2026-09-04T16:04:50.255Z",
+          "last_seen_at": "2026-09-04T16:05:30.900Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -1306,7 +1127,7 @@
           "signal": "OFFICIAL_LNG_DATA",
           "family": "OFFICIAL",
           "fact_type": "FACT",
-          "claim": "U.S. LNG exports are projected to average 17.3 Bcf/d in the second half of 2026 and 18.7 Bcf/d in the first half of 2027.",
+          "claim": "U.S. LNG exports averaged 17.4 billion cubic feet per day (Bcf/d) in the first six months of 2026, 23 % higher than the same period in 2025.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
@@ -1318,11 +1139,11 @@
           "official": true,
           "engine": "official_rss",
           "published_at": "2026-09-01T14:00:00.000Z",
-          "retrieved_at": "2026-09-04T15:18:39.347Z",
+          "retrieved_at": "2026-09-04T16:04:50.255Z",
           "valid": true,
           "evidence_key": "70dc4a0667adebe71246c8b3",
           "first_seen_at": "2026-09-04T15:18:39.347Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "last_seen_at": "2026-09-04T16:05:30.900Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -1336,14 +1157,14 @@
       },
       "events": [
         {
-          "id": "b60c14e9bb7bf5562f960e",
+          "id": "392a20a61b1b0b43b12d25",
           "mechanism_id": "LNG_REROUTING",
-          "run_id": "run_2026-09-04T15-17-29Z",
+          "run_id": "run_2026-09-04T16-03-33Z",
           "phase": "CONFIRM",
           "signal": "OFFICIAL_LNG_DATA",
-          "claim": "U.S. LNG exports are projected to average 17.3 Bcf/d in the second half of 2026 and 18.7 Bcf/d in the first half of 2027.",
+          "claim": "U.S. LNG exports averaged 17.4 billion cubic feet per day (Bcf/d) in the first six months of 2026, 23 % higher than the same period in 2025.",
           "observed_at": "2026-09-01T14:00:00.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "ingested_at": "2026-09-04T16:05:30.900Z",
           "source_count": 1,
           "domains": [
             "eia.gov"
@@ -1371,14 +1192,16 @@
         "raw_combined_score": 20,
         "decayed_score": 20
       },
-      "expected_next": [],
+      "expected_next": [
+        "U.S. LNG exports averaged 17.4 billion cubic feet per day (Bcf/d) in the first six months of 2026, 23 % higher than the same period in 2025."
+      ],
       "invalidation": [],
       "market": {
         "score": 37,
-        "crowding": 1.9,
+        "crowding": 2,
         "breadth": 0.75,
         "relative_breadth": 0.75,
-        "intraday_breadth": 0.5,
+        "intraday_breadth": 0.25,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -1386,16 +1209,16 @@
         "above50": 1,
         "benchmark": "XLE",
         "avg": {
-          "r1": 0.43,
-          "r5": 2.58,
-          "r20": 8.4,
-          "rel5": 0.31,
-          "rel20": -3.09,
-          "r30m": 0.09,
-          "r2h": 0.45,
-          "rel30m": 0.1,
-          "rel2h": -0.18,
-          "volumeZ": -1.66
+          "r1": 0.58,
+          "r5": 2.74,
+          "r20": 8.56,
+          "rel5": 0.33,
+          "rel20": -3.07,
+          "r30m": 0,
+          "r2h": 0.2,
+          "rel30m": 0.01,
+          "rel2h": -0.08,
+          "volumeZ": -1.45
         }
       },
       "alpha": {
@@ -1423,7 +1246,7 @@
       "hysteresis": {
         "raw_state": "DORMANT",
         "pending": null,
-        "reason": "INITIAL",
+        "reason": "STABLE",
         "applied": false
       },
       "sensors": {
@@ -1444,13 +1267,13 @@
         "FLNG"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 541,
-        "completion_tokens": 830,
-        "total_tokens": 1371,
-        "cost": 0.00009382,
+        "prompt_tokens": 542,
+        "completion_tokens": 569,
+        "total_tokens": 1111,
+        "cost": 0.00010703,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -1459,12 +1282,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00009382,
-          "upstream_inference_prompt_cost": 0.00001082,
-          "upstream_inference_completions_cost": 0.000083
+          "upstream_inference_cost": 0.00010703,
+          "upstream_inference_prompt_cost": 0.00002168,
+          "upstream_inference_completions_cost": 0.00008535
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 597,
+          "reasoning_tokens": 372,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -1521,7 +1344,7 @@
       "score": 0,
       "previous_state": "UNKNOWN",
       "score_delta": 0,
-      "summary": "Trump statements about US munitions amid Iran conflict.",
+      "summary": "No evidence found that governments are changing procurement architecture or production targets due to inventory constraints.",
       "material_change": false,
       "observed_evidence": [],
       "evidence": [],
@@ -1546,14 +1369,16 @@
         "raw_combined_score": 0,
         "decayed_score": 0
       },
-      "expected_next": [],
+      "expected_next": [
+        "UNKNOWN"
+      ],
       "invalidation": [],
       "market": {
-        "score": 0,
+        "score": 15,
         "crowding": 1.9,
         "breadth": 0,
         "relative_breadth": 0,
-        "intraday_breadth": 0,
+        "intraday_breadth": 0.75,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -1561,21 +1386,21 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": -1.38,
-          "r5": -5.5,
-          "r20": -9.52,
-          "rel5": -2,
-          "rel20": 0.89,
-          "r30m": 0.08,
-          "r2h": -0.17,
-          "rel30m": 0.09,
-          "rel2h": -0.12,
-          "volumeZ": -1.8
+          "r1": -1.27,
+          "r5": -5.39,
+          "r20": -9.41,
+          "rel5": -2.08,
+          "rel20": 0.82,
+          "r30m": -0.08,
+          "r2h": -0.11,
+          "rel30m": -0.03,
+          "rel2h": 0.01,
+          "volumeZ": -1.69
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 4.6,
+        "score": 7.9,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -1619,13 +1444,13 @@
         "NOC"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1660,
-        "completion_tokens": 676,
-        "total_tokens": 2336,
-        "cost": 0.0001008,
+        "prompt_tokens": 1399,
+        "completion_tokens": 296,
+        "total_tokens": 1695,
+        "cost": 0.00008341,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -1634,12 +1459,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.0001008,
-          "upstream_inference_prompt_cost": 0.0000332,
-          "upstream_inference_completions_cost": 0.0000676
+          "upstream_inference_cost": 0.00008341,
+          "upstream_inference_prompt_cost": 0.00004197,
+          "upstream_inference_completions_cost": 0.00004144
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 503,
+          "reasoning_tokens": 314,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -1724,9 +1549,9 @@
           "evidence_key": "24975d711e35df5252c29025",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T14:32:00.983Z",
-          "memory_weight": 0.9923,
+          "memory_weight": 0.9851,
           "memory_status": "CARRIED",
-          "memory_age_hours": 0.8
+          "memory_age_hours": 1.56
         },
         {
           "candidate_id": "cc7bc3dbff4d4e60b7c4",
@@ -1752,9 +1577,9 @@
           "evidence_key": "256f18e3cfb65cd9c706ffc1",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T14:32:00.983Z",
-          "memory_weight": 0.9923,
+          "memory_weight": 0.9851,
           "memory_status": "CARRIED",
-          "memory_age_hours": 0.8
+          "memory_age_hours": 1.56
         },
         {
           "candidate_id": "913d3391ae1984635339",
@@ -1780,9 +1605,9 @@
           "evidence_key": "00f7719f5c18d72ef92ac32a",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T14:32:00.983Z",
-          "memory_weight": 0.9923,
+          "memory_weight": 0.9851,
           "memory_status": "CARRIED",
-          "memory_age_hours": 0.8
+          "memory_age_hours": 1.56
         },
         {
           "candidate_id": "71df9c7ea5d7bd45c65d",
@@ -1808,9 +1633,9 @@
           "evidence_key": "f17298279f0ff070487fe2a5",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T14:32:00.983Z",
-          "memory_weight": 0.9923,
+          "memory_weight": 0.9851,
           "memory_status": "CARRIED",
-          "memory_age_hours": 0.8
+          "memory_age_hours": 1.56
         },
         {
           "candidate_id": "2ae20dd6032a9c62bf17",
@@ -1836,9 +1661,9 @@
           "evidence_key": "8b22e0a39ada68044d3fbad8",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T14:32:00.983Z",
-          "memory_weight": 0.9923,
+          "memory_weight": 0.9851,
           "memory_status": "CARRIED",
-          "memory_age_hours": 0.8
+          "memory_age_hours": 1.56
         },
         {
           "candidate_id": "fdd14b35d0cabcbbe5ac",
@@ -1864,9 +1689,9 @@
           "evidence_key": "430bd6b55300efb34214821b",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T14:32:00.983Z",
-          "memory_weight": 0.9923,
+          "memory_weight": 0.9851,
           "memory_status": "CARRIED",
-          "memory_age_hours": 0.8
+          "memory_age_hours": 1.56
         }
       ],
       "verified": [],
@@ -1885,7 +1710,7 @@
       "memory": {
         "observed_items": 0,
         "carried_items": 6,
-        "avg_carry_weight": 0.992,
+        "avg_carry_weight": 0.985,
         "observed_score": 0,
         "raw_combined_score": 31,
         "decayed_score": 31
@@ -1897,7 +1722,7 @@
         "crowding": 0,
         "breadth": 0,
         "relative_breadth": 0.333,
-        "intraday_breadth": 0.333,
+        "intraday_breadth": 0,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -1905,16 +1730,16 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": -1.88,
-          "r5": -6.61,
-          "r20": -17.07,
-          "rel5": -3.11,
-          "rel20": -6.67,
-          "r30m": 0.14,
-          "r2h": -0.63,
-          "rel30m": 0.15,
-          "rel2h": -0.58,
-          "volumeZ": -1.55
+          "r1": -1.74,
+          "r5": -6.5,
+          "r20": -16.98,
+          "rel5": -3.19,
+          "rel20": -6.75,
+          "r30m": -0.18,
+          "r2h": -0.35,
+          "rel30m": -0.13,
+          "rel2h": -0.23,
+          "volumeZ": -1.44
         }
       },
       "alpha": {
@@ -1966,7 +1791,7 @@
         "KRMN"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -2024,7 +1849,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 10
             }
           }
@@ -2068,11 +1893,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 8,
-        "crowding": 3.3,
+        "score": 23,
+        "crowding": 2.9,
         "breadth": 0,
         "relative_breadth": 0,
-        "intraday_breadth": 0.5,
+        "intraday_breadth": 0.75,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -2080,28 +1905,27 @@
         "above50": 0.25,
         "benchmark": "ITA",
         "avg": {
-          "r1": -1.84,
-          "r5": -8.05,
-          "r20": -9.89,
-          "rel5": -4.55,
-          "rel20": 0.51,
-          "r30m": 0,
-          "r2h": 0.22,
-          "rel30m": 0.01,
-          "rel2h": 0.27,
-          "volumeZ": -0.89
+          "r1": -1.81,
+          "r5": -8.03,
+          "r20": -9.85,
+          "rel5": -4.72,
+          "rel20": 0.38,
+          "r30m": -0.13,
+          "r2h": 0.13,
+          "rel30m": -0.08,
+          "rel2h": 0.25,
+          "volumeZ": -0.66
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 6,
+        "score": 9.4,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
           "NO_LEAD",
           "NO_CONFIRM",
-          "INSUFFICIENT_SOURCES",
-          "MARKET_NOT_CONFIRMING"
+          "INSUFFICIENT_SOURCES"
         ],
         "empirical": {
           "samples": 0,
@@ -2138,7 +1962,7 @@
         "GD"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -2221,11 +2045,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 30,
-        "crowding": 11.4,
-        "breadth": 1,
-        "relative_breadth": 1,
-        "intraday_breadth": 0.5,
+        "score": 4,
+        "crowding": 0,
+        "breadth": 0.5,
+        "relative_breadth": 0.5,
+        "intraday_breadth": 0,
         "quality": "MEDIUM",
         "n": 2,
         "intraday_n": 2,
@@ -2233,27 +2057,28 @@
         "above50": 1,
         "benchmark": "XME",
         "avg": {
-          "r1": -0.98,
-          "r5": 0.71,
-          "r20": -3.71,
-          "rel5": 0.57,
-          "rel20": -6.45,
-          "r30m": 0.03,
-          "r2h": 0.18,
-          "rel30m": 0.02,
-          "rel2h": -0.11,
-          "volumeZ": -1.8
+          "r1": -1.68,
+          "r5": 0.01,
+          "r20": -4.37,
+          "rel5": -0.04,
+          "rel20": -7.01,
+          "r30m": 0.04,
+          "r2h": -0.75,
+          "rel30m": 0.07,
+          "rel2h": -0.81,
+          "volumeZ": -1.73
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 9.1,
+        "score": 5.9,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
           "NO_LEAD",
           "NO_CONFIRM",
-          "INSUFFICIENT_SOURCES"
+          "INSUFFICIENT_SOURCES",
+          "MARKET_NOT_CONFIRMING"
         ],
         "empirical": {
           "samples": 0,
@@ -2288,7 +2113,7 @@
         "AA"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -2343,7 +2168,7 @@
       "score": 15,
       "previous_state": "DORMANT",
       "score_delta": 0,
-      "summary": "China shipments of rare earths to the US are disrupted due to export restrictions.",
+      "summary": "China shipments to the United States face fresh disruptions.",
       "material_change": false,
       "observed_evidence": [
         {
@@ -2353,7 +2178,7 @@
           "signal": "EXPORT_RESTRICTION",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "China shipments of rare earths to the US are disrupted due to export restrictions.",
+          "claim": "China shipments to the United States face fresh disruptions",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
@@ -2365,11 +2190,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-04T13:40:24.000Z",
-          "retrieved_at": "2026-09-04T15:18:36.497Z",
+          "retrieved_at": "2026-09-04T16:04:47.044Z",
           "valid": true,
           "evidence_key": "3e260f8a4c68901ca27613f2",
-          "first_seen_at": "2026-09-04T15:18:36.497Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "first_seen_at": "2026-09-04T16:04:47.044Z",
+          "last_seen_at": "2026-09-04T16:05:30.900Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -2383,7 +2208,7 @@
           "signal": "EXPORT_RESTRICTION",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "China shipments of rare earths to the US are disrupted due to export restrictions.",
+          "claim": "China shipments to the United States face fresh disruptions",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
@@ -2395,11 +2220,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-04T13:40:24.000Z",
-          "retrieved_at": "2026-09-04T15:18:36.497Z",
+          "retrieved_at": "2026-09-04T16:04:47.044Z",
           "valid": true,
           "evidence_key": "3e260f8a4c68901ca27613f2",
           "first_seen_at": "2026-09-04T14:26:43.501Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "last_seen_at": "2026-09-04T16:05:30.900Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -2413,14 +2238,14 @@
       },
       "events": [
         {
-          "id": "7280e4309aa416b007579b",
+          "id": "aed4245d2d99bb30a086e4",
           "mechanism_id": "RARE_EARTH_MAGNET_SHORTAGE",
-          "run_id": "run_2026-09-04T15-17-29Z",
+          "run_id": "run_2026-09-04T16-03-33Z",
           "phase": "LEAD",
           "signal": "EXPORT_RESTRICTION",
-          "claim": "China shipments of rare earths to the US are disrupted due to export restrictions.",
+          "claim": "China shipments to the United States face fresh disruptions",
           "observed_at": "2026-09-04T13:40:24.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "ingested_at": "2026-09-04T16:05:30.900Z",
           "source_count": 1,
           "domains": [
             "invezz.com"
@@ -2463,16 +2288,16 @@
         "above50": 0.667,
         "benchmark": "XME",
         "avg": {
-          "r1": 0.84,
-          "r5": -3.36,
-          "r20": 1.07,
-          "rel5": -3.5,
-          "rel20": -1.67,
-          "r30m": -0.27,
-          "r2h": -1.15,
-          "rel30m": -0.28,
-          "rel2h": -1.45,
-          "volumeZ": -0.93
+          "r1": 0.62,
+          "r5": -3.58,
+          "r20": 0.84,
+          "rel5": -3.63,
+          "rel20": -1.8,
+          "r30m": -0.04,
+          "r2h": -0.31,
+          "rel30m": -0.01,
+          "rel2h": -0.37,
+          "volumeZ": -0.85
         }
       },
       "alpha": {
@@ -2521,13 +2346,13 @@
         "LYC.AX"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 855,
-        "completion_tokens": 417,
-        "total_tokens": 1272,
-        "cost": 0.0000588,
+        "prompt_tokens": 854,
+        "completion_tokens": 399,
+        "total_tokens": 1253,
+        "cost": 0.00009401,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -2536,12 +2361,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.0000588,
-          "upstream_inference_prompt_cost": 0.0000171,
-          "upstream_inference_completions_cost": 0.0000417
+          "upstream_inference_cost": 0.00009401,
+          "upstream_inference_prompt_cost": 0.00003416,
+          "upstream_inference_completions_cost": 0.00005985
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 373,
+          "reasoning_tokens": 341,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -2626,11 +2451,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 24,
-        "crowding": 0,
+        "score": 37,
+        "crowding": 4.3,
         "breadth": 0,
         "relative_breadth": 0.667,
-        "intraday_breadth": 0.667,
+        "intraday_breadth": 1,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -2638,21 +2463,21 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": -1.55,
-          "r5": -4,
-          "r20": -17.78,
-          "rel5": -0.5,
-          "rel20": -7.38,
-          "r30m": 0.15,
-          "r2h": -0.13,
-          "rel30m": 0.16,
-          "rel2h": -0.08,
-          "volumeZ": -1.28
+          "r1": -1.26,
+          "r5": -3.73,
+          "r20": -17.52,
+          "rel5": -0.42,
+          "rel20": -7.29,
+          "r30m": -0.25,
+          "r2h": 0.42,
+          "rel30m": -0.2,
+          "rel2h": 0.54,
+          "volumeZ": -1.18
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 10.3,
+        "score": 12.2,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -2694,7 +2519,7 @@
         "RCAT"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -2777,11 +2602,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 0,
-        "crowding": 0,
+        "score": 10,
+        "crowding": 1.6,
         "breadth": 0,
         "relative_breadth": 0.2,
-        "intraday_breadth": 0.4,
+        "intraday_breadth": 0.6,
         "quality": "HIGH",
         "n": 5,
         "intraday_n": 5,
@@ -2789,21 +2614,21 @@
         "above50": 0.2,
         "benchmark": "ITA",
         "avg": {
-          "r1": -0.78,
-          "r5": -5.62,
-          "r20": -10.64,
-          "rel5": -2.12,
-          "rel20": -0.24,
-          "r30m": -0.02,
-          "r2h": -0.28,
-          "rel30m": -0.01,
-          "rel2h": -0.23,
-          "volumeZ": -1.33
+          "r1": -0.49,
+          "r5": -5.34,
+          "r20": -10.38,
+          "rel5": -2.03,
+          "rel20": -0.15,
+          "r30m": -0.04,
+          "r2h": 0.08,
+          "rel30m": 0.01,
+          "rel2h": 0.2,
+          "volumeZ": -1.14
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 5,
+        "score": 6.8,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -2848,7 +2673,7 @@
         "KTOS"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -2903,7 +2728,7 @@
       "score": 0,
       "previous_state": "UNKNOWN",
       "score_delta": 0,
-      "summary": "No confirmed procurement or physical incidents of autonomous mine countermeasures, sonar, or underwater security were found in the provided candidate set.",
+      "summary": "No confirmed procurement or physical incidents of autonomous mine countermeasures, sonar, or underwater security systems were identified in the provided candidate set.",
       "material_change": false,
       "observed_evidence": [],
       "evidence": [],
@@ -2928,15 +2753,11 @@
         "raw_combined_score": 0,
         "decayed_score": 0
       },
-      "expected_next": [
-        "LEAD",
-        "CONFIRM",
-        "LAG"
-      ],
+      "expected_next": [],
       "invalidation": [],
       "market": {
         "score": 0,
-        "crowding": 9,
+        "crowding": 10,
         "breadth": 0,
         "relative_breadth": 0.5,
         "intraday_breadth": 0.5,
@@ -2947,21 +2768,21 @@
         "above50": 0.25,
         "benchmark": "ITA",
         "avg": {
-          "r1": -0.48,
-          "r5": -4.17,
-          "r20": -6.29,
-          "rel5": -0.66,
-          "rel20": 4.11,
-          "r30m": -0.08,
-          "r2h": -0.17,
-          "rel30m": -0.07,
-          "rel2h": -0.12,
-          "volumeZ": -1.29
+          "r1": -0.33,
+          "r5": -4.02,
+          "r20": -6.15,
+          "rel5": -0.71,
+          "rel20": 4.08,
+          "r30m": -0.06,
+          "r2h": 0.01,
+          "rel30m": -0.01,
+          "rel2h": 0.13,
+          "volumeZ": -0.88
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 3,
+        "score": 2.8,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -3005,27 +2826,27 @@
         "HO.PA"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 2333,
-        "completion_tokens": 265,
-        "total_tokens": 2598,
-        "cost": 0.00010444,
+        "prompt_tokens": 2325,
+        "completion_tokens": 272,
+        "total_tokens": 2597,
+        "cost": 0.00010783,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 64,
+          "cached_tokens": 0,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00010444,
-          "upstream_inference_prompt_cost": 0.00006999,
-          "upstream_inference_completions_cost": 0.00003445
+          "upstream_inference_cost": 0.00010783,
+          "upstream_inference_prompt_cost": 0.00006975,
+          "upstream_inference_completions_cost": 0.00003808
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 220,
+          "reasoning_tokens": 255,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -3080,10 +2901,10 @@
       "state": "WATCH",
       "raw_state": "WATCH",
       "score": 31,
-      "previous_state": "UNKNOWN",
-      "score_delta": 31,
-      "summary": "Evidence indicates that electricity and interconnection constraints are becoming more binding for AI infrastructure, as shown by a global power equipment boom, U.S. manufacturer expansion to meet grid demand, data center logistics emphasizing reliable interconnection, and material shortages in grid infrastructure.",
-      "material_change": true,
+      "previous_state": "WATCH",
+      "score_delta": 0,
+      "summary": "The available evidence indicates that electricity/interconnection constraints, rather than GPU supply, are the primary binding constraint on AI infrastructure.",
+      "material_change": false,
       "observed_evidence": [
         {
           "candidate_id": "b3e792af8815de0d270a",
@@ -3092,11 +2913,11 @@
           "signal": "EQUIPMENT_LEAD_TIME",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Global power equipment boom signals rising electricity demand for AI infrastructure.",
+          "claim": "Electricity supply constraints are intensifying, as evidenced by a global power equipment boom that is expanding capacity to meet rising demand.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Power equipment boom indicates increased electricity demand.",
+          "why_upstream": "EQUIPMENT_LEAD_TIME",
           "source_url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNNEJ6V1F1TmhxaUJ3V0s4U3pPa1F6ZHZPOTZuQjl2Zk1FeVlfNXJneVdxRk9Fd0pXcHhFSG5wdFJyXzJiZzlJalFKUU04R1FKWXV6SnV2RE9mTTdZSHp4RGVKLXp0UmsxdmFHZFZ5ZlVoSHJXQzV6dDFVb3FLQmctaEM4dXFWS1FhdWVwUlZoNHRTTm1WQTdpUDZPZWJJal96QXBLdEFqeVBDVnptbFFxQzg2MFFWd1dsSU1MTDhrbDd0T3JfbDczTkI2X1Z4SE0tQWhpNUxVX09pX3QzU3NTUnVSNGo?oc=5",
           "source_name": "greentechlead.com",
           "source_domain": "greentechlead.com",
@@ -3104,11 +2925,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-02T13:23:19.000Z",
-          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "retrieved_at": "2026-09-04T16:04:47.767Z",
           "valid": true,
           "evidence_key": "6ccb492da9285b624ca7d735",
-          "first_seen_at": "2026-09-04T15:18:37.219Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "first_seen_at": "2026-09-04T16:04:47.767Z",
+          "last_seen_at": "2026-09-04T16:05:30.900Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -3120,11 +2941,11 @@
           "signal": "EQUIPMENT_LEAD_TIME",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Manufacturers expanding U.S. operations to meet grid demand highlight electricity supply constraints.",
+          "claim": "Manufacturers are expanding U.S. operations to meet unrelenting grid demand, indicating that electricity interconnection capacity is a limiting factor.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Expansion of operations to meet grid demand indicates electricity supply constraints.",
+          "why_upstream": "EQUIPMENT_LEAD_TIME",
           "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZ19ieFNoY0ZyXzFMdXBUUFZUWmhNSlJnVHRkN1NiejdlRmIwVENFTk0wOUNHTnl6bFk5QlZucmhLMUFYTmRBUktkTmhaM0NZMEVtT0ZERG9VcGFkZTRLWFlOcXRwdm5nZHRZa0RlTDBBMWZ3Z01qdlBvY21NZzVPMnBtbERna09ZNFNoem1Kc041LWNDaW1saWtCVTU3UzZXVTZMODVueUNZZjl6WHE1QVlYdS0xeFE?oc=5",
           "source_name": "Factor This",
           "source_domain": "renewableenergyworld.com",
@@ -3132,11 +2953,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-03T19:10:30.000Z",
-          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "retrieved_at": "2026-09-04T16:04:47.767Z",
           "valid": true,
           "evidence_key": "51187a5fa957fbb915d289cc",
-          "first_seen_at": "2026-09-04T15:18:37.219Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "first_seen_at": "2026-09-04T16:04:47.767Z",
+          "last_seen_at": "2026-09-04T16:05:30.900Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -3148,11 +2969,11 @@
           "signal": "EQUIPMENT_LEAD_TIME",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Data center logistics emphasize need for reliable electricity interconnection.",
+          "claim": "Data center logistics are affected by equipment lead times, underscoring the importance of reliable electricity supply for AI infrastructure.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Logistics highlight importance of electricity interconnection.",
+          "why_upstream": "EQUIPMENT_LEAD_TIME",
           "source_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5aUlNodlJkOW1NdXFDWVJlRnRPY2QtcGhydXZ5TmNQdk92ZUtUZEV4YjJCajcyNTV6ZzdJQ2MtaXVfRU81b3NNUmxfS0RDZW16SUtGT3lueEpVbnIzeTAwbm8wS1N0WjFZZDJKS0QwQ09vYl82Qm1yX3IzNkEyc1k?oc=5",
           "source_name": "breakbulk.com",
           "source_domain": "breakbulk.com",
@@ -3160,11 +2981,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-03T00:44:18.000Z",
-          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "retrieved_at": "2026-09-04T16:04:47.767Z",
           "valid": true,
           "evidence_key": "cf200ef4954203c2255d4daa",
-          "first_seen_at": "2026-09-04T15:18:37.219Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "first_seen_at": "2026-09-04T16:04:47.767Z",
+          "last_seen_at": "2026-09-04T16:05:30.900Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -3176,11 +2997,11 @@
           "signal": "EQUIPMENT_LEAD_TIME",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Grid bottleneck due to material shortages indicates electricity supply constraints.",
+          "claim": "The grid’s bottleneck is increasingly due to material shortages, reinforcing that electricity interconnection is a binding constraint for AI infrastructure.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Material shortages in grid infrastructure signal electricity constraints.",
+          "why_upstream": "EQUIPMENT_LEAD_TIME",
           "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSzVYb2hlLUhhZVRrZmZ5dzBPQWpTMG9LM3ZFV1lCSm50b0lVVkwtZ2FFc0xybEJwUFNoQ2xQWVpPdmFjN3J5S0k4VnZ1ZURoOTNkYkZoRzlRcmJ0RHF2Z3RJVklsTHpEc3NrZ1k4NzkwZktJdTBISmVyc053ZTFKMVZSMFl1bGo1Q0U5VzBWRTg0cGNkb1haTnQ3TmxGWFJ5czQwb1N3QQ?oc=5",
           "source_name": "Mondaq",
           "source_domain": "mondaq.com",
@@ -3188,11 +3009,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-04T01:58:46.000Z",
-          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "retrieved_at": "2026-09-04T16:04:47.767Z",
           "valid": true,
           "evidence_key": "8d72f838920c2b3429838bae",
-          "first_seen_at": "2026-09-04T15:18:37.219Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "first_seen_at": "2026-09-04T16:04:47.767Z",
+          "last_seen_at": "2026-09-04T16:05:30.900Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -3206,11 +3027,11 @@
           "signal": "EQUIPMENT_LEAD_TIME",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Global power equipment boom signals rising electricity demand for AI infrastructure.",
+          "claim": "Electricity supply constraints are intensifying, as evidenced by a global power equipment boom that is expanding capacity to meet rising demand.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Power equipment boom indicates increased electricity demand.",
+          "why_upstream": "EQUIPMENT_LEAD_TIME",
           "source_url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNNEJ6V1F1TmhxaUJ3V0s4U3pPa1F6ZHZPOTZuQjl2Zk1FeVlfNXJneVdxRk9Fd0pXcHhFSG5wdFJyXzJiZzlJalFKUU04R1FKWXV6SnV2RE9mTTdZSHp4RGVKLXp0UmsxdmFHZFZ5ZlVoSHJXQzV6dDFVb3FLQmctaEM4dXFWS1FhdWVwUlZoNHRTTm1WQTdpUDZPZWJJal96QXBLdEFqeVBDVnptbFFxQzg2MFFWd1dsSU1MTDhrbDd0T3JfbDczTkI2X1Z4SE0tQWhpNUxVX09pX3QzU3NTUnVSNGo?oc=5",
           "source_name": "greentechlead.com",
           "source_domain": "greentechlead.com",
@@ -3218,11 +3039,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-02T13:23:19.000Z",
-          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "retrieved_at": "2026-09-04T16:04:47.767Z",
           "valid": true,
           "evidence_key": "6ccb492da9285b624ca7d735",
           "first_seen_at": "2026-09-04T13:34:04.505Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "last_seen_at": "2026-09-04T16:05:30.900Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -3234,11 +3055,11 @@
           "signal": "EQUIPMENT_LEAD_TIME",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Manufacturers expanding U.S. operations to meet grid demand highlight electricity supply constraints.",
+          "claim": "Manufacturers are expanding U.S. operations to meet unrelenting grid demand, indicating that electricity interconnection capacity is a limiting factor.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Expansion of operations to meet grid demand indicates electricity supply constraints.",
+          "why_upstream": "EQUIPMENT_LEAD_TIME",
           "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZ19ieFNoY0ZyXzFMdXBUUFZUWmhNSlJnVHRkN1NiejdlRmIwVENFTk0wOUNHTnl6bFk5QlZucmhLMUFYTmRBUktkTmhaM0NZMEVtT0ZERG9VcGFkZTRLWFlOcXRwdm5nZHRZa0RlTDBBMWZ3Z01qdlBvY21NZzVPMnBtbERna09ZNFNoem1Kc041LWNDaW1saWtCVTU3UzZXVTZMODVueUNZZjl6WHE1QVlYdS0xeFE?oc=5",
           "source_name": "Factor This",
           "source_domain": "renewableenergyworld.com",
@@ -3246,11 +3067,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-03T19:10:30.000Z",
-          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "retrieved_at": "2026-09-04T16:04:47.767Z",
           "valid": true,
           "evidence_key": "51187a5fa957fbb915d289cc",
           "first_seen_at": "2026-09-04T13:34:04.505Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "last_seen_at": "2026-09-04T16:05:30.900Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -3262,11 +3083,11 @@
           "signal": "EQUIPMENT_LEAD_TIME",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Data center logistics emphasize need for reliable electricity interconnection.",
+          "claim": "Data center logistics are affected by equipment lead times, underscoring the importance of reliable electricity supply for AI infrastructure.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Logistics highlight importance of electricity interconnection.",
+          "why_upstream": "EQUIPMENT_LEAD_TIME",
           "source_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5aUlNodlJkOW1NdXFDWVJlRnRPY2QtcGhydXZ5TmNQdk92ZUtUZEV4YjJCajcyNTV6ZzdJQ2MtaXVfRU81b3NNUmxfS0RDZW16SUtGT3lueEpVbnIzeTAwbm8wS1N0WjFZZDJKS0QwQ09vYl82Qm1yX3IzNkEyc1k?oc=5",
           "source_name": "breakbulk.com",
           "source_domain": "breakbulk.com",
@@ -3274,11 +3095,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-03T00:44:18.000Z",
-          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "retrieved_at": "2026-09-04T16:04:47.767Z",
           "valid": true,
           "evidence_key": "cf200ef4954203c2255d4daa",
           "first_seen_at": "2026-09-04T14:26:45.605Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "last_seen_at": "2026-09-04T16:05:30.900Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -3290,11 +3111,11 @@
           "signal": "EQUIPMENT_LEAD_TIME",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Grid bottleneck due to material shortages indicates electricity supply constraints.",
+          "claim": "The grid’s bottleneck is increasingly due to material shortages, reinforcing that electricity interconnection is a binding constraint for AI infrastructure.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Material shortages in grid infrastructure signal electricity constraints.",
+          "why_upstream": "EQUIPMENT_LEAD_TIME",
           "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSzVYb2hlLUhhZVRrZmZ5dzBPQWpTMG9LM3ZFV1lCSm50b0lVVkwtZ2FFc0xybEJwUFNoQ2xQWVpPdmFjN3J5S0k4VnZ1ZURoOTNkYkZoRzlRcmJ0RHF2Z3RJVklsTHpEc3NrZ1k4NzkwZktJdTBISmVyc053ZTFKMVZSMFl1bGo1Q0U5VzBWRTg0cGNkb1haTnQ3TmxGWFJ5czQwb1N3QQ?oc=5",
           "source_name": "Mondaq",
           "source_domain": "mondaq.com",
@@ -3302,11 +3123,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-04T01:58:46.000Z",
-          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "retrieved_at": "2026-09-04T16:04:47.767Z",
           "valid": true,
           "evidence_key": "8d72f838920c2b3429838bae",
           "first_seen_at": "2026-09-04T13:34:04.505Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "last_seen_at": "2026-09-04T16:05:30.900Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -3320,14 +3141,14 @@
       },
       "events": [
         {
-          "id": "e0a02b51869bfe9cbe9b14",
+          "id": "da53db1dd853374e8d851a",
           "mechanism_id": "AI_TIME_TO_POWER",
-          "run_id": "run_2026-09-04T15-17-29Z",
+          "run_id": "run_2026-09-04T16-03-33Z",
           "phase": "LEAD",
           "signal": "EQUIPMENT_LEAD_TIME",
-          "claim": "Grid bottleneck due to material shortages indicates electricity supply constraints.",
+          "claim": "The grid’s bottleneck is increasingly due to material shortages, reinforcing that electricity interconnection is a binding constraint for AI infrastructure.",
           "observed_at": "2026-09-04T01:58:46.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "ingested_at": "2026-09-04T16:05:30.900Z",
           "source_count": 1,
           "domains": [
             "mondaq.com"
@@ -3341,14 +3162,14 @@
           "source_grade": 0.62
         },
         {
-          "id": "3ecf120443fce2bb32ec16",
+          "id": "29bb414c961aeaecb13c60",
           "mechanism_id": "AI_TIME_TO_POWER",
-          "run_id": "run_2026-09-04T15-17-29Z",
+          "run_id": "run_2026-09-04T16-03-33Z",
           "phase": "LEAD",
           "signal": "EQUIPMENT_LEAD_TIME",
-          "claim": "Manufacturers expanding U.S. operations to meet grid demand highlight electricity supply constraints.",
+          "claim": "Manufacturers are expanding U.S. operations to meet unrelenting grid demand, indicating that electricity interconnection capacity is a limiting factor.",
           "observed_at": "2026-09-03T19:10:30.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "ingested_at": "2026-09-04T16:05:30.900Z",
           "source_count": 1,
           "domains": [
             "renewableenergyworld.com"
@@ -3362,14 +3183,14 @@
           "source_grade": 0.62
         },
         {
-          "id": "7404e48445a2b3987d6bbd",
+          "id": "012d223021de102ccb1050",
           "mechanism_id": "AI_TIME_TO_POWER",
-          "run_id": "run_2026-09-04T15-17-29Z",
+          "run_id": "run_2026-09-04T16-03-33Z",
           "phase": "LEAD",
           "signal": "EQUIPMENT_LEAD_TIME",
-          "claim": "Data center logistics emphasize need for reliable electricity interconnection.",
+          "claim": "Data center logistics are affected by equipment lead times, underscoring the importance of reliable electricity supply for AI infrastructure.",
           "observed_at": "2026-09-03T00:44:18.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "ingested_at": "2026-09-04T16:05:30.900Z",
           "source_count": 1,
           "domains": [
             "breakbulk.com"
@@ -3383,14 +3204,14 @@
           "source_grade": 0.62
         },
         {
-          "id": "9992bdb75bf288b53aceb1",
+          "id": "8efaffc1c02ac3bd8ce95f",
           "mechanism_id": "AI_TIME_TO_POWER",
-          "run_id": "run_2026-09-04T15-17-29Z",
+          "run_id": "run_2026-09-04T16-03-33Z",
           "phase": "LEAD",
           "signal": "EQUIPMENT_LEAD_TIME",
-          "claim": "Global power equipment boom signals rising electricity demand for AI infrastructure.",
+          "claim": "Electricity supply constraints are intensifying, as evidenced by a global power equipment boom that is expanding capacity to meet rising demand.",
           "observed_at": "2026-09-02T13:23:19.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "ingested_at": "2026-09-04T16:05:30.900Z",
           "source_count": 1,
           "domains": [
             "greentechlead.com"
@@ -3418,14 +3239,16 @@
         "raw_combined_score": 31,
         "decayed_score": 31
       },
-      "expected_next": [],
+      "expected_next": [
+        "YES"
+      ],
       "invalidation": [],
       "market": {
-        "score": 68,
-        "crowding": 19.6,
+        "score": 45,
+        "crowding": 14.4,
         "breadth": 0.8,
         "relative_breadth": 0.8,
-        "intraday_breadth": 0.8,
+        "intraday_breadth": 0.4,
         "quality": "HIGH",
         "n": 5,
         "intraday_n": 5,
@@ -3433,26 +3256,25 @@
         "above50": 0,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 1.74,
-          "r5": 2.78,
-          "r20": -6.95,
-          "rel5": 2.61,
-          "rel20": -6.21,
-          "r30m": -0.07,
-          "r2h": 0.16,
-          "rel30m": 0.02,
-          "rel2h": 0.49,
-          "volumeZ": -1.66
+          "r1": 1.52,
+          "r5": 2.55,
+          "r20": -7.16,
+          "rel5": 2.39,
+          "rel20": -6.41,
+          "r30m": 0.04,
+          "r2h": -0.47,
+          "rel30m": 0.05,
+          "rel2h": -0.19,
+          "volumeZ": -1.59
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 41.8,
+        "score": 37.9,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
-          "NO_CONFIRM",
-          "TOO_CROWDED"
+          "NO_CONFIRM"
         ],
         "empirical": {
           "samples": 0,
@@ -3470,7 +3292,7 @@
       "hysteresis": {
         "raw_state": "WATCH",
         "pending": null,
-        "reason": "INITIAL",
+        "reason": "STABLE",
         "applied": false
       },
       "sensors": {
@@ -3495,13 +3317,13 @@
         "PWR"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 2598,
-        "completion_tokens": 922,
-        "total_tokens": 3520,
-        "cost": 0.00014416,
+        "prompt_tokens": 2349,
+        "completion_tokens": 1248,
+        "total_tokens": 3597,
+        "cost": 0.00028116,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -3510,12 +3332,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00014416,
-          "upstream_inference_prompt_cost": 0.00005196,
-          "upstream_inference_completions_cost": 0.0000922
+          "upstream_inference_cost": 0.00028116,
+          "upstream_inference_prompt_cost": 0.00009396,
+          "upstream_inference_completions_cost": 0.0001872
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 589,
+          "reasoning_tokens": 1017,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -3560,6 +3382,25 @@
               "ttl_hours": 5
             }
           }
+        },
+        {
+          "query_id": "AI_TIME_TO_POWER:confirm:power_order",
+          "phase": "CONFIRM",
+          "signal": "POWER_EQUIPMENT_ORDERS",
+          "q": "data center transformer switchgear gas turbine order backlog Powell Vertiv GE Vernova Eaton",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          }
         }
       ]
     },
@@ -3570,40 +3411,11 @@
       "state": "DORMANT",
       "raw_state": "DORMANT",
       "score": 15,
-      "previous_state": "UNKNOWN",
-      "score_delta": 15,
-      "summary": "DeepGreen Cook Inlet SPV, LLC has filed a preliminary permit application to interconnect a 100 MW data‑center project to the Alaska Railbelt Grid, indicating a speculative interconnection request for financed construction.",
-      "material_change": true,
-      "observed_evidence": [
-        {
-          "candidate_id": "0aedf122ce35a65e2b1c",
-          "query_id": "OFFICIAL:FR_DATA_CENTER_QUEUE:AI_GHOST_DEMAND",
-          "phase": "LEAD",
-          "signal": "REGULATORY_DEMAND",
-          "family": "OFFICIAL",
-          "fact_type": "FACT",
-          "claim": "DeepGreen Cook Inlet SPV, LLC submitted a preliminary permit application for an interconnection to the Alaska Railbelt Grid to supply a 100 MW data center.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://www.federalregister.gov/documents/2026/09/04/2026-18151/deepgreen-cook-inlet-spv-llc-notice-of-preliminary-permit-application-accepted-for-filing-and",
-          "source_name": "Federal Register",
-          "source_domain": "federalregister.gov",
-          "source_grade": 1,
-          "official": true,
-          "engine": "federal_register",
-          "published_at": "2026-09-04T00:00:00.000Z",
-          "retrieved_at": "2026-09-04T15:18:39.347Z",
-          "valid": true,
-          "evidence_key": "e08720fee0629e4efc4b36b5",
-          "first_seen_at": "2026-09-04T15:18:39.347Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
+      "previous_state": "DORMANT",
+      "score_delta": 0,
+      "summary": "No evidence found supporting the AI_GHOST_DEMAND mechanism in the provided candidates.",
+      "material_change": false,
+      "observed_evidence": [],
       "evidence": [
         {
           "candidate_id": "0aedf122ce35a65e2b1c",
@@ -3629,9 +3441,9 @@
           "evidence_key": "e08720fee0629e4efc4b36b5",
           "first_seen_at": "2026-09-04T15:18:39.347Z",
           "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9927,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 0.76
         }
       ],
       "verified": [],
@@ -3640,51 +3452,29 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [
-        {
-          "id": "20cbfd534296aa3772f2d0",
-          "mechanism_id": "AI_GHOST_DEMAND",
-          "run_id": "run_2026-09-04T15-17-29Z",
-          "phase": "LEAD",
-          "signal": "REGULATORY_DEMAND",
-          "claim": "DeepGreen Cook Inlet SPV, LLC submitted a preliminary permit application for an interconnection to the Alaska Railbelt Grid to supply a 100 MW data center.",
-          "observed_at": "2026-09-04T00:00:00.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
-          "source_count": 1,
-          "domains": [
-            "federalregister.gov"
-          ],
-          "source_urls": [
-            "https://www.federalregister.gov/documents/2026/09/04/2026-18151/deepgreen-cook-inlet-spv-llc-notice-of-preliminary-permit-application-accepted-for-filing-and"
-          ],
-          "official": true,
-          "representative_source": "Federal Register",
-          "representative_url": "https://www.federalregister.gov/documents/2026/09/04/2026-18151/deepgreen-cook-inlet-spv-llc-notice-of-preliminary-permit-application-accepted-for-filing-and",
-          "source_grade": 1
-        }
-      ],
+      "events": [],
       "event_stats": {
-        "observed_unique": 1,
+        "observed_unique": 0,
         "observed_duplicates": 0,
         "memory_unique": 1,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 1,
-        "carried_items": 0,
-        "avg_carry_weight": 0,
-        "observed_score": 15,
+        "observed_items": 0,
+        "carried_items": 1,
+        "avg_carry_weight": 0.993,
+        "observed_score": 0,
         "raw_combined_score": 15,
         "decayed_score": 15
       },
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 60,
-        "crowding": 21.3,
+        "score": 37,
+        "crowding": 16.7,
         "breadth": 0.667,
         "relative_breadth": 0.667,
-        "intraday_breadth": 1,
+        "intraday_breadth": 0.333,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -3692,21 +3482,21 @@
         "above50": 0,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 1.81,
-          "r5": 3.06,
-          "r20": -6.16,
-          "rel5": 2.89,
-          "rel20": -5.42,
-          "r30m": -0.07,
-          "r2h": 0.17,
-          "rel30m": 0.02,
-          "rel2h": 0.5,
-          "volumeZ": -1.7
+          "r1": 1.65,
+          "r5": 2.88,
+          "r20": -6.32,
+          "rel5": 2.72,
+          "rel20": -5.57,
+          "r30m": 0.06,
+          "r2h": -0.24,
+          "rel30m": 0.07,
+          "rel2h": 0.04,
+          "volumeZ": -1.64
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 26.1,
+        "score": 22.1,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -3729,7 +3519,7 @@
       "hysteresis": {
         "raw_state": "DORMANT",
         "pending": null,
-        "reason": "INITIAL",
+        "reason": "STABLE",
         "applied": false
       },
       "sensors": {
@@ -3749,13 +3539,13 @@
         "GEV"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1283,
-        "completion_tokens": 648,
-        "total_tokens": 1931,
-        "cost": 0.00009046,
+        "prompt_tokens": 1533,
+        "completion_tokens": 281,
+        "total_tokens": 1814,
+        "cost": 0.00005876,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -3764,12 +3554,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00009046,
-          "upstream_inference_prompt_cost": 0.00002566,
-          "upstream_inference_completions_cost": 0.0000648
+          "upstream_inference_cost": 0.00005876,
+          "upstream_inference_prompt_cost": 0.00003066,
+          "upstream_inference_completions_cost": 0.0000281
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 586,
+          "reasoning_tokens": 241,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -3854,11 +3644,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 68,
-        "crowding": 36.1,
+        "score": 55,
+        "crowding": 33.5,
         "breadth": 0.8,
         "relative_breadth": 0.8,
-        "intraday_breadth": 1,
+        "intraday_breadth": 0.6,
         "quality": "HIGH",
         "n": 5,
         "intraday_n": 5,
@@ -3866,28 +3656,27 @@
         "above50": 0.2,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 2.12,
-          "r5": 5.45,
-          "r20": -1.75,
-          "rel5": 5.28,
-          "rel20": -1.01,
-          "r30m": -0.05,
-          "r2h": 0.22,
-          "rel30m": 0.04,
-          "rel2h": 0.55,
-          "volumeZ": -1.49
+          "r1": 2.11,
+          "r5": 5.43,
+          "r20": -1.77,
+          "rel5": 5.27,
+          "rel20": -1.02,
+          "r30m": 0.05,
+          "r2h": -0.04,
+          "rel30m": 0.06,
+          "rel2h": 0.24,
+          "volumeZ": -1.4
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 12,
+        "score": 9.7,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
           "NO_LEAD",
           "NO_CONFIRM",
-          "INSUFFICIENT_SOURCES",
-          "TOO_CROWDED"
+          "INSUFFICIENT_SOURCES"
         ],
         "empirical": {
           "samples": 0,
@@ -3925,7 +3714,7 @@
         "CMI"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -4009,7 +3798,7 @@
       "invalidation": [],
       "market": {
         "score": 23,
-        "crowding": 3.5,
+        "crowding": 2.6,
         "breadth": 0.333,
         "relative_breadth": 0.333,
         "intraday_breadth": 1,
@@ -4020,21 +3809,21 @@
         "above50": 0,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 1.61,
-          "r5": -1.88,
-          "r20": -15.34,
-          "rel5": -2.05,
-          "rel20": -14.6,
-          "r30m": -0.04,
-          "r2h": 0.1,
-          "rel30m": 0.05,
-          "rel2h": 0.43,
-          "volumeZ": -1.16
+          "r1": 1.65,
+          "r5": -1.84,
+          "r20": -15.31,
+          "rel5": -2,
+          "rel20": -14.56,
+          "r30m": 0.01,
+          "r2h": 0.04,
+          "rel30m": 0.02,
+          "rel2h": 0.32,
+          "volumeZ": -1.14
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 9.3,
+        "score": 9.5,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -4077,7 +3866,7 @@
         "SHA.DE"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -4161,7 +3950,7 @@
       "invalidation": [],
       "market": {
         "score": 23,
-        "crowding": 3.5,
+        "crowding": 2.6,
         "breadth": 0.333,
         "relative_breadth": 0.333,
         "intraday_breadth": 1,
@@ -4172,21 +3961,21 @@
         "above50": 0,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 1.61,
-          "r5": -1.88,
-          "r20": -15.34,
-          "rel5": -2.05,
-          "rel20": -14.6,
-          "r30m": -0.04,
-          "r2h": 0.1,
-          "rel30m": 0.05,
-          "rel2h": 0.43,
-          "volumeZ": -1.16
+          "r1": 1.65,
+          "r5": -1.84,
+          "r20": -15.31,
+          "rel5": -2,
+          "rel20": -14.56,
+          "r30m": 0.01,
+          "r2h": 0.04,
+          "rel30m": 0.02,
+          "rel2h": 0.32,
+          "volumeZ": -1.14
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 9.3,
+        "score": 9.5,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -4229,7 +4018,7 @@
         "SHA.DE"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -4279,408 +4068,15 @@
       "id": "JAPAN_CARRY_UNWIND",
       "label": "Japan carry unwind",
       "tier": "A",
-      "state": "WATCH",
+      "state": "ACTIVE",
       "raw_state": "ACTIVE",
-      "score": 73,
+      "score": 72,
       "previous_state": "WATCH",
-      "score_delta": 34,
-      "summary": "The following atomic claims are directly supported by the provided candidates and relate to the Japan carry‑unwind mechanism (rising JGB yields, yen strength, and potential tightening of global financial conditions).",
+      "score_delta": -1,
+      "summary": "",
       "material_change": true,
-      "observed_evidence": [
-        {
-          "candidate_id": "c286eea7004051a9be00",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "The BoJ hike to 1.25% and the Fed hike to 4.00% leave the JGB‑yen differential unchanged at 262.5 basis points.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaVFQYVJBNXg0cWlOcTRvZnJtbG5TMlN4eE9KWDUzZi1wNDd4R1hxcVJtV19VR3NRWUlxczM3RDBqZFdVUkdMQk1XbTVrVk44UlUybjU1NDNzMEpNdE85eUNUN0pBdDlnNXRmNFVnTU51eVp4WGFHazhOaFFqNE9ySU5naWZINWFKc0w1NjdXVjhWRUZuTlJndDJGTkJXZkgtOWVfVER1eGJ5dw?oc=5",
-          "source_name": "TradingNEWS",
-          "source_domain": "tradingnews.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-02T20:09:03.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.102Z",
-          "valid": true,
-          "evidence_key": "36f3eed5d53022434bfd27d9",
-          "first_seen_at": "2026-09-04T15:18:38.102Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "23b75ebcd0b429177111",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "USD/JPY fell as JGB yields rose, rewriting the yen’s long‑term case.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZU5TUzJyNjBKWFVlcHhXZ1poRno4X0o2X1BUejAyYWVtdWJiZjJPMFNxblNCN3RZRExQcmNKNE5obVkwaVdvVkZtaWxtYXlqXzJUYnNwRmF2QjBld0NPSTZXaWlISWs0ZUVCR0l0SEI4SksyMFloSzl0U3FrRk1IUmtHNUVTeE9wTHlTUnk4TUc2SklwcEJvWERoemRya0p5QXZN?oc=5",
-          "source_name": "Investing.com UK",
-          "source_domain": "uk.investing.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T20:11:00.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.102Z",
-          "valid": true,
-          "evidence_key": "b25df01fc278cea3631d7dda",
-          "first_seen_at": "2026-09-04T15:18:38.102Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "c8d01bd40c8708180905",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "USD/JPY was forecast to reach 155.40 as the BoJ opened the door to a 50‑basis‑point policy rate increase.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWlZweGtrWGhVS2pCal9zRU9rMGpjNkx6blZCdmxic19UMElWcVV4U0F0cEdsa0RQRFEzd0ZEcl9Damt5U3lsNWVubHJLSmtlV3M3NE9rUHhpUlZRZkZSYklYY0I0QjhlMDdkYzBQWUJNVksycWtXQVpGQU9OcFBlSU1GcnRaOHB3dTNiYk16N0ZUWDNDN1hDT0JMaHgtRV95MTJV?oc=5",
-          "source_name": "TradingNEWS",
-          "source_domain": "tradingnews.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T20:09:07.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.102Z",
-          "valid": true,
-          "evidence_key": "483c6a7e433398d956521035",
-          "first_seen_at": "2026-09-04T15:18:38.102Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "77d69c4328ac08d08d0a",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "The yen hit 156.40 as JGB yields topped 3%, putting carry trades at risk.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5RTUFkRVZTcHF6OHNUeFZaN0pmMXNvYTNwZ1RhLTZoTGgxY213RXlUazRNX01jZnFzaExOTzE4QVR2T2FmTDFMUElQdHljMkEyOGNHVFlCM2tsZVJDaTFZQ3FkTXdDTW5CYUlHSjl2WkozZw?oc=5",
-          "source_name": "FinanceFeeds",
-          "source_domain": "financefeeds.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T16:46:33.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.102Z",
-          "valid": true,
-          "evidence_key": "d5d655db698c81d15f1e4ccb",
-          "first_seen_at": "2026-09-04T15:18:38.102Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "5a5a324d90db13126312",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "Japanese government bond yields hit a 30‑year high, raising the risk of unwinding yen carry trades globally.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMWt3WnNaMFZlYUpOWHY2Vi1hWk95aU52Y2xtQzNQNU9LUzlGTG91RG4wcTNCaEVYTEVmSWhfZmU2d2UwRnpKbmhrOF9Pd2p5bU1Xd0dXbmMwY0FUcEJ6QWNqMVgtWS1LRzNUQ3g0M0x5SkVUYXV2cGo4cEItYWVnY2dYVkdWVHU3TXkwUFh3cWM0RUxXVno4b05hUUtRSU9ZUHpyMjhYcw?oc=5",
-          "source_name": "富途牛牛",
-          "source_domain": "news.futunn.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T10:07:47.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.102Z",
-          "valid": true,
-          "evidence_key": "c7426fba1fe77b9dcc0f35ff",
-          "first_seen_at": "2026-09-04T15:18:38.102Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "904f9f20939cf4843f1d",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "USD/JPY dropped 0.58% on September 3, 2026.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQTng3eWNZUXFsdnN2YlllT3RpXzZBZWUzMnljNWlFY0xOdnh4bEJsMlBBUG5nX2FCLURHVjJmeTVudDFBbUt1VXgydkpDR0lVd3N1cWpEUDUtcXNFQzNHQXFWWGlUazZSSXRRZ2Y3NGZQUzBJcFA1cy0yaG5hVjVtSmQ4WHBWLWFBTmJ5b2V3?oc=5",
-          "source_name": "TradingKey",
-          "source_domain": "tradingkey.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T04:00:33.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.102Z",
-          "valid": true,
-          "evidence_key": "8664d78cdca1e2e8d63f9471",
-          "first_seen_at": "2026-09-04T15:18:38.102Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "fbe8f8b4e362b9b2b014",
-          "query_id": "JAPAN_CARRY_UNWIND:lead:boj_signal",
-          "phase": "LEAD",
-          "signal": "BOJ_TIGHTENING",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "The Nikkei fell for a fourth day as a stronger yen and rate uncertainty weighed on markets.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBkZHdobmFnajZvZHNhOXFHTzFMSkNSaG00NW01NU1Ga3JBVEE2N3U5MDQ4TjVNSGtFWkQ2aEdqUm0zLXdfTlZEandPSVV3WXV4b2hyQQ?oc=5",
-          "source_name": "News On Japan",
-          "source_domain": "newsonjapan.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T08:50:36.000Z",
-          "retrieved_at": "2026-09-04T15:18:37.942Z",
-          "valid": true,
-          "evidence_key": "770d489317a18cc7ec51d4dc",
-          "first_seen_at": "2026-09-04T15:18:37.942Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "75de6d528605e906ccf4",
-          "query_id": "JAPAN_CARRY_UNWIND:lead:japan_flows",
-          "phase": "LEAD",
-          "signal": "CAPITAL_REPATRIATION",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Japan’s bond rout is turning the tide of global capital flows.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOT2hWVlhPaC1QWkNhOU1LbHlhUVNtcWNKSUFpUHMxQ1RBbWtvOS1pTzVnVHR0SGhYZldyd2hZeGM0WUpLbU1ac1p6bEZMTERaRzg2XzByaktobHJFd0l2a1FzNnZmYjEwTFVkbzdacU9wclR1NnR1NW1VZWxfT3A3SDdpS0huR244NmtPMEZlVllBRGpEamVMbGxCWktHUWpQaHZRMkQ1Zi1OY3NhVVJsTXM0a2kxS2dhclRSY19fNW9jTnJpdVY0WmJKUlVIQVFZ0gHQAUFVX3lxTE5PaFZWWE9oLVBaQ2E5TUtseWFRU21xY0pJQWlQczFDVEFta285LWlPNWdUdHRIaFhmV3J3aFl4YzRZSkttTVpzWnpsRkxMRFpHODZfMHJqS2hsckV3SXZrUXM2dmZiMTBMVWRvN1pxT3ByVHU2dHU1bVVlbF9PcDdIN2lLSG5Hbjg2a08wRmVWWUFEakRqZUxsbEJaS0dRalBodlEyRDVmLU5jc2FVUmxNczRraTFLZ2FyVFJjX181b2NOcml1VjRaYkpSVUhBUVk?oc=5",
-          "source_name": "The Financial Express",
-          "source_domain": "today.thefinancialexpress.com.bd",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-02T18:00:00.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.022Z",
-          "valid": true,
-          "evidence_key": "dfc93b7d46a003a8141587c5",
-          "first_seen_at": "2026-09-04T15:18:38.022Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
+      "observed_evidence": [],
       "evidence": [
-        {
-          "candidate_id": "c286eea7004051a9be00",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "The BoJ hike to 1.25% and the Fed hike to 4.00% leave the JGB‑yen differential unchanged at 262.5 basis points.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaVFQYVJBNXg0cWlOcTRvZnJtbG5TMlN4eE9KWDUzZi1wNDd4R1hxcVJtV19VR3NRWUlxczM3RDBqZFdVUkdMQk1XbTVrVk44UlUybjU1NDNzMEpNdE85eUNUN0pBdDlnNXRmNFVnTU51eVp4WGFHazhOaFFqNE9ySU5naWZINWFKc0w1NjdXVjhWRUZuTlJndDJGTkJXZkgtOWVfVER1eGJ5dw?oc=5",
-          "source_name": "TradingNEWS",
-          "source_domain": "tradingnews.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-02T20:09:03.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.102Z",
-          "valid": true,
-          "evidence_key": "36f3eed5d53022434bfd27d9",
-          "first_seen_at": "2026-09-04T13:34:05.038Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "23b75ebcd0b429177111",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "USD/JPY fell as JGB yields rose, rewriting the yen’s long‑term case.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZU5TUzJyNjBKWFVlcHhXZ1poRno4X0o2X1BUejAyYWVtdWJiZjJPMFNxblNCN3RZRExQcmNKNE5obVkwaVdvVkZtaWxtYXlqXzJUYnNwRmF2QjBld0NPSTZXaWlISWs0ZUVCR0l0SEI4SksyMFloSzl0U3FrRk1IUmtHNUVTeE9wTHlTUnk4TUc2SklwcEJvWERoemRya0p5QXZN?oc=5",
-          "source_name": "Investing.com UK",
-          "source_domain": "uk.investing.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T20:11:00.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.102Z",
-          "valid": true,
-          "evidence_key": "b25df01fc278cea3631d7dda",
-          "first_seen_at": "2026-09-04T13:34:05.038Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "c8d01bd40c8708180905",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "USD/JPY was forecast to reach 155.40 as the BoJ opened the door to a 50‑basis‑point policy rate increase.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWlZweGtrWGhVS2pCal9zRU9rMGpjNkx6blZCdmxic19UMElWcVV4U0F0cEdsa0RQRFEzd0ZEcl9Damt5U3lsNWVubHJLSmtlV3M3NE9rUHhpUlZRZkZSYklYY0I0QjhlMDdkYzBQWUJNVksycWtXQVpGQU9OcFBlSU1GcnRaOHB3dTNiYk16N0ZUWDNDN1hDT0JMaHgtRV95MTJV?oc=5",
-          "source_name": "TradingNEWS",
-          "source_domain": "tradingnews.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T20:09:07.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.102Z",
-          "valid": true,
-          "evidence_key": "483c6a7e433398d956521035",
-          "first_seen_at": "2026-09-04T15:18:38.102Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "77d69c4328ac08d08d0a",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "The yen hit 156.40 as JGB yields topped 3%, putting carry trades at risk.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5RTUFkRVZTcHF6OHNUeFZaN0pmMXNvYTNwZ1RhLTZoTGgxY213RXlUazRNX01jZnFzaExOTzE4QVR2T2FmTDFMUElQdHljMkEyOGNHVFlCM2tsZVJDaTFZQ3FkTXdDTW5CYUlHSjl2WkozZw?oc=5",
-          "source_name": "FinanceFeeds",
-          "source_domain": "financefeeds.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T16:46:33.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.102Z",
-          "valid": true,
-          "evidence_key": "d5d655db698c81d15f1e4ccb",
-          "first_seen_at": "2026-09-04T13:34:05.038Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "5a5a324d90db13126312",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "Japanese government bond yields hit a 30‑year high, raising the risk of unwinding yen carry trades globally.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMWt3WnNaMFZlYUpOWHY2Vi1hWk95aU52Y2xtQzNQNU9LUzlGTG91RG4wcTNCaEVYTEVmSWhfZmU2d2UwRnpKbmhrOF9Pd2p5bU1Xd0dXbmMwY0FUcEJ6QWNqMVgtWS1LRzNUQ3g0M0x5SkVUYXV2cGo4cEItYWVnY2dYVkdWVHU3TXkwUFh3cWM0RUxXVno4b05hUUtRSU9ZUHpyMjhYcw?oc=5",
-          "source_name": "富途牛牛",
-          "source_domain": "news.futunn.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T10:07:47.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.102Z",
-          "valid": true,
-          "evidence_key": "c7426fba1fe77b9dcc0f35ff",
-          "first_seen_at": "2026-09-04T13:34:05.038Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "904f9f20939cf4843f1d",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "USD/JPY dropped 0.58% on September 3, 2026.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQTng3eWNZUXFsdnN2YlllT3RpXzZBZWUzMnljNWlFY0xOdnh4bEJsMlBBUG5nX2FCLURHVjJmeTVudDFBbUt1VXgydkpDR0lVd3N1cWpEUDUtcXNFQzNHQXFWWGlUazZSSXRRZ2Y3NGZQUzBJcFA1cy0yaG5hVjVtSmQ4WHBWLWFBTmJ5b2V3?oc=5",
-          "source_name": "TradingKey",
-          "source_domain": "tradingkey.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T04:00:33.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.102Z",
-          "valid": true,
-          "evidence_key": "8664d78cdca1e2e8d63f9471",
-          "first_seen_at": "2026-09-04T13:34:05.038Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
         {
           "candidate_id": "fbe8f8b4e362b9b2b014",
           "query_id": "JAPAN_CARRY_UNWIND:lead:boj_signal",
@@ -4705,9 +4101,9 @@
           "evidence_key": "770d489317a18cc7ec51d4dc",
           "first_seen_at": "2026-09-04T14:26:47.955Z",
           "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9927,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 0.76
         },
         {
           "candidate_id": "75de6d528605e906ccf4",
@@ -4733,9 +4129,177 @@
           "evidence_key": "dfc93b7d46a003a8141587c5",
           "first_seen_at": "2026-09-04T13:34:04.746Z",
           "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9927,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 0.76
+        },
+        {
+          "candidate_id": "c286eea7004051a9be00",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "The BoJ hike to 1.25% and the Fed hike to 4.00% leave the JGB‑yen differential unchanged at 262.5 basis points.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaVFQYVJBNXg0cWlOcTRvZnJtbG5TMlN4eE9KWDUzZi1wNDd4R1hxcVJtV19VR3NRWUlxczM3RDBqZFdVUkdMQk1XbTVrVk44UlUybjU1NDNzMEpNdE85eUNUN0pBdDlnNXRmNFVnTU51eVp4WGFHazhOaFFqNE9ySU5naWZINWFKc0w1NjdXVjhWRUZuTlJndDJGTkJXZkgtOWVfVER1eGJ5dw?oc=5",
+          "source_name": "TradingNEWS",
+          "source_domain": "tradingnews.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-02T20:09:03.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "36f3eed5d53022434bfd27d9",
+          "first_seen_at": "2026-09-04T13:34:05.038Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 0.9856,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 0.76
+        },
+        {
+          "candidate_id": "23b75ebcd0b429177111",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "USD/JPY fell as JGB yields rose, rewriting the yen’s long‑term case.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZU5TUzJyNjBKWFVlcHhXZ1poRno4X0o2X1BUejAyYWVtdWJiZjJPMFNxblNCN3RZRExQcmNKNE5obVkwaVdvVkZtaWxtYXlqXzJUYnNwRmF2QjBld0NPSTZXaWlISWs0ZUVCR0l0SEI4SksyMFloSzl0U3FrRk1IUmtHNUVTeE9wTHlTUnk4TUc2SklwcEJvWERoemRya0p5QXZN?oc=5",
+          "source_name": "Investing.com UK",
+          "source_domain": "uk.investing.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T20:11:00.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "b25df01fc278cea3631d7dda",
+          "first_seen_at": "2026-09-04T13:34:05.038Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 0.9856,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 0.76
+        },
+        {
+          "candidate_id": "c8d01bd40c8708180905",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "USD/JPY was forecast to reach 155.40 as the BoJ opened the door to a 50‑basis‑point policy rate increase.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWlZweGtrWGhVS2pCal9zRU9rMGpjNkx6blZCdmxic19UMElWcVV4U0F0cEdsa0RQRFEzd0ZEcl9Damt5U3lsNWVubHJLSmtlV3M3NE9rUHhpUlZRZkZSYklYY0I0QjhlMDdkYzBQWUJNVksycWtXQVpGQU9OcFBlSU1GcnRaOHB3dTNiYk16N0ZUWDNDN1hDT0JMaHgtRV95MTJV?oc=5",
+          "source_name": "TradingNEWS",
+          "source_domain": "tradingnews.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T20:09:07.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "483c6a7e433398d956521035",
+          "first_seen_at": "2026-09-04T15:18:38.102Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 0.9856,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 0.76
+        },
+        {
+          "candidate_id": "77d69c4328ac08d08d0a",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "The yen hit 156.40 as JGB yields topped 3%, putting carry trades at risk.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5RTUFkRVZTcHF6OHNUeFZaN0pmMXNvYTNwZ1RhLTZoTGgxY213RXlUazRNX01jZnFzaExOTzE4QVR2T2FmTDFMUElQdHljMkEyOGNHVFlCM2tsZVJDaTFZQ3FkTXdDTW5CYUlHSjl2WkozZw?oc=5",
+          "source_name": "FinanceFeeds",
+          "source_domain": "financefeeds.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T16:46:33.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "d5d655db698c81d15f1e4ccb",
+          "first_seen_at": "2026-09-04T13:34:05.038Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 0.9856,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 0.76
+        },
+        {
+          "candidate_id": "5a5a324d90db13126312",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "Japanese government bond yields hit a 30‑year high, raising the risk of unwinding yen carry trades globally.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMWt3WnNaMFZlYUpOWHY2Vi1hWk95aU52Y2xtQzNQNU9LUzlGTG91RG4wcTNCaEVYTEVmSWhfZmU2d2UwRnpKbmhrOF9Pd2p5bU1Xd0dXbmMwY0FUcEJ6QWNqMVgtWS1LRzNUQ3g0M0x5SkVUYXV2cGo4cEItYWVnY2dYVkdWVHU3TXkwUFh3cWM0RUxXVno4b05hUUtRSU9ZUHpyMjhYcw?oc=5",
+          "source_name": "富途牛牛",
+          "source_domain": "news.futunn.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T10:07:47.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "c7426fba1fe77b9dcc0f35ff",
+          "first_seen_at": "2026-09-04T13:34:05.038Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 0.9856,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 0.76
+        },
+        {
+          "candidate_id": "904f9f20939cf4843f1d",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "USD/JPY dropped 0.58% on September 3, 2026.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQTng3eWNZUXFsdnN2YlllT3RpXzZBZWUzMnljNWlFY0xOdnh4bEJsMlBBUG5nX2FCLURHVjJmeTVudDFBbUt1VXgydkpDR0lVd3N1cWpEUDUtcXNFQzNHQXFWWGlUazZSSXRRZ2Y3NGZQUzBJcFA1cy0yaG5hVjVtSmQ4WHBWLWFBTmJ5b2V3?oc=5",
+          "source_name": "TradingKey",
+          "source_domain": "tradingkey.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T04:00:33.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "8664d78cdca1e2e8d63f9471",
+          "first_seen_at": "2026-09-04T13:34:05.038Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 0.9856,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 0.76
         }
       ],
       "verified": [],
@@ -4744,197 +4308,26 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [
-        {
-          "id": "20742fce9bc483471dd06e",
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "run_id": "run_2026-09-04T15-17-29Z",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "claim": "USD/JPY fell as JGB yields rose, rewriting the yen’s long‑term case.",
-          "observed_at": "2026-09-03T20:11:00.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
-          "source_count": 1,
-          "domains": [
-            "uk.investing.com"
-          ],
-          "source_urls": [
-            "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZU5TUzJyNjBKWFVlcHhXZ1poRno4X0o2X1BUejAyYWVtdWJiZjJPMFNxblNCN3RZRExQcmNKNE5obVkwaVdvVkZtaWxtYXlqXzJUYnNwRmF2QjBld0NPSTZXaWlISWs0ZUVCR0l0SEI4SksyMFloSzl0U3FrRk1IUmtHNUVTeE9wTHlTUnk4TUc2SklwcEJvWERoemRya0p5QXZN?oc=5"
-          ],
-          "official": false,
-          "representative_source": "Investing.com UK",
-          "representative_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZU5TUzJyNjBKWFVlcHhXZ1poRno4X0o2X1BUejAyYWVtdWJiZjJPMFNxblNCN3RZRExQcmNKNE5obVkwaVdvVkZtaWxtYXlqXzJUYnNwRmF2QjBld0NPSTZXaWlISWs0ZUVCR0l0SEI4SksyMFloSzl0U3FrRk1IUmtHNUVTeE9wTHlTUnk4TUc2SklwcEJvWERoemRya0p5QXZN?oc=5",
-          "source_grade": 0.62
-        },
-        {
-          "id": "46d4cf7e11422de981b79a",
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "run_id": "run_2026-09-04T15-17-29Z",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "claim": "USD/JPY was forecast to reach 155.40 as the BoJ opened the door to a 50‑basis‑point policy rate increase.",
-          "observed_at": "2026-09-03T20:09:07.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
-          "source_count": 1,
-          "domains": [
-            "tradingnews.com"
-          ],
-          "source_urls": [
-            "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWlZweGtrWGhVS2pCal9zRU9rMGpjNkx6blZCdmxic19UMElWcVV4U0F0cEdsa0RQRFEzd0ZEcl9Damt5U3lsNWVubHJLSmtlV3M3NE9rUHhpUlZRZkZSYklYY0I0QjhlMDdkYzBQWUJNVksycWtXQVpGQU9OcFBlSU1GcnRaOHB3dTNiYk16N0ZUWDNDN1hDT0JMaHgtRV95MTJV?oc=5"
-          ],
-          "official": false,
-          "representative_source": "TradingNEWS",
-          "representative_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWlZweGtrWGhVS2pCal9zRU9rMGpjNkx6blZCdmxic19UMElWcVV4U0F0cEdsa0RQRFEzd0ZEcl9Damt5U3lsNWVubHJLSmtlV3M3NE9rUHhpUlZRZkZSYklYY0I0QjhlMDdkYzBQWUJNVksycWtXQVpGQU9OcFBlSU1GcnRaOHB3dTNiYk16N0ZUWDNDN1hDT0JMaHgtRV95MTJV?oc=5",
-          "source_grade": 0.62
-        },
-        {
-          "id": "2eb431649cc04e0e908303",
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "run_id": "run_2026-09-04T15-17-29Z",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "claim": "The yen hit 156.40 as JGB yields topped 3%, putting carry trades at risk.",
-          "observed_at": "2026-09-03T16:46:33.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
-          "source_count": 1,
-          "domains": [
-            "financefeeds.com"
-          ],
-          "source_urls": [
-            "https://news.google.com/rss/articles/CBMickFVX3lxTE5RTUFkRVZTcHF6OHNUeFZaN0pmMXNvYTNwZ1RhLTZoTGgxY213RXlUazRNX01jZnFzaExOTzE4QVR2T2FmTDFMUElQdHljMkEyOGNHVFlCM2tsZVJDaTFZQ3FkTXdDTW5CYUlHSjl2WkozZw?oc=5"
-          ],
-          "official": false,
-          "representative_source": "FinanceFeeds",
-          "representative_url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5RTUFkRVZTcHF6OHNUeFZaN0pmMXNvYTNwZ1RhLTZoTGgxY213RXlUazRNX01jZnFzaExOTzE4QVR2T2FmTDFMUElQdHljMkEyOGNHVFlCM2tsZVJDaTFZQ3FkTXdDTW5CYUlHSjl2WkozZw?oc=5",
-          "source_grade": 0.62
-        },
-        {
-          "id": "1ff3a300e59d43dd4530fd",
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "run_id": "run_2026-09-04T15-17-29Z",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "claim": "Japanese government bond yields hit a 30‑year high, raising the risk of unwinding yen carry trades globally.",
-          "observed_at": "2026-09-03T10:07:47.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
-          "source_count": 1,
-          "domains": [
-            "news.futunn.com"
-          ],
-          "source_urls": [
-            "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMWt3WnNaMFZlYUpOWHY2Vi1hWk95aU52Y2xtQzNQNU9LUzlGTG91RG4wcTNCaEVYTEVmSWhfZmU2d2UwRnpKbmhrOF9Pd2p5bU1Xd0dXbmMwY0FUcEJ6QWNqMVgtWS1LRzNUQ3g0M0x5SkVUYXV2cGo4cEItYWVnY2dYVkdWVHU3TXkwUFh3cWM0RUxXVno4b05hUUtRSU9ZUHpyMjhYcw?oc=5"
-          ],
-          "official": false,
-          "representative_source": "富途牛牛",
-          "representative_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMWt3WnNaMFZlYUpOWHY2Vi1hWk95aU52Y2xtQzNQNU9LUzlGTG91RG4wcTNCaEVYTEVmSWhfZmU2d2UwRnpKbmhrOF9Pd2p5bU1Xd0dXbmMwY0FUcEJ6QWNqMVgtWS1LRzNUQ3g0M0x5SkVUYXV2cGo4cEItYWVnY2dYVkdWVHU3TXkwUFh3cWM0RUxXVno4b05hUUtRSU9ZUHpyMjhYcw?oc=5",
-          "source_grade": 0.62
-        },
-        {
-          "id": "1c82f30719a24eaf57e036",
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "run_id": "run_2026-09-04T15-17-29Z",
-          "phase": "LEAD",
-          "signal": "BOJ_TIGHTENING",
-          "claim": "The Nikkei fell for a fourth day as a stronger yen and rate uncertainty weighed on markets.",
-          "observed_at": "2026-09-03T08:50:36.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
-          "source_count": 1,
-          "domains": [
-            "newsonjapan.com"
-          ],
-          "source_urls": [
-            "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBkZHdobmFnajZvZHNhOXFHTzFMSkNSaG00NW01NU1Ga3JBVEE2N3U5MDQ4TjVNSGtFWkQ2aEdqUm0zLXdfTlZEandPSVV3WXV4b2hyQQ?oc=5"
-          ],
-          "official": false,
-          "representative_source": "News On Japan",
-          "representative_url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBkZHdobmFnajZvZHNhOXFHTzFMSkNSaG00NW01NU1Ga3JBVEE2N3U5MDQ4TjVNSGtFWkQ2aEdqUm0zLXdfTlZEandPSVV3WXV4b2hyQQ?oc=5",
-          "source_grade": 0.62
-        },
-        {
-          "id": "33cbc6faaf812520eeff45",
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "run_id": "run_2026-09-04T15-17-29Z",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "claim": "USD/JPY dropped 0.58% on September 3, 2026.",
-          "observed_at": "2026-09-03T04:00:33.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
-          "source_count": 1,
-          "domains": [
-            "tradingkey.com"
-          ],
-          "source_urls": [
-            "https://news.google.com/rss/articles/CBMijgFBVV95cUxQTng3eWNZUXFsdnN2YlllT3RpXzZBZWUzMnljNWlFY0xOdnh4bEJsMlBBUG5nX2FCLURHVjJmeTVudDFBbUt1VXgydkpDR0lVd3N1cWpEUDUtcXNFQzNHQXFWWGlUazZSSXRRZ2Y3NGZQUzBJcFA1cy0yaG5hVjVtSmQ4WHBWLWFBTmJ5b2V3?oc=5"
-          ],
-          "official": false,
-          "representative_source": "TradingKey",
-          "representative_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQTng3eWNZUXFsdnN2YlllT3RpXzZBZWUzMnljNWlFY0xOdnh4bEJsMlBBUG5nX2FCLURHVjJmeTVudDFBbUt1VXgydkpDR0lVd3N1cWpEUDUtcXNFQzNHQXFWWGlUazZSSXRRZ2Y3NGZQUzBJcFA1cy0yaG5hVjVtSmQ4WHBWLWFBTmJ5b2V3?oc=5",
-          "source_grade": 0.62
-        },
-        {
-          "id": "8726f6cbfa73e410cabe2c",
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "run_id": "run_2026-09-04T15-17-29Z",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "claim": "The BoJ hike to 1.25% and the Fed hike to 4.00% leave the JGB‑yen differential unchanged at 262.5 basis points.",
-          "observed_at": "2026-09-02T20:09:03.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
-          "source_count": 1,
-          "domains": [
-            "tradingnews.com"
-          ],
-          "source_urls": [
-            "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaVFQYVJBNXg0cWlOcTRvZnJtbG5TMlN4eE9KWDUzZi1wNDd4R1hxcVJtV19VR3NRWUlxczM3RDBqZFdVUkdMQk1XbTVrVk44UlUybjU1NDNzMEpNdE85eUNUN0pBdDlnNXRmNFVnTU51eVp4WGFHazhOaFFqNE9ySU5naWZINWFKc0w1NjdXVjhWRUZuTlJndDJGTkJXZkgtOWVfVER1eGJ5dw?oc=5"
-          ],
-          "official": false,
-          "representative_source": "TradingNEWS",
-          "representative_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaVFQYVJBNXg0cWlOcTRvZnJtbG5TMlN4eE9KWDUzZi1wNDd4R1hxcVJtV19VR3NRWUlxczM3RDBqZFdVUkdMQk1XbTVrVk44UlUybjU1NDNzMEpNdE85eUNUN0pBdDlnNXRmNFVnTU51eVp4WGFHazhOaFFqNE9ySU5naWZINWFKc0w1NjdXVjhWRUZuTlJndDJGTkJXZkgtOWVfVER1eGJ5dw?oc=5",
-          "source_grade": 0.62
-        },
-        {
-          "id": "f8feb31569a647b689ee19",
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "run_id": "run_2026-09-04T15-17-29Z",
-          "phase": "LEAD",
-          "signal": "CAPITAL_REPATRIATION",
-          "claim": "Japan’s bond rout is turning the tide of global capital flows.",
-          "observed_at": "2026-09-02T18:00:00.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
-          "source_count": 1,
-          "domains": [
-            "today.thefinancialexpress.com.bd"
-          ],
-          "source_urls": [
-            "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOT2hWVlhPaC1QWkNhOU1LbHlhUVNtcWNKSUFpUHMxQ1RBbWtvOS1pTzVnVHR0SGhYZldyd2hZeGM0WUpLbU1ac1p6bEZMTERaRzg2XzByaktobHJFd0l2a1FzNnZmYjEwTFVkbzdacU9wclR1NnR1NW1VZWxfT3A3SDdpS0huR244NmtPMEZlVllBRGpEamVMbGxCWktHUWpQaHZRMkQ1Zi1OY3NhVVJsTXM0a2kxS2dhclRSY19fNW9jTnJpdVY0WmJKUlVIQVFZ0gHQAUFVX3lxTE5PaFZWWE9oLVBaQ2E5TUtseWFRU21xY0pJQWlQczFDVEFta285LWlPNWdUdHRIaFhmV3J3aFl4YzRZSkttTVpzWnpsRkxMRFpHODZfMHJqS2hsckV3SXZrUXM2dmZiMTBMVWRvN1pxT3ByVHU2dHU1bVVlbF9PcDdIN2lLSG5Hbjg2a08wRmVWWUFEakRqZUxsbEJaS0dRalBodlEyRDVmLU5jc2FVUmxNczRraTFLZ2FyVFJjX181b2NOcml1VjRaYkpSVUhBUVk?oc=5"
-          ],
-          "official": false,
-          "representative_source": "The Financial Express",
-          "representative_url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOT2hWVlhPaC1QWkNhOU1LbHlhUVNtcWNKSUFpUHMxQ1RBbWtvOS1pTzVnVHR0SGhYZldyd2hZeGM0WUpLbU1ac1p6bEZMTERaRzg2XzByaktobHJFd0l2a1FzNnZmYjEwTFVkbzdacU9wclR1NnR1NW1VZWxfT3A3SDdpS0huR244NmtPMEZlVllBRGpEamVMbGxCWktHUWpQaHZRMkQ1Zi1OY3NhVVJsTXM0a2kxS2dhclRSY19fNW9jTnJpdVY0WmJKUlVIQVFZ0gHQAUFVX3lxTE5PaFZWWE9oLVBaQ2E5TUtseWFRU21xY0pJQWlQczFDVEFta285LWlPNWdUdHRIaFhmV3J3aFl4YzRZSkttTVpzWnpsRkxMRFpHODZfMHJqS2hsckV3SXZrUXM2dmZiMTBMVWRvN1pxT3ByVHU2dHU1bVVlbF9PcDdIN2lLSG5Hbjg2a08wRmVWWUFEakRqZUxsbEJaS0dRalBodlEyRDVmLU5jc2FVUmxNczRraTFLZ2FyVFJjX181b2NOcml1VjRaYkpSVUhBUVk?oc=5",
-          "source_grade": 0.62
-        }
-      ],
+      "events": [],
       "event_stats": {
-        "observed_unique": 8,
+        "observed_unique": 0,
         "observed_duplicates": 0,
         "memory_unique": 8,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 8,
-        "carried_items": 0,
-        "avg_carry_weight": 0,
-        "observed_score": 73,
+        "observed_items": 0,
+        "carried_items": 8,
+        "avg_carry_weight": 0.987,
+        "observed_score": 0,
         "raw_combined_score": 73,
-        "decayed_score": 73
+        "decayed_score": 72
       },
-      "expected_next": [
-        "CONFIRM"
-      ],
+      "expected_next": [],
       "invalidation": [],
       "market": {
         "score": 79,
-        "crowding": 33.7,
+        "crowding": 33.4,
         "breadth": 1,
         "relative_breadth": 1,
         "intraday_breadth": 1,
@@ -4945,46 +4338,41 @@
         "above50": 1,
         "benchmark": "EWJ",
         "avg": {
-          "r1": 1.11,
-          "r5": 3.04,
-          "r20": 4.32,
-          "rel5": 2.2,
-          "rel20": 3.84,
+          "r1": 1.09,
+          "r5": 3.02,
+          "r20": 4.3,
+          "rel5": 2.15,
+          "rel20": 3.8,
           "r30m": 0.17,
-          "r2h": 0.51,
-          "rel30m": 0.17,
-          "rel2h": 0.42,
-          "volumeZ": 0.11
+          "r2h": 0.52,
+          "rel30m": 0.15,
+          "rel2h": 0.4,
+          "volumeZ": 0.14
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 63.7,
+        "score": 63.5,
         "reasons": [
-          "STATE_NOT_STABLY_ACTIVE",
           "TOO_CROWDED"
         ],
         "empirical": {
           "samples": 0,
           "hit_rate": null,
           "avg_return": null,
-          "lead_to_confirm": null
+          "lead_to_confirm": 1
         }
       },
       "reliability": {
         "samples": 0,
         "hit_rate": null,
         "avg_return": null,
-        "lead_to_confirm": null
+        "lead_to_confirm": 1
       },
       "hysteresis": {
         "raw_state": "ACTIVE",
-        "pending": {
-          "candidate": "ACTIVE",
-          "streak": 1,
-          "required": 2
-        },
-        "reason": "AWAITING_ACTIVE_CONFIRMATION",
+        "pending": null,
+        "reason": "ACTIVE_CONFIRMED",
         "applied": true
       },
       "sensors": {
@@ -5011,27 +4399,27 @@
       "negative": [
         "TLT"
       ],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 5691,
-        "completion_tokens": 1166,
-        "total_tokens": 6857,
-        "cost": 0.00032231,
+        "prompt_tokens": 5696,
+        "completion_tokens": 608,
+        "total_tokens": 6304,
+        "cost": 0.00055072,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 64,
+          "cached_tokens": 0,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00032231,
-          "upstream_inference_prompt_cost": 0.00017073,
-          "upstream_inference_completions_cost": 0.00015158
+          "upstream_inference_cost": 0.00055072,
+          "upstream_inference_prompt_cost": 0.00039872,
+          "upstream_inference_completions_cost": 0.000152
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 508,
+          "reasoning_tokens": 602,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -5107,7 +4495,7 @@
       "score": 0,
       "previous_state": "UNKNOWN",
       "score_delta": 0,
-      "summary": "No candidate evidence directly supports the Global Refinancing Stress mechanism or its impact on bond‑market volatility, corporate cash flow, or credit quality.",
+      "summary": "No evidence supporting GLOBAL_REFINANCING_STRESS mechanism found in provided candidates.",
       "material_change": false,
       "observed_evidence": [],
       "evidence": [],
@@ -5135,8 +4523,8 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 60,
-        "crowding": 14,
+        "score": 52,
+        "crowding": 12.4,
         "breadth": 1,
         "relative_breadth": 1,
         "intraday_breadth": 1,
@@ -5147,21 +4535,21 @@
         "above50": 1,
         "benchmark": "IWM",
         "avg": {
-          "r1": -0.26,
-          "r5": 0.72,
-          "r20": 0.58,
-          "rel5": 0.58,
-          "rel20": -1.48,
-          "r30m": 0,
-          "r2h": 0.12,
-          "rel30m": -0.02,
-          "rel2h": 0.31,
-          "volumeZ": -1.66
+          "r1": -0.32,
+          "r5": 0.66,
+          "r20": 0.52,
+          "rel5": 0.62,
+          "rel20": -1.45,
+          "r30m": -0.02,
+          "r2h": 0.15,
+          "rel30m": 0.01,
+          "rel2h": 0.08,
+          "volumeZ": -1.57
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 15.1,
+        "score": 13.7,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -5202,13 +4590,13 @@
         "TLT",
         "IWM"
       ],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 605,
-        "completion_tokens": 297,
-        "total_tokens": 902,
-        "cost": 0.0000418,
+        "prompt_tokens": 612,
+        "completion_tokens": 311,
+        "total_tokens": 923,
+        "cost": 0.00007113,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -5217,12 +4605,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.0000418,
-          "upstream_inference_prompt_cost": 0.0000121,
-          "upstream_inference_completions_cost": 0.0000297
+          "upstream_inference_cost": 0.00007113,
+          "upstream_inference_prompt_cost": 0.00002448,
+          "upstream_inference_completions_cost": 0.00004665
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 245,
+          "reasoning_tokens": 273,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -5311,7 +4699,7 @@
         "crowding": 0,
         "breadth": 0,
         "relative_breadth": 0,
-        "intraday_breadth": 0,
+        "intraday_breadth": 0.333,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -5319,16 +4707,16 @@
         "above50": 0,
         "benchmark": "QQQ",
         "avg": {
-          "r1": -0.53,
-          "r5": -8.79,
-          "r20": -5.84,
-          "rel5": -8.96,
-          "rel20": -5.1,
-          "r30m": -0.21,
-          "r2h": -1.55,
-          "rel30m": -0.12,
-          "rel2h": -1.22,
-          "volumeZ": -1.78
+          "r1": -0.33,
+          "r5": -8.61,
+          "r20": -5.65,
+          "rel5": -8.77,
+          "rel20": -4.9,
+          "r30m": -0.02,
+          "r2h": -0.54,
+          "rel30m": -0.01,
+          "rel2h": -0.26,
+          "volumeZ": -1.67
         }
       },
       "alpha": {
@@ -5376,7 +4764,7 @@
         "TENB"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -5463,7 +4851,7 @@
         "crowding": 0,
         "breadth": 0.333,
         "relative_breadth": 0.333,
-        "intraday_breadth": 0,
+        "intraday_breadth": 0.333,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -5471,16 +4859,16 @@
         "above50": 0.333,
         "benchmark": "URA",
         "avg": {
-          "r1": 0.1,
-          "r5": -0.05,
-          "r20": -4.93,
-          "rel5": -0.83,
-          "rel20": -7.19,
-          "r30m": -0.09,
-          "r2h": -0.77,
-          "rel30m": 0.07,
-          "rel2h": -1.17,
-          "volumeZ": -1.58
+          "r1": 0.01,
+          "r5": -0.14,
+          "r20": -5.04,
+          "rel5": -0.86,
+          "rel20": -7.24,
+          "r30m": 0.01,
+          "r2h": -0.39,
+          "rel30m": 0.12,
+          "rel2h": -0.54,
+          "volumeZ": -1.01
         }
       },
       "alpha": {
@@ -5528,7 +4916,7 @@
         "BWXT"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -5583,7 +4971,7 @@
       "score": 12,
       "previous_state": "DORMANT",
       "score_delta": 0,
-      "summary": "Army considers SMRs for deployable autonomous power.",
+      "summary": "The U.S. Army has identified a shortlist of small modular reactors (SMRs) as part of its energy strategy.",
       "material_change": false,
       "observed_evidence": [
         {
@@ -5593,11 +4981,11 @@
           "signal": "MICROREACTOR_MILESTONE",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "The U.S. Army has shortlisted small modular reactors (SMRs) for potential deployment at military bases.",
+          "claim": "The U.S. Army has a shortlist of small modular reactors (SMRs).",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Article discusses Army’s SMR shortlist, indicating interest in deployable autonomous power.",
+          "why_upstream": "",
           "source_url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE11YmN5S2h5OU15RTZ4bzN6bm5IY3N4UzU1NTFJa1k2QS0wQ1lxRExOMVpZdHdnNXY4akVNVlROcGwxWkVtWFRUMS13NVpQaHJjQmJPM2VLUmRWMjMyWGdseDUtYW1lWFJlaHc?oc=5",
           "source_name": "Robert Bryce | Substack",
           "source_domain": "robertbryce.substack.com",
@@ -5605,11 +4993,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-02T16:50:15.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.743Z",
+          "retrieved_at": "2026-09-04T16:04:49.616Z",
           "valid": true,
           "evidence_key": "633d47fd48cc4d22179ce85a",
-          "first_seen_at": "2026-09-04T15:18:38.743Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "first_seen_at": "2026-09-04T16:04:49.616Z",
+          "last_seen_at": "2026-09-04T16:05:30.900Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -5623,11 +5011,11 @@
           "signal": "MICROREACTOR_MILESTONE",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "The U.S. Army has shortlisted small modular reactors (SMRs) for potential deployment at military bases.",
+          "claim": "The U.S. Army has a shortlist of small modular reactors (SMRs).",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Article discusses Army’s SMR shortlist, indicating interest in deployable autonomous power.",
+          "why_upstream": "",
           "source_url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE11YmN5S2h5OU15RTZ4bzN6bm5IY3N4UzU1NTFJa1k2QS0wQ1lxRExOMVpZdHdnNXY4akVNVlROcGwxWkVtWFRUMS13NVpQaHJjQmJPM2VLUmRWMjMyWGdseDUtYW1lWFJlaHc?oc=5",
           "source_name": "Robert Bryce | Substack",
           "source_domain": "robertbryce.substack.com",
@@ -5635,11 +5023,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-02T16:50:15.000Z",
-          "retrieved_at": "2026-09-04T15:18:38.743Z",
+          "retrieved_at": "2026-09-04T16:04:49.616Z",
           "valid": true,
           "evidence_key": "633d47fd48cc4d22179ce85a",
           "first_seen_at": "2026-09-04T14:26:49.697Z",
-          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "last_seen_at": "2026-09-04T16:05:30.900Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -5653,14 +5041,14 @@
       },
       "events": [
         {
-          "id": "b839b62b5d9b6a3d244f09",
+          "id": "b4d270159242ceece36a54",
           "mechanism_id": "MILITARY_ENERGY_AUTONOMY",
-          "run_id": "run_2026-09-04T15-17-29Z",
+          "run_id": "run_2026-09-04T16-03-33Z",
           "phase": "LEAD",
           "signal": "MICROREACTOR_MILESTONE",
-          "claim": "The U.S. Army has shortlisted small modular reactors (SMRs) for potential deployment at military bases.",
+          "claim": "The U.S. Army has a shortlist of small modular reactors (SMRs).",
           "observed_at": "2026-09-02T16:50:15.000Z",
-          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "ingested_at": "2026-09-04T16:05:30.900Z",
           "source_count": 1,
           "domains": [
             "robertbryce.substack.com"
@@ -5692,10 +5080,10 @@
       "invalidation": [],
       "market": {
         "score": 45,
-        "crowding": 58.2,
+        "crowding": 56.4,
         "breadth": 0.75,
         "relative_breadth": 1,
-        "intraday_breadth": 0.25,
+        "intraday_breadth": 0.5,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -5703,21 +5091,21 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": 0.52,
-          "r5": 2.96,
-          "r20": -5.19,
-          "rel5": 6.46,
-          "rel20": 5.21,
-          "r30m": -0.01,
-          "r2h": -0.25,
-          "rel30m": 0,
-          "rel2h": -0.2,
-          "volumeZ": -1.77
+          "r1": 0.5,
+          "r5": 2.92,
+          "r20": -5.22,
+          "rel5": 6.23,
+          "rel20": 5.01,
+          "r30m": 0.03,
+          "r2h": -0.17,
+          "rel30m": 0.08,
+          "rel2h": -0.06,
+          "volumeZ": -1.33
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 13.6,
+        "score": 14,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -5761,27 +5149,27 @@
         "VRT"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 951,
-        "completion_tokens": 638,
-        "total_tokens": 1589,
-        "cost": 0.00008282,
+        "prompt_tokens": 703,
+        "completion_tokens": 593,
+        "total_tokens": 1296,
+        "cost": 0.0001094,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 0,
+          "cached_tokens": 64,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00008282,
-          "upstream_inference_prompt_cost": 0.00001902,
-          "upstream_inference_completions_cost": 0.0000638
+          "upstream_inference_cost": 0.0001094,
+          "upstream_inference_prompt_cost": 0.00002045,
+          "upstream_inference_completions_cost": 0.00008895
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 523,
+          "reasoning_tokens": 504,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -5867,9 +5255,9 @@
       "invalidation": [],
       "market": {
         "score": 10,
-        "crowding": 0,
+        "crowding": 1.1,
         "breadth": 0,
-        "relative_breadth": 0.375,
+        "relative_breadth": 0.25,
         "intraday_breadth": 0.625,
         "quality": "HIGH",
         "n": 8,
@@ -5878,21 +5266,21 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": -1.31,
-          "r5": -5.06,
-          "r20": -11.49,
-          "rel5": -1.56,
-          "rel20": -1.09,
-          "r30m": -0.1,
-          "r2h": -0.06,
-          "rel30m": -0.09,
-          "rel2h": -0.01,
-          "volumeZ": -1.13
+          "r1": -1.21,
+          "r5": -4.97,
+          "r20": -11.41,
+          "rel5": -1.66,
+          "rel20": -1.18,
+          "r30m": 0.02,
+          "r2h": 0.01,
+          "rel30m": 0.07,
+          "rel2h": 0.13,
+          "volumeZ": -0.7
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 7.2,
+        "score": 7,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -5940,7 +5328,7 @@
         "FCT.MI"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -6024,7 +5412,7 @@
       "invalidation": [],
       "market": {
         "score": 8,
-        "crowding": 0,
+        "crowding": 2,
         "breadth": 0.6,
         "relative_breadth": 0.2,
         "intraday_breadth": 0.4,
@@ -6035,21 +5423,21 @@
         "above50": 0.6,
         "benchmark": "XLE",
         "avg": {
-          "r1": -0.62,
-          "r5": 0.51,
-          "r20": 3.74,
-          "rel5": -1.76,
-          "rel20": -7.75,
-          "r30m": -0.15,
-          "r2h": -0.25,
-          "rel30m": -0.14,
-          "rel2h": -0.88,
-          "volumeZ": -1.3
+          "r1": -0.29,
+          "r5": 0.83,
+          "r20": 4.11,
+          "rel5": -1.58,
+          "rel20": -7.52,
+          "r30m": 0.15,
+          "r2h": 0.53,
+          "rel30m": 0.16,
+          "rel2h": 0.25,
+          "volumeZ": -1.19
         }
       },
       "alpha": {
         "eligible": false,
-        "score": 6.8,
+        "score": 6.3,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
@@ -6094,7 +5482,7 @@
         "ACDC"
       ],
       "negative": [],
-      "last_run": "2026-09-04T15:20:09.766Z",
+      "last_run": "2026-09-04T16:05:30.900Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
