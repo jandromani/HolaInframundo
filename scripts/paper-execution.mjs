@@ -68,7 +68,17 @@ positions=positions.map(p=>{
 });
 
 const initial=Number(policy.capital.initial_budget_usd||500),nav=cash+marketValue;
-const next={...portfolio,version:'3.0.0',mode:'SHADOW_ONLY',generated_at:now,initial_budget_usd:initial,cash_usd:+cash.toFixed(2),market_value_usd:+marketValue.toFixed(2),nav_usd:+nav.toFixed(2),realized_pnl_usd:+realized.toFixed(2),unrealized_pnl_usd:+unrealized.toFixed(2),positions,protected_external_positions:policy.protected_symbols||[],stats:{open_positions:positions.length,available_slots:Math.max(0,Number(policy.capital.max_open_positions||6)-positions.length,total_return_pct:+(((nav/initial)-1)*100).toFixed(2)}};
+const next={
+  ...portfolio,version:'3.0.0',mode:'SHADOW_ONLY',generated_at:now,initial_budget_usd:initial,
+  cash_usd:+cash.toFixed(2),market_value_usd:+marketValue.toFixed(2),nav_usd:+nav.toFixed(2),
+  realized_pnl_usd:+realized.toFixed(2),unrealized_pnl_usd:+unrealized.toFixed(2),positions,
+  protected_external_positions:policy.protected_symbols||[],
+  stats:{
+    open_positions:positions.length,
+    available_slots:Math.max(0,Number(policy.capital.max_open_positions||6)-positions.length),
+    total_return_pct:+(((nav/initial)-1)*100).toFixed(2)
+  }
+};
 
 journal.trades=[...(journal.trades||[]),...trades].slice(-2000);journal.generated_at=now;journal.stats={entries:journal.trades.filter(t=>['BUY','BUY_TOPUP'].includes(t.side)).length,exits:journal.trades.filter(t=>t.side==='SELL').length,wins:journal.trades.filter(t=>t.side==='SELL'&&Number(t.realized_pnl_usd)>0).length,losses:journal.trades.filter(t=>t.side==='SELL'&&Number(t.realized_pnl_usd)<0).length,realized_pnl_usd:+journal.trades.filter(t=>t.side==='SELL').reduce((a,t)=>a+Number(t.realized_pnl_usd||0),0).toFixed(2)};
 
