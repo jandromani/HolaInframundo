@@ -26,7 +26,6 @@ jobs:
       OPENROUTER_VERIFIER_MODEL: ${{ vars.OPENROUTER_VERIFIER_MODEL || 'openai/gpt-oss-120b' }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_INVESTMENT_MODEL: ${{ vars.OPENAI_INVESTMENT_MODEL || 'gpt-5-nano' }}
-      SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT || 'GearWatch/2.7 public research bot (github.com/jandromani)' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -41,9 +40,9 @@ jobs:
         run: npm run quota
       - name: Collect daily and intraday market telemetry
         run: npm run market
-      - name: Verify public Trading 212 catalogue without credentials
+      - name: Load curated Trading 212 investable universe
         run: npm run broker
-      - name: Refresh cached standardized company fundamentals
+      - name: Refresh cached company fundamentals for financial pass
         run: npm run fundamentals
       - name: Free deterministic news retrieval for all mechanisms
         run: npm run retrieve
@@ -59,9 +58,9 @@ jobs:
         run: npm run assemble
       - name: Update empirical correlation memory
         run: npm run correlate
-      - name: Compute Company Transmission Engine
+      - name: Compute Company Transmission 2-pass
         run: npm run transmission
-      - name: Build Trading 212 filtered Top 5 and model pie
+      - name: Build curated T212 Top 5 and model pie
         run: npm run investment
       - name: Persist Living Bible and all traces
         shell: bash
