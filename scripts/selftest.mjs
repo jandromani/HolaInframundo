@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {clusterEvidence,causalScore,hysteresisState,marketConfirmation,alphaClick} from './score.v2.mjs';
 import {parseModelJson,normalizeParsed,mapConcurrent} from './extract-core.mjs';
 import {mergeEvidenceMemory,crediblePublishedAt} from './evidence-memory.mjs';
+import {deriveFinancialScores,scoreTransmission} from './transmission-core.mjs';
 
 const policy={
   event_clustering:{claim_jaccard_threshold:.5,max_time_gap_hours:72,min_token_length:4},
@@ -48,4 +49,9 @@ const carried=mergeEvidenceMemory([],seeded,policy,t1);assert.equal(carried.leng
 const expired=mergeEvidenceMemory([],seeded,policy,'2026-09-12T00:00:01Z');assert.equal(expired.length,0,'evidence must expire after deterministic phase TTL');
 const fakeDate={engine:'openrouter_web_fallback',published_at:t0,retrieved_at:t0};assert.equal(crediblePublishedAt(fakeDate),null,'retrieval time must never masquerade as publication time');assert.equal(crediblePublishedAt({...fakeDate,engine:'google_news',published_at:tOld}),tOld);
 
-console.log('GearWatch V2.5 selftest OK: causal gates + extractor + persistent evidence memory');
+const fundamental={quality:'LIVE_SEC',financials:{revenue:1_000_000_000,revenue_prev:900_000_000,operating_income:150_000_000,operating_income_prev:100_000_000,cfo:180_000_000,capex:60_000_000,assets:1_500_000_000,liabilities:600_000_000,cash:200_000_000,debt:250_000_000,shares:50_000_000}};
+const fin=deriveFinancialScores(fundamental,20,'CYCLICAL_MARGIN');assert.ok(fin.coverage>=.9);assert.ok(fin.cash_conversion>50);assert.ok(fin.balance>40);assert.ok(fin.metrics.market_cap===1_000_000_000);
+const txModel={mode:'CYCLICAL_MARGIN',shock:'scarcity',earnings_channel:'margin expansion',bridge:['scarcity','margin','FCF'],diluters:['hedges'],defaults:{bottleneck:90,margin_capture:92,duration:70,capex_optionality:60}};
+const txDirect=scoreTransmission({fit:95,exposure:'DIRECT',model:txModel,fundamental,price:20});const txProxy=scoreTransmission({fit:60,exposure:'SECOND_ORDER',model:txModel,fundamental:{quality:'STRUCTURAL_ONLY',coverage:0},price:20});assert.ok(txDirect.score>txProxy.score,'direct, high-fit transmission must outrank a weak proxy');assert.ok(txDirect.confidence>txProxy.confidence);assert.ok(txDirect.components.exposure>txProxy.components.exposure);assert.equal(txDirect.path.earnings_channel,'margin expansion');
+
+console.log('GearWatch V2.7 selftest OK: causal gates + extractor + living memory + company transmission');
