@@ -20,10 +20,23 @@ jobs:
       - name: Syntax check JavaScript
         run: |
           set -e
-          for f in scripts/*.mjs; do
+          for f in scripts/*.mjs lib/*.mjs api/*.mjs; do
+            [ -e "$f" ] || continue
             echo "Checking $f"
             node --check "$f"
           done
+      - name: Trading 212 fail-closed contract
+        run: |
+          node - <<'NODE'
+          import { trading212Config, placeOrder } from './lib/trading212.mjs';
+          const cfg=trading212Config();
+          if(cfg.configured) throw new Error('CI must not contain Trading 212 credentials');
+          let failed=false;
+          try { await placeOrder({type:'MARKET',ticker:'AAPL_US_EQ',quantity:1},{confirmation:'EXECUTE_LIVE'}); }
+          catch { failed=true; }
+          if(!failed) throw new Error('Trading 212 client must fail closed without credentials');
+          console.log('Trading 212 client fails closed and no credential is committed');
+          NODE
       - name: Parse JSON configuration and state seeds
         run: |
           node - <<'NODE'
