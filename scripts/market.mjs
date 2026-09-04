@@ -1,11 +1,13 @@
 import fs from 'node:fs/promises';
 
 const cfg=JSON.parse(await fs.readFile('config/mechanisms.json','utf8'));
+const seeds=JSON.parse(await fs.readFile('config/investment-seeds.json','utf8').catch(()=>'{"mechanisms":{}}'));
 const policy=JSON.parse(await fs.readFile('config/policy.v2.json','utf8'));
-const tickers=[...new Set(cfg.mechanisms.flatMap(m=>[...(m.positive||[]),...(m.negative||[])]))];
+const strategyTickers=Object.values(seeds.mechanisms||{}).flat().map(x=>x[0]);
+const tickers=[...new Set([...cfg.mechanisms.flatMap(m=>[...(m.positive||[]),...(m.negative||[])]),...strategyTickers])];
 const contextTickers=['^GSPC','^IXIC','^STOXX50E','BZ=F','CL=F','DX-Y.NYB','JPY=X','^TNX','XLE','ITA','QQQ','EWJ','XME','IWM','URA'];
 const runId=process.env.GEARWATCH_RUN_ID||`run_${new Date().toISOString().replace(/[:.]/g,'-')}`;
-const out={version:'2.3.0',run_id:runId,generated_at:new Date().toISOString(),provider:'Yahoo chart endpoint (best-effort, unauthenticated)',intraday:{interval:policy.market?.intraday_interval||'15m',range:policy.market?.intraday_range||'5d'},metrics:{},context:{},errors:[]};
+const out={version:'2.6.0',run_id:runId,generated_at:new Date().toISOString(),provider:'Yahoo chart endpoint (best-effort, unauthenticated)',intraday:{interval:policy.market?.intraday_interval||'15m',range:policy.market?.intraday_range||'5d'},metrics:{},context:{},errors:[]};
 
 const mean=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:0;
 const sd=a=>{if(a.length<2)return 0;const m=mean(a);return Math.sqrt(mean(a.map(x=>(x-m)**2)))};
@@ -15,7 +17,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 
 async function chart(ticker,range,interval,includePrePost=false){
   const url=`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}?range=${range}&interval=${interval}&includePrePost=${includePrePost?'true':'false'}&events=div%2Csplits`;
-  const r=await fetch(url,{headers:{'user-agent':'Mozilla/5.0 GearWatch/2.3'},signal:AbortSignal.timeout(15000)});if(!r.ok)throw new Error(`HTTP ${r.status}`);
+  const r=await fetch(url,{headers:{'user-agent':'Mozilla/5.0 GearWatch/2.6'},signal:AbortSignal.timeout(15000)});if(!r.ok)throw new Error(`HTTP ${r.status}`);
   const j=await r.json(),x=j?.chart?.result?.[0];if(!x)throw new Error('No chart result');return x;
 }
 function dailyMetric(x,ticker){
