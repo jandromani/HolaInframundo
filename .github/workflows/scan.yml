@@ -24,6 +24,10 @@ jobs:
       OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
       OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-oss-20b' }}
       OPENROUTER_VERIFIER_MODEL: ${{ vars.OPENROUTER_VERIFIER_MODEL || 'openai/gpt-oss-120b' }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_INVESTMENT_MODEL: ${{ vars.OPENAI_INVESTMENT_MODEL || 'gpt-5-nano' }}
+      TRADING212_API_KEY: ${{ secrets.TRADING212_API_KEY }}
+      TRADING212_API_SECRET: ${{ secrets.TRADING212_API_SECRET }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -38,7 +42,9 @@ jobs:
         run: npm run quota
       - name: Collect daily and intraday market telemetry
         run: npm run market
-      - name: Free deterministic news retrieval
+      - name: Verify Trading 212 investability
+        run: npm run broker
+      - name: Free deterministic news retrieval for all mechanisms
         run: npm run retrieve
       - name: Official upstream sources
         run: npm run upstream
@@ -52,6 +58,8 @@ jobs:
         run: npm run assemble
       - name: Update empirical correlation memory
         run: npm run correlate
+      - name: Build investable Top 5 and model pie per mechanism
+        run: npm run investment
       - name: Persist Living Bible and all traces
         shell: bash
         run: |
