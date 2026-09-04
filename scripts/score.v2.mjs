@@ -74,7 +74,7 @@ export function marketConfirmation(input=[]){
 }
 
 export function crowdIntelligence({causal={},market={},previous=null,policy={}}={}){
-  const c=policy.crowd||{},rb=frac(market.relative_breadth),ib=frac(market.intraday_breadth),breadth=frac(market.breadth),a20=frac(market.above20),a50=frac(market.above50),lag=frac(causal.lag_share),crowding=clamp(Number(market.crowding)||0),qualityFactor=market.quality==='HIGH'?1:market.quality==='MEDIUM'?.85:market.quality==='LOW'?.65:0;
+  const c=policy.crowd||{},rb=frac(market.relative_breadth),ib=frac(market.intraday_breadth),breadth=frac(market.breadth),a20=frac(market.above20),a50=frac(market.above50),lag=frac(causal.lag_share),crowding=clamp(Number(market.crowding)||0),qualityFactor=market.quality==='HIGH'?1:market.quality==='MEDIUM' ? .85 : market.quality==='LOW' ? .65 : 0;
   const consensusBase=100*(.30*rb+.25*ib+.15*breadth+.15*a20+.15*a50),consensus=clamp(consensusBase*(.65+.35*qualityFactor)),previousConsensus=Number(previous?.consensus),consensusDelta=Number.isFinite(previousConsensus)?consensus-previousConsensus:0;
   const pricedIn=clamp(.68*crowding+.18*consensus+.14*lag*100),rel5=Number(market.avg?.rel5||0),rel2h=Number(market.avg?.rel2h||0),divergence=Number(causal.score||0)>=(c.divergence_min_causal||65)&&Number(causal.counts?.CONFIRM||0)>=1&&rel5<=(c.divergence_rel5??-.75)&&rel2h<=(c.divergence_rel2h??-.5);
   let phase='DISCOVERY';
