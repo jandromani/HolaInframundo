@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
-import {isProtectedSymbol,marketRegime,strategyUniverse,sizeOrder,evaluateExit,canOpenNewPosition,riskGroupFor} from '../lib/execution-core.mjs';
+import {isProtectedSymbol,marketRegime,strategyUniverse,sizeOrder,evaluateExit,canOpenNewPosition,riskGroupFor,candidateMomentumEligible} from '../lib/execution-core.mjs';
 
 const policy=JSON.parse(await fs.readFile('config/execution-policy.json','utf8'));
 assert.equal(policy.mode,'SHADOW_ONLY');assert.equal(policy.capital.initial_budget_usd,500);assert.equal(policy.capital.max_order_usd,80);assert.equal(policy.capital.max_open_positions,6);
@@ -13,9 +13,15 @@ const bad={above20:false,above50:false,above200:false,intraday:{ret2h:-1}},off=m
 const strategies=Object.fromEntries(Array.from({length:10},(_,i)=>[`M${i}`,{id:`M${i}`,action:i<5?'SCOUT_WINDOW':'RESEARCH_ONLY',opportunity_score:100-i,wave_phase:'EARLY_WAVE',crowd:{block_chase:false},top5:[]} ]));
 const top=strategyUniverse(strategies,risk,policy);assert.equal(top.length,2,'top 20% of ten strategies should be two');assert.deepEqual(top.map(x=>x.id),['M0','M1']);
 
-const candidate={symbol:'ABC',broker_available:true,market:{price:20,score:70},transmission:{confidence:90}},scout={id:'AI_TIME_TO_POWER',action:'SCOUT_WINDOW',priced_in:20};
+const candidate={symbol:'ABC',broker_available:true,market:{price:20,score:70,rel5:2,rel2h:.5,above20:true},transmission:{confidence:90}},scout={id:'AI_TIME_TO_POWER',action:'SCOUT_WINDOW',priced_in:20};
+assert.equal(candidateMomentumEligible(scout,candidate,policy).ok,true);
+assert.equal(candidateMomentumEligible({...scout,action:'DEPLOY_WINDOW'},candidate,policy).ok,true);
+const laggard={...candidate,market:{...candidate.market,score:75,rel5:-2,rel2h:-.5,above20:false}};
+assert.equal(candidateMomentumEligible(scout,laggard,policy).ok,false,'Scout cannot buy a company with no early relative strength');
+assert.equal(candidateMomentumEligible({...scout,action:'DEPLOY_WINDOW'},laggard,policy).ok,false,'Deploy requires bullish individual confirmation');
 const scoutSize=sizeOrder({strategy:scout,candidate,positions:[],cashUsd:500,regime:risk,policy});assert.equal(scoutSize.usd,40);assert.equal(scoutSize.group,'AI_POWER');
 const deploySize=sizeOrder({strategy:{...scout,action:'DEPLOY_WINDOW'},candidate,positions:[],cashUsd:500,regime:risk,policy});assert.equal(deploySize.usd,80);
+const weakSize=sizeOrder({strategy:scout,candidate:laggard,positions:[],cashUsd:500,regime:risk,policy});assert.equal(weakSize.usd,0);
 const protectedSize=sizeOrder({strategy:scout,candidate:{...candidate,symbol:'SGMOQ'},positions:[],cashUsd:500,regime:risk,policy});assert.equal(protectedSize.usd,0);assert.equal(protectedSize.reason,'PROTECTED_SYMBOL');
 const groupLimited=sizeOrder({strategy:scout,candidate,positions:[{symbol:'X',risk_group:'AI_POWER',market_value_usd:155}],cashUsd:500,regime:risk,policy});assert.equal(groupLimited.usd,0,'less than $10 risk-group room should block a new order');
 
@@ -25,4 +31,4 @@ const locked=evaluateExit({position:{...p,symbol:'SGMOQ'},strategy:{action:'INVA
 assert.equal(canOpenNewPosition(Array.from({length:5},(_,i)=>({symbol:`X${i}`})),policy),true);assert.equal(canOpenNewPosition(Array.from({length:6},(_,i)=>({symbol:`X${i}`})),policy),false);
 assert.equal(riskGroupFor('ROCKET_MOTOR_SHORTAGE',policy),'DEFENSE_INDUSTRIAL');
 
-console.log('GearWatch V3 execution selftest OK: $500 sleeve + $80 cap + top quintile + regime gate + SGMOQ hard isolation');
+console.log('GearWatch V3 execution selftest OK: $500 sleeve + $80 cap + top quintile + market regime + company momentum + SGMOQ hard isolation');
