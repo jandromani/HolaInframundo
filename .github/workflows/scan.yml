@@ -1,4 +1,4 @@
-name: GearWatch V2 Causal Scan
+name: GearWatch V3 Causal Portfolio Scan
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: gearwatch-v2-scan
+  group: gearwatch-v3-scan
   cancel-in-progress: false
 
 jobs:
@@ -26,6 +26,11 @@ jobs:
       OPENROUTER_VERIFIER_MODEL: ${{ vars.OPENROUTER_VERIFIER_MODEL || 'openai/gpt-oss-120b' }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_INVESTMENT_MODEL: ${{ vars.OPENAI_INVESTMENT_MODEL || 'gpt-5-nano' }}
+      TRADING212_API_KEY: ${{ secrets.TRADING212_API_KEY }}
+      TRADING212_API_SECRET: ${{ secrets.TRADING212_API_SECRET }}
+      TRADING212_ENV: ${{ vars.TRADING212_ENV || 'live' }}
+      T212_LIVE_TRADING_ENABLED: 'false'
+      GEARWATCH_EXECUTION_MODE: 'SHADOW_ONLY'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -40,7 +45,7 @@ jobs:
         run: npm run quota
       - name: Collect daily and intraday market telemetry
         run: npm run market
-      - name: Load curated Trading 212 investable universe
+      - name: Validate investable universe against Trading 212 catalogue
         run: npm run broker
       - name: Refresh cached company fundamentals for financial pass
         run: npm run fundamentals
@@ -60,9 +65,13 @@ jobs:
         run: npm run correlate
       - name: Compute Company Transmission 2-pass
         run: npm run transmission
-      - name: Build curated T212 Top 5 and model pie
+      - name: Build Trading 212 Top 5 and model pie
         run: npm run investment
-      - name: Persist Living Bible and all traces
+      - name: Build deterministic $500 shadow portfolio plan
+        run: npm run portfolio
+      - name: Apply paper fills and rotation journal
+        run: npm run paper
+      - name: Persist Living Bible, portfolio ledger and all traces
         shell: bash
         run: |
           git config user.name 'gearwatch-bot'
@@ -71,6 +80,6 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No state changes'
           else
-            git commit -m "data(v2): causal scan ${GEARWATCH_RUN_ID}"
+            git commit -m "data(v3): causal portfolio scan ${GEARWATCH_RUN_ID}"
             git push
           fi
