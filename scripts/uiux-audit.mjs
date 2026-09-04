@@ -23,7 +23,7 @@ gate('Mobile collapse',html.includes('@media(max-width:900px)')&&html.includes('
 gate('No forced broker proof UX',!html.includes('API instrumentos')&&!html.includes('brokerNotice'),'The dashboard must not ask the user for broker credentials or public-link verification');
 gate('Dense data below fold',html.includes('WHY EACH COMPANY')&&html.includes('componentBars(t)'),'Detailed factors should live inside the dossier rather than the forest cards');
 
-gate('Portfolio mode obvious',portfolio.includes('SHADOW SLEEVE')&&portfolio.includes('LIVE EXECUTION = OFF'),'Portfolio surface must never look like a live trading terminal');
+gate('Portfolio mode obvious',portfolio.includes('SHADOW <span>SLEEVE</span>')&&portfolio.includes('LIVE EXECUTION = OFF'),'Portfolio surface must never look like a live trading terminal');
 gate('Budget visible',portfolio.includes('$500 BUDGET')&&portfolio.includes('$80 MAX')&&portfolio.includes('6 SLOTS'),'Capital constraints must be visible above the fold');
 gate('Protected position visible',portfolio.includes('SGMOQ 🔒')&&portfolio.includes('SGMOQ · LOCKED OUT'),'SGMOQ isolation must be visually unmistakable');
 gate('No-trade is first class',portfolio.includes('Nada. Eso también es una decisión.')&&portfolio.includes('NO SETUP = NO TRADE'),'Empty execution plan must be presented as an intentional decision');
