@@ -1,4 +1,4 @@
-name: GearWatch V2 CI
+name: GearWatch V3 CI
 
 on:
   push:
@@ -25,28 +25,30 @@ jobs:
             echo "Checking $f"
             node --check "$f"
           done
-      - name: Trading 212 fail-closed contract
+      - name: Trading 212 and SGMOQ fail-closed contract
         run: |
           node - <<'NODE'
           import { trading212Config, placeOrder } from './lib/trading212.mjs';
           const cfg=trading212Config();
           if(cfg.configured) throw new Error('CI must not contain Trading 212 credentials');
+          if(!cfg.protectedSymbols.includes('SGMOQ')) throw new Error('SGMOQ must be hard-protected in broker client');
           let failed=false;
           try { await placeOrder({type:'MARKET',ticker:'AAPL_US_EQ',quantity:1},{confirmation:'EXECUTE_LIVE'}); }
           catch { failed=true; }
           if(!failed) throw new Error('Trading 212 client must fail closed without credentials');
-          console.log('Trading 212 client fails closed and no credential is committed');
+          console.log('Trading 212 client fails closed, SGMOQ is isolated, and no credential is committed');
           NODE
       - name: Parse JSON configuration and state seeds
         run: |
           node - <<'NODE'
           const fs=require('fs');
-          const files=['config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json','config/sources.v2.json','config/contracts.v2.json','config/investment-seeds.json','config/transmission-models.json','data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json'];
+          const files=['config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json','config/sources.v2.json','config/contracts.v2.json','config/investment-seeds.json','config/transmission-models.json','config/execution-policy.json','data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json','data/paper-portfolio.json','data/trade-journal.json','data/execution-plan.json'];
           for(const f of files){JSON.parse(fs.readFileSync(f,'utf8'));console.log('OK',f)}
           const cfg=JSON.parse(fs.readFileSync('config/mechanisms.json','utf8'));
           const seeds=JSON.parse(fs.readFileSync('config/investment-seeds.json','utf8'));
           const tx=JSON.parse(fs.readFileSync('config/transmission-models.json','utf8'));
           const policy=JSON.parse(fs.readFileSync('config/policy.v2.json','utf8'));
+          const exec=JSON.parse(fs.readFileSync('config/execution-policy.json','utf8'));
           const q=JSON.parse(fs.readFileSync('config/queries.v2.json','utf8'));
           const qx=JSON.parse(fs.readFileSync('config/queries.v2.extra.json','utf8'));
           const merged={...(q.mechanisms||{}),...(qx.mechanisms||{})};
@@ -64,7 +66,11 @@ jobs:
           if(!(a.early_market_floor<a.min_market))throw new Error('Early-wave Alpha floor must be below normal market floor');
           if(!Array.isArray(s.allowed_states)||!s.allowed_states.includes('ARMING'))throw new Error('Scout must be able to operate before ACTIVE');
           if(s.allowed_states.includes('SATURATED'))throw new Error('Scout must never operate in SATURATED');
-          console.log(`Coverage OK: ${cfg.mechanisms.length}/${cfg.mechanisms.length} mechanisms + timing policy invariants`);
+          if(exec.mode!=='SHADOW_ONLY'||exec.execution.auto_live_orders!==false)throw new Error('GearWatch execution must remain SHADOW_ONLY');
+          if(exec.capital.initial_budget_usd!==500||exec.capital.max_order_usd!==80||exec.capital.max_open_positions!==6)throw new Error('Execution budget invariants changed');
+          if(!exec.protected_symbols.includes('SGMOQ'))throw new Error('SGMOQ protection missing');
+          if(exec.selection.top_quantile!==0.20)throw new Error('Portfolio Brain must stay in top market-opportunity quintile');
+          console.log(`Coverage OK: ${cfg.mechanisms.length}/${cfg.mechanisms.length} mechanisms + timing + shadow portfolio invariants`);
           NODE
       - name: Parse dashboard inline JavaScript
         run: |
@@ -76,7 +82,7 @@ jobs:
           for(const js of scripts)new Function(js);
           console.log('Dashboard inline JavaScript syntax OK');
           NODE
-      - name: Deterministic V2.9 regression suite
+      - name: Deterministic V3 regression suite
         run: npm run selftest
       - name: UI/UX decision-hierarchy audit
         run: npm run uiux:audit
