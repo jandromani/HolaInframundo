@@ -28,12 +28,12 @@ jobs:
           node - <<'NODE'
           const fs=require('fs');
           const files=[
-            'config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json','config/sources.v2.json','config/contracts.v2.json',
+            'config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json','config/sources.v2.json','config/contracts.v2.json','config/investment-seeds.json','config/transmission-models.json',
             'data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json','data/openrouter-quota.json'
           ];
           for(const f of files){JSON.parse(fs.readFileSync(f,'utf8'));console.log('OK',f)}
           NODE
-      - name: Validate V2 mechanism coverage
+      - name: Validate V2 mechanism and transmission coverage
         run: |
           node - <<'NODE'
           const fs=require('fs');
@@ -41,10 +41,17 @@ jobs:
           const q1=JSON.parse(fs.readFileSync('config/queries.v2.json','utf8')).mechanisms;
           const q2=JSON.parse(fs.readFileSync('config/queries.v2.extra.json','utf8')).mechanisms;
           const q={...q1,...q2};
-          const missing=m.filter(x=>!q[x.id]).map(x=>x.id);
-          if(missing.length) throw new Error('Missing V2 query configs: '+missing.join(','));
-          for(const x of m){const z=q[x.id];if(!z.lead?.length||!z.confirm?.length||!z.lag?.length)throw new Error('Incomplete phases for '+x.id)}
-          console.log('Coverage OK:',m.length,'mechanisms');
+          const seeds=JSON.parse(fs.readFileSync('config/investment-seeds.json','utf8')).mechanisms;
+          const tx=JSON.parse(fs.readFileSync('config/transmission-models.json','utf8'));
+          const missing=m.filter(x=>!q[x.id]).map(x=>x.id);if(missing.length)throw new Error('Missing V2 query configs: '+missing.join(','));
+          for(const x of m){const z=q[x.id];if(!z.lead?.length||!z.confirm?.length||!z.lag?.length)throw new Error('Incomplete phases for '+x.id);if(!Array.isArray(seeds[x.id])||seeds[x.id].length!==5)throw new Error('Investment candidates != 5 for '+x.id);if(!tx.mechanisms?.[x.id]?.bridge?.length)throw new Error('Missing transmission model for '+x.id)}
+          const sum=Object.values(tx.weights||{}).reduce((a,b)=>a+Number(b),0);if(Math.abs(sum-1)>.000001)throw new Error('Transmission weights do not sum to 1');
+          console.log('Coverage OK:',m.length,'mechanisms with causal + investment + transmission models');
           NODE
-      - name: Deterministic V2.3 regression suite
+      - name: Parse dashboard inline JavaScript
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');const html=fs.readFileSync('index.html','utf8');const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(x=>x[1]);if(!scripts.length)throw new Error('No inline dashboard script');for(const js of scripts)new Function(js);console.log('Dashboard syntax OK');
+          NODE
+      - name: Deterministic V2.7 regression suite
         run: npm run selftest
