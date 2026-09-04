@@ -28,8 +28,30 @@ jobs:
         run: |
           node - <<'NODE'
           const fs=require('fs');
-          const files=['config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json','config/sources.v2.json','config/contracts.v2.json','data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json'];
+          const files=['config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json','config/sources.v2.json','config/contracts.v2.json','config/investment-seeds.json','data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json'];
           for(const f of files){JSON.parse(fs.readFileSync(f,'utf8'));console.log('OK',f)}
+          const cfg=JSON.parse(fs.readFileSync('config/mechanisms.json','utf8'));
+          const seeds=JSON.parse(fs.readFileSync('config/investment-seeds.json','utf8'));
+          const q=JSON.parse(fs.readFileSync('config/queries.v2.json','utf8'));
+          const qx=JSON.parse(fs.readFileSync('config/queries.v2.extra.json','utf8'));
+          const merged={...(q.mechanisms||{}),...(qx.mechanisms||{})};
+          for(const m of cfg.mechanisms){
+            if(!merged[m.id])throw new Error(`Missing query config for ${m.id}`);
+            const xs=seeds.mechanisms?.[m.id];
+            if(!Array.isArray(xs)||xs.length!==5)throw new Error(`Investment seed coverage for ${m.id}: expected 5, got ${xs?.length||0}`);
+            for(const row of xs)if(!Array.isArray(row)||row.length<3||!row[0]||!Number.isFinite(row[1]))throw new Error(`Bad investment seed in ${m.id}`);
+          }
+          console.log(`Coverage OK: ${cfg.mechanisms.length}/${cfg.mechanisms.length} mechanisms have queries + five investment candidates`);
           NODE
-      - name: Deterministic V2.3 regression suite
+      - name: Parse dashboard inline JavaScript
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const html=fs.readFileSync('index.html','utf8');
+          const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(x=>x[1]);
+          if(!scripts.length)throw new Error('No inline dashboard script found');
+          for(const js of scripts)new Function(js);
+          console.log('Dashboard inline JavaScript syntax OK');
+          NODE
+      - name: Deterministic V2.6 regression suite
         run: npm run selftest
