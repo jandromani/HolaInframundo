@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {clusterEvidence,causalScore,hysteresisState,marketConfirmation,alphaClick} from './score.v2.mjs';
+import {parseModelJson,normalizeParsed,mapConcurrent} from './extract-core.mjs';
 
 const policy={
   event_clustering:{claim_jaccard_threshold:.5,max_time_gap_hours:72,min_token_length:4},
@@ -49,4 +50,10 @@ assert.equal(alphaBlocked.eligible,false);assert.ok(alphaBlocked.reasons.include
 const alphaActive=alphaClick({causal,market:{score:35,crowding:20},policy,reliability:{samples:0,hit_rate:null},state:'ACTIVE'});
 assert.equal(alphaActive.eligible,true,'stable ACTIVE plus valid early market confirmation should pass alpha gate');
 
-console.log('GearWatch V2.3 selftest OK: clustering, hysteresis, relative market vote, alpha stability');
+const malformed='```json\n{"summary":"ok","items":[{"candidateId":"c1","fact":"refinery outage","relevance":0.9,}],"expectedNext":[],"invalidation":[],}\n```';
+const repaired=parseModelJson(malformed);assert.ok(repaired.value,'local parser must repair trailing commas');
+const normalized=normalizeParsed(repaired.value);assert.equal(normalized.items[0].candidate_id,'c1');assert.equal(normalized.items[0].claim,'refinery outage');assert.equal(normalized.items[0].fact_type,'FACT');
+const partial=normalizeParsed({overview:'x',evidence:[{sourceId:'a',statement:'b'}]});assert.equal(partial.summary,'x');assert.equal(partial.expected_next.length,0);assert.equal(partial.invalidation.length,0);
+let active=0,maxActive=0;const outputs=await mapConcurrent([1,2,3,4,5],3,async x=>{active++;maxActive=Math.max(maxActive,active);await new Promise(r=>setTimeout(r,10));active--;return x*2});assert.deepEqual(outputs,[2,4,6,8,10]);assert.ok(maxActive<=3&&maxActive>=2,'concurrency helper must bound parallel work');
+
+console.log('GearWatch V2.4 selftest OK: causal gates + extractor repair/normalization/concurrency');
