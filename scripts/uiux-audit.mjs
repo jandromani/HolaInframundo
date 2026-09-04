@@ -5,11 +5,15 @@ const failures=[];
 const gate=(name,ok,why)=>{if(!ok)failures.push(`${name}: ${why}`);console.log(`${ok?'PASS':'FAIL'} · ${name}`)};
 const pos=s=>html.indexOf(s);
 
-gate('Decision hierarchy',pos('4 · Causal')>=0&&pos('5 · Pass 1')>pos('4 · Causal')&&pos('6 · Pass 2')>pos('5 · Pass 1')&&pos('7 · Final TX')>pos('6 · Pass 2')&&pos('8 · Market Vote')>pos('7 · Final TX'),'Expected Causal → Pass 1 → Pass 2 → Final TX → Market ordering');
+gate('Decision hierarchy',pos('4 · Causal')>=0&&pos('5 · Pass 1')>pos('4 · Causal')&&pos('6 · Pass 2')>pos('5 · Pass 1')&&pos('7 · Final TX')>pos('6 · Pass 2')&&pos('8 · Market Vote')>pos('7 · Final TX')&&pos('9 · Crowd Phase')>pos('8 · Market Vote')&&pos('10 · Top 5')>pos('9 · Crowd Phase'),'Expected Causal → Pass 1 → Pass 2 → Final TX → Market → Crowd Phase → Top 5 ordering');
 gate('Broker simplicity',!html.includes('trading212.com')&&!/href=["'][^"']*212/i.test(html)&&html.includes('T212 ✓'),'Trading 212 should be a curated availability flag, never a runtime link');
 gate('Progressive disclosure',html.includes('<details class=company>')&&html.includes('<summary>'),'Per-company diagnostics must stay collapsed until requested');
-gate('Three-metric card hierarchy',html.includes('<span>CAUSAL</span>')&&html.includes('<span>FINAL TX</span>')&&html.includes('<span>MARKET</span>'),'Mechanism cards must expose decision metrics before diagnostics');
+gate('Three-metric card hierarchy',html.includes('<span>CAUSAL</span>')&&html.includes('<span>FINAL TX</span>')&&html.includes('<span>MARKET</span>'),'Mechanism cards must keep three primary decision metrics before diagnostics');
+gate('Crowd stays secondary',html.includes('waveband')&&html.includes('priced ${n(c.priced_in)}%'),'Crowd timing belongs below the primary three-metric decision row, not above it');
 gate('Two-pass explainability',html.includes('PASS 1 · STRUCTURAL')&&html.includes('PASS 2 · FINANCIAL')&&html.includes('FINAL TX')&&html.includes('weight_applied')===false,'UI must expose both passes and final result without leaking internal implementation noise');
+gate('Scout is not Deploy',html.includes('SCOUT_WINDOW')&&html.includes('No equivale a Deploy')&&html.includes("filter==='SCOUT'?x.scout?.eligible"),'Scout Window must be visibly distinct and independently filterable');
+gate('Priced-in warning',html.includes('DO NOT CHASE')&&html.includes('priced-in'),'Late-wave UI must explicitly separate thesis correctness from entry timing');
+gate('Capital not social chatter',html.includes('comportamiento agregado del capital')&&!html.includes('Reddit sentiment'),'Wisdom-of-crowds UI should mean capital behavior, not noisy social sentiment');
 gate('Modal semantics',html.includes('role="dialog"')&&html.includes('aria-modal="true"')&&html.includes('aria-label="Cerrar dossier"'),'Modal requires dialog semantics and labelled close action');
 gate('Keyboard activation',html.includes("e.key==='Enter'||e.key===' '")&&html.includes("if(e.key==='Escape')closeModal()"),'Cards must activate from keyboard and modal must close with Escape');
 gate('Visible focus',html.includes(':focus-visible'),'Keyboard focus must remain visible');
@@ -19,4 +23,4 @@ gate('No forced broker proof UX',!html.includes('API instrumentos')&&!html.inclu
 gate('Dense data below fold',html.includes('WHY EACH COMPANY')&&html.includes('componentBars(t)'),'Detailed factors should live inside the dossier rather than the forest cards');
 
 if(failures.length){console.error(`\nUI/UX audit failed (${failures.length}):\n- ${failures.join('\n- ')}`);process.exit(1)}
-console.log('\nGearWatch UI/UX audit OK · 12/12 gates');
+console.log('\nGearWatch UI/UX audit OK · 16/16 gates');

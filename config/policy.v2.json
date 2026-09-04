@@ -1,5 +1,5 @@
 {
-  "version":"2.5.0",
+  "version":"2.9.0",
   "model":"openai/gpt-oss-20b",
   "model_pool":["openai/gpt-oss-20b","openai/gpt-oss-120b"],
   "verifier_model":"openai/gpt-oss-120b",
@@ -31,9 +31,35 @@
     "max_items_per_mechanism":96
   },
   "market":{"benchmark_default":"^GSPC","intraday_interval":"15m","intraday_range":"5d","min_intraday_names":1,"relative_confirm_5d":0.75,"relative_confirm_2h":0.25,"relative_strong_2h":0.75},
+  "crowd":{
+    "pre_wave_min_causal":50,
+    "pre_wave_max_consensus":30,
+    "pre_wave_max_market":20,
+    "early_consensus_min":25,
+    "sync_consensus_min":55,
+    "early_priced_in_max":48,
+    "sync_priced_in_max":65,
+    "late_priced_in":62,
+    "saturated_priced_in":78,
+    "late_crowding":66,
+    "saturated_crowding":80,
+    "divergence_min_causal":65,
+    "divergence_rel5":-0.75,
+    "divergence_rel2h":-0.5
+  },
+  "scout":{
+    "min_causal":52,
+    "min_lead":1,
+    "min_independent_domains":2,
+    "max_lag_share":0.35,
+    "max_priced_in":42,
+    "max_market":45,
+    "max_crowding":50,
+    "allowed_states":["WATCH","ARMING","ACTIVE"]
+  },
   "web_verifier":{"engine":"parallel","mode":"turbo","estimated_cost_per_search_usd":0.001},
   "state_gates":{"watch":25,"arming":45,"active":65,"saturated_crowding":72,"max_stale_hours":18,"active_confirmation_runs":2,"deactivate_confirmation_runs":2,"fast_path_causal":86},
-  "alpha":{"min_causal":60,"min_market":20,"max_market":64,"max_crowding":66,"min_independent_domains":2,"require_confirm":true,"require_stable_active":true,"max_lag_share":0.45,"min_empirical_reliability":0.35,"reliability_gate_after_samples":5},
+  "alpha":{"min_causal":60,"min_market":20,"early_market_floor":12,"early_causal":70,"max_market":64,"max_crowding":66,"max_priced_in":68,"min_independent_domains":2,"require_confirm":true,"require_stable_active":true,"max_lag_share":0.45,"min_empirical_reliability":0.35,"reliability_gate_after_samples":5},
   "principles":[
     "LLM extracts evidence; code decides state",
     "missing data becomes UNKNOWN or STALE, never negative evidence",
@@ -44,10 +70,14 @@
     "one syndicated event counts once regardless of mirrors",
     "state changes require persistence unless fast-path physical evidence is overwhelming",
     "market confirmation is relative to a benchmark and includes intraday breadth",
+    "crowd wisdom means cross-sectional capital behavior, not social-media chatter",
+    "crowd confirmation is asymmetric: it can block a late chase but is not required to discover a causal lead",
+    "Scout Window may surface an early setup but never authorizes DEPLOY_WINDOW by itself",
+    "priced-in estimation combines crowding, breadth and evidence maturity; it is a timing estimate, not a valuation model",
     "official upstream sources run before paid web discovery",
     "extractor failures are locally normalized, repaired once, then escalated to 120b under a hard daily cap",
     "no Alpha Click without stable causal state and early market confirmation",
-    "no chasing when crowding or lag evidence dominates",
+    "no chasing when crowding, priced-in state or lag evidence dominates",
     "the first euro and the last euro belong to someone else"
   ]
 }

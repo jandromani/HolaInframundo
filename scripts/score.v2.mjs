@@ -8,6 +8,7 @@ function ageHours(ts,now=Date.now()){
 function tokens(s,min=4){return new Set(String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').split(/\s+/).filter(x=>x.length>=min&&!STOP.has(x)))}
 function jaccard(a,b){if(!a.size||!b.size)return 0;let n=0;for(const x of a)if(b.has(x))n++;return n/(a.size+b.size-n)}
 function canonicalUrl(u){try{const x=new URL(u);return `${x.hostname.replace(/^www\./,'')}${x.pathname}`.replace(/\/$/,'').toLowerCase()}catch{return String(u||'').split(/[?#]/)[0].toLowerCase()}}
+const frac=x=>clamp(Number.isFinite(Number(x))?Number(x):0,0,1);
 
 export function clusterEvidence(evidence=[],opts={}){
   const threshold=opts.claim_jaccard_threshold??.58,maxGap=opts.max_time_gap_hours??72,minToken=opts.min_token_length??4;
@@ -72,6 +73,21 @@ export function marketConfirmation(input=[]){
   return {score:Math.round(clamp(score)),crowding:+crowding.toFixed(1),breadth:+breadth.toFixed(3),relative_breadth:+relativeBreadth.toFixed(3),intraday_breadth:+intradayBreadth.toFixed(3),quality,n:signed.length,intraday_n:intradayN,above20:+above20.toFixed(3),above50:+above50.toFixed(3),benchmark:benchmark?.ticker||null,avg:{r1:+r1.toFixed(2),r5:+r5.toFixed(2),r20:+r20.toFixed(2),rel5:+rel5.toFixed(2),rel20:+rel20.toFixed(2),r30m:+r30m.toFixed(2),r2h:+r2h.toFixed(2),rel30m:+rel30m.toFixed(2),rel2h:+rel2h.toFixed(2),volumeZ:+vz.toFixed(2)}};
 }
 
+export function crowdIntelligence({causal={},market={},previous=null,policy={}}={}){
+  const c=policy.crowd||{},rb=frac(market.relative_breadth),ib=frac(market.intraday_breadth),breadth=frac(market.breadth),a20=frac(market.above20),a50=frac(market.above50),lag=frac(causal.lag_share),crowding=clamp(Number(market.crowding)||0),qualityFactor=market.quality==='HIGH'?1:market.quality==='MEDIUM' ? .85 : market.quality==='LOW' ? .65 : 0;
+  const consensusBase=100*(.30*rb+.25*ib+.15*breadth+.15*a20+.15*a50),consensus=clamp(consensusBase*(.65+.35*qualityFactor)),previousConsensus=Number(previous?.consensus),consensusDelta=Number.isFinite(previousConsensus)?consensus-previousConsensus:0;
+  const pricedIn=clamp(.68*crowding+.18*consensus+.14*lag*100),rel5=Number(market.avg?.rel5||0),rel2h=Number(market.avg?.rel2h||0),divergence=Number(causal.score||0)>=(c.divergence_min_causal||65)&&Number(causal.counts?.CONFIRM||0)>=1&&rel5<=(c.divergence_rel5??-.75)&&rel2h<=(c.divergence_rel2h??-.5);
+  let phase='DISCOVERY';
+  if(divergence)phase='DIVERGENCE';
+  else if(pricedIn>=(c.saturated_priced_in||78)||crowding>=(c.saturated_crowding||80))phase='SATURATED';
+  else if(pricedIn>=(c.late_priced_in||62)||crowding>=(c.late_crowding||66))phase='LATE_WAVE';
+  else if(Number(causal.score||0)>=(c.pre_wave_min_causal||50)&&consensus<(c.pre_wave_max_consensus||30)&&Number(market.score||0)<(c.pre_wave_max_market||20))phase='PRE_WAVE';
+  else if(consensus>=(c.early_consensus_min||25)&&consensus<(c.sync_consensus_min||55)&&pricedIn<(c.early_priced_in_max||48))phase='EARLY_WAVE';
+  else if(consensus>=(c.sync_consensus_min||55)&&pricedIn<(c.sync_priced_in_max||65))phase='IN_SYNC';
+  const discount=pricedIn<25?'UNPRICED':pricedIn<50?'PARTLY_PRICED':pricedIn<70?'MOSTLY_PRICED':'PRICED_IN',position=phase==='PRE_WAVE'?'AHEAD':phase==='EARLY_WAVE'?'EARLY':phase==='IN_SYNC'?'SYNCHRONIZED':['LATE_WAVE','SATURATED'].includes(phase)?'LATE':phase==='DIVERGENCE'?'CONFLICT':'OBSERVE',timingScore=clamp(.45*Number(causal.score||0)+.25*(100-pricedIn)+.20*consensus+.10*(100-lag*100)),blockChase=['LATE_WAVE','SATURATED','DIVERGENCE'].includes(phase);
+  return {phase,position,consensus:+consensus.toFixed(1),consensus_delta:+consensusDelta.toFixed(1),priced_in:+pricedIn.toFixed(1),discount,timing_score:+timingScore.toFixed(1),block_chase:blockChase,ahead_of_wave:['PRE_WAVE','EARLY_WAVE'].includes(phase),quality:market.quality||'NONE',wisdom_source:'REAL_CAPITAL_CROSS_SECTION',inputs:{relative_breadth:rb,intraday_breadth:ib,breadth,above20:a20,above50:a50,crowding,lag_share:lag,rel5,rel2h}};
+}
+
 export function stateFrom({causal,market,stale=false,invalidated=false,policy}){
   if(stale)return 'STALE';if(invalidated)return 'INVALIDATED';const g=policy.state_gates||{};if(causal.total===0)return 'UNKNOWN';
   const canActive=causal.counts.CONFIRM>=1&&causal.domains.length>=2&&(causal.counts.LEAD>=1||causal.counts.CONFIRM>=2);
@@ -95,10 +111,17 @@ export function hysteresisState({raw,previous=null,pending=null,causal,invalidat
   return {state:previous,raw_state:raw,pending:{candidate,streak,required},applied:true,reason:needsActive?'AWAITING_ACTIVE_CONFIRMATION':'AWAITING_DEACTIVATION_CONFIRMATION'};
 }
 
-export function alphaClick({causal,market,policy,reliability={samples:0,hit_rate:null},invalidated=false,state=null}){
-  const a=policy.alpha||{},enoughHistory=(reliability.samples||0)>=(a.reliability_gate_after_samples||5),relOK=!enoughHistory||(reliability.hit_rate??0)>=(a.min_empirical_reliability??.35),stableOK=!a.require_stable_active||state==='ACTIVE';
-  const eligible=!invalidated&&stableOK&&causal.score>=(a.min_causal||60)&&causal.counts.LEAD>=1&&(!a.require_confirm||causal.counts.CONFIRM>=1)&&causal.domains.length>=(a.min_independent_domains||2)&&causal.lag_share<=(a.max_lag_share||.45)&&market.score>=(a.min_market||20)&&market.score<=(a.max_market||64)&&market.crowding<(a.max_crowding||66)&&relOK;
-  const sourceQuality=Math.min(100,causal.domains.length*25+causal.counts.LEAD*10+causal.counts.CONFIRM*15),relScore=enoughHistory?clamp((reliability.hit_rate||0)*100):50,raw=.36*causal.score+.22*market.score+.12*sourceQuality+.10*relScore+.10*Math.min(100,causal.counts.LEAD*30)+.10*Math.min(100,causal.counts.CONFIRM*45)-.22*market.crowding-.12*(causal.lag_share*100),reasons=[];
-  if(!stableOK)reasons.push('STATE_NOT_STABLY_ACTIVE');if(causal.score<(a.min_causal||60))reasons.push('CAUSAL_TOO_WEAK');if(causal.counts.LEAD<1)reasons.push('NO_LEAD');if(a.require_confirm&&causal.counts.CONFIRM<1)reasons.push('NO_CONFIRM');if(causal.domains.length<(a.min_independent_domains||2))reasons.push('INSUFFICIENT_SOURCES');if(market.score<(a.min_market||20))reasons.push('MARKET_NOT_CONFIRMING');if(market.score>(a.max_market||64)||market.crowding>=(a.max_crowding||66))reasons.push('TOO_CROWDED');if(causal.lag_share>(a.max_lag_share||.45))reasons.push('LAG_DOMINATES');if(!relOK)reasons.push('POOR_HISTORY');
-  return {eligible,score:+clamp(raw).toFixed(1),reasons:eligible?['STABLE_CAUSAL_PLUS_EARLY_RELATIVE_MARKET_CONFIRMATION']:reasons,empirical:reliability};
+export function scoutClick({causal,market,crowd,policy,invalidated=false,state=null}){
+  const s=policy.scout||{},allowed=s.allowed_states||['WATCH','ARMING','ACTIVE'],phaseOK=['PRE_WAVE','EARLY_WAVE','DISCOVERY'].includes(crowd?.phase||'DISCOVERY'),stateOK=allowed.includes(state),eligible=!invalidated&&stateOK&&phaseOK&&Number(causal.score||0)>=(s.min_causal||52)&&Number(causal.counts?.LEAD||0)>=(s.min_lead||1)&&Number(causal.domains?.length||0)>=(s.min_independent_domains||2)&&Number(causal.lag_share||0)<=(s.max_lag_share??.35)&&Number(crowd?.priced_in||0)<=(s.max_priced_in||42)&&Number(market.score||0)<=(s.max_market||45)&&Number(market.crowding||0)<=(s.max_crowding||50),reasons=[];
+  if(!stateOK)reasons.push('STATE_NOT_SCOUTABLE');if(!phaseOK)reasons.push('WAVE_NOT_EARLY');if(Number(causal.score||0)<(s.min_causal||52))reasons.push('CAUSAL_TOO_WEAK');if(Number(causal.counts?.LEAD||0)<(s.min_lead||1))reasons.push('NO_LEAD');if(Number(causal.domains?.length||0)<(s.min_independent_domains||2))reasons.push('INSUFFICIENT_SOURCES');if(Number(causal.lag_share||0)>(s.max_lag_share??.35))reasons.push('LAG_TOO_HIGH');if(Number(crowd?.priced_in||0)>(s.max_priced_in||42))reasons.push('ALREADY_PRICED');if(Number(market.score||0)>(s.max_market||45)||Number(market.crowding||0)>(s.max_crowding||50))reasons.push('MARKET_ALREADY_MOVED');
+  const raw=.50*Number(causal.score||0)+.25*(100-Number(crowd?.priced_in||0))+.15*Math.min(100,Number(causal.counts?.LEAD||0)*35)+.10*Number(crowd?.consensus||0);
+  return {eligible,score:+clamp(raw).toFixed(1),reasons:eligible?['CAUSAL_LEAD_BEFORE_PRICE_SATURATION']:reasons,phase:crowd?.phase||'DISCOVERY',priced_in:crowd?.priced_in??0};
+}
+
+export function alphaClick({causal,market,crowd=null,policy,reliability={samples:0,hit_rate:null},invalidated=false,state=null}){
+  const a=policy.alpha||{},enoughHistory=(reliability.samples||0)>=(a.reliability_gate_after_samples||5),relOK=!enoughHistory||(reliability.hit_rate??0)>=(a.min_empirical_reliability??.35),stableOK=!a.require_stable_active||state==='ACTIVE',earlyFloor=Number(crowd?.phase==='EARLY_WAVE'&&causal.score>=(a.early_causal||70)&&causal.counts.LEAD>=2?(a.early_market_floor??12):(a.min_market||20)),crowdOK=!crowd?.block_chase&&Number(crowd?.priced_in??0)<(a.max_priced_in??68);
+  const eligible=!invalidated&&stableOK&&crowdOK&&causal.score>=(a.min_causal||60)&&causal.counts.LEAD>=1&&(!a.require_confirm||causal.counts.CONFIRM>=1)&&causal.domains.length>=(a.min_independent_domains||2)&&causal.lag_share<=(a.max_lag_share||.45)&&market.score>=earlyFloor&&market.score<=(a.max_market||64)&&market.crowding<(a.max_crowding||66)&&relOK;
+  const sourceQuality=Math.min(100,causal.domains.length*25+causal.counts.LEAD*10+causal.counts.CONFIRM*15),relScore=enoughHistory?clamp((reliability.hit_rate||0)*100):50,priceHeadroom=100-Number(crowd?.priced_in||0),raw=.34*causal.score+.20*market.score+.12*sourceQuality+.10*relScore+.10*Math.min(100,causal.counts.LEAD*30)+.08*Math.min(100,causal.counts.CONFIRM*45)+.10*priceHeadroom-.18*market.crowding-.10*(causal.lag_share*100),reasons=[];
+  if(!stableOK)reasons.push('STATE_NOT_STABLY_ACTIVE');if(!crowdOK)reasons.push('CROWD_LATE_OR_PRICED_IN');if(causal.score<(a.min_causal||60))reasons.push('CAUSAL_TOO_WEAK');if(causal.counts.LEAD<1)reasons.push('NO_LEAD');if(a.require_confirm&&causal.counts.CONFIRM<1)reasons.push('NO_CONFIRM');if(causal.domains.length<(a.min_independent_domains||2))reasons.push('INSUFFICIENT_SOURCES');if(market.score<earlyFloor)reasons.push('MARKET_NOT_CONFIRMING');if(market.score>(a.max_market||64)||market.crowding>=(a.max_crowding||66))reasons.push('TOO_CROWDED');if(causal.lag_share>(a.max_lag_share||.45))reasons.push('LAG_DOMINATES');if(!relOK)reasons.push('POOR_HISTORY');
+  return {eligible,score:+clamp(raw).toFixed(1),market_floor:earlyFloor,reasons:eligible?['STABLE_CAUSAL_PLUS_EARLY_CAPITAL_CONFIRMATION']:reasons,empirical:reliability,crowd_phase:crowd?.phase||null,priced_in:crowd?.priced_in??null};
 }
