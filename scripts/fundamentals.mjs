@@ -11,7 +11,7 @@ const UA=process.env.SEC_USER_AGENT||'GearWatch/2.7 public research bot (github.
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const out={version:'2.7.0',generated_at:nowIso,provider:'SEC companyfacts (cached, best-effort)',companies:{...prev.companies},coverage:{seed_symbols:symbols.length,sec_candidates:secCandidates.length,mapped:0,live:0,partial:0,structural_only:0,cache_hits:0,network_fetches:0},errors:[]};
 
-async function getJson(url){const r=await fetch(url,{headers:{'user-agent':UA,'accept-encoding':'gzip, deflate','host':'data.sec.gov'},signal:AbortSignal.timeout(20000)});if(!r.ok)throw new Error(`SEC ${r.status}`);return r.json()}
+async function getJson(url){const r=await fetch(url,{headers:{'user-agent':UA,'accept-encoding':'gzip, deflate'},signal:AbortSignal.timeout(20000)});if(!r.ok)throw new Error(`SEC ${r.status}`);return r.json()}
 function fresh(x){const t=Date.parse(x?.checked_at||x?.generated_at||'');return Number.isFinite(t)&&Date.now()-t<TTL&&['LIVE_SEC','PARTIAL_SEC'].includes(x?.quality)}
 function annualEntries(facts,tags,unit='USD'){
   for(const tag of tags){const node=facts?.['us-gaap']?.[tag],xs=node?.units?.[unit]||[];const rows=xs.filter(x=>['10-K','10-K/A','20-F','40-F'].includes(x.form)&&Number.isFinite(Number(x.val))).sort((a,b)=>String(b.end||'').localeCompare(String(a.end||''))||String(b.filed||'').localeCompare(String(a.filed||'')));const seen=new Set(),dedup=[];for(const x of rows){const k=x.end||`${x.fy}-${x.fp}`;if(seen.has(k))continue;seen.add(k);dedup.push(x)}if(dedup.length)return {tag,rows:dedup}}
@@ -35,7 +35,7 @@ try{
 for(const symbol of secCandidates){
   if(fresh(prev.companies?.[symbol])){out.companies[symbol]=prev.companies[symbol];out.coverage.cache_hits++;continue}
   const row=tickerMap[String(symbol).toUpperCase()];
-  if(!row){out.companies[symbol]={symbol,checked_at:nowIso,quality:'STRUCTURAL_ONLY',coverage:0,error:'Ticker not mapped by SEC'};out.coverage.structural_only++;continue}
+  if(!row){out.companies[symbol]={symbol,checked_at:nowIso,quality:'STRUCTURAL_ONLY',coverage:0,error:'Ticker not mapped by SEC'};continue}
   out.coverage.mapped++;
   try{
     const cik=String(row.cik_str).padStart(10,'0');const j=await getJson(`https://data.sec.gov/api/xbrl/companyfacts/CIK${cik}.json`);out.companies[symbol]=parseFacts(j,symbol,row.title,cik);out.coverage.network_fetches++;
