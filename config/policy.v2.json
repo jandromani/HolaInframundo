@@ -1,5 +1,5 @@
 {
-  "version":"2.4.0",
+  "version":"2.5.0",
   "model":"openai/gpt-oss-20b",
   "model_pool":["openai/gpt-oss-20b","openai/gpt-oss-120b"],
   "verifier_model":"openai/gpt-oss-120b",
@@ -24,6 +24,12 @@
     "official_upstream_max_items_per_source":30
   },
   "event_clustering":{"claim_jaccard_threshold":0.58,"max_time_gap_hours":72,"min_token_length":4},
+  "evidence_memory":{
+    "ttl_hours":{"LEAD":168,"CONFIRM":72,"LAG":336},
+    "half_life_hours":{"LEAD":72,"CONFIRM":36,"LAG":168},
+    "min_weight":0.25,
+    "max_items_per_mechanism":96
+  },
   "market":{"benchmark_default":"^GSPC","intraday_interval":"15m","intraday_range":"5d","min_intraday_names":1,"relative_confirm_5d":0.75,"relative_confirm_2h":0.25,"relative_strong_2h":0.75},
   "web_verifier":{"engine":"parallel","mode":"turbo","estimated_cost_per_search_usd":0.001},
   "state_gates":{"watch":25,"arming":45,"active":65,"saturated_crowding":72,"max_stale_hours":18,"active_confirmation_runs":2,"deactivate_confirmation_runs":2,"fast_path_causal":86},
@@ -31,6 +37,9 @@
   "principles":[
     "LLM extracts evidence; code decides state",
     "missing data becomes UNKNOWN or STALE, never negative evidence",
+    "a fact does not disappear merely because a later scan failed to rediscover it",
+    "carried evidence decays by phase and expires deterministically unless re-observed",
+    "retrieval time is never fabricated as source publication time",
     "no ACTIVE state without independent confirmation",
     "one syndicated event counts once regardless of mirrors",
     "state changes require persistence unless fast-path physical evidence is overwhelming",
