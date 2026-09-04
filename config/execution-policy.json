@@ -1,0 +1,56 @@
+{
+  "version": "3.0.0",
+  "mode": "SHADOW_ONLY",
+  "capital": {
+    "initial_budget_usd": 500,
+    "max_order_usd": 80,
+    "max_open_positions": 6,
+    "max_symbol_exposure_usd": 100,
+    "max_risk_group_exposure_usd": 160,
+    "scout_order_usd": 40,
+    "deploy_order_usd": 80,
+    "residual_topup_max_usd": 20
+  },
+  "protected_symbols": ["SGMOQ"],
+  "selection": {
+    "top_quantile": 0.20,
+    "min_opportunity_risk_on": 55,
+    "min_opportunity_selective": 62,
+    "allowed_actions": ["SCOUT_WINDOW", "DEPLOY_WINDOW"],
+    "prefer_actions": ["DEPLOY_WINDOW", "SCOUT_WINDOW"]
+  },
+  "market_regime": {
+    "risk_on_min": 65,
+    "selective_min": 45,
+    "entry_allowed": ["RISK_ON", "SELECTIVE"],
+    "selective_size_multiplier": 0.75,
+    "risk_off_size_multiplier": 0.0
+  },
+  "rotation": {
+    "max_hold_days": 14,
+    "soft_exit_after_days": 3,
+    "stop_loss_pct": -8,
+    "take_profit_pct": 15,
+    "trailing_drawdown_pct": 6,
+    "exit_on_actions": ["INVALIDATED", "DO_NOT_CHASE"],
+    "soft_exit_actions": ["RESEARCH_ONLY", "WATCH", "STALE_RECHECK"],
+    "exit_on_wave": ["LATE_WAVE", "SATURATED"],
+    "never_average_down": true
+  },
+  "risk_groups": {
+    "ENERGY_LOGISTICS": ["DIESEL_REFINING_CRISIS", "PRODUCT_TANKER_TONMILES", "CRUDE_TANKER_DISLOCATION", "ATLANTIC_BARREL_PREMIUM", "CEYHAN_BYPASS", "LNG_REROUTING", "OIL_SERVICE_CAPEX_SECOND_WAVE"],
+    "DEFENSE_INDUSTRIAL": ["ARSENAL_DEPLETION", "ROCKET_MOTOR_SHORTAGE", "ENERGETICS_SHORTAGE", "STRATEGIC_ALUMINIUM", "RARE_EARTH_MAGNET_SHORTAGE", "CHEAP_DRONE_SCALING", "COUNTER_UAS_COST_CURVE", "UNDERWATER_SECURITY", "MILITARY_ENERGY_AUTONOMY", "EUROPE_STRATEGIC_AUTONOMY"],
+    "AI_POWER": ["AI_TIME_TO_POWER", "AI_GHOST_DEMAND", "BEHIND_METER_AI_POWER"],
+    "ROBOTICS": ["ROBOTICS_ACTUATOR_SCALE", "ROBOTICS_DECOUPLING"],
+    "MACRO": ["JAPAN_CARRY_UNWIND", "GLOBAL_REFINANCING_STRESS"],
+    "CYBER": ["OT_CYBER_SHOCK"],
+    "NUCLEAR": ["NUCLEAR_FUEL_SOVEREIGNTY"]
+  },
+  "execution": {
+    "auto_live_orders": false,
+    "paper_fill": "CURRENT_MARKET_SNAPSHOT",
+    "price_chase_limit_pct": 2.5,
+    "duplicate_order_window_minutes": 30,
+    "fail_closed": true
+  }
+}
