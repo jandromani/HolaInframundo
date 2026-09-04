@@ -44,7 +44,7 @@ jobs:
             for(const row of xs)if(!Array.isArray(row)||row.length<3||!row[0]||!Number.isFinite(row[1]))throw new Error(`Bad investment seed in ${m.id}`);
             const model=tx.mechanisms?.[m.id];if(!model||!model.shock||!model.earnings_channel||!model.bridge?.length||!model.diluters?.length)throw new Error(`Incomplete transmission model for ${m.id}`);
           }
-          console.log(`Coverage OK: ${cfg.mechanisms.length}/${cfg.mechanisms.length} mechanisms have queries + five candidates + economic transmission models`);
+          console.log(`Coverage OK: ${cfg.mechanisms.length}/${cfg.mechanisms.length} mechanisms have queries + five curated T212 candidates + transmission models`);
           NODE
       - name: Parse dashboard inline JavaScript
         run: |
@@ -56,5 +56,5 @@ jobs:
           for(const js of scripts)new Function(js);
           console.log('Dashboard inline JavaScript syntax OK');
           NODE
-      - name: Deterministic V2.7 regression suite
+      - name: Deterministic V2.8 regression suite
         run: npm run selftest
