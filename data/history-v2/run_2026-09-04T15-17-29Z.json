@@ -1,0 +1,2272 @@
+{
+  "version": "2.5.0",
+  "run_id": "run_2026-09-04T15-17-29Z",
+  "updated_at": "2026-09-04T15:20:09.766Z",
+  "transitions": [
+    {
+      "mechanism_id": "DIESEL_REFINING_CRISIS",
+      "from": "ARMING",
+      "to": "UNKNOWN",
+      "raw_to": "UNKNOWN",
+      "score": 0,
+      "delta": -51,
+      "hysteresis": {
+        "raw_state": "UNKNOWN",
+        "pending": null,
+        "reason": "DIRECT_NONCRITICAL_TRANSITION",
+        "applied": false
+      },
+      "memory": {
+        "observed_items": 2,
+        "carried_items": 0,
+        "avg_carry_weight": 0,
+        "observed_score": 0,
+        "raw_combined_score": 0,
+        "decayed_score": 0
+      },
+      "at": "2026-09-04T15:20:09.766Z"
+    },
+    {
+      "mechanism_id": "LNG_REROUTING",
+      "from": "UNKNOWN",
+      "to": "DORMANT",
+      "raw_to": "DORMANT",
+      "score": 20,
+      "delta": 20,
+      "hysteresis": {
+        "raw_state": "DORMANT",
+        "pending": null,
+        "reason": "INITIAL",
+        "applied": false
+      },
+      "memory": {
+        "observed_items": 1,
+        "carried_items": 0,
+        "avg_carry_weight": 0,
+        "observed_score": 20,
+        "raw_combined_score": 20,
+        "decayed_score": 20
+      },
+      "at": "2026-09-04T15:20:09.766Z"
+    },
+    {
+      "mechanism_id": "AI_TIME_TO_POWER",
+      "from": "UNKNOWN",
+      "to": "WATCH",
+      "raw_to": "WATCH",
+      "score": 31,
+      "delta": 31,
+      "hysteresis": {
+        "raw_state": "WATCH",
+        "pending": null,
+        "reason": "INITIAL",
+        "applied": false
+      },
+      "memory": {
+        "observed_items": 4,
+        "carried_items": 0,
+        "avg_carry_weight": 0,
+        "observed_score": 31,
+        "raw_combined_score": 31,
+        "decayed_score": 31
+      },
+      "at": "2026-09-04T15:20:09.766Z"
+    },
+    {
+      "mechanism_id": "AI_GHOST_DEMAND",
+      "from": "UNKNOWN",
+      "to": "DORMANT",
+      "raw_to": "DORMANT",
+      "score": 15,
+      "delta": 15,
+      "hysteresis": {
+        "raw_state": "DORMANT",
+        "pending": null,
+        "reason": "INITIAL",
+        "applied": false
+      },
+      "memory": {
+        "observed_items": 1,
+        "carried_items": 0,
+        "avg_carry_weight": 0,
+        "observed_score": 15,
+        "raw_combined_score": 15,
+        "decayed_score": 15
+      },
+      "at": "2026-09-04T15:20:09.766Z"
+    },
+    {
+      "mechanism_id": "JAPAN_CARRY_UNWIND",
+      "from": "WATCH",
+      "to": "WATCH",
+      "raw_to": "ACTIVE",
+      "score": 73,
+      "delta": 34,
+      "hysteresis": {
+        "raw_state": "ACTIVE",
+        "pending": {
+          "candidate": "ACTIVE",
+          "streak": 1,
+          "required": 2
+        },
+        "reason": "AWAITING_ACTIVE_CONFIRMATION",
+        "applied": true
+      },
+      "memory": {
+        "observed_items": 8,
+        "carried_items": 0,
+        "avg_carry_weight": 0,
+        "observed_score": 73,
+        "raw_combined_score": 73,
+        "decayed_score": 73
+      },
+      "at": "2026-09-04T15:20:09.766Z"
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "DIESEL_REFINING_CRISIS",
+      "label": "Diesel / refining crisis",
+      "tier": "A",
+      "state": "UNKNOWN",
+      "raw_state": "UNKNOWN",
+      "score": 0,
+      "previous_state": "ARMING",
+      "score_delta": -51,
+      "summary": "Evidence indicates that middle‑distillate markets are tightening independently of crude price movements, as shown by elevated crack spreads.",
+      "material_change": true,
+      "observed_evidence": [
+        {
+          "candidate_id": "0064cdf6bed37f75e7c8",
+          "query_id": "OFFICIAL:EIA_TODAY:DIESEL_REFINING_CRISIS:OFFICIAL_DISTILLATE_DATA",
+          "phase": "CONFIRM",
+          "signal": "OFFICIAL_DISTILLATE_DATA",
+          "family": "OFFICIAL",
+          "fact_type": "INFERENCE",
+          "claim": "EIA Today in Energy reports that crack spreads have remained elevated since May, indicating sustained distillate tightness.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "EIA is an official U.S. government source providing authoritative market data.",
+          "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68104",
+          "source_name": "EIA Today in Energy",
+          "source_domain": "eia.gov",
+          "source_grade": 1,
+          "official": true,
+          "engine": "official_rss",
+          "published_at": "2026-09-04T14:00:00.000Z",
+          "retrieved_at": "2026-09-04T15:18:39.347Z",
+          "valid": false,
+          "evidence_key": "2a2e9414a940ae4de6ca98c8",
+          "first_seen_at": "2026-09-04T15:18:39.347Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "c49065937cd7fd6e7061",
+          "query_id": "DIESEL_REFINING_CRISIS:confirm:diesel_stock",
+          "phase": "CONFIRM",
+          "signal": "DISTILLATE_TIGHTNESS",
+          "family": "PRICE",
+          "fact_type": "INFERENCE",
+          "claim": "West of Suez: EBOB crack spread near $60/b signals tightening of middle‑distillate supply.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Quantum Commodity Intelligence is a primary market intelligence source that reports real‑time crack spread data.",
+          "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQYUVRVUJfSWZfT1hDWm1zb2V0OEtYVWNyLUJha2FhU0VjckhtNG1WeVdibWYtdmx0cng2N0UtWk1sWGVqWGFoOFRHX3R3T1pJSTRZeUZ2ajV4LWpnRGVGU0FoaHpTOVNmN0oxLWt4ZkNsRjhVWkNWbWF2RjZIWkFhaVBHLWdRYXpXV2pONzIwX1N2cmZhWHpPXw?oc=5",
+          "source_name": "Quantum Commodity Intelligence",
+          "source_domain": "qcintel.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-02T21:09:43.000Z",
+          "retrieved_at": "2026-09-04T15:18:34.584Z",
+          "valid": false,
+          "evidence_key": "47b362ebeb110b6f707c8d73",
+          "first_seen_at": "2026-09-04T15:18:34.584Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
+      "evidence": [
+        {
+          "candidate_id": "0064cdf6bed37f75e7c8",
+          "query_id": "OFFICIAL:EIA_TODAY:DIESEL_REFINING_CRISIS:OFFICIAL_DISTILLATE_DATA",
+          "phase": "CONFIRM",
+          "signal": "OFFICIAL_DISTILLATE_DATA",
+          "family": "OFFICIAL",
+          "fact_type": "INFERENCE",
+          "claim": "EIA Today in Energy reports that crack spreads have remained elevated since May, indicating sustained distillate tightness.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "EIA is an official U.S. government source providing authoritative market data.",
+          "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68104",
+          "source_name": "EIA Today in Energy",
+          "source_domain": "eia.gov",
+          "source_grade": 1,
+          "official": true,
+          "engine": "official_rss",
+          "published_at": "2026-09-04T14:00:00.000Z",
+          "retrieved_at": "2026-09-04T15:18:39.347Z",
+          "valid": false,
+          "evidence_key": "2a2e9414a940ae4de6ca98c8",
+          "first_seen_at": "2026-09-04T14:26:51.271Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "c49065937cd7fd6e7061",
+          "query_id": "DIESEL_REFINING_CRISIS:confirm:diesel_stock",
+          "phase": "CONFIRM",
+          "signal": "DISTILLATE_TIGHTNESS",
+          "family": "PRICE",
+          "fact_type": "INFERENCE",
+          "claim": "West of Suez: EBOB crack spread near $60/b signals tightening of middle‑distillate supply.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Quantum Commodity Intelligence is a primary market intelligence source that reports real‑time crack spread data.",
+          "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQYUVRVUJfSWZfT1hDWm1zb2V0OEtYVWNyLUJha2FhU0VjckhtNG1WeVdibWYtdmx0cng2N0UtWk1sWGVqWGFoOFRHX3R3T1pJSTRZeUZ2ajV4LWpnRGVGU0FoaHpTOVNmN0oxLWt4ZkNsRjhVWkNWbWF2RjZIWkFhaVBHLWdRYXpXV2pONzIwX1N2cmZhWHpPXw?oc=5",
+          "source_name": "Quantum Commodity Intelligence",
+          "source_domain": "qcintel.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-02T21:09:43.000Z",
+          "retrieved_at": "2026-09-04T15:18:34.584Z",
+          "valid": false,
+          "evidence_key": "47b362ebeb110b6f707c8d73",
+          "first_seen_at": "2026-09-04T13:34:03.209Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
+      "verified": [],
+      "verifier": {
+        "verdict": "NOT_RUN",
+        "summary": "",
+        "next_check": ""
+      },
+      "events": [],
+      "event_stats": {
+        "observed_unique": 0,
+        "observed_duplicates": 0,
+        "memory_unique": 0,
+        "memory_duplicates": 0
+      },
+      "memory": {
+        "observed_items": 2,
+        "carried_items": 0,
+        "avg_carry_weight": 0,
+        "observed_score": 0,
+        "raw_combined_score": 0,
+        "decayed_score": 0
+      },
+      "expected_next": [
+        "Crude prices (Brent) have been consolidating gains, not driving the elevated crack spreads."
+      ],
+      "invalidation": [],
+      "market": {
+        "score": 57,
+        "crowding": 57.6,
+        "breadth": 1,
+        "relative_breadth": 0.875,
+        "intraday_breadth": 0.375,
+        "quality": "HIGH",
+        "n": 8,
+        "intraday_n": 8,
+        "above20": 1,
+        "above50": 1,
+        "benchmark": "XLE",
+        "avg": {
+          "r1": -0.44,
+          "r5": 2.5,
+          "r20": 19.16,
+          "rel5": 1.94,
+          "rel20": 16.29,
+          "r30m": 0.13,
+          "r2h": 0.42,
+          "rel30m": 0.13,
+          "rel2h": 0.26,
+          "volumeZ": -1.39
+        }
+      },
+      "alpha": {
+        "eligible": false,
+        "score": 4.9,
+        "reasons": [
+          "STATE_NOT_STABLY_ACTIVE",
+          "CAUSAL_TOO_WEAK",
+          "NO_LEAD",
+          "NO_CONFIRM",
+          "INSUFFICIENT_SOURCES"
+        ],
+        "empirical": {
+          "samples": 0,
+          "hit_rate": null,
+          "avg_return": null,
+          "lead_to_confirm": 0
+        }
+      },
+      "reliability": {
+        "samples": 0,
+        "hit_rate": null,
+        "avg_return": null,
+        "lead_to_confirm": 0
+      },
+      "hysteresis": {
+        "raw_state": "UNKNOWN",
+        "pending": null,
+        "reason": "DIRECT_NONCRITICAL_TRANSITION",
+        "applied": false
+      },
+      "sensors": {
+        "lead": 0,
+        "confirm": 0,
+        "lag": 0,
+        "lag_share": 0,
+        "domains": [],
+        "events": 0,
+        "duplicates_removed": 0
+      },
+      "positive": [
+        "ELPE.AT",
+        "MOH.AT",
+        "PARR",
+        "PBF",
+        "DK"
+      ],
+      "negative": [
+        "DAL",
+        "UAL",
+        "AAL"
+      ],
+      "last_run": "2026-09-04T15:20:09.766Z",
+      "model": "openai/gpt-oss-20b",
+      "usage": {
+        "prompt_tokens": 1792,
+        "completion_tokens": 817,
+        "total_tokens": 2609,
+        "cost": 0.00015997,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00015997,
+          "upstream_inference_prompt_cost": 0.00005376,
+          "upstream_inference_completions_cost": 0.00010621
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 550,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 4,
+      "official_candidate_count": 2,
+      "query_trace": [
+        {
+          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
+          "phase": "LEAD",
+          "signal": "REFINERY_AVAILABILITY",
+          "q": "refinery hydrocracker outage maintenance extension diesel gasoil jet fuel",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "error": "The operation was aborted due to timeout",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 5
+            }
+          }
+        },
+        {
+          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_tender",
+          "phase": "LEAD",
+          "signal": "PHYSICAL_CARGO_DEMAND",
+          "q": "diesel gasoil jet fuel tender cargo Mediterranean Europe Turkey",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "error": "The operation was aborted due to timeout",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 5
+            }
+          }
+        },
+        {
+          "query_id": "DIESEL_REFINING_CRISIS:confirm:diesel_stock",
+          "phase": "CONFIRM",
+          "signal": "DISTILLATE_TIGHTNESS",
+          "q": "ARA gasoil stocks distillate inventories diesel crack Brent Europe Singapore gasoil crack",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 2,
+              "cached": true,
+              "ttl_hours": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "LNG_REROUTING",
+      "label": "LNG rerouting",
+      "tier": "B",
+      "state": "DORMANT",
+      "raw_state": "DORMANT",
+      "score": 20,
+      "previous_state": "UNKNOWN",
+      "score_delta": 20,
+      "summary": "U.S. LNG export volumes for 2026 are higher than 2025, with a projected increase into 2027.",
+      "material_change": true,
+      "observed_evidence": [
+        {
+          "candidate_id": "79539f10e91d61198838",
+          "query_id": "OFFICIAL:EIA_TODAY:LNG_REROUTING:OFFICIAL_LNG_DATA",
+          "phase": "CONFIRM",
+          "signal": "OFFICIAL_LNG_DATA",
+          "family": "OFFICIAL",
+          "fact_type": "FACT",
+          "claim": "U.S. LNG exports are projected to average 17.3 Bcf/d in the second half of 2026 and 18.7 Bcf/d in the first half of 2027.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68064",
+          "source_name": "EIA Today in Energy",
+          "source_domain": "eia.gov",
+          "source_grade": 1,
+          "official": true,
+          "engine": "official_rss",
+          "published_at": "2026-09-01T14:00:00.000Z",
+          "retrieved_at": "2026-09-04T15:18:39.347Z",
+          "valid": true,
+          "evidence_key": "70dc4a0667adebe71246c8b3",
+          "first_seen_at": "2026-09-04T15:18:39.347Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
+      "evidence": [
+        {
+          "candidate_id": "79539f10e91d61198838",
+          "query_id": "OFFICIAL:EIA_TODAY:LNG_REROUTING:OFFICIAL_LNG_DATA",
+          "phase": "CONFIRM",
+          "signal": "OFFICIAL_LNG_DATA",
+          "family": "OFFICIAL",
+          "fact_type": "FACT",
+          "claim": "U.S. LNG exports are projected to average 17.3 Bcf/d in the second half of 2026 and 18.7 Bcf/d in the first half of 2027.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68064",
+          "source_name": "EIA Today in Energy",
+          "source_domain": "eia.gov",
+          "source_grade": 1,
+          "official": true,
+          "engine": "official_rss",
+          "published_at": "2026-09-01T14:00:00.000Z",
+          "retrieved_at": "2026-09-04T15:18:39.347Z",
+          "valid": true,
+          "evidence_key": "70dc4a0667adebe71246c8b3",
+          "first_seen_at": "2026-09-04T15:18:39.347Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
+      "verified": [],
+      "verifier": {
+        "verdict": "NOT_RUN",
+        "summary": "",
+        "next_check": ""
+      },
+      "events": [
+        {
+          "id": "b60c14e9bb7bf5562f960e",
+          "mechanism_id": "LNG_REROUTING",
+          "run_id": "run_2026-09-04T15-17-29Z",
+          "phase": "CONFIRM",
+          "signal": "OFFICIAL_LNG_DATA",
+          "claim": "U.S. LNG exports are projected to average 17.3 Bcf/d in the second half of 2026 and 18.7 Bcf/d in the first half of 2027.",
+          "observed_at": "2026-09-01T14:00:00.000Z",
+          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "source_count": 1,
+          "domains": [
+            "eia.gov"
+          ],
+          "source_urls": [
+            "https://www.eia.gov/todayinenergy/detail.php?id=68064"
+          ],
+          "official": true,
+          "representative_source": "EIA Today in Energy",
+          "representative_url": "https://www.eia.gov/todayinenergy/detail.php?id=68064",
+          "source_grade": 1
+        }
+      ],
+      "event_stats": {
+        "observed_unique": 1,
+        "observed_duplicates": 0,
+        "memory_unique": 1,
+        "memory_duplicates": 0
+      },
+      "memory": {
+        "observed_items": 1,
+        "carried_items": 0,
+        "avg_carry_weight": 0,
+        "observed_score": 20,
+        "raw_combined_score": 20,
+        "decayed_score": 20
+      },
+      "expected_next": [],
+      "invalidation": [],
+      "market": {
+        "score": 37,
+        "crowding": 1.9,
+        "breadth": 0.75,
+        "relative_breadth": 0.75,
+        "intraday_breadth": 0.5,
+        "quality": "HIGH",
+        "n": 4,
+        "intraday_n": 4,
+        "above20": 1,
+        "above50": 1,
+        "benchmark": "XLE",
+        "avg": {
+          "r1": 0.43,
+          "r5": 2.58,
+          "r20": 8.4,
+          "rel5": 0.31,
+          "rel20": -3.09,
+          "r30m": 0.09,
+          "r2h": 0.45,
+          "rel30m": 0.1,
+          "rel2h": -0.18,
+          "volumeZ": -1.66
+        }
+      },
+      "alpha": {
+        "eligible": false,
+        "score": 29.2,
+        "reasons": [
+          "STATE_NOT_STABLY_ACTIVE",
+          "CAUSAL_TOO_WEAK",
+          "NO_LEAD",
+          "INSUFFICIENT_SOURCES"
+        ],
+        "empirical": {
+          "samples": 0,
+          "hit_rate": null,
+          "avg_return": null,
+          "lead_to_confirm": null
+        }
+      },
+      "reliability": {
+        "samples": 0,
+        "hit_rate": null,
+        "avg_return": null,
+        "lead_to_confirm": null
+      },
+      "hysteresis": {
+        "raw_state": "DORMANT",
+        "pending": null,
+        "reason": "INITIAL",
+        "applied": false
+      },
+      "sensors": {
+        "lead": 0,
+        "confirm": 1,
+        "lag": 0,
+        "lag_share": 0,
+        "domains": [
+          "eia.gov"
+        ],
+        "events": 1,
+        "duplicates_removed": 0
+      },
+      "positive": [
+        "LNG",
+        "EE",
+        "GLNG",
+        "FLNG"
+      ],
+      "negative": [],
+      "last_run": "2026-09-04T15:20:09.766Z",
+      "model": "openai/gpt-oss-20b",
+      "usage": {
+        "prompt_tokens": 541,
+        "completion_tokens": 830,
+        "total_tokens": 1371,
+        "cost": 0.00009382,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00009382,
+          "upstream_inference_prompt_cost": 0.00001082,
+          "upstream_inference_completions_cost": 0.000083
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 597,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 1,
+      "official_candidate_count": 1,
+      "query_trace": [
+        {
+          "query_id": "LNG_REROUTING:lead:lng_sts",
+          "phase": "LEAD",
+          "signal": "LNG_STS",
+          "q": "Qatar LNG ship to ship Oman Fujairah Hormuz transfer cargo diversion",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 10
+            }
+          }
+        },
+        {
+          "query_id": "LNG_REROUTING:lead:lng_route",
+          "phase": "LEAD",
+          "signal": "LNG_ROUTE_SHIFT",
+          "q": "LNG vessel Cape route Qatar UAE Atlantic Pacific rerouting",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "AI_TIME_TO_POWER",
+      "label": "AI time-to-power",
+      "tier": "A",
+      "state": "WATCH",
+      "raw_state": "WATCH",
+      "score": 31,
+      "previous_state": "UNKNOWN",
+      "score_delta": 31,
+      "summary": "Evidence indicates that electricity and interconnection constraints are becoming more binding for AI infrastructure, as shown by a global power equipment boom, U.S. manufacturer expansion to meet grid demand, data center logistics emphasizing reliable interconnection, and material shortages in grid infrastructure.",
+      "material_change": true,
+      "observed_evidence": [
+        {
+          "candidate_id": "b3e792af8815de0d270a",
+          "query_id": "AI_TIME_TO_POWER:lead:lead_time",
+          "phase": "LEAD",
+          "signal": "EQUIPMENT_LEAD_TIME",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Global power equipment boom signals rising electricity demand for AI infrastructure.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Power equipment boom indicates increased electricity demand.",
+          "source_url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNNEJ6V1F1TmhxaUJ3V0s4U3pPa1F6ZHZPOTZuQjl2Zk1FeVlfNXJneVdxRk9Fd0pXcHhFSG5wdFJyXzJiZzlJalFKUU04R1FKWXV6SnV2RE9mTTdZSHp4RGVKLXp0UmsxdmFHZFZ5ZlVoSHJXQzV6dDFVb3FLQmctaEM4dXFWS1FhdWVwUlZoNHRTTm1WQTdpUDZPZWJJal96QXBLdEFqeVBDVnptbFFxQzg2MFFWd1dsSU1MTDhrbDd0T3JfbDczTkI2X1Z4SE0tQWhpNUxVX09pX3QzU3NTUnVSNGo?oc=5",
+          "source_name": "greentechlead.com",
+          "source_domain": "greentechlead.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-02T13:23:19.000Z",
+          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "valid": true,
+          "evidence_key": "6ccb492da9285b624ca7d735",
+          "first_seen_at": "2026-09-04T15:18:37.219Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "5743faf7b536fd02bc05",
+          "query_id": "AI_TIME_TO_POWER:lead:lead_time",
+          "phase": "LEAD",
+          "signal": "EQUIPMENT_LEAD_TIME",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Manufacturers expanding U.S. operations to meet grid demand highlight electricity supply constraints.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Expansion of operations to meet grid demand indicates electricity supply constraints.",
+          "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZ19ieFNoY0ZyXzFMdXBUUFZUWmhNSlJnVHRkN1NiejdlRmIwVENFTk0wOUNHTnl6bFk5QlZucmhLMUFYTmRBUktkTmhaM0NZMEVtT0ZERG9VcGFkZTRLWFlOcXRwdm5nZHRZa0RlTDBBMWZ3Z01qdlBvY21NZzVPMnBtbERna09ZNFNoem1Kc041LWNDaW1saWtCVTU3UzZXVTZMODVueUNZZjl6WHE1QVlYdS0xeFE?oc=5",
+          "source_name": "Factor This",
+          "source_domain": "renewableenergyworld.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T19:10:30.000Z",
+          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "valid": true,
+          "evidence_key": "51187a5fa957fbb915d289cc",
+          "first_seen_at": "2026-09-04T15:18:37.219Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "653f0aa539b35bbb49a8",
+          "query_id": "AI_TIME_TO_POWER:lead:lead_time",
+          "phase": "LEAD",
+          "signal": "EQUIPMENT_LEAD_TIME",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Data center logistics emphasize need for reliable electricity interconnection.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Logistics highlight importance of electricity interconnection.",
+          "source_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5aUlNodlJkOW1NdXFDWVJlRnRPY2QtcGhydXZ5TmNQdk92ZUtUZEV4YjJCajcyNTV6ZzdJQ2MtaXVfRU81b3NNUmxfS0RDZW16SUtGT3lueEpVbnIzeTAwbm8wS1N0WjFZZDJKS0QwQ09vYl82Qm1yX3IzNkEyc1k?oc=5",
+          "source_name": "breakbulk.com",
+          "source_domain": "breakbulk.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T00:44:18.000Z",
+          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "valid": true,
+          "evidence_key": "cf200ef4954203c2255d4daa",
+          "first_seen_at": "2026-09-04T15:18:37.219Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "4758a20dd7711ac6e7fb",
+          "query_id": "AI_TIME_TO_POWER:lead:lead_time",
+          "phase": "LEAD",
+          "signal": "EQUIPMENT_LEAD_TIME",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Grid bottleneck due to material shortages indicates electricity supply constraints.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Material shortages in grid infrastructure signal electricity constraints.",
+          "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSzVYb2hlLUhhZVRrZmZ5dzBPQWpTMG9LM3ZFV1lCSm50b0lVVkwtZ2FFc0xybEJwUFNoQ2xQWVpPdmFjN3J5S0k4VnZ1ZURoOTNkYkZoRzlRcmJ0RHF2Z3RJVklsTHpEc3NrZ1k4NzkwZktJdTBISmVyc053ZTFKMVZSMFl1bGo1Q0U5VzBWRTg0cGNkb1haTnQ3TmxGWFJ5czQwb1N3QQ?oc=5",
+          "source_name": "Mondaq",
+          "source_domain": "mondaq.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-04T01:58:46.000Z",
+          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "valid": true,
+          "evidence_key": "8d72f838920c2b3429838bae",
+          "first_seen_at": "2026-09-04T15:18:37.219Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
+      "evidence": [
+        {
+          "candidate_id": "b3e792af8815de0d270a",
+          "query_id": "AI_TIME_TO_POWER:lead:lead_time",
+          "phase": "LEAD",
+          "signal": "EQUIPMENT_LEAD_TIME",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Global power equipment boom signals rising electricity demand for AI infrastructure.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Power equipment boom indicates increased electricity demand.",
+          "source_url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNNEJ6V1F1TmhxaUJ3V0s4U3pPa1F6ZHZPOTZuQjl2Zk1FeVlfNXJneVdxRk9Fd0pXcHhFSG5wdFJyXzJiZzlJalFKUU04R1FKWXV6SnV2RE9mTTdZSHp4RGVKLXp0UmsxdmFHZFZ5ZlVoSHJXQzV6dDFVb3FLQmctaEM4dXFWS1FhdWVwUlZoNHRTTm1WQTdpUDZPZWJJal96QXBLdEFqeVBDVnptbFFxQzg2MFFWd1dsSU1MTDhrbDd0T3JfbDczTkI2X1Z4SE0tQWhpNUxVX09pX3QzU3NTUnVSNGo?oc=5",
+          "source_name": "greentechlead.com",
+          "source_domain": "greentechlead.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-02T13:23:19.000Z",
+          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "valid": true,
+          "evidence_key": "6ccb492da9285b624ca7d735",
+          "first_seen_at": "2026-09-04T13:34:04.505Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "5743faf7b536fd02bc05",
+          "query_id": "AI_TIME_TO_POWER:lead:lead_time",
+          "phase": "LEAD",
+          "signal": "EQUIPMENT_LEAD_TIME",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Manufacturers expanding U.S. operations to meet grid demand highlight electricity supply constraints.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Expansion of operations to meet grid demand indicates electricity supply constraints.",
+          "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZ19ieFNoY0ZyXzFMdXBUUFZUWmhNSlJnVHRkN1NiejdlRmIwVENFTk0wOUNHTnl6bFk5QlZucmhLMUFYTmRBUktkTmhaM0NZMEVtT0ZERG9VcGFkZTRLWFlOcXRwdm5nZHRZa0RlTDBBMWZ3Z01qdlBvY21NZzVPMnBtbERna09ZNFNoem1Kc041LWNDaW1saWtCVTU3UzZXVTZMODVueUNZZjl6WHE1QVlYdS0xeFE?oc=5",
+          "source_name": "Factor This",
+          "source_domain": "renewableenergyworld.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T19:10:30.000Z",
+          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "valid": true,
+          "evidence_key": "51187a5fa957fbb915d289cc",
+          "first_seen_at": "2026-09-04T13:34:04.505Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "653f0aa539b35bbb49a8",
+          "query_id": "AI_TIME_TO_POWER:lead:lead_time",
+          "phase": "LEAD",
+          "signal": "EQUIPMENT_LEAD_TIME",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Data center logistics emphasize need for reliable electricity interconnection.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Logistics highlight importance of electricity interconnection.",
+          "source_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5aUlNodlJkOW1NdXFDWVJlRnRPY2QtcGhydXZ5TmNQdk92ZUtUZEV4YjJCajcyNTV6ZzdJQ2MtaXVfRU81b3NNUmxfS0RDZW16SUtGT3lueEpVbnIzeTAwbm8wS1N0WjFZZDJKS0QwQ09vYl82Qm1yX3IzNkEyc1k?oc=5",
+          "source_name": "breakbulk.com",
+          "source_domain": "breakbulk.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T00:44:18.000Z",
+          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "valid": true,
+          "evidence_key": "cf200ef4954203c2255d4daa",
+          "first_seen_at": "2026-09-04T14:26:45.605Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "4758a20dd7711ac6e7fb",
+          "query_id": "AI_TIME_TO_POWER:lead:lead_time",
+          "phase": "LEAD",
+          "signal": "EQUIPMENT_LEAD_TIME",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Grid bottleneck due to material shortages indicates electricity supply constraints.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Material shortages in grid infrastructure signal electricity constraints.",
+          "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSzVYb2hlLUhhZVRrZmZ5dzBPQWpTMG9LM3ZFV1lCSm50b0lVVkwtZ2FFc0xybEJwUFNoQ2xQWVpPdmFjN3J5S0k4VnZ1ZURoOTNkYkZoRzlRcmJ0RHF2Z3RJVklsTHpEc3NrZ1k4NzkwZktJdTBISmVyc053ZTFKMVZSMFl1bGo1Q0U5VzBWRTg0cGNkb1haTnQ3TmxGWFJ5czQwb1N3QQ?oc=5",
+          "source_name": "Mondaq",
+          "source_domain": "mondaq.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-04T01:58:46.000Z",
+          "retrieved_at": "2026-09-04T15:18:37.219Z",
+          "valid": true,
+          "evidence_key": "8d72f838920c2b3429838bae",
+          "first_seen_at": "2026-09-04T13:34:04.505Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
+      "verified": [],
+      "verifier": {
+        "verdict": "NOT_RUN",
+        "summary": "",
+        "next_check": ""
+      },
+      "events": [
+        {
+          "id": "e0a02b51869bfe9cbe9b14",
+          "mechanism_id": "AI_TIME_TO_POWER",
+          "run_id": "run_2026-09-04T15-17-29Z",
+          "phase": "LEAD",
+          "signal": "EQUIPMENT_LEAD_TIME",
+          "claim": "Grid bottleneck due to material shortages indicates electricity supply constraints.",
+          "observed_at": "2026-09-04T01:58:46.000Z",
+          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "source_count": 1,
+          "domains": [
+            "mondaq.com"
+          ],
+          "source_urls": [
+            "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSzVYb2hlLUhhZVRrZmZ5dzBPQWpTMG9LM3ZFV1lCSm50b0lVVkwtZ2FFc0xybEJwUFNoQ2xQWVpPdmFjN3J5S0k4VnZ1ZURoOTNkYkZoRzlRcmJ0RHF2Z3RJVklsTHpEc3NrZ1k4NzkwZktJdTBISmVyc053ZTFKMVZSMFl1bGo1Q0U5VzBWRTg0cGNkb1haTnQ3TmxGWFJ5czQwb1N3QQ?oc=5"
+          ],
+          "official": false,
+          "representative_source": "Mondaq",
+          "representative_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSzVYb2hlLUhhZVRrZmZ5dzBPQWpTMG9LM3ZFV1lCSm50b0lVVkwtZ2FFc0xybEJwUFNoQ2xQWVpPdmFjN3J5S0k4VnZ1ZURoOTNkYkZoRzlRcmJ0RHF2Z3RJVklsTHpEc3NrZ1k4NzkwZktJdTBISmVyc053ZTFKMVZSMFl1bGo1Q0U5VzBWRTg0cGNkb1haTnQ3TmxGWFJ5czQwb1N3QQ?oc=5",
+          "source_grade": 0.62
+        },
+        {
+          "id": "3ecf120443fce2bb32ec16",
+          "mechanism_id": "AI_TIME_TO_POWER",
+          "run_id": "run_2026-09-04T15-17-29Z",
+          "phase": "LEAD",
+          "signal": "EQUIPMENT_LEAD_TIME",
+          "claim": "Manufacturers expanding U.S. operations to meet grid demand highlight electricity supply constraints.",
+          "observed_at": "2026-09-03T19:10:30.000Z",
+          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "source_count": 1,
+          "domains": [
+            "renewableenergyworld.com"
+          ],
+          "source_urls": [
+            "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZ19ieFNoY0ZyXzFMdXBUUFZUWmhNSlJnVHRkN1NiejdlRmIwVENFTk0wOUNHTnl6bFk5QlZucmhLMUFYTmRBUktkTmhaM0NZMEVtT0ZERG9VcGFkZTRLWFlOcXRwdm5nZHRZa0RlTDBBMWZ3Z01qdlBvY21NZzVPMnBtbERna09ZNFNoem1Kc041LWNDaW1saWtCVTU3UzZXVTZMODVueUNZZjl6WHE1QVlYdS0xeFE?oc=5"
+          ],
+          "official": false,
+          "representative_source": "Factor This",
+          "representative_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZ19ieFNoY0ZyXzFMdXBUUFZUWmhNSlJnVHRkN1NiejdlRmIwVENFTk0wOUNHTnl6bFk5QlZucmhLMUFYTmRBUktkTmhaM0NZMEVtT0ZERG9VcGFkZTRLWFlOcXRwdm5nZHRZa0RlTDBBMWZ3Z01qdlBvY21NZzVPMnBtbERna09ZNFNoem1Kc041LWNDaW1saWtCVTU3UzZXVTZMODVueUNZZjl6WHE1QVlYdS0xeFE?oc=5",
+          "source_grade": 0.62
+        },
+        {
+          "id": "7404e48445a2b3987d6bbd",
+          "mechanism_id": "AI_TIME_TO_POWER",
+          "run_id": "run_2026-09-04T15-17-29Z",
+          "phase": "LEAD",
+          "signal": "EQUIPMENT_LEAD_TIME",
+          "claim": "Data center logistics emphasize need for reliable electricity interconnection.",
+          "observed_at": "2026-09-03T00:44:18.000Z",
+          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "source_count": 1,
+          "domains": [
+            "breakbulk.com"
+          ],
+          "source_urls": [
+            "https://news.google.com/rss/articles/CBMif0FVX3lxTE5aUlNodlJkOW1NdXFDWVJlRnRPY2QtcGhydXZ5TmNQdk92ZUtUZEV4YjJCajcyNTV6ZzdJQ2MtaXVfRU81b3NNUmxfS0RDZW16SUtGT3lueEpVbnIzeTAwbm8wS1N0WjFZZDJKS0QwQ09vYl82Qm1yX3IzNkEyc1k?oc=5"
+          ],
+          "official": false,
+          "representative_source": "breakbulk.com",
+          "representative_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5aUlNodlJkOW1NdXFDWVJlRnRPY2QtcGhydXZ5TmNQdk92ZUtUZEV4YjJCajcyNTV6ZzdJQ2MtaXVfRU81b3NNUmxfS0RDZW16SUtGT3lueEpVbnIzeTAwbm8wS1N0WjFZZDJKS0QwQ09vYl82Qm1yX3IzNkEyc1k?oc=5",
+          "source_grade": 0.62
+        },
+        {
+          "id": "9992bdb75bf288b53aceb1",
+          "mechanism_id": "AI_TIME_TO_POWER",
+          "run_id": "run_2026-09-04T15-17-29Z",
+          "phase": "LEAD",
+          "signal": "EQUIPMENT_LEAD_TIME",
+          "claim": "Global power equipment boom signals rising electricity demand for AI infrastructure.",
+          "observed_at": "2026-09-02T13:23:19.000Z",
+          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "source_count": 1,
+          "domains": [
+            "greentechlead.com"
+          ],
+          "source_urls": [
+            "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNNEJ6V1F1TmhxaUJ3V0s4U3pPa1F6ZHZPOTZuQjl2Zk1FeVlfNXJneVdxRk9Fd0pXcHhFSG5wdFJyXzJiZzlJalFKUU04R1FKWXV6SnV2RE9mTTdZSHp4RGVKLXp0UmsxdmFHZFZ5ZlVoSHJXQzV6dDFVb3FLQmctaEM4dXFWS1FhdWVwUlZoNHRTTm1WQTdpUDZPZWJJal96QXBLdEFqeVBDVnptbFFxQzg2MFFWd1dsSU1MTDhrbDd0T3JfbDczTkI2X1Z4SE0tQWhpNUxVX09pX3QzU3NTUnVSNGo?oc=5"
+          ],
+          "official": false,
+          "representative_source": "greentechlead.com",
+          "representative_url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNNEJ6V1F1TmhxaUJ3V0s4U3pPa1F6ZHZPOTZuQjl2Zk1FeVlfNXJneVdxRk9Fd0pXcHhFSG5wdFJyXzJiZzlJalFKUU04R1FKWXV6SnV2RE9mTTdZSHp4RGVKLXp0UmsxdmFHZFZ5ZlVoSHJXQzV6dDFVb3FLQmctaEM4dXFWS1FhdWVwUlZoNHRTTm1WQTdpUDZPZWJJal96QXBLdEFqeVBDVnptbFFxQzg2MFFWd1dsSU1MTDhrbDd0T3JfbDczTkI2X1Z4SE0tQWhpNUxVX09pX3QzU3NTUnVSNGo?oc=5",
+          "source_grade": 0.62
+        }
+      ],
+      "event_stats": {
+        "observed_unique": 4,
+        "observed_duplicates": 0,
+        "memory_unique": 4,
+        "memory_duplicates": 0
+      },
+      "memory": {
+        "observed_items": 4,
+        "carried_items": 0,
+        "avg_carry_weight": 0,
+        "observed_score": 31,
+        "raw_combined_score": 31,
+        "decayed_score": 31
+      },
+      "expected_next": [],
+      "invalidation": [],
+      "market": {
+        "score": 68,
+        "crowding": 19.6,
+        "breadth": 0.8,
+        "relative_breadth": 0.8,
+        "intraday_breadth": 0.8,
+        "quality": "HIGH",
+        "n": 5,
+        "intraday_n": 5,
+        "above20": 0.2,
+        "above50": 0,
+        "benchmark": "QQQ",
+        "avg": {
+          "r1": 1.74,
+          "r5": 2.78,
+          "r20": -6.95,
+          "rel5": 2.61,
+          "rel20": -6.21,
+          "r30m": -0.07,
+          "r2h": 0.16,
+          "rel30m": 0.02,
+          "rel2h": 0.49,
+          "volumeZ": -1.66
+        }
+      },
+      "alpha": {
+        "eligible": false,
+        "score": 41.8,
+        "reasons": [
+          "STATE_NOT_STABLY_ACTIVE",
+          "CAUSAL_TOO_WEAK",
+          "NO_CONFIRM",
+          "TOO_CROWDED"
+        ],
+        "empirical": {
+          "samples": 0,
+          "hit_rate": null,
+          "avg_return": null,
+          "lead_to_confirm": null
+        }
+      },
+      "reliability": {
+        "samples": 0,
+        "hit_rate": null,
+        "avg_return": null,
+        "lead_to_confirm": null
+      },
+      "hysteresis": {
+        "raw_state": "WATCH",
+        "pending": null,
+        "reason": "INITIAL",
+        "applied": false
+      },
+      "sensors": {
+        "lead": 1,
+        "confirm": 0,
+        "lag": 0,
+        "lag_share": 0,
+        "domains": [
+          "mondaq.com",
+          "renewableenergyworld.com",
+          "breakbulk.com",
+          "greentechlead.com"
+        ],
+        "events": 4,
+        "duplicates_removed": 0
+      },
+      "positive": [
+        "POWL",
+        "VRT",
+        "GEV",
+        "ETN",
+        "PWR"
+      ],
+      "negative": [],
+      "last_run": "2026-09-04T15:20:09.766Z",
+      "model": "openai/gpt-oss-20b",
+      "usage": {
+        "prompt_tokens": 2598,
+        "completion_tokens": 922,
+        "total_tokens": 3520,
+        "cost": 0.00014416,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00014416,
+          "upstream_inference_prompt_cost": 0.00005196,
+          "upstream_inference_completions_cost": 0.0000922
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 589,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 4,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "AI_TIME_TO_POWER:lead:grid_deposit",
+          "phase": "LEAD",
+          "signal": "REAL_POWER_COMMITMENT",
+          "q": "data center utility interconnection deposit substation permit transformer order gigawatt",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 5
+            }
+          }
+        },
+        {
+          "query_id": "AI_TIME_TO_POWER:lead:lead_time",
+          "phase": "LEAD",
+          "signal": "EQUIPMENT_LEAD_TIME",
+          "q": "large power transformer lead time switchgear lead time data center utility",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 4,
+              "cached": true,
+              "ttl_hours": 5
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "AI_GHOST_DEMAND",
+      "label": "AI ghost demand",
+      "tier": "B",
+      "state": "DORMANT",
+      "raw_state": "DORMANT",
+      "score": 15,
+      "previous_state": "UNKNOWN",
+      "score_delta": 15,
+      "summary": "DeepGreen Cook Inlet SPV, LLC has filed a preliminary permit application to interconnect a 100 MW data‑center project to the Alaska Railbelt Grid, indicating a speculative interconnection request for financed construction.",
+      "material_change": true,
+      "observed_evidence": [
+        {
+          "candidate_id": "0aedf122ce35a65e2b1c",
+          "query_id": "OFFICIAL:FR_DATA_CENTER_QUEUE:AI_GHOST_DEMAND",
+          "phase": "LEAD",
+          "signal": "REGULATORY_DEMAND",
+          "family": "OFFICIAL",
+          "fact_type": "FACT",
+          "claim": "DeepGreen Cook Inlet SPV, LLC submitted a preliminary permit application for an interconnection to the Alaska Railbelt Grid to supply a 100 MW data center.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.federalregister.gov/documents/2026/09/04/2026-18151/deepgreen-cook-inlet-spv-llc-notice-of-preliminary-permit-application-accepted-for-filing-and",
+          "source_name": "Federal Register",
+          "source_domain": "federalregister.gov",
+          "source_grade": 1,
+          "official": true,
+          "engine": "federal_register",
+          "published_at": "2026-09-04T00:00:00.000Z",
+          "retrieved_at": "2026-09-04T15:18:39.347Z",
+          "valid": true,
+          "evidence_key": "e08720fee0629e4efc4b36b5",
+          "first_seen_at": "2026-09-04T15:18:39.347Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
+      "evidence": [
+        {
+          "candidate_id": "0aedf122ce35a65e2b1c",
+          "query_id": "OFFICIAL:FR_DATA_CENTER_QUEUE:AI_GHOST_DEMAND",
+          "phase": "LEAD",
+          "signal": "REGULATORY_DEMAND",
+          "family": "OFFICIAL",
+          "fact_type": "FACT",
+          "claim": "DeepGreen Cook Inlet SPV, LLC submitted a preliminary permit application for an interconnection to the Alaska Railbelt Grid to supply a 100 MW data center.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.federalregister.gov/documents/2026/09/04/2026-18151/deepgreen-cook-inlet-spv-llc-notice-of-preliminary-permit-application-accepted-for-filing-and",
+          "source_name": "Federal Register",
+          "source_domain": "federalregister.gov",
+          "source_grade": 1,
+          "official": true,
+          "engine": "federal_register",
+          "published_at": "2026-09-04T00:00:00.000Z",
+          "retrieved_at": "2026-09-04T15:18:39.347Z",
+          "valid": true,
+          "evidence_key": "e08720fee0629e4efc4b36b5",
+          "first_seen_at": "2026-09-04T15:18:39.347Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
+      "verified": [],
+      "verifier": {
+        "verdict": "NOT_RUN",
+        "summary": "",
+        "next_check": ""
+      },
+      "events": [
+        {
+          "id": "20cbfd534296aa3772f2d0",
+          "mechanism_id": "AI_GHOST_DEMAND",
+          "run_id": "run_2026-09-04T15-17-29Z",
+          "phase": "LEAD",
+          "signal": "REGULATORY_DEMAND",
+          "claim": "DeepGreen Cook Inlet SPV, LLC submitted a preliminary permit application for an interconnection to the Alaska Railbelt Grid to supply a 100 MW data center.",
+          "observed_at": "2026-09-04T00:00:00.000Z",
+          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "source_count": 1,
+          "domains": [
+            "federalregister.gov"
+          ],
+          "source_urls": [
+            "https://www.federalregister.gov/documents/2026/09/04/2026-18151/deepgreen-cook-inlet-spv-llc-notice-of-preliminary-permit-application-accepted-for-filing-and"
+          ],
+          "official": true,
+          "representative_source": "Federal Register",
+          "representative_url": "https://www.federalregister.gov/documents/2026/09/04/2026-18151/deepgreen-cook-inlet-spv-llc-notice-of-preliminary-permit-application-accepted-for-filing-and",
+          "source_grade": 1
+        }
+      ],
+      "event_stats": {
+        "observed_unique": 1,
+        "observed_duplicates": 0,
+        "memory_unique": 1,
+        "memory_duplicates": 0
+      },
+      "memory": {
+        "observed_items": 1,
+        "carried_items": 0,
+        "avg_carry_weight": 0,
+        "observed_score": 15,
+        "raw_combined_score": 15,
+        "decayed_score": 15
+      },
+      "expected_next": [],
+      "invalidation": [],
+      "market": {
+        "score": 60,
+        "crowding": 21.3,
+        "breadth": 0.667,
+        "relative_breadth": 0.667,
+        "intraday_breadth": 1,
+        "quality": "HIGH",
+        "n": 3,
+        "intraday_n": 3,
+        "above20": 0.333,
+        "above50": 0,
+        "benchmark": "QQQ",
+        "avg": {
+          "r1": 1.81,
+          "r5": 3.06,
+          "r20": -6.16,
+          "rel5": 2.89,
+          "rel20": -5.42,
+          "r30m": -0.07,
+          "r2h": 0.17,
+          "rel30m": 0.02,
+          "rel2h": 0.5,
+          "volumeZ": -1.7
+        }
+      },
+      "alpha": {
+        "eligible": false,
+        "score": 26.1,
+        "reasons": [
+          "STATE_NOT_STABLY_ACTIVE",
+          "CAUSAL_TOO_WEAK",
+          "NO_CONFIRM",
+          "INSUFFICIENT_SOURCES"
+        ],
+        "empirical": {
+          "samples": 0,
+          "hit_rate": null,
+          "avg_return": null,
+          "lead_to_confirm": null
+        }
+      },
+      "reliability": {
+        "samples": 0,
+        "hit_rate": null,
+        "avg_return": null,
+        "lead_to_confirm": null
+      },
+      "hysteresis": {
+        "raw_state": "DORMANT",
+        "pending": null,
+        "reason": "INITIAL",
+        "applied": false
+      },
+      "sensors": {
+        "lead": 1,
+        "confirm": 0,
+        "lag": 0,
+        "lag_share": 0,
+        "domains": [
+          "federalregister.gov"
+        ],
+        "events": 1,
+        "duplicates_removed": 0
+      },
+      "positive": [
+        "VRT",
+        "POWL",
+        "GEV"
+      ],
+      "negative": [],
+      "last_run": "2026-09-04T15:20:09.766Z",
+      "model": "openai/gpt-oss-20b",
+      "usage": {
+        "prompt_tokens": 1283,
+        "completion_tokens": 648,
+        "total_tokens": 1931,
+        "cost": 0.00009046,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00009046,
+          "upstream_inference_prompt_cost": 0.00002566,
+          "upstream_inference_completions_cost": 0.0000648
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 586,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 3,
+      "official_candidate_count": 2,
+      "query_trace": [
+        {
+          "query_id": "AI_GHOST_DEMAND:lead:queue_withdraw",
+          "phase": "LEAD",
+          "signal": "QUEUE_ATTRITION",
+          "q": "data center interconnection request withdrawn duplicate utility deposit queue cancellation",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 10
+            }
+          }
+        },
+        {
+          "query_id": "AI_GHOST_DEMAND:lead:project_cancel",
+          "phase": "LEAD",
+          "signal": "PROJECT_ATTRITION",
+          "q": "AI data center project cancelled delayed tenant commitment financing power",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 1,
+              "cached": true,
+              "ttl_hours": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "JAPAN_CARRY_UNWIND",
+      "label": "Japan carry unwind",
+      "tier": "A",
+      "state": "WATCH",
+      "raw_state": "ACTIVE",
+      "score": 73,
+      "previous_state": "WATCH",
+      "score_delta": 34,
+      "summary": "The following atomic claims are directly supported by the provided candidates and relate to the Japan carry‑unwind mechanism (rising JGB yields, yen strength, and potential tightening of global financial conditions).",
+      "material_change": true,
+      "observed_evidence": [
+        {
+          "candidate_id": "c286eea7004051a9be00",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "The BoJ hike to 1.25% and the Fed hike to 4.00% leave the JGB‑yen differential unchanged at 262.5 basis points.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaVFQYVJBNXg0cWlOcTRvZnJtbG5TMlN4eE9KWDUzZi1wNDd4R1hxcVJtV19VR3NRWUlxczM3RDBqZFdVUkdMQk1XbTVrVk44UlUybjU1NDNzMEpNdE85eUNUN0pBdDlnNXRmNFVnTU51eVp4WGFHazhOaFFqNE9ySU5naWZINWFKc0w1NjdXVjhWRUZuTlJndDJGTkJXZkgtOWVfVER1eGJ5dw?oc=5",
+          "source_name": "TradingNEWS",
+          "source_domain": "tradingnews.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-02T20:09:03.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "36f3eed5d53022434bfd27d9",
+          "first_seen_at": "2026-09-04T15:18:38.102Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "23b75ebcd0b429177111",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "USD/JPY fell as JGB yields rose, rewriting the yen’s long‑term case.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZU5TUzJyNjBKWFVlcHhXZ1poRno4X0o2X1BUejAyYWVtdWJiZjJPMFNxblNCN3RZRExQcmNKNE5obVkwaVdvVkZtaWxtYXlqXzJUYnNwRmF2QjBld0NPSTZXaWlISWs0ZUVCR0l0SEI4SksyMFloSzl0U3FrRk1IUmtHNUVTeE9wTHlTUnk4TUc2SklwcEJvWERoemRya0p5QXZN?oc=5",
+          "source_name": "Investing.com UK",
+          "source_domain": "uk.investing.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T20:11:00.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "b25df01fc278cea3631d7dda",
+          "first_seen_at": "2026-09-04T15:18:38.102Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "c8d01bd40c8708180905",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "USD/JPY was forecast to reach 155.40 as the BoJ opened the door to a 50‑basis‑point policy rate increase.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWlZweGtrWGhVS2pCal9zRU9rMGpjNkx6blZCdmxic19UMElWcVV4U0F0cEdsa0RQRFEzd0ZEcl9Damt5U3lsNWVubHJLSmtlV3M3NE9rUHhpUlZRZkZSYklYY0I0QjhlMDdkYzBQWUJNVksycWtXQVpGQU9OcFBlSU1GcnRaOHB3dTNiYk16N0ZUWDNDN1hDT0JMaHgtRV95MTJV?oc=5",
+          "source_name": "TradingNEWS",
+          "source_domain": "tradingnews.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T20:09:07.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "483c6a7e433398d956521035",
+          "first_seen_at": "2026-09-04T15:18:38.102Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "77d69c4328ac08d08d0a",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "The yen hit 156.40 as JGB yields topped 3%, putting carry trades at risk.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5RTUFkRVZTcHF6OHNUeFZaN0pmMXNvYTNwZ1RhLTZoTGgxY213RXlUazRNX01jZnFzaExOTzE4QVR2T2FmTDFMUElQdHljMkEyOGNHVFlCM2tsZVJDaTFZQ3FkTXdDTW5CYUlHSjl2WkozZw?oc=5",
+          "source_name": "FinanceFeeds",
+          "source_domain": "financefeeds.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T16:46:33.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "d5d655db698c81d15f1e4ccb",
+          "first_seen_at": "2026-09-04T15:18:38.102Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "5a5a324d90db13126312",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "Japanese government bond yields hit a 30‑year high, raising the risk of unwinding yen carry trades globally.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMWt3WnNaMFZlYUpOWHY2Vi1hWk95aU52Y2xtQzNQNU9LUzlGTG91RG4wcTNCaEVYTEVmSWhfZmU2d2UwRnpKbmhrOF9Pd2p5bU1Xd0dXbmMwY0FUcEJ6QWNqMVgtWS1LRzNUQ3g0M0x5SkVUYXV2cGo4cEItYWVnY2dYVkdWVHU3TXkwUFh3cWM0RUxXVno4b05hUUtRSU9ZUHpyMjhYcw?oc=5",
+          "source_name": "富途牛牛",
+          "source_domain": "news.futunn.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T10:07:47.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "c7426fba1fe77b9dcc0f35ff",
+          "first_seen_at": "2026-09-04T15:18:38.102Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "904f9f20939cf4843f1d",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "USD/JPY dropped 0.58% on September 3, 2026.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQTng3eWNZUXFsdnN2YlllT3RpXzZBZWUzMnljNWlFY0xOdnh4bEJsMlBBUG5nX2FCLURHVjJmeTVudDFBbUt1VXgydkpDR0lVd3N1cWpEUDUtcXNFQzNHQXFWWGlUazZSSXRRZ2Y3NGZQUzBJcFA1cy0yaG5hVjVtSmQ4WHBWLWFBTmJ5b2V3?oc=5",
+          "source_name": "TradingKey",
+          "source_domain": "tradingkey.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T04:00:33.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "8664d78cdca1e2e8d63f9471",
+          "first_seen_at": "2026-09-04T15:18:38.102Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "fbe8f8b4e362b9b2b014",
+          "query_id": "JAPAN_CARRY_UNWIND:lead:boj_signal",
+          "phase": "LEAD",
+          "signal": "BOJ_TIGHTENING",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The Nikkei fell for a fourth day as a stronger yen and rate uncertainty weighed on markets.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBkZHdobmFnajZvZHNhOXFHTzFMSkNSaG00NW01NU1Ga3JBVEE2N3U5MDQ4TjVNSGtFWkQ2aEdqUm0zLXdfTlZEandPSVV3WXV4b2hyQQ?oc=5",
+          "source_name": "News On Japan",
+          "source_domain": "newsonjapan.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T08:50:36.000Z",
+          "retrieved_at": "2026-09-04T15:18:37.942Z",
+          "valid": true,
+          "evidence_key": "770d489317a18cc7ec51d4dc",
+          "first_seen_at": "2026-09-04T15:18:37.942Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "75de6d528605e906ccf4",
+          "query_id": "JAPAN_CARRY_UNWIND:lead:japan_flows",
+          "phase": "LEAD",
+          "signal": "CAPITAL_REPATRIATION",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Japan’s bond rout is turning the tide of global capital flows.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOT2hWVlhPaC1QWkNhOU1LbHlhUVNtcWNKSUFpUHMxQ1RBbWtvOS1pTzVnVHR0SGhYZldyd2hZeGM0WUpLbU1ac1p6bEZMTERaRzg2XzByaktobHJFd0l2a1FzNnZmYjEwTFVkbzdacU9wclR1NnR1NW1VZWxfT3A3SDdpS0huR244NmtPMEZlVllBRGpEamVMbGxCWktHUWpQaHZRMkQ1Zi1OY3NhVVJsTXM0a2kxS2dhclRSY19fNW9jTnJpdVY0WmJKUlVIQVFZ0gHQAUFVX3lxTE5PaFZWWE9oLVBaQ2E5TUtseWFRU21xY0pJQWlQczFDVEFta285LWlPNWdUdHRIaFhmV3J3aFl4YzRZSkttTVpzWnpsRkxMRFpHODZfMHJqS2hsckV3SXZrUXM2dmZiMTBMVWRvN1pxT3ByVHU2dHU1bVVlbF9PcDdIN2lLSG5Hbjg2a08wRmVWWUFEakRqZUxsbEJaS0dRalBodlEyRDVmLU5jc2FVUmxNczRraTFLZ2FyVFJjX181b2NOcml1VjRaYkpSVUhBUVk?oc=5",
+          "source_name": "The Financial Express",
+          "source_domain": "today.thefinancialexpress.com.bd",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-02T18:00:00.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.022Z",
+          "valid": true,
+          "evidence_key": "dfc93b7d46a003a8141587c5",
+          "first_seen_at": "2026-09-04T15:18:38.022Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
+      "evidence": [
+        {
+          "candidate_id": "c286eea7004051a9be00",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "The BoJ hike to 1.25% and the Fed hike to 4.00% leave the JGB‑yen differential unchanged at 262.5 basis points.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaVFQYVJBNXg0cWlOcTRvZnJtbG5TMlN4eE9KWDUzZi1wNDd4R1hxcVJtV19VR3NRWUlxczM3RDBqZFdVUkdMQk1XbTVrVk44UlUybjU1NDNzMEpNdE85eUNUN0pBdDlnNXRmNFVnTU51eVp4WGFHazhOaFFqNE9ySU5naWZINWFKc0w1NjdXVjhWRUZuTlJndDJGTkJXZkgtOWVfVER1eGJ5dw?oc=5",
+          "source_name": "TradingNEWS",
+          "source_domain": "tradingnews.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-02T20:09:03.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "36f3eed5d53022434bfd27d9",
+          "first_seen_at": "2026-09-04T13:34:05.038Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "23b75ebcd0b429177111",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "USD/JPY fell as JGB yields rose, rewriting the yen’s long‑term case.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZU5TUzJyNjBKWFVlcHhXZ1poRno4X0o2X1BUejAyYWVtdWJiZjJPMFNxblNCN3RZRExQcmNKNE5obVkwaVdvVkZtaWxtYXlqXzJUYnNwRmF2QjBld0NPSTZXaWlISWs0ZUVCR0l0SEI4SksyMFloSzl0U3FrRk1IUmtHNUVTeE9wTHlTUnk4TUc2SklwcEJvWERoemRya0p5QXZN?oc=5",
+          "source_name": "Investing.com UK",
+          "source_domain": "uk.investing.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T20:11:00.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "b25df01fc278cea3631d7dda",
+          "first_seen_at": "2026-09-04T13:34:05.038Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "c8d01bd40c8708180905",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "USD/JPY was forecast to reach 155.40 as the BoJ opened the door to a 50‑basis‑point policy rate increase.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWlZweGtrWGhVS2pCal9zRU9rMGpjNkx6blZCdmxic19UMElWcVV4U0F0cEdsa0RQRFEzd0ZEcl9Damt5U3lsNWVubHJLSmtlV3M3NE9rUHhpUlZRZkZSYklYY0I0QjhlMDdkYzBQWUJNVksycWtXQVpGQU9OcFBlSU1GcnRaOHB3dTNiYk16N0ZUWDNDN1hDT0JMaHgtRV95MTJV?oc=5",
+          "source_name": "TradingNEWS",
+          "source_domain": "tradingnews.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T20:09:07.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "483c6a7e433398d956521035",
+          "first_seen_at": "2026-09-04T15:18:38.102Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "77d69c4328ac08d08d0a",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "The yen hit 156.40 as JGB yields topped 3%, putting carry trades at risk.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5RTUFkRVZTcHF6OHNUeFZaN0pmMXNvYTNwZ1RhLTZoTGgxY213RXlUazRNX01jZnFzaExOTzE4QVR2T2FmTDFMUElQdHljMkEyOGNHVFlCM2tsZVJDaTFZQ3FkTXdDTW5CYUlHSjl2WkozZw?oc=5",
+          "source_name": "FinanceFeeds",
+          "source_domain": "financefeeds.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T16:46:33.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "d5d655db698c81d15f1e4ccb",
+          "first_seen_at": "2026-09-04T13:34:05.038Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "5a5a324d90db13126312",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "Japanese government bond yields hit a 30‑year high, raising the risk of unwinding yen carry trades globally.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMWt3WnNaMFZlYUpOWHY2Vi1hWk95aU52Y2xtQzNQNU9LUzlGTG91RG4wcTNCaEVYTEVmSWhfZmU2d2UwRnpKbmhrOF9Pd2p5bU1Xd0dXbmMwY0FUcEJ6QWNqMVgtWS1LRzNUQ3g0M0x5SkVUYXV2cGo4cEItYWVnY2dYVkdWVHU3TXkwUFh3cWM0RUxXVno4b05hUUtRSU9ZUHpyMjhYcw?oc=5",
+          "source_name": "富途牛牛",
+          "source_domain": "news.futunn.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T10:07:47.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "c7426fba1fe77b9dcc0f35ff",
+          "first_seen_at": "2026-09-04T13:34:05.038Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "904f9f20939cf4843f1d",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "USD/JPY dropped 0.58% on September 3, 2026.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQTng3eWNZUXFsdnN2YlllT3RpXzZBZWUzMnljNWlFY0xOdnh4bEJsMlBBUG5nX2FCLURHVjJmeTVudDFBbUt1VXgydkpDR0lVd3N1cWpEUDUtcXNFQzNHQXFWWGlUazZSSXRRZ2Y3NGZQUzBJcFA1cy0yaG5hVjVtSmQ4WHBWLWFBTmJ5b2V3?oc=5",
+          "source_name": "TradingKey",
+          "source_domain": "tradingkey.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T04:00:33.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.102Z",
+          "valid": true,
+          "evidence_key": "8664d78cdca1e2e8d63f9471",
+          "first_seen_at": "2026-09-04T13:34:05.038Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "fbe8f8b4e362b9b2b014",
+          "query_id": "JAPAN_CARRY_UNWIND:lead:boj_signal",
+          "phase": "LEAD",
+          "signal": "BOJ_TIGHTENING",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The Nikkei fell for a fourth day as a stronger yen and rate uncertainty weighed on markets.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBkZHdobmFnajZvZHNhOXFHTzFMSkNSaG00NW01NU1Ga3JBVEE2N3U5MDQ4TjVNSGtFWkQ2aEdqUm0zLXdfTlZEandPSVV3WXV4b2hyQQ?oc=5",
+          "source_name": "News On Japan",
+          "source_domain": "newsonjapan.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T08:50:36.000Z",
+          "retrieved_at": "2026-09-04T15:18:37.942Z",
+          "valid": true,
+          "evidence_key": "770d489317a18cc7ec51d4dc",
+          "first_seen_at": "2026-09-04T14:26:47.955Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "75de6d528605e906ccf4",
+          "query_id": "JAPAN_CARRY_UNWIND:lead:japan_flows",
+          "phase": "LEAD",
+          "signal": "CAPITAL_REPATRIATION",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Japan’s bond rout is turning the tide of global capital flows.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOT2hWVlhPaC1QWkNhOU1LbHlhUVNtcWNKSUFpUHMxQ1RBbWtvOS1pTzVnVHR0SGhYZldyd2hZeGM0WUpLbU1ac1p6bEZMTERaRzg2XzByaktobHJFd0l2a1FzNnZmYjEwTFVkbzdacU9wclR1NnR1NW1VZWxfT3A3SDdpS0huR244NmtPMEZlVllBRGpEamVMbGxCWktHUWpQaHZRMkQ1Zi1OY3NhVVJsTXM0a2kxS2dhclRSY19fNW9jTnJpdVY0WmJKUlVIQVFZ0gHQAUFVX3lxTE5PaFZWWE9oLVBaQ2E5TUtseWFRU21xY0pJQWlQczFDVEFta285LWlPNWdUdHRIaFhmV3J3aFl4YzRZSkttTVpzWnpsRkxMRFpHODZfMHJqS2hsckV3SXZrUXM2dmZiMTBMVWRvN1pxT3ByVHU2dHU1bVVlbF9PcDdIN2lLSG5Hbjg2a08wRmVWWUFEakRqZUxsbEJaS0dRalBodlEyRDVmLU5jc2FVUmxNczRraTFLZ2FyVFJjX181b2NOcml1VjRaYkpSVUhBUVk?oc=5",
+          "source_name": "The Financial Express",
+          "source_domain": "today.thefinancialexpress.com.bd",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-02T18:00:00.000Z",
+          "retrieved_at": "2026-09-04T15:18:38.022Z",
+          "valid": true,
+          "evidence_key": "dfc93b7d46a003a8141587c5",
+          "first_seen_at": "2026-09-04T13:34:04.746Z",
+          "last_seen_at": "2026-09-04T15:20:09.766Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
+      "verified": [],
+      "verifier": {
+        "verdict": "NOT_RUN",
+        "summary": "",
+        "next_check": ""
+      },
+      "events": [
+        {
+          "id": "20742fce9bc483471dd06e",
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "run_id": "run_2026-09-04T15-17-29Z",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "claim": "USD/JPY fell as JGB yields rose, rewriting the yen’s long‑term case.",
+          "observed_at": "2026-09-03T20:11:00.000Z",
+          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "source_count": 1,
+          "domains": [
+            "uk.investing.com"
+          ],
+          "source_urls": [
+            "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZU5TUzJyNjBKWFVlcHhXZ1poRno4X0o2X1BUejAyYWVtdWJiZjJPMFNxblNCN3RZRExQcmNKNE5obVkwaVdvVkZtaWxtYXlqXzJUYnNwRmF2QjBld0NPSTZXaWlISWs0ZUVCR0l0SEI4SksyMFloSzl0U3FrRk1IUmtHNUVTeE9wTHlTUnk4TUc2SklwcEJvWERoemRya0p5QXZN?oc=5"
+          ],
+          "official": false,
+          "representative_source": "Investing.com UK",
+          "representative_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZU5TUzJyNjBKWFVlcHhXZ1poRno4X0o2X1BUejAyYWVtdWJiZjJPMFNxblNCN3RZRExQcmNKNE5obVkwaVdvVkZtaWxtYXlqXzJUYnNwRmF2QjBld0NPSTZXaWlISWs0ZUVCR0l0SEI4SksyMFloSzl0U3FrRk1IUmtHNUVTeE9wTHlTUnk4TUc2SklwcEJvWERoemRya0p5QXZN?oc=5",
+          "source_grade": 0.62
+        },
+        {
+          "id": "46d4cf7e11422de981b79a",
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "run_id": "run_2026-09-04T15-17-29Z",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "claim": "USD/JPY was forecast to reach 155.40 as the BoJ opened the door to a 50‑basis‑point policy rate increase.",
+          "observed_at": "2026-09-03T20:09:07.000Z",
+          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "source_count": 1,
+          "domains": [
+            "tradingnews.com"
+          ],
+          "source_urls": [
+            "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWlZweGtrWGhVS2pCal9zRU9rMGpjNkx6blZCdmxic19UMElWcVV4U0F0cEdsa0RQRFEzd0ZEcl9Damt5U3lsNWVubHJLSmtlV3M3NE9rUHhpUlZRZkZSYklYY0I0QjhlMDdkYzBQWUJNVksycWtXQVpGQU9OcFBlSU1GcnRaOHB3dTNiYk16N0ZUWDNDN1hDT0JMaHgtRV95MTJV?oc=5"
+          ],
+          "official": false,
+          "representative_source": "TradingNEWS",
+          "representative_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWlZweGtrWGhVS2pCal9zRU9rMGpjNkx6blZCdmxic19UMElWcVV4U0F0cEdsa0RQRFEzd0ZEcl9Damt5U3lsNWVubHJLSmtlV3M3NE9rUHhpUlZRZkZSYklYY0I0QjhlMDdkYzBQWUJNVksycWtXQVpGQU9OcFBlSU1GcnRaOHB3dTNiYk16N0ZUWDNDN1hDT0JMaHgtRV95MTJV?oc=5",
+          "source_grade": 0.62
+        },
+        {
+          "id": "2eb431649cc04e0e908303",
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "run_id": "run_2026-09-04T15-17-29Z",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "claim": "The yen hit 156.40 as JGB yields topped 3%, putting carry trades at risk.",
+          "observed_at": "2026-09-03T16:46:33.000Z",
+          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "source_count": 1,
+          "domains": [
+            "financefeeds.com"
+          ],
+          "source_urls": [
+            "https://news.google.com/rss/articles/CBMickFVX3lxTE5RTUFkRVZTcHF6OHNUeFZaN0pmMXNvYTNwZ1RhLTZoTGgxY213RXlUazRNX01jZnFzaExOTzE4QVR2T2FmTDFMUElQdHljMkEyOGNHVFlCM2tsZVJDaTFZQ3FkTXdDTW5CYUlHSjl2WkozZw?oc=5"
+          ],
+          "official": false,
+          "representative_source": "FinanceFeeds",
+          "representative_url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5RTUFkRVZTcHF6OHNUeFZaN0pmMXNvYTNwZ1RhLTZoTGgxY213RXlUazRNX01jZnFzaExOTzE4QVR2T2FmTDFMUElQdHljMkEyOGNHVFlCM2tsZVJDaTFZQ3FkTXdDTW5CYUlHSjl2WkozZw?oc=5",
+          "source_grade": 0.62
+        },
+        {
+          "id": "1ff3a300e59d43dd4530fd",
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "run_id": "run_2026-09-04T15-17-29Z",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "claim": "Japanese government bond yields hit a 30‑year high, raising the risk of unwinding yen carry trades globally.",
+          "observed_at": "2026-09-03T10:07:47.000Z",
+          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "source_count": 1,
+          "domains": [
+            "news.futunn.com"
+          ],
+          "source_urls": [
+            "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMWt3WnNaMFZlYUpOWHY2Vi1hWk95aU52Y2xtQzNQNU9LUzlGTG91RG4wcTNCaEVYTEVmSWhfZmU2d2UwRnpKbmhrOF9Pd2p5bU1Xd0dXbmMwY0FUcEJ6QWNqMVgtWS1LRzNUQ3g0M0x5SkVUYXV2cGo4cEItYWVnY2dYVkdWVHU3TXkwUFh3cWM0RUxXVno4b05hUUtRSU9ZUHpyMjhYcw?oc=5"
+          ],
+          "official": false,
+          "representative_source": "富途牛牛",
+          "representative_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMWt3WnNaMFZlYUpOWHY2Vi1hWk95aU52Y2xtQzNQNU9LUzlGTG91RG4wcTNCaEVYTEVmSWhfZmU2d2UwRnpKbmhrOF9Pd2p5bU1Xd0dXbmMwY0FUcEJ6QWNqMVgtWS1LRzNUQ3g0M0x5SkVUYXV2cGo4cEItYWVnY2dYVkdWVHU3TXkwUFh3cWM0RUxXVno4b05hUUtRSU9ZUHpyMjhYcw?oc=5",
+          "source_grade": 0.62
+        },
+        {
+          "id": "1c82f30719a24eaf57e036",
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "run_id": "run_2026-09-04T15-17-29Z",
+          "phase": "LEAD",
+          "signal": "BOJ_TIGHTENING",
+          "claim": "The Nikkei fell for a fourth day as a stronger yen and rate uncertainty weighed on markets.",
+          "observed_at": "2026-09-03T08:50:36.000Z",
+          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "source_count": 1,
+          "domains": [
+            "newsonjapan.com"
+          ],
+          "source_urls": [
+            "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBkZHdobmFnajZvZHNhOXFHTzFMSkNSaG00NW01NU1Ga3JBVEE2N3U5MDQ4TjVNSGtFWkQ2aEdqUm0zLXdfTlZEandPSVV3WXV4b2hyQQ?oc=5"
+          ],
+          "official": false,
+          "representative_source": "News On Japan",
+          "representative_url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBkZHdobmFnajZvZHNhOXFHTzFMSkNSaG00NW01NU1Ga3JBVEE2N3U5MDQ4TjVNSGtFWkQ2aEdqUm0zLXdfTlZEandPSVV3WXV4b2hyQQ?oc=5",
+          "source_grade": 0.62
+        },
+        {
+          "id": "33cbc6faaf812520eeff45",
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "run_id": "run_2026-09-04T15-17-29Z",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "claim": "USD/JPY dropped 0.58% on September 3, 2026.",
+          "observed_at": "2026-09-03T04:00:33.000Z",
+          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "source_count": 1,
+          "domains": [
+            "tradingkey.com"
+          ],
+          "source_urls": [
+            "https://news.google.com/rss/articles/CBMijgFBVV95cUxQTng3eWNZUXFsdnN2YlllT3RpXzZBZWUzMnljNWlFY0xOdnh4bEJsMlBBUG5nX2FCLURHVjJmeTVudDFBbUt1VXgydkpDR0lVd3N1cWpEUDUtcXNFQzNHQXFWWGlUazZSSXRRZ2Y3NGZQUzBJcFA1cy0yaG5hVjVtSmQ4WHBWLWFBTmJ5b2V3?oc=5"
+          ],
+          "official": false,
+          "representative_source": "TradingKey",
+          "representative_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQTng3eWNZUXFsdnN2YlllT3RpXzZBZWUzMnljNWlFY0xOdnh4bEJsMlBBUG5nX2FCLURHVjJmeTVudDFBbUt1VXgydkpDR0lVd3N1cWpEUDUtcXNFQzNHQXFWWGlUazZSSXRRZ2Y3NGZQUzBJcFA1cy0yaG5hVjVtSmQ4WHBWLWFBTmJ5b2V3?oc=5",
+          "source_grade": 0.62
+        },
+        {
+          "id": "8726f6cbfa73e410cabe2c",
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "run_id": "run_2026-09-04T15-17-29Z",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "claim": "The BoJ hike to 1.25% and the Fed hike to 4.00% leave the JGB‑yen differential unchanged at 262.5 basis points.",
+          "observed_at": "2026-09-02T20:09:03.000Z",
+          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "source_count": 1,
+          "domains": [
+            "tradingnews.com"
+          ],
+          "source_urls": [
+            "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaVFQYVJBNXg0cWlOcTRvZnJtbG5TMlN4eE9KWDUzZi1wNDd4R1hxcVJtV19VR3NRWUlxczM3RDBqZFdVUkdMQk1XbTVrVk44UlUybjU1NDNzMEpNdE85eUNUN0pBdDlnNXRmNFVnTU51eVp4WGFHazhOaFFqNE9ySU5naWZINWFKc0w1NjdXVjhWRUZuTlJndDJGTkJXZkgtOWVfVER1eGJ5dw?oc=5"
+          ],
+          "official": false,
+          "representative_source": "TradingNEWS",
+          "representative_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaVFQYVJBNXg0cWlOcTRvZnJtbG5TMlN4eE9KWDUzZi1wNDd4R1hxcVJtV19VR3NRWUlxczM3RDBqZFdVUkdMQk1XbTVrVk44UlUybjU1NDNzMEpNdE85eUNUN0pBdDlnNXRmNFVnTU51eVp4WGFHazhOaFFqNE9ySU5naWZINWFKc0w1NjdXVjhWRUZuTlJndDJGTkJXZkgtOWVfVER1eGJ5dw?oc=5",
+          "source_grade": 0.62
+        },
+        {
+          "id": "f8feb31569a647b689ee19",
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "run_id": "run_2026-09-04T15-17-29Z",
+          "phase": "LEAD",
+          "signal": "CAPITAL_REPATRIATION",
+          "claim": "Japan’s bond rout is turning the tide of global capital flows.",
+          "observed_at": "2026-09-02T18:00:00.000Z",
+          "ingested_at": "2026-09-04T15:20:09.766Z",
+          "source_count": 1,
+          "domains": [
+            "today.thefinancialexpress.com.bd"
+          ],
+          "source_urls": [
+            "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOT2hWVlhPaC1QWkNhOU1LbHlhUVNtcWNKSUFpUHMxQ1RBbWtvOS1pTzVnVHR0SGhYZldyd2hZeGM0WUpLbU1ac1p6bEZMTERaRzg2XzByaktobHJFd0l2a1FzNnZmYjEwTFVkbzdacU9wclR1NnR1NW1VZWxfT3A3SDdpS0huR244NmtPMEZlVllBRGpEamVMbGxCWktHUWpQaHZRMkQ1Zi1OY3NhVVJsTXM0a2kxS2dhclRSY19fNW9jTnJpdVY0WmJKUlVIQVFZ0gHQAUFVX3lxTE5PaFZWWE9oLVBaQ2E5TUtseWFRU21xY0pJQWlQczFDVEFta285LWlPNWdUdHRIaFhmV3J3aFl4YzRZSkttTVpzWnpsRkxMRFpHODZfMHJqS2hsckV3SXZrUXM2dmZiMTBMVWRvN1pxT3ByVHU2dHU1bVVlbF9PcDdIN2lLSG5Hbjg2a08wRmVWWUFEakRqZUxsbEJaS0dRalBodlEyRDVmLU5jc2FVUmxNczRraTFLZ2FyVFJjX181b2NOcml1VjRaYkpSVUhBUVk?oc=5"
+          ],
+          "official": false,
+          "representative_source": "The Financial Express",
+          "representative_url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOT2hWVlhPaC1QWkNhOU1LbHlhUVNtcWNKSUFpUHMxQ1RBbWtvOS1pTzVnVHR0SGhYZldyd2hZeGM0WUpLbU1ac1p6bEZMTERaRzg2XzByaktobHJFd0l2a1FzNnZmYjEwTFVkbzdacU9wclR1NnR1NW1VZWxfT3A3SDdpS0huR244NmtPMEZlVllBRGpEamVMbGxCWktHUWpQaHZRMkQ1Zi1OY3NhVVJsTXM0a2kxS2dhclRSY19fNW9jTnJpdVY0WmJKUlVIQVFZ0gHQAUFVX3lxTE5PaFZWWE9oLVBaQ2E5TUtseWFRU21xY0pJQWlQczFDVEFta285LWlPNWdUdHRIaFhmV3J3aFl4YzRZSkttTVpzWnpsRkxMRFpHODZfMHJqS2hsckV3SXZrUXM2dmZiMTBMVWRvN1pxT3ByVHU2dHU1bVVlbF9PcDdIN2lLSG5Hbjg2a08wRmVWWUFEakRqZUxsbEJaS0dRalBodlEyRDVmLU5jc2FVUmxNczRraTFLZ2FyVFJjX181b2NOcml1VjRaYkpSVUhBUVk?oc=5",
+          "source_grade": 0.62
+        }
+      ],
+      "event_stats": {
+        "observed_unique": 8,
+        "observed_duplicates": 0,
+        "memory_unique": 8,
+        "memory_duplicates": 0
+      },
+      "memory": {
+        "observed_items": 8,
+        "carried_items": 0,
+        "avg_carry_weight": 0,
+        "observed_score": 73,
+        "raw_combined_score": 73,
+        "decayed_score": 73
+      },
+      "expected_next": [
+        "CONFIRM"
+      ],
+      "invalidation": [],
+      "market": {
+        "score": 79,
+        "crowding": 33.7,
+        "breadth": 1,
+        "relative_breadth": 1,
+        "intraday_breadth": 1,
+        "quality": "HIGH",
+        "n": 3,
+        "intraday_n": 3,
+        "above20": 1,
+        "above50": 1,
+        "benchmark": "EWJ",
+        "avg": {
+          "r1": 1.11,
+          "r5": 3.04,
+          "r20": 4.32,
+          "rel5": 2.2,
+          "rel20": 3.84,
+          "r30m": 0.17,
+          "r2h": 0.51,
+          "rel30m": 0.17,
+          "rel2h": 0.42,
+          "volumeZ": 0.11
+        }
+      },
+      "alpha": {
+        "eligible": false,
+        "score": 63.7,
+        "reasons": [
+          "STATE_NOT_STABLY_ACTIVE",
+          "TOO_CROWDED"
+        ],
+        "empirical": {
+          "samples": 0,
+          "hit_rate": null,
+          "avg_return": null,
+          "lead_to_confirm": null
+        }
+      },
+      "reliability": {
+        "samples": 0,
+        "hit_rate": null,
+        "avg_return": null,
+        "lead_to_confirm": null
+      },
+      "hysteresis": {
+        "raw_state": "ACTIVE",
+        "pending": {
+          "candidate": "ACTIVE",
+          "streak": 1,
+          "required": 2
+        },
+        "reason": "AWAITING_ACTIVE_CONFIRMATION",
+        "applied": true
+      },
+      "sensors": {
+        "lead": 2,
+        "confirm": 1,
+        "lag": 0,
+        "lag_share": 0,
+        "domains": [
+          "uk.investing.com",
+          "tradingnews.com",
+          "financefeeds.com",
+          "news.futunn.com",
+          "newsonjapan.com",
+          "tradingkey.com",
+          "today.thefinancialexpress.com.bd"
+        ],
+        "events": 8,
+        "duplicates_removed": 0
+      },
+      "positive": [
+        "8306.T",
+        "8316.T"
+      ],
+      "negative": [
+        "TLT"
+      ],
+      "last_run": "2026-09-04T15:20:09.766Z",
+      "model": "openai/gpt-oss-20b",
+      "usage": {
+        "prompt_tokens": 5691,
+        "completion_tokens": 1166,
+        "total_tokens": 6857,
+        "cost": 0.00032231,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00032231,
+          "upstream_inference_prompt_cost": 0.00017073,
+          "upstream_inference_completions_cost": 0.00015158
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 508,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 10,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "JAPAN_CARRY_UNWIND:lead:boj_signal",
+          "phase": "LEAD",
+          "signal": "BOJ_TIGHTENING",
+          "q": "Bank of Japan rate hike hawkish JGB purchase reduction inflation wage policy",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 2,
+              "cached": true,
+              "ttl_hours": 5
+            }
+          }
+        },
+        {
+          "query_id": "JAPAN_CARRY_UNWIND:lead:japan_flows",
+          "phase": "LEAD",
+          "signal": "CAPITAL_REPATRIATION",
+          "q": "Japan investors sell foreign bonds buy JGB weekly securities flows Ministry Finance",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 1,
+              "cached": true,
+              "ttl_hours": 5
+            }
+          }
+        },
+        {
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "q": "JGB 10 year 30 year yield yen USDJPY carry trade unwind",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 7,
+              "cached": true,
+              "ttl_hours": 10
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "health": {
+    "retrieval_errors": 2,
+    "upstream_errors": 0,
+    "extraction_errors": 0,
+    "verification_errors": 0,
+    "market_errors": 2,
+    "mechanisms": 26
+  }
+}
