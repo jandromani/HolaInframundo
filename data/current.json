@@ -1,7 +1,7 @@
 {
   "version": "2.9.0",
-  "updated_at": "2026-09-05T10:36:19.880Z",
-  "run_id": "run_2026-09-05T10-32-43Z",
+  "updated_at": "2026-09-05T15:16:37.651Z",
+  "run_id": "run_2026-09-05T15-11-40Z",
   "health": {
     "retrieval_errors": 2,
     "upstream_errors": 0,
@@ -14,35 +14,12 @@
   },
   "transitions": [
     {
-      "mechanism_id": "CRUDE_TANKER_DISLOCATION",
-      "from": "DORMANT",
-      "to": "DORMANT",
-      "raw_to": "DORMANT",
-      "score": 23,
-      "delta": 12,
-      "hysteresis": {
-        "raw_state": "DORMANT",
-        "pending": null,
-        "reason": "STABLE",
-        "applied": false
-      },
-      "memory": {
-        "observed_items": 2,
-        "carried_items": 4,
-        "avg_carry_weight": 0.822,
-        "observed_score": 23,
-        "raw_combined_score": 23,
-        "decayed_score": 23
-      },
-      "at": "2026-09-05T10:36:19.880Z"
-    },
-    {
-      "mechanism_id": "AI_GHOST_DEMAND",
+      "mechanism_id": "CEYHAN_BYPASS",
       "from": "UNKNOWN",
       "to": "DORMANT",
       "raw_to": "DORMANT",
-      "score": 14,
-      "delta": 14,
+      "score": 2,
+      "delta": 2,
       "hysteresis": {
         "raw_state": "DORMANT",
         "pending": null,
@@ -50,72 +27,63 @@
         "applied": false
       },
       "memory": {
-        "observed_items": 1,
+        "observed_items": 2,
         "carried_items": 0,
         "avg_carry_weight": 0,
-        "observed_score": 14,
-        "raw_combined_score": 14,
-        "decayed_score": 14
+        "observed_score": 2,
+        "raw_combined_score": 2,
+        "decayed_score": 2
       },
-      "at": "2026-09-05T10:36:19.880Z"
+      "at": "2026-09-05T15:16:37.651Z"
+    },
+    {
+      "mechanism_id": "ENERGETICS_SHORTAGE",
+      "from": "UNKNOWN",
+      "to": "WATCH",
+      "raw_to": "WATCH",
+      "score": 32,
+      "delta": 32,
+      "hysteresis": {
+        "raw_state": "WATCH",
+        "pending": null,
+        "reason": "INITIAL",
+        "applied": false
+      },
+      "memory": {
+        "observed_items": 5,
+        "carried_items": 0,
+        "avg_carry_weight": 0,
+        "observed_score": 32,
+        "raw_combined_score": 32,
+        "decayed_score": 32
+      },
+      "at": "2026-09-05T15:16:37.651Z"
     },
     {
       "mechanism_id": "JAPAN_CARRY_UNWIND",
       "from": "ACTIVE",
-      "to": "ACTIVE",
+      "to": "ARMING",
       "raw_to": "ARMING",
-      "score": 57,
-      "delta": -12,
+      "score": 60,
+      "delta": 3,
       "hysteresis": {
         "raw_state": "ARMING",
-        "pending": {
-          "candidate": "ARMING",
-          "streak": 1,
-          "required": 2
-        },
-        "reason": "AWAITING_DEACTIVATION_CONFIRMATION",
+        "pending": null,
+        "reason": "DEACTIVATION_CONFIRMED",
         "applied": true
       },
       "memory": {
-        "observed_items": 0,
-        "carried_items": 9,
-        "avg_carry_weight": 0.798,
-        "observed_score": 0,
+        "observed_items": 2,
+        "carried_items": 7,
+        "avg_carry_weight": 0.721,
+        "observed_score": 29,
         "raw_combined_score": 72,
-        "decayed_score": 57
+        "decayed_score": 60
       },
-      "at": "2026-09-05T10:36:19.880Z"
+      "at": "2026-09-05T15:16:37.651Z"
     }
   ],
-  "wave_transitions": [
-    {
-      "mechanism_id": "UNDERWATER_SECURITY",
-      "from": "DISCOVERY",
-      "to": "EARLY_WAVE",
-      "position": "EARLY",
-      "priced_in": 11.4,
-      "consensus": 31.3,
-      "at": "2026-09-05T10:36:19.880Z"
-    },
-    {
-      "mechanism_id": "ROBOTICS_ACTUATOR_SCALE",
-      "from": "DISCOVERY",
-      "to": "EARLY_WAVE",
-      "position": "EARLY",
-      "priced_in": 5,
-      "consensus": 27.5,
-      "at": "2026-09-05T10:36:19.880Z"
-    },
-    {
-      "mechanism_id": "ROBOTICS_DECOUPLING",
-      "from": "DISCOVERY",
-      "to": "EARLY_WAVE",
-      "position": "EARLY",
-      "priced_in": 5,
-      "consensus": 27.5,
-      "at": "2026-09-05T10:36:19.880Z"
-    }
-  ],
+  "wave_transitions": [],
   "mechanisms": {
     "DIESEL_REFINING_CRISIS": {
       "id": "DIESEL_REFINING_CRISIS",
@@ -123,41 +91,12 @@
       "tier": "A",
       "state": "DORMANT",
       "raw_state": "DORMANT",
-      "score": 21,
+      "score": 15,
       "previous_state": "DORMANT",
-      "score_delta": 0,
-      "summary": "Crack spreads for gasoline have risen by about $1 per gallon compared to 2025, indicating higher refining margins and a potential bottleneck, but no direct diesel price data is provided.",
+      "score_delta": -6,
+      "summary": "",
       "material_change": false,
-      "observed_evidence": [
-        {
-          "candidate_id": "0064cdf6bed37f75e7c8",
-          "query_id": "OFFICIAL:EIA_TODAY:DIESEL_REFINING_CRISIS:OFFICIAL_DISTILLATE_DATA",
-          "phase": "CONFIRM",
-          "signal": "OFFICIAL_DISTILLATE_DATA",
-          "family": "OFFICIAL",
-          "fact_type": "FACT",
-          "claim": "Gasoline crack spread in New York Harbor has averaged about $1 per gallon higher than in 2025.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68104",
-          "source_name": "EIA Today in Energy",
-          "source_domain": "eia.gov",
-          "source_grade": 1,
-          "official": true,
-          "engine": "official_rss",
-          "published_at": "2026-09-04T14:00:00.000Z",
-          "retrieved_at": "2026-09-05T10:33:44.040Z",
-          "valid": true,
-          "evidence_key": "2a2e9414a940ae4de6ca98c8",
-          "first_seen_at": "2026-09-05T10:33:44.040Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
+      "observed_evidence": [],
       "evidence": [
         {
           "candidate_id": "0064cdf6bed37f75e7c8",
@@ -183,9 +122,9 @@
           "evidence_key": "2a2e9414a940ae4de6ca98c8",
           "first_seen_at": "2026-09-04T14:26:51.271Z",
           "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.914,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 4.67
         },
         {
           "candidate_id": "c49065937cd7fd6e7061",
@@ -211,9 +150,9 @@
           "evidence_key": "47b362ebeb110b6f707c8d73",
           "first_seen_at": "2026-09-04T13:34:03.209Z",
           "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 0.69,
+          "memory_weight": 0.6307,
           "memory_status": "CARRIED",
-          "memory_age_hours": 19.27
+          "memory_age_hours": 23.94
         }
       ],
       "verified": [],
@@ -222,42 +161,20 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [
-        {
-          "id": "41784d173fca59c0a21643",
-          "mechanism_id": "DIESEL_REFINING_CRISIS",
-          "run_id": "run_2026-09-05T10-32-43Z",
-          "phase": "CONFIRM",
-          "signal": "OFFICIAL_DISTILLATE_DATA",
-          "claim": "Gasoline crack spread in New York Harbor has averaged about $1 per gallon higher than in 2025.",
-          "observed_at": "2026-09-04T14:00:00.000Z",
-          "ingested_at": "2026-09-05T10:36:19.880Z",
-          "source_count": 1,
-          "domains": [
-            "eia.gov"
-          ],
-          "source_urls": [
-            "https://www.eia.gov/todayinenergy/detail.php?id=68104"
-          ],
-          "official": true,
-          "representative_source": "EIA Today in Energy",
-          "representative_url": "https://www.eia.gov/todayinenergy/detail.php?id=68104",
-          "source_grade": 1
-        }
-      ],
+      "events": [],
       "event_stats": {
-        "observed_unique": 1,
+        "observed_unique": 0,
         "observed_duplicates": 0,
         "memory_unique": 1,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 1,
-        "carried_items": 1,
-        "avg_carry_weight": 0.69,
-        "observed_score": 21,
-        "raw_combined_score": 21,
-        "decayed_score": 21
+        "observed_items": 0,
+        "carried_items": 2,
+        "avg_carry_weight": 0.772,
+        "observed_score": 0,
+        "raw_combined_score": 20,
+        "decayed_score": 15
       },
       "expected_next": [],
       "invalidation": [],
@@ -293,7 +210,7 @@
         "consensus_delta": 0,
         "priced_in": 51.2,
         "discount": "MOSTLY_PRICED",
-        "timing_score": 47.3,
+        "timing_score": 44.6,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -312,7 +229,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 30.5,
+        "score": 27.5,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "WAVE_NOT_EARLY",
@@ -327,7 +244,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 25.4,
+        "score": 23.4,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -379,13 +296,13 @@
         "UAL",
         "AAL"
       ],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 422,
-        "completion_tokens": 595,
-        "total_tokens": 1017,
-        "cost": 0.00009001,
+        "prompt_tokens": 314,
+        "completion_tokens": 260,
+        "total_tokens": 574,
+        "cost": 0.00004322,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 32,
@@ -394,18 +311,18 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00009001,
-          "upstream_inference_prompt_cost": 0.00001266,
-          "upstream_inference_completions_cost": 0.00007735
+          "upstream_inference_cost": 0.00004322,
+          "upstream_inference_prompt_cost": 0.00000942,
+          "upstream_inference_completions_cost": 0.0000338
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 517,
+          "reasoning_tokens": 286,
           "image_tokens": 0,
           "audio_tokens": 0
         }
       },
-      "candidate_count": 2,
-      "official_candidate_count": 2,
+      "candidate_count": 7,
+      "official_candidate_count": 1,
       "query_trace": [
         {
           "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
@@ -421,7 +338,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -440,7 +357,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -456,7 +373,7 @@
       "score": 28,
       "previous_state": "WATCH",
       "score_delta": 0,
-      "summary": "Material evidence supporting the Product tanker ton‑miles mechanism",
+      "summary": "Material evidence of longer refined‑product voyages and tightening tanker supply",
       "material_change": false,
       "observed_evidence": [
         {
@@ -466,11 +383,11 @@
           "signal": "MR_FIXTURES",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "West‑to‑East cargo shift drives an unprecedented surge in freight rates.",
-          "direction": "UNKNOWN",
+          "claim": "Net vessel availability in the US Gulf Coast tanker market fell about 41% over the past month, indicating a tightening of effective fleet supply.",
+          "direction": "FLAT",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "",
+          "why_upstream": "Reuters report on US Gulf Coast tanker market tightening (April 1 2026).",
           "source_url": "https://www.reuters.com/business/energy/us-gulf-coast-tanker-market-tightens-asia-seeks-replace-lost-supply-2026-04-01",
           "source_name": "US Gulf Coast tanker market tightens as Asia seeks to replace lost supply | Reuters",
           "source_domain": "reuters.com",
@@ -478,11 +395,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-09-05T10:33:46.046Z",
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
           "valid": true,
           "evidence_key": "1b56ad41dedef2a9742bee3a",
-          "first_seen_at": "2026-09-05T10:33:46.046Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -494,11 +411,11 @@
           "signal": "MR_FIXTURES",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "A cargo of South Korean diesel is headed to Western Europe on a rare 12,000‑mile journey.",
-          "direction": "UNKNOWN",
+          "claim": "A diesel cargo of roughly 90,000 tons was loaded onto the tanker Priamos for a roughly 12,000‑mile journey from South Korea to northwest Europe, showing refined‑product cargoes traveling materially farther.",
+          "direction": "FLAT",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "",
+          "why_upstream": "Energy Connects article describing a rare 12,000‑mile diesel shipment (September 2026).",
           "source_url": "https://www.energyconnects.com/news/oil/2026/september/europe-s-diesel-crunch-spurs-rare-12-000-mile-journey-from-korea",
           "source_name": "Europe’s Diesel Crunch Spurs Rare 12,000-Mile Journey From Korea",
           "source_domain": "energyconnects.com",
@@ -506,11 +423,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-09-05T10:33:46.046Z",
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
           "valid": true,
           "evidence_key": "d0613ec0f33c583d2cb410fa",
-          "first_seen_at": "2026-09-05T10:33:46.046Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -524,11 +441,11 @@
           "signal": "MR_FIXTURES",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "West‑to‑East cargo shift drives an unprecedented surge in freight rates.",
-          "direction": "UNKNOWN",
+          "claim": "Net vessel availability in the US Gulf Coast tanker market fell about 41% over the past month, indicating a tightening of effective fleet supply.",
+          "direction": "FLAT",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "",
+          "why_upstream": "Reuters report on US Gulf Coast tanker market tightening (April 1 2026).",
           "source_url": "https://www.reuters.com/business/energy/us-gulf-coast-tanker-market-tightens-asia-seeks-replace-lost-supply-2026-04-01",
           "source_name": "US Gulf Coast tanker market tightens as Asia seeks to replace lost supply | Reuters",
           "source_domain": "reuters.com",
@@ -536,11 +453,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-09-05T10:33:46.046Z",
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
           "valid": true,
           "evidence_key": "1b56ad41dedef2a9742bee3a",
           "first_seen_at": "2026-09-05T04:25:55.458Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -552,11 +469,11 @@
           "signal": "MR_FIXTURES",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "A cargo of South Korean diesel is headed to Western Europe on a rare 12,000‑mile journey.",
-          "direction": "UNKNOWN",
+          "claim": "A diesel cargo of roughly 90,000 tons was loaded onto the tanker Priamos for a roughly 12,000‑mile journey from South Korea to northwest Europe, showing refined‑product cargoes traveling materially farther.",
+          "direction": "FLAT",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "",
+          "why_upstream": "Energy Connects article describing a rare 12,000‑mile diesel shipment (September 2026).",
           "source_url": "https://www.energyconnects.com/news/oil/2026/september/europe-s-diesel-crunch-spurs-rare-12-000-mile-journey-from-korea",
           "source_name": "Europe’s Diesel Crunch Spurs Rare 12,000-Mile Journey From Korea",
           "source_domain": "energyconnects.com",
@@ -564,11 +481,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-09-05T10:33:46.046Z",
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
           "valid": true,
           "evidence_key": "d0613ec0f33c583d2cb410fa",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -597,9 +514,9 @@
           "evidence_key": "aa880420b7581764a7742c49",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T13:34:08.111Z",
-          "memory_weight": 0.8167,
+          "memory_weight": 0.7808,
           "memory_status": "CARRIED",
-          "memory_age_hours": 21.04
+          "memory_age_hours": 25.71
         }
       ],
       "verified": [],
@@ -610,14 +527,14 @@
       },
       "events": [
         {
-          "id": "f83f6e1b8b70dda7dd7906",
+          "id": "5ff14de9643a0e7bef383c",
           "mechanism_id": "PRODUCT_TANKER_TONMILES",
-          "run_id": "run_2026-09-05T10-32-43Z",
+          "run_id": "run_2026-09-05T15-11-40Z",
           "phase": "LEAD",
           "signal": "MR_FIXTURES",
-          "claim": "West‑to‑East cargo shift drives an unprecedented surge in freight rates.",
+          "claim": "Net vessel availability in the US Gulf Coast tanker market fell about 41% over the past month, indicating a tightening of effective fleet supply.",
           "observed_at": null,
-          "ingested_at": "2026-09-05T10:36:19.880Z",
+          "ingested_at": "2026-09-05T15:16:37.651Z",
           "source_count": 1,
           "domains": [
             "reuters.com"
@@ -631,14 +548,14 @@
           "source_grade": 0.92
         },
         {
-          "id": "2185e2b88467b2cc86cf5f",
+          "id": "906ff3b4a617bcc86adbb5",
           "mechanism_id": "PRODUCT_TANKER_TONMILES",
-          "run_id": "run_2026-09-05T10-32-43Z",
+          "run_id": "run_2026-09-05T15-11-40Z",
           "phase": "LEAD",
           "signal": "MR_FIXTURES",
-          "claim": "A cargo of South Korean diesel is headed to Western Europe on a rare 12,000‑mile journey.",
+          "claim": "A diesel cargo of roughly 90,000 tons was loaded onto the tanker Priamos for a roughly 12,000‑mile journey from South Korea to northwest Europe, showing refined‑product cargoes traveling materially farther.",
           "observed_at": null,
-          "ingested_at": "2026-09-05T10:36:19.880Z",
+          "ingested_at": "2026-09-05T15:16:37.651Z",
           "source_count": 1,
           "domains": [
             "energyconnects.com"
@@ -661,14 +578,14 @@
       "memory": {
         "observed_items": 2,
         "carried_items": 1,
-        "avg_carry_weight": 0.817,
+        "avg_carry_weight": 0.781,
         "observed_score": 25,
         "raw_combined_score": 29,
         "decayed_score": 28
       },
       "expected_next": [
-        "CONFIRM",
-        "LAG"
+        "Monitor freight‑rate trends for further evidence of longer voyages.",
+        "Track US Gulf Coast vessel availability data for continued tightening."
       ],
       "invalidation": [],
       "market": {
@@ -784,27 +701,27 @@
         "STNG"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
-      "model": "openai/gpt-oss-20b",
+      "last_run": "2026-09-05T15:16:37.651Z",
+      "model": "openai/gpt-oss-120b",
       "usage": {
-        "prompt_tokens": 1856,
-        "completion_tokens": 950,
-        "total_tokens": 2806,
-        "cost": 0.00019754,
+        "prompt_tokens": 1892,
+        "completion_tokens": 886,
+        "total_tokens": 2778,
+        "cost": 0.000555,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 64,
+          "cached_tokens": 0,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00019754,
-          "upstream_inference_prompt_cost": 0.00005504,
-          "upstream_inference_completions_cost": 0.0001425
+          "upstream_inference_cost": 0.000555,
+          "upstream_inference_prompt_cost": 0.00011320994753108603,
+          "upstream_inference_completions_cost": 0.000441790052468914
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 813,
+          "reasoning_tokens": 612,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -826,7 +743,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -845,7 +762,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -864,7 +781,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 10
             }
           }
@@ -877,69 +794,12 @@
       "tier": "A",
       "state": "DORMANT",
       "raw_state": "DORMANT",
-      "score": 23,
+      "score": 19,
       "previous_state": "DORMANT",
-      "score_delta": 12,
-      "summary": "The two LEAD candidates provide evidence of STS activity: Gulf producers routing LNG around Hormuz via STS transfers (3 % of pre‑war flow) and ADNOC selling at least 30 million barrels of crude.",
-      "material_change": true,
-      "observed_evidence": [
-        {
-          "candidate_id": "8793ba872efb538cb204",
-          "query_id": "CRUDE_TANKER_DISLOCATION:lead:sts",
-          "phase": "LEAD",
-          "signal": "STS_ACTIVITY",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Gulf producers are routing LNG around Hormuz via STS transfers, accounting for 3 % of pre‑war flow.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOczd1Z1Z4eUlvWEtWbmpKQ0JrcVdXVWYzeHFqYXNJUjZPMnExOGpIYkd6NlUyWHU1YmZaRVRMeDZhc3NKVk9DYmFOSndXanE1V2xQUmswWW9iZjlDYzBBX2NoZjNLY2NkZ3A1Q3pnOHF6TzExMllTRnVPS2FSTG55Wng5dmpZVFVWdFdDMk54bzJpMlBDTEhrQmlBMF9pS1hxNjNERVFOZ085ZHpia09aM3Y1Y0NFV1VBRkxsWHRDYmp2MS10?oc=5",
-          "source_name": "Tech Times",
-          "source_domain": "techtimes.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T20:04:15.000Z",
-          "retrieved_at": "2026-09-05T10:33:37.177Z",
-          "valid": true,
-          "evidence_key": "4d08797a07aae9a72cc2e715",
-          "first_seen_at": "2026-09-05T10:33:37.177Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "c7834b7726fbde502b2b",
-          "query_id": "CRUDE_TANKER_DISLOCATION:lead:sts",
-          "phase": "LEAD",
-          "signal": "STS_ACTIVITY",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "ADNOC has sold at least 30 million barrels of crude in a supply boost.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQRTF4c1NmRThSWE1YUjJ4ZnlYNHNxVm10emlOTnM2aGZWR04weEpyLW5YNmlfUmtPcFJManZuREdOdzZQMGQ1eHA4ZlZaU0NZYXo2c0ZBQnNVcFd4RGVoS2V0SlJ5RWpPeE1hdDZ1SG9mNEZpb2RxYXk2d3Vuc0R5LWFvQVRKdnM0Zi1FNExxSVlYNG9TSFNlSjBjVmtacWE0bzYyZDlFMA?oc=5",
-          "source_name": "EnergyNow.com",
-          "source_domain": "energynow.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-04T09:49:32.000Z",
-          "retrieved_at": "2026-09-05T10:33:37.177Z",
-          "valid": true,
-          "evidence_key": "90da93d1d4f634bdfc6996d2",
-          "first_seen_at": "2026-09-05T10:33:37.177Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
+      "score_delta": -4,
+      "summary": "No evidence from the provided candidates directly supports an increase in VLCC/Suezmax ton‑mile demand or fleet utilization due to crude sourcing shifts.",
+      "material_change": false,
+      "observed_evidence": [],
       "evidence": [
         {
           "candidate_id": "8793ba872efb538cb204",
@@ -965,9 +825,9 @@
           "evidence_key": "4d08797a07aae9a72cc2e715",
           "first_seen_at": "2026-09-05T10:33:37.177Z",
           "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.956,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 4.67
         },
         {
           "candidate_id": "c7834b7726fbde502b2b",
@@ -993,9 +853,9 @@
           "evidence_key": "90da93d1d4f634bdfc6996d2",
           "first_seen_at": "2026-09-04T16:20:54.449Z",
           "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.956,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 4.67
         },
         {
           "candidate_id": "3d9ab7ed64bf16dbe6d6",
@@ -1021,9 +881,9 @@
           "evidence_key": "993e77d26c40183d9a139d46",
           "first_seen_at": "2026-09-04T14:26:53.571Z",
           "last_seen_at": "2026-09-04T14:32:00.983Z",
-          "memory_weight": 0.8243,
+          "memory_weight": 0.788,
           "memory_status": "CARRIED",
-          "memory_age_hours": 20.07
+          "memory_age_hours": 24.74
         },
         {
           "candidate_id": "0b665008a97d625f7d97",
@@ -1049,9 +909,9 @@
           "evidence_key": "61576216d461de603d1b6257",
           "first_seen_at": "2026-09-04T14:26:53.571Z",
           "last_seen_at": "2026-09-04T14:32:00.983Z",
-          "memory_weight": 0.8243,
+          "memory_weight": 0.788,
           "memory_status": "CARRIED",
-          "memory_age_hours": 20.07
+          "memory_age_hours": 24.74
         },
         {
           "candidate_id": "d21f7b8d6b8c9bf16ea8",
@@ -1077,9 +937,9 @@
           "evidence_key": "3ee1925eadacb5be9f93792b",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T14:32:00.983Z",
-          "memory_weight": 0.8243,
+          "memory_weight": 0.788,
           "memory_status": "CARRIED",
-          "memory_age_hours": 20.07
+          "memory_age_hours": 24.74
         },
         {
           "candidate_id": "362b3c525286cec90f6e",
@@ -1105,9 +965,9 @@
           "evidence_key": "bf01d16654113bdf10b57f01",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T13:34:08.111Z",
-          "memory_weight": 0.8167,
+          "memory_weight": 0.7808,
           "memory_status": "CARRIED",
-          "memory_age_hours": 21.04
+          "memory_age_hours": 25.71
         }
       ],
       "verified": [],
@@ -1116,63 +976,20 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [
-        {
-          "id": "e85fefe8077a41fb12cab1",
-          "mechanism_id": "CRUDE_TANKER_DISLOCATION",
-          "run_id": "run_2026-09-05T10-32-43Z",
-          "phase": "LEAD",
-          "signal": "STS_ACTIVITY",
-          "claim": "ADNOC has sold at least 30 million barrels of crude in a supply boost.",
-          "observed_at": "2026-09-04T09:49:32.000Z",
-          "ingested_at": "2026-09-05T10:36:19.880Z",
-          "source_count": 1,
-          "domains": [
-            "energynow.com"
-          ],
-          "source_urls": [
-            "https://news.google.com/rss/articles/CBMipwFBVV95cUxQRTF4c1NmRThSWE1YUjJ4ZnlYNHNxVm10emlOTnM2aGZWR04weEpyLW5YNmlfUmtPcFJManZuREdOdzZQMGQ1eHA4ZlZaU0NZYXo2c0ZBQnNVcFd4RGVoS2V0SlJ5RWpPeE1hdDZ1SG9mNEZpb2RxYXk2d3Vuc0R5LWFvQVRKdnM0Zi1FNExxSVlYNG9TSFNlSjBjVmtacWE0bzYyZDlFMA?oc=5"
-          ],
-          "official": false,
-          "representative_source": "EnergyNow.com",
-          "representative_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQRTF4c1NmRThSWE1YUjJ4ZnlYNHNxVm10emlOTnM2aGZWR04weEpyLW5YNmlfUmtPcFJManZuREdOdzZQMGQ1eHA4ZlZaU0NZYXo2c0ZBQnNVcFd4RGVoS2V0SlJ5RWpPeE1hdDZ1SG9mNEZpb2RxYXk2d3Vuc0R5LWFvQVRKdnM0Zi1FNExxSVlYNG9TSFNlSjBjVmtacWE0bzYyZDlFMA?oc=5",
-          "source_grade": 0.62
-        },
-        {
-          "id": "fc64b7c311de23aa4adee9",
-          "mechanism_id": "CRUDE_TANKER_DISLOCATION",
-          "run_id": "run_2026-09-05T10-32-43Z",
-          "phase": "LEAD",
-          "signal": "STS_ACTIVITY",
-          "claim": "Gulf producers are routing LNG around Hormuz via STS transfers, accounting for 3 % of pre‑war flow.",
-          "observed_at": "2026-09-03T20:04:15.000Z",
-          "ingested_at": "2026-09-05T10:36:19.880Z",
-          "source_count": 1,
-          "domains": [
-            "techtimes.com"
-          ],
-          "source_urls": [
-            "https://news.google.com/rss/articles/CBMixAFBVV95cUxOczd1Z1Z4eUlvWEtWbmpKQ0JrcVdXVWYzeHFqYXNJUjZPMnExOGpIYkd6NlUyWHU1YmZaRVRMeDZhc3NKVk9DYmFOSndXanE1V2xQUmswWW9iZjlDYzBBX2NoZjNLY2NkZ3A1Q3pnOHF6TzExMllTRnVPS2FSTG55Wng5dmpZVFVWdFdDMk54bzJpMlBDTEhrQmlBMF9pS1hxNjNERVFOZ085ZHpia09aM3Y1Y0NFV1VBRkxsWHRDYmp2MS10?oc=5"
-          ],
-          "official": false,
-          "representative_source": "Tech Times",
-          "representative_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOczd1Z1Z4eUlvWEtWbmpKQ0JrcVdXVWYzeHFqYXNJUjZPMnExOGpIYkd6NlUyWHU1YmZaRVRMeDZhc3NKVk9DYmFOSndXanE1V2xQUmswWW9iZjlDYzBBX2NoZjNLY2NkZ3A1Q3pnOHF6TzExMllTRnVPS2FSTG55Wng5dmpZVFVWdFdDMk54bzJpMlBDTEhrQmlBMF9pS1hxNjNERVFOZ085ZHpia09aM3Y1Y0NFV1VBRkxsWHRDYmp2MS10?oc=5",
-          "source_grade": 0.62
-        }
-      ],
+      "events": [],
       "event_stats": {
-        "observed_unique": 2,
+        "observed_unique": 0,
         "observed_duplicates": 0,
         "memory_unique": 2,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 2,
-        "carried_items": 4,
-        "avg_carry_weight": 0.822,
-        "observed_score": 23,
+        "observed_items": 0,
+        "carried_items": 6,
+        "avg_carry_weight": 0.843,
+        "observed_score": 0,
         "raw_combined_score": 23,
-        "decayed_score": 23
+        "decayed_score": 19
       },
       "expected_next": [],
       "invalidation": [],
@@ -1208,7 +1025,7 @@
         "consensus_delta": 0,
         "priced_in": 23.1,
         "discount": "UNPRICED",
-        "timing_score": 53.4,
+        "timing_score": 51.6,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -1227,7 +1044,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 42.9,
+        "score": 40.9,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "WAVE_NOT_EARLY",
@@ -1239,7 +1056,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 39.1,
+        "score": 37.7,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -1288,27 +1105,27 @@
         "PSHG"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1367,
-        "completion_tokens": 618,
-        "total_tokens": 1985,
-        "cost": 0.00012753,
+        "prompt_tokens": 1375,
+        "completion_tokens": 404,
+        "total_tokens": 1779,
+        "cost": 0.00009377,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 0,
+          "cached_tokens": 32,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00012753,
-          "upstream_inference_prompt_cost": 0.00004101,
-          "upstream_inference_completions_cost": 0.00008652
+          "upstream_inference_cost": 0.00009377,
+          "upstream_inference_prompt_cost": 0.00004125,
+          "upstream_inference_completions_cost": 0.00005252
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 431,
+          "reasoning_tokens": 395,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -1330,7 +1147,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -1349,7 +1166,7 @@
             "google_news": {
               "ok": true,
               "count": 2,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -1365,7 +1182,7 @@
       "score": 0,
       "previous_state": "UNKNOWN",
       "score_delta": 0,
-      "summary": "The evidence shows a structural shift of some buyers toward Atlantic (Americas) barrels, but also indicates continued strong demand for Middle East crude from Asia, suggesting the shift is not yet fully structural.",
+      "summary": "No evidence found that buyers are structurally replacing Gulf barrels with Americas/Africa supply; all available candidates discuss general crude oil market dynamics but do not support the specific mechanism.",
       "material_change": false,
       "observed_evidence": [],
       "evidence": [],
@@ -1391,10 +1208,7 @@
         "decayed_score": 0
       },
       "expected_next": [
-        "Crude exports from the Americas rose to a record‑high average of 11.7 million barrels per day in 2026, up from 10.3 million bpd in 2025, nearly double the volume a decade ago (Kaieteur News, 2026‑09‑03).",
-        "Japan's crude imports fell to a record low in April 2026 due to Persian Gulf tanker disruptions, indicating a shift to US crude (S&P Global, 2026‑06‑02).",
-        "US escorted 7 million barrels through the Strait of Hormuz on 2026‑09‑05 (Shafaq News, 2026‑09‑05).",
-        "Asia's oil‑buying spree has increased demand for Middle East crude, driving prices soaring (Bloomberg, 2026‑09‑03)."
+        "CONFIRM"
       ],
       "invalidation": [],
       "market": {
@@ -1426,7 +1240,7 @@
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
         "consensus": 75.7,
-        "consensus_delta": -2.2,
+        "consensus_delta": 0,
         "priced_in": 29.3,
         "discount": "PARTLY_PRICED",
         "timing_score": 42.8,
@@ -1511,27 +1325,27 @@
         "PTAL.L"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1845,
-        "completion_tokens": 845,
-        "total_tokens": 2690,
-        "cost": 0.00020055,
+        "prompt_tokens": 1942,
+        "completion_tokens": 249,
+        "total_tokens": 2191,
+        "cost": 0.00009497,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 0,
+          "cached_tokens": 64,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00020055,
-          "upstream_inference_prompt_cost": 0.0000738,
-          "upstream_inference_completions_cost": 0.00012675
+          "upstream_inference_cost": 0.00009497,
+          "upstream_inference_prompt_cost": 0.00005762,
+          "upstream_inference_completions_cost": 0.00003735
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 611,
+          "reasoning_tokens": 236,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -1553,7 +1367,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -1572,7 +1386,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -1583,39 +1397,173 @@
       "id": "CEYHAN_BYPASS",
       "label": "Ceyhan / Kurdistan bypass",
       "tier": "A",
-      "state": "UNKNOWN",
-      "raw_state": "UNKNOWN",
-      "score": 0,
+      "state": "DORMANT",
+      "raw_state": "DORMANT",
+      "score": 2,
       "previous_state": "UNKNOWN",
-      "score_delta": 0,
-      "summary": "No evidence of sustained physical flow through the Iraq‑Turkey‑Ceyhan pipeline was found in the provided candidates. All sources report political agreements or announcements but do not include barrel volumes or operational data indicating actual export activity.",
-      "material_change": false,
-      "observed_evidence": [],
-      "evidence": [],
+      "score_delta": 2,
+      "summary": "Material evidence regarding physical oil flow through the Iraq‑Turkey‑Ceyhan bypass",
+      "material_change": true,
+      "observed_evidence": [
+        {
+          "candidate_id": "10898bec1878fc16826c",
+          "query_id": "CEYHAN_BYPASS:lead:iraq_turkey",
+          "phase": "LEAD",
+          "signal": "POLITICAL_CLEARANCE",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Crude exports from Iraq's Kirkuk fields to Turkey's Ceyhan port have resumed via pipeline after Baghdad and the Kurdistan Regional Government reached an agreement.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "The Reuters article explicitly states that exports have resumed, indicating actual physical flow.",
+          "source_url": "https://www.reuters.com/world/middle-east/iraqi-government-kurdish-authorities-reach-deal-resume-oil-exports-turkeys-2026-03-17",
+          "source_name": "Iraq resumes Kirkuk crude exports via Ceyhan after Baghdad-KRG deal | Reuters",
+          "source_domain": "reuters.com",
+          "source_grade": 0.92,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "23dec9654b2c2384ea0bf30a",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "a859a4becf5cc8a2a4b7",
+          "query_id": "CEYHAN_BYPASS:lead:iraq_turkey",
+          "phase": "LEAD",
+          "signal": "POLITICAL_CLEARANCE",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Eight international oil firms operating in Iraq's Kurdistan region said there was no formal outreach or agreement on payment surety, suggesting uncertainty about the resumption of Kurdish oil exports via Ceyhan.",
+          "direction": "DOWN",
+          "relevance": 1,
+          "contradiction": true,
+          "why_upstream": "The Reuters piece reports conflicting statements, indicating that flow may not yet be occurring despite political agreements.",
+          "source_url": "https://www.reuters.com/business/energy/baghdad-announce-resumption-oil-exports-through-turkey-within-hours-2025-02-28/",
+          "source_name": "Iraq, foreign oil firms make conflicting statements on Kurdish exports resumption | Reuters",
+          "source_domain": "reuters.com",
+          "source_grade": 0.92,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "46255126a248c25cebe1e056",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
+      "evidence": [
+        {
+          "candidate_id": "10898bec1878fc16826c",
+          "query_id": "CEYHAN_BYPASS:lead:iraq_turkey",
+          "phase": "LEAD",
+          "signal": "POLITICAL_CLEARANCE",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Crude exports from Iraq's Kirkuk fields to Turkey's Ceyhan port have resumed via pipeline after Baghdad and the Kurdistan Regional Government reached an agreement.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "The Reuters article explicitly states that exports have resumed, indicating actual physical flow.",
+          "source_url": "https://www.reuters.com/world/middle-east/iraqi-government-kurdish-authorities-reach-deal-resume-oil-exports-turkeys-2026-03-17",
+          "source_name": "Iraq resumes Kirkuk crude exports via Ceyhan after Baghdad-KRG deal | Reuters",
+          "source_domain": "reuters.com",
+          "source_grade": 0.92,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "23dec9654b2c2384ea0bf30a",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "a859a4becf5cc8a2a4b7",
+          "query_id": "CEYHAN_BYPASS:lead:iraq_turkey",
+          "phase": "LEAD",
+          "signal": "POLITICAL_CLEARANCE",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Eight international oil firms operating in Iraq's Kurdistan region said there was no formal outreach or agreement on payment surety, suggesting uncertainty about the resumption of Kurdish oil exports via Ceyhan.",
+          "direction": "DOWN",
+          "relevance": 1,
+          "contradiction": true,
+          "why_upstream": "The Reuters piece reports conflicting statements, indicating that flow may not yet be occurring despite political agreements.",
+          "source_url": "https://www.reuters.com/business/energy/baghdad-announce-resumption-oil-exports-through-turkey-within-hours-2025-02-28/",
+          "source_name": "Iraq, foreign oil firms make conflicting statements on Kurdish exports resumption | Reuters",
+          "source_domain": "reuters.com",
+          "source_grade": 0.92,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "46255126a248c25cebe1e056",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
       "verified": [],
       "verifier": {
         "verdict": "NOT_RUN",
         "summary": "",
         "next_check": ""
       },
-      "events": [],
+      "events": [
+        {
+          "id": "3bfacc7dacaff723b16333",
+          "mechanism_id": "CEYHAN_BYPASS",
+          "run_id": "run_2026-09-05T15-11-40Z",
+          "phase": "LEAD",
+          "signal": "POLITICAL_CLEARANCE",
+          "claim": "Crude exports from Iraq's Kirkuk fields to Turkey's Ceyhan port have resumed via pipeline after Baghdad and the Kurdistan Regional Government reached an agreement.",
+          "observed_at": null,
+          "ingested_at": "2026-09-05T15:16:37.651Z",
+          "source_count": 1,
+          "domains": [
+            "reuters.com"
+          ],
+          "source_urls": [
+            "https://www.reuters.com/world/middle-east/iraqi-government-kurdish-authorities-reach-deal-resume-oil-exports-turkeys-2026-03-17"
+          ],
+          "official": false,
+          "representative_source": "Iraq resumes Kirkuk crude exports via Ceyhan after Baghdad-KRG deal | Reuters",
+          "representative_url": "https://www.reuters.com/world/middle-east/iraqi-government-kurdish-authorities-reach-deal-resume-oil-exports-turkeys-2026-03-17",
+          "source_grade": 0.92
+        }
+      ],
       "event_stats": {
-        "observed_unique": 0,
+        "observed_unique": 1,
         "observed_duplicates": 0,
-        "memory_unique": 0,
+        "memory_unique": 1,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 0,
+        "observed_items": 2,
         "carried_items": 0,
         "avg_carry_weight": 0,
-        "observed_score": 0,
-        "raw_combined_score": 0,
-        "decayed_score": 0
+        "observed_score": 2,
+        "raw_combined_score": 2,
+        "decayed_score": 2
       },
-      "expected_next": [
-        "CONFIRM"
-      ],
+      "expected_next": [],
       "invalidation": [],
       "market": {
         "score": 51,
@@ -1646,10 +1594,10 @@
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
         "consensus": 60,
-        "consensus_delta": -5,
+        "consensus_delta": 0,
         "priced_in": 24.1,
         "discount": "UNPRICED",
-        "timing_score": 41,
+        "timing_score": 41.9,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -1668,12 +1616,11 @@
       },
       "scout": {
         "eligible": false,
-        "score": 25,
+        "score": 31.2,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
-          "NO_LEAD",
           "INSUFFICIENT_SOURCES",
           "MARKET_ALREADY_MOVED"
         ],
@@ -1682,12 +1629,11 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 19.3,
+        "score": 27.2,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
-          "NO_LEAD",
           "NO_CONFIRM",
           "INSUFFICIENT_SOURCES"
         ],
@@ -1707,18 +1653,20 @@
         "lead_to_confirm": null
       },
       "hysteresis": {
-        "raw_state": "UNKNOWN",
+        "raw_state": "DORMANT",
         "pending": null,
         "reason": "INITIAL",
         "applied": false
       },
       "sensors": {
-        "lead": 0,
+        "lead": 1,
         "confirm": 0,
         "lag": 0,
         "lag_share": 0,
-        "domains": [],
-        "events": 0,
+        "domains": [
+          "reuters.com"
+        ],
+        "events": 1,
         "duplicates_removed": 0
       },
       "positive": [
@@ -1727,27 +1675,27 @@
         "DNO.OL"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
-      "model": "openai/gpt-oss-20b",
+      "last_run": "2026-09-05T15:16:37.651Z",
+      "model": "openai/gpt-oss-120b",
       "usage": {
-        "prompt_tokens": 1830,
-        "completion_tokens": 275,
-        "total_tokens": 2105,
-        "cost": 0.00009065,
+        "prompt_tokens": 1835,
+        "completion_tokens": 951,
+        "total_tokens": 2786,
+        "cost": 0.00021672,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 192,
+          "cached_tokens": 64,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00009065,
-          "upstream_inference_prompt_cost": 0.0000549,
-          "upstream_inference_completions_cost": 0.00003575
+          "upstream_inference_cost": 0.00021672,
+          "upstream_inference_prompt_cost": 0.00005505,
+          "upstream_inference_completions_cost": 0.00016167
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 245,
+          "reasoning_tokens": 709,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -1769,7 +1717,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -1788,7 +1736,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -1801,41 +1749,12 @@
       "tier": "B",
       "state": "DORMANT",
       "raw_state": "DORMANT",
-      "score": 20,
+      "score": 18,
       "previous_state": "DORMANT",
-      "score_delta": 0,
-      "summary": "U.S. LNG exports rose 23% in the first half of 2026, averaging 17.4 Bcf/d, up from 13.5 Bcf/d in the same period in 2025.",
+      "score_delta": -2,
+      "summary": "No fresh deterministic candidates in this cycle.",
       "material_change": false,
-      "observed_evidence": [
-        {
-          "candidate_id": "79539f10e91d61198838",
-          "query_id": "OFFICIAL:EIA_TODAY:LNG_REROUTING:OFFICIAL_LNG_DATA",
-          "phase": "CONFIRM",
-          "signal": "OFFICIAL_LNG_DATA",
-          "family": "OFFICIAL",
-          "fact_type": "FACT",
-          "claim": "U.S. LNG exports averaged 17.4 billion cubic feet per day (Bcf/d) in the first six months of 2026, a 23% increase over the same period in 2025.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68064",
-          "source_name": "EIA Today in Energy",
-          "source_domain": "eia.gov",
-          "source_grade": 1,
-          "official": true,
-          "engine": "official_rss",
-          "published_at": "2026-09-01T14:00:00.000Z",
-          "retrieved_at": "2026-09-05T10:33:44.040Z",
-          "valid": true,
-          "evidence_key": "70dc4a0667adebe71246c8b3",
-          "first_seen_at": "2026-09-05T10:33:44.040Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
+      "observed_evidence": [],
       "evidence": [
         {
           "candidate_id": "79539f10e91d61198838",
@@ -1861,9 +1780,9 @@
           "evidence_key": "70dc4a0667adebe71246c8b3",
           "first_seen_at": "2026-09-04T15:18:39.347Z",
           "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.914,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 4.67
         }
       ],
       "verified": [],
@@ -1872,42 +1791,20 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [
-        {
-          "id": "ec01b5c3727b76fa63a10f",
-          "mechanism_id": "LNG_REROUTING",
-          "run_id": "run_2026-09-05T10-32-43Z",
-          "phase": "CONFIRM",
-          "signal": "OFFICIAL_LNG_DATA",
-          "claim": "U.S. LNG exports averaged 17.4 billion cubic feet per day (Bcf/d) in the first six months of 2026, a 23% increase over the same period in 2025.",
-          "observed_at": "2026-09-01T14:00:00.000Z",
-          "ingested_at": "2026-09-05T10:36:19.880Z",
-          "source_count": 1,
-          "domains": [
-            "eia.gov"
-          ],
-          "source_urls": [
-            "https://www.eia.gov/todayinenergy/detail.php?id=68064"
-          ],
-          "official": true,
-          "representative_source": "EIA Today in Energy",
-          "representative_url": "https://www.eia.gov/todayinenergy/detail.php?id=68064",
-          "source_grade": 1
-        }
-      ],
+      "events": [],
       "event_stats": {
-        "observed_unique": 1,
+        "observed_unique": 0,
         "observed_duplicates": 0,
         "memory_unique": 1,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 1,
-        "carried_items": 0,
-        "avg_carry_weight": 0,
-        "observed_score": 20,
+        "observed_items": 0,
+        "carried_items": 1,
+        "avg_carry_weight": 0.914,
+        "observed_score": 0,
         "raw_combined_score": 20,
-        "decayed_score": 20
+        "decayed_score": 18
       },
       "expected_next": [],
       "invalidation": [],
@@ -1943,7 +1840,7 @@
         "consensus_delta": 0,
         "priced_in": 16.1,
         "discount": "UNPRICED",
-        "timing_score": 54.7,
+        "timing_score": 53.8,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -1962,7 +1859,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 38.4,
+        "score": 37.4,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "WAVE_NOT_EARLY",
@@ -1975,7 +1872,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 35.3,
+        "score": 34.6,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -2022,33 +1919,11 @@
         "FLNG"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
-      "model": "openai/gpt-oss-20b",
-      "usage": {
-        "prompt_tokens": 543,
-        "completion_tokens": 429,
-        "total_tokens": 972,
-        "cost": 0.00005376,
-        "is_byok": false,
-        "prompt_tokens_details": {
-          "cached_tokens": 0,
-          "cache_write_tokens": 0,
-          "audio_tokens": 0,
-          "video_tokens": 0
-        },
-        "cost_details": {
-          "upstream_inference_cost": 0.00005376,
-          "upstream_inference_prompt_cost": 0.00001086,
-          "upstream_inference_completions_cost": 0.0000429
-        },
-        "completion_tokens_details": {
-          "reasoning_tokens": 245,
-          "image_tokens": 0,
-          "audio_tokens": 0
-        }
-      },
-      "candidate_count": 1,
-      "official_candidate_count": 1,
+      "last_run": "2026-09-05T15:16:37.651Z",
+      "model": null,
+      "usage": null,
+      "candidate_count": 0,
+      "official_candidate_count": 0,
       "query_trace": [
         {
           "query_id": "LNG_REROUTING:lead:lng_sts",
@@ -2064,7 +1939,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -2083,7 +1958,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -2099,94 +1974,9 @@
       "score": 0,
       "previous_state": "UNKNOWN",
       "score_delta": 0,
-      "summary": "The candidates provide evidence that U.S. officials are addressing inventory constraints by adjusting procurement or supply‑chain strategies. The claims are directly taken from the titles of the cited articles.",
+      "summary": "No evidence found that governments are changing procurement architecture or production targets due to inventory constraints based on the provided candidates.",
       "material_change": false,
-      "observed_evidence": [
-        {
-          "candidate_id": "76cdb7b3acf8d1f913db",
-          "query_id": "ARSENAL_DEPLETION:lead:inventory",
-          "phase": "LEAD",
-          "signal": "INVENTORY_STRESS",
-          "family": "PHYSICAL",
-          "fact_type": "INFERENCE",
-          "claim": "Trump defends handling of US munitions amid Iran conflict.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNb0ktRXdsZlZqVGc2eWdWVk84M2ltYkRKOGcwU3B4OTh3RWR6V2hMbzgxZ2JNWTI4anByeHY4czlYcENpRFBjZjVTZDJjT3pTMENWUlZOR1hZeVhiV2lpZ3E2eWprTkNVbnp3enFTZ3FDTFFzdElOTDVMOGRuQ3Q4M0JqTTMwNUQxU1RlZVVub9IBlAFBVV95cUxQYUNyaVRPSkdOVTZaeWlvUFh5RXR0Q01veHJHQi14OVlkM3k0emQ1SWp4dUthV3V6Rl9qVTlaalRoeDVWTmc0RVY2Z1dWOFJHampwanVIM0FwZ21yYWxTNVphVG9tY2JMZEZXQVhQTjN1NmRCTm4wU3JtSWR0c2J6WHdCUlVIcktndXhlT3JIVERSSDFz?oc=5",
-          "source_name": "The Hill",
-          "source_domain": "thehill.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T16:31:00.000Z",
-          "retrieved_at": "2026-09-05T10:33:38.553Z",
-          "valid": false,
-          "evidence_key": "c2c893c1eb803292a3563a9b",
-          "first_seen_at": "2026-09-05T10:33:38.553Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "87c07aeb8a0d7742194c",
-          "query_id": "ARSENAL_DEPLETION:lead:inventory",
-          "phase": "LEAD",
-          "signal": "INVENTORY_STRESS",
-          "family": "PHYSICAL",
-          "fact_type": "INFERENCE",
-          "claim": "Trump rejects reports that Iran war is depleting US munitions.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBHUVZDRG5pMWh1WWlRbDNDZndYNkZPOWhKZ2lIczlfZ3Q0WVpOcEpYSzVpMGlKcnViUExRMmF2TmRKdHZoUUxUMmFGcU9obm51N0VScXFZcnFUUzRjeWVjVGpoY0VqLW41UHdaN0JiaW9waGVmN3RGM0Zn?oc=5",
-          "source_name": "Newsmax",
-          "source_domain": "newsmax.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T15:42:07.000Z",
-          "retrieved_at": "2026-09-05T10:33:38.553Z",
-          "valid": false,
-          "evidence_key": "bda06dd8e2f9fffe64ebd581",
-          "first_seen_at": "2026-09-05T10:33:38.553Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "1ca5d8715c63ead7724e",
-          "query_id": "ARSENAL_DEPLETION:lead:inventory",
-          "phase": "LEAD",
-          "signal": "INVENTORY_STRESS",
-          "family": "PHYSICAL",
-          "fact_type": "INFERENCE",
-          "claim": "Pentagon is using Cold War‑era law to revamp supply chain.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPa3ZXbEFEc3JNb0tDNGx2LVVDQWtkcEx3b3F0WVpxZVBtckxCLURyTFlSaUFXbjYzUkJyZFBqbkR3WDlrZ0o5cjFMN1VFSFZpZ2wxVFlYMUhwMXpBM2NnYWpHaEVmUUpLRFd0OW1VU1JhM05BTlpub1hUYWFzdXdZMUtxNmtXQVM0dlBaRlItTlQ?oc=5",
-          "source_name": "WMAL",
-          "source_domain": "wmal.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-04T12:14:18.000Z",
-          "retrieved_at": "2026-09-05T10:33:38.553Z",
-          "valid": false,
-          "evidence_key": "1b1c739970ff803411f88498",
-          "first_seen_at": "2026-09-05T10:33:38.553Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
+      "observed_evidence": [],
       "evidence": [
         {
           "candidate_id": "76cdb7b3acf8d1f913db",
@@ -2212,9 +2002,9 @@
           "evidence_key": "c2c893c1eb803292a3563a9b",
           "first_seen_at": "2026-09-05T10:33:38.553Z",
           "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.956,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 4.67
         },
         {
           "candidate_id": "87c07aeb8a0d7742194c",
@@ -2240,9 +2030,9 @@
           "evidence_key": "bda06dd8e2f9fffe64ebd581",
           "first_seen_at": "2026-09-05T10:33:38.553Z",
           "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.956,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 4.67
         },
         {
           "candidate_id": "1ca5d8715c63ead7724e",
@@ -2268,9 +2058,9 @@
           "evidence_key": "1b1c739970ff803411f88498",
           "first_seen_at": "2026-09-04T16:50:44.073Z",
           "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.956,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 4.67
         }
       ],
       "verified": [],
@@ -2287,14 +2077,16 @@
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 3,
-        "carried_items": 0,
-        "avg_carry_weight": 0,
+        "observed_items": 0,
+        "carried_items": 3,
+        "avg_carry_weight": 0.956,
         "observed_score": 0,
         "raw_combined_score": 0,
         "decayed_score": 0
       },
-      "expected_next": [],
+      "expected_next": [
+        "LEAD"
+      ],
       "invalidation": [],
       "market": {
         "score": 23,
@@ -2405,13 +2197,13 @@
         "NOC"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
         "prompt_tokens": 1849,
-        "completion_tokens": 680,
-        "total_tokens": 2529,
-        "cost": 0.00014387,
+        "completion_tokens": 502,
+        "total_tokens": 2351,
+        "cost": 0.00012073,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 64,
@@ -2420,12 +2212,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00014387,
+          "upstream_inference_cost": 0.00012073,
           "upstream_inference_prompt_cost": 0.00005547,
-          "upstream_inference_completions_cost": 0.0000884
+          "upstream_inference_completions_cost": 0.00006526
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 477,
+          "reasoning_tokens": 578,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -2447,7 +2239,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -2466,7 +2258,7 @@
             "google_news": {
               "ok": true,
               "count": 3,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -2479,13 +2271,70 @@
       "tier": "A",
       "state": "WATCH",
       "raw_state": "WATCH",
-      "score": 28,
+      "score": 29,
       "previous_state": "WATCH",
-      "score_delta": -3,
-      "summary": "",
+      "score_delta": 1,
+      "summary": "Supplier L3Harris is expanding solid rocket motor production capacity with a multi‑billion‑dollar investment, indicating increased motor supply rather than a shortage.",
       "material_change": false,
-      "observed_evidence": [],
+      "observed_evidence": [
+        {
+          "candidate_id": "59aa77b0b8a3aa193b79",
+          "query_id": "ROCKET_MOTOR_SHORTAGE:lead:motor_permit",
+          "phase": "LEAD",
+          "signal": "MOTOR_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "L3Harris announced a billion‑dollar expansion to boost solid rocket motor production capacity in Orange County, Virginia.",
+          "direction": "UP",
+          "relevance": 0.9,
+          "contradiction": false,
+          "why_upstream": "The supplier‑level announcement directly shows an increase in solid rocket motor manufacturing capability, which counters the notion of a motor shortage limiting missile output.",
+          "source_url": "https://www.l3harris.com/all-capabilities/solid-rocket-motors",
+          "source_name": "Solid Rocket Motors | L3Harris® Fast. Forward.",
+          "source_domain": "l3harris.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "8bd40c6e931eccfe2b1f65ed",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
       "evidence": [
+        {
+          "candidate_id": "59aa77b0b8a3aa193b79",
+          "query_id": "ROCKET_MOTOR_SHORTAGE:lead:motor_permit",
+          "phase": "LEAD",
+          "signal": "MOTOR_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "L3Harris announced a billion‑dollar expansion to boost solid rocket motor production capacity in Orange County, Virginia.",
+          "direction": "UP",
+          "relevance": 0.9,
+          "contradiction": false,
+          "why_upstream": "The supplier‑level announcement directly shows an increase in solid rocket motor manufacturing capability, which counters the notion of a motor shortage limiting missile output.",
+          "source_url": "https://www.l3harris.com/all-capabilities/solid-rocket-motors",
+          "source_name": "Solid Rocket Motors | L3Harris® Fast. Forward.",
+          "source_domain": "l3harris.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "8bd40c6e931eccfe2b1f65ed",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
         {
           "candidate_id": "19ab4baad9be1450739a",
           "query_id": "ROCKET_MOTOR_SHORTAGE:lead:motor_permit",
@@ -2510,9 +2359,9 @@
           "evidence_key": "24975d711e35df5252c29025",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-05T04:28:37.789Z",
-          "memory_weight": 0.9427,
+          "memory_weight": 0.9013,
           "memory_status": "CARRIED",
-          "memory_age_hours": 6.13
+          "memory_age_hours": 10.8
         },
         {
           "candidate_id": "71df9c7ea5d7bd45c65d",
@@ -2538,9 +2387,9 @@
           "evidence_key": "f17298279f0ff070487fe2a5",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-05T04:28:37.789Z",
-          "memory_weight": 0.9427,
+          "memory_weight": 0.9013,
           "memory_status": "CARRIED",
-          "memory_age_hours": 6.13
+          "memory_age_hours": 10.8
         },
         {
           "candidate_id": "cc7bc3dbff4d4e60b7c4",
@@ -2566,9 +2415,9 @@
           "evidence_key": "256f18e3cfb65cd9c706ffc1",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-05T04:28:37.789Z",
-          "memory_weight": 0.9427,
+          "memory_weight": 0.9013,
           "memory_status": "CARRIED",
-          "memory_age_hours": 6.13
+          "memory_age_hours": 10.8
         },
         {
           "candidate_id": "3da260d9a9f892c5e519",
@@ -2594,9 +2443,9 @@
           "evidence_key": "f25c0bb59a4eebf73a66906e",
           "first_seen_at": "2026-09-05T04:25:55.458Z",
           "last_seen_at": "2026-09-05T04:28:37.789Z",
-          "memory_weight": 0.9427,
+          "memory_weight": 0.9013,
           "memory_status": "CARRIED",
-          "memory_age_hours": 6.13
+          "memory_age_hours": 10.8
         },
         {
           "candidate_id": "913d3391ae1984635339",
@@ -2622,9 +2471,9 @@
           "evidence_key": "00f7719f5c18d72ef92ac32a",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-05T04:28:37.789Z",
-          "memory_weight": 0.9427,
+          "memory_weight": 0.9013,
           "memory_status": "CARRIED",
-          "memory_age_hours": 6.13
+          "memory_age_hours": 10.8
         },
         {
           "candidate_id": "2ae20dd6032a9c62bf17",
@@ -2650,9 +2499,9 @@
           "evidence_key": "8b22e0a39ada68044d3fbad8",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T14:32:00.983Z",
-          "memory_weight": 0.8243,
+          "memory_weight": 0.788,
           "memory_status": "CARRIED",
-          "memory_age_hours": 20.07
+          "memory_age_hours": 24.74
         },
         {
           "candidate_id": "fdd14b35d0cabcbbe5ac",
@@ -2678,9 +2527,9 @@
           "evidence_key": "430bd6b55300efb34214821b",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-04T14:32:00.983Z",
-          "memory_weight": 0.8243,
+          "memory_weight": 0.788,
           "memory_status": "CARRIED",
-          "memory_age_hours": 20.07
+          "memory_age_hours": 24.74
         }
       ],
       "verified": [],
@@ -2689,22 +2538,48 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [],
+      "events": [
+        {
+          "id": "5726f17655b0e6318577bf",
+          "mechanism_id": "ROCKET_MOTOR_SHORTAGE",
+          "run_id": "run_2026-09-05T15-11-40Z",
+          "phase": "LEAD",
+          "signal": "MOTOR_CAPACITY",
+          "claim": "L3Harris announced a billion‑dollar expansion to boost solid rocket motor production capacity in Orange County, Virginia.",
+          "observed_at": null,
+          "ingested_at": "2026-09-05T15:16:37.651Z",
+          "source_count": 1,
+          "domains": [
+            "l3harris.com"
+          ],
+          "source_urls": [
+            "https://www.l3harris.com/all-capabilities/solid-rocket-motors"
+          ],
+          "official": false,
+          "representative_source": "Solid Rocket Motors | L3Harris® Fast. Forward.",
+          "representative_url": "https://www.l3harris.com/all-capabilities/solid-rocket-motors",
+          "source_grade": 0.62
+        }
+      ],
       "event_stats": {
-        "observed_unique": 0,
+        "observed_unique": 1,
         "observed_duplicates": 0,
         "memory_unique": 7,
-        "memory_duplicates": 0
+        "memory_duplicates": 1
       },
       "memory": {
-        "observed_items": 0,
+        "observed_items": 1,
         "carried_items": 7,
-        "avg_carry_weight": 0.909,
-        "observed_score": 0,
+        "avg_carry_weight": 0.869,
+        "observed_score": 12,
         "raw_combined_score": 31,
-        "decayed_score": 28
+        "decayed_score": 29
       },
-      "expected_next": [],
+      "expected_next": [
+        "Track missile production volumes from prime contractors for signs of motor‑related bottlenecks.",
+        "Monitor additional capacity announcements from other solid rocket motor suppliers (e.g., Aerojet, Northrop Grumman).",
+        "Observe DoD procurement orders for missiles to see if increased motor capacity translates into higher missile deliveries."
+      ],
       "invalidation": [],
       "market": {
         "score": 8,
@@ -2738,7 +2613,7 @@
         "consensus_delta": 0,
         "priced_in": 5.5,
         "discount": "UNPRICED",
-        "timing_score": 49.9,
+        "timing_score": 50.3,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -2757,7 +2632,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 44.7,
+        "score": 45.2,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -2766,7 +2641,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 40,
+        "score": 40.3,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -2802,14 +2677,14 @@
         "lag_share": 0,
         "domains": [
           "defensenews.com",
+          "l3harris.com",
           "huntsvillebusinessjournal.com",
           "finance.yahoo.com",
-          "thedefensepost.com",
           "spacenews.com",
           "arkansasadvocate.com"
         ],
         "events": 7,
-        "duplicates_removed": 0
+        "duplicates_removed": 1
       },
       "positive": [
         "LHX",
@@ -2817,27 +2692,27 @@
         "KRMN"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
-      "model": "openai/gpt-oss-20b",
+      "last_run": "2026-09-05T15:16:37.651Z",
+      "model": "openai/gpt-oss-120b",
       "usage": {
-        "prompt_tokens": 319,
-        "completion_tokens": 292,
-        "total_tokens": 611,
-        "cost": 0.00005033,
+        "prompt_tokens": 2063,
+        "completion_tokens": 615,
+        "total_tokens": 2678,
+        "cost": 0.0005138,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 304,
+          "cached_tokens": 64,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00005033,
-          "upstream_inference_prompt_cost": 0.00000653,
-          "upstream_inference_completions_cost": 0.0000438
+          "upstream_inference_cost": 0.0005138,
+          "upstream_inference_prompt_cost": 0.0002063,
+          "upstream_inference_completions_cost": 0.0003075
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 316,
+          "reasoning_tokens": 0,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -2859,7 +2734,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -2878,7 +2753,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -2897,7 +2772,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -2908,35 +2783,423 @@
       "id": "ENERGETICS_SHORTAGE",
       "label": "Energetics / explosives shortage",
       "tier": "A",
-      "state": "UNKNOWN",
-      "raw_state": "UNKNOWN",
-      "score": 0,
+      "state": "WATCH",
+      "raw_state": "WATCH",
+      "score": 32,
       "previous_state": "UNKNOWN",
-      "score_delta": 0,
-      "summary": "Energetics shortage evidence",
-      "material_change": false,
-      "observed_evidence": [],
-      "evidence": [],
+      "score_delta": 32,
+      "summary": "The candidates collectively indicate that several European countries are responding to shortages of explosives, propellants, primers and other energetic materials that constrain ammunition and missile output. The evidence shows increased production capacity, new plant construction, and funding for critical inputs, while also highlighting bottlenecks that delay large‑scale war production.",
+      "material_change": true,
+      "observed_evidence": [
+        {
+          "candidate_id": "76fb743d172e7e85da52",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The EU is experiencing shortages of gunpowder and TNT supplies, delaying the shift to large‑scale war production and threatening the drive to arm Ukraine.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.ft.com/content/aee0e1a1-c464-4af9-a1c8-73fcbc46ed17?syn-25a6b1a6=1",
+          "source_name": "Explosives shortage threatens EU drive to arm Ukraine",
+          "source_domain": "ft.com",
+          "source_grade": 0.92,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "7eb6cd996886eb222e102674",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "76476a7b9e6a617559f8",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Poland’s Nitro‑Chem plant will double its explosive production capacity, potentially reaching 20,000 tons per year, to meet NATO shell requirements amid ammunition shortages in Europe.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://unn.ua/en/news/poland-sharply-increases-tnt-production-for-nato-needs",
+          "source_name": "Poland sharply increases TNT production for NATO needs | УНН",
+          "source_domain": "unn.ua",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "ef1934efbe71c6b1e1ae0a1d",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "416fd64636c2f5b26904",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Swebal’s $35 million funding aims to restart Europe’s TNT supply chain, but the expansion is hindered by a bottleneck in access to explosives and propellants.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://resiliencemedia.co/swebal-raises-35m-to-rekindle-europes-tnt-supply-chain",
+          "source_name": "Swebal raises $35M to rekindle Europe’s TNT supply chain – Resilience Media",
+          "source_domain": "resiliencemedia.co",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "baeb5ad7d78c4b43e04e99c1",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "93efc2c88f011a92c574",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Finland plans to build a TNT production plant to address urgent ammunition needs, as announced by Finnish Defense Minister Antti Häkkänen.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://militarnyi.com/en/news/finland-plans-to-build-a-plant-for-the-production-of-tnt",
+          "source_name": "Finland plans to build a plant for the production of TNT",
+          "source_domain": "militarnyi.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "6b9462f09bddd50353489a19",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "7a2bfd4ef4a47a4ff33f",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Sweden has earmarked 500 million kronor to co‑finance EU projects under the European Defence Industry Programme Energet to expand production of critical ammunition inputs, indicating a shortage of such materials.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://thedefensepost.com/2026/08/20/sweden-critical-ammunition-materials/",
+          "source_name": "Sweden to Co-Finance EU Projects to Boost Critical Ammunition Materials ",
+          "source_domain": "thedefensepost.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "bfff8edb79adabc7f30c715c",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
+      "evidence": [
+        {
+          "candidate_id": "76fb743d172e7e85da52",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The EU is experiencing shortages of gunpowder and TNT supplies, delaying the shift to large‑scale war production and threatening the drive to arm Ukraine.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.ft.com/content/aee0e1a1-c464-4af9-a1c8-73fcbc46ed17?syn-25a6b1a6=1",
+          "source_name": "Explosives shortage threatens EU drive to arm Ukraine",
+          "source_domain": "ft.com",
+          "source_grade": 0.92,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "7eb6cd996886eb222e102674",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "76476a7b9e6a617559f8",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Poland’s Nitro‑Chem plant will double its explosive production capacity, potentially reaching 20,000 tons per year, to meet NATO shell requirements amid ammunition shortages in Europe.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://unn.ua/en/news/poland-sharply-increases-tnt-production-for-nato-needs",
+          "source_name": "Poland sharply increases TNT production for NATO needs | УНН",
+          "source_domain": "unn.ua",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "ef1934efbe71c6b1e1ae0a1d",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "416fd64636c2f5b26904",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Swebal’s $35 million funding aims to restart Europe’s TNT supply chain, but the expansion is hindered by a bottleneck in access to explosives and propellants.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://resiliencemedia.co/swebal-raises-35m-to-rekindle-europes-tnt-supply-chain",
+          "source_name": "Swebal raises $35M to rekindle Europe’s TNT supply chain – Resilience Media",
+          "source_domain": "resiliencemedia.co",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "baeb5ad7d78c4b43e04e99c1",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "93efc2c88f011a92c574",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Finland plans to build a TNT production plant to address urgent ammunition needs, as announced by Finnish Defense Minister Antti Häkkänen.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://militarnyi.com/en/news/finland-plans-to-build-a-plant-for-the-production-of-tnt",
+          "source_name": "Finland plans to build a plant for the production of TNT",
+          "source_domain": "militarnyi.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "6b9462f09bddd50353489a19",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "7a2bfd4ef4a47a4ff33f",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Sweden has earmarked 500 million kronor to co‑finance EU projects under the European Defence Industry Programme Energet to expand production of critical ammunition inputs, indicating a shortage of such materials.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://thedefensepost.com/2026/08/20/sweden-critical-ammunition-materials/",
+          "source_name": "Sweden to Co-Finance EU Projects to Boost Critical Ammunition Materials ",
+          "source_domain": "thedefensepost.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-05T15:12:56.875Z",
+          "valid": true,
+          "evidence_key": "bfff8edb79adabc7f30c715c",
+          "first_seen_at": "2026-09-05T15:12:56.875Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
       "verified": [],
       "verifier": {
         "verdict": "NOT_RUN",
         "summary": "",
         "next_check": ""
       },
-      "events": [],
+      "events": [
+        {
+          "id": "e0c29309976ce986791f08",
+          "mechanism_id": "ENERGETICS_SHORTAGE",
+          "run_id": "run_2026-09-05T15-11-40Z",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "claim": "The EU is experiencing shortages of gunpowder and TNT supplies, delaying the shift to large‑scale war production and threatening the drive to arm Ukraine.",
+          "observed_at": null,
+          "ingested_at": "2026-09-05T15:16:37.651Z",
+          "source_count": 1,
+          "domains": [
+            "ft.com"
+          ],
+          "source_urls": [
+            "https://www.ft.com/content/aee0e1a1-c464-4af9-a1c8-73fcbc46ed17?syn-25a6b1a6=1"
+          ],
+          "official": false,
+          "representative_source": "Explosives shortage threatens EU drive to arm Ukraine",
+          "representative_url": "https://www.ft.com/content/aee0e1a1-c464-4af9-a1c8-73fcbc46ed17?syn-25a6b1a6=1",
+          "source_grade": 0.92
+        },
+        {
+          "id": "b6ff8fe153f2bb34aa41a2",
+          "mechanism_id": "ENERGETICS_SHORTAGE",
+          "run_id": "run_2026-09-05T15-11-40Z",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "claim": "Poland’s Nitro‑Chem plant will double its explosive production capacity, potentially reaching 20,000 tons per year, to meet NATO shell requirements amid ammunition shortages in Europe.",
+          "observed_at": null,
+          "ingested_at": "2026-09-05T15:16:37.651Z",
+          "source_count": 1,
+          "domains": [
+            "unn.ua"
+          ],
+          "source_urls": [
+            "https://unn.ua/en/news/poland-sharply-increases-tnt-production-for-nato-needs"
+          ],
+          "official": false,
+          "representative_source": "Poland sharply increases TNT production for NATO needs | УНН",
+          "representative_url": "https://unn.ua/en/news/poland-sharply-increases-tnt-production-for-nato-needs",
+          "source_grade": 0.62
+        },
+        {
+          "id": "5fae5045fd696cba82ef31",
+          "mechanism_id": "ENERGETICS_SHORTAGE",
+          "run_id": "run_2026-09-05T15-11-40Z",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "claim": "Swebal’s $35 million funding aims to restart Europe’s TNT supply chain, but the expansion is hindered by a bottleneck in access to explosives and propellants.",
+          "observed_at": null,
+          "ingested_at": "2026-09-05T15:16:37.651Z",
+          "source_count": 1,
+          "domains": [
+            "resiliencemedia.co"
+          ],
+          "source_urls": [
+            "https://resiliencemedia.co/swebal-raises-35m-to-rekindle-europes-tnt-supply-chain"
+          ],
+          "official": false,
+          "representative_source": "Swebal raises $35M to rekindle Europe’s TNT supply chain – Resilience Media",
+          "representative_url": "https://resiliencemedia.co/swebal-raises-35m-to-rekindle-europes-tnt-supply-chain",
+          "source_grade": 0.62
+        },
+        {
+          "id": "d41aca70ad97018bbdcc3d",
+          "mechanism_id": "ENERGETICS_SHORTAGE",
+          "run_id": "run_2026-09-05T15-11-40Z",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "claim": "Finland plans to build a TNT production plant to address urgent ammunition needs, as announced by Finnish Defense Minister Antti Häkkänen.",
+          "observed_at": null,
+          "ingested_at": "2026-09-05T15:16:37.651Z",
+          "source_count": 1,
+          "domains": [
+            "militarnyi.com"
+          ],
+          "source_urls": [
+            "https://militarnyi.com/en/news/finland-plans-to-build-a-plant-for-the-production-of-tnt"
+          ],
+          "official": false,
+          "representative_source": "Finland plans to build a plant for the production of TNT",
+          "representative_url": "https://militarnyi.com/en/news/finland-plans-to-build-a-plant-for-the-production-of-tnt",
+          "source_grade": 0.62
+        },
+        {
+          "id": "dbacc5c3a9687ca2b54485",
+          "mechanism_id": "ENERGETICS_SHORTAGE",
+          "run_id": "run_2026-09-05T15-11-40Z",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "claim": "Sweden has earmarked 500 million kronor to co‑finance EU projects under the European Defence Industry Programme Energet to expand production of critical ammunition inputs, indicating a shortage of such materials.",
+          "observed_at": null,
+          "ingested_at": "2026-09-05T15:16:37.651Z",
+          "source_count": 1,
+          "domains": [
+            "thedefensepost.com"
+          ],
+          "source_urls": [
+            "https://thedefensepost.com/2026/08/20/sweden-critical-ammunition-materials/"
+          ],
+          "official": false,
+          "representative_source": "Sweden to Co-Finance EU Projects to Boost Critical Ammunition Materials ",
+          "representative_url": "https://thedefensepost.com/2026/08/20/sweden-critical-ammunition-materials/",
+          "source_grade": 0.62
+        }
+      ],
       "event_stats": {
-        "observed_unique": 0,
+        "observed_unique": 5,
         "observed_duplicates": 0,
-        "memory_unique": 0,
+        "memory_unique": 5,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 0,
+        "observed_items": 5,
         "carried_items": 0,
         "avg_carry_weight": 0,
-        "observed_score": 0,
-        "raw_combined_score": 0,
-        "decayed_score": 0
+        "observed_score": 32,
+        "raw_combined_score": 32,
+        "decayed_score": 32
       },
       "expected_next": [],
       "invalidation": [],
@@ -2972,7 +3235,7 @@
         "consensus_delta": -0.1,
         "priced_in": 3.1,
         "discount": "UNPRICED",
-        "timing_score": 37.5,
+        "timing_score": 51.9,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -2991,26 +3254,21 @@
       },
       "scout": {
         "eligible": false,
-        "score": 25.9,
+        "score": 47.1,
         "reasons": [
-          "STATE_NOT_SCOUTABLE",
-          "CAUSAL_TOO_WEAK",
-          "NO_LEAD",
-          "INSUFFICIENT_SOURCES"
+          "CAUSAL_TOO_WEAK"
         ],
         "phase": "DISCOVERY",
         "priced_in": 3.1
       },
       "alpha": {
         "eligible": false,
-        "score": 14.6,
+        "score": 40.5,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
-          "NO_LEAD",
           "NO_CONFIRM",
-          "INSUFFICIENT_SOURCES",
           "MARKET_NOT_CONFIRMING"
         ],
         "empirical": {
@@ -3029,18 +3287,24 @@
         "lead_to_confirm": null
       },
       "hysteresis": {
-        "raw_state": "UNKNOWN",
+        "raw_state": "WATCH",
         "pending": null,
         "reason": "INITIAL",
         "applied": false
       },
       "sensors": {
-        "lead": 0,
+        "lead": 1,
         "confirm": 0,
         "lag": 0,
         "lag_share": 0,
-        "domains": [],
-        "events": 0,
+        "domains": [
+          "ft.com",
+          "unn.ua",
+          "resiliencemedia.co",
+          "militarnyi.com",
+          "thedefensepost.com"
+        ],
+        "events": 5,
         "duplicates_removed": 0
       },
       "positive": [
@@ -3050,13 +3314,13 @@
         "GD"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 346,
-        "completion_tokens": 1065,
-        "total_tokens": 1411,
-        "cost": 0.00017359,
+        "prompt_tokens": 1676,
+        "completion_tokens": 1243,
+        "total_tokens": 2919,
+        "cost": 0.00015782,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -3065,12 +3329,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00017359,
-          "upstream_inference_prompt_cost": 0.00001384,
-          "upstream_inference_completions_cost": 0.00015975
+          "upstream_inference_cost": 0.00015782,
+          "upstream_inference_prompt_cost": 0.00003352,
+          "upstream_inference_completions_cost": 0.0001243
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 1144,
+          "reasoning_tokens": 831,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -3092,7 +3356,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -3111,7 +3375,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -3126,7 +3390,7 @@
       "raw_state": "DORMANT",
       "score": 11,
       "previous_state": "DORMANT",
-      "score_delta": -1,
+      "score_delta": 0,
       "summary": "No fresh deterministic candidates in this cycle.",
       "material_change": false,
       "observed_evidence": [],
@@ -3155,9 +3419,9 @@
           "evidence_key": "a56245bca4670332ea25219a",
           "first_seen_at": "2026-09-05T04:25:55.458Z",
           "last_seen_at": "2026-09-05T04:28:37.789Z",
-          "memory_weight": 0.9427,
+          "memory_weight": 0.9013,
           "memory_status": "CARRIED",
-          "memory_age_hours": 6.13
+          "memory_age_hours": 10.8
         }
       ],
       "verified": [],
@@ -3176,7 +3440,7 @@
       "memory": {
         "observed_items": 0,
         "carried_items": 1,
-        "avg_carry_weight": 0.943,
+        "avg_carry_weight": 0.901,
         "observed_score": 0,
         "raw_combined_score": 12,
         "decayed_score": 11
@@ -3291,7 +3555,7 @@
         "AA"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -3311,7 +3575,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -3330,7 +3594,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -3343,10 +3607,10 @@
       "tier": "B",
       "state": "DORMANT",
       "raw_state": "DORMANT",
-      "score": 16,
+      "score": 15,
       "previous_state": "DORMANT",
       "score_delta": -1,
-      "summary": "China shipments of rare earths to the US are disrupted, leading to a rise in US rare earth stock.",
+      "summary": "China shipments of rare earths to the US disrupted, causing US rare earth stock price increase.",
       "material_change": false,
       "observed_evidence": [
         {
@@ -3356,11 +3620,11 @@
           "signal": "EXPORT_RESTRICTION",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "China shipments of rare earths to the US are disrupted.",
-          "direction": "UNKNOWN",
+          "claim": "China shipments of rare earths to the US have been disrupted, leading to a rise in US rare earth stock prices.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Export restriction",
+          "why_upstream": "China shipments to US face fresh disruptions",
           "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNeDVvNTdrVEtvLTUwSmU5SWdhSkt3YXBLUGNTR1doMXFCRExhTXY4UXF2UEtaVVhEOVoxaUdobE1nay1DVEp2elRwSko4Y1duTW9zVUZtakFIQm5QajJWY3lLclJlU3NrdWlCeWRaVERPMUhFYXRESXVhQ0tfeEtSX0k5U3ZSeWdqYWM5THBDT19ZSFdYYTFSWGx6RGhHSGJOdUF0eGZidXM3UVE5WGdz?oc=5",
           "source_name": "Invezz",
           "source_domain": "invezz.com",
@@ -3368,11 +3632,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-04T13:22:08.000Z",
-          "retrieved_at": "2026-09-05T10:33:39.913Z",
+          "retrieved_at": "2026-09-05T15:12:44.500Z",
           "valid": true,
           "evidence_key": "a972e185a0527f757fe74455",
-          "first_seen_at": "2026-09-05T10:33:39.913Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
+          "first_seen_at": "2026-09-05T15:12:44.500Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -3386,11 +3650,11 @@
           "signal": "EXPORT_RESTRICTION",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "China shipments of rare earths to the US are disrupted.",
-          "direction": "UNKNOWN",
+          "claim": "China shipments of rare earths to the US have been disrupted, leading to a rise in US rare earth stock prices.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Export restriction",
+          "why_upstream": "China shipments to US face fresh disruptions",
           "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNeDVvNTdrVEtvLTUwSmU5SWdhSkt3YXBLUGNTR1doMXFCRExhTXY4UXF2UEtaVVhEOVoxaUdobE1nay1DVEp2elRwSko4Y1duTW9zVUZtakFIQm5QajJWY3lLclJlU3NrdWlCeWRaVERPMUhFYXRESXVhQ0tfeEtSX0k5U3ZSeWdqYWM5THBDT19ZSFdYYTFSWGx6RGhHSGJOdUF0eGZidXM3UVE5WGdz?oc=5",
           "source_name": "Invezz",
           "source_domain": "invezz.com",
@@ -3398,11 +3662,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-04T13:22:08.000Z",
-          "retrieved_at": "2026-09-05T10:33:39.913Z",
+          "retrieved_at": "2026-09-05T15:12:44.500Z",
           "valid": true,
           "evidence_key": "a972e185a0527f757fe74455",
           "first_seen_at": "2026-09-05T04:25:46.237Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -3431,9 +3695,9 @@
           "evidence_key": "3e260f8a4c68901ca27613f2",
           "first_seen_at": "2026-09-04T14:26:43.501Z",
           "last_seen_at": "2026-09-04T16:14:16.823Z",
-          "memory_weight": 0.8379,
+          "memory_weight": 0.8011,
           "memory_status": "CARRIED",
-          "memory_age_hours": 18.37
+          "memory_age_hours": 23.04
         }
       ],
       "verified": [],
@@ -3444,14 +3708,14 @@
       },
       "events": [
         {
-          "id": "3c8dde2a524316eb7b885c",
+          "id": "ca9fd23e870009d9ad67d2",
           "mechanism_id": "RARE_EARTH_MAGNET_SHORTAGE",
-          "run_id": "run_2026-09-05T10-32-43Z",
+          "run_id": "run_2026-09-05T15-11-40Z",
           "phase": "LEAD",
           "signal": "EXPORT_RESTRICTION",
-          "claim": "China shipments of rare earths to the US are disrupted.",
+          "claim": "China shipments of rare earths to the US have been disrupted, leading to a rise in US rare earth stock prices.",
           "observed_at": "2026-09-04T13:22:08.000Z",
-          "ingested_at": "2026-09-05T10:36:19.880Z",
+          "ingested_at": "2026-09-05T15:16:37.651Z",
           "source_count": 1,
           "domains": [
             "invezz.com"
@@ -3474,10 +3738,10 @@
       "memory": {
         "observed_items": 1,
         "carried_items": 1,
-        "avg_carry_weight": 0.838,
-        "observed_score": 13,
-        "raw_combined_score": 17,
-        "decayed_score": 16
+        "avg_carry_weight": 0.801,
+        "observed_score": 12,
+        "raw_combined_score": 16,
+        "decayed_score": 15
       },
       "expected_next": [],
       "invalidation": [],
@@ -3513,7 +3777,7 @@
         "consensus_delta": 0,
         "priced_in": 11.3,
         "discount": "UNPRICED",
-        "timing_score": 46.4,
+        "timing_score": 45.9,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -3532,7 +3796,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 38.9,
+        "score": 38.4,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK",
@@ -3543,7 +3807,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 31.6,
+        "score": 31.2,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -3589,13 +3853,13 @@
         "LYC.AX"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 806,
-        "completion_tokens": 1300,
-        "total_tokens": 2106,
-        "cost": 0.00020618,
+        "prompt_tokens": 1067,
+        "completion_tokens": 409,
+        "total_tokens": 1476,
+        "cost": 0.00006224,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -3604,12 +3868,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00020618,
-          "upstream_inference_prompt_cost": 0.00002418,
-          "upstream_inference_completions_cost": 0.000182
+          "upstream_inference_cost": 0.00006224,
+          "upstream_inference_prompt_cost": 0.00002134,
+          "upstream_inference_completions_cost": 0.0000409
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 542,
+          "reasoning_tokens": 294,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -3631,7 +3895,7 @@
             "google_news": {
               "ok": true,
               "count": 1,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -3650,7 +3914,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -3666,7 +3930,7 @@
       "score": 0,
       "previous_state": "UNKNOWN",
       "score_delta": 0,
-      "summary": "No procurement volume evidence found; mechanism not activated.",
+      "summary": "No fresh deterministic candidates in this cycle.",
       "material_change": false,
       "observed_evidence": [],
       "evidence": [],
@@ -3802,32 +4066,10 @@
         "RCAT"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
-      "model": "openai/gpt-oss-20b",
-      "usage": {
-        "prompt_tokens": 1843,
-        "completion_tokens": 665,
-        "total_tokens": 2508,
-        "cost": 0.00017347,
-        "is_byok": false,
-        "prompt_tokens_details": {
-          "cached_tokens": 69,
-          "cache_write_tokens": 0,
-          "audio_tokens": 0,
-          "video_tokens": 0
-        },
-        "cost_details": {
-          "upstream_inference_cost": 0.00017347,
-          "upstream_inference_prompt_cost": 0.00007372,
-          "upstream_inference_completions_cost": 0.00009975
-        },
-        "completion_tokens_details": {
-          "reasoning_tokens": 628,
-          "image_tokens": 0,
-          "audio_tokens": 0
-        }
-      },
-      "candidate_count": 6,
+      "last_run": "2026-09-05T15:16:37.651Z",
+      "model": null,
+      "usage": null,
+      "candidate_count": 0,
       "official_candidate_count": 0,
       "query_trace": [
         {
@@ -3844,7 +4086,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -3863,7 +4105,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -4017,7 +4259,7 @@
         "KTOS"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -4037,7 +4279,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -4056,7 +4298,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -4072,8 +4314,8 @@
       "score": 0,
       "previous_state": "UNKNOWN",
       "score_delta": 0,
-      "summary": "No confirmed physical incidents or procurement evidence for autonomous mine countermeasures, sonar, or underwater security was found in the provided candidate set.",
-      "material_change": true,
+      "summary": "No material evidence supporting sustained demand for autonomous mine countermeasures, sonar, or underwater security was found in the provided candidate set.",
+      "material_change": false,
       "observed_evidence": [],
       "evidence": [],
       "verified": [],
@@ -4128,7 +4370,7 @@
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 31.3,
-        "consensus_delta": 7.4,
+        "consensus_delta": -0.1,
         "priced_in": 11.4,
         "discount": "UNPRICED",
         "timing_score": 38.4,
@@ -4209,32 +4451,32 @@
         "HO.PA"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1878,
-        "completion_tokens": 219,
-        "total_tokens": 2097,
-        "cost": 0.00008481,
+        "prompt_tokens": 808,
+        "completion_tokens": 404,
+        "total_tokens": 1212,
+        "cost": 0.00005656,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 64,
+          "cached_tokens": 0,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00008481,
-          "upstream_inference_prompt_cost": 0.00005634,
-          "upstream_inference_completions_cost": 0.00002847
+          "upstream_inference_cost": 0.00005656,
+          "upstream_inference_prompt_cost": 0.00001616,
+          "upstream_inference_completions_cost": 0.0000404
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 185,
+          "reasoning_tokens": 410,
           "image_tokens": 0,
           "audio_tokens": 0
         }
       },
-      "candidate_count": 3,
+      "candidate_count": 1,
       "official_candidate_count": 0,
       "query_trace": [
         {
@@ -4251,7 +4493,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -4269,8 +4511,8 @@
             },
             "google_news": {
               "ok": true,
-              "count": 3,
-              "cached": true,
+              "count": 1,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -4283,10 +4525,10 @@
       "tier": "A",
       "state": "WATCH",
       "raw_state": "WATCH",
-      "score": 31,
+      "score": 30,
       "previous_state": "WATCH",
-      "score_delta": 3,
-      "summary": "Evidence indicates that electricity and interconnection constraints are a binding factor for AI infrastructure, as reported by multiple industry sources.",
+      "score_delta": -1,
+      "summary": "Evidence indicates that electricity and interconnection constraints are a binding factor for AI infrastructure, as the grid faces material bottlenecks, high demand, and requires modernization to support AI data centers.",
       "material_change": false,
       "observed_evidence": [
         {
@@ -4296,11 +4538,11 @@
           "signal": "EQUIPMENT_LEAD_TIME",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "The grid’s bottleneck isn’t just money; it’s materials, indicating a supply constraint on electricity for AI data centers.",
-          "direction": "UNKNOWN",
+          "claim": "The grid's bottleneck is not just money; it's materials.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "",
+          "why_upstream": "Materials shortages limit grid expansion, increasing electricity constraints.",
           "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOUWZJWWlydUFFUkxvRXlsMFF0M1U2am1MZUNia29tSGx2cVhkeVdQTmxSZE9VRk1kR3JEa1owdUVWVW0tcWRrQ3NzQlA0T2RnSkpiaDNCdzhUUVExYy05Sjk2UmY2czRIN2xQcnpFZWczUW01eGtiRDFUcng5Zy1ZSkdfdXVSU1Jsa21j0gGLAUFVX3lxTE5RZklZaXJ1QUVSTG9FeWwwUXQzVTZqbUxlQ2Jrb21IbHZxWGR5V1BObFJkT1VGTWRHckRrWjB1RVZVbS1xZGtDc3NCUDRPZGdKSmJoM0J3OFRRUTFjLTlKOTZSZjZzNEg3bFByekVlZzNRbTV4a2JEMVRyeDlnLVlKR191dVJTUmxrbWM?oc=5",
           "source_name": "The National Law Review",
           "source_domain": "natlawreview.com",
@@ -4308,11 +4550,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-03T20:40:24.000Z",
-          "retrieved_at": "2026-09-05T10:33:41.004Z",
+          "retrieved_at": "2026-09-05T15:12:46.856Z",
           "valid": true,
           "evidence_key": "f78ff3fec85ddd395882cbfc",
-          "first_seen_at": "2026-09-05T10:33:41.004Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
+          "first_seen_at": "2026-09-05T15:12:46.856Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -4324,11 +4566,11 @@
           "signal": "EQUIPMENT_LEAD_TIME",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Manufacturers are expanding U.S. operations to meet unrelenting grid demand, underscoring electricity supply constraints for AI workloads.",
-          "direction": "UNKNOWN",
+          "claim": "Manufacturers are expanding U.S. operations to meet unrelenting grid demand.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "",
+          "why_upstream": "High grid demand drives expansion, indicating electricity constraints.",
           "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZ19ieFNoY0ZyXzFMdXBUUFZUWmhNSlJnVHRkN1NiejdlRmIwVENFTk0wOUNHTnl6bFk5QlZucmhLMUFYTmRBUktkTmhaM0NZMEVtT0ZERG9VcGFkZTRLWFlOcXRwdm5nZHRZa0RlTDBBMWZ3Z01qdlBvY21NZzVPMnBtbERna09ZNFNoem1Kc041LWNDaW1saWtCVTU3UzZXVTZMODVueUNZZjl6WHE1QVlYdS0xeFE?oc=5",
           "source_name": "Factor This",
           "source_domain": "renewableenergyworld.com",
@@ -4336,11 +4578,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-03T19:10:30.000Z",
-          "retrieved_at": "2026-09-05T10:33:41.004Z",
+          "retrieved_at": "2026-09-05T15:12:46.856Z",
           "valid": true,
           "evidence_key": "51187a5fa957fbb915d289cc",
-          "first_seen_at": "2026-09-05T10:33:41.004Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
+          "first_seen_at": "2026-09-05T15:12:46.856Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -4352,11 +4594,11 @@
           "signal": "EQUIPMENT_LEAD_TIME",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Top grid modernization stocks are positioned to power AI data centers, highlighting the importance of grid capacity as a constraint.",
-          "direction": "UNKNOWN",
+          "claim": "Top grid modernization stocks are powering AI data centers.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "",
+          "why_upstream": "Grid modernization investments are needed to support AI data centers, implying electricity constraints.",
           "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBOTktUZERfdjhZY3E3SzdLSVc5azB6VWllbDYtVURfSHhrS243WHZkT256Zm9GRDdJSlMwQzhCU1ZDczRSbTNuRjRveEtkVU1HbmFHNDBkc3M?oc=5",
           "source_name": "Exoswan Insights",
           "source_domain": "exoswan.com",
@@ -4364,11 +4606,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-04T19:18:35.000Z",
-          "retrieved_at": "2026-09-05T10:33:41.004Z",
+          "retrieved_at": "2026-09-05T15:12:46.856Z",
           "valid": true,
           "evidence_key": "f14276ea1f76370a9a2d656e",
-          "first_seen_at": "2026-09-05T10:33:41.004Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
+          "first_seen_at": "2026-09-05T15:12:46.856Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -4382,11 +4624,11 @@
           "signal": "EQUIPMENT_LEAD_TIME",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "The grid’s bottleneck isn’t just money; it’s materials, indicating a supply constraint on electricity for AI data centers.",
-          "direction": "UNKNOWN",
+          "claim": "The grid's bottleneck is not just money; it's materials.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "",
+          "why_upstream": "Materials shortages limit grid expansion, increasing electricity constraints.",
           "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOUWZJWWlydUFFUkxvRXlsMFF0M1U2am1MZUNia29tSGx2cVhkeVdQTmxSZE9VRk1kR3JEa1owdUVWVW0tcWRrQ3NzQlA0T2RnSkpiaDNCdzhUUVExYy05Sjk2UmY2czRIN2xQcnpFZWczUW01eGtiRDFUcng5Zy1ZSkdfdXVSU1Jsa21j0gGLAUFVX3lxTE5RZklZaXJ1QUVSTG9FeWwwUXQzVTZqbUxlQ2Jrb21IbHZxWGR5V1BObFJkT1VGTWRHckRrWjB1RVZVbS1xZGtDc3NCUDRPZGdKSmJoM0J3OFRRUTFjLTlKOTZSZjZzNEg3bFByekVlZzNRbTV4a2JEMVRyeDlnLVlKR191dVJTUmxrbWM?oc=5",
           "source_name": "The National Law Review",
           "source_domain": "natlawreview.com",
@@ -4394,11 +4636,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-03T20:40:24.000Z",
-          "retrieved_at": "2026-09-05T10:33:41.004Z",
+          "retrieved_at": "2026-09-05T15:12:46.856Z",
           "valid": true,
           "evidence_key": "f78ff3fec85ddd395882cbfc",
           "first_seen_at": "2026-09-05T04:25:48.628Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -4410,11 +4652,11 @@
           "signal": "EQUIPMENT_LEAD_TIME",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Manufacturers are expanding U.S. operations to meet unrelenting grid demand, underscoring electricity supply constraints for AI workloads.",
-          "direction": "UNKNOWN",
+          "claim": "Manufacturers are expanding U.S. operations to meet unrelenting grid demand.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "",
+          "why_upstream": "High grid demand drives expansion, indicating electricity constraints.",
           "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZ19ieFNoY0ZyXzFMdXBUUFZUWmhNSlJnVHRkN1NiejdlRmIwVENFTk0wOUNHTnl6bFk5QlZucmhLMUFYTmRBUktkTmhaM0NZMEVtT0ZERG9VcGFkZTRLWFlOcXRwdm5nZHRZa0RlTDBBMWZ3Z01qdlBvY21NZzVPMnBtbERna09ZNFNoem1Kc041LWNDaW1saWtCVTU3UzZXVTZMODVueUNZZjl6WHE1QVlYdS0xeFE?oc=5",
           "source_name": "Factor This",
           "source_domain": "renewableenergyworld.com",
@@ -4422,11 +4664,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-03T19:10:30.000Z",
-          "retrieved_at": "2026-09-05T10:33:41.004Z",
+          "retrieved_at": "2026-09-05T15:12:46.856Z",
           "valid": true,
           "evidence_key": "51187a5fa957fbb915d289cc",
           "first_seen_at": "2026-09-04T13:34:04.505Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -4438,11 +4680,11 @@
           "signal": "EQUIPMENT_LEAD_TIME",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Top grid modernization stocks are positioned to power AI data centers, highlighting the importance of grid capacity as a constraint.",
-          "direction": "UNKNOWN",
+          "claim": "Top grid modernization stocks are powering AI data centers.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "",
+          "why_upstream": "Grid modernization investments are needed to support AI data centers, implying electricity constraints.",
           "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBOTktUZERfdjhZY3E3SzdLSVc5azB6VWllbDYtVURfSHhrS243WHZkT256Zm9GRDdJSlMwQzhCU1ZDczRSbTNuRjRveEtkVU1HbmFHNDBkc3M?oc=5",
           "source_name": "Exoswan Insights",
           "source_domain": "exoswan.com",
@@ -4450,11 +4692,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-04T19:18:35.000Z",
-          "retrieved_at": "2026-09-05T10:33:41.004Z",
+          "retrieved_at": "2026-09-05T15:12:46.856Z",
           "valid": true,
           "evidence_key": "f14276ea1f76370a9a2d656e",
           "first_seen_at": "2026-09-05T10:33:41.004Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -4483,9 +4725,9 @@
           "evidence_key": "cf200ef4954203c2255d4daa",
           "first_seen_at": "2026-09-04T14:26:45.605Z",
           "last_seen_at": "2026-09-04T16:57:42.123Z",
-          "memory_weight": 0.8438,
+          "memory_weight": 0.8067,
           "memory_status": "CARRIED",
-          "memory_age_hours": 17.64
+          "memory_age_hours": 22.32
         },
         {
           "candidate_id": "e37e3618a669663d2e39",
@@ -4511,9 +4753,9 @@
           "evidence_key": "8d72f838920c2b3429838bae",
           "first_seen_at": "2026-09-04T13:34:04.505Z",
           "last_seen_at": "2026-09-04T16:57:42.123Z",
-          "memory_weight": 0.8438,
+          "memory_weight": 0.8067,
           "memory_status": "CARRIED",
-          "memory_age_hours": 17.64
+          "memory_age_hours": 22.32
         },
         {
           "candidate_id": "b3e792af8815de0d270a",
@@ -4539,9 +4781,9 @@
           "evidence_key": "6ccb492da9285b624ca7d735",
           "first_seen_at": "2026-09-04T13:34:04.505Z",
           "last_seen_at": "2026-09-04T16:14:16.823Z",
-          "memory_weight": 0.8379,
+          "memory_weight": 0.8011,
           "memory_status": "CARRIED",
-          "memory_age_hours": 18.37
+          "memory_age_hours": 23.04
         }
       ],
       "verified": [],
@@ -4552,14 +4794,14 @@
       },
       "events": [
         {
-          "id": "3bbf926644cb932e6e4819",
+          "id": "905250d1102da9e26070c9",
           "mechanism_id": "AI_TIME_TO_POWER",
-          "run_id": "run_2026-09-05T10-32-43Z",
+          "run_id": "run_2026-09-05T15-11-40Z",
           "phase": "LEAD",
           "signal": "EQUIPMENT_LEAD_TIME",
-          "claim": "Top grid modernization stocks are positioned to power AI data centers, highlighting the importance of grid capacity as a constraint.",
+          "claim": "Top grid modernization stocks are powering AI data centers.",
           "observed_at": "2026-09-04T19:18:35.000Z",
-          "ingested_at": "2026-09-05T10:36:19.880Z",
+          "ingested_at": "2026-09-05T15:16:37.651Z",
           "source_count": 1,
           "domains": [
             "exoswan.com"
@@ -4573,14 +4815,14 @@
           "source_grade": 0.62
         },
         {
-          "id": "09ef25b126af9faa6fa915",
+          "id": "b3770aeddf8b34f95dad78",
           "mechanism_id": "AI_TIME_TO_POWER",
-          "run_id": "run_2026-09-05T10-32-43Z",
+          "run_id": "run_2026-09-05T15-11-40Z",
           "phase": "LEAD",
           "signal": "EQUIPMENT_LEAD_TIME",
-          "claim": "The grid’s bottleneck isn’t just money; it’s materials, indicating a supply constraint on electricity for AI data centers.",
+          "claim": "The grid's bottleneck is not just money; it's materials.",
           "observed_at": "2026-09-03T20:40:24.000Z",
-          "ingested_at": "2026-09-05T10:36:19.880Z",
+          "ingested_at": "2026-09-05T15:16:37.651Z",
           "source_count": 1,
           "domains": [
             "natlawreview.com"
@@ -4594,14 +4836,14 @@
           "source_grade": 0.62
         },
         {
-          "id": "e960393ad6af01054a1787",
+          "id": "994ac16eb8c0be34cd71b0",
           "mechanism_id": "AI_TIME_TO_POWER",
-          "run_id": "run_2026-09-05T10-32-43Z",
+          "run_id": "run_2026-09-05T15-11-40Z",
           "phase": "LEAD",
           "signal": "EQUIPMENT_LEAD_TIME",
-          "claim": "Manufacturers are expanding U.S. operations to meet unrelenting grid demand, underscoring electricity supply constraints for AI workloads.",
+          "claim": "Manufacturers are expanding U.S. operations to meet unrelenting grid demand.",
           "observed_at": "2026-09-03T19:10:30.000Z",
-          "ingested_at": "2026-09-05T10:36:19.880Z",
+          "ingested_at": "2026-09-05T15:16:37.651Z",
           "source_count": 1,
           "domains": [
             "renewableenergyworld.com"
@@ -4618,20 +4860,18 @@
       "event_stats": {
         "observed_unique": 3,
         "observed_duplicates": 0,
-        "memory_unique": 6,
-        "memory_duplicates": 0
+        "memory_unique": 5,
+        "memory_duplicates": 1
       },
       "memory": {
         "observed_items": 3,
         "carried_items": 3,
-        "avg_carry_weight": 0.842,
+        "avg_carry_weight": 0.805,
         "observed_score": 28,
         "raw_combined_score": 31,
-        "decayed_score": 31
+        "decayed_score": 30
       },
-      "expected_next": [
-        "CONFIRM"
-      ],
+      "expected_next": [],
       "invalidation": [],
       "market": {
         "score": 55,
@@ -4665,7 +4905,7 @@
         "consensus_delta": 0,
         "priced_in": 22.3,
         "discount": "UNPRICED",
-        "timing_score": 54.2,
+        "timing_score": 53.7,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -4684,7 +4924,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 45.6,
+        "score": 45.1,
         "reasons": [
           "CAUSAL_TOO_WEAK",
           "MARKET_ALREADY_MOVED"
@@ -4694,7 +4934,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 46,
+        "score": 45.6,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -4730,13 +4970,12 @@
         "domains": [
           "exoswan.com",
           "mondaq.com",
-          "natlawreview.com",
           "renewableenergyworld.com",
           "breakbulk.com",
           "greentechlead.com"
         ],
-        "events": 6,
-        "duplicates_removed": 0
+        "events": 5,
+        "duplicates_removed": 1
       },
       "positive": [
         "POWL",
@@ -4746,27 +4985,27 @@
         "PWR"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1815,
-        "completion_tokens": 1048,
-        "total_tokens": 2863,
-        "cost": 0.00019069,
+        "prompt_tokens": 2068,
+        "completion_tokens": 853,
+        "total_tokens": 2921,
+        "cost": 0.00012666,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 64,
+          "cached_tokens": 0,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00019069,
-          "upstream_inference_prompt_cost": 0.00005445,
-          "upstream_inference_completions_cost": 0.00013624
+          "upstream_inference_cost": 0.00012666,
+          "upstream_inference_prompt_cost": 0.00004136,
+          "upstream_inference_completions_cost": 0.0000853
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 716,
+          "reasoning_tokens": 594,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -4788,7 +5027,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -4807,7 +5046,7 @@
             "google_news": {
               "ok": true,
               "count": 3,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -4826,7 +5065,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -4839,41 +5078,12 @@
       "tier": "B",
       "state": "DORMANT",
       "raw_state": "DORMANT",
-      "score": 14,
-      "previous_state": "UNKNOWN",
-      "score_delta": 14,
-      "summary": "Extracted atomic claims from official candidate supporting data center power and interconnect details.",
-      "material_change": true,
-      "observed_evidence": [
-        {
-          "candidate_id": "0aedf122ce35a65e2b1c",
-          "query_id": "OFFICIAL:FR_DATA_CENTER_QUEUE:AI_GHOST_DEMAND",
-          "phase": "LEAD",
-          "signal": "REGULATORY_DEMAND",
-          "family": "OFFICIAL",
-          "fact_type": "FACT",
-          "claim": "The DeepGreen Cook Inlet SPV, LLC project is estimated to generate 100 megawatts annually.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "REGULATORY_DEMAND",
-          "source_url": "https://www.federalregister.gov/documents/2026/09/04/2026-18151/deepgreen-cook-inlet-spv-llc-notice-of-preliminary-permit-application-accepted-for-filing-and",
-          "source_name": "Federal Register",
-          "source_domain": "federalregister.gov",
-          "source_grade": 1,
-          "official": true,
-          "engine": "federal_register",
-          "published_at": "2026-09-04T00:00:00.000Z",
-          "retrieved_at": "2026-09-05T10:33:44.040Z",
-          "valid": true,
-          "evidence_key": "e08720fee0629e4efc4b36b5",
-          "first_seen_at": "2026-09-05T10:33:44.040Z",
-          "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
+      "score": 13,
+      "previous_state": "DORMANT",
+      "score_delta": -1,
+      "summary": "The provided candidate does not support the AI ghost demand mechanism; it is a preliminary permit application unrelated to speculative interconnection requests.",
+      "material_change": false,
+      "observed_evidence": [],
       "evidence": [
         {
           "candidate_id": "0aedf122ce35a65e2b1c",
@@ -4899,9 +5109,9 @@
           "evidence_key": "e08720fee0629e4efc4b36b5",
           "first_seen_at": "2026-09-04T15:18:39.347Z",
           "last_seen_at": "2026-09-05T10:36:19.880Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.956,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 4.67
         }
       ],
       "verified": [],
@@ -4910,42 +5120,20 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [
-        {
-          "id": "ba1bff9556400f103343b8",
-          "mechanism_id": "AI_GHOST_DEMAND",
-          "run_id": "run_2026-09-05T10-32-43Z",
-          "phase": "LEAD",
-          "signal": "REGULATORY_DEMAND",
-          "claim": "The DeepGreen Cook Inlet SPV, LLC project is estimated to generate 100 megawatts annually.",
-          "observed_at": "2026-09-04T00:00:00.000Z",
-          "ingested_at": "2026-09-05T10:36:19.880Z",
-          "source_count": 1,
-          "domains": [
-            "federalregister.gov"
-          ],
-          "source_urls": [
-            "https://www.federalregister.gov/documents/2026/09/04/2026-18151/deepgreen-cook-inlet-spv-llc-notice-of-preliminary-permit-application-accepted-for-filing-and"
-          ],
-          "official": true,
-          "representative_source": "Federal Register",
-          "representative_url": "https://www.federalregister.gov/documents/2026/09/04/2026-18151/deepgreen-cook-inlet-spv-llc-notice-of-preliminary-permit-application-accepted-for-filing-and",
-          "source_grade": 1
-        }
-      ],
+      "events": [],
       "event_stats": {
-        "observed_unique": 1,
+        "observed_unique": 0,
         "observed_duplicates": 0,
         "memory_unique": 1,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 1,
-        "carried_items": 0,
-        "avg_carry_weight": 0,
-        "observed_score": 14,
+        "observed_items": 0,
+        "carried_items": 1,
+        "avg_carry_weight": 0.956,
+        "observed_score": 0,
         "raw_combined_score": 14,
-        "decayed_score": 14
+        "decayed_score": 13
       },
       "expected_next": [],
       "invalidation": [],
@@ -4981,7 +5169,7 @@
         "consensus_delta": 0,
         "priced_in": 24.8,
         "discount": "UNPRICED",
-        "timing_score": 45.4,
+        "timing_score": 45,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -5000,7 +5188,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 36.2,
+        "score": 35.7,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK",
@@ -5012,7 +5200,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 29.8,
+        "score": 29.4,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -5038,7 +5226,7 @@
       "hysteresis": {
         "raw_state": "DORMANT",
         "pending": null,
-        "reason": "INITIAL",
+        "reason": "STABLE",
         "applied": false
       },
       "sensors": {
@@ -5058,32 +5246,32 @@
         "GEV"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1057,
-        "completion_tokens": 1300,
-        "total_tokens": 2357,
-        "cost": 0.00023728,
+        "prompt_tokens": 849,
+        "completion_tokens": 956,
+        "total_tokens": 1805,
+        "cost": 0.00011258,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 69,
+          "cached_tokens": 0,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00023728,
-          "upstream_inference_prompt_cost": 0.00004228,
-          "upstream_inference_completions_cost": 0.000195
+          "upstream_inference_cost": 0.00011258,
+          "upstream_inference_prompt_cost": 0.00001698,
+          "upstream_inference_completions_cost": 0.0000956
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 1166,
+          "reasoning_tokens": 796,
           "image_tokens": 0,
           "audio_tokens": 0
         }
       },
-      "candidate_count": 2,
+      "candidate_count": 1,
       "official_candidate_count": 1,
       "query_trace": [
         {
@@ -5100,7 +5288,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -5118,8 +5306,8 @@
             },
             "google_news": {
               "ok": true,
-              "count": 1,
-              "cached": true,
+              "count": 0,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -5134,8 +5322,8 @@
       "raw_state": "DORMANT",
       "score": 12,
       "previous_state": "DORMANT",
-      "score_delta": -1,
-      "summary": "A recent article reports bipartisan backlash that is killing onsite power projects, indicating regulatory resistance to onsite generation.",
+      "score_delta": 0,
+      "summary": "No evidence in the provided candidate supports data centers bypassing utility queues with onsite generation and microgrids.",
       "material_change": false,
       "observed_evidence": [],
       "evidence": [
@@ -5163,9 +5351,9 @@
           "evidence_key": "902db2bc9a69429e2eec91c6",
           "first_seen_at": "2026-09-05T04:25:49.731Z",
           "last_seen_at": "2026-09-05T04:28:37.789Z",
-          "memory_weight": 0.9427,
+          "memory_weight": 0.9013,
           "memory_status": "CARRIED",
-          "memory_age_hours": 6.13
+          "memory_age_hours": 10.8
         }
       ],
       "verified": [],
@@ -5184,7 +5372,7 @@
       "memory": {
         "observed_items": 0,
         "carried_items": 1,
-        "avg_carry_weight": 0.943,
+        "avg_carry_weight": 0.901,
         "observed_score": 0,
         "raw_combined_score": 13,
         "decayed_score": 12
@@ -5302,13 +5490,13 @@
         "CMI"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
-      "model": "openai/gpt-oss-120b",
+      "last_run": "2026-09-05T15:16:37.651Z",
+      "model": "openai/gpt-oss-20b",
       "usage": {
         "prompt_tokens": 1021,
-        "completion_tokens": 595,
-        "total_tokens": 1616,
-        "cost": 0.00051015,
+        "completion_tokens": 470,
+        "total_tokens": 1491,
+        "cost": 0.000217575,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -5317,12 +5505,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00051015,
-          "upstream_inference_prompt_cost": 0.00015315,
-          "upstream_inference_completions_cost": 0.000357
+          "upstream_inference_cost": 0.000217575,
+          "upstream_inference_prompt_cost": 0.000076575,
+          "upstream_inference_completions_cost": 0.000141
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 464,
+          "reasoning_tokens": 420,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -5344,7 +5532,7 @@
             "google_news": {
               "ok": true,
               "count": 1,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -5363,7 +5551,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -5380,7 +5568,7 @@
       "previous_state": "UNKNOWN",
       "score_delta": 0,
       "summary": "No fresh deterministic candidates in this cycle.",
-      "material_change": true,
+      "material_change": false,
       "observed_evidence": [],
       "evidence": [],
       "verified": [],
@@ -5435,7 +5623,7 @@
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 27.5,
-        "consensus_delta": 3.7,
+        "consensus_delta": 0,
         "priced_in": 5,
         "discount": "UNPRICED",
         "timing_score": 39.3,
@@ -5516,7 +5704,7 @@
         "SHA0.DE"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -5536,7 +5724,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 22
             }
           }
@@ -5555,7 +5743,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 22
             }
           }
@@ -5572,7 +5760,7 @@
       "previous_state": "UNKNOWN",
       "score_delta": 0,
       "summary": "No fresh deterministic candidates in this cycle.",
-      "material_change": true,
+      "material_change": false,
       "observed_evidence": [],
       "evidence": [],
       "verified": [],
@@ -5627,7 +5815,7 @@
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 27.5,
-        "consensus_delta": 3.7,
+        "consensus_delta": 0,
         "priced_in": 5,
         "discount": "UNPRICED",
         "timing_score": 39.3,
@@ -5708,7 +5896,7 @@
         "SHA0.DE"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -5728,7 +5916,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -5747,7 +5935,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -5758,15 +5946,128 @@
       "id": "JAPAN_CARRY_UNWIND",
       "label": "Japan carry unwind",
       "tier": "A",
-      "state": "ACTIVE",
+      "state": "ARMING",
       "raw_state": "ARMING",
-      "score": 57,
+      "score": 60,
       "previous_state": "ACTIVE",
-      "score_delta": -12,
+      "score_delta": 3,
       "summary": "",
       "material_change": true,
-      "observed_evidence": [],
+      "observed_evidence": [
+        {
+          "candidate_id": "2303465c19456ee1d426",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "USD/JPY reached 155.40 as the Bank of Japan opened the door to a 50‑basis‑point rate move.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "The title explicitly states the USD/JPY level and the BoJ policy stance.",
+          "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWlZweGtrWGhVS2pCal9zRU9rMGpjNkx6blZCdmxic19UMElWcVV4U0F0cEdsa0RQRFEzd0ZEcl9Damt5U3lsNWVubHJLSmtlV3M3NE9rUHhpUlZRZkZSYklYY0I0QjhlMDdkYzBQWUJNVksycWtXQVpGQU9OcFBlSU1GcnRaOHB3dTNiYk16N0ZUWDNDN1hDT0JMaHgtRV95MTJV?oc=5",
+          "source_name": "tradingnews.com",
+          "source_domain": "tradingnews.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T20:09:07.000Z",
+          "retrieved_at": "2026-09-05T15:12:50.112Z",
+          "valid": true,
+          "evidence_key": "483c6a7e433398d956521035",
+          "first_seen_at": "2026-09-05T15:12:50.112Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "77d69c4328ac08d08d0a",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "The yen rose to 156.40 while the 10‑year Japanese government bond yield topped 3%, putting the carry trade at risk.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "The title reports both the yen level and the JGB yield exceeding 3%.",
+          "source_url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5RTUFkRVZTcHF6OHNUeFZaN0pmMXNvYTNwZ1RhLTZoTGgxY213RXlUazRNX01jZnFzaExOTzE4QVR2T2FmTDFMUElQdHljMkEyOGNHVFlCM2tsZVJDaTFZQ3FkTXdDTW5CYUlHSjl2WkozZw?oc=5",
+          "source_name": "FinanceFeeds",
+          "source_domain": "financefeeds.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T16:46:33.000Z",
+          "retrieved_at": "2026-09-05T15:12:50.112Z",
+          "valid": true,
+          "evidence_key": "d5d655db698c81d15f1e4ccb",
+          "first_seen_at": "2026-09-05T15:12:50.112Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
       "evidence": [
+        {
+          "candidate_id": "2303465c19456ee1d426",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "USD/JPY reached 155.40 as the Bank of Japan opened the door to a 50‑basis‑point rate move.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "The title explicitly states the USD/JPY level and the BoJ policy stance.",
+          "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWlZweGtrWGhVS2pCal9zRU9rMGpjNkx6blZCdmxic19UMElWcVV4U0F0cEdsa0RQRFEzd0ZEcl9Damt5U3lsNWVubHJLSmtlV3M3NE9rUHhpUlZRZkZSYklYY0I0QjhlMDdkYzBQWUJNVksycWtXQVpGQU9OcFBlSU1GcnRaOHB3dTNiYk16N0ZUWDNDN1hDT0JMaHgtRV95MTJV?oc=5",
+          "source_name": "tradingnews.com",
+          "source_domain": "tradingnews.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T20:09:07.000Z",
+          "retrieved_at": "2026-09-05T15:12:50.112Z",
+          "valid": true,
+          "evidence_key": "483c6a7e433398d956521035",
+          "first_seen_at": "2026-09-04T15:18:38.102Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "77d69c4328ac08d08d0a",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "The yen rose to 156.40 while the 10‑year Japanese government bond yield topped 3%, putting the carry trade at risk.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "The title reports both the yen level and the JGB yield exceeding 3%.",
+          "source_url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5RTUFkRVZTcHF6OHNUeFZaN0pmMXNvYTNwZ1RhLTZoTGgxY213RXlUazRNX01jZnFzaExOTzE4QVR2T2FmTDFMUElQdHljMkEyOGNHVFlCM2tsZVJDaTFZQ3FkTXdDTW5CYUlHSjl2WkozZw?oc=5",
+          "source_name": "FinanceFeeds",
+          "source_domain": "financefeeds.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-03T16:46:33.000Z",
+          "retrieved_at": "2026-09-05T15:12:50.112Z",
+          "valid": true,
+          "evidence_key": "d5d655db698c81d15f1e4ccb",
+          "first_seen_at": "2026-09-04T13:34:05.038Z",
+          "last_seen_at": "2026-09-05T15:16:37.651Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
         {
           "candidate_id": "51415cd98ead03ffab6c",
           "query_id": "JAPAN_CARRY_UNWIND:lead:japan_flows",
@@ -5791,65 +6092,9 @@
           "evidence_key": "56fb5e4ad6e9b9b7a9e7121f",
           "first_seen_at": "2026-09-05T04:25:51.374Z",
           "last_seen_at": "2026-09-05T04:28:37.789Z",
-          "memory_weight": 0.9427,
+          "memory_weight": 0.9013,
           "memory_status": "CARRIED",
-          "memory_age_hours": 6.13
-        },
-        {
-          "candidate_id": "c8d01bd40c8708180905",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "USD/JPY is forecast to reach 155.40 as the Bank of Japan opens the door to a 50‑basis‑point rate hike, indicating yen appreciation.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "CONFIRM",
-          "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWlZweGtrWGhVS2pCal9zRU9rMGpjNkx6blZCdmxic19UMElWcVV4U0F0cEdsa0RQRFEzd0ZEcl9Damt5U3lsNWVubHJLSmtlV3M3NE9rUHhpUlZRZkZSYklYY0I0QjhlMDdkYzBQWUJNVksycWtXQVpGQU9OcFBlSU1GcnRaOHB3dTNiYk16N0ZUWDNDN1hDT0JMaHgtRV95MTJV?oc=5",
-          "source_name": "TradingNEWS",
-          "source_domain": "tradingnews.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T20:09:07.000Z",
-          "retrieved_at": "2026-09-05T04:25:51.641Z",
-          "valid": true,
-          "evidence_key": "483c6a7e433398d956521035",
-          "first_seen_at": "2026-09-04T15:18:38.102Z",
-          "last_seen_at": "2026-09-05T04:28:37.789Z",
-          "memory_weight": 0.8887,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 6.13
-        },
-        {
-          "candidate_id": "77d69c4328ac08d08d0a",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "The yen rose to 156.40 while Japanese Government Bond (JGB) yields topped 3%, putting the carry trade at risk.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "CONFIRM",
-          "source_url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5RTUFkRVZTcHF6OHNUeFZaN0pmMXNvYTNwZ1RhLTZoTGgxY213RXlUazRNX01jZnFzaExOTzE4QVR2T2FmTDFMUElQdHljMkEyOGNHVFlCM2tsZVJDaTFZQ3FkTXdDTW5CYUlHSjl2WkozZw?oc=5",
-          "source_name": "FinanceFeeds",
-          "source_domain": "financefeeds.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-03T16:46:33.000Z",
-          "retrieved_at": "2026-09-05T04:25:51.641Z",
-          "valid": true,
-          "evidence_key": "d5d655db698c81d15f1e4ccb",
-          "first_seen_at": "2026-09-04T13:34:05.038Z",
-          "last_seen_at": "2026-09-05T04:28:37.789Z",
-          "memory_weight": 0.8887,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 6.13
+          "memory_age_hours": 10.8
         },
         {
           "candidate_id": "fbe8f8b4e362b9b2b014",
@@ -5875,9 +6120,9 @@
           "evidence_key": "770d489317a18cc7ec51d4dc",
           "first_seen_at": "2026-09-04T14:26:47.955Z",
           "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 0.8307,
+          "memory_weight": 0.7942,
           "memory_status": "CARRIED",
-          "memory_age_hours": 19.27
+          "memory_age_hours": 23.94
         },
         {
           "candidate_id": "75de6d528605e906ccf4",
@@ -5903,9 +6148,9 @@
           "evidence_key": "dfc93b7d46a003a8141587c5",
           "first_seen_at": "2026-09-04T13:34:04.746Z",
           "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 0.8307,
+          "memory_weight": 0.7942,
           "memory_status": "CARRIED",
-          "memory_age_hours": 19.27
+          "memory_age_hours": 23.94
         },
         {
           "candidate_id": "c286eea7004051a9be00",
@@ -5931,9 +6176,9 @@
           "evidence_key": "36f3eed5d53022434bfd27d9",
           "first_seen_at": "2026-09-04T13:34:05.038Z",
           "last_seen_at": "2026-09-04T16:22:07.977Z",
-          "memory_weight": 0.7039,
+          "memory_weight": 0.6433,
           "memory_status": "CARRIED",
-          "memory_age_hours": 18.24
+          "memory_age_hours": 22.91
         },
         {
           "candidate_id": "23b75ebcd0b429177111",
@@ -5959,9 +6204,9 @@
           "evidence_key": "b25df01fc278cea3631d7dda",
           "first_seen_at": "2026-09-04T13:34:05.038Z",
           "last_seen_at": "2026-09-04T16:22:07.977Z",
-          "memory_weight": 0.7039,
+          "memory_weight": 0.6433,
           "memory_status": "CARRIED",
-          "memory_age_hours": 18.24
+          "memory_age_hours": 22.91
         },
         {
           "candidate_id": "5a5a324d90db13126312",
@@ -5987,9 +6232,9 @@
           "evidence_key": "c7426fba1fe77b9dcc0f35ff",
           "first_seen_at": "2026-09-04T13:34:05.038Z",
           "last_seen_at": "2026-09-04T16:22:07.977Z",
-          "memory_weight": 0.7039,
+          "memory_weight": 0.6433,
           "memory_status": "CARRIED",
-          "memory_age_hours": 18.24
+          "memory_age_hours": 22.91
         },
         {
           "candidate_id": "904f9f20939cf4843f1d",
@@ -6015,9 +6260,9 @@
           "evidence_key": "8664d78cdca1e2e8d63f9471",
           "first_seen_at": "2026-09-04T13:34:05.038Z",
           "last_seen_at": "2026-09-04T15:20:09.766Z",
-          "memory_weight": 0.69,
+          "memory_weight": 0.6307,
           "memory_status": "CARRIED",
-          "memory_age_hours": 19.27
+          "memory_age_hours": 23.94
         }
       ],
       "verified": [],
@@ -6026,22 +6271,67 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [],
+      "events": [
+        {
+          "id": "4b2e029d13a269e9bc109b",
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "run_id": "run_2026-09-05T15-11-40Z",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "claim": "USD/JPY reached 155.40 as the Bank of Japan opened the door to a 50‑basis‑point rate move.",
+          "observed_at": "2026-09-03T20:09:07.000Z",
+          "ingested_at": "2026-09-05T15:16:37.651Z",
+          "source_count": 1,
+          "domains": [
+            "tradingnews.com"
+          ],
+          "source_urls": [
+            "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWlZweGtrWGhVS2pCal9zRU9rMGpjNkx6blZCdmxic19UMElWcVV4U0F0cEdsa0RQRFEzd0ZEcl9Damt5U3lsNWVubHJLSmtlV3M3NE9rUHhpUlZRZkZSYklYY0I0QjhlMDdkYzBQWUJNVksycWtXQVpGQU9OcFBlSU1GcnRaOHB3dTNiYk16N0ZUWDNDN1hDT0JMaHgtRV95MTJV?oc=5"
+          ],
+          "official": false,
+          "representative_source": "tradingnews.com",
+          "representative_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWlZweGtrWGhVS2pCal9zRU9rMGpjNkx6blZCdmxic19UMElWcVV4U0F0cEdsa0RQRFEzd0ZEcl9Damt5U3lsNWVubHJLSmtlV3M3NE9rUHhpUlZRZkZSYklYY0I0QjhlMDdkYzBQWUJNVksycWtXQVpGQU9OcFBlSU1GcnRaOHB3dTNiYk16N0ZUWDNDN1hDT0JMaHgtRV95MTJV?oc=5",
+          "source_grade": 0.62
+        },
+        {
+          "id": "fd3d5c1d11dd198cfa1f71",
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "run_id": "run_2026-09-05T15-11-40Z",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "claim": "The yen rose to 156.40 while the 10‑year Japanese government bond yield topped 3%, putting the carry trade at risk.",
+          "observed_at": "2026-09-03T16:46:33.000Z",
+          "ingested_at": "2026-09-05T15:16:37.651Z",
+          "source_count": 1,
+          "domains": [
+            "financefeeds.com"
+          ],
+          "source_urls": [
+            "https://news.google.com/rss/articles/CBMickFVX3lxTE5RTUFkRVZTcHF6OHNUeFZaN0pmMXNvYTNwZ1RhLTZoTGgxY213RXlUazRNX01jZnFzaExOTzE4QVR2T2FmTDFMUElQdHljMkEyOGNHVFlCM2tsZVJDaTFZQ3FkTXdDTW5CYUlHSjl2WkozZw?oc=5"
+          ],
+          "official": false,
+          "representative_source": "FinanceFeeds",
+          "representative_url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5RTUFkRVZTcHF6OHNUeFZaN0pmMXNvYTNwZ1RhLTZoTGgxY213RXlUazRNX01jZnFzaExOTzE4QVR2T2FmTDFMUElQdHljMkEyOGNHVFlCM2tsZVJDaTFZQ3FkTXdDTW5CYUlHSjl2WkozZw?oc=5",
+          "source_grade": 0.62
+        }
+      ],
       "event_stats": {
-        "observed_unique": 0,
+        "observed_unique": 2,
         "observed_duplicates": 0,
         "memory_unique": 9,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 0,
-        "carried_items": 9,
-        "avg_carry_weight": 0.798,
-        "observed_score": 0,
+        "observed_items": 2,
+        "carried_items": 7,
+        "avg_carry_weight": 0.721,
+        "observed_score": 29,
         "raw_combined_score": 72,
-        "decayed_score": 57
+        "decayed_score": 60
       },
-      "expected_next": [],
+      "expected_next": [
+        "JAPAN_CARRY_UNWIND"
+      ],
       "invalidation": [],
       "market": {
         "score": 67,
@@ -6075,7 +6365,7 @@
         "consensus_delta": 0,
         "priced_in": 37.4,
         "discount": "PARTLY_PRICED",
-        "timing_score": 69.6,
+        "timing_score": 71,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -6094,7 +6384,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 63.8,
+        "score": 65.3,
         "reasons": [
           "WAVE_NOT_EARLY",
           "MARKET_ALREADY_MOVED"
@@ -6104,10 +6394,10 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 60.1,
+        "score": 61.1,
         "market_floor": 20,
         "reasons": [
-          "CAUSAL_TOO_WEAK",
+          "STATE_NOT_STABLY_ACTIVE",
           "TOO_CROWDED"
         ],
         "empirical": {
@@ -6127,12 +6417,8 @@
       },
       "hysteresis": {
         "raw_state": "ARMING",
-        "pending": {
-          "candidate": "ARMING",
-          "streak": 1,
-          "required": 2
-        },
-        "reason": "AWAITING_DEACTIVATION_CONFIRMATION",
+        "pending": null,
+        "reason": "DEACTIVATION_CONFIRMED",
         "applied": true
       },
       "sensors": {
@@ -6160,32 +6446,32 @@
       "negative": [
         "TLT"
       ],
-      "last_run": "2026-09-05T10:36:19.880Z",
-      "model": "openai/gpt-oss-20b",
+      "last_run": "2026-09-05T15:16:37.651Z",
+      "model": "openai/gpt-oss-120b",
       "usage": {
-        "prompt_tokens": 319,
-        "completion_tokens": 294,
-        "total_tokens": 613,
-        "cost": 0.00005303,
+        "prompt_tokens": 7095,
+        "completion_tokens": 1300,
+        "total_tokens": 8395,
+        "cost": 0.00067975,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 64,
+          "cached_tokens": 68,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00005303,
-          "upstream_inference_prompt_cost": 0.00000893,
-          "upstream_inference_completions_cost": 0.0000441
+          "upstream_inference_cost": 0.00067975,
+          "upstream_inference_prompt_cost": 0.00035475,
+          "upstream_inference_completions_cost": 0.000325
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 316,
+          "reasoning_tokens": 951,
           "image_tokens": 0,
           "audio_tokens": 0
         }
       },
-      "candidate_count": 14,
+      "candidate_count": 13,
       "official_candidate_count": 0,
       "query_trace": [
         {
@@ -6202,7 +6488,7 @@
             "google_news": {
               "ok": true,
               "count": 1,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -6221,7 +6507,7 @@
             "google_news": {
               "ok": true,
               "count": 2,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -6239,8 +6525,8 @@
             },
             "google_news": {
               "ok": true,
-              "count": 3,
-              "cached": true,
+              "count": 2,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -6259,7 +6545,7 @@
             "google_news": {
               "ok": true,
               "count": 8,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 22
             }
           }
@@ -6275,7 +6561,7 @@
       "score": 0,
       "previous_state": "UNKNOWN",
       "score_delta": 0,
-      "summary": "No evidence supporting global refinancing stress mechanism found in the provided candidates.",
+      "summary": "No evidence from the provided candidates supports the Global Refinancing Stress mechanism or its focus on bond‑market volatility transmission to corporate cash flow and credit quality.",
       "material_change": false,
       "observed_evidence": [],
       "evidence": [],
@@ -6300,7 +6586,9 @@
         "raw_combined_score": 0,
         "decayed_score": 0
       },
-      "expected_next": [],
+      "expected_next": [
+        "GLOBAL_REFINANCING_STRESS"
+      ],
       "invalidation": [],
       "market": {
         "score": 49,
@@ -6411,27 +6699,27 @@
         "TLT",
         "IWM"
       ],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 860,
-        "completion_tokens": 258,
-        "total_tokens": 1118,
-        "cost": 0.000043,
+        "prompt_tokens": 607,
+        "completion_tokens": 389,
+        "total_tokens": 996,
+        "cost": 0.00006878,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 0,
+          "cached_tokens": 192,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.000043,
-          "upstream_inference_prompt_cost": 0.0000172,
-          "upstream_inference_completions_cost": 0.0000258
+          "upstream_inference_cost": 0.00006878,
+          "upstream_inference_prompt_cost": 0.00001821,
+          "upstream_inference_completions_cost": 0.00005057
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 221,
+          "reasoning_tokens": 359,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -6453,7 +6741,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -6472,7 +6760,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -6624,7 +6912,7 @@
         "TENB"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -6644,7 +6932,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -6663,7 +6951,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -6815,7 +7103,7 @@
         "BWXT"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -6835,7 +7123,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 22
             }
           }
@@ -6854,7 +7142,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 22
             }
           }
@@ -6869,8 +7157,8 @@
       "raw_state": "DORMANT",
       "score": 11,
       "previous_state": "DORMANT",
-      "score_delta": -1,
-      "summary": "No verifiable atomic claims extracted from the provided candidate.",
+      "score_delta": 0,
+      "summary": "No fresh deterministic candidates in this cycle.",
       "material_change": false,
       "observed_evidence": [],
       "evidence": [
@@ -6898,9 +7186,9 @@
           "evidence_key": "633d47fd48cc4d22179ce85a",
           "first_seen_at": "2026-09-04T14:26:49.697Z",
           "last_seen_at": "2026-09-05T04:28:37.789Z",
-          "memory_weight": 0.9427,
+          "memory_weight": 0.9013,
           "memory_status": "CARRIED",
-          "memory_age_hours": 6.13
+          "memory_age_hours": 10.8
         }
       ],
       "verified": [],
@@ -6919,7 +7207,7 @@
       "memory": {
         "observed_items": 0,
         "carried_items": 1,
-        "avg_carry_weight": 0.943,
+        "avg_carry_weight": 0.901,
         "observed_score": 0,
         "raw_combined_score": 12,
         "decayed_score": 11
@@ -7037,32 +7325,10 @@
         "VRT"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
-      "model": "openai/gpt-oss-20b",
-      "usage": {
-        "prompt_tokens": 703,
-        "completion_tokens": 261,
-        "total_tokens": 964,
-        "cost": 0.00006727,
-        "is_byok": false,
-        "prompt_tokens_details": {
-          "cached_tokens": 69,
-          "cache_write_tokens": 0,
-          "audio_tokens": 0,
-          "video_tokens": 0
-        },
-        "cost_details": {
-          "upstream_inference_cost": 0.00006727,
-          "upstream_inference_prompt_cost": 0.00002812,
-          "upstream_inference_completions_cost": 0.00003915
-        },
-        "completion_tokens_details": {
-          "reasoning_tokens": 223,
-          "image_tokens": 0,
-          "audio_tokens": 0
-        }
-      },
-      "candidate_count": 1,
+      "last_run": "2026-09-05T15:16:37.651Z",
+      "model": null,
+      "usage": null,
+      "candidate_count": 0,
       "official_candidate_count": 0,
       "query_trace": [
         {
@@ -7079,7 +7345,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 22
             }
           }
@@ -7097,8 +7363,8 @@
             },
             "google_news": {
               "ok": true,
-              "count": 1,
-              "cached": true,
+              "count": 0,
+              "cached": false,
               "ttl_hours": 22
             }
           }
@@ -7170,7 +7436,7 @@
         "phase": "DISCOVERY",
         "position": "OBSERVE",
         "consensus": 16.9,
-        "consensus_delta": -3.7,
+        "consensus_delta": 0,
         "priced_in": 3,
         "discount": "UNPRICED",
         "timing_score": 37.6,
@@ -7255,7 +7521,7 @@
         "FCT.MI"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -7275,7 +7541,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 22
             }
           }
@@ -7294,7 +7560,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 22
             }
           }
@@ -7447,7 +7713,7 @@
         "ACDC"
       ],
       "negative": [],
-      "last_run": "2026-09-05T10:36:19.880Z",
+      "last_run": "2026-09-05T15:16:37.651Z",
       "model": null,
       "usage": null,
       "candidate_count": 0,
@@ -7467,7 +7733,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 22
             }
           }
@@ -7486,7 +7752,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 22
             }
           }
@@ -7505,7 +7771,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 22
             }
           }
