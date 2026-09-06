@@ -10,7 +10,7 @@ gate('Human-first card',src.includes('Por qué importa')&&src.includes('Qué fal
 gate('Root causes visible',html.includes('Causas raíz')&&js.includes('renderRoots')&&js.includes("root:'Hormuz"),'Root-driver grouping');
 gate('Daily judge visible',html.includes('briefing')&&js.includes('Briefing diario del juez')&&brief.headline&&Array.isArray(brief.butterflies),'Daily briefing');
 gate('Butterfly ranking',js.includes('butterflyScore')&&js.includes('prioridad ${bf}/100'),'Rank by causal/pricing gap');
-gate('No return target on home',!html.includes('retorno esperado')&&!html.includes('expected return'),'No low-return screener framing');
+gate('No return target on home',!src.includes('expected_return_pct')&&!src.includes('target_return_pct')&&!html.includes('OBJETIVO DE RETORNO'),'No low-return screener framing');
 gate('Progressive engine disclosure',html.includes('<details class="card engine">')&&html.includes('10 pasos'),'Engine details hidden');
 gate('Human dossier',js.includes('Dossier humano')&&js.includes('Lectura del juez')&&js.includes('Cadena causal')&&js.includes('Qué está viendo el motor'),'Detailed explanation');
 gate('Five company pieces max',js.includes('topPieces(s,5)')&&js.includes('Piezas empresariales'),'Company detail');
