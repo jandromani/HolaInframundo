@@ -4,12 +4,12 @@ Never commit API keys to this public repository.
 
 ## GitHub Actions secrets
 
-Required for the existing intelligence pipeline:
+Required for the intelligence pipeline:
 
 - `OPENROUTER_API_KEY`
 - `OPENAI_API_KEY`
 
-Required to validate the live Trading 212 instrument catalogue:
+Required only if you want GearWatch to validate the live Trading 212 catalogue from the official API:
 
 - `TRADING212_API_KEY`
 
@@ -17,13 +17,9 @@ Optional only when Trading 212 issued a key-pair credential:
 
 - `TRADING212_API_SECRET`
 
-The scanner supports a legacy single API key when `TRADING212_API_SECRET` is absent.
+The scanner also supports a legacy single API key when `TRADING212_API_SECRET` is absent.
 
-Required for automatic production deployment to the existing Vercel project:
-
-- `VERCEL_TOKEN`
-
-`VERCEL_TOKEN` is only used by `.github/workflows/deploy-vercel.yml`. The project/team IDs are non-secret and are already pinned in that workflow.
+There is **no `VERCEL_TOKEN` requirement**. This project is deployed through the existing Vercel connection/direct deployment path; GitHub Actions is responsible for intelligence/state, not Vercel authentication.
 
 ## GitHub Actions variables
 
@@ -34,7 +30,7 @@ Optional:
 - `OPENROUTER_VERIFIER_MODEL=openai/gpt-oss-120b`
 - `OPENAI_INVESTMENT_MODEL=gpt-5-nano`
 
-The scan workflow explicitly forces:
+The autonomous scan workflow explicitly forces:
 
 - `T212_LIVE_TRADING_ENABLED=false`
 - `GEARWATCH_EXECUTION_MODE=SHADOW_ONLY`
@@ -43,7 +39,7 @@ Do not change those for the autonomous workflow.
 
 ## Vercel private broker gateway (optional)
 
-Only needed if the protected Vercel dashboard should read the real Trading 212 account at runtime. Configure these as **Vercel environment variables**, not GitHub files:
+Only needed if the protected Vercel dashboard should read the real Trading 212 account at runtime. Configure these as Vercel environment variables, not GitHub files:
 
 - `TRADING212_API_KEY`
 - `TRADING212_API_SECRET` (only for key-pair credentials)
@@ -62,37 +58,29 @@ GearWatch must never open, close, top-up, reduce, cancel an order for, or count 
 
 ## $500 shadow sleeve invariants
 
-The autonomous workflow is intentionally paper-only and enforces:
-
 - Initial synthetic capital: `$500`
 - Max individual paper order: `$80`
 - Max simultaneous GearWatch positions: `6`
 - Scout paper order: `$40`
 - Deploy paper order: `$80`
-- Small residual top-up: max `$20`, only into an existing Deploy position and never while averaging down
+- Residual top-up: max `$20`, only into an existing Deploy position and never while averaging down
 - Max exposure to one risk group: `$160`
 - Only the top `20%` of current mechanism opportunities may be considered
 - `RISK_OFF` blocks all new entries
 - No valid setup means no trade
 
-The synthetic sleeve is benchmarked against QQQ and S&P 500 from its inception.
+The synthetic sleeve is benchmarked against QQQ and S&P 500 from inception.
 
 ## Final setup checklist
 
 GitHub → HolaInframundo → Settings → Secrets and variables → Actions → Secrets:
 
-1. `OPENROUTER_API_KEY` — already configured if the intelligence scans work.
-2. `OPENAI_API_KEY` — already configured if the Jury runs.
-3. `TRADING212_API_KEY` — add a **rotated replacement** for any Trading 212 key that has appeared in chat/plaintext.
-4. `TRADING212_API_SECRET` — add only if Trading 212 gave you a separate secret.
-5. `VERCEL_TOKEN` — create in Vercel account settings and add here to enable automatic production deploys.
+1. `OPENROUTER_API_KEY` — required for discovery/extraction/verifier.
+2. `OPENAI_API_KEY` — required for the independent Jury.
+3. `TRADING212_API_KEY` — optional for live catalogue validation; use a rotated replacement for any key ever exposed in plaintext.
+4. `TRADING212_API_SECRET` — only if Trading 212 supplied a separate secret.
 
-Then run these workflows once manually:
-
-- `GearWatch V3 Causal Portfolio Scan`
-- `GearWatch V3 Deploy Vercel`
-
-After that the intelligence/portfolio scan runs every six hours and frontend code changes deploy automatically.
+Then run `GearWatch V3 Causal Portfolio Scan` once manually. It will thereafter run every six hours.
 
 ## Credential hygiene
 
