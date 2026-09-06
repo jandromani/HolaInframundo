@@ -61,6 +61,7 @@ if(cfg.configured){
         symbol,
         broker:'Trading 212 Invest',
         available:Boolean(m),
+        assumed_available:false,
         verified:Boolean(m),
         curated:true,
         authoritative:true,
@@ -77,12 +78,12 @@ if(cfg.configured){
       };
     }
     out={
-      version:'2.9.1', generated_at:nowIso, broker:'Trading 212 Invest',
+      version:'3.0.0', generated_at:nowIso, broker:'Trading 212 Invest',
       mode:'LIVE_T212_CATALOGUE', authoritative:true, account_specific:true,
       credentials_required:true, auth_mode:cfg.authMode, environment:cfg.environment,
       catalogue_verified:true, availability_gate:true, curated_universe:true,
       instruments,
-      stats:{ seed_symbols:uniq.length, verified, available:verified, unavailable, ambiguous, unknown:ambiguous, cache_hits:0, network_checks:1 },
+      stats:{ seed_symbols:uniq.length, verified, available:verified, assumed_available:0, unavailable, ambiguous, unknown:ambiguous, cache_hits:0, network_checks:1 },
       coverage:Number((verified/Math.max(1,uniq.length)).toFixed(4)), errors:[]
     };
   }catch(error){
@@ -93,18 +94,18 @@ if(cfg.configured){
 
 if(!out){
   const instruments=Object.fromEntries(uniq.map(symbol=>[symbol,{
-    symbol, broker:'Trading 212 Invest', available:true, verified:true, curated:true,
+    symbol, broker:'Trading 212 Invest', available:true, assumed_available:true, verified:false, curated:true,
     authoritative:false, verification_source:'USER_CURATED_T212_UNIVERSE', checked_at:nowIso
   }]));
   out={
-    version:'2.9.1', generated_at:nowIso, broker:'Trading 212 Invest',
+    version:'3.0.0', generated_at:nowIso, broker:'Trading 212 Invest',
     mode:'CURATED_T212_UNIVERSE', authoritative:false, account_specific:false,
-    credentials_required:false, catalogue_verified:true, availability_gate:true, curated_universe:true,
+    credentials_required:true, catalogue_verified:false, availability_gate:false, curated_universe:true,
     instruments,
-    stats:{ seed_symbols:uniq.length, verified:uniq.length, available:uniq.length, unavailable:0, ambiguous:0, unknown:0, cache_hits:0, network_checks:0 },
-    coverage:1, errors:[]
+    stats:{ seed_symbols:uniq.length, verified:0, available:uniq.length, assumed_available:uniq.length, unavailable:0, ambiguous:0, unknown:uniq.length, cache_hits:0, network_checks:0 },
+    coverage:0, errors:[{code:'T212_CREDENTIALS_OR_CATALOGUE_UNAVAILABLE',message:'Candidate availability is curated/assumed, not live-verified against Trading 212.'}]
   };
 }
 
 await fs.writeFile(path,JSON.stringify(out,null,2)+'\n');
-console.log(`broker: mode=${out.mode} verified=${out.stats.verified}/${uniq.length} network=${out.stats.network_checks}`);
+console.log(`broker: mode=${out.mode} verified=${out.stats.verified}/${uniq.length} assumed=${out.stats.assumed_available||0} network=${out.stats.network_checks}`);
