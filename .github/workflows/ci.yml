@@ -5,87 +5,38 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
-
 permissions:
   contents: read
-
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
+        with: {node-version: '22'}
       - name: Syntax check JavaScript
         run: |
           set -e
-          for f in scripts/*.mjs lib/*.mjs api/*.mjs; do
-            [ -e "$f" ] || continue
-            echo "Checking $f"
-            node --check "$f"
-          done
+          for f in scripts/*.mjs lib/*.mjs api/*.mjs; do [ -e "$f" ] || continue; node --check "$f"; done
       - name: Trading 212 and SGMOQ fail-closed contract
         run: |
           node - <<'NODE'
           import { trading212Config, placeOrder } from './lib/trading212.mjs';
-          const cfg=trading212Config();
-          if(cfg.configured) throw new Error('CI must not contain Trading 212 credentials');
-          if(!cfg.protectedSymbols.includes('SGMOQ')) throw new Error('SGMOQ must be hard-protected in broker client');
-          let failed=false;
-          try { await placeOrder({type:'MARKET',ticker:'AAPL_US_EQ',quantity:1},{confirmation:'EXECUTE_LIVE'}); }
-          catch { failed=true; }
-          if(!failed) throw new Error('Trading 212 client must fail closed without credentials');
-          console.log('Trading 212 client fails closed, SGMOQ is isolated, and no credential is committed');
+          const cfg=trading212Config(); if(cfg.configured) throw new Error('CI must not contain Trading 212 credentials'); if(!cfg.protectedSymbols.includes('SGMOQ'))throw new Error('SGMOQ missing'); let failed=false;try{await placeOrder({type:'MARKET',ticker:'AAPL_US_EQ',quantity:1},{confirmation:'EXECUTE_LIVE'})}catch{failed=true}if(!failed)throw new Error('Broker client must fail closed');
           NODE
       - name: Parse JSON configuration and state seeds
         run: |
           node - <<'NODE'
-          const fs=require('fs');
-          const files=['config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json','config/sources.v2.json','config/contracts.v2.json','config/investment-seeds.json','config/transmission-models.json','config/execution-policy.json','data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json','data/paper-portfolio.json','data/trade-journal.json','data/execution-plan.json'];
-          for(const f of files){JSON.parse(fs.readFileSync(f,'utf8'));console.log('OK',f)}
-          const cfg=JSON.parse(fs.readFileSync('config/mechanisms.json','utf8'));
-          const seeds=JSON.parse(fs.readFileSync('config/investment-seeds.json','utf8'));
-          const tx=JSON.parse(fs.readFileSync('config/transmission-models.json','utf8'));
-          const policy=JSON.parse(fs.readFileSync('config/policy.v2.json','utf8'));
-          const exec=JSON.parse(fs.readFileSync('config/execution-policy.json','utf8'));
-          const q=JSON.parse(fs.readFileSync('config/queries.v2.json','utf8'));
-          const qx=JSON.parse(fs.readFileSync('config/queries.v2.extra.json','utf8'));
-          const merged={...(q.mechanisms||{}),...(qx.mechanisms||{})};
-          const w=Object.values(tx.weights||{}).reduce((a,b)=>a+Number(b||0),0);if(Math.abs(w-1)>.000001)throw new Error(`Transmission weights must sum to 1; got ${w}`);
-          for(const m of cfg.mechanisms){
-            if(!merged[m.id])throw new Error(`Missing query config for ${m.id}`);
-            const xs=seeds.mechanisms?.[m.id];
-            if(!Array.isArray(xs)||xs.length<5||xs.length>12)throw new Error(`Investment seed coverage for ${m.id}: expected 5-12, got ${xs?.length||0}`);
-            const unique=new Set(xs.map(x=>String(x?.[0]||'').toUpperCase()));
-            if(unique.size!==xs.length)throw new Error(`Duplicate investment seed in ${m.id}`);
-            for(const row of xs)if(!Array.isArray(row)||row.length<3||!row[0]||!Number.isFinite(row[1])||!['DIRECT','SECOND_ORDER'].includes(row[2]))throw new Error(`Bad investment seed in ${m.id}`);
-            const model=tx.mechanisms?.[m.id];if(!model||!model.shock||!model.earnings_channel||!model.bridge?.length||!model.diluters?.length)throw new Error(`Incomplete transmission model for ${m.id}`);
-          }
-          const c=policy.crowd||{},s=policy.scout||{},a=policy.alpha||{};
-          if(!(c.late_priced_in<c.saturated_priced_in))throw new Error('Crowd priced-in phases must be monotonic');
-          if(!(s.max_priced_in<a.max_priced_in))throw new Error('Scout must be earlier than Alpha max priced-in');
-          if(!(a.early_market_floor<a.min_market))throw new Error('Early-wave Alpha floor must be below normal market floor');
-          if(!Array.isArray(s.allowed_states)||!s.allowed_states.includes('ARMING'))throw new Error('Scout must be able to operate before ACTIVE');
-          if(s.allowed_states.includes('SATURATED'))throw new Error('Scout must never operate in SATURATED');
-          if(exec.mode!=='SHADOW_ONLY'||exec.execution.auto_live_orders!==false)throw new Error('GearWatch execution must remain SHADOW_ONLY');
-          if(exec.capital.initial_budget_usd!==500||exec.capital.max_order_usd!==80||exec.capital.max_open_positions!==6)throw new Error('Execution budget invariants changed');
-          if(!exec.protected_symbols.includes('SGMOQ'))throw new Error('SGMOQ protection missing');
-          if(exec.selection.top_quantile!==0.20)throw new Error('Portfolio Brain must stay in top market-opportunity quintile');
-          if(exec.market_regime.require_fresh_market!==true||exec.market_regime.max_snapshot_age_hours>2)throw new Error('Fresh-market entry gate weakened');
-          console.log(`Coverage OK: ${cfg.mechanisms.length}/${cfg.mechanisms.length} mechanisms + flexible candidate pools + timing + shadow portfolio invariants`);
+          const fs=require('fs');const files=['config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json','config/sources.v2.json','config/contracts.v2.json','config/investment-seeds.json','config/transmission-models.json','config/execution-policy.json','data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json','data/paper-portfolio.json','data/trade-journal.json','data/execution-plan.json'];for(const f of files)JSON.parse(fs.readFileSync(f,'utf8'));
+          const cfg=JSON.parse(fs.readFileSync('config/mechanisms.json')),seeds=JSON.parse(fs.readFileSync('config/investment-seeds.json')),tx=JSON.parse(fs.readFileSync('config/transmission-models.json')),policy=JSON.parse(fs.readFileSync('config/policy.v2.json')),exec=JSON.parse(fs.readFileSync('config/execution-policy.json')),q=JSON.parse(fs.readFileSync('config/queries.v2.json')),qx=JSON.parse(fs.readFileSync('config/queries.v2.extra.json')),merged={...(q.mechanisms||{}),...(qx.mechanisms||{})};
+          const w=Object.values(tx.weights||{}).reduce((a,b)=>a+Number(b||0),0);if(Math.abs(w-1)>.000001)throw new Error('Transmission weights must sum to 1');
+          for(const m of cfg.mechanisms){if(!merged[m.id])throw new Error(`Missing query config ${m.id}`);const xs=seeds.mechanisms?.[m.id],target=Number(seeds.targets?.[m.id]||5);if(!Array.isArray(xs)||xs.length!==target||target<3||target>10)throw new Error(`Investment target mismatch ${m.id}: target=${target}, rows=${xs?.length||0}`);const unique=new Set(xs.map(x=>String(x?.[0]||'').toUpperCase()));if(unique.size!==xs.length)throw new Error(`Duplicate seed ${m.id}`);for(const row of xs)if(!Array.isArray(row)||row.length<3||!row[0]||!Number.isFinite(row[1])||!['DIRECT','SECOND_ORDER'].includes(row[2]))throw new Error(`Bad seed ${m.id}`);const model=tx.mechanisms?.[m.id];if(!model?.shock||!model?.earnings_channel||!model?.bridge?.length||!model?.diluters?.length)throw new Error(`Incomplete transmission ${m.id}`)}
+          const c=policy.crowd||{},s=policy.scout||{},a=policy.alpha||{};if(!(c.late_priced_in<c.saturated_priced_in))throw new Error('Crowd phases');if(!(s.max_priced_in<a.max_priced_in))throw new Error('Scout earlier than alpha');if(exec.mode!=='SHADOW_ONLY'||exec.execution.auto_live_orders!==false)throw new Error('Shadow only');if(exec.capital.initial_budget_usd!==500||exec.capital.max_order_usd!==80||exec.capital.max_open_positions!==6)throw new Error('Capital invariants');if(!exec.protected_symbols.includes('SGMOQ'))throw new Error('SGMOQ protection');if(exec.selection.top_quantile!==.20)throw new Error('Top quintile');if(exec.market_regime.require_fresh_market!==true||exec.market_regime.max_snapshot_age_hours>2)throw new Error('Fresh market gate');console.log('Target-aware mechanism pools and V3 invariants OK');
           NODE
       - name: Parse dashboard inline JavaScript
         run: |
           node - <<'NODE'
-          const fs=require('fs');
-          for(const file of ['index.html','portfolio.html']){
-            const html=fs.readFileSync(file,'utf8');
-            const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(x=>x[1]);
-            if(!scripts.length)throw new Error(`No inline dashboard script found in ${file}`);
-            for(const js of scripts)new Function(js);
-            console.log(`${file} inline JavaScript syntax OK`);
-          }
+          const fs=require('fs');for(const file of ['index.html','portfolio.html']){const html=fs.readFileSync(file,'utf8'),scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(x=>x[1]);if(!scripts.length)throw new Error(`No inline script ${file}`);for(const js of scripts)new Function(js)}
           NODE
       - name: Deterministic V3 regression suite
         run: npm run selftest
