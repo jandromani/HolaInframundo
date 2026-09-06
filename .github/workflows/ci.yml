@@ -56,8 +56,10 @@ jobs:
           for(const m of cfg.mechanisms){
             if(!merged[m.id])throw new Error(`Missing query config for ${m.id}`);
             const xs=seeds.mechanisms?.[m.id];
-            if(!Array.isArray(xs)||xs.length!==5)throw new Error(`Investment seed coverage for ${m.id}: expected 5, got ${xs?.length||0}`);
-            for(const row of xs)if(!Array.isArray(row)||row.length<3||!row[0]||!Number.isFinite(row[1]))throw new Error(`Bad investment seed in ${m.id}`);
+            if(!Array.isArray(xs)||xs.length<5||xs.length>12)throw new Error(`Investment seed coverage for ${m.id}: expected 5-12, got ${xs?.length||0}`);
+            const unique=new Set(xs.map(x=>String(x?.[0]||'').toUpperCase()));
+            if(unique.size!==xs.length)throw new Error(`Duplicate investment seed in ${m.id}`);
+            for(const row of xs)if(!Array.isArray(row)||row.length<3||!row[0]||!Number.isFinite(row[1])||!['DIRECT','SECOND_ORDER'].includes(row[2]))throw new Error(`Bad investment seed in ${m.id}`);
             const model=tx.mechanisms?.[m.id];if(!model||!model.shock||!model.earnings_channel||!model.bridge?.length||!model.diluters?.length)throw new Error(`Incomplete transmission model for ${m.id}`);
           }
           const c=policy.crowd||{},s=policy.scout||{},a=policy.alpha||{};
@@ -70,17 +72,20 @@ jobs:
           if(exec.capital.initial_budget_usd!==500||exec.capital.max_order_usd!==80||exec.capital.max_open_positions!==6)throw new Error('Execution budget invariants changed');
           if(!exec.protected_symbols.includes('SGMOQ'))throw new Error('SGMOQ protection missing');
           if(exec.selection.top_quantile!==0.20)throw new Error('Portfolio Brain must stay in top market-opportunity quintile');
-          console.log(`Coverage OK: ${cfg.mechanisms.length}/${cfg.mechanisms.length} mechanisms + timing + shadow portfolio invariants`);
+          if(exec.market_regime.require_fresh_market!==true||exec.market_regime.max_snapshot_age_hours>2)throw new Error('Fresh-market entry gate weakened');
+          console.log(`Coverage OK: ${cfg.mechanisms.length}/${cfg.mechanisms.length} mechanisms + flexible candidate pools + timing + shadow portfolio invariants`);
           NODE
       - name: Parse dashboard inline JavaScript
         run: |
           node - <<'NODE'
           const fs=require('fs');
-          const html=fs.readFileSync('index.html','utf8');
-          const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(x=>x[1]);
-          if(!scripts.length)throw new Error('No inline dashboard script found');
-          for(const js of scripts)new Function(js);
-          console.log('Dashboard inline JavaScript syntax OK');
+          for(const file of ['index.html','portfolio.html']){
+            const html=fs.readFileSync(file,'utf8');
+            const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(x=>x[1]);
+            if(!scripts.length)throw new Error(`No inline dashboard script found in ${file}`);
+            for(const js of scripts)new Function(js);
+            console.log(`${file} inline JavaScript syntax OK`);
+          }
           NODE
       - name: Deterministic V3 regression suite
         run: npm run selftest
