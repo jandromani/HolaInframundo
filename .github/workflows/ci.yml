@@ -1,4 +1,4 @@
-name: GearWatch V3 CI
+name: GearWatch V3.1 CI
 
 on:
   push:
@@ -33,19 +33,19 @@ jobs:
           if(cfg.configured) throw new Error('CI must not contain Trading 212 credentials');
           if(!cfg.protectedSymbols.includes('SGMOQ')) throw new Error('SGMOQ must be hard-protected in broker client');
           let failed=false;
-          try { await placeOrder({type:'MARKET',ticker:'AAPL_US_EQ',quantity:1},{confirmation:'EXECUTE_LIVE'}); }
-          catch { failed=true; }
+          try { await placeOrder({type:'MARKET',ticker:'AAPL_US_EQ',quantity:1},{confirmation:'EXECUTE_LIVE'}); } catch { failed=true; }
           if(!failed) throw new Error('Trading 212 client must fail closed without credentials');
           console.log('Trading 212 client fails closed, SGMOQ is isolated, and no credential is committed');
           NODE
-      - name: Parse JSON configuration and state seeds
+      - name: Parse JSON configuration and enforce candidate pools
         run: |
           node - <<'NODE'
           const fs=require('fs');
-          const files=['config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json','config/sources.v2.json','config/contracts.v2.json','config/investment-seeds.json','config/transmission-models.json','config/execution-policy.json','data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json','data/paper-portfolio.json','data/trade-journal.json','data/execution-plan.json'];
+          const files=['config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json','config/sources.v2.json','config/contracts.v2.json','config/investment-seeds.json','config/company-pool-policy.json','config/transmission-models.json','config/execution-policy.json','data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json','data/paper-portfolio.json','data/trade-journal.json','data/execution-plan.json'];
           for(const f of files){JSON.parse(fs.readFileSync(f,'utf8'));console.log('OK',f)}
           const cfg=JSON.parse(fs.readFileSync('config/mechanisms.json','utf8'));
           const seeds=JSON.parse(fs.readFileSync('config/investment-seeds.json','utf8'));
+          const pools=JSON.parse(fs.readFileSync('config/company-pool-policy.json','utf8'));
           const tx=JSON.parse(fs.readFileSync('config/transmission-models.json','utf8'));
           const policy=JSON.parse(fs.readFileSync('config/policy.v2.json','utf8'));
           const exec=JSON.parse(fs.readFileSync('config/execution-policy.json','utf8'));
@@ -55,11 +55,14 @@ jobs:
           const w=Object.values(tx.weights||{}).reduce((a,b)=>a+Number(b||0),0);if(Math.abs(w-1)>.000001)throw new Error(`Transmission weights must sum to 1; got ${w}`);
           for(const m of cfg.mechanisms){
             if(!merged[m.id])throw new Error(`Missing query config for ${m.id}`);
-            const xs=seeds.mechanisms?.[m.id];
-            if(!Array.isArray(xs)||xs.length<5||xs.length>12)throw new Error(`Investment seed coverage for ${m.id}: expected 5-12, got ${xs?.length||0}`);
-            const unique=new Set(xs.map(x=>String(x?.[0]||'').toUpperCase()));
-            if(unique.size!==xs.length)throw new Error(`Duplicate investment seed in ${m.id}`);
+            const xs=seeds.mechanisms?.[m.id],pp={...(pools.defaults||{}),...(pools.mechanisms?.[m.id]||{})};
+            if(!Array.isArray(xs)||xs.length<Number(pp.min_pool||5)||xs.length>12)throw new Error(`Investment seed coverage for ${m.id}: minimum ${pp.min_pool}, got ${xs?.length||0}`);
+            if(xs.length<Number(pp.target_pool||pp.min_pool||5))console.log(`INFO ${m.id}: ${xs.length}/${pp.target_pool} target, above minimum ${pp.min_pool}`);
+            const direct=xs.filter(x=>x?.[2]==='DIRECT').length;if(direct<Number(pp.min_direct||0))throw new Error(`DIRECT pool for ${m.id}: minimum ${pp.min_direct}, got ${direct}`);
+            const unique=new Set(xs.map(x=>String(x?.[0]||'').toUpperCase()));if(unique.size!==xs.length)throw new Error(`Duplicate investment seed in ${m.id}`);
             for(const row of xs)if(!Array.isArray(row)||row.length<3||!row[0]||!Number.isFinite(row[1])||!['DIRECT','SECOND_ORDER'].includes(row[2]))throw new Error(`Bad investment seed in ${m.id}`);
+            if(Number(pp.display_limit||5)>xs.length)throw new Error(`Display limit exceeds pool for ${m.id}: ${pp.display_limit}>${xs.length}`);
+            if(Number(pp.pie_limit||pools.defaults?.pie_limit||5)!==5)throw new Error(`Executable pie must remain Top 5 for ${m.id}`);
             const model=tx.mechanisms?.[m.id];if(!model||!model.shock||!model.earnings_channel||!model.bridge?.length||!model.diluters?.length)throw new Error(`Incomplete transmission model for ${m.id}`);
           }
           const c=policy.crowd||{},s=policy.scout||{},a=policy.alpha||{};
@@ -71,9 +74,9 @@ jobs:
           if(exec.mode!=='SHADOW_ONLY'||exec.execution.auto_live_orders!==false)throw new Error('GearWatch execution must remain SHADOW_ONLY');
           if(exec.capital.initial_budget_usd!==500||exec.capital.max_order_usd!==80||exec.capital.max_open_positions!==6)throw new Error('Execution budget invariants changed');
           if(!exec.protected_symbols.includes('SGMOQ'))throw new Error('SGMOQ protection missing');
-          if(exec.selection.top_quantile!==0.20)throw new Error('Portfolio Brain must stay in top market-opportunity quintile');
-          if(exec.market_regime.require_fresh_market!==true||exec.market_regime.max_snapshot_age_hours>2)throw new Error('Fresh-market entry gate weakened');
-          console.log(`Coverage OK: ${cfg.mechanisms.length}/${cfg.mechanisms.length} mechanisms + flexible candidate pools + timing + shadow portfolio invariants`);
+          if(exec.selection.top_quantile!==0.20)throw new Error('Portfolio Brain must stay in top opportunity quintile');
+          if(exec.market_regime.require_fresh_market!==true||exec.market_regime.require_regular_session!==true||exec.market_regime.max_snapshot_age_hours>2)throw new Error('Fresh/session market entry gates weakened');
+          console.log(`Coverage OK: ${cfg.mechanisms.length}/${cfg.mechanisms.length} mechanisms + mechanism-specific pools + shadow invariants`);
           NODE
       - name: Parse dashboard inline JavaScript
         run: |
@@ -87,7 +90,7 @@ jobs:
             console.log(`${file} inline JavaScript syntax OK`);
           }
           NODE
-      - name: Deterministic V3 regression suite
+      - name: Deterministic V3.1 regression suite
         run: npm run selftest
       - name: UI/UX decision-hierarchy audit
         run: npm run uiux:audit
