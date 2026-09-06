@@ -1,57 +1,39 @@
-name: GearWatch V2 Final CI
+name: GearWatch V3 Final CI
 
 on:
   push:
     branches: [master]
   workflow_dispatch:
-
 permissions:
   contents: read
-
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
+        with: {node-version: '22'}
       - name: Syntax check every JavaScript module
         run: |
           set -e
-          for f in scripts/*.mjs; do
-            echo "Checking $f"
-            node --check "$f"
-          done
+          for f in scripts/*.mjs lib/*.mjs api/*.mjs; do [ -e "$f" ] || continue; node --check "$f"; done
       - name: Parse all core JSON
         run: |
           node - <<'NODE'
-          const fs=require('fs');
-          const files=[
-            'config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json','config/sources.v2.json','config/contracts.v2.json','config/investment-seeds.json','config/transmission-models.json',
-            'data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json','data/openrouter-quota.json'
-          ];
-          for(const f of files){JSON.parse(fs.readFileSync(f,'utf8'));console.log('OK',f)}
+          const fs=require('fs');const files=['config/mechanisms.json','config/queries.v2.json','config/queries.v2.extra.json','config/edges.v2.json','config/policy.v2.json','config/sources.v2.json','config/contracts.v2.json','config/investment-seeds.json','config/transmission-models.json','config/execution-policy.json','data/current.json','data/series.json','data/alpha-clicks.json','data/correlation-memory.json','data/budget.json','data/openrouter-quota.json','data/paper-portfolio.json','data/execution-plan.json'];for(const f of files)JSON.parse(fs.readFileSync(f,'utf8'));
           NODE
-      - name: Validate V2 mechanism and transmission coverage
+      - name: Validate mechanism, variable pool and transmission coverage
         run: |
           node - <<'NODE'
-          const fs=require('fs');
-          const m=JSON.parse(fs.readFileSync('config/mechanisms.json','utf8')).mechanisms;
-          const q1=JSON.parse(fs.readFileSync('config/queries.v2.json','utf8')).mechanisms;
-          const q2=JSON.parse(fs.readFileSync('config/queries.v2.extra.json','utf8')).mechanisms;
-          const q={...q1,...q2};
-          const seeds=JSON.parse(fs.readFileSync('config/investment-seeds.json','utf8')).mechanisms;
-          const tx=JSON.parse(fs.readFileSync('config/transmission-models.json','utf8'));
-          const missing=m.filter(x=>!q[x.id]).map(x=>x.id);if(missing.length)throw new Error('Missing V2 query configs: '+missing.join(','));
-          for(const x of m){const z=q[x.id];if(!z.lead?.length||!z.confirm?.length||!z.lag?.length)throw new Error('Incomplete phases for '+x.id);if(!Array.isArray(seeds[x.id])||seeds[x.id].length!==5)throw new Error('Investment candidates != 5 for '+x.id);if(!tx.mechanisms?.[x.id]?.bridge?.length)throw new Error('Missing transmission model for '+x.id)}
-          const sum=Object.values(tx.weights||{}).reduce((a,b)=>a+Number(b),0);if(Math.abs(sum-1)>.000001)throw new Error('Transmission weights do not sum to 1');
-          console.log('Coverage OK:',m.length,'mechanisms with causal + investment + transmission models');
+          const fs=require('fs'),m=JSON.parse(fs.readFileSync('config/mechanisms.json')).mechanisms,q1=JSON.parse(fs.readFileSync('config/queries.v2.json')).mechanisms,q2=JSON.parse(fs.readFileSync('config/queries.v2.extra.json')).mechanisms,q={...q1,...q2},seeds=JSON.parse(fs.readFileSync('config/investment-seeds.json')),tx=JSON.parse(fs.readFileSync('config/transmission-models.json'));
+          const missing=m.filter(x=>!q[x.id]).map(x=>x.id);if(missing.length)throw new Error('Missing queries '+missing.join(','));for(const x of m){const z=q[x.id],target=Number(seeds.targets?.[x.id]||5),pool=seeds.mechanisms?.[x.id];if(!z.lead?.length||!z.confirm?.length||!z.lag?.length)throw new Error('Incomplete phases '+x.id);if(!Array.isArray(pool)||pool.length!==target||target<3||target>10)throw new Error(`Pool mismatch ${x.id}`);if(!tx.mechanisms?.[x.id]?.bridge?.length)throw new Error('Missing transmission '+x.id)}const sum=Object.values(tx.weights||{}).reduce((a,b)=>a+Number(b),0);if(Math.abs(sum-1)>.000001)throw new Error('Transmission weights');console.log('26 mechanisms with target-aware candidate pools OK');
           NODE
       - name: Parse dashboard inline JavaScript
         run: |
           node - <<'NODE'
-          const fs=require('fs');const html=fs.readFileSync('index.html','utf8');const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(x=>x[1]);if(!scripts.length)throw new Error('No inline dashboard script');for(const js of scripts)new Function(js);console.log('Dashboard syntax OK');
+          const fs=require('fs');for(const file of ['index.html','portfolio.html']){const html=fs.readFileSync(file,'utf8'),scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(x=>x[1]);if(!scripts.length)throw new Error('No script '+file);for(const js of scripts)new Function(js)}
           NODE
-      - name: Deterministic V2.7 regression suite
+      - name: Deterministic V3 regression suite
         run: npm run selftest
+      - name: UI/UX audit
+        run: npm run uiux:audit
