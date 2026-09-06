@@ -6,9 +6,14 @@ const policy=JSON.parse(await fs.readFile('config/execution-policy.json','utf8')
 assert.equal(policy.mode,'SHADOW_ONLY');assert.equal(policy.capital.initial_budget_usd,500);assert.equal(policy.capital.max_order_usd,80);assert.equal(policy.capital.max_open_positions,6);
 assert.equal(isProtectedSymbol('SGMOQ',policy),true);assert.equal(isProtectedSymbol('SGMOQ_US_EQ',policy),true);assert.equal(isProtectedSymbol('sgmoq.us',policy),true);assert.equal(isProtectedSymbol('SGMO',policy),false);
 
-const bullish={above20:true,above50:true,above200:true,intraday:{ret2h:1}},context={'^GSPC':bullish,'^IXIC':bullish,QQQ:bullish,IWM:bullish};
-const risk=marketRegime(context,policy);assert.equal(risk.regime,'RISK_ON');assert.equal(risk.entry_allowed,true);assert.ok(risk.score>=65);
-const bad={above20:false,above50:false,above200:false,intraday:{ret2h:-1}},off=marketRegime({'^GSPC':bad,'^IXIC':bad,QQQ:bad,IWM:bad},policy);assert.equal(off.regime,'RISK_OFF');assert.equal(off.entry_allowed,false);
+const now=new Date();
+const freshIso=new Date(now.getTime()-15*60000).toISOString();
+const bullish={asof:freshIso,above20:true,above50:true,above200:true,intraday:{asof:freshIso,ret2h:1}},context={'^GSPC':bullish,'^IXIC':bullish,QQQ:bullish,IWM:bullish};
+const risk=marketRegime(context,policy,now);assert.equal(risk.regime,'RISK_ON');assert.equal(risk.entry_allowed,true);assert.equal(risk.freshness.fresh,true);assert.ok(risk.score>=65);
+const bad={asof:freshIso,above20:false,above50:false,above200:false,intraday:{asof:freshIso,ret2h:-1}},off=marketRegime({'^GSPC':bad,'^IXIC':bad,QQQ:bad,IWM:bad},policy,now);assert.equal(off.regime,'RISK_OFF');assert.equal(off.entry_allowed,false);
+const staleIso=new Date(now.getTime()-8*3600000).toISOString();
+const staleBull={...bullish,asof:staleIso,intraday:{asof:staleIso,ret2h:1}};
+const stale=marketRegime({'^GSPC':staleBull,'^IXIC':staleBull,QQQ:staleBull,IWM:staleBull},policy,now);assert.equal(stale.regime,'RISK_ON');assert.equal(stale.entry_allowed,false);assert.equal(stale.block_reason,'STALE_MARKET_DATA');assert.equal(stale.freshness.fresh,false);
 
 const strategies=Object.fromEntries(Array.from({length:10},(_,i)=>[`M${i}`,{id:`M${i}`,action:i<5?'SCOUT_WINDOW':'RESEARCH_ONLY',opportunity_score:100-i,wave_phase:'EARLY_WAVE',crowd:{block_chase:false},top5:[]} ]));
 const top=strategyUniverse(strategies,risk,policy);assert.equal(top.length,2,'top 20% of ten strategies should be two');assert.deepEqual(top.map(x=>x.id),['M0','M1']);
@@ -21,6 +26,7 @@ assert.equal(candidateMomentumEligible(scout,laggard,policy).ok,false,'Scout can
 assert.equal(candidateMomentumEligible({...scout,action:'DEPLOY_WINDOW'},laggard,policy).ok,false,'Deploy requires bullish individual confirmation');
 const scoutSize=sizeOrder({strategy:scout,candidate,positions:[],cashUsd:500,regime:risk,policy});assert.equal(scoutSize.usd,40);assert.equal(scoutSize.group,'AI_POWER');
 const deploySize=sizeOrder({strategy:{...scout,action:'DEPLOY_WINDOW'},candidate,positions:[],cashUsd:500,regime:risk,policy});assert.equal(deploySize.usd,80);
+const staleSize=sizeOrder({strategy:scout,candidate,positions:[],cashUsd:500,regime:stale,policy});assert.equal(staleSize.usd,0);assert.equal(staleSize.reason,'STALE_MARKET_DATA');
 const weakSize=sizeOrder({strategy:scout,candidate:laggard,positions:[],cashUsd:500,regime:risk,policy});assert.equal(weakSize.usd,0);
 const protectedSize=sizeOrder({strategy:scout,candidate:{...candidate,symbol:'SGMOQ'},positions:[],cashUsd:500,regime:risk,policy});assert.equal(protectedSize.usd,0);assert.equal(protectedSize.reason,'PROTECTED_SYMBOL');
 const groupLimited=sizeOrder({strategy:scout,candidate,positions:[{symbol:'X',risk_group:'AI_POWER',market_value_usd:155}],cashUsd:500,regime:risk,policy});assert.equal(groupLimited.usd,0,'less than $10 risk-group room should block a new order');
@@ -31,4 +37,4 @@ const locked=evaluateExit({position:{...p,symbol:'SGMOQ'},strategy:{action:'INVA
 assert.equal(canOpenNewPosition(Array.from({length:5},(_,i)=>({symbol:`X${i}`})),policy),true);assert.equal(canOpenNewPosition(Array.from({length:6},(_,i)=>({symbol:`X${i}`})),policy),false);
 assert.equal(riskGroupFor('ROCKET_MOTOR_SHORTAGE',policy),'DEFENSE_INDUSTRIAL');
 
-console.log('GearWatch V3 execution selftest OK: $500 sleeve + $80 cap + top quintile + market regime + company momentum + SGMOQ hard isolation');
+console.log('GearWatch V3 execution selftest OK: $500 sleeve + $80 cap + top quintile + fresh-market gate + company momentum + SGMOQ hard isolation');
