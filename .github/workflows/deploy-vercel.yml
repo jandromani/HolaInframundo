@@ -1,0 +1,46 @@
+name: GearWatch V3 Deploy Vercel
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - 'index.html'
+      - 'portfolio.html'
+      - 'api/**'
+      - 'lib/**'
+      - 'package.json'
+      - 'vercel.json'
+      - '.github/workflows/deploy-vercel.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gearwatch-vercel-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: team_AdPF2KVkr5AnCHih4nwCAhQ4
+      VERCEL_PROJECT_ID: prj_orz4Hl88iZXmAkJOjsXHrKQTUaBZ
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Require Vercel deployment token
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo 'VERCEL_TOKEN is not configured; refusing to create an unauthenticated deployment.' >&2
+            exit 1
+          fi
+      - name: Deploy existing GearWatch project to production
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN" --scope "$VERCEL_ORG_ID"
