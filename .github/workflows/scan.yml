@@ -83,5 +83,9 @@ jobs:
             echo 'No state changes'
           else
             git commit -m "data(v3): causal portfolio scan ${GEARWATCH_RUN_ID}"
-            git push
+            # Code/UI commits may land while the scan is running. Replay the data-only
+            # scan commit over the latest master instead of losing the completed cycle.
+            git fetch origin master
+            git rebase origin/master
+            git push origin HEAD:master
           fi
