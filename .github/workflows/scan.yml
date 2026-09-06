@@ -1,4 +1,4 @@
-name: GearWatch V3 Causal Portfolio Scan
+name: GearWatch V4 Causal Butterfly Scan
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: gearwatch-v3-scan
+  group: gearwatch-v4-scan
   cancel-in-progress: false
 
 jobs:
@@ -26,6 +26,7 @@ jobs:
       OPENROUTER_VERIFIER_MODEL: ${{ vars.OPENROUTER_VERIFIER_MODEL || 'openai/gpt-oss-120b' }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_INVESTMENT_MODEL: ${{ vars.OPENAI_INVESTMENT_MODEL || 'gpt-5-nano' }}
+      OPENAI_BRIEFING_MODEL: ${{ vars.OPENAI_BRIEFING_MODEL || 'gpt-5-nano' }}
       TRADING212_API_KEY: ${{ secrets.TRADING212_API_KEY }}
       TRADING212_API_SECRET: ${{ secrets.TRADING212_API_SECRET }}
       TRADING212_ENV: ${{ vars.TRADING212_ENV || 'live' }}
@@ -57,6 +58,8 @@ jobs:
         run: npm run discover
       - name: Extract facts with reliable low-cost structured model
         run: npm run extract
+      - name: Rescue source-bound evidence when a critical sensor is model-blind
+        run: npm run sensor:rescue
       - name: Red-team strongest early mechanisms with bounded judge budget
         run: npm run verify
       - name: Cluster events, apply hysteresis, score relative market vote and Alpha Click
@@ -73,7 +76,9 @@ jobs:
         run: npm run paper
       - name: Audit every mechanism, broker and shadow invariant
         run: npm run audit:v3
-      - name: Persist Living Bible, portfolio ledger and all traces
+      - name: Write one human judge briefing per UTC day
+        run: npm run briefing
+      - name: Persist Living Bible, briefing, portfolio ledger and all traces
         shell: bash
         run: |
           git config user.name 'gearwatch-bot'
@@ -82,9 +87,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No state changes'
           else
-            git commit -m "data(v3): causal portfolio scan ${GEARWATCH_RUN_ID}"
-            # Code/UI commits may land while the scan is running. Replay the data-only
-            # scan commit over the latest master instead of losing the completed cycle.
+            git commit -m "data(v4): causal butterfly scan ${GEARWATCH_RUN_ID}"
             git fetch origin master
             git rebase origin/master
             git push origin HEAD:master
