@@ -1,4 +1,4 @@
-name: GearWatch V4 Causal Butterfly Scan
+name: GearWatch V4.1 Causal Butterfly Scan
 
 on:
   workflow_dispatch:
@@ -39,6 +39,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Run deterministic regression suite before live work
+        run: npm run selftest
       - name: Create immutable run id
         shell: bash
         run: echo "GEARWATCH_RUN_ID=run_$(date -u +'%Y-%m-%dT%H-%M-%SZ')" >> "$GITHUB_ENV"
@@ -60,6 +62,8 @@ jobs:
         run: npm run extract
       - name: Rescue source-bound evidence when a critical sensor is model-blind
         run: npm run sensor:rescue
+      - name: Reject cross-mechanism evidence before verification and scoring
+        run: npm run semantic:guard
       - name: Red-team strongest early mechanisms with bounded judge budget
         run: npm run verify
       - name: Cluster events, apply hysteresis, score relative market vote and Alpha Click
@@ -78,6 +82,8 @@ jobs:
         run: npm run audit:v3
       - name: Write one human judge briefing per UTC day
         run: npm run briefing
+      - name: Validate production artifacts and judge health
+        run: npm run health
       - name: Persist Living Bible, briefing, portfolio ledger and all traces
         shell: bash
         run: |
@@ -87,7 +93,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No state changes'
           else
-            git commit -m "data(v4): causal butterfly scan ${GEARWATCH_RUN_ID}"
+            git commit -m "data(v4.1): causal butterfly scan ${GEARWATCH_RUN_ID}"
             git fetch origin master
             git rebase origin/master
             git push origin HEAD:master
