@@ -1,5 +1,5 @@
 import fs from 'node:fs/promises';
-const html=await fs.readFile('index.html','utf8'),js=await fs.readFile('lib/butterfly-dashboard.mjs','utf8'),portfolio=await fs.readFile('portfolio.html','utf8'),brief=JSON.parse(await fs.readFile('data/daily-briefing.json','utf8')),src=html+'\n'+js,fail=[];
+const html=await fs.readFile('index.html','utf8'),js=await fs.readFile('lib/butterfly-dashboard.mjs','utf8'),portfolio=await fs.readFile('portfolio.html','utf8'),brief=JSON.parse(await fs.readFile('data/daily-briefing.json','utf8')),pricing=JSON.parse(await fs.readFile('config/pricing-sensors.json','utf8').catch(()=>'{"mechanisms":{}}')),src=html+'\n'+js,fail=[];
 const gate=(n,ok,w)=>{if(!ok)fail.push(`${n}: ${w}`);console.log(`${ok?'PASS':'FAIL'} · ${n}`)};
 gate('Butterfly garden identity',html.includes('JARDÍN DE LAS')&&html.includes('MARIPOSAS')&&html.includes('Causal Butterfly Radar'),'Primary product identity');
 gate('Ten mechanisms by default',js.includes('let SHOW=10'),'Default must be ten');
@@ -16,7 +16,7 @@ gate('Human dossier',js.includes('Dossier humano')&&js.includes('Lectura del jue
 gate('Five company pieces max',js.includes('topPieces(s,5)')&&js.includes('Piezas empresariales'),'Company detail');
 gate('Already-moved warning',js.includes('ya han corrido')&&js.includes('ret20'),'Do not chase warning');
 gate('Sensor blindspots',html.includes('¿Dónde puede estar ciego?')&&js.includes('BRIEF.blindspots'),'Blindspot panel');
-gate('Counter-UAS rescue wired',js.includes('COUNTER_UAS_COST_CURVE')&&brief.blindspots?.some(x=>x.mechanism_id==='COUNTER_UAS_COST_CURVE'),'Critical sensor visible');
+gate('Counter-UAS sensor coverage',js.includes('COUNTER_UAS_COST_CURVE')&&Array.isArray(pricing.mechanisms?.COUNTER_UAS_COST_CURVE)&&pricing.mechanisms.COUNTER_UAS_COST_CURVE.length>0,'Critical sensor must remain structurally covered even when not a current blindspot');
 gate('Modal semantics',html.includes('role="dialog"')&&html.includes('aria-modal="true"'),'Modal');
 gate('Keyboard activation',js.includes("e.key==='Enter'||e.key===' '")&&js.includes("if(e.key==='Escape')closeModal()"),'Keyboard');
 gate('Visible focus',html.includes(':focus-visible'),'Focus');
@@ -26,4 +26,4 @@ gate('Portfolio mode obvious',portfolio.includes('SHADOW <span>SLEEVE</span>')&&
 gate('Budget visible',portfolio.includes('$500 BUDGET')&&portfolio.includes('$80 MAX')&&portfolio.includes('6 SLOTS'),'Constraints');
 gate('Protected position visible',portfolio.includes('SGMOQ 🔒')&&portfolio.includes('SGMOQ · LOCKED OUT'),'Dedicated lock');
 gate('No-trade is first class',portfolio.includes('Nada. Eso también es una decisión.')&&portfolio.includes('NO SETUP = NO TRADE'),'No trade');
-if(fail.length){console.error(`\nUI/UX audit failed (${fail.length}):\n- ${fail.join('\n- ')}`);process.exit(1)}console.log('\nGearWatch V4 UI/UX audit OK · 25/25 gates');
+if(fail.length){console.error(`\nUI/UX audit failed (${fail.length}):\n- ${fail.join('\n- ')}`);process.exit(1)}console.log('\nGearWatch V4.2 UI/UX audit OK · 25/25 gates');
