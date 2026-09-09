@@ -1,4 +1,4 @@
-name: GearWatch V4.1 Causal Butterfly Scan
+name: GearWatch V4.2 Primary Pricing Sensor Scan
 
 on:
   workflow_dispatch:
@@ -27,6 +27,11 @@ jobs:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_INVESTMENT_MODEL: ${{ vars.OPENAI_INVESTMENT_MODEL || 'gpt-5-nano' }}
       OPENAI_BRIEFING_MODEL: ${{ vars.OPENAI_BRIEFING_MODEL || 'gpt-5-nano' }}
+      AISSTREAM_API_KEY: ${{ secrets.AISSTREAM_API_KEY }}
+      EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+      FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+      ENTSOE_API_KEY: ${{ secrets.ENTSOE_API_KEY }}
+      GSA_API_KEY: ${{ secrets.GSA_API_KEY }}
       TRADING212_API_KEY: ${{ secrets.TRADING212_API_KEY }}
       TRADING212_API_SECRET: ${{ secrets.TRADING212_API_SECRET }}
       TRADING212_ENV: ${{ vars.TRADING212_ENV || 'live' }}
@@ -74,6 +79,10 @@ jobs:
         run: npm run transmission
       - name: Build Trading 212 Top 5 and model pie
         run: npm run investment
+      - name: Collect primary physical, market, prediction and procurement pricing sensors
+        run: npm run pricing:sensors
+      - name: Blend observed primary pricing with equity crowd proxy
+        run: npm run pricing:overlay
       - name: Build deterministic $500 shadow portfolio plan
         run: npm run portfolio
       - name: Apply paper fills and rotation journal
@@ -84,7 +93,7 @@ jobs:
         run: npm run briefing
       - name: Validate production artifacts and judge health
         run: npm run health
-      - name: Persist Living Bible, briefing, portfolio ledger and all traces
+      - name: Persist Living Bible, briefing, pricing sensors, portfolio ledger and all traces
         shell: bash
         run: |
           git config user.name 'gearwatch-bot'
@@ -93,7 +102,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No state changes'
           else
-            git commit -m "data(v4.1): causal butterfly scan ${GEARWATCH_RUN_ID}"
+            git commit -m "data(v4.2): primary pricing sensor scan ${GEARWATCH_RUN_ID}"
             git fetch origin master
             git rebase origin/master
             git push origin HEAD:master
