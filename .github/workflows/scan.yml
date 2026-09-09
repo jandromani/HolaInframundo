@@ -1,4 +1,4 @@
-name: GearWatch V4.2 Primary Pricing Sensor Scan
+name: GearWatch V4.4 Hardened Pricing Sensor Scan
 
 on:
   workflow_dispatch:
@@ -79,9 +79,9 @@ jobs:
         run: npm run transmission
       - name: Build Trading 212 Top 5 and model pie
         run: npm run investment
-      - name: Collect primary physical, market, prediction and procurement pricing sensors
+      - name: Collect hardened primary pricing sensors
         run: npm run pricing:sensors
-      - name: Blend observed primary pricing with equity crowd proxy
+      - name: Blend primary pricing and classify pricing regime
         run: npm run pricing:overlay
       - name: Build deterministic $500 shadow portfolio plan
         run: npm run portfolio
@@ -91,7 +91,7 @@ jobs:
         run: npm run audit:v3
       - name: Write one human judge briefing per UTC day
         run: npm run briefing
-      - name: Validate production artifacts and judge health
+      - name: Validate production artifacts, semantics and judge health
         run: npm run health
       - name: Persist Living Bible, briefing, pricing sensors, portfolio ledger and all traces
         shell: bash
@@ -102,7 +102,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No state changes'
           else
-            git commit -m "data(v4.2): primary pricing sensor scan ${GEARWATCH_RUN_ID}"
+            git commit -m "data(v4.4): hardened pricing scan ${GEARWATCH_RUN_ID}"
             git fetch origin master
             git rebase origin/master
             git push origin HEAD:master
