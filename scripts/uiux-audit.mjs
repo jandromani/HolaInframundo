@@ -1,5 +1,5 @@
 import fs from 'node:fs/promises';
-const html=await fs.readFile('index.html','utf8'),js=await fs.readFile('lib/butterfly-dashboard.mjs','utf8'),portfolio=await fs.readFile('portfolio.html','utf8'),brief=JSON.parse(await fs.readFile('data/daily-briefing.json','utf8')),pricing=JSON.parse(await fs.readFile('config/pricing-sensors.json','utf8').catch(()=>'{"mechanisms":{}}')),src=html+'\n'+js,fail=[];
+const html=await fs.readFile('index.html','utf8'),js=await fs.readFile('lib/butterfly-dashboard.mjs','utf8'),portfolio=await fs.readFile('portfolio.html','utf8'),pricing=JSON.parse(await fs.readFile('config/pricing-sensors.json','utf8').catch(()=>'{"mechanisms":{}}')),src=html+'\n'+js,fail=[];
 const gate=(n,ok,w)=>{if(!ok)fail.push(`${n}: ${w}`);console.log(`${ok?'PASS':'FAIL'} · ${n}`)};
 gate('Butterfly garden identity',html.includes('JARDÍN DE LAS')&&html.includes('MARIPOSAS')&&html.includes('Causal Butterfly Radar'),'Primary product identity');
 gate('Ten mechanisms by default',js.includes('let SHOW=10'),'Default must be ten');
@@ -8,7 +8,7 @@ gate('Mechanism maturity bar',src.includes('ENGRANAJE MONTADO')&&src.includes('c
 gate('Market discount bar',src.includes('MERCADO DESCONTADO')&&src.includes("'market'"),'Priced-in bar');
 gate('Human-first card',src.includes('Por qué importa')&&src.includes('Qué falta')&&src.includes('Piezas expuestas'),'Human explanation');
 gate('Root causes visible',html.includes('Causas raíz')&&js.includes('renderRoots')&&js.includes("root:'Hormuz"),'Root-driver grouping');
-gate('Daily judge visible',html.includes('briefing')&&js.includes('Briefing diario del juez')&&brief.headline&&Array.isArray(brief.butterflies),'Daily briefing');
+gate('Daily judge component visible',html.includes('id="briefing"')&&js.includes('renderBriefing')&&js.includes('Briefing diario del juez'),'UI contract must not depend on transient daily data contents');
 gate('Butterfly ranking',js.includes('butterflyScore')&&js.includes('prioridad ${bf}/100'),'Rank by causal/pricing gap');
 gate('No return target on home',!src.includes('expected_return_pct')&&!src.includes('target_return_pct')&&!html.includes('OBJETIVO DE RETORNO'),'No low-return screener framing');
 gate('Progressive engine disclosure',html.includes('<details class="card engine">')&&html.includes('10 pasos'),'Engine details hidden');
@@ -26,4 +26,4 @@ gate('Portfolio mode obvious',portfolio.includes('SHADOW <span>SLEEVE</span>')&&
 gate('Budget visible',portfolio.includes('$500 BUDGET')&&portfolio.includes('$80 MAX')&&portfolio.includes('6 SLOTS'),'Constraints');
 gate('Protected position visible',portfolio.includes('SGMOQ 🔒')&&portfolio.includes('SGMOQ · LOCKED OUT'),'Dedicated lock');
 gate('No-trade is first class',portfolio.includes('Nada. Eso también es una decisión.')&&portfolio.includes('NO SETUP = NO TRADE'),'No trade');
-if(fail.length){console.error(`\nUI/UX audit failed (${fail.length}):\n- ${fail.join('\n- ')}`);process.exit(1)}console.log('\nGearWatch V4.2 UI/UX audit OK · 25/25 gates');
+if(fail.length){console.error(`\nUI/UX audit failed (${fail.length}):\n- ${fail.join('\n- ')}`);process.exit(1)}console.log('\nGearWatch V4.4 UI/UX audit OK · 25/25 gates');
