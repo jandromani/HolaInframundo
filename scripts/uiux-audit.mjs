@@ -1,5 +1,5 @@
 import fs from 'node:fs/promises';
-const html=await fs.readFile('index.html','utf8'),js=await fs.readFile('lib/butterfly-dashboard.mjs','utf8'),bootstrap=await fs.readFile('lib/bootstrap.mjs','utf8').catch(()=>''),audit=await fs.readFile('lib/economist-shock-audit.mjs','utf8').catch(()=>''),portfolio=await fs.readFile('portfolio.html','utf8'),pricing=JSON.parse(await fs.readFile('config/pricing-sensors.json','utf8').catch(()=>'{"mechanisms":{}}')),research=JSON.parse(await fs.readFile('data/window-research.json','utf8').catch(()=>'{"facts":[]}')),src=html+'\n'+js+'\n'+bootstrap+'\n'+audit,fail=[];
+const html=await fs.readFile('index.html','utf8'),js=await fs.readFile('lib/butterfly-dashboard.mjs','utf8'),bootstrap=await fs.readFile('lib/bootstrap.mjs','utf8').catch(()=>''),audit=await fs.readFile('lib/economist-shock-audit.mjs','utf8').catch(()=>''),liveEvidence=await fs.readFile('lib/economist-live-evidence.mjs','utf8').catch(()=>''),portfolio=await fs.readFile('portfolio.html','utf8'),pkg=JSON.parse(await fs.readFile('package.json','utf8')),pricing=JSON.parse(await fs.readFile('config/pricing-sensors.json','utf8').catch(()=>'{"mechanisms":{}}')),research=JSON.parse(await fs.readFile('data/window-research.json','utf8').catch(()=>'{"facts":[]}')),src=html+'\n'+js+'\n'+bootstrap+'\n'+audit+'\n'+liveEvidence,fail=[];
 const gate=(n,ok,w)=>{if(!ok)fail.push(`${n}: ${w}`);console.log(`${ok?'PASS':'FAIL'} · ${n}`)};
 gate('Butterfly garden identity',html.includes('JARDÍN DE LAS')&&html.includes('MARIPOSAS')&&html.includes('Causal Butterfly Radar'),'Primary product identity');
 gate('Ten mechanisms by default',js.includes('let SHOW=10'),'Default must be ten');
@@ -28,8 +28,10 @@ gate('Correlation sample guard',audit.includes('min_astro_overlap_n')&&audit.inc
 gate('Reference provenance visible',audit.includes('GIT_BACKFILL = reconstruido')&&audit.includes('LIVE = capturado'),'Backfill and live must never be conflated');
 gate('Research ledger sourced',Array.isArray(research.facts)&&research.facts.length>=6&&research.facts.some(x=>x.source_type==='OFFICIAL')&&research.facts.every(x=>x.source?.url),'Evidence ledger requires sourced facts');
 gate('Falsifiers explicit',Array.isArray(research.falsifiers)&&research.falsifiers.length>=3&&audit.includes('Falsadores'),'Window thesis must be falsifiable');
+gate('Live research UI loaded',bootstrap.includes("load('lib/economist-live-evidence.mjs')")&&liveEvidence.includes('published_at explícito'),'Publication-dated live evidence must render inside economist audit');
+gate('Live research refresh wired',pkg.scripts?.['window:research']?.includes('window-research-refresh.mjs')&&pkg.scripts?.['scan:v3']?.includes('window:research'),'Every causal scan must refresh the live research ledger');
 gate('Portfolio mode obvious',portfolio.includes('SHADOW <span>SLEEVE</span>')&&portfolio.includes('LIVE EXECUTION = OFF'),'Dedicated shadow');
 gate('Budget visible',portfolio.includes('$500 BUDGET')&&portfolio.includes('$80 MAX')&&portfolio.includes('6 SLOTS'),'Constraints');
 gate('Protected position visible',portfolio.includes('SGMOQ 🔒')&&portfolio.includes('SGMOQ · LOCKED OUT'),'Dedicated lock');
 gate('No-trade is first class',portfolio.includes('Nada. Eso también es una decisión.')&&portfolio.includes('NO SETUP = NO TRADE'),'No trade');
-if(fail.length){console.error(`\nUI/UX audit failed (${fail.length}):\n- ${fail.join('\n- ')}`);process.exit(1)}console.log('\nGearWatch V4.6 UI/UX audit OK · 30/30 gates');
+if(fail.length){console.error(`\nUI/UX audit failed (${fail.length}):\n- ${fail.join('\n- ')}`);process.exit(1)}console.log('\nGearWatch V4.6 UI/UX audit OK · 32/32 gates');
