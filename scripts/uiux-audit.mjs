@@ -1,5 +1,5 @@
 import fs from 'node:fs/promises';
-const html=await fs.readFile('index.html','utf8'),js=await fs.readFile('lib/butterfly-dashboard.mjs','utf8'),bootstrap=await fs.readFile('lib/bootstrap.mjs','utf8').catch(()=>''),portfolio=await fs.readFile('portfolio.html','utf8'),pricing=JSON.parse(await fs.readFile('config/pricing-sensors.json','utf8').catch(()=>'{"mechanisms":{}}')),src=html+'\n'+js+'\n'+bootstrap,fail=[];
+const html=await fs.readFile('index.html','utf8'),js=await fs.readFile('lib/butterfly-dashboard.mjs','utf8'),bootstrap=await fs.readFile('lib/bootstrap.mjs','utf8').catch(()=>''),audit=await fs.readFile('lib/economist-shock-audit.mjs','utf8').catch(()=>''),portfolio=await fs.readFile('portfolio.html','utf8'),pricing=JSON.parse(await fs.readFile('config/pricing-sensors.json','utf8').catch(()=>'{"mechanisms":{}}')),research=JSON.parse(await fs.readFile('data/window-research.json','utf8').catch(()=>'{"facts":[]}')),src=html+'\n'+js+'\n'+bootstrap+'\n'+audit,fail=[];
 const gate=(n,ok,w)=>{if(!ok)fail.push(`${n}: ${w}`);console.log(`${ok?'PASS':'FAIL'} · ${n}`)};
 gate('Butterfly garden identity',html.includes('JARDÍN DE LAS')&&html.includes('MARIPOSAS')&&html.includes('Causal Butterfly Radar'),'Primary product identity');
 gate('Ten mechanisms by default',js.includes('let SHOW=10'),'Default must be ten');
@@ -22,8 +22,14 @@ gate('Keyboard activation',js.includes("e.key==='Enter'||e.key===' '")&&js.inclu
 gate('Visible focus',html.includes(':focus-visible'),'Focus');
 gate('Mobile collapse',html.includes('@media(max-width:720px)')&&html.includes('.mechs,.briefgrid,.roots,.side,.steps{grid-template-columns:1fr}'),'Mobile');
 gate('Dashboard module separated',(html.includes("import('./lib/butterfly-dashboard.mjs')")||(html.includes("import('./lib/bootstrap.mjs')")&&bootstrap.includes("load('lib/butterfly-dashboard.mjs')"))),'V4 module reachable directly or through bootstrap');
+gate('AstroShock audit loaded',bootstrap.includes("load('lib/economist-shock-audit.mjs')")&&audit.includes('AUDIT DE EVIDENCIA'),'Deep-research audit layer must load after economist phase');
+gate('Astrology has zero causal weight',audit.includes('0% causal weight')&&research.methodology?.principle?.includes('timing hypotheses'),'Astrology must stay timing-only');
+gate('Correlation sample guard',audit.includes('min_astro_overlap_n')&&audit.includes('min_correlation_n')&&Number(research.methodology?.min_astro_overlap_n)>=8,'Do not publish tiny-n correlations');
+gate('Reference provenance visible',audit.includes('GIT_BACKFILL = reconstruido')&&audit.includes('LIVE = capturado'),'Backfill and live must never be conflated');
+gate('Research ledger sourced',Array.isArray(research.facts)&&research.facts.length>=6&&research.facts.some(x=>x.source_type==='OFFICIAL')&&research.facts.every(x=>x.source?.url),'Evidence ledger requires sourced facts');
+gate('Falsifiers explicit',Array.isArray(research.falsifiers)&&research.falsifiers.length>=3&&audit.includes('Falsadores'),'Window thesis must be falsifiable');
 gate('Portfolio mode obvious',portfolio.includes('SHADOW <span>SLEEVE</span>')&&portfolio.includes('LIVE EXECUTION = OFF'),'Dedicated shadow');
 gate('Budget visible',portfolio.includes('$500 BUDGET')&&portfolio.includes('$80 MAX')&&portfolio.includes('6 SLOTS'),'Constraints');
 gate('Protected position visible',portfolio.includes('SGMOQ 🔒')&&portfolio.includes('SGMOQ · LOCKED OUT'),'Dedicated lock');
 gate('No-trade is first class',portfolio.includes('Nada. Eso también es una decisión.')&&portfolio.includes('NO SETUP = NO TRADE'),'No trade');
-if(fail.length){console.error(`\nUI/UX audit failed (${fail.length}):\n- ${fail.join('\n- ')}`);process.exit(1)}console.log('\nGearWatch V4.4 UI/UX audit OK · 25/25 gates');
+if(fail.length){console.error(`\nUI/UX audit failed (${fail.length}):\n- ${fail.join('\n- ')}`);process.exit(1)}console.log('\nGearWatch V4.6 UI/UX audit OK · 30/30 gates');
