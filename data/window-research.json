@@ -1,11 +1,12 @@
 {
-  "version": "1.0.0",
-  "as_of": "2026-09-12T14:20:00Z",
+  "version": "1.1.0",
+  "as_of": "2026-09-12T14:24:00Z",
   "window_id": "ASTRO_OPEC_2026_09_30_10_05",
   "methodology": {
     "principle": "Scheduled events and astrology are timing hypotheses. Only observable physical, policy, market and sensor evidence may raise causal conviction.",
     "min_correlation_n": 8,
     "min_astro_overlap_n": 8,
+    "max_adjacent_gap_hours_for_correlation": 12,
     "baseline": "GIT_BACKFILL scans from 5-11 September 2026",
     "freshness_warning_hours": 24,
     "critical_freshness_hours": 12
@@ -16,6 +17,7 @@
       "lane": "OPEC+",
       "status": "SCHEDULED_POLICY",
       "observed_at": "2026-09-06T12:00:00Z",
+      "valid_until": "2026-10-04T23:59:59+02:00",
       "title": "OPEC+ mantiene para octubre la producción requerida de septiembre",
       "claim": "Arabia Saudí, Rusia, Irak, Kuwait, Kazajistán, Argelia y Omán mantuvieron para octubre de 2026 la producción requerida de septiembre y fijaron la siguiente reunión para el 4 de octubre.",
       "strength": "A",
@@ -31,6 +33,7 @@
       "lane": "OPEC+",
       "status": "SCHEDULED_POLICY",
       "observed_at": "2026-08-02T12:00:00Z",
+      "valid_until": "2026-10-04T23:59:59+02:00",
       "title": "JMMC 68 programado para el 4 de octubre",
       "claim": "El JMMC seguirá monitorizando conformidad, producción y condiciones de mercado; conserva autoridad para convocar reuniones adicionales.",
       "strength": "A",
@@ -125,8 +128,9 @@
   ],
   "audit_notes": [
     "No mostrar correlación AstroShock↔Physical hasta n>=8 observaciones dentro de la ventana con varianza en ambas series.",
+    "Physical↔Pricing usa primeras diferencias y sólo pares adyacentes separados por <=12 horas para evitar correlaciones espurias por huecos de muestreo.",
     "Los puntos GIT_BACKFILL son reconstrucciones comparables desde estados reales versionados, no observaciones capturadas en vivo cada 3 h.",
     "OpenAI semantic_pressure es una lectura de texto independiente y nunca debe sustituir el score determinista.",
-    "Toda cifra externa debe mostrar fecha y procedencia; los incidentes físicos críticos deben marcarse stale al superar su refresh_hours."
+    "Toda cifra externa debe mostrar fecha y procedencia; los incidentes físicos críticos deben marcarse stale al superar su refresh_hours. Los eventos programados permanecen vigentes hasta valid_until."
   ]
 }
