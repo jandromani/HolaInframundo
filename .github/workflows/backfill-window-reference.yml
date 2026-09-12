@@ -1,0 +1,43 @@
+name: GearWatch Window Reference Backfill
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/backfill-window-reference.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gearwatch-reference-backfill
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Rebuild 7-day reference from versioned scans
+        run: node scripts/backfill-window-week.mjs
+      - name: Persist reference history
+        shell: bash
+        run: |
+          git config user.name 'gearwatch-bot'
+          git config user.email 'gearwatch-bot@users.noreply.github.com'
+          git add data/history/window-snapshots.json
+          if git diff --cached --quiet; then
+            echo 'Reference already current'
+          else
+            git commit -m 'data(v4.5): backfill 7d Window Lab reference'
+            git fetch origin master
+            git rebase origin/master
+            git push origin HEAD:master
+          fi
