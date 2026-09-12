@@ -1,4 +1,4 @@
-name: GearWatch V4.4 Hardened Pricing Sensor Scan
+name: GearWatch V4.5 Entry Intelligence Scan
 
 on:
   workflow_dispatch:
@@ -83,6 +83,8 @@ jobs:
         run: npm run pricing:sensors
       - name: Blend primary pricing and classify pricing regime
         run: npm run pricing:overlay
+      - name: Enrich companies with entry intelligence and no-chase guards
+        run: npm run investment:analytics
       - name: Build deterministic $500 shadow portfolio plan
         run: npm run portfolio
       - name: Apply paper fills and rotation journal
@@ -102,7 +104,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No state changes'
           else
-            git commit -m "data(v4.4): hardened pricing scan ${GEARWATCH_RUN_ID}"
+            git commit -m "data(v4.5): entry intelligence scan ${GEARWATCH_RUN_ID}"
             git fetch origin master
             git rebase origin/master
             git push origin HEAD:master

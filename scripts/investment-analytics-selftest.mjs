@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {calendarReturn,rangeStats,fundamentalMetrics,companyEntryAnalytics} from './investment-analytics-core.mjs';
+const day=86400,start=1700000000,points=Array.from({length:220},(_,i)=>({t:start+i*day,c:100+i*.5}));
+assert.ok(calendarReturn(points,7)>1.6 && calendarReturn(points,7)<1.8,'7d calendar return');
+assert.ok(calendarReturn(points,90)>25 && calendarReturn(points,90)<30,'90d calendar return');
+const rs=rangeStats(points);assert.equal(rs.high52,209.5);assert.equal(rs.drawdown52,0);
+const fund={market_cap:1_000_000_000,financials:{free_cash_flow:80_000_000,cash:200_000_000,debt:300_000_000,ebitda:150_000_000,shares:100_000_000,shares_prev:98_000_000}};
+const fm=fundamentalMetrics(fund,10);assert.equal(fm.fcf_yield,8);assert.equal(fm.net_debt_to_ebitda,.67);assert.equal(fm.ev_to_ebitda,7.33);assert.ok(fm.dilution_yoy>2&&fm.dilution_yoy<2.1);
+const baseMarket={price:10,ret7:-2,ret30:-5,ret90:4,ret180:8,drawdown52:-14,above20:true,above50:true,above200:true};
+const good=companyEntryAnalytics({causal:65,pricedIn:20,wave:'EARLY_WAVE',transmission:78,financialPass:74,market:baseMarket,fundamental:fund});
+const chased=companyEntryAnalytics({causal:65,pricedIn:20,wave:'LATE_WAVE',transmission:78,financialPass:74,market:{...baseMarket,ret30:35,ret90:80,drawdown52:-1},fundamental:fund});
+assert.ok(good.entry_quality_score>chased.entry_quality_score,'no-chase penalty lowers score');assert.equal(chased.verdict,'DO_NOT_CHASE');
+const risky=companyEntryAnalytics({causal:65,pricedIn:15,wave:'EARLY_WAVE',transmission:70,financialPass:35,market:baseMarket,fundamental:{market_cap:1e9,financials:{free_cash_flow:-50e6,cash:10e6,debt:900e6,ebitda:200e6,shares:100e6,shares_prev:90e6}}});assert.equal(risky.verdict,'HIGH_RISK');
+const missing=companyEntryAnalytics({causal:50,pricedIn:10,market:{price:10},fundamental:{}});assert.ok(missing.blind_sensors.includes('FCF_YIELD')&&missing.blind_sensors.includes('EARNINGS_REVISIONS'));
+console.log('investment analytics selftest: PASS');
