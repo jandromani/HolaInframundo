@@ -10,8 +10,8 @@ const round=(x,d=1)=>Number(Number(x||0).toFixed(d));
 const mean=xs=>{const a=xs.map(Number).filter(Number.isFinite);return a.length?a.reduce((s,x)=>s+x,0)/a.length:0};
 const show=(sha,path,fallback={})=>{try{return JSON.parse(execFileSync('git',['show',`${sha}:${path}`],{encoding:'utf8',maxBuffer:20*1024*1024}))}catch{return fallback}};
 
-const end = Date.parse(WINDOW.recording_start || '2026-09-12T00:00:00+02:00');
-const start = end - 7*24*3600*1000;
+const end = Date.parse(WINDOW.reference_end || '2026-09-12T00:00:00+02:00');
+const start = Date.parse(WINDOW.reference_start || '2026-09-05T00:00:00+02:00');
 const log = execFileSync('git',['log','--format=%H|%cI','--','data/current.json'],{encoding:'utf8',maxBuffer:10*1024*1024});
 const commits = log.trim().split('\n').filter(Boolean).map(line=>{const [sha,date]=line.split('|');return {sha,date,t:Date.parse(date)}}).filter(x=>x.t>=start&&x.t<end).sort((a,b)=>a.t-b.t);
 
