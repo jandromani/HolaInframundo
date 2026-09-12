@@ -42,7 +42,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -62,6 +62,10 @@ jobs:
           fs.appendFileSync(process.env.GITHUB_OUTPUT,`active=${active}\n`);
           console.log(`Window recording ${active?'ACTIVE':'INACTIVE'} · ${w.recording_start||w.start} → ${w.recording_end||w.end}`);
           NODE
+
+      - name: Rebuild one-week historical reference from Git
+        if: steps.window.outputs.active == 'true'
+        run: node scripts/backfill-window-week.mjs
 
       - name: Regression suite before checkpoint scan
         if: steps.window.outputs.active == 'true'
