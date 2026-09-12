@@ -12,7 +12,6 @@ const groupById=Object.fromEntries((WINDOW.groups||[]).flatMap(g=>(g.mechanisms|
 const escId=s=>String(s||'').replace(/[^A-Za-z0-9_-]+/g,'_').slice(0,60);
 const clean=s=>String(s||'').replace(/\s+/g,' ').trim();
 const grade=e=>e?.official||Number(e?.source_grade)>=.95?'A':Number(e?.source_grade)>=.75?'B+':Number(e?.source_grade)>=.55?'B':'C';
-const published=e=>e?.published_at||e?.observed_at||e?.retrieved_at||CURRENT.updated_at||now.toISOString();
 const seenAt=e=>e?.last_seen_at||e?.retrieved_at||CURRENT.updated_at||now.toISOString();
 const key=e=>e?.evidence_key||`${e?.source_url||''}|${e?.claim||''}`;
 
@@ -28,12 +27,12 @@ function rowsFor(id){
   const all=[...(m.observed_evidence||[]),...(m.verified||[]),...(m.evidence||[])];
   const seen=new Set(),out=[];
   for(const e of all){
-    if(!e?.claim||!e?.source_url)continue;
+    if(!e?.claim||!e?.source_url||!e?.published_at)continue;
     const k=key(e);if(seen.has(k))continue;seen.add(k);
-    const ts=Date.parse(published(e));
-    const ageHours=Number.isFinite(ts)?(now.getTime()-ts)/36e5:Infinity;
+    const ts=Date.parse(e.published_at);if(!Number.isFinite(ts))continue;
+    const ageHours=(now.getTime()-ts)/36e5;
     if(ageHours<0||ageHours>MAX_LIVE_AGE_HOURS)continue;
-    out.push({e,t:ts||0,ageHours});
+    out.push({e,t:ts,ageHours});
   }
   out.sort((a,b)=>b.t-a.t);
   return out.slice(0,2).map(({e,ageHours})=>({
@@ -41,7 +40,7 @@ function rowsFor(id){
     lane:groupById[id]?.label||'PIPELINE',
     status:'PIPELINE_EVIDENCE',
     thesis_effect:effect(e),
-    observed_at:published(e),
+    observed_at:e.published_at,
     seen_at:seenAt(e),
     age_hours:Number(ageHours.toFixed(1)),
     title:`${m.label||id} · ${e.signal||e.phase||'evidencia'}`,
@@ -63,6 +62,6 @@ function rowsFor(id){
 
 const liveFacts=ids.flatMap(rowsFor).sort((a,b)=>Date.parse(b.observed_at)-Date.parse(a.observed_at)).slice(0,16);
 const byEffect=liveFacts.reduce((o,x)=>(o[x.thesis_effect]=(o[x.thesis_effect]||0)+1,o),{});
-const next={...RESEARCH,version:'1.4.0',live_generated_at:now.toISOString(),live_run_id:CURRENT.run_id||null,live_policy:{max_age_hours:MAX_LIVE_AGE_HOURS,date_basis:'published_at_first'},live_summary:{points:liveFacts.length,mechanisms_covered:new Set(liveFacts.map(x=>x.mechanism_id)).size,by_effect:byEffect},live_facts:liveFacts};
+const next={...RESEARCH,version:'1.5.0',live_generated_at:now.toISOString(),live_run_id:CURRENT.run_id||null,live_policy:{max_age_hours:MAX_LIVE_AGE_HOURS,date_basis:'explicit_published_at_required',missing_date_policy:'exclude_from_live'},live_summary:{points:liveFacts.length,mechanisms_covered:new Set(liveFacts.map(x=>x.mechanism_id)).size,by_effect:byEffect},live_facts:liveFacts};
 await fs.writeFile(PATH,JSON.stringify(next,null,2)+'\n');
-console.log(`window research refresh: ${liveFacts.length} publication-dated live facts across ${next.live_summary.mechanisms_covered} mechanisms · ${JSON.stringify(byEffect)}`);
+console.log(`window research refresh: ${liveFacts.length} explicitly publication-dated facts across ${next.live_summary.mechanisms_covered} mechanisms · ${JSON.stringify(byEffect)}`);
