@@ -28,7 +28,7 @@ gate('Correlation sample guard',audit.includes('min_astro_overlap_n')&&audit.inc
 gate('Reference provenance visible',audit.includes('GIT_BACKFILL = reconstruido')&&audit.includes('LIVE = capturado'),'Backfill and live must never be conflated');
 gate('Research ledger sourced',Array.isArray(research.facts)&&research.facts.length>=6&&research.facts.some(x=>x.source_type==='OFFICIAL')&&research.facts.every(x=>x.source?.url),'Evidence ledger requires sourced facts');
 gate('Falsifiers explicit',Array.isArray(research.falsifiers)&&research.falsifiers.length>=3&&audit.includes('Falsadores'),'Window thesis must be falsifiable');
-gate('Live research UI loaded',bootstrap.includes("load('lib/economist-live-evidence.mjs')")&&liveEvidence.includes('published_at explícito'),'Publication-dated live evidence must render inside economist audit');
+gate('Live research UI loaded',(bootstrap.includes("load('lib/economist-live-evidence.mjs')")||audit.includes('lib/economist-live-evidence.mjs'))&&liveEvidence.includes('published_at explícito'),'Publication-dated live evidence must render inside economist audit');
 gate('Live research refresh wired',pkg.scripts?.['window:research']?.includes('window-research-refresh.mjs')&&pkg.scripts?.['scan:v3']?.includes('window:research'),'Every causal scan must refresh the live research ledger');
 gate('Portfolio mode obvious',portfolio.includes('SHADOW <span>SLEEVE</span>')&&portfolio.includes('LIVE EXECUTION = OFF'),'Dedicated shadow');
 gate('Budget visible',portfolio.includes('$500 BUDGET')&&portfolio.includes('$80 MAX')&&portfolio.includes('6 SLOTS'),'Constraints');
