@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "as_of": "2026-09-12T14:24:00Z",
+  "version": "1.2.0",
+  "as_of": "2026-09-12T14:28:00Z",
   "window_id": "ASTRO_OPEC_2026_09_30_10_05",
   "methodology": {
     "principle": "Scheduled events and astrology are timing hypotheses. Only observable physical, policy, market and sensor evidence may raise causal conviction.",
@@ -8,6 +8,8 @@
     "min_astro_overlap_n": 8,
     "max_adjacent_gap_hours_for_correlation": 12,
     "baseline": "GIT_BACKFILL scans from 5-11 September 2026",
+    "baseline_regime": "STRESSED_PRE_WINDOW",
+    "baseline_warning": "The 5-11 September baseline already contains an active Middle East and energy shock. Z-scores are relative to a stressed pre-window regime, not to a neutral long-run economy.",
     "freshness_warning_hours": 24,
     "critical_freshness_hours": 12
   },
@@ -16,6 +18,7 @@
       "id": "OPEC_OCT_POLICY",
       "lane": "OPEC+",
       "status": "SCHEDULED_POLICY",
+      "thesis_effect": "CATALYST",
       "observed_at": "2026-09-06T12:00:00Z",
       "valid_until": "2026-10-04T23:59:59+02:00",
       "title": "OPEC+ mantiene para octubre la producción requerida de septiembre",
@@ -23,15 +26,13 @@
       "strength": "A",
       "source_type": "OFFICIAL",
       "refresh_hours": 168,
-      "source": {
-        "publisher": "OPEC",
-        "url": "https://www.opec.org/pr-detail/613-6-september-2026.html"
-      }
+      "source": {"publisher": "OPEC", "url": "https://www.opec.org/pr-detail/613-6-september-2026.html"}
     },
     {
       "id": "OPEC_JMMC_OCT4",
       "lane": "OPEC+",
       "status": "SCHEDULED_POLICY",
+      "thesis_effect": "CATALYST",
       "observed_at": "2026-08-02T12:00:00Z",
       "valid_until": "2026-10-04T23:59:59+02:00",
       "title": "JMMC 68 programado para el 4 de octubre",
@@ -39,85 +40,111 @@
       "strength": "A",
       "source_type": "OFFICIAL",
       "refresh_hours": 720,
-      "source": {
-        "publisher": "OPEC",
-        "url": "https://opec.org/pr-detail/612-2-august-2026.html"
-      }
+      "source": {"publisher": "OPEC", "url": "https://opec.org/pr-detail/612-2-august-2026.html"}
     },
     {
       "id": "RUSSIA_AUG_OUTPUT",
       "lane": "RUSIA",
       "status": "OBSERVED_PHYSICAL",
+      "thesis_effect": "SUPPORTS",
       "observed_at": "2026-09-11T10:00:00Z",
       "title": "La capacidad física rusa se deteriora",
       "claim": "Reuters, citando la IEA, situó el crudo ruso de agosto en 8,36 mb/d: 0,20 mb/d menos que julio y 0,94 mb/d menos que enero. La IEA recortó además su previsión media de 2026 a 8,7 mb/d.",
       "strength": "B+",
       "source_type": "SECONDARY_PRIMARY_DATA",
       "refresh_hours": 72,
-      "source": {
-        "publisher": "Reuters / IEA",
-        "url": "https://www.reuters.com/business/energy/iea-further-cuts-russian-oil-output-forecasts-ukrainian-attacks-2026-09-11/"
-      }
+      "source": {"publisher": "Reuters / IEA", "url": "https://www.reuters.com/business/energy/iea-further-cuts-russian-oil-output-forecasts-ukrainian-attacks-2026-09-11/"}
     },
     {
       "id": "SAUDI_EAST_WEST_PIPELINE",
       "lane": "RUTAS",
       "status": "OBSERVED_PHYSICAL",
+      "thesis_effect": "SUPPORTS",
       "observed_at": "2026-09-12T00:55:47Z",
       "title": "Saudi East-West temporalmente cerrada tras ataque",
       "claim": "La tubería East-West, usada para evitar Hormuz, fue cerrada temporalmente tras un ataque. Reuters indicó que venía transportando aproximadamente 4-5 mb/d en meses recientes.",
       "strength": "B+",
       "source_type": "SECONDARY_OFFICIAL_STATEMENT",
       "refresh_hours": 12,
-      "source": {
-        "publisher": "Reuters / Saudi Energy Ministry",
-        "url": "https://www.reuters.com/business/energy/saudis-shut-down-oil-pipeline-houthis-tighten-grip-red-sea-shipping-2026-09-12/"
-      }
+      "source": {"publisher": "Reuters / Saudi Energy Ministry", "url": "https://www.reuters.com/business/energy/saudis-shut-down-oil-pipeline-houthis-tighten-grip-red-sea-shipping-2026-09-12/"}
+    },
+    {
+      "id": "HORMUZ_TRAFFIC_SEP9",
+      "lane": "RUTAS",
+      "status": "OBSERVED_PHYSICAL",
+      "thesis_effect": "SUPPORTS",
+      "observed_at": "2026-09-09T18:00:00Z",
+      "title": "Tráfico de mercancías por Hormuz por debajo de su media reciente",
+      "claim": "Datos preliminares de Kpler citados por Reuters mostraron seis buques de mercancías cruzando Hormuz frente a una media de diez días de doce, una señal física independiente del precio del crudo.",
+      "strength": "B",
+      "source_type": "SHIPPING_DATA_REPORTING",
+      "refresh_hours": 24,
+      "source": {"publisher": "Reuters / Kpler", "url": "https://www.reuters.com/world/middle-east/shipping-traffic-via-strait-hormuz-stays-below-10-day-average-data-shows-2026-09-09/"}
+    },
+    {
+      "id": "TANKER_FREIGHT_RECORD_SEP11",
+      "lane": "SHIPPING",
+      "status": "OBSERVED_MARKET",
+      "thesis_effect": "SUPPORTS",
+      "observed_at": "2026-09-11T18:00:00Z",
+      "title": "Fletes de petroleros alcanzan máximos récord",
+      "claim": "Reuters informó de tarifas VLCC desde el Golfo de Omán a China en Worldscale 450, aproximadamente 11,50 USD por barril, reflejando una prima física de transporte y seguridad.",
+      "strength": "B+",
+      "source_type": "FREIGHT_MARKET_REPORTING",
+      "refresh_hours": 36,
+      "source": {"publisher": "Reuters", "url": "https://www.reuters.com/business/energy/oil-tanker-rates-hit-record-highs-following-iran-us-shipping-attacks-2026-09-11/"}
     },
     {
       "id": "DIESEL_REFINING_TIGHTNESS",
       "lane": "REFINO",
       "status": "OBSERVED_MARKET",
+      "thesis_effect": "SUPPORTS",
       "observed_at": "2026-09-08T12:00:00Z",
       "title": "El cuello de botella está también en productos refinados",
       "claim": "Ejecutivos del sector dijeron a Reuters que el diésel podría seguir tenso durante el invierno; el artículo citó cerca de 4 mb/d de diésel ausente entre Rusia y Oriente Medio y cracks de diésel en niveles extraordinariamente altos.",
       "strength": "B",
       "source_type": "INDUSTRY_REPORTING",
       "refresh_hours": 48,
-      "source": {
-        "publisher": "Reuters",
-        "url": "https://www.reuters.com/business/energy/global-diesel-supply-stay-tight-through-winter-industry-execs-say-2026-09-08/"
-      }
+      "source": {"publisher": "Reuters", "url": "https://www.reuters.com/business/energy/global-diesel-supply-stay-tight-through-winter-industry-execs-say-2026-09-08/"}
+    },
+    {
+      "id": "EIA_US_DISTILLATE_STOCKS_SEP4",
+      "lane": "REFINO",
+      "status": "OBSERVED_COUNTERSIGNAL",
+      "thesis_effect": "CONTRADICTS",
+      "observed_at": "2026-09-10T14:30:00Z",
+      "title": "Los inventarios estadounidenses de destilados subieron en la última semana publicada",
+      "claim": "La EIA reportó 106,274 millones de barriles de destilados en EE. UU. para la semana terminada el 4 de septiembre, frente a 104,187 millones la semana anterior. Esto contradice una lectura simplista de escasez uniforme y obliga a separar EE. UU. del cuello global de refino y rutas.",
+      "strength": "A",
+      "source_type": "OFFICIAL_DATA",
+      "refresh_hours": 168,
+      "source": {"publisher": "U.S. EIA", "url": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPD0_SAE_MBBL_W.htm"}
     },
     {
       "id": "MARKET_OIL_DIESEL_SEP11",
       "lane": "MERCADO",
       "status": "OBSERVED_MARKET",
+      "thesis_effect": "SUPPORTS",
       "observed_at": "2026-09-11T21:00:00Z",
       "title": "Crudo >100 y diésel estadounidense en récord",
       "claim": "Brent cerró el 11 de septiembre en 104,61 USD/b y WTI en 100,05 USD/b, con una ganancia semanal superior al 8%; el diésel estadounidense superó 6 USD/galón.",
       "strength": "B+",
       "source_type": "MARKET_REPORTING",
       "refresh_hours": 24,
-      "source": {
-        "publisher": "Reuters",
-        "url": "https://www.reuters.com/business/energy/oil-prices-set-end-week-over-100-first-time-nearly-4-months-2026-09-11/"
-      }
+      "source": {"publisher": "Reuters", "url": "https://www.reuters.com/business/energy/oil-prices-set-end-week-over-100-first-time-nearly-4-months-2026-09-11/"}
     },
     {
       "id": "MACRO_RATE_TRANSMISSION",
       "lane": "MACRO",
       "status": "OBSERVED_MARKET",
+      "thesis_effect": "SUPPORTS",
       "observed_at": "2026-09-11T18:00:00Z",
       "title": "El shock energético ya toca expectativas de tipos",
       "claim": "Reuters informó que el mercado elevó a alrededor del 86% la probabilidad de una subida de 25 pb de la Fed; el Treasury a 2 años rondó 4,63% mientras el petróleo seguía por encima de 100 USD/b.",
       "strength": "B",
       "source_type": "MARKET_REPORTING",
       "refresh_hours": 24,
-      "source": {
-        "publisher": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/dollar-holds-gains-yen-slips-mideast-energy-shock-deepens-2026-09-11/"
-      }
+      "source": {"publisher": "Reuters", "url": "https://www.reuters.com/world/asia-pacific/dollar-holds-gains-yen-slips-mideast-energy-shock-deepens-2026-09-11/"}
     }
   ],
   "falsifiers": [
@@ -129,6 +156,7 @@
   "audit_notes": [
     "No mostrar correlación AstroShock↔Physical hasta n>=8 observaciones dentro de la ventana con varianza en ambas series.",
     "Physical↔Pricing usa primeras diferencias y sólo pares adyacentes separados por <=12 horas para evitar correlaciones espurias por huecos de muestreo.",
+    "El baseline 5-11 SEP está ya estresado; un z-score bajo no implica ausencia de tensión absoluta y un z-score alto sólo mide sorpresa frente a ese régimen previo.",
     "Los puntos GIT_BACKFILL son reconstrucciones comparables desde estados reales versionados, no observaciones capturadas en vivo cada 3 h.",
     "OpenAI semantic_pressure es una lectura de texto independiente y nunca debe sustituir el score determinista.",
     "Toda cifra externa debe mostrar fecha y procedencia; los incidentes físicos críticos deben marcarse stale al superar su refresh_hours. Los eventos programados permanecen vigentes hasta valid_until."
