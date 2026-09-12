@@ -12,6 +12,12 @@ const HISTORY_PATH = 'data/history/window-snapshots.json';
 const HISTORY = await read(HISTORY_PATH, { version: '1.0.0', window_id: WINDOW.id, snapshots: [] });
 
 const now = new Date();
+const recordingStart = Date.parse(WINDOW.recording_start || WINDOW.start || '');
+const recordingEnd = Date.parse(WINDOW.recording_end || WINDOW.end || '');
+if ((Number.isFinite(recordingStart) && now.getTime() < recordingStart) || (Number.isFinite(recordingEnd) && now.getTime() > recordingEnd)) {
+  console.log(`window snapshot: outside recording period ${WINDOW.recording_start || WINDOW.start} → ${WINDOW.recording_end || WINDOW.end}`);
+  process.exit(0);
+}
 const clamp = (x, a = 0, b = 100) => Math.max(a, Math.min(b, Number(x) || 0));
 const round = (x, d = 1) => Number(Number(x || 0).toFixed(d));
 const mean = values => {
