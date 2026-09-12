@@ -1,0 +1,93 @@
+name: GearWatch Window Lab 3h Checkpoint
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3,9,15,21 * * *'
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/window-watch.yml'
+      - '.gearwatch-window'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gearwatch-v4-scan
+  cancel-in-progress: false
+
+jobs:
+  checkpoint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-oss-20b' }}
+      OPENROUTER_VERIFIER_MODEL: ${{ vars.OPENROUTER_VERIFIER_MODEL || 'openai/gpt-oss-120b' }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_INVESTMENT_MODEL: ${{ vars.OPENAI_INVESTMENT_MODEL || 'gpt-5-nano' }}
+      OPENAI_BRIEFING_MODEL: ${{ vars.OPENAI_BRIEFING_MODEL || 'gpt-5-nano' }}
+      OPENAI_WINDOW_MODEL: ${{ vars.OPENAI_WINDOW_MODEL || 'gpt-5.6-luna' }}
+      AISSTREAM_API_KEY: ${{ secrets.AISSTREAM_API_KEY }}
+      EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+      FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+      ENTSOE_API_KEY: ${{ secrets.ENTSOE_API_KEY }}
+      GSA_API_KEY: ${{ secrets.GSA_API_KEY }}
+      TRADING212_API_KEY: ${{ secrets.TRADING212_API_KEY }}
+      TRADING212_API_SECRET: ${{ secrets.TRADING212_API_SECRET }}
+      TRADING212_ENV: ${{ vars.TRADING212_ENV || 'live' }}
+      T212_LIVE_TRADING_ENABLED: 'false'
+      GEARWATCH_EXECUTION_MODE: 'SHADOW_ONLY'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check pre-registered recording period
+        id: window
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const w=JSON.parse(fs.readFileSync('data/event-window.json','utf8'));
+          const now=Date.now();
+          const start=Date.parse(w.recording_start||w.start);
+          const end=Date.parse(w.recording_end||w.end);
+          const active=(!Number.isFinite(start)||now>=start)&&(!Number.isFinite(end)||now<=end);
+          fs.appendFileSync(process.env.GITHUB_OUTPUT,`active=${active}\n`);
+          console.log(`Window recording ${active?'ACTIVE':'INACTIVE'} · ${w.recording_start||w.start} → ${w.recording_end||w.end}`);
+          NODE
+
+      - name: Regression suite before checkpoint scan
+        if: steps.window.outputs.active == 'true'
+        run: npm run selftest
+
+      - name: Create immutable run id
+        if: steps.window.outputs.active == 'true'
+        shell: bash
+        run: echo "GEARWATCH_RUN_ID=run_$(date -u +'%Y-%m-%dT%H-%M-%SZ')" >> "$GITHUB_ENV"
+
+      - name: Run full causal scan and persist Window Lab checkpoint
+        if: steps.window.outputs.active == 'true'
+        run: npm run scan:v3
+
+      - name: Persist checkpoint and refreshed production data
+        if: steps.window.outputs.active == 'true'
+        shell: bash
+        run: |
+          git config user.name 'gearwatch-bot'
+          git config user.email 'gearwatch-bot@users.noreply.github.com'
+          git add data/
+          if git diff --cached --quiet; then
+            echo 'No state changes'
+          else
+            git commit -m "data(v4.5): 3h window checkpoint ${GEARWATCH_RUN_ID}"
+            git fetch origin master
+            git rebase origin/master
+            git push origin HEAD:master
+          fi
