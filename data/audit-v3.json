@@ -1,15 +1,15 @@
 {
   "version": "3.2.0",
-  "generated_at": "2026-09-13T11:59:09.996Z",
-  "run_id": "run_2026-09-13T11-48-59Z",
+  "generated_at": "2026-09-13T13:57:03.100Z",
+  "run_id": "run_2026-09-13T13-48-11Z",
   "verdict": "NEEDS_ATTENTION",
   "summary": {
     "mechanisms": 26,
     "mechanism_grades": {
-      "A": 7,
-      "A-": 2,
-      "B": 12,
-      "C": 5,
+      "A": 6,
+      "A-": 3,
+      "B": 15,
+      "C": 2,
       "F": 0
     },
     "seed_rows": 201,
@@ -20,9 +20,9 @@
     "mechanisms_no_retrieval_candidates": 0,
     "severity_counts": {
       "critical": 0,
-      "high": 5,
+      "high": 2,
       "medium": 17,
-      "low": 20
+      "low": 23
     }
   },
   "trading212": {
@@ -63,10 +63,10 @@
       "total": 4,
       "fresh": false,
       "ages_hours": {
-        "spx": 39.24,
-        "nasdaq": 38.74,
-        "qqq": 35.99,
-        "iwm": 36.13
+        "spx": 41.2,
+        "nasdaq": 40.7,
+        "qqq": 37.95,
+        "iwm": 38.09
       }
     }
   },
@@ -99,6 +99,11 @@
       "code": "CURRENT_RETRIEVAL_ERRORS",
       "severity": "MEDIUM",
       "detail": "2 retrieval errors in current health."
+    },
+    {
+      "code": "CURRENT_VERIFICATION_ERRORS",
+      "severity": "LOW",
+      "detail": "1 verification errors in current health."
     }
   ],
   "mechanisms": [
@@ -176,7 +181,7 @@
       "id": "PRODUCT_TANKER_TONMILES",
       "label": "Product tanker ton-miles",
       "tier": "A",
-      "grade": "C",
+      "grade": "B",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -197,32 +202,33 @@
       },
       "search": {
         "configured_queries": 4,
-        "reported_queries": 2,
+        "reported_queries": 3,
         "reported_phases": [
-          "LEAD"
+          "LEAD",
+          "CONFIRM"
         ],
         "native_hits": 0,
-        "zero_native_queries": 2,
+        "zero_native_queries": 3,
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 2,
+        "observed": 0,
         "total": 19,
         "valid": 15,
         "unique_domains": 14,
-        "state": "WATCH",
-        "causal_score": 28
+        "state": "DORMANT",
+        "causal_score": 17
       },
       "investment": {
-        "action": "WATCH",
-        "opportunity_score": 52,
+        "action": "RESEARCH_ONLY",
+        "opportunity_score": 47,
         "transmission_score": 81.8,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -230,19 +236,19 @@
       },
       "issues": [
         {
-          "code": "CONFIRM_NOT_RUN",
-          "severity": "HIGH",
-          "detail": "WATCH mechanism lacks a confirm-phase retrieval in the latest run."
-        },
-        {
           "code": "NATIVE_SEARCH_MOSTLY_ZERO",
           "severity": "MEDIUM",
-          "detail": "2/2 executed queries returned zero native-engine hits."
+          "detail": "3/3 executed queries returned zero native-engine hits."
         },
         {
           "code": "FALLBACK_DEPENDENT",
           "severity": "LOW",
           "detail": "6 fallback candidates rescued native search blindness."
+        },
+        {
+          "code": "NO_OBSERVED_EVIDENCE",
+          "severity": "LOW",
+          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
         }
       ]
     },
@@ -284,20 +290,20 @@
         "retrieval_candidates": 7,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 2,
+        "observed": 5,
         "total": 10,
-        "valid": 7,
-        "unique_domains": 7,
-        "state": "WATCH",
-        "causal_score": 26
+        "valid": 9,
+        "unique_domains": 9,
+        "state": "ARMING",
+        "causal_score": 47
       },
       "investment": {
-        "action": "WATCH",
-        "opportunity_score": 50,
+        "action": "PREPARE",
+        "opportunity_score": 61,
         "transmission_score": 78,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -342,7 +348,7 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
@@ -383,7 +389,7 @@
       "id": "CEYHAN_BYPASS",
       "label": "Ceyhan / Kurdistan bypass",
       "tier": "A",
-      "grade": "A",
+      "grade": "A-",
       "companies": {
         "seed_count": 3,
         "target": 3,
@@ -419,22 +425,28 @@
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 1,
+        "observed": 0,
         "total": 8,
         "valid": 7,
         "unique_domains": 6,
-        "state": "ARMING",
-        "causal_score": 46
+        "state": "WATCH",
+        "causal_score": 41
       },
       "investment": {
-        "action": "PREPARE",
-        "opportunity_score": 64,
+        "action": "WATCH",
+        "opportunity_score": 61,
         "transmission_score": 83.7,
         "quality": "MIXED",
         "broker_strict": false,
         "broker_verified_top5": 0
       },
-      "issues": []
+      "issues": [
+        {
+          "code": "NO_OBSERVED_EVIDENCE",
+          "severity": "LOW",
+          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
+        }
+      ]
     },
     {
       "id": "LNG_REROUTING",
@@ -474,14 +486,14 @@
         "retrieval_candidates": 7,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
         "observed": 7,
         "total": 13,
         "valid": 13,
-        "unique_domains": 9,
+        "unique_domains": 8,
         "state": "WATCH",
         "causal_score": 32
       },
@@ -532,20 +544,20 @@
         "retrieval_candidates": 7,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
         "observed": 0,
-        "total": 16,
-        "valid": 3,
-        "unique_domains": 3,
+        "total": 14,
+        "valid": 1,
+        "unique_domains": 1,
         "state": "DORMANT",
-        "causal_score": 20
+        "causal_score": 6
       },
       "investment": {
         "action": "RESEARCH_ONLY",
-        "opportunity_score": 47,
+        "opportunity_score": 39,
         "transmission_score": 76.4,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -597,20 +609,20 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 3,
+        "observed": 6,
         "total": 17,
         "valid": 17,
         "unique_domains": 12,
         "state": "WATCH",
-        "causal_score": 29
+        "causal_score": 32
       },
       "investment": {
         "action": "WATCH",
-        "opportunity_score": 49,
+        "opportunity_score": 51,
         "transmission_score": 69.8,
         "quality": "MIXED",
         "broker_strict": false,
@@ -667,20 +679,20 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 5,
+        "observed": 0,
         "total": 25,
         "valid": 25,
         "unique_domains": 23,
-        "state": "WATCH",
-        "causal_score": 32
+        "state": "DORMANT",
+        "causal_score": 20
       },
       "investment": {
-        "action": "WATCH",
-        "opportunity_score": 52,
+        "action": "RESEARCH_ONLY",
+        "opportunity_score": 46,
         "transmission_score": 75.2,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -696,6 +708,11 @@
           "code": "FALLBACK_DEPENDENT",
           "severity": "LOW",
           "detail": "6 fallback candidates rescued native search blindness."
+        },
+        {
+          "code": "NO_OBSERVED_EVIDENCE",
+          "severity": "LOW",
+          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
         }
       ]
     },
@@ -737,20 +754,20 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 3,
+        "observed": 2,
         "total": 12,
-        "valid": 12,
-        "unique_domains": 10,
-        "state": "WATCH",
-        "causal_score": 27
+        "valid": 10,
+        "unique_domains": 8,
+        "state": "DORMANT",
+        "causal_score": 17
       },
       "investment": {
-        "action": "WATCH",
-        "opportunity_score": 47,
+        "action": "RESEARCH_ONLY",
+        "opportunity_score": 42,
         "transmission_score": 69.4,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -794,20 +811,19 @@
       },
       "search": {
         "configured_queries": 4,
-        "reported_queries": 3,
+        "reported_queries": 2,
         "reported_phases": [
-          "LEAD",
-          "CONFIRM"
+          "LEAD"
         ],
         "native_hits": 1,
-        "zero_native_queries": 2,
-        "zero_native_ratio": 0.667,
+        "zero_native_queries": 1,
+        "zero_native_ratio": 0.5,
         "engine_failures": 0,
         "timeouts": 0,
         "retrieval_candidates": 7,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
@@ -872,7 +888,7 @@
         "retrieval_candidates": 7,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
@@ -881,11 +897,11 @@
         "valid": 4,
         "unique_domains": 4,
         "state": "WATCH",
-        "causal_score": 29
+        "causal_score": 28
       },
       "investment": {
         "action": "WATCH",
-        "opportunity_score": 48,
+        "opportunity_score": 47,
         "transmission_score": 65.8,
         "quality": "MIXED",
         "broker_strict": false,
@@ -931,20 +947,20 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 2,
-        "total": 28,
-        "valid": 28,
+        "observed": 1,
+        "total": 27,
+        "valid": 27,
         "unique_domains": 16,
-        "state": "WATCH",
-        "causal_score": 26
+        "state": "DORMANT",
+        "causal_score": 21
       },
       "investment": {
-        "action": "WATCH",
-        "opportunity_score": 49,
+        "action": "RESEARCH_ONLY",
+        "opportunity_score": 47,
         "transmission_score": 75,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -1060,20 +1076,20 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 6,
+        "observed": 0,
         "total": 16,
         "valid": 11,
         "unique_domains": 11,
         "state": "WATCH",
-        "causal_score": 41
+        "causal_score": 34
       },
       "investment": {
         "action": "WATCH",
-        "opportunity_score": 60,
+        "opportunity_score": 56,
         "transmission_score": 81.4,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -1089,6 +1105,11 @@
           "code": "FALLBACK_DEPENDENT",
           "severity": "LOW",
           "detail": "6 fallback candidates rescued native search blindness."
+        },
+        {
+          "code": "NO_OBSERVED_EVIDENCE",
+          "severity": "LOW",
+          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
         }
       ]
     },
@@ -1130,20 +1151,20 @@
         "retrieval_candidates": 7,
         "fallback_candidates": 6,
         "official_candidates": 1,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 3,
-        "total": 14,
-        "valid": 14,
-        "unique_domains": 12,
+        "observed": 1,
+        "total": 12,
+        "valid": 12,
+        "unique_domains": 11,
         "state": "WATCH",
-        "causal_score": 40
+        "causal_score": 38
       },
       "investment": {
         "action": "WATCH",
-        "opportunity_score": 57,
+        "opportunity_score": 56,
         "transmission_score": 76.6,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -1166,7 +1187,7 @@
       "id": "BEHIND_METER_AI_POWER",
       "label": "Behind-the-meter AI power",
       "tier": "B",
-      "grade": "C",
+      "grade": "B",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -1187,28 +1208,29 @@
       },
       "search": {
         "configured_queries": 4,
-        "reported_queries": 2,
+        "reported_queries": 3,
         "reported_phases": [
-          "LEAD"
+          "LEAD",
+          "CONFIRM"
         ],
         "native_hits": 0,
-        "zero_native_queries": 2,
+        "zero_native_queries": 3,
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
         "retrieval_candidates": 5,
         "fallback_candidates": 5,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 5
       },
       "evidence": {
         "observed": 3,
         "total": 15,
-        "valid": 13,
-        "unique_domains": 7,
+        "valid": 15,
+        "unique_domains": 8,
         "state": "WATCH",
-        "causal_score": 29
+        "causal_score": 28
       },
       "investment": {
         "action": "WATCH",
@@ -1220,14 +1242,9 @@
       },
       "issues": [
         {
-          "code": "CONFIRM_NOT_RUN",
-          "severity": "HIGH",
-          "detail": "WATCH mechanism lacks a confirm-phase retrieval in the latest run."
-        },
-        {
           "code": "NATIVE_SEARCH_MOSTLY_ZERO",
           "severity": "MEDIUM",
-          "detail": "2/2 executed queries returned zero native-engine hits."
+          "detail": "3/3 executed queries returned zero native-engine hits."
         },
         {
           "code": "FALLBACK_DEPENDENT",
@@ -1273,7 +1290,7 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
@@ -1348,20 +1365,20 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 1,
+        "observed": 4,
         "total": 22,
         "valid": 22,
         "unique_domains": 21,
         "state": "WATCH",
-        "causal_score": 25
+        "causal_score": 32
       },
       "investment": {
         "action": "WATCH",
-        "opportunity_score": 48,
+        "opportunity_score": 52,
         "transmission_score": 72,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -1423,15 +1440,15 @@
       },
       "evidence": {
         "observed": 2,
-        "total": 18,
-        "valid": 17,
-        "unique_domains": 13,
+        "total": 12,
+        "valid": 11,
+        "unique_domains": 9,
         "state": "WATCH",
-        "causal_score": 42
+        "causal_score": 44
       },
       "investment": {
         "action": "WATCH",
-        "opportunity_score": 49,
+        "opportunity_score": 50,
         "transmission_score": 47.4,
         "quality": "WEAK",
         "broker_strict": false,
@@ -1492,16 +1509,16 @@
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 0,
+        "observed": 2,
         "total": 12,
         "valid": 12,
         "unique_domains": 9,
         "state": "ARMING",
-        "causal_score": 50
+        "causal_score": 52
       },
       "investment": {
-        "action": "PREPARE",
-        "opportunity_score": 51,
+        "action": "SCOUT_WINDOW",
+        "opportunity_score": 52,
         "transmission_score": 43,
         "quality": "WEAK",
         "broker_strict": false,
@@ -1512,11 +1529,6 @@
           "code": "DIRECT_EXPOSURE_THIN",
           "severity": "HIGH",
           "detail": "0 DIRECT candidates; target-aware minimum 3."
-        },
-        {
-          "code": "NO_OBSERVED_EVIDENCE",
-          "severity": "LOW",
-          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
         },
         {
           "code": "TOP5_DIRECT_THIN",
@@ -1559,11 +1571,11 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 4,
+        "fallback_candidates": 4,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
-        "last_web_rescue_added": 6
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
+        "last_web_rescue_added": 4
       },
       "evidence": {
         "observed": 1,
@@ -1590,7 +1602,7 @@
         {
           "code": "FALLBACK_DEPENDENT",
           "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
+          "detail": "4 fallback candidates rescued native search blindness."
         }
       ]
     },
@@ -1678,20 +1690,19 @@
       },
       "search": {
         "configured_queries": 4,
-        "reported_queries": 3,
+        "reported_queries": 2,
         "reported_phases": [
-          "LEAD",
-          "CONFIRM"
+          "LEAD"
         ],
         "native_hits": 1,
-        "zero_native_queries": 2,
-        "zero_native_ratio": 0.667,
+        "zero_native_queries": 1,
+        "zero_native_ratio": 0.5,
         "engine_failures": 0,
         "timeouts": 0,
         "retrieval_candidates": 7,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
@@ -1716,7 +1727,7 @@
       "id": "EUROPE_STRATEGIC_AUTONOMY",
       "label": "European strategic autonomy",
       "tier": "C",
-      "grade": "C",
+      "grade": "B",
       "companies": {
         "seed_count": 10,
         "target": 10,
@@ -1737,19 +1748,20 @@
       },
       "search": {
         "configured_queries": 4,
-        "reported_queries": 2,
+        "reported_queries": 3,
         "reported_phases": [
-          "LEAD"
+          "LEAD",
+          "CONFIRM"
         ],
         "native_hits": 0,
-        "zero_native_queries": 2,
+        "zero_native_queries": 3,
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
@@ -1770,14 +1782,9 @@
       },
       "issues": [
         {
-          "code": "CONFIRM_NOT_RUN",
-          "severity": "HIGH",
-          "detail": "WATCH mechanism lacks a confirm-phase retrieval in the latest run."
-        },
-        {
           "code": "NATIVE_SEARCH_MOSTLY_ZERO",
           "severity": "MEDIUM",
-          "detail": "2/2 executed queries returned zero native-engine hits."
+          "detail": "3/3 executed queries returned zero native-engine hits."
         },
         {
           "code": "FALLBACK_DEPENDENT",
@@ -1824,7 +1831,7 @@
         "retrieval_candidates": 7,
         "fallback_candidates": 6,
         "official_candidates": 1,
-        "last_web_rescue_at": "2026-09-13T11:50:25.357Z",
+        "last_web_rescue_at": "2026-09-13T13:49:26.923Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
