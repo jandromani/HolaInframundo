@@ -27,6 +27,7 @@ jobs:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_INVESTMENT_MODEL: ${{ vars.OPENAI_INVESTMENT_MODEL || 'gpt-5-nano' }}
       OPENAI_BRIEFING_MODEL: ${{ vars.OPENAI_BRIEFING_MODEL || 'gpt-5-nano' }}
+      OPENAI_WINDOW_MODEL: ${{ vars.OPENAI_WINDOW_MODEL || 'gpt-5.6-luna' }}
       AISSTREAM_API_KEY: ${{ secrets.AISSTREAM_API_KEY }}
       EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
       FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
@@ -83,6 +84,8 @@ jobs:
         run: npm run pricing:sensors
       - name: Blend primary pricing and classify pricing regime
         run: npm run pricing:overlay
+      - name: Refresh Window Lab live research ledger
+        run: npm run window:research
       - name: Build deterministic $500 shadow portfolio plan
         run: npm run portfolio
       - name: Apply paper fills and rotation journal
@@ -93,7 +96,9 @@ jobs:
         run: npm run briefing
       - name: Validate production artifacts, semantics and judge health
         run: npm run health
-      - name: Persist Living Bible, briefing, pricing sensors, portfolio ledger and all traces
+      - name: Persist Window Lab checkpoint from this hardened scan
+        run: npm run window:snapshot
+      - name: Persist Living Bible, briefing, pricing sensors, Window Lab, portfolio ledger and all traces
         shell: bash
         run: |
           git config user.name 'gearwatch-bot'
@@ -102,7 +107,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No state changes'
           else
-            git commit -m "data(v4.4): hardened pricing scan ${GEARWATCH_RUN_ID}"
+            git commit -m "data(v4.6): hardened scan + window checkpoint ${GEARWATCH_RUN_ID}"
             git fetch origin master
             git rebase origin/master
             git push origin HEAD:master
