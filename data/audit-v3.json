@@ -1,15 +1,15 @@
 {
   "version": "3.2.0",
-  "generated_at": "2026-09-13T20:49:21.779Z",
-  "run_id": "run_2026-09-13T20-47-59Z",
+  "generated_at": "2026-09-13T22:18:42.660Z",
+  "run_id": "run_2026-09-13T22-17-12Z",
   "verdict": "NEEDS_ATTENTION",
   "summary": {
     "mechanisms": 26,
     "mechanism_grades": {
       "A": 2,
       "A-": 3,
-      "B": 3,
-      "C": 18,
+      "B": 2,
+      "C": 19,
       "F": 0
     },
     "seed_rows": 201,
@@ -17,12 +17,12 @@
     "mechanisms_below_target": 0,
     "mechanisms_direct_thin": 2,
     "mechanisms_fallback_dependent": 0,
-    "mechanisms_no_retrieval_candidates": 16,
+    "mechanisms_no_retrieval_candidates": 17,
     "severity_counts": {
       "critical": 0,
-      "high": 18,
-      "medium": 22,
-      "low": 4
+      "high": 19,
+      "medium": 23,
+      "low": 3
     }
   },
   "trading212": {
@@ -63,10 +63,10 @@
       "total": 4,
       "fresh": false,
       "ages_hours": {
-        "spx": 48.07,
-        "nasdaq": 47.57,
-        "qqq": 44.82,
-        "iwm": 44.96
+        "spx": 49.56,
+        "nasdaq": 49.06,
+        "qqq": 46.31,
+        "iwm": 46.45
       }
     }
   },
@@ -106,7 +106,7 @@
       "id": "DIESEL_REFINING_CRISIS",
       "label": "Diesel / refining crisis",
       "tier": "A",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 10,
         "target": 10,
@@ -132,12 +132,12 @@
           "LEAD",
           "CONFIRM"
         ],
-        "native_hits": 1,
-        "zero_native_queries": 2,
-        "zero_native_ratio": 0.667,
+        "native_hits": 0,
+        "zero_native_queries": 3,
+        "zero_native_ratio": 1,
         "engine_failures": 2,
         "timeouts": 2,
-        "retrieval_candidates": 1,
+        "retrieval_candidates": 0,
         "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-13T18:13:40.454Z",
@@ -161,14 +161,19 @@
       },
       "issues": [
         {
+          "code": "NATIVE_SEARCH_MOSTLY_ZERO",
+          "severity": "MEDIUM",
+          "detail": "3/3 executed queries returned zero native-engine hits."
+        },
+        {
           "code": "RETRIEVER_ERRORS",
           "severity": "MEDIUM",
           "detail": "2 engine failures (2 timeout/abort)."
         },
         {
-          "code": "NO_OBSERVED_EVIDENCE",
-          "severity": "LOW",
-          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
