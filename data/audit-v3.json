@@ -1,28 +1,28 @@
 {
   "version": "3.2.0",
-  "generated_at": "2026-09-14T21:56:15.807Z",
-  "run_id": "run_2026-09-14T21-48-08Z",
+  "generated_at": "2026-09-14T23:53:49.970Z",
+  "run_id": "run_2026-09-14T23-52-01Z",
   "verdict": "NEEDS_ATTENTION",
   "summary": {
     "mechanisms": 26,
     "mechanism_grades": {
       "A": 1,
       "A-": 5,
-      "B": 17,
-      "C": 3,
+      "B": 3,
+      "C": 17,
       "F": 0
     },
     "seed_rows": 201,
     "unique_seed_symbols": 139,
     "mechanisms_below_target": 0,
     "mechanisms_direct_thin": 2,
-    "mechanisms_fallback_dependent": 17,
-    "mechanisms_no_retrieval_candidates": 1,
+    "mechanisms_fallback_dependent": 2,
+    "mechanisms_no_retrieval_candidates": 15,
     "severity_counts": {
       "critical": 0,
-      "high": 3,
+      "high": 17,
       "medium": 22,
-      "low": 29
+      "low": 11
     }
   },
   "trading212": {
@@ -54,19 +54,19 @@
     "sgmoq_isolated": true,
     "live_execution_off": true,
     "market_entry_allowed": false,
-    "market_block_reason": "MARKET_REGIME_BLOCK",
+    "market_block_reason": "STALE_MARKET_DATA",
     "market_freshness": {
       "required": true,
       "max_age_hours": 2,
       "min_fresh_benchmarks": 3,
-      "fresh_count": 4,
+      "fresh_count": 2,
       "total": 4,
-      "fresh": true,
+      "fresh": false,
       "ages_hours": {
-        "spx": 1.44,
-        "nasdaq": 0.69,
-        "qqq": 0.12,
-        "iwm": 0.17
+        "spx": 3.4,
+        "nasdaq": 2.65,
+        "qqq": 0.02,
+        "iwm": 0.02
       }
     }
   },
@@ -89,6 +89,11 @@
       "code": "T212_NOT_LIVE_VERIFIED",
       "severity": "MEDIUM",
       "detail": "Broker mode is CURATED_T212_UNIVERSE; curated availability is usable for shadow but not authoritative."
+    },
+    {
+      "code": "MARKET_TELEMETRY_STALE",
+      "severity": "LOW",
+      "detail": "Entry gate correctly closed because benchmarks are stale (weekend/closed market is expected)."
     },
     {
       "code": "CURRENT_RETRIEVAL_ERRORS",
@@ -115,9 +120,9 @@
         "top5_symbols": [
           "VLO",
           "DK",
-          "MPC",
           "DINO",
-          "CVI"
+          "CVI",
+          "MPC"
         ]
       },
       "search": {
@@ -135,7 +140,7 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
+        "last_web_rescue_at": "2026-09-14T23:53:13.030Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
@@ -181,7 +186,7 @@
       "id": "PRODUCT_TANKER_TONMILES",
       "label": "Product tanker ton-miles",
       "tier": "A",
-      "grade": "C",
+      "grade": "B",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -195,8 +200,8 @@
         "top5_symbols": [
           "HAFN",
           "STNG",
-          "PXS",
           "TRMD",
+          "PXS",
           "ASC"
         ]
       },
@@ -211,10 +216,10 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 0,
-        "fallback_candidates": 0,
+        "retrieval_candidates": 6,
+        "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
+        "last_web_rescue_at": "2026-09-14T23:53:13.030Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
@@ -227,7 +232,7 @@
       },
       "investment": {
         "action": "RESEARCH_ONLY",
-        "opportunity_score": 47,
+        "opportunity_score": 48,
         "transmission_score": 81.8,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -240,9 +245,14 @@
           "detail": "2/2 executed queries returned zero native-engine hits."
         },
         {
-          "code": "NO_RETRIEVAL_CANDIDATES",
-          "severity": "HIGH",
-          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
+          "code": "FALLBACK_DEPENDENT",
+          "severity": "LOW",
+          "detail": "6 fallback candidates rescued native search blindness."
+        },
+        {
+          "code": "NO_OBSERVED_EVIDENCE",
+          "severity": "LOW",
+          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
         }
       ]
     },
@@ -250,7 +260,7 @@
       "id": "CRUDE_TANKER_DISLOCATION",
       "label": "Crude tanker dislocation",
       "tier": "A",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -281,8 +291,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -297,7 +307,7 @@
       },
       "investment": {
         "action": "DO_NOT_CHASE",
-        "opportunity_score": 57,
+        "opportunity_score": 56,
         "transmission_score": 78,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -310,9 +320,9 @@
           "detail": "3/3 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
@@ -320,7 +330,7 @@
       "id": "ATLANTIC_BARREL_PREMIUM",
       "label": "Atlantic barrels replace Gulf supply",
       "tier": "B",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 10,
         "target": 10,
@@ -334,8 +344,8 @@
         "top5_symbols": [
           "PBR",
           "APA",
-          "GTE",
           "VIST",
+          "GTE",
           "EGY"
         ]
       },
@@ -350,8 +360,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -379,14 +389,9 @@
           "detail": "2/2 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
-        },
-        {
-          "code": "NO_OBSERVED_EVIDENCE",
-          "severity": "LOW",
-          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
@@ -423,8 +428,8 @@
         "zero_native_ratio": 0.667,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 7,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 1,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -457,7 +462,7 @@
       "id": "LNG_REROUTING",
       "label": "LNG rerouting",
       "tier": "B",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -472,8 +477,8 @@
           "FLNG",
           "NEXT",
           "GLNG",
-          "LNG",
-          "EE"
+          "EE",
+          "LNG"
         ]
       },
       "search": {
@@ -487,8 +492,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -516,9 +521,9 @@
           "detail": "2/2 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
@@ -538,8 +543,8 @@
         "top5_count": 5,
         "top5_direct": 5,
         "top5_symbols": [
-          "RTX",
           "NOC",
+          "RTX",
           "LMT",
           "GD",
           "LHX"
@@ -572,7 +577,7 @@
       },
       "investment": {
         "action": "RESEARCH_ONLY",
-        "opportunity_score": 47,
+        "opportunity_score": 48,
         "transmission_score": 76.4,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -590,7 +595,7 @@
       "id": "ROCKET_MOTOR_SHORTAGE",
       "label": "Rocket motor bottleneck",
       "tier": "A",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 6,
         "target": 6,
@@ -620,8 +625,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -649,9 +654,9 @@
           "detail": "2/2 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
@@ -659,7 +664,7 @@
       "id": "ENERGETICS_SHORTAGE",
       "label": "Energetics / explosives shortage",
       "tier": "A",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -671,10 +676,10 @@
         "top5_count": 5,
         "top5_direct": 4,
         "top5_symbols": [
-          "GD",
           "CHG.L",
-          "RHM.DE",
+          "GD",
           "BA.L",
+          "RHM.DE",
           "NOC"
         ]
       },
@@ -689,8 +694,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -705,7 +710,7 @@
       },
       "investment": {
         "action": "RESEARCH_ONLY",
-        "opportunity_score": 47,
+        "opportunity_score": 48,
         "transmission_score": 74.2,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -718,9 +723,9 @@
           "detail": "2/2 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
@@ -728,7 +733,7 @@
       "id": "STRATEGIC_ALUMINIUM",
       "label": "Strategic aluminium",
       "tier": "B",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 6,
         "target": 6,
@@ -743,8 +748,8 @@
           "AA",
           "CENX",
           "CSTM",
-          "RIO",
-          "KALU"
+          "KALU",
+          "RIO"
         ]
       },
       "search": {
@@ -759,8 +764,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -788,9 +793,9 @@
           "detail": "3/3 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
@@ -813,8 +818,8 @@
           "MP",
           "CRML",
           "LYC.AX",
-          "USAR",
-          "NB"
+          "NB",
+          "USAR"
         ]
       },
       "search": {
@@ -862,7 +867,7 @@
       "id": "CHEAP_DRONE_SCALING",
       "label": "Cheap-drone scaling",
       "tier": "B",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -893,8 +898,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -922,9 +927,9 @@
           "detail": "3/3 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
@@ -932,7 +937,7 @@
       "id": "COUNTER_UAS_COST_CURVE",
       "label": "Counter-UAS cost curve",
       "tier": "B",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -947,7 +952,7 @@
           "KOG.OL",
           "RTX",
           "LHX",
-          "RHM.DE",
+          "LDO.MI",
           "KTOS"
         ]
       },
@@ -962,8 +967,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -979,7 +984,7 @@
       "investment": {
         "action": "RESEARCH_ONLY",
         "opportunity_score": 47,
-        "transmission_score": 74.6,
+        "transmission_score": 73.8,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -991,9 +996,9 @@
           "detail": "2/2 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
@@ -1016,8 +1021,8 @@
           "FCT.MI",
           "KOG.OL",
           "HO.PA",
-          "HII",
-          "LDO.MI"
+          "LDO.MI",
+          "HII"
         ]
       },
       "search": {
@@ -1047,7 +1052,7 @@
       },
       "investment": {
         "action": "RESEARCH_ONLY",
-        "opportunity_score": 46,
+        "opportunity_score": 47,
         "transmission_score": 74,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -1081,7 +1086,7 @@
           "EMR",
           "ETN",
           "POWL",
-          "HUBB"
+          "NVT"
         ]
       },
       "search": {
@@ -1112,8 +1117,8 @@
       },
       "investment": {
         "action": "WATCH",
-        "opportunity_score": 53,
-        "transmission_score": 81.2,
+        "opportunity_score": 52,
+        "transmission_score": 80.6,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -1145,8 +1150,8 @@
           "PWR",
           "ETN",
           "POWL",
-          "GEV",
-          "HUBB"
+          "NVT",
+          "GEV"
         ]
       },
       "search": {
@@ -1161,8 +1166,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 7,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 1,
+        "fallback_candidates": 0,
         "official_candidates": 1,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -1177,8 +1182,8 @@
       },
       "investment": {
         "action": "WATCH",
-        "opportunity_score": 57,
-        "transmission_score": 77,
+        "opportunity_score": 56,
+        "transmission_score": 76.6,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -1188,11 +1193,6 @@
           "code": "NATIVE_SEARCH_MOSTLY_ZERO",
           "severity": "MEDIUM",
           "detail": "3/3 executed queries returned zero native-engine hits."
-        },
-        {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
         }
       ]
     },
@@ -1200,7 +1200,7 @@
       "id": "BEHIND_METER_AI_POWER",
       "label": "Behind-the-meter AI power",
       "tier": "B",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -1213,9 +1213,9 @@
         "top5_direct": 5,
         "top5_symbols": [
           "BE",
+          "CMI",
           "CAT",
           "GEV",
-          "CMI",
           "VRT"
         ]
       },
@@ -1230,8 +1230,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 5,
-        "fallback_candidates": 5,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 5
@@ -1246,7 +1246,7 @@
       },
       "investment": {
         "action": "RESEARCH_ONLY",
-        "opportunity_score": 49,
+        "opportunity_score": 50,
         "transmission_score": 78.4,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -1259,9 +1259,9 @@
           "detail": "2/2 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "5 fallback candidates rescued native search blindness."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
@@ -1269,7 +1269,7 @@
       "id": "ROBOTICS_ACTUATOR_SCALE",
       "label": "Robotics actuator scale",
       "tier": "C",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -1281,10 +1281,10 @@
         "top5_count": 5,
         "top5_direct": 5,
         "top5_symbols": [
-          "ROK",
-          "PH",
           "RRX",
           "SHA0.DE",
+          "ROK",
+          "PH",
           "TER"
         ]
       },
@@ -1299,8 +1299,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -1328,14 +1328,9 @@
           "detail": "2/2 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
-        },
-        {
-          "code": "NO_OBSERVED_EVIDENCE",
-          "severity": "LOW",
-          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
@@ -1343,7 +1338,7 @@
       "id": "ROBOTICS_DECOUPLING",
       "label": "Robotics decoupling",
       "tier": "B",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -1353,13 +1348,13 @@
         "proxy_seed_count": 2,
         "ranked_pool_count": 8,
         "top5_count": 5,
-        "top5_direct": 4,
+        "top5_direct": 5,
         "top5_symbols": [
+          "RRX",
           "ROK",
           "PH",
-          "RRX",
           "TER",
-          "AME"
+          "SHA0.DE"
         ]
       },
       "search": {
@@ -1373,8 +1368,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -1390,7 +1385,7 @@
       "investment": {
         "action": "RESEARCH_ONLY",
         "opportunity_score": 47,
-        "transmission_score": 72,
+        "transmission_score": 72.6,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -1402,9 +1397,9 @@
           "detail": "2/2 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
@@ -1534,7 +1529,7 @@
       },
       "investment": {
         "action": "SCOUT_WINDOW",
-        "opportunity_score": 53,
+        "opportunity_score": 52,
         "transmission_score": 43,
         "quality": "WEAK",
         "broker_strict": false,
@@ -1567,7 +1562,7 @@
       "id": "OT_CYBER_SHOCK",
       "label": "Cyber to physical infrastructure",
       "tier": "B",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -1583,7 +1578,7 @@
           "PANW",
           "FTNT",
           "ZS",
-          "S"
+          "TENB"
         ]
       },
       "search": {
@@ -1597,8 +1592,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -1613,8 +1608,8 @@
       },
       "investment": {
         "action": "DO_NOT_CHASE",
-        "opportunity_score": 36,
-        "transmission_score": 78,
+        "opportunity_score": 37,
+        "transmission_score": 80,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -1626,14 +1621,9 @@
           "detail": "2/2 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
-        },
-        {
-          "code": "NO_OBSERVED_EVIDENCE",
-          "severity": "LOW",
-          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
@@ -1672,8 +1662,8 @@
         "zero_native_ratio": 0.667,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 7,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 1,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -1700,7 +1690,7 @@
       "id": "MILITARY_ENERGY_AUTONOMY",
       "label": "Military energy autonomy",
       "tier": "C",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 7,
         "target": 7,
@@ -1731,8 +1721,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -1760,9 +1750,9 @@
           "detail": "3/3 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
@@ -1770,7 +1760,7 @@
       "id": "EUROPE_STRATEGIC_AUTONOMY",
       "label": "European strategic autonomy",
       "tier": "C",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 10,
         "target": 10,
@@ -1782,11 +1772,11 @@
         "top5_count": 5,
         "top5_direct": 5,
         "top5_symbols": [
-          "KOG.OL",
           "RR.L",
-          "HO.PA",
+          "KOG.OL",
           "FCT.MI",
-          "RHM.DE"
+          "HO.PA",
+          "LDO.MI"
         ]
       },
       "search": {
@@ -1800,8 +1790,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -1817,7 +1807,7 @@
       "investment": {
         "action": "RESEARCH_ONLY",
         "opportunity_score": 47,
-        "transmission_score": 77,
+        "transmission_score": 76.4,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -1829,14 +1819,9 @@
           "detail": "2/2 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
-        },
-        {
-          "code": "NO_OBSERVED_EVIDENCE",
-          "severity": "LOW",
-          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     },
@@ -1844,7 +1829,7 @@
       "id": "OIL_SERVICE_CAPEX_SECOND_WAVE",
       "label": "Oil-service CAPEX second wave",
       "tier": "C",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 10,
         "target": 10,
@@ -1858,9 +1843,9 @@
         "top5_symbols": [
           "OIS",
           "ACDC",
-          "HAL",
           "SLB",
-          "KLXE"
+          "HAL",
+          "NINE"
         ]
       },
       "search": {
@@ -1875,8 +1860,8 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 0,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-09-14T21:49:36.739Z",
         "last_web_rescue_added": 6
@@ -1904,9 +1889,9 @@
           "detail": "5/5 executed queries returned zero native-engine hits."
         },
         {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
+          "code": "NO_RETRIEVAL_CANDIDATES",
+          "severity": "HIGH",
+          "detail": "No candidate evidence retrieved in the latest run; rotating web rescue should eventually service this mechanism."
         }
       ]
     }
