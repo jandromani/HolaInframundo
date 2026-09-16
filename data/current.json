@@ -1,7 +1,7 @@
 {
   "version": "2.9.0",
-  "updated_at": "2026-09-16T11:35:44.699Z",
-  "run_id": "run_2026-09-16T11-29-15Z",
+  "updated_at": "2026-09-16T14:17:50.353Z",
+  "run_id": "run_2026-09-16T14-12-11Z",
   "health": {
     "retrieval_errors": 2,
     "upstream_errors": 0,
@@ -14,35 +14,12 @@
   },
   "transitions": [
     {
-      "mechanism_id": "DIESEL_REFINING_CRISIS",
-      "from": "ARMING",
-      "to": "ARMING",
-      "raw_to": "ARMING",
-      "score": 60,
-      "delta": 11,
-      "hysteresis": {
-        "raw_state": "ARMING",
-        "pending": null,
-        "reason": "STABLE",
-        "applied": false
-      },
-      "memory": {
-        "observed_items": 7,
-        "carried_items": 2,
-        "avg_carry_weight": 0.493,
-        "observed_score": 60,
-        "raw_combined_score": 60,
-        "decayed_score": 60
-      },
-      "at": "2026-09-16T11:35:44.699Z"
-    },
-    {
-      "mechanism_id": "ENERGETICS_SHORTAGE",
+      "mechanism_id": "PRODUCT_TANKER_TONMILES",
       "from": "WATCH",
       "to": "DORMANT",
       "raw_to": "DORMANT",
-      "score": 18,
-      "delta": -13,
+      "score": 24,
+      "delta": -7,
       "hysteresis": {
         "raw_state": "DORMANT",
         "pending": null,
@@ -50,57 +27,34 @@
         "applied": false
       },
       "memory": {
-        "observed_items": 0,
-        "carried_items": 21,
-        "avg_carry_weight": 0.577,
-        "observed_score": 0,
+        "observed_items": 1,
+        "carried_items": 15,
+        "avg_carry_weight": 0.596,
+        "observed_score": 13,
         "raw_combined_score": 32,
-        "decayed_score": 18
+        "decayed_score": 24
       },
-      "at": "2026-09-16T11:35:44.699Z"
-    },
-    {
-      "mechanism_id": "JAPAN_CARRY_UNWIND",
-      "from": "WATCH",
-      "to": "ARMING",
-      "raw_to": "ARMING",
-      "score": 63,
-      "delta": 22,
-      "hysteresis": {
-        "raw_state": "ARMING",
-        "pending": null,
-        "reason": "DIRECT_NONCRITICAL_TRANSITION",
-        "applied": false
-      },
-      "memory": {
-        "observed_items": 3,
-        "carried_items": 8,
-        "avg_carry_weight": 0.508,
-        "observed_score": 51,
-        "raw_combined_score": 75,
-        "decayed_score": 63
-      },
-      "at": "2026-09-16T11:35:44.699Z"
+      "at": "2026-09-16T14:17:50.353Z"
     }
   ],
   "wave_transitions": [
     {
-      "mechanism_id": "CEYHAN_BYPASS",
+      "mechanism_id": "PRODUCT_TANKER_TONMILES",
       "from": "IN_SYNC",
-      "to": "EARLY_WAVE",
-      "position": "EARLY",
-      "priced_in": 14.9,
-      "consensus": 51.7,
-      "at": "2026-09-16T11:35:44.699Z"
+      "to": "SATURATED",
+      "position": "LATE",
+      "priced_in": 85.1,
+      "consensus": 95,
+      "at": "2026-09-16T14:17:50.353Z"
     },
     {
-      "mechanism_id": "GLOBAL_REFINANCING_STRESS",
+      "mechanism_id": "ARSENAL_DEPLETION",
       "from": "IN_SYNC",
       "to": "EARLY_WAVE",
       "position": "EARLY",
-      "priced_in": 9,
-      "consensus": 39.5,
-      "at": "2026-09-16T11:35:44.699Z"
+      "priced_in": 31.2,
+      "consensus": 41.3,
+      "at": "2026-09-16T14:17:50.353Z"
     }
   ],
   "mechanisms": {
@@ -110,11 +64,11 @@
       "tier": "A",
       "state": "ARMING",
       "raw_state": "ARMING",
-      "score": 60,
+      "score": 58,
       "previous_state": "ARMING",
-      "score_delta": 11,
-      "summary": "The available evidence indicates refinery disruptions and high diesel prices, but there is no data on Brent crude prices in the candidate set. Therefore, the mechanism of middle‑distillate scarcity tightening independently of crude cannot be confirmed or refuted based on the provided sources.",
-      "material_change": true,
+      "score_delta": -2,
+      "summary": "The candidate set contains one official data source confirming U.S. diesel price information for 14 September 2026, and several non‑official reports indicating refinery disruptions and maintenance that could constrain middle‑distillate supply. No source directly shows diesel or jet premiums relative to Brent prices, so the evidence only supports the presence of refinery‑related supply risk, not a clear decoupling from crude prices.",
+      "material_change": false,
       "observed_evidence": [
         {
           "candidate_id": "cc167bdd86e34f22260f",
@@ -123,7 +77,7 @@
           "signal": "US_DIESEL_PRICE",
           "family": "OFFICIAL",
           "fact_type": "FACT",
-          "claim": "US diesel retail price on 09/14/26 was $4.319 per gallon (regular gasoline retail price)",
+          "claim": "EIA published U.S. diesel price data for 14 September 2026.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
@@ -135,39 +89,11 @@
           "official": true,
           "engine": "official_rss",
           "published_at": "2026-09-15T14:00:29.000Z",
-          "retrieved_at": "2026-09-16T11:31:02.302Z",
+          "retrieved_at": "2026-09-16T14:13:32.836Z",
           "valid": true,
           "evidence_key": "316806b126b832a0600e8278",
-          "first_seen_at": "2026-09-16T11:31:02.302Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "a8edf572f5218dfd2f42",
-          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
-          "phase": "LEAD",
-          "signal": "REFINERY_AVAILABILITY",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Gdansk refinery conducted maintenance on multiple units, taking three base oil units offline from 8 April to mid‑May",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://www.argusmedia.com/en/news-and-insights/latest-market-news/2811148-gdansk-refinery-ups-output-after-maintenance",
-          "source_name": "Gdansk refinery ups output after maintenance | Latest Market News",
-          "source_domain": "argusmedia.com",
-          "source_grade": 0.82,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
-          "valid": true,
-          "evidence_key": "8ab9b864c8aa49757184d4a2",
-          "first_seen_at": "2026-09-16T11:31:05.070Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "first_seen_at": "2026-09-16T14:13:32.836Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -179,7 +105,7 @@
           "signal": "REFINERY_AVAILABILITY",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Russia’s deputy prime minister acknowledged unscheduled maintenance at refineries, implying refinery availability issues",
+          "claim": "Russia’s refineries experienced unscheduled maintenance, attributed to attacks, reducing oil production.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
@@ -191,11 +117,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
+          "retrieved_at": "2026-09-16T14:13:35.203Z",
           "valid": true,
           "evidence_key": "0557236acccbc0ccb59bb720",
-          "first_seen_at": "2026-09-16T11:31:05.070Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "first_seen_at": "2026-09-16T14:13:35.203Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -207,7 +133,7 @@
           "signal": "REFINERY_AVAILABILITY",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Energy Intelligence reported diesel markets in disarray due to supply line cuts",
+          "claim": "Diesel markets are in disarray due to supply line cuts, indicating refinery or logistics constraints.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
@@ -219,95 +145,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
+          "retrieved_at": "2026-09-16T14:13:35.203Z",
           "valid": true,
           "evidence_key": "7470581f5342f8ae681ecf88",
-          "first_seen_at": "2026-09-16T11:31:05.070Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "137e9bee11d08b713c58",
-          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
-          "phase": "LEAD",
-          "signal": "REFINERY_AVAILABILITY",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "PBF Energy began repairs on a unit damaged by fire at its Chalmette, Louisiana refinery",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://www.qcintel.com/article/pbf-says-repairs-at-fire-hit-unit-of-louisiana-refinery-underway-64834.html",
-          "source_name": "PBF says repairs at fire hit unit of Louisiana refinery underway",
-          "source_domain": "qcintel.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
-          "valid": true,
-          "evidence_key": "b5bbcb986aca32ca5cd71a45",
-          "first_seen_at": "2026-09-16T11:31:05.070Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "d7cfc615dcdd05001629",
-          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
-          "phase": "LEAD",
-          "signal": "REFINERY_AVAILABILITY",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Global diesel cracks rebounded in mid‑August 2026 due to extreme heat, refinery disruptions, and constrained product flows",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://www.qcintel.com/article/distillates-global-diesel-cracks-rebound-on-mounting-supply-risks-71024.html",
-          "source_name": "Distillates: Global diesel cracks rebound on mounting supply risks",
-          "source_domain": "qcintel.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
-          "valid": true,
-          "evidence_key": "f67f22f78da6db1b5df1afa8",
-          "first_seen_at": "2026-09-16T11:31:05.070Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "27c4eff4bfb32d984889",
-          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
-          "phase": "LEAD",
-          "signal": "REFINERY_AVAILABILITY",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Rystad Energy reported blowout crack spreads of US$50‑60 per barrel, indicating a lag in the refining system and a diesel/gasoline hole exceeding 1 m bpd in Europe",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://www.rystadenergy.com/news/diesel-shock-inflationary-spiral-imminent-as-reserves-drop-to-historic-lows-and-r",
-          "source_name": "Diesel shock: reserves drop to historic lows and refining lags",
-          "source_domain": "rystadenergy.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
-          "valid": true,
-          "evidence_key": "e91af380e87436af1bb95d75",
-          "first_seen_at": "2026-09-16T11:31:05.070Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "first_seen_at": "2026-09-16T14:13:35.203Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -321,7 +163,7 @@
           "signal": "US_DIESEL_PRICE",
           "family": "OFFICIAL",
           "fact_type": "FACT",
-          "claim": "US diesel retail price on 09/14/26 was $4.319 per gallon (regular gasoline retail price)",
+          "claim": "EIA published U.S. diesel price data for 14 September 2026.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
@@ -333,11 +175,67 @@
           "official": true,
           "engine": "official_rss",
           "published_at": "2026-09-15T14:00:29.000Z",
-          "retrieved_at": "2026-09-16T11:31:02.302Z",
+          "retrieved_at": "2026-09-16T14:13:32.836Z",
           "valid": true,
           "evidence_key": "316806b126b832a0600e8278",
           "first_seen_at": "2026-09-11T11:19:40.599Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "ce3f73497e6b1040603b",
+          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
+          "phase": "LEAD",
+          "signal": "REFINERY_AVAILABILITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Russia’s refineries experienced unscheduled maintenance, attributed to attacks, reducing oil production.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.rferl.org/a/russia-fuel-crunch-ukraine-refineries-strikes/33778225.html",
+          "source_name": "Drone Hits On Hydrocrackers Spark Fuel Crunch, As Ukraine Pounds Russia's Refineries",
+          "source_domain": "rferl.org",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-16T14:13:35.203Z",
+          "valid": true,
+          "evidence_key": "0557236acccbc0ccb59bb720",
+          "first_seen_at": "2026-09-14T08:56:01.012Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "f5b2b4b91ec0b38a23f3",
+          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
+          "phase": "LEAD",
+          "signal": "REFINERY_AVAILABILITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Diesel markets are in disarray due to supply line cuts, indicating refinery or logistics constraints.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.energyintel.com/000001a0-1a03-dec1-a1fe-1a477dd90000",
+          "source_name": "Diesel Markets in Disarray as Supply Lines Cut | Energy Intelligence",
+          "source_domain": "energyintel.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-16T14:13:35.203Z",
+          "valid": true,
+          "evidence_key": "7470581f5342f8ae681ecf88",
+          "first_seen_at": "2026-09-09T04:40:40.512Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -366,65 +264,9 @@
           "evidence_key": "8ab9b864c8aa49757184d4a2",
           "first_seen_at": "2026-09-12T04:33:23.810Z",
           "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "ce3f73497e6b1040603b",
-          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
-          "phase": "LEAD",
-          "signal": "REFINERY_AVAILABILITY",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Russia’s deputy prime minister acknowledged unscheduled maintenance at refineries, implying refinery availability issues",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://www.rferl.org/a/russia-fuel-crunch-ukraine-refineries-strikes/33778225.html",
-          "source_name": "Drone Hits On Hydrocrackers Spark Fuel Crunch, As Ukraine Pounds Russia's Refineries",
-          "source_domain": "rferl.org",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
-          "valid": true,
-          "evidence_key": "0557236acccbc0ccb59bb720",
-          "first_seen_at": "2026-09-14T08:56:01.012Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "f5b2b4b91ec0b38a23f3",
-          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
-          "phase": "LEAD",
-          "signal": "REFINERY_AVAILABILITY",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Energy Intelligence reported diesel markets in disarray due to supply line cuts",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://www.energyintel.com/000001a0-1a03-dec1-a1fe-1a477dd90000",
-          "source_name": "Diesel Markets in Disarray as Supply Lines Cut | Energy Intelligence",
-          "source_domain": "energyintel.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
-          "valid": true,
-          "evidence_key": "7470581f5342f8ae681ecf88",
-          "first_seen_at": "2026-09-09T04:40:40.512Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9743,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.7
         },
         {
           "candidate_id": "137e9bee11d08b713c58",
@@ -450,9 +292,9 @@
           "evidence_key": "b5bbcb986aca32ca5cd71a45",
           "first_seen_at": "2026-09-12T04:33:23.810Z",
           "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9743,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.7
         },
         {
           "candidate_id": "d7cfc615dcdd05001629",
@@ -478,9 +320,9 @@
           "evidence_key": "f67f22f78da6db1b5df1afa8",
           "first_seen_at": "2026-09-09T07:28:16.495Z",
           "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9743,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.7
         },
         {
           "candidate_id": "27c4eff4bfb32d984889",
@@ -506,9 +348,9 @@
           "evidence_key": "e91af380e87436af1bb95d75",
           "first_seen_at": "2026-09-16T04:48:59.564Z",
           "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9743,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.7
         },
         {
           "candidate_id": "fae472cef5ba77cbcda8",
@@ -534,9 +376,9 @@
           "evidence_key": "78029c3d290f6881492b1fec",
           "first_seen_at": "2026-09-14T08:56:01.012Z",
           "last_seen_at": "2026-09-14T09:03:52.651Z",
-          "memory_weight": 0.6148,
+          "memory_weight": 0.599,
           "memory_status": "CARRIED",
-          "memory_age_hours": 50.53
+          "memory_age_hours": 53.23
         },
         {
           "candidate_id": "0dd79b12b69f76fcfdd9",
@@ -562,9 +404,9 @@
           "evidence_key": "ff5ef46d2a1c44bc5adf5c6e",
           "first_seen_at": "2026-09-05T20:19:42.831Z",
           "last_seen_at": "2026-09-12T04:41:32.848Z",
-          "memory_weight": 0.3713,
+          "memory_weight": 0.3618,
           "memory_status": "CARRIED",
-          "memory_age_hours": 102.9
+          "memory_age_hours": 105.6
         }
       ],
       "verified": [],
@@ -575,14 +417,14 @@
       },
       "events": [
         {
-          "id": "33260d8ef8e999143acd79",
+          "id": "d18199040352fcd644a796",
           "mechanism_id": "DIESEL_REFINING_CRISIS",
-          "run_id": "run_2026-09-16T11-29-15Z",
+          "run_id": "run_2026-09-16T14-12-11Z",
           "phase": "CONFIRM",
           "signal": "US_DIESEL_PRICE",
-          "claim": "US diesel retail price on 09/14/26 was $4.319 per gallon (regular gasoline retail price)",
+          "claim": "EIA published U.S. diesel price data for 14 September 2026.",
           "observed_at": "2026-09-15T14:00:29.000Z",
-          "ingested_at": "2026-09-16T11:35:44.699Z",
+          "ingested_at": "2026-09-16T14:17:50.353Z",
           "source_count": 1,
           "domains": [
             "eia.gov"
@@ -596,35 +438,14 @@
           "source_grade": 1
         },
         {
-          "id": "6ce665916f479992c4cc44",
+          "id": "0edb0538d8d2d2b5c43d9a",
           "mechanism_id": "DIESEL_REFINING_CRISIS",
-          "run_id": "run_2026-09-16T11-29-15Z",
+          "run_id": "run_2026-09-16T14-12-11Z",
           "phase": "LEAD",
           "signal": "REFINERY_AVAILABILITY",
-          "claim": "Gdansk refinery conducted maintenance on multiple units, taking three base oil units offline from 8 April to mid‑May",
+          "claim": "Russia’s refineries experienced unscheduled maintenance, attributed to attacks, reducing oil production.",
           "observed_at": null,
-          "ingested_at": "2026-09-16T11:35:44.699Z",
-          "source_count": 1,
-          "domains": [
-            "argusmedia.com"
-          ],
-          "source_urls": [
-            "https://www.argusmedia.com/en/news-and-insights/latest-market-news/2811148-gdansk-refinery-ups-output-after-maintenance"
-          ],
-          "official": false,
-          "representative_source": "Gdansk refinery ups output after maintenance | Latest Market News",
-          "representative_url": "https://www.argusmedia.com/en/news-and-insights/latest-market-news/2811148-gdansk-refinery-ups-output-after-maintenance",
-          "source_grade": 0.82
-        },
-        {
-          "id": "2bb93dd352c629ddcf77bb",
-          "mechanism_id": "DIESEL_REFINING_CRISIS",
-          "run_id": "run_2026-09-16T11-29-15Z",
-          "phase": "LEAD",
-          "signal": "REFINERY_AVAILABILITY",
-          "claim": "Russia’s deputy prime minister acknowledged unscheduled maintenance at refineries, implying refinery availability issues",
-          "observed_at": null,
-          "ingested_at": "2026-09-16T11:35:44.699Z",
+          "ingested_at": "2026-09-16T14:17:50.353Z",
           "source_count": 1,
           "domains": [
             "rferl.org"
@@ -638,14 +459,14 @@
           "source_grade": 0.62
         },
         {
-          "id": "10999eb77b563dd94ca017",
+          "id": "951584cb97b3c8284eca01",
           "mechanism_id": "DIESEL_REFINING_CRISIS",
-          "run_id": "run_2026-09-16T11-29-15Z",
+          "run_id": "run_2026-09-16T14-12-11Z",
           "phase": "LEAD",
           "signal": "REFINERY_AVAILABILITY",
-          "claim": "Energy Intelligence reported diesel markets in disarray due to supply line cuts",
+          "claim": "Diesel markets are in disarray due to supply line cuts, indicating refinery or logistics constraints.",
           "observed_at": null,
-          "ingested_at": "2026-09-16T11:35:44.699Z",
+          "ingested_at": "2026-09-16T14:17:50.353Z",
           "source_count": 1,
           "domains": [
             "energyintel.com"
@@ -657,95 +478,30 @@
           "representative_source": "Diesel Markets in Disarray as Supply Lines Cut | Energy Intelligence",
           "representative_url": "https://www.energyintel.com/000001a0-1a03-dec1-a1fe-1a477dd90000",
           "source_grade": 0.62
-        },
-        {
-          "id": "bde6a44af449cfc556e58c",
-          "mechanism_id": "DIESEL_REFINING_CRISIS",
-          "run_id": "run_2026-09-16T11-29-15Z",
-          "phase": "LEAD",
-          "signal": "REFINERY_AVAILABILITY",
-          "claim": "PBF Energy began repairs on a unit damaged by fire at its Chalmette, Louisiana refinery",
-          "observed_at": null,
-          "ingested_at": "2026-09-16T11:35:44.699Z",
-          "source_count": 1,
-          "domains": [
-            "qcintel.com"
-          ],
-          "source_urls": [
-            "https://www.qcintel.com/article/pbf-says-repairs-at-fire-hit-unit-of-louisiana-refinery-underway-64834.html"
-          ],
-          "official": false,
-          "representative_source": "PBF says repairs at fire hit unit of Louisiana refinery underway",
-          "representative_url": "https://www.qcintel.com/article/pbf-says-repairs-at-fire-hit-unit-of-louisiana-refinery-underway-64834.html",
-          "source_grade": 0.62
-        },
-        {
-          "id": "d3177447f48ef8be5b509d",
-          "mechanism_id": "DIESEL_REFINING_CRISIS",
-          "run_id": "run_2026-09-16T11-29-15Z",
-          "phase": "LEAD",
-          "signal": "REFINERY_AVAILABILITY",
-          "claim": "Global diesel cracks rebounded in mid‑August 2026 due to extreme heat, refinery disruptions, and constrained product flows",
-          "observed_at": null,
-          "ingested_at": "2026-09-16T11:35:44.699Z",
-          "source_count": 1,
-          "domains": [
-            "qcintel.com"
-          ],
-          "source_urls": [
-            "https://www.qcintel.com/article/distillates-global-diesel-cracks-rebound-on-mounting-supply-risks-71024.html"
-          ],
-          "official": false,
-          "representative_source": "Distillates: Global diesel cracks rebound on mounting supply risks",
-          "representative_url": "https://www.qcintel.com/article/distillates-global-diesel-cracks-rebound-on-mounting-supply-risks-71024.html",
-          "source_grade": 0.62
-        },
-        {
-          "id": "b5586fc550c88d92ae97ff",
-          "mechanism_id": "DIESEL_REFINING_CRISIS",
-          "run_id": "run_2026-09-16T11-29-15Z",
-          "phase": "LEAD",
-          "signal": "REFINERY_AVAILABILITY",
-          "claim": "Rystad Energy reported blowout crack spreads of US$50‑60 per barrel, indicating a lag in the refining system and a diesel/gasoline hole exceeding 1 m bpd in Europe",
-          "observed_at": null,
-          "ingested_at": "2026-09-16T11:35:44.699Z",
-          "source_count": 1,
-          "domains": [
-            "rystadenergy.com"
-          ],
-          "source_urls": [
-            "https://www.rystadenergy.com/news/diesel-shock-inflationary-spiral-imminent-as-reserves-drop-to-historic-lows-and-r"
-          ],
-          "official": false,
-          "representative_source": "Diesel shock: reserves drop to historic lows and refining lags",
-          "representative_url": "https://www.rystadenergy.com/news/diesel-shock-inflationary-spiral-imminent-as-reserves-drop-to-historic-lows-and-r",
-          "source_grade": 0.62
         }
       ],
       "event_stats": {
-        "observed_unique": 7,
+        "observed_unique": 3,
         "observed_duplicates": 0,
         "memory_unique": 8,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 7,
-        "carried_items": 2,
-        "avg_carry_weight": 0.493,
-        "observed_score": 60,
-        "raw_combined_score": 60,
-        "decayed_score": 60
+        "observed_items": 3,
+        "carried_items": 6,
+        "avg_carry_weight": 0.81,
+        "observed_score": 55,
+        "raw_combined_score": 59,
+        "decayed_score": 58
       },
-      "expected_next": [
-        "No further evidence on Brent crude prices is present in the candidate set."
-      ],
+      "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 49,
-        "crowding": 31.2,
-        "breadth": 0.875,
-        "relative_breadth": 0.75,
-        "intraday_breadth": 0.375,
+        "score": 45,
+        "crowding": 32,
+        "breadth": 0.625,
+        "relative_breadth": 0.5,
+        "intraday_breadth": 0.625,
         "quality": "HIGH",
         "n": 8,
         "intraday_n": 8,
@@ -753,58 +509,58 @@
         "above50": 1,
         "benchmark": "XLE",
         "avg": {
-          "r1": 2.77,
-          "r5": 1.28,
-          "r20": 11.79,
-          "rel5": 0.83,
-          "rel20": 10.45,
-          "r30m": -0.36,
-          "r2h": -0.34,
-          "rel30m": -0.35,
-          "rel2h": -0.27,
-          "volumeZ": 0.54
+          "r1": 0.09,
+          "r5": 0.77,
+          "r20": 10.59,
+          "rel5": 0.99,
+          "rel20": 10.17,
+          "r30m": 0.09,
+          "r2h": 0.25,
+          "rel30m": 0.07,
+          "rel2h": 0.46,
+          "volumeZ": -1.58
         }
       },
       "crowd": {
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
-        "consensus": 75,
-        "consensus_delta": 0,
-        "priced_in": 34.7,
+        "consensus": 70,
+        "consensus_delta": -5,
+        "priced_in": 34.4,
         "discount": "PARTLY_PRICED",
-        "timing_score": 68.3,
+        "timing_score": 66.5,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0.75,
-          "intraday_breadth": 0.375,
-          "breadth": 0.875,
+          "relative_breadth": 0.5,
+          "intraday_breadth": 0.625,
+          "breadth": 0.625,
           "above20": 1,
           "above50": 1,
-          "crowding": 31.2,
+          "crowding": 32,
           "lag_share": 0,
-          "rel5": 0.83,
-          "rel2h": -0.27
+          "rel5": 0.99,
+          "rel2h": 0.46
         }
       },
       "scout": {
         "eligible": false,
-        "score": 59.1,
+        "score": 57.6,
         "reasons": [
-          "WAVE_NOT_EARLY",
-          "MARKET_ALREADY_MOVED"
+          "WAVE_NOT_EARLY"
         ],
         "phase": "IN_SYNC",
-        "priced_in": 34.7
+        "priced_in": 34.4
       },
       "alpha": {
         "eligible": false,
-        "score": 54.7,
+        "score": 53.1,
         "market_floor": 20,
         "reasons": [
-          "STATE_NOT_STABLY_ACTIVE"
+          "STATE_NOT_STABLY_ACTIVE",
+          "CAUSAL_TOO_WEAK"
         ],
         "empirical": {
           "samples": 0,
@@ -813,7 +569,7 @@
           "lead_to_confirm": 0.25
         },
         "crowd_phase": "IN_SYNC",
-        "priced_in": 34.7
+        "priced_in": 34.4
       },
       "reliability": {
         "samples": 0,
@@ -855,27 +611,27 @@
         "UAL",
         "AAL"
       ],
-      "last_run": "2026-09-16T11:35:44.699Z",
+      "last_run": "2026-09-16T14:17:50.353Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
         "prompt_tokens": 2023,
-        "completion_tokens": 808,
-        "total_tokens": 2831,
-        "cost": 0.00012126,
+        "completion_tokens": 1300,
+        "total_tokens": 3323,
+        "cost": 0.00025505,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 0,
+          "cached_tokens": 64,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00012126,
-          "upstream_inference_prompt_cost": 0.00004046,
-          "upstream_inference_completions_cost": 0.0000808
+          "upstream_inference_cost": 0.00025505,
+          "upstream_inference_prompt_cost": 0.00006005,
+          "upstream_inference_completions_cost": 0.000195
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 265,
+          "reasoning_tokens": 950,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -946,42 +702,14 @@
       "id": "PRODUCT_TANKER_TONMILES",
       "label": "Product tanker ton-miles",
       "tier": "A",
-      "state": "WATCH",
-      "raw_state": "WATCH",
-      "score": 31,
+      "state": "DORMANT",
+      "raw_state": "DORMANT",
+      "score": 24,
       "previous_state": "WATCH",
-      "score_delta": 2,
-      "summary": "The available evidence indicates that product tanker tonne‑miles are increasing to compensate for lost volumes from the Persian Gulf, that the US Gulf Coast tanker market is tightening as Asia seeks replacement supply, and that several US‑laden diesel tankers are diverting away from Europe. No direct confirmation or lag evidence is present in the candidate set.",
-      "material_change": false,
+      "score_delta": -7,
+      "summary": "The available evidence indicates that product tanker target prices have risen, suggesting tightening fleet supply, and that diesel cargoes are being rerouted, implying longer travel distances for refined-product cargoes. No direct ton‑mile data is provided, and no contradictory evidence is present.",
+      "material_change": true,
       "observed_evidence": [
-        {
-          "candidate_id": "849c447da18a89c3d95c",
-          "query_id": "PRODUCT_TANKER_TONMILES:lead:mr_fixture",
-          "phase": "LEAD",
-          "signal": "MR_FIXTURES",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "The US Gulf Coast tanker market is tightening as Asia seeks to replace lost supply.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "MR_FIXTURES",
-          "source_url": "https://www.reuters.com/business/energy/us-gulf-coast-tanker-market-tightens-asia-seeks-replace-lost-supply-2026-04-01",
-          "source_name": "US Gulf Coast tanker market tightens as Asia seeks to replace lost supply | Reuters",
-          "source_domain": "reuters.com",
-          "source_grade": 0.92,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
-          "valid": true,
-          "evidence_key": "1b56ad41dedef2a9742bee3a",
-          "first_seen_at": "2026-09-16T11:31:05.070Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
         {
           "candidate_id": "e5b5aee9529a864908c1",
           "query_id": "PRODUCT_TANKER_TONMILES:lead:mr_fixture",
@@ -989,11 +717,11 @@
           "signal": "MR_FIXTURES",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Product tanker tonne‑miles are growing to offset lost volumes from the Persian Gulf.",
+          "claim": "Pareto Securities increased product tanker target prices, citing a potential fixture frenzy due to Hormuz reopening, indicating tightening of effective fleet supply.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "MR_FIXTURES",
+          "why_upstream": "",
           "source_url": "https://www.tradewindsnews.com/tankers/pareto-hikes-product-tanker-target-prices-as-hormuz-reopening-could-trigger-fixture-frenzy-/2-1-1970036",
           "source_name": "Pareto hikes product tanker target prices as Hormuz reopening could trigger ‘fixture frenzy’",
           "source_domain": "tradewindsnews.com",
@@ -1001,73 +729,45 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
+          "retrieved_at": "2026-09-16T14:13:35.203Z",
           "valid": true,
           "evidence_key": "ffa33f5076be52316e5a3e22",
-          "first_seen_at": "2026-09-16T11:31:05.070Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "ff05274370fb58edc446",
-          "query_id": "PRODUCT_TANKER_TONMILES:lead:mr_fixture",
-          "phase": "LEAD",
-          "signal": "MR_FIXTURES",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Product tanker tonne‑miles are growing to offset lost volumes from the Persian Gulf.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "MR_FIXTURES",
-          "source_url": "https://stage.tradewindsnews.com/tankers/pareto-hikes-product-tanker-target-prices-as-hormuz-reopening-could-trigger-fixture-frenzy-/2-1-1970036",
-          "source_name": "Pareto hikes product tanker target prices as Hormuz reopening could trigger ‘fixture frenzy’",
-          "source_domain": "stage.tradewindsnews.com",
-          "source_grade": 0.82,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
-          "valid": true,
-          "evidence_key": "53c48de5d1b7808606c247fa",
-          "first_seen_at": "2026-09-16T11:31:05.070Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "abbd180e52b96315c73c",
-          "query_id": "PRODUCT_TANKER_TONMILES:lead:mr_fixture",
-          "phase": "LEAD",
-          "signal": "MR_FIXTURES",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Six US‑laden diesel tankers are diverting away from Europe.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "MR_FIXTURES",
-          "source_url": "https://www.vortexa.com/insights/diesel-tankers-diverteuro",
-          "source_name": "Six US-laden diesel tankers divert away from Europe",
-          "source_domain": "vortexa.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
-          "valid": true,
-          "evidence_key": "f09bf5d170799bd5b1740283",
-          "first_seen_at": "2026-09-16T11:31:05.070Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "first_seen_at": "2026-09-16T14:13:35.203Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
         }
       ],
       "evidence": [
+        {
+          "candidate_id": "e5b5aee9529a864908c1",
+          "query_id": "PRODUCT_TANKER_TONMILES:lead:mr_fixture",
+          "phase": "LEAD",
+          "signal": "MR_FIXTURES",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Pareto Securities increased product tanker target prices, citing a potential fixture frenzy due to Hormuz reopening, indicating tightening of effective fleet supply.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.tradewindsnews.com/tankers/pareto-hikes-product-tanker-target-prices-as-hormuz-reopening-could-trigger-fixture-frenzy-/2-1-1970036",
+          "source_name": "Pareto hikes product tanker target prices as Hormuz reopening could trigger ‘fixture frenzy’",
+          "source_domain": "tradewindsnews.com",
+          "source_grade": 0.82,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-09-16T14:13:35.203Z",
+          "valid": true,
+          "evidence_key": "ffa33f5076be52316e5a3e22",
+          "first_seen_at": "2026-09-12T10:44:42.942Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
         {
           "candidate_id": "849c447da18a89c3d95c",
           "query_id": "PRODUCT_TANKER_TONMILES:lead:mr_fixture",
@@ -1092,37 +792,9 @@
           "evidence_key": "1b56ad41dedef2a9742bee3a",
           "first_seen_at": "2026-09-05T04:25:55.458Z",
           "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "e5b5aee9529a864908c1",
-          "query_id": "PRODUCT_TANKER_TONMILES:lead:mr_fixture",
-          "phase": "LEAD",
-          "signal": "MR_FIXTURES",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Product tanker tonne‑miles are growing to offset lost volumes from the Persian Gulf.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "MR_FIXTURES",
-          "source_url": "https://www.tradewindsnews.com/tankers/pareto-hikes-product-tanker-target-prices-as-hormuz-reopening-could-trigger-fixture-frenzy-/2-1-1970036",
-          "source_name": "Pareto hikes product tanker target prices as Hormuz reopening could trigger ‘fixture frenzy’",
-          "source_domain": "tradewindsnews.com",
-          "source_grade": 0.82,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
-          "valid": true,
-          "evidence_key": "ffa33f5076be52316e5a3e22",
-          "first_seen_at": "2026-09-12T10:44:42.942Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9743,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.7
         },
         {
           "candidate_id": "ff05274370fb58edc446",
@@ -1148,9 +820,9 @@
           "evidence_key": "53c48de5d1b7808606c247fa",
           "first_seen_at": "2026-09-16T11:31:05.070Z",
           "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9743,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.7
         },
         {
           "candidate_id": "abbd180e52b96315c73c",
@@ -1176,9 +848,9 @@
           "evidence_key": "f09bf5d170799bd5b1740283",
           "first_seen_at": "2026-09-16T08:36:34.319Z",
           "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9743,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.7
         },
         {
           "candidate_id": "a50b220648a8e8c70a7b",
@@ -1204,9 +876,9 @@
           "evidence_key": "e8295373634d9f314eaa9cba",
           "first_seen_at": "2026-09-11T11:19:43.034Z",
           "last_seen_at": "2026-09-16T10:16:18.226Z",
-          "memory_weight": 0.9873,
+          "memory_weight": 0.962,
           "memory_status": "CARRIED",
-          "memory_age_hours": 1.32
+          "memory_age_hours": 4.03
         },
         {
           "candidate_id": "dce93c2fc62755a02c69",
@@ -1232,9 +904,9 @@
           "evidence_key": "e2ab2d25e3c3ad9063eb9f3b",
           "first_seen_at": "2026-09-15T04:53:09.304Z",
           "last_seen_at": "2026-09-15T08:48:27.204Z",
-          "memory_weight": 0.7727,
+          "memory_weight": 0.7528,
           "memory_status": "CARRIED",
-          "memory_age_hours": 26.79
+          "memory_age_hours": 29.49
         },
         {
           "candidate_id": "066c7ba931b5dc909ef9",
@@ -1260,9 +932,9 @@
           "evidence_key": "705fd830e1021c8b30e4be53",
           "first_seen_at": "2026-09-14T08:56:01.012Z",
           "last_seen_at": "2026-09-14T09:03:52.651Z",
-          "memory_weight": 0.6148,
+          "memory_weight": 0.599,
           "memory_status": "CARRIED",
-          "memory_age_hours": 50.53
+          "memory_age_hours": 53.23
         },
         {
           "candidate_id": "875ca85955eb99c735cb",
@@ -1288,9 +960,9 @@
           "evidence_key": "e9c0edcd846f33efe3b7b349",
           "first_seen_at": "2026-09-14T08:56:01.012Z",
           "last_seen_at": "2026-09-14T09:03:52.651Z",
-          "memory_weight": 0.6148,
+          "memory_weight": 0.599,
           "memory_status": "CARRIED",
-          "memory_age_hours": 50.53
+          "memory_age_hours": 53.23
         },
         {
           "candidate_id": "7766b6e2a15787e87684",
@@ -1316,9 +988,9 @@
           "evidence_key": "efd1eb88c53e392c96539dc5",
           "first_seen_at": "2026-09-14T08:56:01.012Z",
           "last_seen_at": "2026-09-14T09:03:52.651Z",
-          "memory_weight": 0.6148,
+          "memory_weight": 0.599,
           "memory_status": "CARRIED",
-          "memory_age_hours": 50.53
+          "memory_age_hours": 53.23
         },
         {
           "candidate_id": "47eabab693fd989e3ab2",
@@ -1344,9 +1016,9 @@
           "evidence_key": "56723862a28f7ffdb71b6c66",
           "first_seen_at": "2026-09-09T00:27:11.178Z",
           "last_seen_at": "2026-09-13T11:59:00.916Z",
-          "memory_weight": 0.5019,
+          "memory_weight": 0.489,
           "memory_status": "CARRIED",
-          "memory_age_hours": 71.61
+          "memory_age_hours": 74.31
         },
         {
           "candidate_id": "3bed7e82a4bb60b02094",
@@ -1372,9 +1044,9 @@
           "evidence_key": "1e8164638bf549dae3e4613d",
           "first_seen_at": "2026-09-12T15:31:28.489Z",
           "last_seen_at": "2026-09-13T08:27:25.412Z",
-          "memory_weight": 0.4851,
+          "memory_weight": 0.4727,
           "memory_status": "CARRIED",
-          "memory_age_hours": 75.14
+          "memory_age_hours": 77.84
         },
         {
           "candidate_id": "c560158b5656ee3410fd",
@@ -1400,9 +1072,9 @@
           "evidence_key": "c0368f5ca597ad4420fd59ae",
           "first_seen_at": "2026-09-12T15:31:28.489Z",
           "last_seen_at": "2026-09-12T15:36:24.334Z",
-          "memory_weight": 0.4125,
+          "memory_weight": 0.4019,
           "memory_status": "CARRIED",
-          "memory_age_hours": 91.99
+          "memory_age_hours": 94.69
         },
         {
           "candidate_id": "a5f58df4ac4cfde90bd2",
@@ -1428,9 +1100,9 @@
           "evidence_key": "80780243ab0e27b25e578f8e",
           "first_seen_at": "2026-09-10T16:24:31.279Z",
           "last_seen_at": "2026-09-11T11:27:11.614Z",
-          "memory_weight": 0.3145,
+          "memory_weight": 0.3065,
           "memory_status": "CARRIED",
-          "memory_age_hours": 120.14
+          "memory_age_hours": 122.84
         },
         {
           "candidate_id": "0d0bfa11d1056c4d4987",
@@ -1456,9 +1128,9 @@
           "evidence_key": "b9998cbedae20cab6ebe774d",
           "first_seen_at": "2026-09-11T04:39:09.141Z",
           "last_seen_at": "2026-09-11T04:48:04.235Z",
-          "memory_weight": 0.295,
+          "memory_weight": 0.2875,
           "memory_status": "CARRIED",
-          "memory_age_hours": 126.79
+          "memory_age_hours": 129.5
         },
         {
           "candidate_id": "e2c63ec4e5258db73f3d",
@@ -1484,9 +1156,9 @@
           "evidence_key": "c708f3ac8ee31e9aca74c500",
           "first_seen_at": "2026-09-11T04:39:09.141Z",
           "last_seen_at": "2026-09-11T04:48:04.235Z",
-          "memory_weight": 0.295,
+          "memory_weight": 0.2875,
           "memory_status": "CARRIED",
-          "memory_age_hours": 126.79
+          "memory_age_hours": 129.5
         },
         {
           "candidate_id": "f3a5a4d247cd4abcf31d",
@@ -1512,9 +1184,9 @@
           "evidence_key": "0372ac6c032007a0f8fa45bd",
           "first_seen_at": "2026-09-10T16:24:31.279Z",
           "last_seen_at": "2026-09-10T16:35:01.689Z",
-          "memory_weight": 0.2623,
+          "memory_weight": 0.2556,
           "memory_status": "CARRIED",
-          "memory_age_hours": 139.01
+          "memory_age_hours": 141.71
         }
       ],
       "verified": [],
@@ -1525,93 +1197,49 @@
       },
       "events": [
         {
-          "id": "5ba77cf2720b9a6bc0c17a",
+          "id": "1e51a2fff64936120b3675",
           "mechanism_id": "PRODUCT_TANKER_TONMILES",
-          "run_id": "run_2026-09-16T11-29-15Z",
+          "run_id": "run_2026-09-16T14-12-11Z",
           "phase": "LEAD",
           "signal": "MR_FIXTURES",
-          "claim": "The US Gulf Coast tanker market is tightening as Asia seeks to replace lost supply.",
+          "claim": "Pareto Securities increased product tanker target prices, citing a potential fixture frenzy due to Hormuz reopening, indicating tightening of effective fleet supply.",
           "observed_at": null,
-          "ingested_at": "2026-09-16T11:35:44.699Z",
+          "ingested_at": "2026-09-16T14:17:50.353Z",
           "source_count": 1,
           "domains": [
-            "reuters.com"
+            "tradewindsnews.com"
           ],
           "source_urls": [
-            "https://www.reuters.com/business/energy/us-gulf-coast-tanker-market-tightens-asia-seeks-replace-lost-supply-2026-04-01"
-          ],
-          "official": false,
-          "representative_source": "US Gulf Coast tanker market tightens as Asia seeks to replace lost supply | Reuters",
-          "representative_url": "https://www.reuters.com/business/energy/us-gulf-coast-tanker-market-tightens-asia-seeks-replace-lost-supply-2026-04-01",
-          "source_grade": 0.92
-        },
-        {
-          "id": "b5004128bb9628230257a5",
-          "mechanism_id": "PRODUCT_TANKER_TONMILES",
-          "run_id": "run_2026-09-16T11-29-15Z",
-          "phase": "LEAD",
-          "signal": "MR_FIXTURES",
-          "claim": "Product tanker tonne‑miles are growing to offset lost volumes from the Persian Gulf.",
-          "observed_at": null,
-          "ingested_at": "2026-09-16T11:35:44.699Z",
-          "source_count": 2,
-          "domains": [
-            "tradewindsnews.com",
-            "stage.tradewindsnews.com"
-          ],
-          "source_urls": [
-            "https://www.tradewindsnews.com/tankers/pareto-hikes-product-tanker-target-prices-as-hormuz-reopening-could-trigger-fixture-frenzy-/2-1-1970036",
-            "https://stage.tradewindsnews.com/tankers/pareto-hikes-product-tanker-target-prices-as-hormuz-reopening-could-trigger-fixture-frenzy-/2-1-1970036"
+            "https://www.tradewindsnews.com/tankers/pareto-hikes-product-tanker-target-prices-as-hormuz-reopening-could-trigger-fixture-frenzy-/2-1-1970036"
           ],
           "official": false,
           "representative_source": "Pareto hikes product tanker target prices as Hormuz reopening could trigger ‘fixture frenzy’",
           "representative_url": "https://www.tradewindsnews.com/tankers/pareto-hikes-product-tanker-target-prices-as-hormuz-reopening-could-trigger-fixture-frenzy-/2-1-1970036",
           "source_grade": 0.82
-        },
-        {
-          "id": "7591db6e61a2ba18b87d0a",
-          "mechanism_id": "PRODUCT_TANKER_TONMILES",
-          "run_id": "run_2026-09-16T11-29-15Z",
-          "phase": "LEAD",
-          "signal": "MR_FIXTURES",
-          "claim": "Six US‑laden diesel tankers are diverting away from Europe.",
-          "observed_at": null,
-          "ingested_at": "2026-09-16T11:35:44.699Z",
-          "source_count": 1,
-          "domains": [
-            "vortexa.com"
-          ],
-          "source_urls": [
-            "https://www.vortexa.com/insights/diesel-tankers-diverteuro"
-          ],
-          "official": false,
-          "representative_source": "Six US-laden diesel tankers divert away from Europe",
-          "representative_url": "https://www.vortexa.com/insights/diesel-tankers-diverteuro",
-          "source_grade": 0.62
         }
       ],
       "event_stats": {
-        "observed_unique": 3,
-        "observed_duplicates": 1,
-        "memory_unique": 11,
-        "memory_duplicates": 1
+        "observed_unique": 1,
+        "observed_duplicates": 0,
+        "memory_unique": 12,
+        "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 4,
-        "carried_items": 12,
-        "avg_carry_weight": 0.514,
-        "observed_score": 29,
+        "observed_items": 1,
+        "carried_items": 15,
+        "avg_carry_weight": 0.596,
+        "observed_score": 13,
         "raw_combined_score": 32,
-        "decayed_score": 31
+        "decayed_score": 24
       },
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 57,
-        "crowding": 45,
-        "breadth": 0.8,
-        "relative_breadth": 0.8,
-        "intraday_breadth": 0.4,
+        "score": 84,
+        "crowding": 100,
+        "breadth": 1,
+        "relative_breadth": 1,
+        "intraday_breadth": 0.8,
         "quality": "HIGH",
         "n": 5,
         "intraday_n": 5,
@@ -1619,62 +1247,65 @@
         "above50": 1,
         "benchmark": "XLE",
         "avg": {
-          "r1": 0,
-          "r5": 3.72,
-          "r20": 15.8,
-          "rel5": 1.93,
-          "rel20": 10.45,
-          "r30m": -0.09,
-          "r2h": -0.04,
-          "rel30m": -0.03,
-          "rel2h": 0.23,
-          "volumeZ": 1.43
+          "r1": 2.36,
+          "r5": 5.22,
+          "r20": 20.05,
+          "rel5": 6.09,
+          "rel20": 18.39,
+          "r30m": 0.27,
+          "r2h": 1.28,
+          "rel30m": 0.21,
+          "rel2h": 2.13,
+          "volumeZ": -1.23
         }
       },
       "crowd": {
-        "phase": "IN_SYNC",
-        "position": "SYNCHRONIZED",
-        "consensus": 76,
-        "consensus_delta": -5,
-        "priced_in": 44.3,
-        "discount": "PARTLY_PRICED",
-        "timing_score": 53.1,
-        "block_chase": false,
+        "phase": "SATURATED",
+        "position": "LATE",
+        "consensus": 95,
+        "consensus_delta": 19,
+        "priced_in": 85.1,
+        "discount": "PRICED_IN",
+        "timing_score": 43.5,
+        "block_chase": true,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0.8,
-          "intraday_breadth": 0.4,
-          "breadth": 0.8,
+          "relative_breadth": 1,
+          "intraday_breadth": 0.8,
+          "breadth": 1,
           "above20": 1,
           "above50": 1,
-          "crowding": 45,
+          "crowding": 100,
           "lag_share": 0,
-          "rel5": 1.93,
-          "rel2h": 0.23
+          "rel5": 6.09,
+          "rel2h": 2.13
         }
       },
       "scout": {
         "eligible": false,
-        "score": 42.3,
+        "score": 30.5,
         "reasons": [
+          "STATE_NOT_SCOUTABLE",
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
           "ALREADY_PRICED",
           "MARKET_ALREADY_MOVED"
         ],
-        "phase": "IN_SYNC",
-        "priced_in": 44.3
+        "phase": "SATURATED",
+        "priced_in": 85.1
       },
       "alpha": {
         "eligible": false,
-        "score": 39.4,
+        "score": 28.5,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
+          "CROWD_LATE_OR_PRICED_IN",
           "CAUSAL_TOO_WEAK",
-          "NO_CONFIRM"
+          "NO_CONFIRM",
+          "TOO_CROWDED"
         ],
         "empirical": {
           "samples": 0,
@@ -1682,8 +1313,8 @@
           "avg_return": null,
           "lead_to_confirm": null
         },
-        "crowd_phase": "IN_SYNC",
-        "priced_in": 44.3
+        "crowd_phase": "SATURATED",
+        "priced_in": 85.1
       },
       "reliability": {
         "samples": 0,
@@ -1692,9 +1323,9 @@
         "lead_to_confirm": null
       },
       "hysteresis": {
-        "raw_state": "WATCH",
+        "raw_state": "DORMANT",
         "pending": null,
-        "reason": "STABLE",
+        "reason": "DIRECT_NONCRITICAL_TRANSITION",
         "applied": false
       },
       "sensors": {
@@ -1706,6 +1337,7 @@
           "reuters.com",
           "bloomberg.com",
           "tradewindsnews.com",
+          "stage.tradewindsnews.com",
           "spglobal.com",
           "lloydslist.com",
           "vortexa.com",
@@ -1714,8 +1346,8 @@
           "cryptobriefing.com",
           "marinelink.com"
         ],
-        "events": 11,
-        "duplicates_removed": 1
+        "events": 12,
+        "duplicates_removed": 0
       },
       "positive": [
         "ASC",
@@ -1725,13 +1357,13 @@
         "STNG"
       ],
       "negative": [],
-      "last_run": "2026-09-16T11:35:44.699Z",
+      "last_run": "2026-09-16T14:17:50.353Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1813,
+        "prompt_tokens": 1900,
         "completion_tokens": 1300,
-        "total_tokens": 3113,
-        "cost": 0.00023639,
+        "total_tokens": 3200,
+        "cost": 0.000239,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -1740,12 +1372,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00023639,
-          "upstream_inference_prompt_cost": 0.00005439,
+          "upstream_inference_cost": 0.000239,
+          "upstream_inference_prompt_cost": 0.000057,
           "upstream_inference_completions_cost": 0.000182
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 855,
+          "reasoning_tokens": 1174,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -1805,7 +1437,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 10
             }
           }
@@ -1818,10 +1450,10 @@
       "tier": "A",
       "state": "WATCH",
       "raw_state": "WATCH",
-      "score": 40,
+      "score": 36,
       "previous_state": "WATCH",
-      "score_delta": 0,
-      "summary": "Crude tanker dislocation evidence",
+      "score_delta": -4,
+      "summary": "Record VLCC chartering from Guyana amid Gulf crisis indicates rising VLCC demand.",
       "material_change": false,
       "observed_evidence": [
         {
@@ -1831,11 +1463,11 @@
           "signal": "CRUDE_ROUTE_SHIFT",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Record VLCC fixing from Guyana as Gulf crisis reduces Middle East supply, prompting Western refiners to seek alternatives",
+          "claim": "Record VLCC fixing from Guyana due to Gulf crisis",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "",
+          "why_upstream": "Gulf crisis drives record VLCC fixing from Guyana",
           "source_url": "https://www.tradewindsnews.com/tankers/gulf-crisis-drives-record-vlcc-fixing-from-guyana/2-1-2005408",
           "source_name": "Gulf crisis drives record VLCC fixing from Guyana - TradeWinds",
           "source_domain": "tradewindsnews.com",
@@ -1843,67 +1475,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
+          "retrieved_at": "2026-09-16T14:13:35.203Z",
           "valid": true,
           "evidence_key": "6539a282ec94168d08fb03c1",
-          "first_seen_at": "2026-09-16T11:31:05.070Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "f9ffde480d844e606021",
-          "query_id": "CRUDE_TANKER_DISLOCATION:lead:vlcc_route",
-          "phase": "LEAD",
-          "signal": "CRUDE_ROUTE_SHIFT",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Cargo vessel hit near Oman paused evacuation effort for ships from the Strait of Hormuz, raising concerns about worldwide oil flow",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://sg.finance.yahoo.com/news/oil-prices-edge-supply-worries-183534376.html",
-          "source_name": "Oil prices edge up on new supply worries after cargo ship hit near ...",
-          "source_domain": "sg.finance.yahoo.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
-          "valid": true,
-          "evidence_key": "3b63fa71b2f0cbf4cc9e7eb1",
-          "first_seen_at": "2026-09-16T11:31:05.070Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "a4976f7b575b9adbd940",
-          "query_id": "CRUDE_TANKER_DISLOCATION:lead:vlcc_route",
-          "phase": "LEAD",
-          "signal": "CRUDE_ROUTE_SHIFT",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "More tankers moved through the Strait of Hormuz, easing supply concerns after a cargo vessel hit near Oman",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://finance.yahoo.com/energy/articles/oil-edges-lower-amid-resumption-010939251.html",
-          "source_name": "Oil prices dive as more tankers move through Strait of Hormuz",
-          "source_domain": "finance.yahoo.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
-          "valid": true,
-          "evidence_key": "43d1968734cdfcbe6c4fcdbd",
-          "first_seen_at": "2026-09-16T11:31:05.070Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "first_seen_at": "2026-09-16T14:13:35.203Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -1917,11 +1493,11 @@
           "signal": "CRUDE_ROUTE_SHIFT",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Record VLCC fixing from Guyana as Gulf crisis reduces Middle East supply, prompting Western refiners to seek alternatives",
+          "claim": "Record VLCC fixing from Guyana due to Gulf crisis",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "",
+          "why_upstream": "Gulf crisis drives record VLCC fixing from Guyana",
           "source_url": "https://www.tradewindsnews.com/tankers/gulf-crisis-drives-record-vlcc-fixing-from-guyana/2-1-2005408",
           "source_name": "Gulf crisis drives record VLCC fixing from Guyana - TradeWinds",
           "source_domain": "tradewindsnews.com",
@@ -1929,11 +1505,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
+          "retrieved_at": "2026-09-16T14:13:35.203Z",
           "valid": true,
           "evidence_key": "6539a282ec94168d08fb03c1",
           "first_seen_at": "2026-09-14T15:55:39.915Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -1962,9 +1538,9 @@
           "evidence_key": "3b63fa71b2f0cbf4cc9e7eb1",
           "first_seen_at": "2026-09-10T20:51:38.929Z",
           "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9743,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.7
         },
         {
           "candidate_id": "a4976f7b575b9adbd940",
@@ -1990,9 +1566,9 @@
           "evidence_key": "43d1968734cdfcbe6c4fcdbd",
           "first_seen_at": "2026-09-10T20:51:38.929Z",
           "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9743,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.7
         },
         {
           "candidate_id": "c93b5a2e949bd57f0b7e",
@@ -2018,9 +1594,9 @@
           "evidence_key": "e6f824ce5cdbb46c70b305de",
           "first_seen_at": "2026-09-14T15:55:39.915Z",
           "last_seen_at": "2026-09-15T14:31:12.219Z",
-          "memory_weight": 0.8164,
+          "memory_weight": 0.7954,
           "memory_status": "CARRIED",
-          "memory_age_hours": 21.08
+          "memory_age_hours": 23.78
         },
         {
           "candidate_id": "770091e70ad95ff30843",
@@ -2046,9 +1622,9 @@
           "evidence_key": "0e1437fb64d9b98ad7344e0c",
           "first_seen_at": "2026-09-14T15:55:39.915Z",
           "last_seen_at": "2026-09-14T16:03:31.941Z",
-          "memory_weight": 0.6576,
+          "memory_weight": 0.6407,
           "memory_status": "CARRIED",
-          "memory_age_hours": 43.54
+          "memory_age_hours": 46.24
         },
         {
           "candidate_id": "d21f7b8d6b8c9bf16ea8",
@@ -2074,9 +1650,9 @@
           "evidence_key": "3ee1925eadacb5be9f93792b",
           "first_seen_at": "2026-09-14T15:55:39.915Z",
           "last_seen_at": "2026-09-14T16:03:31.941Z",
-          "memory_weight": 0.6576,
+          "memory_weight": 0.6407,
           "memory_status": "CARRIED",
-          "memory_age_hours": 43.54
+          "memory_age_hours": 46.24
         },
         {
           "candidate_id": "362b3c525286cec90f6e",
@@ -2102,9 +1678,9 @@
           "evidence_key": "bf01d16654113bdf10b57f01",
           "first_seen_at": "2026-09-04T13:34:08.111Z",
           "last_seen_at": "2026-09-13T13:56:57.110Z",
-          "memory_weight": 0.5115,
+          "memory_weight": 0.4983,
           "memory_status": "CARRIED",
-          "memory_age_hours": 69.65
+          "memory_age_hours": 72.35
         },
         {
           "candidate_id": "c7834b7726fbde502b2b",
@@ -2130,9 +1706,9 @@
           "evidence_key": "90da93d1d4f634bdfc6996d2",
           "first_seen_at": "2026-09-04T16:20:54.449Z",
           "last_seen_at": "2026-09-13T13:56:57.110Z",
-          "memory_weight": 0.5115,
+          "memory_weight": 0.4983,
           "memory_status": "CARRIED",
-          "memory_age_hours": 69.65
+          "memory_age_hours": 72.35
         },
         {
           "candidate_id": "cbcfc1b38c12b32ea194",
@@ -2158,9 +1734,9 @@
           "evidence_key": "8350c295e6e1e5d7a08f5a9b",
           "first_seen_at": "2026-09-10T20:51:38.929Z",
           "last_seen_at": "2026-09-13T13:56:57.110Z",
-          "memory_weight": 0.5115,
+          "memory_weight": 0.4983,
           "memory_status": "CARRIED",
-          "memory_age_hours": 69.65
+          "memory_age_hours": 72.35
         }
       ],
       "verified": [],
@@ -2171,14 +1747,14 @@
       },
       "events": [
         {
-          "id": "0df84dc910672874a509b6",
+          "id": "e6805cbfe012143f75d775",
           "mechanism_id": "CRUDE_TANKER_DISLOCATION",
-          "run_id": "run_2026-09-16T11-29-15Z",
+          "run_id": "run_2026-09-16T14-12-11Z",
           "phase": "LEAD",
           "signal": "CRUDE_ROUTE_SHIFT",
-          "claim": "Record VLCC fixing from Guyana as Gulf crisis reduces Middle East supply, prompting Western refiners to seek alternatives",
+          "claim": "Record VLCC fixing from Guyana due to Gulf crisis",
           "observed_at": null,
-          "ingested_at": "2026-09-16T11:35:44.699Z",
+          "ingested_at": "2026-09-16T14:17:50.353Z",
           "source_count": 1,
           "domains": [
             "tradewindsnews.com"
@@ -2190,72 +1766,33 @@
           "representative_source": "Gulf crisis drives record VLCC fixing from Guyana - TradeWinds",
           "representative_url": "https://www.tradewindsnews.com/tankers/gulf-crisis-drives-record-vlcc-fixing-from-guyana/2-1-2005408",
           "source_grade": 0.82
-        },
-        {
-          "id": "3d749e3c851a0cef9638c0",
-          "mechanism_id": "CRUDE_TANKER_DISLOCATION",
-          "run_id": "run_2026-09-16T11-29-15Z",
-          "phase": "LEAD",
-          "signal": "CRUDE_ROUTE_SHIFT",
-          "claim": "Cargo vessel hit near Oman paused evacuation effort for ships from the Strait of Hormuz, raising concerns about worldwide oil flow",
-          "observed_at": null,
-          "ingested_at": "2026-09-16T11:35:44.699Z",
-          "source_count": 1,
-          "domains": [
-            "sg.finance.yahoo.com"
-          ],
-          "source_urls": [
-            "https://sg.finance.yahoo.com/news/oil-prices-edge-supply-worries-183534376.html"
-          ],
-          "official": false,
-          "representative_source": "Oil prices edge up on new supply worries after cargo ship hit near ...",
-          "representative_url": "https://sg.finance.yahoo.com/news/oil-prices-edge-supply-worries-183534376.html",
-          "source_grade": 0.62
-        },
-        {
-          "id": "c396df495c6408c52fd419",
-          "mechanism_id": "CRUDE_TANKER_DISLOCATION",
-          "run_id": "run_2026-09-16T11-29-15Z",
-          "phase": "LEAD",
-          "signal": "CRUDE_ROUTE_SHIFT",
-          "claim": "More tankers moved through the Strait of Hormuz, easing supply concerns after a cargo vessel hit near Oman",
-          "observed_at": null,
-          "ingested_at": "2026-09-16T11:35:44.699Z",
-          "source_count": 1,
-          "domains": [
-            "finance.yahoo.com"
-          ],
-          "source_urls": [
-            "https://finance.yahoo.com/energy/articles/oil-edges-lower-amid-resumption-010939251.html"
-          ],
-          "official": false,
-          "representative_source": "Oil prices dive as more tankers move through Strait of Hormuz",
-          "representative_url": "https://finance.yahoo.com/energy/articles/oil-edges-lower-amid-resumption-010939251.html",
-          "source_grade": 0.62
         }
       ],
       "event_stats": {
-        "observed_unique": 3,
+        "observed_unique": 1,
         "observed_duplicates": 0,
         "memory_unique": 9,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 3,
-        "carried_items": 6,
-        "avg_carry_weight": 0.611,
-        "observed_score": 28,
+        "observed_items": 1,
+        "carried_items": 8,
+        "avg_carry_weight": 0.69,
+        "observed_score": 13,
         "raw_combined_score": 47,
-        "decayed_score": 40
+        "decayed_score": 36
       },
-      "expected_next": [],
+      "expected_next": [
+        "increased VLCC ton-mile demand",
+        "increased fleet utilization"
+      ],
       "invalidation": [],
       "market": {
-        "score": 91,
-        "crowding": 91.4,
-        "breadth": 0.833,
-        "relative_breadth": 0.833,
-        "intraday_breadth": 0.667,
+        "score": 84,
+        "crowding": 100,
+        "breadth": 1,
+        "relative_breadth": 1,
+        "intraday_breadth": 1,
         "quality": "HIGH",
         "n": 6,
         "intraday_n": 6,
@@ -2263,45 +1800,45 @@
         "above50": 0.833,
         "benchmark": "XLE",
         "avg": {
-          "r1": 2.27,
-          "r5": 9.32,
-          "r20": 16.74,
-          "rel5": 7.53,
-          "rel20": 11.39,
-          "r30m": 0.27,
-          "r2h": 0.81,
-          "rel30m": 0.33,
-          "rel2h": 1.08,
-          "volumeZ": 2.09
+          "r1": 2.82,
+          "r5": 11.18,
+          "r20": 19.29,
+          "rel5": 12.05,
+          "rel20": 17.63,
+          "r30m": 0.55,
+          "r2h": 2.67,
+          "rel30m": 0.49,
+          "rel2h": 3.52,
+          "volumeZ": -1.43
         }
       },
       "crowd": {
         "phase": "SATURATED",
         "position": "LATE",
-        "consensus": 81.7,
-        "consensus_delta": -4.1,
-        "priced_in": 76.8,
+        "consensus": 97.5,
+        "consensus_delta": 15.8,
+        "priced_in": 85.5,
         "discount": "PRICED_IN",
-        "timing_score": 50.1,
+        "timing_score": 49.3,
         "block_chase": true,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0.833,
-          "intraday_breadth": 0.667,
-          "breadth": 0.833,
+          "relative_breadth": 1,
+          "intraday_breadth": 1,
+          "breadth": 1,
           "above20": 1,
           "above50": 0.833,
-          "crowding": 91.4,
+          "crowding": 100,
           "lag_share": 0,
-          "rel5": 7.53,
-          "rel2h": 1.08
+          "rel5": 12.05,
+          "rel2h": 3.52
         }
       },
       "scout": {
         "eligible": false,
-        "score": 44.5,
+        "score": 41.9,
         "reasons": [
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
@@ -2309,11 +1846,11 @@
           "MARKET_ALREADY_MOVED"
         ],
         "phase": "SATURATED",
-        "priced_in": 76.8
+        "priced_in": 85.5
       },
       "alpha": {
         "eligible": false,
-        "score": 40.7,
+        "score": 35.5,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -2329,7 +1866,7 @@
           "lead_to_confirm": 0
         },
         "crowd_phase": "SATURATED",
-        "priced_in": 76.8
+        "priced_in": 85.5
       },
       "reliability": {
         "samples": 0,
@@ -2370,27 +1907,27 @@
         "PSHG"
       ],
       "negative": [],
-      "last_run": "2026-09-16T11:35:44.699Z",
+      "last_run": "2026-09-16T14:17:50.353Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1823,
-        "completion_tokens": 1300,
-        "total_tokens": 3123,
-        "cost": 0.00024905,
+        "prompt_tokens": 2071,
+        "completion_tokens": 601,
+        "total_tokens": 2672,
+        "cost": 0.00010152,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 64,
+          "cached_tokens": 0,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00024905,
-          "upstream_inference_prompt_cost": 0.00005405,
-          "upstream_inference_completions_cost": 0.000195
+          "upstream_inference_cost": 0.00010152,
+          "upstream_inference_prompt_cost": 0.00004142,
+          "upstream_inference_completions_cost": 0.0000601
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 1056,
+          "reasoning_tokens": 480,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -3000,11 +2537,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 59,
-        "crowding": 28.1,
+        "score": 56,
+        "crowding": 43.3,
         "breadth": 0.714,
-        "relative_breadth": 0.714,
-        "intraday_breadth": 0.571,
+        "relative_breadth": 0.857,
+        "intraday_breadth": 0.286,
         "quality": "HIGH",
         "n": 7,
         "intraday_n": 7,
@@ -3012,40 +2549,40 @@
         "above50": 1,
         "benchmark": "XLE",
         "avg": {
-          "r1": 1.73,
-          "r5": 3.5,
-          "r20": 12.22,
-          "rel5": 1.71,
-          "rel20": 6.87,
-          "r30m": -0.61,
-          "r2h": 0.03,
-          "rel30m": -0.55,
-          "rel2h": 0.3,
-          "volumeZ": 0.06
+          "r1": -1.65,
+          "r5": 1.58,
+          "r20": 11,
+          "rel5": 2.45,
+          "rel20": 9.34,
+          "r30m": 0.22,
+          "r2h": -1.22,
+          "rel30m": 0.16,
+          "rel2h": -0.37,
+          "volumeZ": -1.24
         }
       },
       "crowd": {
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
-        "consensus": 76.4,
-        "consensus_delta": 3.5,
-        "priced_in": 32.9,
+        "consensus": 73.6,
+        "consensus_delta": -2.8,
+        "priced_in": 42.7,
         "discount": "PARTLY_PRICED",
-        "timing_score": 48.4,
+        "timing_score": 45.3,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0.714,
-          "intraday_breadth": 0.571,
+          "relative_breadth": 0.857,
+          "intraday_breadth": 0.286,
           "breadth": 0.714,
           "above20": 1,
           "above50": 1,
-          "crowding": 28.1,
+          "crowding": 43.3,
           "lag_share": 0,
-          "rel5": 1.71,
-          "rel2h": 0.3
+          "rel5": 2.45,
+          "rel2h": -0.37
         }
       },
       "scout": {
@@ -3186,7 +2723,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "CEYHAN_BYPASS": {
       "id": "CEYHAN_BYPASS",
@@ -3194,41 +2731,12 @@
       "tier": "A",
       "state": "WATCH",
       "raw_state": "WATCH",
-      "score": 29,
+      "score": 27,
       "previous_state": "WATCH",
-      "score_delta": -1,
-      "summary": "Iraq has resumed crude exports from Kirkuk via the Ceyhan pipeline, with an initial capacity of 250,000 barrels per day.",
-      "material_change": true,
-      "observed_evidence": [
-        {
-          "candidate_id": "4884dfbd1627b5ef4bb7",
-          "query_id": "CEYHAN_BYPASS:lead:iraq_turkey",
-          "phase": "LEAD",
-          "signal": "POLITICAL_CLEARANCE",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Iraq resumes Kirkuk crude exports via Ceyhan after Baghdad‑KRG deal with an initial capacity of 250,000 barrels per day.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://www.arabnews.com/tag/kirkuk",
-          "source_name": "Arab News | Kirkuk",
-          "source_domain": "arabnews.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-16T11:31:05.070Z",
-          "valid": true,
-          "evidence_key": "48c3e4e81bac09992761509d",
-          "first_seen_at": "2026-09-16T11:31:05.070Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
+      "score_delta": -2,
+      "summary": "No evidence of sustained physical oil flow through the Iraq‑Turkey‑Ceyhan route was found in the provided candidates. All available sources discuss political agreements or potential routes but do not report actual barrel volumes or confirmed transport activity.",
+      "material_change": false,
+      "observed_evidence": [],
       "evidence": [
         {
           "candidate_id": "4884dfbd1627b5ef4bb7",
@@ -3254,9 +2762,9 @@
           "evidence_key": "48c3e4e81bac09992761509d",
           "first_seen_at": "2026-09-15T08:41:55.451Z",
           "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9743,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.7
         },
         {
           "candidate_id": "3c409f151a39152f3d7f",
@@ -3282,9 +2790,9 @@
           "evidence_key": "26cc091cc24cea2bbe50745b",
           "first_seen_at": "2026-09-14T12:44:17.561Z",
           "last_seen_at": "2026-09-14T12:50:50.602Z",
-          "memory_weight": 0.4065,
+          "memory_weight": 0.3859,
           "memory_status": "CARRIED",
-          "memory_age_hours": 46.75
+          "memory_age_hours": 49.45
         },
         {
           "candidate_id": "10898bec1878fc16826c",
@@ -3310,9 +2818,9 @@
           "evidence_key": "23dec9654b2c2384ea0bf30a",
           "first_seen_at": "2026-09-05T15:12:56.875Z",
           "last_seen_at": "2026-09-12T10:52:37.821Z",
-          "memory_weight": 0.3941,
+          "memory_weight": 0.384,
           "memory_status": "CARRIED",
-          "memory_age_hours": 96.72
+          "memory_age_hours": 99.42
         },
         {
           "candidate_id": "a64603c43c052e910410",
@@ -3338,9 +2846,9 @@
           "evidence_key": "d7b9df006c2ceacc4edb135a",
           "first_seen_at": "2026-09-12T10:44:42.942Z",
           "last_seen_at": "2026-09-12T10:52:37.821Z",
-          "memory_weight": 0.3941,
+          "memory_weight": 0.384,
           "memory_status": "CARRIED",
-          "memory_age_hours": 96.72
+          "memory_age_hours": 99.42
         },
         {
           "candidate_id": "21d218325e0a5595be8d",
@@ -3366,9 +2874,9 @@
           "evidence_key": "ce6dcc5b447d3e2ec834947f",
           "first_seen_at": "2026-09-12T10:44:42.942Z",
           "last_seen_at": "2026-09-12T10:52:37.821Z",
-          "memory_weight": 0.3941,
+          "memory_weight": 0.384,
           "memory_status": "CARRIED",
-          "memory_age_hours": 96.72
+          "memory_age_hours": 99.42
         },
         {
           "candidate_id": "30a0c9ec9f9499b294dc",
@@ -3394,9 +2902,9 @@
           "evidence_key": "7167a50356dde97a51c19581",
           "first_seen_at": "2026-09-07T04:39:00.014Z",
           "last_seen_at": "2026-09-12T10:52:37.821Z",
-          "memory_weight": 0.3941,
+          "memory_weight": 0.384,
           "memory_status": "CARRIED",
-          "memory_age_hours": 96.72
+          "memory_age_hours": 99.42
         },
         {
           "candidate_id": "8c964b45548e93e5f36f",
@@ -3422,37 +2930,9 @@
           "evidence_key": "409098e99d48ddf82e96dcb8",
           "first_seen_at": "2026-09-12T10:44:42.942Z",
           "last_seen_at": "2026-09-12T10:52:37.821Z",
-          "memory_weight": 0.3941,
+          "memory_weight": 0.384,
           "memory_status": "CARRIED",
-          "memory_age_hours": 96.72
-        },
-        {
-          "candidate_id": "a903734c00b6f11bd078",
-          "query_id": "CEYHAN_BYPASS:confirm:ceyhan_flow",
-          "phase": "CONFIRM",
-          "signal": "CEYHAN_FLOW",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "Iraq has increased its oil export capacity to above three million barrels per day.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "UNKNOWN",
-          "source_url": "https://news.google.com/rss/articles/CBMiuANBVV95cUxPNm1aVDdia1pVbWJNR1pMd2FnQ0M1cjloaUdnTzFaWkRQalNtcG85M2pINDY5cnZiWVVSR2V6ckJuR3BsNXhHVXVvdVdRYjY0dmk2ZTgyaC1GVlRzd2F0WDEyWWpWQ2tRQnJzSno5VVpfWVRpOVlwWmtkZlZnalhQSzdPbUNLakVpbzh1UEh2alp0bUFXYzRmMHh1ZUc4QTdsTXF2VVlSR2JXU2xUN0dIeTBnRXV4SUNQcHFhUnZHbVp1RnNUUF9PTmdlR0tPcEZZelBJdEY3RC1IN3R4Z3h6S1FlTkUwRE5TWWlrS18zUDViZ3l3d0taV2JqSUs2eXJzZ21UbGxqYlpOUU5Xa3Q5alFLajVDZjk5YWgydVFydFZCZWgxZks1RU5BM3Y1aGs4enlKWGNndl85UkVJNnBoUjhtdkh0WDdFVGhNQThGZlRCc1RUcERfRGFqQkhYMkNjRjkxb3dhRzNJZzNWM1JlNHk1VjhidmN5eksxSHozSmlRdEE2QnlKa1BZR1k5Q1ZoMFl0d3BvZnRzNVRENWU0MWxVdkpUVURjd1hGMk9SM0Nteno0NWdhZg?oc=5",
-          "source_name": "NST Online",
-          "source_domain": "nst.com.my",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-11T15:00:00.000Z",
-          "retrieved_at": "2026-09-13T11:50:15.195Z",
-          "valid": true,
-          "evidence_key": "5fcc6415550c068f1277c181",
-          "first_seen_at": "2026-09-12T15:31:15.888Z",
-          "last_seen_at": "2026-09-13T11:59:00.916Z",
-          "memory_weight": 0.2519,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 71.61
+          "memory_age_hours": 99.42
         }
       ],
       "verified": [],
@@ -3461,51 +2941,29 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [
-        {
-          "id": "c4a0df1baa56e08718a19a",
-          "mechanism_id": "CEYHAN_BYPASS",
-          "run_id": "run_2026-09-16T11-29-15Z",
-          "phase": "LEAD",
-          "signal": "POLITICAL_CLEARANCE",
-          "claim": "Iraq resumes Kirkuk crude exports via Ceyhan after Baghdad‑KRG deal with an initial capacity of 250,000 barrels per day.",
-          "observed_at": null,
-          "ingested_at": "2026-09-16T11:35:44.699Z",
-          "source_count": 1,
-          "domains": [
-            "arabnews.com"
-          ],
-          "source_urls": [
-            "https://www.arabnews.com/tag/kirkuk"
-          ],
-          "official": false,
-          "representative_source": "Arab News | Kirkuk",
-          "representative_url": "https://www.arabnews.com/tag/kirkuk",
-          "source_grade": 0.62
-        }
-      ],
+      "events": [],
       "event_stats": {
-        "observed_unique": 1,
+        "observed_unique": 0,
         "observed_duplicates": 0,
-        "memory_unique": 8,
+        "memory_unique": 7,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 1,
+        "observed_items": 0,
         "carried_items": 7,
-        "avg_carry_weight": 0.376,
-        "observed_score": 12,
+        "avg_carry_weight": 0.469,
+        "observed_score": 0,
         "raw_combined_score": 58,
-        "decayed_score": 29
+        "decayed_score": 27
       },
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 34,
-        "crowding": 8.3,
+        "score": 25,
+        "crowding": 2.5,
         "breadth": 0.333,
-        "relative_breadth": 0.333,
-        "intraday_breadth": 0.667,
+        "relative_breadth": 0.667,
+        "intraday_breadth": 0.333,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -3513,54 +2971,54 @@
         "above50": 0.667,
         "benchmark": "XLE",
         "avg": {
-          "r1": 1.08,
-          "r5": 0.4,
-          "r20": 1.48,
-          "rel5": -1.39,
-          "rel20": -3.87,
-          "r30m": 0.43,
-          "r2h": 0.77,
-          "rel30m": 0.49,
-          "rel2h": 1.04,
-          "volumeZ": -0.81
+          "r1": 0.21,
+          "r5": -0.45,
+          "r20": 0.72,
+          "rel5": 0.42,
+          "rel20": -0.94,
+          "r30m": 0.03,
+          "r2h": -1.02,
+          "rel30m": -0.03,
+          "rel2h": -0.17,
+          "volumeZ": -0.11
         }
       },
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
-        "consensus": 51.7,
-        "consensus_delta": -8.3,
-        "priced_in": 14.9,
+        "consensus": 53.3,
+        "consensus_delta": 1.6,
+        "priced_in": 11.3,
         "discount": "UNPRICED",
-        "timing_score": 54.6,
+        "timing_score": 55,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0.333,
-          "intraday_breadth": 0.667,
+          "relative_breadth": 0.667,
+          "intraday_breadth": 0.333,
           "breadth": 0.333,
           "above20": 0.667,
           "above50": 0.667,
-          "crowding": 8.3,
+          "crowding": 2.5,
           "lag_share": 0,
-          "rel5": -1.39,
-          "rel2h": 1.04
+          "rel5": 0.42,
+          "rel2h": -0.17
         }
       },
       "scout": {
         "eligible": false,
-        "score": 46.2,
+        "score": 46.3,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "EARLY_WAVE",
-        "priced_in": 14.9
+        "priced_in": 11.3
       },
       "alpha": {
         "eligible": false,
-        "score": 47.3,
+        "score": 46.2,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -3573,7 +3031,7 @@
           "lead_to_confirm": 0
         },
         "crowd_phase": "EARLY_WAVE",
-        "priced_in": 14.9
+        "priced_in": 11.3
       },
       "reliability": {
         "samples": 0,
@@ -3595,13 +3053,12 @@
         "domains": [
           "reuters.com",
           "energynow.com",
-          "nst.com.my",
           "arabnews.com",
           "kurdpress.com",
           "pukmedia.com",
           "gov.krd"
         ],
-        "events": 8,
+        "events": 7,
         "duplicates_removed": 0
       },
       "positive": [
@@ -3610,27 +3067,27 @@
         "DNO.OL"
       ],
       "negative": [],
-      "last_run": "2026-09-16T11:35:44.699Z",
+      "last_run": "2026-09-16T14:17:50.353Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 2212,
-        "completion_tokens": 1300,
-        "total_tokens": 3512,
-        "cost": 0.00023536,
+        "prompt_tokens": 2203,
+        "completion_tokens": 474,
+        "total_tokens": 2677,
+        "cost": 0.00009146,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 64,
+          "cached_tokens": 0,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00023536,
-          "upstream_inference_prompt_cost": 0.00006636,
-          "upstream_inference_completions_cost": 0.000169
+          "upstream_inference_cost": 0.00009146,
+          "upstream_inference_prompt_cost": 0.00004406,
+          "upstream_inference_completions_cost": 0.0000474
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 554,
+          "reasoning_tokens": 0,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -4240,11 +3697,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 0,
-        "crowding": 2.6,
+        "score": 28,
+        "crowding": 6.9,
         "breadth": 0.25,
         "relative_breadth": 0.25,
-        "intraday_breadth": 0.25,
+        "intraday_breadth": 0.75,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -4252,40 +3709,40 @@
         "above50": 0.5,
         "benchmark": "XLE",
         "avg": {
-          "r1": -1.67,
-          "r5": -1.97,
-          "r20": 0.52,
-          "rel5": -3.76,
-          "rel20": -4.83,
-          "r30m": -0.49,
-          "r2h": -0.52,
-          "rel30m": -0.43,
-          "rel2h": -0.25,
-          "volumeZ": 0.43
+          "r1": 0.62,
+          "r5": -1.72,
+          "r20": -0.33,
+          "rel5": -0.85,
+          "rel20": -1.99,
+          "r30m": -0.05,
+          "r2h": 0.01,
+          "rel30m": -0.11,
+          "rel2h": 0.86,
+          "volumeZ": -1.91
         }
       },
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
-        "consensus": 28.8,
-        "consensus_delta": -6.2,
-        "priced_in": 6.9,
+        "consensus": 41.3,
+        "consensus_delta": 12.4,
+        "priced_in": 12.1,
         "discount": "UNPRICED",
-        "timing_score": 46.2,
+        "timing_score": 47.4,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.25,
-          "intraday_breadth": 0.25,
+          "intraday_breadth": 0.75,
           "breadth": 0.25,
           "above20": 0.25,
           "above50": 0.5,
-          "crowding": 2.6,
+          "crowding": 6.9,
           "lag_share": 0,
-          "rel5": -3.76,
-          "rel2h": -0.25
+          "rel5": -0.85,
+          "rel2h": 0.86
         }
       },
       "scout": {
@@ -4438,7 +3895,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "ARSENAL_DEPLETION": {
       "id": "ARSENAL_DEPLETION",
@@ -4446,41 +3903,12 @@
       "tier": "A",
       "state": "WATCH",
       "raw_state": "WATCH",
-      "score": 33,
+      "score": 27,
       "previous_state": "WATCH",
-      "score_delta": 8,
-      "summary": "",
+      "score_delta": -6,
+      "summary": "No evidence found that governments are changing procurement architecture or production targets due to inventory constraints in the provided candidates.",
       "material_change": true,
-      "observed_evidence": [
-        {
-          "candidate_id": "0039dabd39a944e4e535",
-          "query_id": "ARSENAL_DEPLETION:lead:inventory",
-          "phase": "LEAD",
-          "signal": "INVENTORY_STRESS",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "The Pentagon has issued a 21‑day ultimatum to increase weapons production, a change in production targets prompted by inventory constraints.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "The article title indicates a 21‑day ultimatum to the Pentagon regarding weapons production, implying a shift in production targets due to inventory stress.",
-          "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNRC1pbDJqSWpyb0RUbmJuc2pucE83NUVOSTVEZktXOEE5Q0dtcGZSaXd4c3U4UmtaTndFdUJXN2UtVHFsOENxbG9qZWZKclQ0a0tMT2pfTXNteTltTGN3MXRYRzQwQ2Ffcmw0aDRGOXRXS0pMd1pMa2xad3FNYUNOWEpFcnRJakJ4TzlodDdPWTc2bGJpX1Y2V0Q1TnhOSFU?oc=5",
-          "source_name": "MiGFlug",
-          "source_domain": "migflug.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-16T06:58:07.000Z",
-          "retrieved_at": "2026-09-16T11:30:55.285Z",
-          "valid": true,
-          "evidence_key": "072a8cbba50b433b6643c1f8",
-          "first_seen_at": "2026-09-16T11:30:55.285Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
+      "observed_evidence": [],
       "evidence": [
         {
           "candidate_id": "0039dabd39a944e4e535",
@@ -4506,9 +3934,9 @@
           "evidence_key": "072a8cbba50b433b6643c1f8",
           "first_seen_at": "2026-09-12T10:44:34.071Z",
           "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9743,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.7
         },
         {
           "candidate_id": "f23eeb8c88259af6cfde",
@@ -4534,9 +3962,9 @@
           "evidence_key": "1fe9a460e410afa50d66aec4",
           "first_seen_at": "2026-09-16T04:48:45.293Z",
           "last_seen_at": "2026-09-16T04:56:14.374Z",
-          "memory_weight": 0.9379,
+          "memory_weight": 0.9138,
           "memory_status": "CARRIED",
-          "memory_age_hours": 6.66
+          "memory_age_hours": 9.36
         },
         {
           "candidate_id": "6c28ee49f48246916af2",
@@ -4562,9 +3990,9 @@
           "evidence_key": "cfd68f5d93a720a4aa6279f7",
           "first_seen_at": "2026-09-16T04:48:45.293Z",
           "last_seen_at": "2026-09-16T04:56:14.374Z",
-          "memory_weight": 0.9379,
+          "memory_weight": 0.9138,
           "memory_status": "CARRIED",
-          "memory_age_hours": 6.66
+          "memory_age_hours": 9.36
         },
         {
           "candidate_id": "f5f7a031b41b009cce0c",
@@ -4590,9 +4018,9 @@
           "evidence_key": "9105a7daba602b6187dcea26",
           "first_seen_at": "2026-09-14T04:55:10.946Z",
           "last_seen_at": "2026-09-14T05:05:19.028Z",
-          "memory_weight": 0.5917,
+          "memory_weight": 0.5765,
           "memory_status": "CARRIED",
-          "memory_age_hours": 54.51
+          "memory_age_hours": 57.21
         },
         {
           "candidate_id": "34bab2bfa98edc3b21d5",
@@ -4618,9 +4046,9 @@
           "evidence_key": "621a9e37ad923abead0bc515",
           "first_seen_at": "2026-09-14T04:55:10.946Z",
           "last_seen_at": "2026-09-14T05:05:19.028Z",
-          "memory_weight": 0.5917,
+          "memory_weight": 0.5765,
           "memory_status": "CARRIED",
-          "memory_age_hours": 54.51
+          "memory_age_hours": 57.21
         },
         {
           "candidate_id": "3dd9d87844933b3f4228",
@@ -4646,9 +4074,9 @@
           "evidence_key": "cbcc92048f0567e48d43dcaa",
           "first_seen_at": "2026-09-14T04:55:10.946Z",
           "last_seen_at": "2026-09-14T05:05:19.028Z",
-          "memory_weight": 0.5917,
+          "memory_weight": 0.5765,
           "memory_status": "CARRIED",
-          "memory_age_hours": 54.51
+          "memory_age_hours": 57.21
         },
         {
           "candidate_id": "f9f6738b7f1811a973ba",
@@ -4674,9 +4102,9 @@
           "evidence_key": "8dec1473e3f769eed9c124a7",
           "first_seen_at": "2026-09-11T16:09:23.870Z",
           "last_seen_at": "2026-09-12T11:59:48.693Z",
-          "memory_weight": 0.3984,
+          "memory_weight": 0.3882,
           "memory_status": "CARRIED",
-          "memory_age_hours": 95.6
+          "memory_age_hours": 98.3
         },
         {
           "candidate_id": "cd4987301cd8fa0e5256",
@@ -4702,9 +4130,9 @@
           "evidence_key": "18bfd052067828ab04185933",
           "first_seen_at": "2026-09-11T04:39:09.141Z",
           "last_seen_at": "2026-09-11T04:48:04.235Z",
-          "memory_weight": 0.295,
+          "memory_weight": 0.2875,
           "memory_status": "CARRIED",
-          "memory_age_hours": 126.79
+          "memory_age_hours": 129.5
         },
         {
           "candidate_id": "0394a2821d34933379b5",
@@ -4730,9 +4158,9 @@
           "evidence_key": "08f1ef08bab397c817c0e353",
           "first_seen_at": "2026-09-10T20:51:38.929Z",
           "last_seen_at": "2026-09-10T20:56:52.684Z",
-          "memory_weight": 0.2736,
+          "memory_weight": 0.2665,
           "memory_status": "CARRIED",
-          "memory_age_hours": 134.65
+          "memory_age_hours": 137.35
         },
         {
           "candidate_id": "c11874428a7db6440c08",
@@ -4758,9 +4186,9 @@
           "evidence_key": "b2c886d14eb94a429f742b76",
           "first_seen_at": "2026-09-10T20:51:38.929Z",
           "last_seen_at": "2026-09-10T20:56:52.684Z",
-          "memory_weight": 0.2736,
+          "memory_weight": 0.2665,
           "memory_status": "CARRIED",
-          "memory_age_hours": 134.65
+          "memory_age_hours": 137.35
         }
       ],
       "verified": [],
@@ -4769,53 +4197,29 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [
-        {
-          "id": "ec1aae8d82a8bfe6864bcf",
-          "mechanism_id": "ARSENAL_DEPLETION",
-          "run_id": "run_2026-09-16T11-29-15Z",
-          "phase": "LEAD",
-          "signal": "INVENTORY_STRESS",
-          "claim": "The Pentagon has issued a 21‑day ultimatum to increase weapons production, a change in production targets prompted by inventory constraints.",
-          "observed_at": "2026-09-16T06:58:07.000Z",
-          "ingested_at": "2026-09-16T11:35:44.699Z",
-          "source_count": 1,
-          "domains": [
-            "migflug.com"
-          ],
-          "source_urls": [
-            "https://news.google.com/rss/articles/CBMinwFBVV95cUxNRC1pbDJqSWpyb0RUbmJuc2pucE83NUVOSTVEZktXOEE5Q0dtcGZSaXd4c3U4UmtaTndFdUJXN2UtVHFsOENxbG9qZWZKclQ0a0tMT2pfTXNteTltTGN3MXRYRzQwQ2Ffcmw0aDRGOXRXS0pMd1pMa2xad3FNYUNOWEpFcnRJakJ4TzlodDdPWTc2bGJpX1Y2V0Q1TnhOSFU?oc=5"
-          ],
-          "official": false,
-          "representative_source": "MiGFlug",
-          "representative_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNRC1pbDJqSWpyb0RUbmJuc2pucE83NUVOSTVEZktXOEE5Q0dtcGZSaXd4c3U4UmtaTndFdUJXN2UtVHFsOENxbG9qZWZKclQ0a0tMT2pfTXNteTltTGN3MXRYRzQwQ2Ffcmw0aDRGOXRXS0pMd1pMa2xad3FNYUNOWEpFcnRJakJ4TzlodDdPWTc2bGJpX1Y2V0Q1TnhOSFU?oc=5",
-          "source_grade": 0.62
-        }
-      ],
+      "events": [],
       "event_stats": {
-        "observed_unique": 1,
+        "observed_unique": 0,
         "observed_duplicates": 0,
         "memory_unique": 5,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 1,
-        "carried_items": 9,
-        "avg_carry_weight": 0.543,
-        "observed_score": 15,
-        "raw_combined_score": 49,
-        "decayed_score": 33
+        "observed_items": 0,
+        "carried_items": 10,
+        "avg_carry_weight": 0.574,
+        "observed_score": 0,
+        "raw_combined_score": 47,
+        "decayed_score": 27
       },
-      "expected_next": [
-        "The Pentagon has issued a 21‑day ultimatum to increase weapons production, a change in production targets prompted by inventory constraints."
-      ],
+      "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 56,
-        "crowding": 47.5,
-        "breadth": 0.5,
+        "score": 45,
+        "crowding": 34.9,
+        "breadth": 0.75,
         "relative_breadth": 1,
-        "intraday_breadth": 0.75,
+        "intraday_breadth": 0,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -4823,57 +4227,54 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": 0.52,
-          "r5": 0.21,
-          "r20": -9.27,
-          "rel5": 4.47,
-          "rel20": 5.54,
-          "r30m": -0.07,
-          "r2h": -0.09,
-          "rel30m": -0.77,
-          "rel2h": 0.06,
-          "volumeZ": -0.03
+          "r1": 0.14,
+          "r5": 1.49,
+          "r20": -10.91,
+          "rel5": 3.18,
+          "rel20": 3.53,
+          "r30m": 0.18,
+          "r2h": -0.04,
+          "rel30m": 0.06,
+          "rel2h": -0.86,
+          "volumeZ": -2.34
         }
       },
       "crowd": {
-        "phase": "IN_SYNC",
-        "position": "SYNCHRONIZED",
-        "consensus": 56.3,
-        "consensus_delta": 0,
-        "priced_in": 42.4,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 41.3,
+        "consensus_delta": -15,
+        "priced_in": 31.2,
         "discount": "PARTLY_PRICED",
-        "timing_score": 50.5,
+        "timing_score": 47.6,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 1,
-          "intraday_breadth": 0.75,
-          "breadth": 0.5,
+          "intraday_breadth": 0,
+          "breadth": 0.75,
           "above20": 0,
           "above50": 0,
-          "crowding": 47.5,
+          "crowding": 34.9,
           "lag_share": 0,
-          "rel5": 4.47,
-          "rel2h": 0.06
+          "rel5": 3.18,
+          "rel2h": -0.86
         }
       },
       "scout": {
         "eligible": false,
-        "score": 47,
+        "score": 45.3,
         "reasons": [
-          "WAVE_NOT_EARLY",
-          "CAUSAL_TOO_WEAK",
-          "ALREADY_PRICED",
-          "MARKET_ALREADY_MOVED"
+          "CAUSAL_TOO_WEAK"
         ],
-        "phase": "IN_SYNC",
-        "priced_in": 42.4
+        "phase": "EARLY_WAVE",
+        "priced_in": 31.2
       },
       "alpha": {
         "eligible": false,
-        "score": 42.6,
+        "score": 41.8,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -4886,8 +4287,8 @@
           "avg_return": null,
           "lead_to_confirm": null
         },
-        "crowd_phase": "IN_SYNC",
-        "priced_in": 42.4
+        "crowd_phase": "EARLY_WAVE",
+        "priced_in": 31.2
       },
       "reliability": {
         "samples": 0,
@@ -4922,27 +4323,27 @@
         "NOC"
       ],
       "negative": [],
-      "last_run": "2026-09-16T11:35:44.699Z",
+      "last_run": "2026-09-16T14:17:50.353Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 3026,
-        "completion_tokens": 1300,
-        "total_tokens": 4326,
-        "cost": 0.00031604,
+        "prompt_tokens": 3027,
+        "completion_tokens": 401,
+        "total_tokens": 3428,
+        "cost": 0.00015032,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 0,
+          "cached_tokens": 64,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00031604,
-          "upstream_inference_prompt_cost": 0.00012104,
-          "upstream_inference_completions_cost": 0.000195
+          "upstream_inference_cost": 0.00015032,
+          "upstream_inference_prompt_cost": 0.00009017,
+          "upstream_inference_completions_cost": 0.00006015
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 902,
+          "reasoning_tokens": 346,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -5538,11 +4939,11 @@
         "No contradictory reports of capacity constraints"
       ],
       "market": {
-        "score": 51,
-        "crowding": 16.9,
-        "breadth": 0.333,
-        "relative_breadth": 0.667,
-        "intraday_breadth": 0.667,
+        "score": 45,
+        "crowding": 36.5,
+        "breadth": 0.667,
+        "relative_breadth": 1,
+        "intraday_breadth": 0,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -5550,40 +4951,40 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": 2.96,
-          "r5": -1.84,
-          "r20": -18.83,
-          "rel5": 2.42,
-          "rel20": -4.02,
-          "r30m": 0.28,
-          "r2h": 0.15,
-          "rel30m": -0.42,
-          "rel2h": 0.3,
-          "volumeZ": 0
+          "r1": 0.02,
+          "r5": 3.06,
+          "r20": -19.1,
+          "rel5": 4.75,
+          "rel20": -4.66,
+          "r30m": 0.27,
+          "r2h": -0.8,
+          "rel30m": 0.15,
+          "rel2h": -1.62,
+          "volumeZ": -1.83
         }
       },
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
-        "consensus": 41.7,
-        "consensus_delta": -8.3,
-        "priced_in": 19,
-        "discount": "UNPRICED",
-        "timing_score": 51.2,
+        "consensus": 40,
+        "consensus_delta": -1.7,
+        "priced_in": 32,
+        "discount": "PARTLY_PRICED",
+        "timing_score": 47.6,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0.667,
-          "intraday_breadth": 0.667,
-          "breadth": 0.333,
+          "relative_breadth": 1,
+          "intraday_breadth": 0,
+          "breadth": 0.667,
           "above20": 0,
           "above50": 0,
-          "crowding": 16.9,
+          "crowding": 36.5,
           "lag_share": 0,
-          "rel5": 2.42,
-          "rel2h": 0.3
+          "rel5": 4.75,
+          "rel2h": -1.62
         }
       },
       "scout": {
@@ -5735,7 +5136,9 @@
             }
           }
         }
-      ]
+      ],
+      "stale": false,
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "ENERGETICS_SHORTAGE": {
       "id": "ENERGETICS_SHORTAGE",
@@ -6363,11 +5766,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 68,
-        "crowding": 42.8,
+        "score": 45,
+        "crowding": 14.3,
         "breadth": 0.75,
-        "relative_breadth": 1,
-        "intraday_breadth": 1,
+        "relative_breadth": 0.75,
+        "intraday_breadth": 0,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -6375,40 +5778,40 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": 0.16,
-          "r5": 0.5,
-          "r20": -13.53,
-          "rel5": 4.76,
-          "rel20": 1.28,
-          "r30m": 0.1,
-          "r2h": 0.28,
-          "rel30m": -0.6,
-          "rel2h": 0.43,
-          "volumeZ": -0.59
+          "r1": -0.25,
+          "r5": 0.49,
+          "r20": -13.91,
+          "rel5": 2.18,
+          "rel20": 0.53,
+          "r30m": 0.25,
+          "r2h": -0.21,
+          "rel30m": 0.13,
+          "rel2h": -1.03,
+          "volumeZ": -1.24
         }
       },
       "crowd": {
-        "phase": "IN_SYNC",
-        "position": "SYNCHRONIZED",
-        "consensus": 66.3,
-        "consensus_delta": 6.3,
-        "priced_in": 41,
-        "discount": "PARTLY_PRICED",
-        "timing_score": 46.1,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 33.8,
+        "consensus_delta": -32.5,
+        "priced_in": 15.8,
+        "discount": "UNPRICED",
+        "timing_score": 45.9,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 1,
-          "intraday_breadth": 1,
+          "relative_breadth": 0.75,
+          "intraday_breadth": 0,
           "breadth": 0.75,
           "above20": 0,
           "above50": 0,
-          "crowding": 42.8,
+          "crowding": 14.3,
           "lag_share": 0,
-          "rel5": 4.76,
-          "rel2h": 0.43
+          "rel5": 2.18,
+          "rel2h": -1.03
         }
       },
       "scout": {
@@ -6573,7 +5976,9 @@
             }
           }
         }
-      ]
+      ],
+      "stale": false,
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "STRATEGIC_ALUMINIUM": {
       "id": "STRATEGIC_ALUMINIUM",
@@ -6861,10 +6266,10 @@
       "invalidation": [],
       "market": {
         "score": 0,
-        "crowding": 0.2,
+        "crowding": 0,
         "breadth": 0,
-        "relative_breadth": 0,
-        "intraday_breadth": 0.5,
+        "relative_breadth": 0.5,
+        "intraday_breadth": 0,
         "quality": "MEDIUM",
         "n": 2,
         "intraday_n": 2,
@@ -6872,40 +6277,40 @@
         "above50": 0,
         "benchmark": "XME",
         "avg": {
-          "r1": -2.67,
-          "r5": -13.63,
-          "r20": -12.88,
-          "rel5": -4.88,
-          "rel20": -5.55,
-          "r30m": 0.08,
-          "r2h": 0.42,
-          "rel30m": -0.01,
-          "rel2h": 0.02,
-          "volumeZ": -0.39
+          "r1": 1.34,
+          "r5": -11.35,
+          "r20": -8.81,
+          "rel5": -3.86,
+          "rel20": -5.85,
+          "r30m": -0.22,
+          "r2h": -0.04,
+          "rel30m": -0.03,
+          "rel2h": -1.1,
+          "volumeZ": -1.89
         }
       },
       "crowd": {
         "phase": "DISCOVERY",
         "position": "OBSERVE",
-        "consensus": 11.8,
-        "consensus_delta": -11.9,
-        "priced_in": 2.3,
+        "consensus": 14.2,
+        "consensus_delta": 2.4,
+        "priced_in": 2.6,
         "discount": "UNPRICED",
-        "timing_score": 49.9,
+        "timing_score": 50.3,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "MEDIUM",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0,
-          "intraday_breadth": 0.5,
+          "relative_breadth": 0.5,
+          "intraday_breadth": 0,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 0.2,
+          "crowding": 0,
           "lag_share": 0,
-          "rel5": -4.88,
-          "rel2h": 0.02
+          "rel5": -3.86,
+          "rel2h": -1.1
         }
       },
       "scout": {
@@ -7056,7 +6461,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "RARE_EARTH_MAGNET_SHORTAGE": {
       "id": "RARE_EARTH_MAGNET_SHORTAGE",
@@ -7480,7 +6885,7 @@
         "crowding": 0,
         "breadth": 0,
         "relative_breadth": 0,
-        "intraday_breadth": 0.333,
+        "intraday_breadth": 0,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -7488,40 +6893,40 @@
         "above50": 0,
         "benchmark": "XME",
         "avg": {
-          "r1": -2.27,
-          "r5": -13.54,
-          "r20": -16.92,
-          "rel5": -4.78,
-          "rel20": -9.59,
-          "r30m": 0.03,
-          "r2h": 0.39,
-          "rel30m": -0.06,
-          "rel2h": -0.01,
-          "volumeZ": -0.11
+          "r1": -0.24,
+          "r5": -13.06,
+          "r20": -14.91,
+          "rel5": -5.57,
+          "rel20": -11.95,
+          "r30m": -0.3,
+          "r2h": -1.45,
+          "rel30m": -0.11,
+          "rel2h": -2.51,
+          "volumeZ": -1.59
         }
       },
       "crowd": {
         "phase": "DISCOVERY",
         "position": "OBSERVE",
-        "consensus": 8.3,
-        "consensus_delta": -8.4,
-        "priced_in": 1.5,
+        "consensus": 0,
+        "consensus_delta": -8.3,
+        "priced_in": 0,
         "discount": "UNPRICED",
-        "timing_score": 52,
+        "timing_score": 50.8,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0,
-          "intraday_breadth": 0.333,
+          "intraday_breadth": 0,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
           "crowding": 0,
           "lag_share": 0,
-          "rel5": -4.78,
-          "rel2h": -0.01
+          "rel5": -5.57,
+          "rel2h": -2.51
         }
       },
       "scout": {
@@ -7675,7 +7080,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "CHEAP_DRONE_SCALING": {
       "id": "CHEAP_DRONE_SCALING",
@@ -8032,11 +7437,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 61,
-        "crowding": 24.3,
-        "breadth": 0.333,
+        "score": 37,
+        "crowding": 20.1,
+        "breadth": 0.667,
         "relative_breadth": 0.667,
-        "intraday_breadth": 1,
+        "intraday_breadth": 0,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -8044,40 +7449,40 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": 1.51,
-          "r5": -1.36,
-          "r20": -20.6,
-          "rel5": 2.9,
-          "rel20": -5.79,
-          "r30m": 0.34,
-          "r2h": 0.72,
-          "rel30m": -0.36,
-          "rel2h": 0.87,
-          "volumeZ": -0.11
+          "r1": -2.1,
+          "r5": 1.65,
+          "r20": -20.01,
+          "rel5": 3.34,
+          "rel20": -5.57,
+          "r30m": 0.21,
+          "r2h": -2.73,
+          "rel30m": 0.09,
+          "rel2h": -3.55,
+          "volumeZ": -1.38
         }
       },
       "crowd": {
-        "phase": "IN_SYNC",
-        "position": "SYNCHRONIZED",
-        "consensus": 55,
-        "consensus_delta": 0,
-        "priced_in": 26.4,
-        "discount": "PARTLY_PRICED",
-        "timing_score": 52.4,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 35,
+        "consensus_delta": -20,
+        "priced_in": 20,
+        "discount": "UNPRICED",
+        "timing_score": 50.1,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.667,
-          "intraday_breadth": 1,
-          "breadth": 0.333,
+          "intraday_breadth": 0,
+          "breadth": 0.667,
           "above20": 0.333,
           "above50": 0,
-          "crowding": 24.3,
+          "crowding": 20.1,
           "lag_share": 0,
-          "rel5": 2.9,
-          "rel2h": 0.87
+          "rel5": 3.34,
+          "rel2h": -3.55
         }
       },
       "scout": {
@@ -8230,7 +7635,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "COUNTER_UAS_COST_CURVE": {
       "id": "COUNTER_UAS_COST_CURVE",
@@ -9415,11 +8820,11 @@
       ],
       "invalidation": [],
       "market": {
-        "score": 68,
-        "crowding": 49.3,
-        "breadth": 0.6,
+        "score": 45,
+        "crowding": 33.1,
+        "breadth": 0.8,
         "relative_breadth": 1,
-        "intraday_breadth": 1,
+        "intraday_breadth": 0,
         "quality": "HIGH",
         "n": 5,
         "intraday_n": 5,
@@ -9427,40 +8832,40 @@
         "above50": 0.2,
         "benchmark": "ITA",
         "avg": {
-          "r1": 0.72,
-          "r5": 1.54,
-          "r20": -13.91,
-          "rel5": 5.8,
-          "rel20": 0.9,
-          "r30m": 0.03,
-          "r2h": 0.41,
-          "rel30m": -0.67,
-          "rel2h": 0.56,
-          "volumeZ": -1.02
+          "r1": 0.68,
+          "r5": 2.28,
+          "r20": -13.87,
+          "rel5": 3.97,
+          "rel20": 0.57,
+          "r30m": 0.25,
+          "r2h": -0.38,
+          "rel30m": 0.13,
+          "rel2h": -1.2,
+          "volumeZ": -1.46
         }
       },
       "crowd": {
-        "phase": "IN_SYNC",
-        "position": "SYNCHRONIZED",
-        "consensus": 70,
-        "consensus_delta": 5,
-        "priced_in": 46.1,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 48,
+        "consensus_delta": -22,
+        "priced_in": 31.1,
         "discount": "PARTLY_PRICED",
-        "timing_score": 50.1,
+        "timing_score": 49.4,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 1,
-          "intraday_breadth": 1,
-          "breadth": 0.6,
+          "intraday_breadth": 0,
+          "breadth": 0.8,
           "above20": 0.2,
           "above50": 0.2,
-          "crowding": 49.3,
+          "crowding": 33.1,
           "lag_share": 0,
-          "rel5": 5.8,
-          "rel2h": 0.56
+          "rel5": 3.97,
+          "rel2h": -1.2
         }
       },
       "scout": {
@@ -9627,7 +9032,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "UNDERWATER_SECURITY": {
       "id": "UNDERWATER_SECURITY",
@@ -10148,11 +9553,11 @@
         "If official procurement data or confirmed incidents are not found, the mechanism remains unconfirmed."
       ],
       "market": {
-        "score": 68,
-        "crowding": 79.8,
+        "score": 45,
+        "crowding": 59.8,
         "breadth": 1,
         "relative_breadth": 1,
-        "intraday_breadth": 1,
+        "intraday_breadth": 0,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -10160,40 +9565,40 @@
         "above50": 0.25,
         "benchmark": "ITA",
         "avg": {
-          "r1": 0.83,
-          "r5": 3.98,
-          "r20": -7.36,
-          "rel5": 8.24,
-          "rel20": 7.45,
-          "r30m": 0.04,
-          "r2h": 0.59,
-          "rel30m": -0.66,
-          "rel2h": 0.74,
-          "volumeZ": -1.8
+          "r1": 1.09,
+          "r5": 4.26,
+          "r20": -7.13,
+          "rel5": 5.95,
+          "rel20": 7.31,
+          "r30m": 0.12,
+          "r2h": -0.02,
+          "rel30m": 0,
+          "rel2h": -0.84,
+          "volumeZ": -1.42
         }
       },
       "crowd": {
-        "phase": "LATE_WAVE",
-        "position": "LATE",
-        "consensus": 77.5,
-        "consensus_delta": 0,
-        "priced_in": 68.2,
+        "phase": "DISCOVERY",
+        "position": "OBSERVE",
+        "consensus": 52.5,
+        "consensus_delta": -25,
+        "priced_in": 50.1,
         "discount": "MOSTLY_PRICED",
-        "timing_score": 41.5,
-        "block_chase": true,
+        "timing_score": 41.1,
+        "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 1,
-          "intraday_breadth": 1,
+          "intraday_breadth": 0,
           "breadth": 1,
           "above20": 0.25,
           "above50": 0.25,
-          "crowding": 79.8,
+          "crowding": 59.8,
           "lag_share": 0,
-          "rel5": 8.24,
-          "rel2h": 0.74
+          "rel5": 5.95,
+          "rel2h": -0.84
         }
       },
       "scout": {
@@ -10333,7 +9738,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "AI_TIME_TO_POWER": {
       "id": "AI_TIME_TO_POWER",
@@ -10681,11 +10086,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 23,
-        "crowding": 4,
+        "score": 28,
+        "crowding": 6.6,
         "breadth": 0,
-        "relative_breadth": 0,
-        "intraday_breadth": 0.8,
+        "relative_breadth": 0.2,
+        "intraday_breadth": 1,
         "quality": "HIGH",
         "n": 5,
         "intraday_n": 5,
@@ -10693,40 +10098,40 @@
         "above50": 0,
         "benchmark": "QQQ",
         "avg": {
-          "r1": -0.29,
-          "r5": -9.12,
-          "r20": -17.7,
-          "rel5": -7.2,
-          "rel20": -14.23,
-          "r30m": 0.01,
-          "r2h": 0.49,
-          "rel30m": -0.02,
-          "rel2h": 0.49,
-          "volumeZ": 0.01
+          "r1": 2.1,
+          "r5": -4.14,
+          "r20": -10.72,
+          "rel5": -3.11,
+          "rel20": -9.53,
+          "r30m": 0.07,
+          "r2h": 0.81,
+          "rel30m": 0.25,
+          "rel2h": 0.82,
+          "volumeZ": -1.77
         }
       },
       "crowd": {
-        "phase": "DISCOVERY",
-        "position": "OBSERVE",
-        "consensus": 20,
-        "consensus_delta": -5,
-        "priced_in": 6.3,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 31,
+        "consensus_delta": 11,
+        "priced_in": 10.1,
         "discount": "UNPRICED",
-        "timing_score": 47.3,
+        "timing_score": 48.6,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0,
-          "intraday_breadth": 0.8,
+          "relative_breadth": 0.2,
+          "intraday_breadth": 1,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 4,
+          "crowding": 6.6,
           "lag_share": 0,
-          "rel5": -7.2,
-          "rel2h": 0.49
+          "rel5": -3.11,
+          "rel2h": 0.82
         }
       },
       "scout": {
@@ -10864,7 +10269,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "AI_GHOST_DEMAND": {
       "id": "AI_GHOST_DEMAND",
@@ -11447,11 +10852,11 @@
       ],
       "invalidation": [],
       "market": {
-        "score": 18,
-        "crowding": 3.2,
+        "score": 23,
+        "crowding": 4.4,
         "breadth": 0,
         "relative_breadth": 0,
-        "intraday_breadth": 0.667,
+        "intraday_breadth": 1,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -11459,40 +10864,40 @@
         "above50": 0,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 0.05,
-          "r5": -11.51,
-          "r20": -19.87,
-          "rel5": -9.59,
-          "rel20": -16.4,
-          "r30m": 0.01,
-          "r2h": 0.4,
-          "rel30m": -0.02,
-          "rel2h": 0.4,
-          "volumeZ": -0.02
+          "r1": 2.34,
+          "r5": -5.47,
+          "r20": -11.94,
+          "rel5": -4.44,
+          "rel20": -10.75,
+          "r30m": 0.03,
+          "r2h": 0.54,
+          "rel30m": 0.21,
+          "rel2h": 0.55,
+          "volumeZ": -1.73
         }
       },
       "crowd": {
-        "phase": "DISCOVERY",
-        "position": "OBSERVE",
-        "consensus": 16.7,
-        "consensus_delta": -8.3,
-        "priced_in": 5.2,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 25,
+        "consensus_delta": 8.3,
+        "priced_in": 7.5,
         "discount": "UNPRICED",
-        "timing_score": 55.5,
+        "timing_score": 56.6,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0,
-          "intraday_breadth": 0.667,
+          "intraday_breadth": 1,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 3.2,
+          "crowding": 4.4,
           "lag_share": 0,
-          "rel5": -9.59,
-          "rel2h": 0.4
+          "rel5": -4.44,
+          "rel2h": 0.55
         }
       },
       "scout": {
@@ -11647,7 +11052,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "BEHIND_METER_AI_POWER": {
       "id": "BEHIND_METER_AI_POWER",
@@ -12207,10 +11612,10 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 10,
-        "crowding": 2,
-        "breadth": 0,
-        "relative_breadth": 0,
+        "score": 18,
+        "crowding": 2.8,
+        "breadth": 0.2,
+        "relative_breadth": 0.2,
         "intraday_breadth": 0.6,
         "quality": "HIGH",
         "n": 5,
@@ -12219,40 +11624,40 @@
         "above50": 0.2,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 0,
-          "r5": -8.76,
-          "r20": -10.69,
-          "rel5": -6.84,
-          "rel20": -7.22,
-          "r30m": 0.17,
-          "r2h": 0.25,
-          "rel30m": 0.14,
-          "rel2h": 0.25,
-          "volumeZ": -0.18
+          "r1": 1.97,
+          "r5": -3.86,
+          "r20": -2.31,
+          "rel5": -2.83,
+          "rel20": -1.12,
+          "r30m": -0.12,
+          "r2h": 0.34,
+          "rel30m": 0.06,
+          "rel2h": 0.35,
+          "volumeZ": -1.65
         }
       },
       "crowd": {
-        "phase": "DISCOVERY",
-        "position": "OBSERVE",
-        "consensus": 21,
-        "consensus_delta": -10,
-        "priced_in": 5.1,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 30,
+        "consensus_delta": 9,
+        "priced_in": 7.3,
         "discount": "UNPRICED",
-        "timing_score": 49.2,
+        "timing_score": 50.4,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0,
+          "relative_breadth": 0.2,
           "intraday_breadth": 0.6,
-          "breadth": 0,
+          "breadth": 0.2,
           "above20": 0.2,
           "above50": 0.2,
-          "crowding": 2,
+          "crowding": 2.8,
           "lag_share": 0,
-          "rel5": -6.84,
-          "rel2h": 0.25
+          "rel5": -2.83,
+          "rel2h": 0.35
         }
       },
       "scout": {
@@ -12410,7 +11815,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "ROBOTICS_ACTUATOR_SCALE": {
       "id": "ROBOTICS_ACTUATOR_SCALE",
@@ -12674,11 +12079,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 8,
-        "crowding": 5.7,
+        "score": 23,
+        "crowding": 4.6,
         "breadth": 0.5,
         "relative_breadth": 0.5,
-        "intraday_breadth": 0.5,
+        "intraday_breadth": 0.75,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -12686,40 +12091,40 @@
         "above50": 0,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 1.03,
-          "r5": -2.96,
-          "r20": -3.14,
-          "rel5": -1.03,
-          "rel20": 0.33,
-          "r30m": 0.53,
-          "r2h": 0.62,
-          "rel30m": 0.5,
-          "rel2h": 0.62,
-          "volumeZ": -0.49
+          "r1": 1.65,
+          "r5": -1.98,
+          "r20": -2.46,
+          "rel5": -0.95,
+          "rel20": -1.27,
+          "r30m": 0.1,
+          "r2h": 0.56,
+          "rel30m": 0.27,
+          "rel2h": 0.57,
+          "volumeZ": -1.21
         }
       },
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
-        "consensus": 42.5,
-        "consensus_delta": -6.3,
-        "priced_in": 11.5,
+        "consensus": 48.8,
+        "consensus_delta": 6.3,
+        "priced_in": 11.9,
         "discount": "UNPRICED",
-        "timing_score": 49.6,
+        "timing_score": 50.8,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.5,
-          "intraday_breadth": 0.5,
+          "intraday_breadth": 0.75,
           "breadth": 0.5,
           "above20": 0.5,
           "above50": 0,
-          "crowding": 5.7,
+          "crowding": 4.6,
           "lag_share": 0,
-          "rel5": -1.03,
-          "rel2h": 0.62
+          "rel5": -0.95,
+          "rel2h": 0.57
         }
       },
       "scout": {
@@ -12854,7 +12259,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "ROBOTICS_DECOUPLING": {
       "id": "ROBOTICS_DECOUPLING",
@@ -13540,11 +12945,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 8,
-        "crowding": 5.7,
+        "score": 23,
+        "crowding": 4.6,
         "breadth": 0.5,
         "relative_breadth": 0.5,
-        "intraday_breadth": 0.5,
+        "intraday_breadth": 0.75,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -13552,40 +12957,40 @@
         "above50": 0,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 1.03,
-          "r5": -2.96,
-          "r20": -3.14,
-          "rel5": -1.03,
-          "rel20": 0.33,
-          "r30m": 0.53,
-          "r2h": 0.62,
-          "rel30m": 0.5,
-          "rel2h": 0.62,
-          "volumeZ": -0.49
+          "r1": 1.65,
+          "r5": -1.98,
+          "r20": -2.46,
+          "rel5": -0.95,
+          "rel20": -1.27,
+          "r30m": 0.1,
+          "r2h": 0.56,
+          "rel30m": 0.28,
+          "rel2h": 0.57,
+          "volumeZ": -1.21
         }
       },
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
-        "consensus": 42.5,
-        "consensus_delta": -6.3,
-        "priced_in": 11.5,
+        "consensus": 48.8,
+        "consensus_delta": 6.3,
+        "priced_in": 11.9,
         "discount": "UNPRICED",
-        "timing_score": 55,
+        "timing_score": 56.2,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.5,
-          "intraday_breadth": 0.5,
+          "intraday_breadth": 0.75,
           "breadth": 0.5,
           "above20": 0.5,
           "above50": 0,
-          "crowding": 5.7,
+          "crowding": 4.6,
           "lag_share": 0,
-          "rel5": -1.03,
-          "rel2h": 0.62
+          "rel5": -0.95,
+          "rel2h": 0.57
         }
       },
       "scout": {
@@ -13743,7 +13148,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "JAPAN_CARRY_UNWIND": {
       "id": "JAPAN_CARRY_UNWIND",
@@ -13751,11 +13156,11 @@
       "tier": "A",
       "state": "ARMING",
       "raw_state": "ARMING",
-      "score": 63,
-      "previous_state": "WATCH",
-      "score_delta": 22,
-      "summary": "Evidence related to Japan carry unwind and its potential impact on global financial conditions.",
-      "material_change": true,
+      "score": 56,
+      "previous_state": "ARMING",
+      "score_delta": -7,
+      "summary": "The evidence supports a tightening of global financial conditions through rising Japanese yields and a strengthening yen, as reflected in recent market data and policy expectations.",
+      "material_change": false,
       "observed_evidence": [
         {
           "candidate_id": "4ee73e70a18c94469d95",
@@ -13764,11 +13169,11 @@
           "signal": "JGB_YEN_CONFIRM",
           "family": "PRICE",
           "fact_type": "FACT",
-          "claim": "USD/JPY traded at 155.09, facing a 275‑basis‑point policy gap as the Bank of Japan prepares a 31‑year high rate.",
-          "direction": "UNKNOWN",
+          "claim": "Policy gap of 275bp as BOJ prepares 31‑year high rate, implying rising Japanese yields.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "JGB_YEN_CONFIRM",
+          "why_upstream": "JGB yield",
           "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOeXVkdy1qVUxEbE9uUlFTRnJaYWJZNnI4ekU5bW92Sk5rRUxwNVNaT2Rkb3lNU2pTcnNDWnV0V1VPOHFnVFhsODhLZkpMQ01BNkNyN0FaLVRfdDh0MTNtMnNhb1RlM3U5SlZPdXNaMUdyTWFzUmhJUGZpOFVnNWVya0FIQVFuRDZ6ZXVoTGhvNFg2LXFyZExnbldvVQ?oc=5",
           "source_name": "TradingNEWS",
           "source_domain": "tradingnews.com",
@@ -13776,11 +13181,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-15T20:31:39.000Z",
-          "retrieved_at": "2026-09-16T11:30:59.390Z",
+          "retrieved_at": "2026-09-16T14:13:31.125Z",
           "valid": true,
           "evidence_key": "dae989d212375a14591fe7fb",
-          "first_seen_at": "2026-09-16T11:30:59.390Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "first_seen_at": "2026-09-16T14:13:31.125Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -13792,11 +13197,11 @@
           "signal": "JGB_YEN_CONFIRM",
           "family": "PRICE",
           "fact_type": "FACT",
-          "claim": "USD/JPY price forecasted to bounce to 154.20 as both the Bank of Japan and the U.S. Federal Reserve hike rates this week, with a cap at 156.69.",
-          "direction": "UNKNOWN",
+          "claim": "USD/JPY forecast to 154.20, indicating yen strengthening.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "JGB_YEN_CONFIRM",
+          "why_upstream": "JPY strength",
           "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaUtad1MtRjBnT2xaS2tuTWpNZThSS3lTVFgxRVpQZUdvOVA2WVRaY3Yzc2VkcEtPMTA5amZ4N0F0U2tvbDAweDQ4U0pHMk1FbEF6Zm54azExTWNPSVMtVkpFazI4bE96R0NHb0ZFLWZ1VjRyTEpCZU1raUItVE1rX3lmaTNKLXJ1cVF4Ny1XOXNjdDQ2eFAtNVJPUjhsTk1walNGOWQwdHREeGFyd1E?oc=5",
           "source_name": "TradingNEWS",
           "source_domain": "tradingnews.com",
@@ -13804,39 +13209,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-14T20:20:55.000Z",
-          "retrieved_at": "2026-09-16T11:30:59.390Z",
+          "retrieved_at": "2026-09-16T14:13:31.125Z",
           "valid": true,
           "evidence_key": "2a7e204b74d7f4f7c1a0365c",
-          "first_seen_at": "2026-09-16T11:30:59.390Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "e84a8558e32eb1a417be",
-          "query_id": "JAPAN_CARRY_UNWIND:lead:boj_signal",
-          "phase": "LEAD",
-          "signal": "BOJ_TIGHTENING",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "The Nikkei index remained nearly flat as SoftBank’s rebound offset oil and rate‑fear concerns, indicating ongoing BOJ tightening.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "BOJ_TIGHTENING",
-          "source_url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5BWlhlTVNRU0lmQ2RTRDBzdVV1REF4bWdiSnRfYW9IY19DT3dDR2JxWnd5cTlaaXpSRWN6VzhsVDltT1BNWGZfRm5JVFItQTNvSjZHOQ?oc=5",
-          "source_name": "News On Japan",
-          "source_domain": "newsonjapan.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-15T13:36:25.000Z",
-          "retrieved_at": "2026-09-16T11:30:59.229Z",
-          "valid": true,
-          "evidence_key": "92d625fd9d1d40038a1d544d",
-          "first_seen_at": "2026-09-16T11:30:59.229Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "first_seen_at": "2026-09-16T14:13:31.125Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -13850,11 +13227,11 @@
           "signal": "JGB_YEN_CONFIRM",
           "family": "PRICE",
           "fact_type": "FACT",
-          "claim": "USD/JPY traded at 155.09, facing a 275‑basis‑point policy gap as the Bank of Japan prepares a 31‑year high rate.",
-          "direction": "UNKNOWN",
+          "claim": "Policy gap of 275bp as BOJ prepares 31‑year high rate, implying rising Japanese yields.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "JGB_YEN_CONFIRM",
+          "why_upstream": "JGB yield",
           "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOeXVkdy1qVUxEbE9uUlFTRnJaYWJZNnI4ekU5bW92Sk5rRUxwNVNaT2Rkb3lNU2pTcnNDWnV0V1VPOHFnVFhsODhLZkpMQ01BNkNyN0FaLVRfdDh0MTNtMnNhb1RlM3U5SlZPdXNaMUdyTWFzUmhJUGZpOFVnNWVya0FIQVFuRDZ6ZXVoTGhvNFg2LXFyZExnbldvVQ?oc=5",
           "source_name": "TradingNEWS",
           "source_domain": "tradingnews.com",
@@ -13862,11 +13239,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-15T20:31:39.000Z",
-          "retrieved_at": "2026-09-16T11:30:59.390Z",
+          "retrieved_at": "2026-09-16T14:13:31.125Z",
           "valid": true,
           "evidence_key": "dae989d212375a14591fe7fb",
           "first_seen_at": "2026-09-16T08:36:29.843Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -13878,11 +13255,11 @@
           "signal": "JGB_YEN_CONFIRM",
           "family": "PRICE",
           "fact_type": "FACT",
-          "claim": "USD/JPY price forecasted to bounce to 154.20 as both the Bank of Japan and the U.S. Federal Reserve hike rates this week, with a cap at 156.69.",
-          "direction": "UNKNOWN",
+          "claim": "USD/JPY forecast to 154.20, indicating yen strengthening.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "JGB_YEN_CONFIRM",
+          "why_upstream": "JPY strength",
           "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaUtad1MtRjBnT2xaS2tuTWpNZThSS3lTVFgxRVpQZUdvOVA2WVRaY3Yzc2VkcEtPMTA5amZ4N0F0U2tvbDAweDQ4U0pHMk1FbEF6Zm54azExTWNPSVMtVkpFazI4bE96R0NHb0ZFLWZ1VjRyTEpCZU1raUItVE1rX3lmaTNKLXJ1cVF4Ny1XOXNjdDQ2eFAtNVJPUjhsTk1walNGOWQwdHREeGFyd1E?oc=5",
           "source_name": "TradingNEWS",
           "source_domain": "tradingnews.com",
@@ -13890,11 +13267,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-14T20:20:55.000Z",
-          "retrieved_at": "2026-09-16T11:30:59.390Z",
+          "retrieved_at": "2026-09-16T14:13:31.125Z",
           "valid": true,
           "evidence_key": "2a7e204b74d7f4f7c1a0365c",
           "first_seen_at": "2026-09-15T08:41:51.980Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -13923,9 +13300,9 @@
           "evidence_key": "92d625fd9d1d40038a1d544d",
           "first_seen_at": "2026-09-16T08:36:29.683Z",
           "last_seen_at": "2026-09-16T11:35:44.699Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9743,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.7
         },
         {
           "candidate_id": "77d96388614996edd38f",
@@ -13951,9 +13328,9 @@
           "evidence_key": "1da92c93f7d875316d279e8b",
           "first_seen_at": "2026-09-15T08:41:51.900Z",
           "last_seen_at": "2026-09-15T08:48:27.204Z",
-          "memory_weight": 0.7727,
+          "memory_weight": 0.7528,
           "memory_status": "CARRIED",
-          "memory_age_hours": 26.79
+          "memory_age_hours": 29.49
         },
         {
           "candidate_id": "7a5c4c0ba3885b26f94d",
@@ -13979,9 +13356,9 @@
           "evidence_key": "d1bde0e812387ce4f3cdfb8e",
           "first_seen_at": "2026-09-14T04:55:10.946Z",
           "last_seen_at": "2026-09-14T09:03:52.651Z",
-          "memory_weight": 0.6148,
+          "memory_weight": 0.599,
           "memory_status": "CARRIED",
-          "memory_age_hours": 50.53
+          "memory_age_hours": 53.23
         },
         {
           "candidate_id": "d6d6a4c7e1f7873b095c",
@@ -14007,9 +13384,9 @@
           "evidence_key": "bc871a95455d2e5ca6205dc4",
           "first_seen_at": "2026-09-14T08:56:01.012Z",
           "last_seen_at": "2026-09-14T09:03:52.651Z",
-          "memory_weight": 0.6148,
+          "memory_weight": 0.599,
           "memory_status": "CARRIED",
-          "memory_age_hours": 50.53
+          "memory_age_hours": 53.23
         },
         {
           "candidate_id": "3ddc48c5992aeaf8fe20",
@@ -14035,9 +13412,9 @@
           "evidence_key": "5aa9aae75ff858908852cf4a",
           "first_seen_at": "2026-09-14T08:56:01.012Z",
           "last_seen_at": "2026-09-14T09:03:52.651Z",
-          "memory_weight": 0.6148,
+          "memory_weight": 0.599,
           "memory_status": "CARRIED",
-          "memory_age_hours": 50.53
+          "memory_age_hours": 53.23
         },
         {
           "candidate_id": "e9ed828fc1c41a25e20c",
@@ -14063,9 +13440,9 @@
           "evidence_key": "8a4c08ed2d8a95c32390c181",
           "first_seen_at": "2026-09-14T04:55:10.946Z",
           "last_seen_at": "2026-09-14T05:05:19.028Z",
-          "memory_weight": 0.5917,
+          "memory_weight": 0.5765,
           "memory_status": "CARRIED",
-          "memory_age_hours": 54.51
+          "memory_age_hours": 57.21
         },
         {
           "candidate_id": "f0b77fa204cf8a52a417",
@@ -14091,65 +13468,9 @@
           "evidence_key": "4415cd740e559443a938b7cd",
           "first_seen_at": "2026-09-10T11:18:03.251Z",
           "last_seen_at": "2026-09-11T16:15:56.823Z",
-          "memory_weight": 0.3295,
+          "memory_weight": 0.321,
           "memory_status": "CARRIED",
-          "memory_age_hours": 115.33
-        },
-        {
-          "candidate_id": "94a6cccb565d9e69d8fb",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "Banco Santander analysts say GPIF may sell off $62 billion in U.S. Treasuries.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "The title states that GPIF may sell off $62 billion in U.S. Treasuries.",
-          "source_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPVkV1UC10UlhVU0xId1hRZnBYWnVNTHhVOWxYMjdmbDdfLVk3NXhhQjItTUxOZFFBbF9laEs0T1AzTEJZeUgyb0FqX25wN19va2R1NFlMVEgwYlAtNmRtNFBySFdDTkVUNzE1RnhUMVlBZGFVLUptbUtLQ19PWHpadGxXVTBIRlhsZDQ1SWwyNHoweVhVd2Y1VklhZG1VckJJOXhIZU5XVFBXS19Hc1dfMg?oc=5",
-          "source_name": "Moomoo",
-          "source_domain": "moomoo.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-11T23:15:05.000Z",
-          "retrieved_at": "2026-09-13T13:49:23.496Z",
-          "valid": true,
-          "evidence_key": "72f8c9d42a600c7f7003e65a",
-          "first_seen_at": "2026-09-12T04:33:18.458Z",
-          "last_seen_at": "2026-09-13T13:56:57.110Z",
-          "memory_weight": 0.2616,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 69.65
-        },
-        {
-          "candidate_id": "9508eef661d86e5b39d3",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "Morningstar reports that a Bank of Japan rate hike is likely to support the yen.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "The title explicitly says a BOJ rate hike is likely to support the yen.",
-          "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQNGVHTWFmdENNUVdTaFpLbTlKdmwxaTVKZzJ3VEM5R0hTWjI5RUZmUmg2X3ZvT1NyMG1TSHgtQkxSNVRnZ2tGd2VrNWlvdzFlUWprM2w2WEhYRUFmVFZ5aUVYUFFsaHo5MTRVTVV0SVpWQno0cjFBUXFla3hQUmpwRnN4WkRZY1JaUU9n?oc=5",
-          "source_name": "Morningstar",
-          "source_domain": "morningstar.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-11T16:14:26.000Z",
-          "retrieved_at": "2026-09-13T13:49:23.496Z",
-          "valid": true,
-          "evidence_key": "67b0cfd97057bccb8d3cd629",
-          "first_seen_at": "2026-09-12T04:33:18.458Z",
-          "last_seen_at": "2026-09-13T13:56:57.110Z",
-          "memory_weight": 0.2616,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 69.65
+          "memory_age_hours": 118.03
         }
       ],
       "verified": [],
@@ -14160,14 +13481,14 @@
       },
       "events": [
         {
-          "id": "8332dc932f79b37b5f8e09",
+          "id": "105264a7dba1c2e6d08b53",
           "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "run_id": "run_2026-09-16T11-29-15Z",
+          "run_id": "run_2026-09-16T14-12-11Z",
           "phase": "CONFIRM",
           "signal": "JGB_YEN_CONFIRM",
-          "claim": "USD/JPY traded at 155.09, facing a 275‑basis‑point policy gap as the Bank of Japan prepares a 31‑year high rate.",
+          "claim": "Policy gap of 275bp as BOJ prepares 31‑year high rate, implying rising Japanese yields.",
           "observed_at": "2026-09-15T20:31:39.000Z",
-          "ingested_at": "2026-09-16T11:35:44.699Z",
+          "ingested_at": "2026-09-16T14:17:50.353Z",
           "source_count": 1,
           "domains": [
             "tradingnews.com"
@@ -14181,35 +13502,14 @@
           "source_grade": 0.62
         },
         {
-          "id": "dc1cfc8347c83e542b4286",
+          "id": "824b9a6f44a9e07db1db8f",
           "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "run_id": "run_2026-09-16T11-29-15Z",
-          "phase": "LEAD",
-          "signal": "BOJ_TIGHTENING",
-          "claim": "The Nikkei index remained nearly flat as SoftBank’s rebound offset oil and rate‑fear concerns, indicating ongoing BOJ tightening.",
-          "observed_at": "2026-09-15T13:36:25.000Z",
-          "ingested_at": "2026-09-16T11:35:44.699Z",
-          "source_count": 1,
-          "domains": [
-            "newsonjapan.com"
-          ],
-          "source_urls": [
-            "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5BWlhlTVNRU0lmQ2RTRDBzdVV1REF4bWdiSnRfYW9IY19DT3dDR2JxWnd5cTlaaXpSRWN6VzhsVDltT1BNWGZfRm5JVFItQTNvSjZHOQ?oc=5"
-          ],
-          "official": false,
-          "representative_source": "News On Japan",
-          "representative_url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5BWlhlTVNRU0lmQ2RTRDBzdVV1REF4bWdiSnRfYW9IY19DT3dDR2JxWnd5cTlaaXpSRWN6VzhsVDltT1BNWGZfRm5JVFItQTNvSjZHOQ?oc=5",
-          "source_grade": 0.62
-        },
-        {
-          "id": "3af981d7477443ed30083a",
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "run_id": "run_2026-09-16T11-29-15Z",
+          "run_id": "run_2026-09-16T14-12-11Z",
           "phase": "CONFIRM",
           "signal": "JGB_YEN_CONFIRM",
-          "claim": "USD/JPY price forecasted to bounce to 154.20 as both the Bank of Japan and the U.S. Federal Reserve hike rates this week, with a cap at 156.69.",
+          "claim": "USD/JPY forecast to 154.20, indicating yen strengthening.",
           "observed_at": "2026-09-14T20:20:55.000Z",
-          "ingested_at": "2026-09-16T11:35:44.699Z",
+          "ingested_at": "2026-09-16T14:17:50.353Z",
           "source_count": 1,
           "domains": [
             "tradingnews.com"
@@ -14224,29 +13524,26 @@
         }
       ],
       "event_stats": {
-        "observed_unique": 3,
+        "observed_unique": 2,
         "observed_duplicates": 0,
-        "memory_unique": 10,
+        "memory_unique": 8,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 3,
-        "carried_items": 8,
-        "avg_carry_weight": 0.508,
-        "observed_score": 51,
+        "observed_items": 2,
+        "carried_items": 7,
+        "avg_carry_weight": 0.632,
+        "observed_score": 23,
         "raw_combined_score": 75,
-        "decayed_score": 63
+        "decayed_score": 56
       },
-      "expected_next": [
-        "JGB_YEN_CONFIRM",
-        "BOJ_TIGHTENING"
-      ],
+      "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 49,
-        "crowding": 25.9,
+        "score": 41,
+        "crowding": 9.8,
         "breadth": 1,
-        "relative_breadth": 1,
+        "relative_breadth": 0.667,
         "intraday_breadth": 0.333,
         "quality": "HIGH",
         "n": 3,
@@ -14255,78 +13552,78 @@
         "above50": 0.667,
         "benchmark": "EWJ",
         "avg": {
-          "r1": -0.03,
-          "r5": 1.3,
-          "r20": 3.18,
-          "rel5": 1.66,
-          "rel20": 3.6,
-          "r30m": -0.13,
-          "r2h": -0.57,
-          "rel30m": -0.13,
-          "rel2h": -0.67,
-          "volumeZ": -0.21
+          "r1": -0.25,
+          "r5": 0.98,
+          "r20": 3.17,
+          "rel5": 0.76,
+          "rel20": 2.38,
+          "r30m": -0.1,
+          "r2h": -0.52,
+          "rel30m": -0.09,
+          "rel2h": -0.72,
+          "volumeZ": -0.96
         }
       },
       "crowd": {
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
-        "consensus": 73.3,
-        "consensus_delta": 0,
-        "priced_in": 30.8,
-        "discount": "PARTLY_PRICED",
-        "timing_score": 70.3,
+        "consensus": 63.3,
+        "consensus_delta": -10,
+        "priced_in": 18.1,
+        "discount": "UNPRICED",
+        "timing_score": 68.4,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 1,
+          "relative_breadth": 0.667,
           "intraday_breadth": 0.333,
           "breadth": 1,
           "above20": 0.667,
           "above50": 0.667,
-          "crowding": 25.9,
+          "crowding": 9.8,
           "lag_share": 0,
-          "rel5": 1.66,
-          "rel2h": -0.67
+          "rel5": 0.76,
+          "rel2h": -0.72
         }
       },
       "scout": {
         "eligible": false,
-        "score": 66.6,
+        "score": 65.3,
         "reasons": [
-          "WAVE_NOT_EARLY",
-          "MARKET_ALREADY_MOVED"
+          "WAVE_NOT_EARLY"
         ],
         "phase": "IN_SYNC",
-        "priced_in": 30.8
+        "priced_in": 18.1
       },
       "alpha": {
         "eligible": false,
-        "score": 60.1,
+        "score": 60.3,
         "market_floor": 20,
         "reasons": [
-          "STATE_NOT_STABLY_ACTIVE"
+          "STATE_NOT_STABLY_ACTIVE",
+          "CAUSAL_TOO_WEAK"
         ],
         "empirical": {
           "samples": 0,
           "hit_rate": null,
           "avg_return": null,
-          "lead_to_confirm": 0.571
+          "lead_to_confirm": 0.5
         },
         "crowd_phase": "IN_SYNC",
-        "priced_in": 30.8
+        "priced_in": 18.1
       },
       "reliability": {
         "samples": 0,
         "hit_rate": null,
         "avg_return": null,
-        "lead_to_confirm": 0.571
+        "lead_to_confirm": 0.5
       },
       "hysteresis": {
         "raw_state": "ARMING",
         "pending": null,
-        "reason": "DIRECT_NONCRITICAL_TRANSITION",
+        "reason": "STABLE",
         "applied": false
       },
       "sensors": {
@@ -14340,11 +13637,9 @@
           "tradingnews.com",
           "newsonjapan.com",
           "news.tuoitre.vn",
-          "moomoo.com",
-          "morningstar.com",
           "centralbanking.com"
         ],
-        "events": 10,
+        "events": 8,
         "duplicates_removed": 0
       },
       "positive": [
@@ -14354,27 +13649,27 @@
       "negative": [
         "TLT"
       ],
-      "last_run": "2026-09-16T11:35:44.699Z",
+      "last_run": "2026-09-16T14:17:50.353Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1706,
-        "completion_tokens": 1180,
-        "total_tokens": 2886,
-        "cost": 0.00015212,
+        "prompt_tokens": 1707,
+        "completion_tokens": 1300,
+        "total_tokens": 3007,
+        "cost": 0.00024557,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 0,
+          "cached_tokens": 64,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00015212,
-          "upstream_inference_prompt_cost": 0.00003412,
-          "upstream_inference_completions_cost": 0.000118
+          "upstream_inference_cost": 0.00024557,
+          "upstream_inference_prompt_cost": 0.00005057,
+          "upstream_inference_completions_cost": 0.000195
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 723,
+          "reasoning_tokens": 1008,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -14447,11 +13742,11 @@
       "tier": "A",
       "state": "ACTIVE",
       "raw_state": "ACTIVE",
-      "score": 87,
+      "score": 85,
       "previous_state": "ACTIVE",
-      "score_delta": 0,
-      "summary": "Material evidence of global refinancing stress and related bond‑market volatility",
-      "material_change": true,
+      "score_delta": -2,
+      "summary": "Material evidence of global refinancing stress and its transmission to corporate credit conditions.",
+      "material_change": false,
       "observed_evidence": [
         {
           "candidate_id": "3cc039c851d992f70bd9",
@@ -14460,11 +13755,11 @@
           "signal": "EURO_CREDIT_CONDITIONS",
           "family": "OFFICIAL",
           "fact_type": "FACT",
-          "claim": "The European Central Bank highlighted that macro‑economic, fiscal and financial stability in the euro area are increasingly exposed to shocks, implying deteriorating euro‑area credit conditions.",
-          "direction": "DOWN",
+          "claim": "ECB officials warned that macroeconomic, fiscal and financial stability are vulnerable to shocks, indicating potential refinancing stress.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Official ECB communication (LEAD phase) directly addressing euro‑area credit conditions, providing upstream evidence of systemic stress that can affect refinancing.",
+          "why_upstream": "Official ECB communication (phase: LEAD).",
           "source_url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260914~0ffd556bc8.en.pdf",
           "source_name": "European Central Bank news",
           "source_domain": "ecb.europa.eu",
@@ -14472,11 +13767,11 @@
           "official": true,
           "engine": "official_rss",
           "published_at": "2026-09-14T09:15:00.000Z",
-          "retrieved_at": "2026-09-16T11:31:02.302Z",
+          "retrieved_at": "2026-09-16T14:13:32.836Z",
           "valid": true,
           "evidence_key": "7c46fb51f477e936f935cb1f",
-          "first_seen_at": "2026-09-16T11:31:02.302Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "first_seen_at": "2026-09-16T14:13:32.836Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -14488,11 +13783,11 @@
           "signal": "CREDIT_MARKET_STRESS",
           "family": "PRICE",
           "fact_type": "FACT",
-          "claim": "U.S. Treasury yields are rising, reflecting increased bond‑market volatility.",
+          "claim": "Treasury yields are rising.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Confirm‑phase Reuters report linking higher Treasury yields to market volatility, a key observable of the bond‑market side of the mechanism.",
+          "why_upstream": "Reuters article (phase: CONFIRM) highlighting higher sovereign rates that affect corporate refinancing costs.",
           "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQN2hqY3NCTUdIbGJoZUR6aXVTVXlZUFZPVFNmc3dFcTUwRGkwcG1DRW1rZHlLTGV4WWdaV2xielR5WTZhcUdnNEYyX2pmcTcyRmFZYzQtVThYeDBKb3JHUEJkc1VuamNUbV80ckhHcURLVEMwcmpUSE4yRHJmLUtYMEprWEZhQ1d3cFdyMElEbTdxLVAtMVQ2YjZSVzIxUlU?oc=5",
           "source_name": "Reuters",
           "source_domain": "reuters.com",
@@ -14500,11 +13795,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-14T07:00:00.000Z",
-          "retrieved_at": "2026-09-16T11:30:59.631Z",
+          "retrieved_at": "2026-09-16T14:13:31.366Z",
           "valid": true,
           "evidence_key": "bbff26427c77cc1100f22823",
-          "first_seen_at": "2026-09-16T11:30:59.631Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "first_seen_at": "2026-09-16T14:13:31.366Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -14516,11 +13811,11 @@
           "signal": "CRE_REFINANCING",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "CMBS special servicing rates have risen to their highest level since 2013, indicating heightened stress in commercial‑real‑estate refinancing.",
+          "claim": "CMBS special servicing rates have risen to their highest level since 2013.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Lead‑phase signal CRE_REFINANCING showing a measurable increase in servicing activity for commercial mortgage‑backed securities, a proxy for refinancing difficulty in the CRE sector.",
+          "why_upstream": "CRE Daily report (phase: LEAD) indicating stress in commercial real‑estate refinancing.",
           "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQRUZRLWJBY212SnVpZUJQQzIwSFlRUzNyTDkybTgyWTZvV0xGcERXU2pJbDBJYnZDelAzOWU4LUFfb3ZpNnd3Ry1pYWx5dXhKNnJWd0g3OWNHYWc5YkZCaVRhZHNWV2RpelNNdUh0TXFSaHV5Y0E2RFdOYXFkZThlWFV5SWhVWmUtWFp5Sg?oc=5",
           "source_name": "CRE Daily",
           "source_domain": "credaily.com",
@@ -14528,11 +13823,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-16T07:54:33.000Z",
-          "retrieved_at": "2026-09-16T11:30:59.550Z",
+          "retrieved_at": "2026-09-16T14:13:31.286Z",
           "valid": true,
           "evidence_key": "30b86fa1f141303b1283843a",
-          "first_seen_at": "2026-09-16T11:30:59.550Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "first_seen_at": "2026-09-16T14:13:31.286Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -14544,11 +13839,11 @@
           "signal": "CREDIT_MARKET_STRESS",
           "family": "PRICE",
           "fact_type": "FACT",
-          "claim": "Tight credit spreads on the BINC fund (7.1% yield) indicate stress in credit markets despite controlled duration.",
-          "direction": "DOWN",
+          "claim": "Credit spreads are tight, reflecting stress in the bond market.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Confirm‑phase Seeking Alpha commentary noting compressed spreads, which signals transmission of market stress into credit quality.",
+          "why_upstream": "Seeking Alpha commentary (phase: CONFIRM) on tight credit spreads.",
           "source_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQTDRtTXJrZWVnV25WYWQyUl9sYUdlUlMtOG1YZGNIdndScXdJeU1ZUHJ4VVhvOEVJLVliaHdFazdncFJhVHZ6QlVqNUF6dm9zUGV1ME9ybEdxTlE1cjZORVZqalk1a1FxdnhYNVM4MHUyRjZISVpDNnJMWFdxUmNPajFadmlMbkJVbnVYM19zTWF5Q2dNZEMtc2FOeXZQdWFHYWlIdUZVOU1iX0FRSDd0ektXTXZhV1RPSDFN?oc=5",
           "source_name": "Seeking Alpha",
           "source_domain": "seekingalpha.com",
@@ -14556,11 +13851,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-15T06:40:26.000Z",
-          "retrieved_at": "2026-09-16T11:30:59.631Z",
+          "retrieved_at": "2026-09-16T14:13:31.366Z",
           "valid": true,
           "evidence_key": "8dabf367bab21c102a2e98b6",
-          "first_seen_at": "2026-09-16T11:30:59.631Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "first_seen_at": "2026-09-16T14:13:31.366Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -14574,11 +13869,11 @@
           "signal": "EURO_CREDIT_CONDITIONS",
           "family": "OFFICIAL",
           "fact_type": "FACT",
-          "claim": "The European Central Bank highlighted that macro‑economic, fiscal and financial stability in the euro area are increasingly exposed to shocks, implying deteriorating euro‑area credit conditions.",
-          "direction": "DOWN",
+          "claim": "ECB officials warned that macroeconomic, fiscal and financial stability are vulnerable to shocks, indicating potential refinancing stress.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Official ECB communication (LEAD phase) directly addressing euro‑area credit conditions, providing upstream evidence of systemic stress that can affect refinancing.",
+          "why_upstream": "Official ECB communication (phase: LEAD).",
           "source_url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260914~0ffd556bc8.en.pdf",
           "source_name": "European Central Bank news",
           "source_domain": "ecb.europa.eu",
@@ -14586,11 +13881,11 @@
           "official": true,
           "engine": "official_rss",
           "published_at": "2026-09-14T09:15:00.000Z",
-          "retrieved_at": "2026-09-16T11:31:02.302Z",
+          "retrieved_at": "2026-09-16T14:13:32.836Z",
           "valid": true,
           "evidence_key": "7c46fb51f477e936f935cb1f",
           "first_seen_at": "2026-09-16T08:36:31.797Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -14602,11 +13897,11 @@
           "signal": "CREDIT_MARKET_STRESS",
           "family": "PRICE",
           "fact_type": "FACT",
-          "claim": "U.S. Treasury yields are rising, reflecting increased bond‑market volatility.",
+          "claim": "Treasury yields are rising.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Confirm‑phase Reuters report linking higher Treasury yields to market volatility, a key observable of the bond‑market side of the mechanism.",
+          "why_upstream": "Reuters article (phase: CONFIRM) highlighting higher sovereign rates that affect corporate refinancing costs.",
           "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQN2hqY3NCTUdIbGJoZUR6aXVTVXlZUFZPVFNmc3dFcTUwRGkwcG1DRW1rZHlLTGV4WWdaV2xielR5WTZhcUdnNEYyX2pmcTcyRmFZYzQtVThYeDBKb3JHUEJkc1VuamNUbV80ckhHcURLVEMwcmpUSE4yRHJmLUtYMEprWEZhQ1d3cFdyMElEbTdxLVAtMVQ2YjZSVzIxUlU?oc=5",
           "source_name": "Reuters",
           "source_domain": "reuters.com",
@@ -14614,11 +13909,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-14T07:00:00.000Z",
-          "retrieved_at": "2026-09-16T11:30:59.631Z",
+          "retrieved_at": "2026-09-16T14:13:31.366Z",
           "valid": true,
           "evidence_key": "bbff26427c77cc1100f22823",
           "first_seen_at": "2026-09-16T08:36:30.084Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -14630,11 +13925,11 @@
           "signal": "CRE_REFINANCING",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "CMBS special servicing rates have risen to their highest level since 2013, indicating heightened stress in commercial‑real‑estate refinancing.",
+          "claim": "CMBS special servicing rates have risen to their highest level since 2013.",
           "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Lead‑phase signal CRE_REFINANCING showing a measurable increase in servicing activity for commercial mortgage‑backed securities, a proxy for refinancing difficulty in the CRE sector.",
+          "why_upstream": "CRE Daily report (phase: LEAD) indicating stress in commercial real‑estate refinancing.",
           "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQRUZRLWJBY212SnVpZUJQQzIwSFlRUzNyTDkybTgyWTZvV0xGcERXU2pJbDBJYnZDelAzOWU4LUFfb3ZpNnd3Ry1pYWx5dXhKNnJWd0g3OWNHYWc5YkZCaVRhZHNWV2RpelNNdUh0TXFSaHV5Y0E2RFdOYXFkZThlWFV5SWhVWmUtWFp5Sg?oc=5",
           "source_name": "CRE Daily",
           "source_domain": "credaily.com",
@@ -14642,11 +13937,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-16T07:54:33.000Z",
-          "retrieved_at": "2026-09-16T11:30:59.550Z",
+          "retrieved_at": "2026-09-16T14:13:31.286Z",
           "valid": true,
           "evidence_key": "30b86fa1f141303b1283843a",
           "first_seen_at": "2026-09-16T10:08:02.844Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -14658,11 +13953,11 @@
           "signal": "CREDIT_MARKET_STRESS",
           "family": "PRICE",
           "fact_type": "FACT",
-          "claim": "Tight credit spreads on the BINC fund (7.1% yield) indicate stress in credit markets despite controlled duration.",
-          "direction": "DOWN",
+          "claim": "Credit spreads are tight, reflecting stress in the bond market.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Confirm‑phase Seeking Alpha commentary noting compressed spreads, which signals transmission of market stress into credit quality.",
+          "why_upstream": "Seeking Alpha commentary (phase: CONFIRM) on tight credit spreads.",
           "source_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQTDRtTXJrZWVnV25WYWQyUl9sYUdlUlMtOG1YZGNIdndScXdJeU1ZUHJ4VVhvOEVJLVliaHdFazdncFJhVHZ6QlVqNUF6dm9zUGV1ME9ybEdxTlE1cjZORVZqalk1a1FxdnhYNVM4MHUyRjZISVpDNnJMWFdxUmNPajFadmlMbkJVbnVYM19zTWF5Q2dNZEMtc2FOeXZQdWFHYWlIdUZVOU1iX0FRSDd0ektXTXZhV1RPSDFN?oc=5",
           "source_name": "Seeking Alpha",
           "source_domain": "seekingalpha.com",
@@ -14670,11 +13965,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-15T06:40:26.000Z",
-          "retrieved_at": "2026-09-16T11:30:59.631Z",
+          "retrieved_at": "2026-09-16T14:13:31.366Z",
           "valid": true,
           "evidence_key": "8dabf367bab21c102a2e98b6",
           "first_seen_at": "2026-09-16T08:36:30.084Z",
-          "last_seen_at": "2026-09-16T11:35:44.699Z",
+          "last_seen_at": "2026-09-16T14:17:50.353Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -14703,9 +13998,9 @@
           "evidence_key": "1a7650f6eca9dd655f79fc69",
           "first_seen_at": "2026-09-12T10:44:40.624Z",
           "last_seen_at": "2026-09-14T09:03:52.651Z",
-          "memory_weight": 0.6148,
+          "memory_weight": 0.599,
           "memory_status": "CARRIED",
-          "memory_age_hours": 50.53
+          "memory_age_hours": 53.23
         },
         {
           "candidate_id": "5907ceb32c7186a53094",
@@ -14731,9 +14026,9 @@
           "evidence_key": "72c3c1ed594b0928c8e8345f",
           "first_seen_at": "2026-09-13T04:45:58.212Z",
           "last_seen_at": "2026-09-14T09:03:52.651Z",
-          "memory_weight": 0.6148,
+          "memory_weight": 0.599,
           "memory_status": "CARRIED",
-          "memory_age_hours": 50.53
+          "memory_age_hours": 53.23
         },
         {
           "candidate_id": "0677121195ba26192312",
@@ -14759,9 +14054,9 @@
           "evidence_key": "d4e97015e81181f56cba0bd0",
           "first_seen_at": "2026-09-12T10:44:40.624Z",
           "last_seen_at": "2026-09-14T09:03:52.651Z",
-          "memory_weight": 0.6148,
+          "memory_weight": 0.599,
           "memory_status": "CARRIED",
-          "memory_age_hours": 50.53
+          "memory_age_hours": 53.23
         },
         {
           "candidate_id": "ed731994e420541e2e7e",
@@ -14787,9 +14082,9 @@
           "evidence_key": "4b03aaf3ef507f5b82294dfa",
           "first_seen_at": "2026-09-12T10:44:40.624Z",
           "last_seen_at": "2026-09-14T09:03:52.651Z",
-          "memory_weight": 0.6148,
+          "memory_weight": 0.599,
           "memory_status": "CARRIED",
-          "memory_age_hours": 50.53
+          "memory_age_hours": 53.23
         },
         {
           "candidate_id": "217e305ffc595b291753",
@@ -14815,9 +14110,9 @@
           "evidence_key": "0402799ed700cb91d0aed190",
           "first_seen_at": "2026-09-15T04:53:05.102Z",
           "last_seen_at": "2026-09-15T04:59:03.008Z",
-          "memory_weight": 0.5547,
+          "memory_weight": 0.5265,
           "memory_status": "CARRIED",
-          "memory_age_hours": 30.61
+          "memory_age_hours": 33.31
         }
       ],
       "verified": [],
@@ -14828,14 +14123,14 @@
       },
       "events": [
         {
-          "id": "9487adca5babca13baf12f",
+          "id": "4d6768c9b0c350443e62b4",
           "mechanism_id": "GLOBAL_REFINANCING_STRESS",
-          "run_id": "run_2026-09-16T11-29-15Z",
+          "run_id": "run_2026-09-16T14-12-11Z",
           "phase": "LEAD",
           "signal": "EURO_CREDIT_CONDITIONS",
-          "claim": "The European Central Bank highlighted that macro‑economic, fiscal and financial stability in the euro area are increasingly exposed to shocks, implying deteriorating euro‑area credit conditions.",
+          "claim": "ECB officials warned that macroeconomic, fiscal and financial stability are vulnerable to shocks, indicating potential refinancing stress.",
           "observed_at": "2026-09-14T09:15:00.000Z",
-          "ingested_at": "2026-09-16T11:35:44.699Z",
+          "ingested_at": "2026-09-16T14:17:50.353Z",
           "source_count": 1,
           "domains": [
             "ecb.europa.eu"
@@ -14849,14 +14144,14 @@
           "source_grade": 1
         },
         {
-          "id": "6821bfbe8db21b537efc99",
+          "id": "deaf0bada4e42f72de16b5",
           "mechanism_id": "GLOBAL_REFINANCING_STRESS",
-          "run_id": "run_2026-09-16T11-29-15Z",
+          "run_id": "run_2026-09-16T14-12-11Z",
           "phase": "CONFIRM",
           "signal": "CREDIT_MARKET_STRESS",
-          "claim": "U.S. Treasury yields are rising, reflecting increased bond‑market volatility.",
+          "claim": "Treasury yields are rising.",
           "observed_at": "2026-09-14T07:00:00.000Z",
-          "ingested_at": "2026-09-16T11:35:44.699Z",
+          "ingested_at": "2026-09-16T14:17:50.353Z",
           "source_count": 1,
           "domains": [
             "reuters.com"
@@ -14870,14 +14165,14 @@
           "source_grade": 0.92
         },
         {
-          "id": "be182c9f5dfa7af2dfcf4f",
+          "id": "38f922124eebd49a2c8a90",
           "mechanism_id": "GLOBAL_REFINANCING_STRESS",
-          "run_id": "run_2026-09-16T11-29-15Z",
+          "run_id": "run_2026-09-16T14-12-11Z",
           "phase": "LEAD",
           "signal": "CRE_REFINANCING",
-          "claim": "CMBS special servicing rates have risen to their highest level since 2013, indicating heightened stress in commercial‑real‑estate refinancing.",
+          "claim": "CMBS special servicing rates have risen to their highest level since 2013.",
           "observed_at": "2026-09-16T07:54:33.000Z",
-          "ingested_at": "2026-09-16T11:35:44.699Z",
+          "ingested_at": "2026-09-16T14:17:50.353Z",
           "source_count": 1,
           "domains": [
             "credaily.com"
@@ -14891,14 +14186,14 @@
           "source_grade": 0.62
         },
         {
-          "id": "8895acb41bb2a5771374df",
+          "id": "1dc5a39d81fdaa1fd5ede3",
           "mechanism_id": "GLOBAL_REFINANCING_STRESS",
-          "run_id": "run_2026-09-16T11-29-15Z",
+          "run_id": "run_2026-09-16T14-12-11Z",
           "phase": "CONFIRM",
           "signal": "CREDIT_MARKET_STRESS",
-          "claim": "Tight credit spreads on the BINC fund (7.1% yield) indicate stress in credit markets despite controlled duration.",
+          "claim": "Credit spreads are tight, reflecting stress in the bond market.",
           "observed_at": "2026-09-15T06:40:26.000Z",
-          "ingested_at": "2026-09-16T11:35:44.699Z",
+          "ingested_at": "2026-09-16T14:17:50.353Z",
           "source_count": 1,
           "domains": [
             "seekingalpha.com"
@@ -14921,19 +14216,16 @@
       "memory": {
         "observed_items": 4,
         "carried_items": 5,
-        "avg_carry_weight": 0.603,
-        "observed_score": 79,
-        "raw_combined_score": 93,
-        "decayed_score": 87
+        "avg_carry_weight": 0.585,
+        "observed_score": 77,
+        "raw_combined_score": 91,
+        "decayed_score": 85
       },
-      "expected_next": [
-        "Monitor corporate cash‑flow disclosures for signs of refinancing‑related strain.",
-        "Track changes in CMBS delinquency and default rates as lagging confirmation of cash‑flow impact."
-      ],
+      "expected_next": [],
       "invalidation": [],
       "market": {
         "score": 15,
-        "crowding": 2.8,
+        "crowding": 0,
         "breadth": 1,
         "relative_breadth": 0,
         "intraday_breadth": 0,
@@ -14944,26 +14236,26 @@
         "above50": 1,
         "benchmark": "IWM",
         "avg": {
-          "r1": 0.27,
-          "r5": 1.81,
-          "r20": 0.79,
-          "rel5": -1.42,
-          "rel20": -5.43,
-          "r30m": -0.1,
-          "r2h": -0.25,
-          "rel30m": -0.05,
-          "rel2h": -0.18,
-          "volumeZ": 0.47
+          "r1": -0.4,
+          "r5": 0.85,
+          "r20": 0.77,
+          "rel5": -0.68,
+          "rel20": -3.91,
+          "r30m": -0.01,
+          "r2h": -0.11,
+          "rel30m": -0.15,
+          "rel2h": -0.03,
+          "volumeZ": -1.76
         }
       },
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 39.5,
-        "consensus_delta": -21.9,
-        "priced_in": 9,
+        "consensus_delta": 0,
+        "priced_in": 7.1,
         "discount": "UNPRICED",
-        "timing_score": 79.8,
+        "timing_score": 79.4,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "LOW",
@@ -14974,20 +14266,20 @@
           "breadth": 1,
           "above20": 1,
           "above50": 1,
-          "crowding": 2.8,
+          "crowding": 0,
           "lag_share": 0,
-          "rel5": -1.42,
-          "rel2h": -0.18
+          "rel5": -0.68,
+          "rel2h": -0.03
         }
       },
       "scout": {
         "eligible": true,
-        "score": 85.2,
+        "score": 84.7,
         "reasons": [
           "CAUSAL_LEAD_BEFORE_PRICE_SATURATION"
         ],
         "phase": "EARLY_WAVE",
-        "priced_in": 9
+        "priced_in": 7.1
       },
       "alpha": {
         "eligible": true,
@@ -15003,7 +14295,7 @@
           "lead_to_confirm": 0.75
         },
         "crowd_phase": "EARLY_WAVE",
-        "priced_in": 9
+        "priced_in": 7.1
       },
       "reliability": {
         "samples": 0,
@@ -15037,27 +14329,27 @@
         "TLT",
         "IWM"
       ],
-      "last_run": "2026-09-16T11:35:44.699Z",
+      "last_run": "2026-09-16T14:17:50.353Z",
       "model": "openai/gpt-oss-120b",
       "usage": {
         "prompt_tokens": 2797,
-        "completion_tokens": 1095,
-        "total_tokens": 3892,
-        "cost": 0.0005775,
+        "completion_tokens": 1254,
+        "total_tokens": 4051,
+        "cost": 0.00029709,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 0,
+          "cached_tokens": 64,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.0005775,
-          "upstream_inference_prompt_cost": 0.00013976529376135677,
-          "upstream_inference_completions_cost": 0.00043773470623864326
+          "upstream_inference_cost": 0.00029709,
+          "upstream_inference_prompt_cost": 0.00008391,
+          "upstream_inference_completions_cost": 0.00021318
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 621,
+          "reasoning_tokens": 933,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -15136,7 +14428,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 22
             }
           }
@@ -15238,7 +14530,7 @@
       "invalidation": [],
       "market": {
         "score": 66,
-        "crowding": 100,
+        "crowding": 89.1,
         "breadth": 1,
         "relative_breadth": 1,
         "intraday_breadth": 0.667,
@@ -15249,26 +14541,26 @@
         "above50": 1,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 3.39,
-          "r5": 11.27,
-          "r20": 6.12,
-          "rel5": 13.19,
-          "rel20": 9.59,
-          "r30m": 0.38,
-          "r2h": 0.11,
-          "rel30m": 0.35,
-          "rel2h": 0.11,
-          "volumeZ": 0.15
+          "r1": -0.82,
+          "r5": 10.64,
+          "r20": 3.86,
+          "rel5": 11.67,
+          "rel20": 5.05,
+          "r30m": -0.47,
+          "r2h": -0.12,
+          "rel30m": -0.29,
+          "rel2h": -0.11,
+          "volumeZ": -1.89
         }
       },
       "crowd": {
         "phase": "SATURATED",
         "position": "LATE",
         "consensus": 91.7,
-        "consensus_delta": 8.4,
-        "priced_in": 84.5,
+        "consensus_delta": 0,
+        "priced_in": 77.1,
         "discount": "PRICED_IN",
-        "timing_score": 40.3,
+        "timing_score": 42.2,
         "block_chase": true,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -15279,10 +14571,10 @@
           "breadth": 1,
           "above20": 1,
           "above50": 1,
-          "crowding": 100,
+          "crowding": 89.1,
           "lag_share": 0,
-          "rel5": 13.19,
-          "rel2h": 0.11
+          "rel5": 11.67,
+          "rel2h": -0.11
         }
       },
       "scout": {
@@ -15416,7 +14708,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "NUCLEAR_FUEL_SOVEREIGNTY": {
       "id": "NUCLEAR_FUEL_SOVEREIGNTY",
@@ -15682,11 +14974,11 @@
       ],
       "invalidation": [],
       "market": {
-        "score": 18,
-        "crowding": 4.1,
+        "score": 0,
+        "crowding": 0,
         "breadth": 0,
         "relative_breadth": 0.333,
-        "intraday_breadth": 0.667,
+        "intraday_breadth": 0.333,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -15694,40 +14986,40 @@
         "above50": 0,
         "benchmark": "URA",
         "avg": {
-          "r1": -2.65,
-          "r5": -16.94,
-          "r20": -19.03,
-          "rel5": -4.88,
-          "rel20": -11.34,
-          "r30m": 0.13,
-          "r2h": 0.8,
-          "rel30m": 0.39,
-          "rel2h": 0.39,
-          "volumeZ": 0.17
+          "r1": -0.85,
+          "r5": -16.19,
+          "r20": -16.03,
+          "rel5": -5.01,
+          "rel20": -11.44,
+          "r30m": -0.57,
+          "r2h": -2.48,
+          "rel30m": -0.14,
+          "rel2h": -1.2,
+          "volumeZ": -1.94
         }
       },
       "crowd": {
-        "phase": "EARLY_WAVE",
-        "position": "EARLY",
-        "consensus": 26.7,
-        "consensus_delta": 0,
-        "priced_in": 7.6,
+        "phase": "DISCOVERY",
+        "position": "OBSERVE",
+        "consensus": 18.3,
+        "consensus_delta": -8.4,
+        "priced_in": 3.3,
         "discount": "UNPRICED",
-        "timing_score": 57.8,
+        "timing_score": 57.2,
         "block_chase": false,
-        "ahead_of_wave": true,
+        "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.333,
-          "intraday_breadth": 0.667,
+          "intraday_breadth": 0.333,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 4.1,
+          "crowding": 0,
           "lag_share": 0,
-          "rel5": -4.88,
-          "rel2h": 0.39
+          "rel5": -5.01,
+          "rel2h": -1.2
         }
       },
       "scout": {
@@ -15879,7 +15171,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "MILITARY_ENERGY_AUTONOMY": {
       "id": "MILITARY_ENERGY_AUTONOMY",
@@ -16199,11 +15491,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 23,
-        "crowding": 4,
+        "score": 0,
+        "crowding": 1.9,
         "breadth": 0,
         "relative_breadth": 0,
-        "intraday_breadth": 1,
+        "intraday_breadth": 0,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -16211,40 +15503,40 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": -1.07,
-          "r5": -15.1,
-          "r20": -18.81,
-          "rel5": -10.84,
-          "rel20": -4,
-          "r30m": -0.06,
-          "r2h": 0.34,
-          "rel30m": -0.76,
-          "rel2h": 0.49,
-          "volumeZ": -0.13
+          "r1": 0.54,
+          "r5": -10.94,
+          "r20": -13.56,
+          "rel5": -9.25,
+          "rel20": 0.88,
+          "r30m": -0.37,
+          "r2h": -0.99,
+          "rel30m": -0.49,
+          "rel2h": -1.8,
+          "volumeZ": -1.82
         }
       },
       "crowd": {
-        "phase": "EARLY_WAVE",
-        "position": "EARLY",
-        "consensus": 25,
-        "consensus_delta": 0,
-        "priced_in": 7.2,
+        "phase": "DISCOVERY",
+        "position": "OBSERVE",
+        "consensus": 0,
+        "consensus_delta": -25,
+        "priced_in": 1.3,
         "discount": "UNPRICED",
-        "timing_score": 49.9,
+        "timing_score": 46.4,
         "block_chase": false,
-        "ahead_of_wave": true,
+        "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0,
-          "intraday_breadth": 1,
+          "intraday_breadth": 0,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 4,
+          "crowding": 1.9,
           "lag_share": 0,
-          "rel5": -10.84,
-          "rel2h": 0.49
+          "rel5": -9.25,
+          "rel2h": -1.8
         }
       },
       "scout": {
@@ -16399,7 +15691,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "EUROPE_STRATEGIC_AUTONOMY": {
       "id": "EUROPE_STRATEGIC_AUTONOMY",
@@ -16832,11 +16124,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 68,
-        "crowding": 50,
+        "score": 45,
+        "crowding": 28.4,
         "breadth": 0.75,
-        "relative_breadth": 1,
-        "intraday_breadth": 1,
+        "relative_breadth": 0.875,
+        "intraday_breadth": 0,
         "quality": "HIGH",
         "n": 8,
         "intraday_n": 8,
@@ -16844,40 +16136,40 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": 0.27,
-          "r5": 1.29,
-          "r20": -13.53,
-          "rel5": 5.55,
-          "rel20": 1.28,
-          "r30m": 0.05,
-          "r2h": 0.58,
-          "rel30m": -0.65,
-          "rel2h": 0.74,
-          "volumeZ": -1.48
+          "r1": 0.33,
+          "r5": 1.36,
+          "r20": -13.5,
+          "rel5": 3.05,
+          "rel20": 0.94,
+          "r30m": 0.27,
+          "r2h": 0.06,
+          "rel30m": 0.15,
+          "rel2h": -0.76,
+          "volumeZ": -1.25
         }
       },
       "crowd": {
-        "phase": "IN_SYNC",
-        "position": "SYNCHRONIZED",
-        "consensus": 66.3,
-        "consensus_delta": 6.9,
-        "priced_in": 45.9,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 37.5,
+        "consensus_delta": -28.8,
+        "priced_in": 26.1,
         "discount": "PARTLY_PRICED",
-        "timing_score": 44.9,
+        "timing_score": 44.1,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 1,
-          "intraday_breadth": 1,
+          "relative_breadth": 0.875,
+          "intraday_breadth": 0,
           "breadth": 0.75,
           "above20": 0,
           "above50": 0,
-          "crowding": 50,
+          "crowding": 28.4,
           "lag_share": 0,
-          "rel5": 5.55,
-          "rel2h": 0.74
+          "rel5": 3.05,
+          "rel2h": -0.76
         }
       },
       "scout": {
@@ -17040,7 +16332,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     },
     "OIL_SERVICE_CAPEX_SECOND_WAVE": {
       "id": "OIL_SERVICE_CAPEX_SECOND_WAVE",
@@ -17614,52 +16906,52 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 4,
+        "score": 10,
         "crowding": 0,
         "breadth": 0.2,
-        "relative_breadth": 0,
-        "intraday_breadth": 0.4,
+        "relative_breadth": 0.4,
+        "intraday_breadth": 0.6,
         "quality": "HIGH",
         "n": 5,
         "intraday_n": 5,
         "above20": 0,
-        "above50": 0.6,
+        "above50": 0.4,
         "benchmark": "XLE",
         "avg": {
-          "r1": 1.68,
-          "r5": -3.14,
-          "r20": -6.52,
-          "rel5": -4.93,
-          "rel20": -11.87,
-          "r30m": -0.15,
-          "r2h": -0.55,
-          "rel30m": -0.09,
-          "rel2h": -0.28,
-          "volumeZ": -0.23
+          "r1": -1.01,
+          "r5": -3.04,
+          "r20": -3.84,
+          "rel5": -2.17,
+          "rel20": -5.5,
+          "r30m": -0.63,
+          "r2h": -1.47,
+          "rel30m": -0.69,
+          "rel2h": -0.62,
+          "volumeZ": -1.38
         }
       },
       "crowd": {
-        "phase": "PRE_WAVE",
-        "position": "AHEAD",
-        "consensus": 22,
-        "consensus_delta": 0,
-        "priced_in": 4,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 36,
+        "consensus_delta": 14,
+        "priced_in": 6.5,
         "discount": "UNPRICED",
-        "timing_score": 60.9,
+        "timing_score": 63.1,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0,
-          "intraday_breadth": 0.4,
+          "relative_breadth": 0.4,
+          "intraday_breadth": 0.6,
           "breadth": 0.2,
           "above20": 0,
-          "above50": 0.6,
+          "above50": 0.4,
           "crowding": 0,
           "lag_share": 0,
-          "rel5": -4.93,
-          "rel2h": -0.28
+          "rel5": -2.17,
+          "rel2h": -0.62
         }
       },
       "scout": {
@@ -17855,7 +17147,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-09-16T11:29:15.827Z"
+      "updated_market_at": "2026-09-16T14:12:13.455Z"
     }
   }
 }
