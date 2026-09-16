@@ -1,4 +1,4 @@
-name: GearWatch V4.4 Hardened Pricing Sensor Scan
+name: GearWatch V4.8 Hardened Pricing + Backtest Scan
 
 on:
   workflow_dispatch:
@@ -84,6 +84,8 @@ jobs:
         run: npm run pricing:sensors
       - name: Blend primary pricing and classify pricing regime
         run: npm run pricing:overlay
+      - name: Freeze mechanism signals and update no-lookahead paper backtest
+        run: npm run backtest
       - name: Refresh Window Lab live research ledger
         run: npm run window:research
       - name: Build deterministic $500 shadow portfolio plan
@@ -98,7 +100,7 @@ jobs:
         run: npm run health
       - name: Persist Window Lab checkpoint from this hardened scan
         run: npm run window:snapshot
-      - name: Persist Living Bible, briefing, pricing sensors, Window Lab, portfolio ledger and all traces
+      - name: Persist Living Bible, briefing, pricing sensors, backtest, Window Lab, portfolio ledger and all traces
         shell: bash
         run: |
           git config user.name 'gearwatch-bot'
@@ -107,7 +109,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No state changes'
           else
-            git commit -m "data(v4.6): hardened scan + window checkpoint ${GEARWATCH_RUN_ID}"
+            git commit -m "data(v4.8): hardened scan + preregistered backtest ${GEARWATCH_RUN_ID}"
             git fetch origin master
             git rebase origin/master
             git push origin HEAD:master
