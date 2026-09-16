@@ -3,7 +3,7 @@ const WAVE_RANK={DISCOVERY:0,PRE_WAVE:1,EARLY_WAVE:2,IN_SYNC:3,LATE_WAVE:4,SATUR
 const round=(x,d=2)=>Number.isFinite(Number(x))?+Number(x).toFixed(d):null;
 export function normalizeMechanisms(mechanisms){if(Array.isArray(mechanisms))return Object.fromEntries(mechanisms.filter(x=>x?.id).map(x=>[x.id,x]));return mechanisms&&typeof mechanisms==='object'?mechanisms:{}}
 export function isStatePromotion(t){const from=STATE_RANK[t?.from]??-1,to=STATE_RANK[t?.to]??-1;return ['WATCH','ARMING','ACTIVE'].includes(t?.to)&&to>from}
-export function isWavePromotion(t){const from=WAVE_RANK[t?.from]??-1,to=WAVE_RANK[t?.to]??-1;return ['PRE_WAVE','EARLY_WAVE'].includes(t?.to)&&to>from}
+export function isWavePromotion(t){return ['PRE_WAVE','EARLY_WAVE'].includes(t?.to)&&t?.to!==t?.from}
 export function benchmarkFor(id){return /DIESEL|TANKER|CRUDE|ATLANTIC|CEYHAN|LNG|OIL_SERVICE/.test(id)?'XLE':/ARSENAL|ROCKET|ENERGETICS|DRONE|COUNTER_UAS|UNDERWATER|MILITARY|EUROPE_STRATEGIC/.test(id)?'ITA':/AI_|ROBOTICS|CYBER/.test(id)?'QQQ':/JAPAN/.test(id)?'EWJ':/NUCLEAR/.test(id)?'URA':/RARE_EARTH|ALUMINIUM/.test(id)?'XME':/REFINANCING/.test(id)?'IWM':'^GSPC'}
 export function configuredBasket(id,seeds,size=5){return (seeds?.mechanisms?.[id]||[]).slice(0,size).map((x,i)=>({symbol:x[0],fit:Number(x[1])||0,exposure:x[2]||'UNKNOWN',rank:i+1}))}
 export function collectSignals(snapshot,{seeds,policy,researchOnly=false,sourceFile=null}={}){
