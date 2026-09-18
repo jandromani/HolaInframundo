@@ -11,7 +11,7 @@ const research=JSON.parse(await fs.readFile('data/window-research.json','utf8').
 const history=JSON.parse(await fs.readFile('data/history/window-snapshots.json','utf8').catch(()=>'{"snapshots":[]}'));
 const src=html+'\n'+js+'\n'+bootstrap+'\n'+audit+'\n'+liveEvidence,fail=[];
 const gate=(n,ok,w)=>{if(!ok)fail.push(n+': '+w);console.log((ok?'PASS':'FAIL')+' · '+n)};
-gate('Human product identity',html.includes('HECHOS → CAUSAS → CONSECUENCIAS → EMPRESAS → DECISIÓN')&&html.includes('ENTIENDE QUÉ MUEVE EL'),'Landing must explain the product before jargon');
+gate('Human product identity',html.includes('Hechos → causas → consecuencias → empresas → decisión')&&html.includes('ENTIENDE QUÉ MUEVE EL'),'Landing must explain the product before jargon');
 gate('World-at-a-glance layer',html.includes('id="world"')&&js.includes('renderWorld'),'Top-level macro translation');
 gate('Three human stories',html.includes('id="stories"')&&js.includes('renderStories')&&js.includes('VER POR QUÉ'),'Top causal stories must be explainable');
 gate('Scenario translation',html.includes('id="capital"')&&html.includes('SIMULACIÓN · NO ORDEN AUTOMÁTICA')&&js.includes('renderScenario'),'Money translation without auto-trading');
