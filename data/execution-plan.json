@@ -1,26 +1,26 @@
 {
   "version": "3.0.0",
   "mode": "SHADOW_ONLY",
-  "generated_at": "2026-09-18T04:47:33.504Z",
-  "run_id": "run_2026-09-18T04-41-08Z",
+  "generated_at": "2026-09-18T08:24:31.552Z",
+  "run_id": "run_2026-09-18T08-14-48Z",
   "policy_version": "3.0.2",
   "regime": {
     "regime": "RISK_ON",
-    "score": 65,
+    "score": 70,
     "entry_allowed": false,
     "block_reason": "STALE_MARKET_DATA",
     "freshness": {
       "required": true,
       "max_age_hours": 2,
       "min_fresh_benchmarks": 3,
-      "fresh_count": 0,
+      "fresh_count": 2,
       "total": 4,
       "fresh": false,
       "ages_hours": {
-        "spx": 8.29,
-        "nasdaq": 7.54,
-        "qqq": 4.8,
-        "iwm": 4.8
+        "spx": 11.91,
+        "nasdaq": 11.16,
+        "qqq": 0.15,
+        "iwm": 0.33
       }
     },
     "signals": {
@@ -348,7 +348,7 @@
           "volumeZ": -0.77,
           "vwap": 7635.1652,
           "aboveVwap": true,
-          "bars": 145
+          "bars": 116
         }
       },
       "nasdaq": {
@@ -675,7 +675,7 @@
           "volumeZ": -1.26,
           "vwap": 26403.4944,
           "aboveVwap": true,
-          "bars": 160
+          "bars": 128
         }
       },
       "qqq": {
@@ -995,14 +995,14 @@
           }
         ],
         "intraday": {
-          "asof": "2026-09-17T23:59:51.000Z",
-          "ret30m": 0,
-          "ret2h": -0.02,
-          "ret1d": -0.11,
+          "asof": "2026-09-18T08:15:37.000Z",
+          "ret30m": 0.75,
+          "ret2h": 0.8,
+          "ret1d": 0.63,
           "volumeZ": -0.48,
-          "vwap": 716.6612,
-          "aboveVwap": false,
-          "bars": 321
+          "vwap": 716.6606,
+          "aboveVwap": true,
+          "bars": 258
         }
       },
       "iwm": {
@@ -1322,14 +1322,14 @@
           }
         ],
         "intraday": {
-          "asof": "2026-09-17T23:59:26.000Z",
-          "ret30m": -0.02,
-          "ret2h": -0.02,
-          "ret1d": -0.51,
+          "asof": "2026-09-18T08:04:26.000Z",
+          "ret30m": 0.41,
+          "ret2h": 0.45,
+          "ret1d": -0.15,
           "volumeZ": -0.45,
-          "vwap": 285.8896,
-          "aboveVwap": false,
-          "bars": 316
+          "vwap": 285.8512,
+          "aboveVwap": true,
+          "bars": 254
         }
       }
     }
@@ -1349,29 +1349,69 @@
   "topups": [],
   "blocked": [
     {
+      "mechanism_id": "LNG_REROUTING",
+      "symbol": "FLNG",
+      "reason": "STALE_MARKET_DATA"
+    },
+    {
+      "mechanism_id": "NUCLEAR_FUEL_SOVEREIGNTY",
+      "reason": "NO_UNHELD_INVESTABLE_CANDIDATE"
+    },
+    {
       "mechanism_id": "JAPAN_CARRY_UNWIND",
+      "reason": "NO_UNHELD_INVESTABLE_CANDIDATE"
+    },
+    {
+      "mechanism_id": "GLOBAL_REFINANCING_STRESS",
       "reason": "NO_UNHELD_INVESTABLE_CANDIDATE"
     }
   ],
   "eligible_strategies": [
     {
+      "id": "LNG_REROUTING",
+      "label": "LNG rerouting",
+      "action": "SCOUT_WINDOW",
+      "opportunity_score": 68,
+      "wave_phase": "EARLY_WAVE",
+      "priced_in": 45,
+      "transmission_score": 79.2
+    },
+    {
+      "id": "NUCLEAR_FUEL_SOVEREIGNTY",
+      "label": "Nuclear fuel sovereignty",
+      "action": "SCOUT_WINDOW",
+      "opportunity_score": 65,
+      "wave_phase": "PRE_WAVE",
+      "priced_in": 54,
+      "transmission_score": 79.4
+    },
+    {
       "id": "JAPAN_CARRY_UNWIND",
       "label": "Japan carry unwind",
-      "action": "SCOUT_WINDOW",
+      "action": "DEPLOY_WINDOW",
       "opportunity_score": 64,
-      "wave_phase": "PRE_WAVE",
-      "priced_in": 5,
+      "wave_phase": "EARLY_WAVE",
+      "priced_in": 13,
       "transmission_score": 47.4
+    },
+    {
+      "id": "GLOBAL_REFINANCING_STRESS",
+      "label": "Global refinancing stress",
+      "action": "SCOUT_WINDOW",
+      "opportunity_score": 61,
+      "wave_phase": "EARLY_WAVE",
+      "priced_in": 10,
+      "transmission_score": 43
     }
   ],
   "summary": {
     "regime": "RISK_ON",
-    "regime_score": 65,
+    "regime_score": 70,
     "positions_before": 0,
     "planned_exits": 0,
     "planned_entries": 0,
     "planned_topups": 0,
-    "eligible_strategies": 1,
+    "eligible_strategies": 4,
     "projected_cash_usd": 499.37,
     "projected_positions": 0,
     "protected_symbols": 1,
