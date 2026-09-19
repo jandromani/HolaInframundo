@@ -1,7 +1,7 @@
 {
   "version": "3.2.0",
-  "generated_at": "2026-09-19T04:41:53.968Z",
-  "run_id": "run_2026-09-19T04-35-13Z",
+  "generated_at": "2026-09-19T08:11:37.760Z",
+  "run_id": "run_2026-09-19T08-02-45Z",
   "broker": {
     "mode": "CURATED_T212_UNIVERSE",
     "authoritative": false,
@@ -37,8 +37,8 @@
   "openai_jury": {
     "configured": true,
     "model": "gpt-5-nano",
-    "calls_before": 0,
-    "usd_before": 0,
+    "calls_before": 4,
+    "usd_before": 0.002043,
     "call_cap": 4,
     "usd_cap": 0.01,
     "calls_after": 4,
@@ -50,19 +50,19 @@
       "label": "Diesel / refining crisis",
       "tier": "A",
       "state": "ACTIVE",
-      "action": "DEPLOY_WINDOW",
-      "opportunity_score": 71,
-      "causal_score": 69,
+      "action": "WAIT_ALPHA_GATE",
+      "opportunity_score": 66,
+      "causal_score": 58,
       "market_score": 39,
       "crowding": 51.4,
       "crowd": {
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
         "consensus": 68.8,
-        "consensus_delta": -6.3,
+        "consensus_delta": 0,
         "priced_in": 47.3,
         "discount": "PARTLY_PRICED",
-        "timing_score": 68,
+        "timing_score": 63,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -81,7 +81,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 59.8,
+        "score": 54.3,
         "reasons": [
           "WAVE_NOT_EARLY",
           "ALREADY_PRICED",
@@ -93,7 +93,7 @@
       "wave_phase": "IN_SYNC",
       "priced_in": 35,
       "crowd_consensus": 68.8,
-      "timing_score": 68,
+      "timing_score": 63,
       "transmission_score": 76.6,
       "structural_score": 85.8,
       "financial_score": 62.8,
@@ -117,11 +117,11 @@
         ]
       },
       "alpha": {
-        "eligible": true,
-        "score": 55.3,
+        "eligible": false,
+        "score": 51.5,
         "market_floor": 20,
         "reasons": [
-          "STABLE_CAUSAL_PLUS_EARLY_CAPITAL_CONFIRMATION"
+          "CAUSAL_TOO_WEAK"
         ],
         "empirical": {
           "samples": 0,
@@ -2279,36 +2279,21 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Evidence indicates that middle‑distillate markets are experiencing tightening and volatility, largely driven by supply constraints rather than crude price movements.  The data show elevated crack spreads and tight global distillate supplies, but there is no direct evidence of falling or stable Brent prices accompanying these dynamics.",
-      "trigger": [],
+      "summary": "The evidence indicates that distillate crack spreads have widened due to supply disruptions, and distillate prices are higher because of tight supplies and elevated crude oil prices, suggesting that the tightening is linked to both refining bottlenecks and crude price pressures rather than being independent of crude.",
+      "trigger": [
+        "Distillate crack spreads widened due to supply disruptions, as reported by Quantum Commodity Intelligence (candidate_id: 68d3c62ec43917dbd29c).",
+        "Distillate prices have risen driven by tight global supplies and elevated crude oil prices, according to the U.S. Energy Information Administration (candidate_id: 9b694b9ff4134ab773d1)."
+      ],
       "invalidation": [],
       "alpha_blockers": [
-        "STABLE_CAUSAL_PLUS_EARLY_CAPITAL_CONFIRMATION"
+        "CAUSAL_TOO_WEAK"
       ],
       "scout_blockers": [
         "WAVE_NOT_EARLY",
         "ALREADY_PRICED",
         "MARKET_ALREADY_MOVED"
       ],
-      "jury": {
-        "model": "gpt-5-nano-2025-08-07",
-        "usage": {
-          "prompt_tokens": 2507,
-          "completion_tokens": 1000,
-          "total_tokens": 3507,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 1000,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "cost_usd": 0.000525
-      },
+      "jury": null,
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
       "equity_priced_in": 47.3,
       "primary_priced_in": 0,
@@ -2346,7 +2331,7 @@
       "state": "WATCH",
       "action": "DO_NOT_CHASE",
       "opportunity_score": 51,
-      "causal_score": 28,
+      "causal_score": 29,
       "market_score": 64,
       "crowding": 100,
       "crowd": {
@@ -2356,7 +2341,7 @@
         "consensus_delta": 0,
         "priced_in": 83.3,
         "discount": "PRICED_IN",
-        "timing_score": 43.8,
+        "timing_score": 44.2,
         "block_chase": true,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -2375,7 +2360,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 31.9,
+        "score": 32.4,
         "reasons": [
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
@@ -2388,7 +2373,7 @@
       "wave_phase": "SATURATED",
       "priced_in": 62,
       "crowd_consensus": 85,
-      "timing_score": 43.8,
+      "timing_score": 44.2,
       "transmission_score": 81.8,
       "structural_score": 92.2,
       "financial_score": 66.6,
@@ -2413,7 +2398,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 26,
+        "score": 26.3,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -4296,8 +4281,11 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Extracted two atomic claims: 1) Vortexa data shows six US diesel tankers diverted from Europe to South Atlantic (April 2, 2026). 2) Pareto Securities notes product tanker tonne‑miles growth compensating for lost Persian Gulf volumes (April 7, 2026). JSON object contains these claims with candidate IDs, phases, signals, sources, domains, published_at, and URLs. No invented data. No contradictions present.",
-      "trigger": [],
+      "summary": "Material evidence on product‑tanker ton‑miles",
+      "trigger": [
+        "Monitor future IEA product‑tanker ton‑miles data for confirmation of sustained distance growth.",
+        "Track fixture volumes and target‑price changes from Pareto Securities for signs of supply tightening."
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -4350,18 +4338,18 @@
       "tier": "A",
       "state": "WATCH",
       "action": "DO_NOT_CHASE",
-      "opportunity_score": 55,
-      "causal_score": 38,
+      "opportunity_score": 53,
+      "causal_score": 34,
       "market_score": 81,
       "crowding": 100,
       "crowd": {
         "phase": "SATURATED",
         "position": "LATE",
         "consensus": 87.5,
-        "consensus_delta": 4.2,
+        "consensus_delta": 0,
         "priced_in": 83.8,
         "discount": "PRICED_IN",
-        "timing_score": 48.7,
+        "timing_score": 46.9,
         "block_chase": true,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -4380,7 +4368,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 42.3,
+        "score": 40.3,
         "reasons": [
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
@@ -4393,7 +4381,7 @@
       "wave_phase": "SATURATED",
       "priced_in": 63,
       "crowd_consensus": 87.5,
-      "timing_score": 48.7,
+      "timing_score": 46.9,
       "transmission_score": 78,
       "structural_score": 89.8,
       "financial_score": 60.6,
@@ -4418,7 +4406,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 35.7,
+        "score": 34.4,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -6301,7 +6289,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Recent disruptions in the Strait of Hormuz and Perim have led to a surge in freight rates and a shift to VLCC/Suezmax routes, boosting ton‑mile demand and fleet utilization.",
+      "summary": "The available candidates provide evidence of crude tanker dislocation through increased freight rates, the use of shuttle tankers, ship‑to‑ship transfers, and a shift of Gulf crude exports to alternative routes. No candidate directly cites VLCC/Suezmax ton‑mile demand or fleet utilization, but the listed claims reflect material evidence of routing and shipping disruptions that could influence those metrics.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -6363,7 +6351,7 @@
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 52.9,
-        "consensus_delta": 3.6,
+        "consensus_delta": 0,
         "priced_in": 21.3,
         "discount": "UNPRICED",
         "timing_score": 47.5,
@@ -8584,8 +8572,11 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Evidence indicates a shift in import origins from Gulf to Americas/Africa, with Atlantic barrels repricing as a result.",
-      "trigger": [],
+      "summary": "Material evidence of a shift from Gulf‑origin crude to Atlantic (Americas/Africa) supply",
+      "trigger": [
+        "Confirm whether the Atlantic‑origin import volumes remain elevated in subsequent months (CONFIRM).",
+        "Track the share of Gulf‑origin crude in Japan’s import mix over the next quarter (LAG)."
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -8631,10 +8622,10 @@
       "id": "CEYHAN_BYPASS",
       "label": "Ceyhan / Kurdistan bypass",
       "tier": "A",
-      "state": "ARMING",
-      "action": "PREPARE",
-      "opportunity_score": 65,
-      "causal_score": 48,
+      "state": "WATCH",
+      "action": "WATCH",
+      "opportunity_score": 62,
+      "causal_score": 43,
       "market_score": 69,
       "crowding": 20.3,
       "crowd": {
@@ -8644,7 +8635,7 @@
         "consensus_delta": 0,
         "priced_in": 27.3,
         "discount": "PARTLY_PRICED",
-        "timing_score": 64.8,
+        "timing_score": 62.5,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -8663,7 +8654,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 54.9,
+        "score": 52.4,
         "reasons": [
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
@@ -8675,7 +8666,7 @@
       "wave_phase": "IN_SYNC",
       "priced_in": 20,
       "crowd_consensus": 75,
-      "timing_score": 64.8,
+      "timing_score": 62.5,
       "transmission_score": 83.7,
       "structural_score": 96.3,
       "financial_score": 65.3,
@@ -8700,7 +8691,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 57.3,
+        "score": 55.6,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -9586,8 +9577,10 @@
       "quality": "MIXED",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Two independent reports confirm that Iraq has moved crude oil by truck from southern fields to the Ceyhan pipeline, thereby sustaining physical flow through the Iraq‑Turkey‑Ceyhan corridor.",
-      "trigger": [],
+      "summary": "No supported evidence of sustained physical flow through the Iraq‑Turkey‑Ceyhan bypass was found in the provided candidates, as none of the announcements included barrel volumes or other quantitative confirmation.",
+      "trigger": [
+        "monitor for future announcements that include barrel volumes or other quantitative evidence of physical flow"
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -9599,25 +9592,7 @@
         "CAUSAL_TOO_WEAK",
         "MARKET_ALREADY_MOVED"
       ],
-      "jury": {
-        "model": "gpt-5-nano-2025-08-07",
-        "usage": {
-          "prompt_tokens": 1530,
-          "completion_tokens": 1000,
-          "total_tokens": 2530,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 1000,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "cost_usd": 0.000476
-      },
+      "jury": null,
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
       "equity_priced_in": 27.3,
       "primary_priced_in": 0,
@@ -9652,10 +9627,10 @@
       "id": "LNG_REROUTING",
       "label": "LNG rerouting",
       "tier": "B",
-      "state": "ARMING",
-      "action": "PREPARE",
-      "opportunity_score": 60,
-      "causal_score": 46,
+      "state": "WATCH",
+      "action": "WATCH",
+      "opportunity_score": 57,
+      "causal_score": 42,
       "market_score": 8,
       "crowding": 8.5,
       "crowd": {
@@ -9665,7 +9640,7 @@
         "consensus_delta": 0,
         "priced_in": 12.8,
         "discount": "UNPRICED",
-        "timing_score": 60.3,
+        "timing_score": 58.5,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -9684,7 +9659,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 53.9,
+        "score": 51.9,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -9694,7 +9669,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 43,
       "crowd_consensus": 38.8,
-      "timing_score": 60.3,
+      "timing_score": 58.5,
       "transmission_score": 74.4,
       "structural_score": 81.2,
       "financial_score": 63.8,
@@ -9719,7 +9694,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 48,
+        "score": 46.7,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -11600,8 +11575,10 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Extraction of atomic claims from provided candidates.",
-      "trigger": [],
+      "summary": "",
+      "trigger": [
+        "Repair syntax and normalize field names only. Do not introduce new claims."
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -11611,25 +11588,7 @@
       "scout_blockers": [
         "CAUSAL_TOO_WEAK"
       ],
-      "jury": {
-        "model": "gpt-5-nano-2025-08-07",
-        "usage": {
-          "prompt_tokens": 2393,
-          "completion_tokens": 1000,
-          "total_tokens": 3393,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 1000,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "cost_usd": 0.00052
-      },
+      "jury": null,
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
       "equity_priced_in": 12.8,
       "primary_priced_in": 81,
@@ -11688,17 +11647,17 @@
       "state": "WATCH",
       "action": "WATCH",
       "opportunity_score": 49,
-      "causal_score": 26,
+      "causal_score": 25,
       "market_score": 68,
       "crowding": 47.5,
       "crowd": {
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
         "consensus": 62.5,
-        "consensus_delta": 6.2,
+        "consensus_delta": 0,
         "priced_in": 43.6,
         "discount": "PARTLY_PRICED",
-        "timing_score": 48.3,
+        "timing_score": 47.9,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -11717,7 +11676,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 43.9,
+        "score": 43.4,
         "reasons": [
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
@@ -11730,7 +11689,7 @@
       "wave_phase": "IN_SYNC",
       "priced_in": 69,
       "crowd_consensus": 62.5,
-      "timing_score": 48.3,
+      "timing_score": 47.9,
       "transmission_score": 76.4,
       "structural_score": 87,
       "financial_score": 60.6,
@@ -11755,7 +11714,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 42.5,
+        "score": 42.2,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -13919,8 +13878,11 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The following claims demonstrate that U.S. government procurement and production plans have been altered in response to constrained arsenals. Each claim is directly supported by the cited candidate source.",
-      "trigger": [],
+      "summary": "Evidence of government‑driven changes to procurement and production in response to constrained inventories",
+      "trigger": [
+        "Monitor follow‑up reports on multi‑year contracts for missile components to see if production rates are sustained.",
+        "Track U.S. defense budget allocations for ammunition replenishment to gauge the impact of the reported stock shortfalls."
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -13990,7 +13952,7 @@
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
         "consensus": 70,
-        "consensus_delta": 16.7,
+        "consensus_delta": 0,
         "priced_in": 43.4,
         "discount": "PARTLY_PRICED",
         "timing_score": 52.1,
@@ -15650,7 +15612,7 @@
       "quality": "MIXED",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The available evidence indicates that solid rocket motor production is a limiting factor for U.S. missile output.  Multiple press releases from L3Harris describe expansions of solid‑rocket‑motor facilities in Huntsville, Alabama, and Orange County, Virginia, implying that current capacity is insufficient to meet demand.  A SpaceNews article explicitly states that solid rocket motors remain a bottleneck across the U.S. missile industrial base, even as the Pentagon prepares for a sharp increase in interceptor production.  No contradictory evidence is present in the candidate set.",
+      "summary": "The candidate set provides evidence that solid rocket motor production capacity is being expanded by L3Harris, and that solid rocket motors are a bottleneck in the U.S. missile industrial base. No contradictory claims are present.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -15701,10 +15663,10 @@
       "id": "ENERGETICS_SHORTAGE",
       "label": "Energetics / explosives shortage",
       "tier": "A",
-      "state": "WATCH",
-      "action": "WATCH",
-      "opportunity_score": 52,
-      "causal_score": 32,
+      "state": "DORMANT",
+      "action": "RESEARCH_ONLY",
+      "opportunity_score": 46,
+      "causal_score": 21,
       "market_score": 41,
       "crowding": 27.2,
       "crowd": {
@@ -15714,7 +15676,7 @@
         "consensus_delta": 0,
         "priced_in": 26.4,
         "discount": "PARTLY_PRICED",
-        "timing_score": 51.6,
+        "timing_score": 46.6,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -15733,8 +15695,9 @@
       },
       "scout": {
         "eligible": false,
-        "score": 44,
+        "score": 38.5,
         "reasons": [
+          "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "EARLY_WAVE",
@@ -15743,7 +15706,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 59,
       "crowd_consensus": 43.8,
-      "timing_score": 51.6,
+      "timing_score": 46.6,
       "transmission_score": 75,
       "structural_score": 85.2,
       "financial_score": 59.6,
@@ -15768,7 +15731,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 41.5,
+        "score": 37.8,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -17649,8 +17612,13 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The following atomic claims are directly supported by the provided candidates and illustrate the current state of energetics production and potential shortages affecting ammunition and missile output.",
-      "trigger": [],
+      "summary": "Recent open‑source reports document ongoing shortages and capacity constraints in energetic materials (explosives, propellants, primers) that could limit ammunition and missile production in Europe and the United States.",
+      "trigger": [
+        "monitor official EU defence funding announcements for follow‑up allocations",
+        "track production start‑up dates for the 24 NATO‑wide explosives projects",
+        "watch UK Ministry of Defence procurement releases for the 22 energetic‑materials factories",
+        "compare European shell‑forging output data against energetic material output trends"
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -17658,6 +17626,7 @@
         "NO_CONFIRM"
       ],
       "scout_blockers": [
+        "STATE_NOT_SCOUTABLE",
         "CAUSAL_TOO_WEAK"
       ],
       "jury": null,
@@ -17708,18 +17677,18 @@
       "tier": "B",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 49,
-      "causal_score": 30,
+      "opportunity_score": 50,
+      "causal_score": 31,
       "market_score": 12,
       "crowding": 12.8,
       "crowd": {
         "phase": "DISCOVERY",
         "position": "OBSERVE",
         "consensus": 11.8,
-        "consensus_delta": -11.9,
+        "consensus_delta": 0,
         "priced_in": 10.8,
         "discount": "UNPRICED",
-        "timing_score": 48.2,
+        "timing_score": 48.6,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "MEDIUM",
@@ -17738,7 +17707,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 43.7,
+        "score": 44.2,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -17748,7 +17717,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 8,
       "crowd_consensus": 11.8,
-      "timing_score": 48.2,
+      "timing_score": 48.6,
       "transmission_score": 71.6,
       "structural_score": 79,
       "financial_score": 61,
@@ -17773,7 +17742,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 39.2,
+        "score": 39.6,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -19373,9 +19342,16 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The evidence indicates that U.S. military demand for high‑purity aluminium is increasing while domestic production capacity is limited, leading to heightened reliance on imports and concerns over supply security.",
-      "trigger": [],
-      "invalidation": [],
+      "summary": "",
+      "trigger": [
+        "Continued military and electrical demand will keep high-purity aluminium inventories low, supporting upward pressure on prices.",
+        "Any further supply disruptions in the UAE or other key import sources will exacerbate the shortage."
+      ],
+      "invalidation": [
+        "Significant new domestic high-purity aluminium production capacity is brought online.",
+        "A stable, long‑term import agreement with a reliable supplier is secured.",
+        "Resolution of the Middle East conflict removes the primary supply choke point."
+      ],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
         "CAUSAL_TOO_WEAK",
@@ -19420,10 +19396,10 @@
       "id": "RARE_EARTH_MAGNET_SHORTAGE",
       "label": "Rare-earth magnets",
       "tier": "B",
-      "state": "WATCH",
-      "action": "WATCH",
-      "opportunity_score": 51,
-      "causal_score": 28,
+      "state": "DORMANT",
+      "action": "RESEARCH_ONLY",
+      "opportunity_score": 48,
+      "causal_score": 23,
       "market_score": 22,
       "crowding": 14.2,
       "crowd": {
@@ -19433,7 +19409,7 @@
         "consensus_delta": 0,
         "priced_in": 14.5,
         "discount": "UNPRICED",
-        "timing_score": 49.3,
+        "timing_score": 47.1,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -19452,8 +19428,9 @@
       },
       "scout": {
         "eligible": false,
-        "score": 48.5,
+        "score": 46,
         "reasons": [
+          "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "EARLY_WAVE",
@@ -19462,7 +19439,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 11,
       "crowd_consensus": 26.7,
-      "timing_score": 49.3,
+      "timing_score": 47.1,
       "transmission_score": 77.4,
       "structural_score": 86.2,
       "financial_score": 60.4,
@@ -19487,7 +19464,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 42.9,
+        "score": 41.2,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -21086,7 +21063,7 @@
       "quality": "MIXED",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The only candidate that provides material evidence relevant to the rare‑earth magnet shortage is the Vocal article reporting a new rare‑earth deposit in Saudi Arabia. No other candidate in the set contains evidence about the mining, separation, refining or magnet‑production bottleneck, nor does it link directly to defense, drones or robotics. The Federal Register entry concerns EPA greenhouse‑gas regulation and does not support the mechanism.",
+      "summary": "No evidence found supporting a bottleneck in the rare‑earth magnet supply chain from the provided candidates.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -21095,6 +21072,7 @@
         "NO_CONFIRM"
       ],
       "scout_blockers": [
+        "STATE_NOT_SCOUTABLE",
         "CAUSAL_TOO_WEAK"
       ],
       "jury": null,
@@ -21124,18 +21102,18 @@
       "tier": "B",
       "state": "DORMANT",
       "action": "RESEARCH_ONLY",
-      "opportunity_score": 43,
-      "causal_score": 19,
+      "opportunity_score": 42,
+      "causal_score": 18,
       "market_score": 65,
       "crowding": 18.3,
       "crowd": {
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
         "consensus": 65,
-        "consensus_delta": 16.7,
+        "consensus_delta": 0,
         "priced_in": 24.1,
         "discount": "UNPRICED",
-        "timing_score": 50.5,
+        "timing_score": 50.1,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -21154,7 +21132,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 40.2,
+        "score": 39.7,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "WAVE_NOT_EARLY",
@@ -21167,7 +21145,7 @@
       "wave_phase": "IN_SYNC",
       "priced_in": 59,
       "crowd_consensus": 65,
-      "timing_score": 50.5,
+      "timing_score": 50.1,
       "transmission_score": 64.8,
       "structural_score": 72,
       "financial_score": 54,
@@ -21192,7 +21170,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 43.8,
+        "score": 43.4,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -23074,7 +23052,7 @@
       "quality": "MIXED",
       "broker_strict": false,
       "deployable": false,
-      "summary": "No procurement volumes or unit economics evidence; mechanism remains dormant.",
+      "summary": "No material evidence supporting real procurement volumes or unit economics for cheap‑drone scaling was found in the provided candidates.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -23137,18 +23115,18 @@
       "tier": "B",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 52,
-      "causal_score": 32,
+      "opportunity_score": 51,
+      "causal_score": 31,
       "market_score": 55,
       "crowding": 41.6,
       "crowd": {
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
         "consensus": 63,
-        "consensus_delta": 5,
+        "consensus_delta": 0,
         "priced_in": 39.6,
         "discount": "PARTLY_PRICED",
-        "timing_score": 52.1,
+        "timing_score": 51.6,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -23167,7 +23145,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 42.7,
+        "score": 42.2,
         "reasons": [
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
@@ -23179,7 +23157,7 @@
       "wave_phase": "IN_SYNC",
       "priced_in": 70,
       "crowd_consensus": 63,
-      "timing_score": 52.1,
+      "timing_score": 51.6,
       "transmission_score": 74,
       "structural_score": 79.8,
       "financial_score": 64.8,
@@ -23204,7 +23182,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 40.4,
+        "score": 40.1,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -25085,8 +25063,10 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The U.S. Army and the Pentagon are actively pursuing lower‑cost counter‑UAS solutions—primarily cheap interceptor missiles and high‑energy laser systems—to reduce reliance on expensive missile interceptors.",
-      "trigger": [],
+      "summary": "Deterministic rescue: retrieval found counter-UAS test/procurement candidates but the model extractor returned an empty evidence set. Source-bound candidate headlines were preserved so the causal scorer can evaluate them normally.",
+      "trigger": [
+        "Look for procurement awards, operational trials and cost-per-intercept evidence that confirm counter-UAS economics at scale."
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -25136,8 +25116,8 @@
       "tier": "B",
       "state": "DORMANT",
       "action": "RESEARCH_ONLY",
-      "opportunity_score": 46,
-      "causal_score": 22,
+      "opportunity_score": 43,
+      "causal_score": 17,
       "market_score": 45,
       "crowding": 59.2,
       "crowd": {
@@ -25147,7 +25127,7 @@
         "consensus_delta": 0,
         "priced_in": 51.5,
         "discount": "MOSTLY_PRICED",
-        "timing_score": 44.5,
+        "timing_score": 42.3,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -25166,7 +25146,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 34.6,
+        "score": 32.1,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "WAVE_NOT_EARLY",
@@ -25180,7 +25160,7 @@
       "wave_phase": "IN_SYNC",
       "priced_in": 70,
       "crowd_consensus": 62.5,
-      "timing_score": 44.5,
+      "timing_score": 42.3,
       "transmission_score": 74,
       "structural_score": 79.4,
       "financial_score": 65.6,
@@ -25205,7 +25185,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 30.7,
+        "score": 29,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -26945,10 +26925,8 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Finland's recent ship boarding practices signal heightened emphasis on underwater security.",
-      "trigger": [
-        "Finland increases procurement of autonomous mine countermeasures"
-      ],
+      "summary": "No evidence of sustained demand for autonomous mine countermeasures, sonar, or underwater security procurement or incidents.",
+      "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -27020,18 +26998,18 @@
       "tier": "A",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 56,
-      "causal_score": 33,
+      "opportunity_score": 58,
+      "causal_score": 37,
       "market_score": 30,
       "crowding": 7.5,
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 38,
-        "consensus_delta": 5,
+        "consensus_delta": 0,
         "priced_in": 11.9,
         "discount": "UNPRICED",
-        "timing_score": 54.5,
+        "timing_score": 56.3,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -27050,7 +27028,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 52.8,
+        "score": 54.8,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -27060,7 +27038,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 9,
       "crowd_consensus": 38,
-      "timing_score": 54.5,
+      "timing_score": 56.3,
       "transmission_score": 82.2,
       "structural_score": 90.4,
       "financial_score": 70.2,
@@ -27085,7 +27063,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 47.7,
+        "score": 49,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -29248,7 +29226,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Extracted claims about power constraints for AI infrastructure from provided candidates.",
+      "summary": "Evidence indicates that electricity interconnection is a binding constraint on AI infrastructure, with grid equipment shortages and FERC orders to speed up connections.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -29294,20 +29272,20 @@
       "id": "AI_GHOST_DEMAND",
       "label": "AI ghost demand",
       "tier": "B",
-      "state": "DORMANT",
-      "action": "RESEARCH_ONLY",
-      "opportunity_score": 49,
-      "causal_score": 24,
+      "state": "WATCH",
+      "action": "WATCH",
+      "opportunity_score": 50,
+      "causal_score": 26,
       "market_score": 25,
       "crowding": 6.1,
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 31.7,
-        "consensus_delta": 8.4,
+        "consensus_delta": 0,
         "priced_in": 9.8,
         "discount": "UNPRICED",
-        "timing_score": 49.7,
+        "timing_score": 50.6,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -29326,9 +29304,8 @@
       },
       "scout": {
         "eligible": false,
-        "score": 48.2,
+        "score": 49.2,
         "reasons": [
-          "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "EARLY_WAVE",
@@ -29337,7 +29314,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 7,
       "crowd_consensus": 31.7,
-      "timing_score": 49.7,
+      "timing_score": 50.6,
       "transmission_score": 77.6,
       "structural_score": 83.4,
       "financial_score": 68.8,
@@ -29362,7 +29339,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 44.1,
+        "score": 44.8,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -31243,7 +31220,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "No evidence found supporting the AI_GHOST_DEMAND mechanism from the provided candidates.",
+      "summary": "No candidate evidence supports a large fall in requested GW after deposit requirements or indicates bearish conditions for speculative developers or positive conditions for suppliers with contracted backlog.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -31252,7 +31229,6 @@
         "NO_CONFIRM"
       ],
       "scout_blockers": [
-        "STATE_NOT_SCOUTABLE",
         "CAUSAL_TOO_WEAK"
       ],
       "jury": null,
@@ -31290,7 +31266,7 @@
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 32,
-        "consensus_delta": 10,
+        "consensus_delta": 0,
         "priced_in": 15.6,
         "discount": "UNPRICED",
         "timing_score": 45.6,
@@ -33229,7 +33205,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "",
+      "summary": "Evidence of data centers deploying behind‑the‑meter onsite generation and microgrids in 2026.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -33278,18 +33254,18 @@
       "tier": "C",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 52,
-      "causal_score": 30,
+      "opportunity_score": 50,
+      "causal_score": 27,
       "market_score": 0,
       "crowding": 0.8,
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 42.5,
-        "consensus_delta": -6.3,
+        "consensus_delta": 0,
         "priced_in": 8.2,
         "discount": "UNPRICED",
-        "timing_score": 55,
+        "timing_score": 53.6,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -33308,7 +33284,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 47.5,
+        "score": 46,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -33318,7 +33294,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 6,
       "crowd_consensus": 42.5,
-      "timing_score": 55,
+      "timing_score": 53.6,
       "transmission_score": 74.6,
       "structural_score": 77,
       "financial_score": 70.6,
@@ -33343,7 +33319,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 39.2,
+        "score": 38.2,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -35217,8 +35193,11 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The evidence set contains only lead‑phase claims about orders, partnerships, and sales targets for humanoid robot actuators. No confirmed or lag evidence of paid orders, deliveries, repeat demand, or measurable industrial utilization is present. The claims are extracted directly from the candidate snippets and are presented as atomic statements linked to their source candidate IDs.",
-      "trigger": [],
+      "summary": "Evidence of rising actuator demand: Leaderdrive's 2025 sales and Humanoid's procurement plan.",
+      "trigger": [
+        "Increased actuator orders from Schaeffler",
+        "Higher sales of harmonic reducers by Leaderdrive"
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -35256,18 +35235,18 @@
       "tier": "B",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 51,
-      "causal_score": 32,
+      "opportunity_score": 48,
+      "causal_score": 26,
       "market_score": 0,
       "crowding": 0.8,
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 42.5,
-        "consensus_delta": -6.3,
+        "consensus_delta": 0,
         "priced_in": 8.2,
         "discount": "UNPRICED",
-        "timing_score": 55.9,
+        "timing_score": 53.2,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -35286,7 +35265,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 48.5,
+        "score": 45.5,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -35296,7 +35275,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 6,
       "crowd_consensus": 42.5,
-      "timing_score": 55.9,
+      "timing_score": 53.2,
       "transmission_score": 70.4,
       "structural_score": 71.4,
       "financial_score": 69,
@@ -35321,7 +35300,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 39.9,
+        "score": 37.9,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -37195,7 +37174,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The available evidence consists solely of policy announcements that impose trade barriers on Chinese robotics products. No evidence identifies specific Western suppliers that have benefited from the loss of Chinese competition.",
+      "summary": "US Federal Communications Commission banned imports of new foreign-made advanced robotic devices, including humanoids, specifically targeting Chinese manufacturers, thereby strengthening protected Western robotics supply chains.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -37233,9 +37212,9 @@
       "label": "Japan carry unwind",
       "tier": "A",
       "state": "ARMING",
-      "action": "SCOUT_WINDOW",
-      "opportunity_score": 54,
-      "causal_score": 54,
+      "action": "PREPARE",
+      "opportunity_score": 52,
+      "causal_score": 49,
       "market_score": 40,
       "crowding": 13.8,
       "crowd": {
@@ -37245,7 +37224,7 @@
         "consensus_delta": 0,
         "priced_in": 18.7,
         "discount": "UNPRICED",
-        "timing_score": 65,
+        "timing_score": 62.7,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -37263,10 +37242,10 @@
         }
       },
       "scout": {
-        "eligible": true,
-        "score": 63,
+        "eligible": false,
+        "score": 60.5,
         "reasons": [
-          "CAUSAL_LEAD_BEFORE_PRICE_SATURATION"
+          "CAUSAL_TOO_WEAK"
         ],
         "phase": "EARLY_WAVE",
         "priced_in": 18.7
@@ -37274,7 +37253,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 14,
       "crowd_consensus": 51.7,
-      "timing_score": 65,
+      "timing_score": 62.7,
       "transmission_score": 47.4,
       "structural_score": 29.4,
       "financial_score": 74.4,
@@ -37298,7 +37277,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 58.6,
+        "score": 56.9,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -38745,18 +38724,20 @@
       "quality": "WEAK",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Material evidence from the candidate set related to Japanese yields, yen movements, and BoJ activity.",
+      "summary": "Atomic CONFIRM‑phase evidence on yen movements from the candidate set",
       "trigger": [
-        "Monitor JGB yields and yen spot for further confirmation of carry unwind.",
-        "Track BoJ policy announcements for additional evidence of tightening."
+        "Monitor JGB yield data for a rise that would complement the observed yen weakness.",
+        "Track capital flow metrics for Japan to detect any reversal of outward flows that could tighten global financial conditions."
       ],
-      "invalidation": [],
+      "invalidation": [
+        "If subsequent data show USD/JPY moving lower (yen strengthening) while JGB yields rise, the current evidence would not support a tightening scenario."
+      ],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
         "CAUSAL_TOO_WEAK"
       ],
       "scout_blockers": [
-        "CAUSAL_LEAD_BEFORE_PRICE_SATURATION"
+        "CAUSAL_TOO_WEAK"
       ],
       "jury": null,
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
@@ -38817,17 +38798,17 @@
       "state": "ARMING",
       "action": "PREPARE",
       "opportunity_score": 50,
-      "causal_score": 48,
+      "causal_score": 47,
       "market_score": 34,
       "crowding": 5.4,
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 48.3,
-        "consensus_delta": 22,
+        "consensus_delta": 0,
         "priced_in": 12.4,
         "discount": "UNPRICED",
-        "timing_score": 63.2,
+        "timing_score": 62.7,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "LOW",
@@ -38846,7 +38827,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 65.7,
+        "score": 65.2,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -38856,7 +38837,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 9,
       "crowd_consensus": 48.3,
-      "timing_score": 63.2,
+      "timing_score": 62.7,
       "transmission_score": 43,
       "structural_score": 29.6,
       "financial_score": 65.6,
@@ -38880,7 +38861,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 60.5,
+        "score": 60.2,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -40327,7 +40308,7 @@
       "quality": "WEAK",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Bond yields increased by 1 point, indicating bond market volatility, but no direct evidence of transmission into corporate cash flow or credit quality.",
+      "summary": "",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -40337,25 +40318,7 @@
       "scout_blockers": [
         "CAUSAL_TOO_WEAK"
       ],
-      "jury": {
-        "model": "gpt-5-nano-2025-08-07",
-        "usage": {
-          "prompt_tokens": 2427,
-          "completion_tokens": 1000,
-          "total_tokens": 3427,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 1000,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "cost_usd": 0.000521
-      },
+      "jury": null,
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
       "exposure_warning": "Fewer than three high-fit DIRECT companies clear the Transmission floor; do not manufacture diversification with weak proxies.",
       "equity_priced_in": 12.4,
@@ -42345,7 +42308,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "No confirmed operational or physical consequence evidence found for OT_CYBER_SHOCK mechanism in the provided candidate set.",
+      "summary": "No confirmed operational or physical consequence evidence for OT_CYBER_SHOCK mechanism found in the provided candidate set.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -42418,7 +42381,7 @@
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 35,
-        "consensus_delta": 16.7,
+        "consensus_delta": 0,
         "priced_in": 18.8,
         "discount": "UNPRICED",
         "timing_score": 67.4,
@@ -44404,20 +44367,20 @@
       "id": "MILITARY_ENERGY_AUTONOMY",
       "label": "Military energy autonomy",
       "tier": "C",
-      "state": "WATCH",
-      "action": "WATCH",
-      "opportunity_score": 50,
-      "causal_score": 32,
+      "state": "DORMANT",
+      "action": "RESEARCH_ONLY",
+      "opportunity_score": 45,
+      "causal_score": 23,
       "market_score": 35,
       "crowding": 21.3,
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 43.8,
-        "consensus_delta": 18.8,
+        "consensus_delta": 0,
         "priced_in": 22.4,
         "discount": "UNPRICED",
-        "timing_score": 52.6,
+        "timing_score": 48.5,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -44436,8 +44399,9 @@
       },
       "scout": {
         "eligible": false,
-        "score": 45,
+        "score": 40.5,
         "reasons": [
+          "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "EARLY_WAVE",
@@ -44446,7 +44410,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 62,
       "crowd_consensus": 43.8,
-      "timing_score": 52.6,
+      "timing_score": 48.5,
       "transmission_score": 67.8,
       "structural_score": 71.2,
       "financial_score": 62.8,
@@ -44471,7 +44435,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 41.8,
+        "score": 38.7,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -46211,8 +46175,13 @@
       "quality": "MIXED",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The following atomic claims are supported by the provided candidates and relate to the development of deployable autonomous power systems at U.S. military bases.",
-      "trigger": [],
+      "summary": "Recent procurement and development actions show U.S. military services moving from pilot projects toward deployable autonomous power solutions at bases.",
+      "trigger": [
+        "Monitor deployment milestones for the selected microreactors at Buckley Space Force Base, Malmstrom AFB, and other sites.",
+        "Track operational performance data from the Kirtland DC microgrid and any scaling to additional bases.",
+        "Observe the commissioning timeline for Project Pele’s transportable reactor at Idaho National Laboratory.",
+        "Follow the Army’s Janus Program rollout and the construction progress at the five designated bases."
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -46220,6 +46189,7 @@
         "NO_CONFIRM"
       ],
       "scout_blockers": [
+        "STATE_NOT_SCOUTABLE",
         "CAUSAL_TOO_WEAK"
       ],
       "jury": null,
@@ -46258,10 +46228,10 @@
       "id": "EUROPE_STRATEGIC_AUTONOMY",
       "label": "European strategic autonomy",
       "tier": "C",
-      "state": "DORMANT",
-      "action": "RESEARCH_ONLY",
-      "opportunity_score": 47,
-      "causal_score": 22,
+      "state": "WATCH",
+      "action": "WATCH",
+      "opportunity_score": 51,
+      "causal_score": 30,
       "market_score": 45,
       "crowding": 31.1,
       "crowd": {
@@ -46271,7 +46241,7 @@
         "consensus_delta": 0,
         "priced_in": 28.8,
         "discount": "PARTLY_PRICED",
-        "timing_score": 46.2,
+        "timing_score": 49.8,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -46290,9 +46260,8 @@
       },
       "scout": {
         "eligible": false,
-        "score": 38.3,
+        "score": 42.3,
         "reasons": [
-          "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "EARLY_WAVE",
@@ -46301,7 +46270,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 66,
       "crowd_consensus": 42.5,
-      "timing_score": 46.2,
+      "timing_score": 49.8,
       "transmission_score": 76.6,
       "structural_score": 82.8,
       "financial_score": 67.8,
@@ -46326,7 +46295,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 38,
+        "score": 40.7,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -48489,16 +48458,19 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "",
-      "trigger": [],
-      "invalidation": [],
+      "summary": "European governments and defence actors have announced procurement initiatives explicitly aimed at reducing strategic dependence on non‑European suppliers.",
+      "trigger": [
+        "CONFIRM"
+      ],
+      "invalidation": [
+        "LAG"
+      ],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
         "CAUSAL_TOO_WEAK",
         "NO_CONFIRM"
       ],
       "scout_blockers": [
-        "STATE_NOT_SCOUTABLE",
         "CAUSAL_TOO_WEAK"
       ],
       "jury": null,
@@ -48537,20 +48509,20 @@
       "id": "OIL_SERVICE_CAPEX_SECOND_WAVE",
       "label": "Oil-service CAPEX second wave",
       "tier": "C",
-      "state": "DORMANT",
-      "action": "RESEARCH_ONLY",
-      "opportunity_score": 45,
-      "causal_score": 18,
+      "state": "WATCH",
+      "action": "WATCH",
+      "opportunity_score": 52,
+      "causal_score": 30,
       "market_score": 20,
       "crowding": 12.4,
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 33.1,
-        "consensus_delta": 3.1,
+        "consensus_delta": 0,
         "priced_in": 14.4,
         "discount": "UNPRICED",
-        "timing_score": 46.1,
+        "timing_score": 51.5,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -48569,9 +48541,8 @@
       },
       "scout": {
         "eligible": false,
-        "score": 39,
+        "score": 45,
         "reasons": [
-          "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "EARLY_WAVE",
@@ -48580,7 +48551,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 11,
       "crowd_consensus": 33.1,
-      "timing_score": 46.1,
+      "timing_score": 51.5,
       "transmission_score": 76.2,
       "structural_score": 87.4,
       "financial_score": 59.4,
@@ -48605,7 +48576,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 36.4,
+        "score": 40.5,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -50768,7 +50739,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "",
+      "summary": "Several oil‑service companies have secured new contracts, indicating increased CAPEX orders.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -50777,7 +50748,6 @@
         "NO_CONFIRM"
       ],
       "scout_blockers": [
-        "STATE_NOT_SCOUTABLE",
         "CAUSAL_TOO_WEAK"
       ],
       "jury": null,
@@ -50814,10 +50784,10 @@
   },
   "summary": {
     "strategies": 26,
-    "deploy_window": 1,
-    "scout_window": 2,
-    "prepare": 3,
-    "watch": 10,
+    "deploy_window": 0,
+    "scout_window": 1,
+    "prepare": 2,
+    "watch": 12,
     "do_not_chase": 3,
     "early_wave": 15,
     "in_sync": 7,
@@ -50829,7 +50799,7 @@
   },
   "pricing_sensors": {
     "version": "4.4.0",
-    "generated_at": "2026-09-19T04:42:20.317Z",
+    "generated_at": "2026-09-19T08:11:37.891Z",
     "coverage": {
       "mechanisms": 26,
       "live_sources": 6,
