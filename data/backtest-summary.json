@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-20T05:00:13.997Z",
-  "run_id": "run_2026-09-20T04-51-43Z",
+  "generated_at": "2026-09-20T08:44:39.413Z",
+  "run_id": "run_2026-09-20T08-35-16Z",
   "methodology": {
     "entry": "First exchange daily bar whose session timestamp is strictly after signal_at; fill at that session open.",
     "basket": "Equal-weight first 5 configured mechanism proxies from config/investment-seeds.json. Basket membership is frozen at signal creation.",
@@ -12,18 +12,18 @@
     "sample_gate": "Performance quality remains INSUFFICIENT_SAMPLE until at least 10 completed observations at a horizon."
   },
   "stats": {
-    "signals": 332,
-    "live": 92,
+    "signals": 335,
+    "live": 95,
     "research_backfill": 240,
-    "pending_entry": 29,
+    "pending_entry": 32,
     "active": 303,
     "matured": 0,
-    "added_live_this_run": 2,
+    "added_live_this_run": 3,
     "added_backfill_this_run": 0
   },
   "summary": {
     "live": {
-      "signals": 92,
+      "signals": 95,
       "matured": 0,
       "horizons": {
         "1D": {
@@ -145,7 +145,7 @@
       }
     },
     "all": {
-      "signals": 332,
+      "signals": 335,
       "matured": 0,
       "horizons": {
         "1D": {
@@ -818,8 +818,8 @@
       }
     },
     "ENERGETICS_SHORTAGE": {
-      "signals": 18,
-      "live_signals": 6,
+      "signals": 19,
+      "live_signals": 7,
       "horizons": {
         "1D": {
           "samples": 15,
@@ -879,8 +879,8 @@
       }
     },
     "ARSENAL_DEPLETION": {
-      "signals": 14,
-      "live_signals": 2,
+      "signals": 15,
+      "live_signals": 3,
       "horizons": {
         "1D": {
           "samples": 13,
@@ -940,8 +940,8 @@
       }
     },
     "CRUDE_TANKER_DISLOCATION": {
-      "signals": 8,
-      "live_signals": 2,
+      "signals": 9,
+      "live_signals": 3,
       "horizons": {
         "1D": {
           "samples": 8,
@@ -1796,6 +1796,75 @@
   },
   "recent_signals": [
     {
+      "id": "run_2026-09-20T08-35-16Z:CRUDE_TANKER_DISLOCATION:STATE:WATCH->ARMING",
+      "mechanism_id": "CRUDE_TANKER_DISLOCATION",
+      "label": "Crude tanker dislocation",
+      "signal_at": "2026-09-20T08:44:21.084Z",
+      "origin": "LIVE_PREREGISTERED",
+      "status": "PENDING_ENTRY",
+      "triggers": [
+        "STATE:WATCH->ARMING"
+      ],
+      "causal_score": 47,
+      "priced_in": 63,
+      "causal_gap": -16,
+      "benchmark": "XLE",
+      "basket": [
+        "FRO",
+        "DHT",
+        "INSW",
+        "TNK",
+        "NAT"
+      ],
+      "horizons": {}
+    },
+    {
+      "id": "run_2026-09-20T08-35-16Z:ARSENAL_DEPLETION:STATE:WATCH->ARMING",
+      "mechanism_id": "ARSENAL_DEPLETION",
+      "label": "Arsenal depletion / replenishment",
+      "signal_at": "2026-09-20T08:44:21.084Z",
+      "origin": "LIVE_PREREGISTERED",
+      "status": "PENDING_ENTRY",
+      "triggers": [
+        "STATE:WATCH->ARMING"
+      ],
+      "causal_score": 51,
+      "priced_in": 69,
+      "causal_gap": -18,
+      "benchmark": "ITA",
+      "basket": [
+        "RTX",
+        "LMT",
+        "GD",
+        "NOC",
+        "LHX"
+      ],
+      "horizons": {}
+    },
+    {
+      "id": "run_2026-09-20T08-35-16Z:ENERGETICS_SHORTAGE:STATE:DORMANT->WATCH",
+      "mechanism_id": "ENERGETICS_SHORTAGE",
+      "label": "Energetics / explosives shortage",
+      "signal_at": "2026-09-20T08:44:21.084Z",
+      "origin": "LIVE_PREREGISTERED",
+      "status": "PENDING_ENTRY",
+      "triggers": [
+        "STATE:DORMANT->WATCH"
+      ],
+      "causal_score": 32,
+      "priced_in": 58,
+      "causal_gap": -26,
+      "benchmark": "ITA",
+      "basket": [
+        "CHG.L",
+        "RHM.DE",
+        "GD",
+        "BA.L",
+        "LHX"
+      ],
+      "horizons": {}
+    },
+    {
       "id": "run_2026-09-20T04-51-43Z:LNG_REROUTING:STATE:WATCH->ARMING",
       "mechanism_id": "LNG_REROUTING",
       "label": "LNG rerouting",
@@ -2089,75 +2158,6 @@
         "KLXE",
         "NINE",
         "BORR"
-      ],
-      "horizons": {}
-    },
-    {
-      "id": "run_2026-09-19T04-35-13Z:DIESEL_REFINING_CRISIS:STATE:WATCH->ACTIVE",
-      "mechanism_id": "DIESEL_REFINING_CRISIS",
-      "label": "Diesel / refining crisis",
-      "signal_at": "2026-09-19T04:41:53.403Z",
-      "origin": "LIVE_PREREGISTERED",
-      "status": "PENDING_ENTRY",
-      "triggers": [
-        "STATE:WATCH->ACTIVE"
-      ],
-      "causal_score": 69,
-      "priced_in": 35,
-      "causal_gap": 34,
-      "benchmark": "XLE",
-      "basket": [
-        "PBF",
-        "PARR",
-        "DK",
-        "VLO",
-        "MPC"
-      ],
-      "horizons": {}
-    },
-    {
-      "id": "run_2026-09-19T04-35-13Z:PRODUCT_TANKER_TONMILES:STATE:DORMANT->WATCH",
-      "mechanism_id": "PRODUCT_TANKER_TONMILES",
-      "label": "Product tanker ton-miles",
-      "signal_at": "2026-09-19T04:41:53.403Z",
-      "origin": "LIVE_PREREGISTERED",
-      "status": "PENDING_ENTRY",
-      "triggers": [
-        "STATE:DORMANT->WATCH"
-      ],
-      "causal_score": 28,
-      "priced_in": 62,
-      "causal_gap": -34,
-      "benchmark": "XLE",
-      "basket": [
-        "STNG",
-        "TRMD",
-        "HAFN",
-        "ASC",
-        "PXS"
-      ],
-      "horizons": {}
-    },
-    {
-      "id": "run_2026-09-19T04-35-13Z:ARSENAL_DEPLETION:STATE:DORMANT->WATCH",
-      "mechanism_id": "ARSENAL_DEPLETION",
-      "label": "Arsenal depletion / replenishment",
-      "signal_at": "2026-09-19T04:41:53.403Z",
-      "origin": "LIVE_PREREGISTERED",
-      "status": "PENDING_ENTRY",
-      "triggers": [
-        "STATE:DORMANT->WATCH"
-      ],
-      "causal_score": 26,
-      "priced_in": 69,
-      "causal_gap": -43,
-      "benchmark": "ITA",
-      "basket": [
-        "RTX",
-        "LMT",
-        "GD",
-        "NOC",
-        "LHX"
       ],
       "horizons": {}
     }
