@@ -14,7 +14,15 @@ if((portfolio.positions||[]).some(p=>isProtectedSymbol(p.symbol,policy))) throw 
 
 let cash=Number(portfolio.cash_usd||0),realized=Number(portfolio.realized_pnl_usd||0),positions=[...(portfolio.positions||[])];
 const trades=[];
-const pxFor=symbol=>Number(market.metrics?.[symbol]?.price);
+function pointFor(symbol){
+  const m=market.metrics?.[symbol]||{};
+  const candidates=[
+    {price:Number(m.intraday?.price),asof:m.intraday?.asof,source:'INTRADAY'},
+    {price:Number(m.price),asof:m.asof,source:'DAILY'}
+  ].filter(x=>Number.isFinite(x.price)&&x.price>0&&Number.isFinite(Date.parse(x.asof||'')));
+  return candidates.sort((a,b)=>Date.parse(b.asof)-Date.parse(a.asof))[0]||null;
+}
+const pxFor=symbol=>Number(pointFor(symbol)?.price);
 const findPos=s=>positions.findIndex(p=>normalizeSymbol(p.symbol)===normalizeSymbol(s));
 const tradeId=(side,symbol)=>`${plan.run_id||'run'}_${side}_${normalizeSymbol(symbol)}_${Date.now()}`;
 
@@ -23,7 +31,8 @@ function addTrade(t){trades.push({...t,id:tradeId(t.side,t.symbol),timestamp:now
 for(const x of plan.exits||[]){
   if(isProtectedSymbol(x.symbol,policy)) continue;
   const i=findPos(x.symbol);if(i<0)continue;
-  const p=positions[i],px=pxFor(p.symbol);if(!Number.isFinite(px)||px<=0)continue;
+  const p=positions[i],point=pointFor(p.symbol),px=Number(point?.price);if(!Number.isFinite(px)||px<=0)continue;
+  if(Number.isFinite(Date.parse(p.opened_at||''))&&Date.parse(point?.asof||'')<Date.parse(p.opened_at))continue;
   const proceeds=Number(p.quantity)*px,pnl=proceeds-Number(p.cost_usd||0);
   cash+=proceeds;realized+=pnl;
   positions.splice(i,1);
@@ -63,9 +72,10 @@ for(const x of plan.topups||[]){
 
 let marketValue=0,unrealized=0;
 positions=positions.map(p=>{
-  const px=pxFor(p.symbol),current=Number.isFinite(px)&&px>0?px:Number(p.current_price||p.entry_price),mv=Number(p.quantity)*current,u=mv-Number(p.cost_usd||0),maxPrice=Math.max(Number(p.max_price||p.entry_price),current);
+  const point=pointFor(p.symbol),px=Number(point?.price),opened=Date.parse(p.opened_at||''),asof=Date.parse(point?.asof||'');
+  const usable=Number.isFinite(px)&&px>0&&Number.isFinite(asof)&&(!Number.isFinite(opened)||asof>=opened),current=usable?px:Number(p.current_price||p.entry_price),mv=Number(p.quantity)*current,u=mv-Number(p.cost_usd||0),maxPrice=Math.max(Number(p.max_price||p.entry_price),current);
   marketValue+=mv;unrealized+=u;
-  return {...p,current_price:+current.toFixed(6),max_price:+maxPrice.toFixed(6),market_value_usd:+mv.toFixed(2),unrealized_pnl_usd:+u.toFixed(2),updated_at:now};
+  return {...p,current_price:+current.toFixed(6),max_price:+maxPrice.toFixed(6),market_value_usd:+mv.toFixed(2),unrealized_pnl_usd:+u.toFixed(2),price_asof:point?.asof||p.price_asof||null,price_source:point?.source||p.price_source||null,updated_at:now};
 });
 
 const initial=Number(policy.capital.initial_budget_usd||500),nav=cash+marketValue,botReturn=((nav/initial)-1)*100;
