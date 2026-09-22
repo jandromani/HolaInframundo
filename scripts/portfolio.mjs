@@ -11,12 +11,22 @@ const portfolio=JSON.parse(await fs.readFile('data/paper-portfolio.json','utf8')
 const now=new Date();
 
 const regime=marketRegime(market.context||{},policy);
+function latestPoint(symbol){
+  const m=market.metrics?.[symbol]||{};
+  const candidates=[
+    {price:Number(m.intraday?.price),asof:m.intraday?.asof,source:'INTRADAY'},
+    {price:Number(m.price),asof:m.asof,source:'DAILY'}
+  ].filter(x=>Number.isFinite(x.price)&&x.price>0&&Number.isFinite(Date.parse(x.asof||'')));
+  return candidates.sort((a,b)=>Date.parse(b.asof)-Date.parse(a.asof))[0]||null;
+}
 const positions=(portfolio.positions||[]).filter(p=>!isProtectedSymbol(p.symbol,policy)).map(p=>{
-  const px=Number(market.metrics?.[p.symbol]?.price);
-  const currentPrice=Number.isFinite(px)?px:Number(p.current_price||p.entry_price);
+  const point=latestPoint(p.symbol),px=Number(point?.price);
+  const openedAt=Date.parse(p.opened_at||''),priceAsOf=Date.parse(point?.asof||'');
+  const priceAfterEntry=!Number.isFinite(openedAt)||!Number.isFinite(priceAsOf)?false:priceAsOf>=openedAt;
+  const currentPrice=Number.isFinite(px)&&priceAfterEntry?px:Number(p.current_price||p.entry_price);
   const maxPrice=Math.max(Number(p.max_price||p.entry_price),currentPrice);
   const mv=Number(p.quantity||0)*currentPrice;
-  return {...p,current_price:currentPrice,max_price:maxPrice,market_value_usd:+mv.toFixed(2),unrealized_pnl_usd:+(mv-Number(p.cost_usd||0)).toFixed(2)};
+  return {...p,current_price:currentPrice,max_price:maxPrice,market_value_usd:+mv.toFixed(2),unrealized_pnl_usd:+(mv-Number(p.cost_usd||0)).toFixed(2),price_asof:point?.asof||null,price_source:point?.source||null,price_after_entry:priceAfterEntry};
 });
 const cash=Number(portfolio.cash_usd||0);
 const plan={
@@ -27,6 +37,7 @@ const plan={
 };
 
 for(const p of positions){
+  if(p.price_after_entry!==true){plan.blocked.push({symbol:p.symbol,mechanism_id:p.mechanism_id,reason:'STALE_POSITION_PRICE'});continue}
   const s=inv.strategies?.[p.mechanism_id]||null;
   const x=evaluateExit({position:p,strategy:s,currentPrice:p.current_price,now,policy});
   if(x.exit) plan.exits.push({type:'EXIT',symbol:p.symbol,mechanism_id:p.mechanism_id,quantity:Number(p.quantity),reference_price:p.current_price,reason:x.reason,pnl_pct:+Number(x.pnl_pct||0).toFixed(2),risk_group:p.risk_group});
