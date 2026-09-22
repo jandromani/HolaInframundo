@@ -29,7 +29,7 @@ function intradayMetric(x){
   const q=x.indicators?.quote?.[0]||{},rows=(q.close||[]).map((c,i)=>({c,v:q.volume?.[i],t:x.timestamp?.[i]})).filter(z=>Number.isFinite(z.c)&&Number.isFinite(z.t));if(rows.length<3)return null;
   const closes=rows.map(z=>z.c),vols=rows.map(z=>Number.isFinite(z.v)?z.v:0),recentVol=vols.slice(-80),vs=sd(recentVol),volumeZ=vs?((vols.at(-1)-mean(recentVol))/vs):0,last26=rows.slice(-26),den=last26.reduce((a,z)=>a+(z.v||0),0),vwap=den?last26.reduce((a,z)=>a+z.c*(z.v||0),0)/den:null,price=closes.at(-1);
   const r30=ret(closes,2),r2=ret(closes,8),r1d=ret(closes,26);
-  return {asof:new Date(rows.at(-1).t*1000).toISOString(),ret30m:r30==null?null:+r30.toFixed(2),ret2h:r2==null?null:+r2.toFixed(2),ret1d:r1d==null?null:+r1d.toFixed(2),volumeZ:+volumeZ.toFixed(2),vwap:vwap==null?null:+vwap.toFixed(4),aboveVwap:vwap==null?null:price>vwap,bars:rows.length};
+  return {asof:new Date(rows.at(-1).t*1000).toISOString(),price:+price.toFixed(4),ret30m:r30==null?null:+r30.toFixed(2),ret2h:r2==null?null:+r2.toFixed(2),ret1d:r1d==null?null:+r1d.toFixed(2),volumeZ:+volumeZ.toFixed(2),vwap:vwap==null?null:+vwap.toFixed(4),aboveVwap:vwap==null?null:price>vwap,bars:rows.length};
 }
 async function one(ticker){
   const daily=await chart(ticker,'1y','1d',false),metric=dailyMetric(daily,ticker);await sleep(70);
