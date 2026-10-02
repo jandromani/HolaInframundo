@@ -1,7 +1,7 @@
 {
   "version": "2.9.0",
-  "updated_at": "2026-10-02T12:38:30.966Z",
-  "run_id": "run_2026-10-02T12-31-34Z",
+  "updated_at": "2026-10-02T20:01:32.307Z",
+  "run_id": "run_2026-10-02T19-56-55Z",
   "health": {
     "retrieval_errors": 2,
     "upstream_errors": 0,
@@ -9,17 +9,17 @@
     "verification_errors": 0,
     "market_errors": 1,
     "mechanisms": 26,
-    "scout_windows": 1,
+    "scout_windows": 2,
     "alpha_windows": 0
   },
   "transitions": [
     {
-      "mechanism_id": "CRUDE_TANKER_DISLOCATION",
+      "mechanism_id": "DIESEL_REFINING_CRISIS",
       "from": "ARMING",
       "to": "WATCH",
       "raw_to": "WATCH",
-      "score": 41,
-      "delta": -17,
+      "score": 27,
+      "delta": -21,
       "hysteresis": {
         "raw_state": "WATCH",
         "pending": null,
@@ -27,70 +27,66 @@
         "applied": false
       },
       "memory": {
-        "observed_items": 0,
-        "carried_items": 17,
-        "avg_carry_weight": 0.705,
+        "observed_items": 1,
+        "carried_items": 9,
+        "avg_carry_weight": 0.468,
         "observed_score": 0,
         "raw_combined_score": 58,
-        "decayed_score": 41
+        "decayed_score": 27
       },
-      "at": "2026-10-02T12:38:30.966Z"
+      "at": "2026-10-02T20:01:32.307Z"
     },
     {
-      "mechanism_id": "JAPAN_CARRY_UNWIND",
-      "from": "ARMING",
-      "to": "ARMING",
-      "raw_to": "ACTIVE",
-      "score": 65,
-      "delta": 16,
+      "mechanism_id": "CEYHAN_BYPASS",
+      "from": "WATCH",
+      "to": "DORMANT",
+      "raw_to": "DORMANT",
+      "score": 21,
+      "delta": -4,
       "hysteresis": {
-        "raw_state": "ACTIVE",
-        "pending": {
-          "candidate": "ACTIVE",
-          "streak": 1,
-          "required": 2
-        },
-        "reason": "AWAITING_ACTIVE_CONFIRMATION",
-        "applied": true
+        "raw_state": "DORMANT",
+        "pending": null,
+        "reason": "DIRECT_NONCRITICAL_TRANSITION",
+        "applied": false
       },
       "memory": {
-        "observed_items": 2,
-        "carried_items": 10,
-        "avg_carry_weight": 0.651,
-        "observed_score": 40,
-        "raw_combined_score": 78,
-        "decayed_score": 65
+        "observed_items": 0,
+        "carried_items": 8,
+        "avg_carry_weight": 0.661,
+        "observed_score": 0,
+        "raw_combined_score": 32,
+        "decayed_score": 21
       },
-      "at": "2026-10-02T12:38:30.966Z"
+      "at": "2026-10-02T20:01:32.307Z"
     }
   ],
   "wave_transitions": [
     {
-      "mechanism_id": "ROCKET_MOTOR_SHORTAGE",
+      "mechanism_id": "CEYHAN_BYPASS",
       "from": "EARLY_WAVE",
       "to": "DISCOVERY",
       "position": "OBSERVE",
-      "priced_in": 4.2,
-      "consensus": 23.3,
-      "at": "2026-10-02T12:38:30.966Z"
+      "priced_in": 9.8,
+      "consensus": 10,
+      "at": "2026-10-02T20:01:32.307Z"
     },
     {
       "mechanism_id": "ENERGETICS_SHORTAGE",
-      "from": "EARLY_WAVE",
-      "to": "DISCOVERY",
-      "position": "OBSERVE",
-      "priced_in": 3.4,
-      "consensus": 18.8,
-      "at": "2026-10-02T12:38:30.966Z"
+      "from": "DISCOVERY",
+      "to": "EARLY_WAVE",
+      "position": "EARLY",
+      "priced_in": 11.7,
+      "consensus": 47.5,
+      "at": "2026-10-02T20:01:32.307Z"
     },
     {
       "mechanism_id": "JAPAN_CARRY_UNWIND",
-      "from": "EARLY_WAVE",
-      "to": "DIVERGENCE",
-      "position": "CONFLICT",
-      "priced_in": 12.6,
+      "from": "DIVERGENCE",
+      "to": "EARLY_WAVE",
+      "position": "EARLY",
+      "priced_in": 10.4,
       "consensus": 33.3,
-      "at": "2026-10-02T12:38:30.966Z"
+      "at": "2026-10-02T20:01:32.307Z"
     }
   ],
   "mechanisms": {
@@ -98,13 +94,13 @@
       "id": "DIESEL_REFINING_CRISIS",
       "label": "Diesel / refining crisis",
       "tier": "A",
-      "state": "ARMING",
-      "raw_state": "ARMING",
-      "score": 48,
+      "state": "WATCH",
+      "raw_state": "WATCH",
+      "score": 27,
       "previous_state": "ARMING",
-      "score_delta": -1,
-      "summary": "No evidence of falling/stable Brent with elevated diesel premiums. Only evidence of diesel ban causing price premium.",
-      "material_change": false,
+      "score_delta": -21,
+      "summary": "Evidence indicates that the Russia diesel ban is tightening diesel supply, as reported by LSGO.",
+      "material_change": true,
       "observed_evidence": [
         {
           "candidate_id": "ea130be59cc632fb7068",
@@ -112,12 +108,12 @@
           "phase": "CONFIRM",
           "signal": "DISTILLATE_TIGHTNESS",
           "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "LSGO cracks firm on Russia diesel ban, indicating elevated diesel price premium.",
-          "direction": "UP",
-          "relevance": 1,
+          "fact_type": "INFERENCE",
+          "claim": "Russia diesel ban is tightening diesel supply",
+          "direction": "UNKNOWN",
+          "relevance": 0.8,
           "contradiction": false,
-          "why_upstream": "",
+          "why_upstream": "LSGO cracks firm on Russia diesel ban",
           "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOdGZWbXFIZW5kVWplMDZzdHdYWTJmSVBNdlV2NUtkTHpMZm51NFo3VkRkc083dEVBaHVMeFdVTXEtd2FaXzR6S3NqQ2xPNFJYZzVwZjltaFA2SEtaeU1ZUlNDdmV3eEs4SU9WSDFRUG5xVmJldVVscVBQQi0zbzdoTi1jb3BqSTBFeUthMnJIMjNHZmFJRno5NQ?oc=5",
           "source_name": "Quantum Commodity Intelligence",
           "source_domain": "qcintel.com",
@@ -125,11 +121,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-30T20:36:47.000Z",
-          "retrieved_at": "2026-10-02T12:32:39.822Z",
-          "valid": true,
+          "retrieved_at": "2026-10-02T19:58:09.334Z",
+          "valid": false,
           "evidence_key": "75219892815928bee1ad24d1",
-          "first_seen_at": "2026-10-02T12:32:39.822Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
+          "first_seen_at": "2026-10-02T19:58:09.334Z",
+          "last_seen_at": "2026-10-02T20:01:32.307Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -142,12 +138,12 @@
           "phase": "CONFIRM",
           "signal": "DISTILLATE_TIGHTNESS",
           "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "LSGO cracks firm on Russia diesel ban, indicating elevated diesel price premium.",
-          "direction": "UP",
-          "relevance": 1,
+          "fact_type": "INFERENCE",
+          "claim": "Russia diesel ban is tightening diesel supply",
+          "direction": "UNKNOWN",
+          "relevance": 0.8,
           "contradiction": false,
-          "why_upstream": "",
+          "why_upstream": "LSGO cracks firm on Russia diesel ban",
           "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOdGZWbXFIZW5kVWplMDZzdHdYWTJmSVBNdlV2NUtkTHpMZm51NFo3VkRkc083dEVBaHVMeFdVTXEtd2FaXzR6S3NqQ2xPNFJYZzVwZjltaFA2SEtaeU1ZUlNDdmV3eEs4SU9WSDFRUG5xVmJldVVscVBQQi0zbzdoTi1jb3BqSTBFeUthMnJIMjNHZmFJRno5NQ?oc=5",
           "source_name": "Quantum Commodity Intelligence",
           "source_domain": "qcintel.com",
@@ -155,11 +151,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-30T20:36:47.000Z",
-          "retrieved_at": "2026-10-02T12:32:39.822Z",
-          "valid": true,
+          "retrieved_at": "2026-10-02T19:58:09.334Z",
+          "valid": false,
           "evidence_key": "75219892815928bee1ad24d1",
           "first_seen_at": "2026-10-02T09:46:49.503Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
+          "last_seen_at": "2026-10-02T20:01:32.307Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -188,9 +184,9 @@
           "evidence_key": "316806b126b832a0600e8278",
           "first_seen_at": "2026-10-02T05:35:26.067Z",
           "last_seen_at": "2026-10-02T05:42:21.544Z",
-          "memory_weight": 0.875,
+          "memory_weight": 0.759,
           "memory_status": "CARRIED",
-          "memory_age_hours": 6.94
+          "memory_age_hours": 14.32
         },
         {
           "candidate_id": "aeee2eaac7e5d5a18c48",
@@ -216,9 +212,9 @@
           "evidence_key": "cb4574bf965d0d5a747d5c6c",
           "first_seen_at": "2026-09-27T09:16:34.624Z",
           "last_seen_at": "2026-09-29T12:57:23.587Z",
-          "memory_weight": 0.5015,
+          "memory_weight": 0.4671,
           "memory_status": "CARRIED",
-          "memory_age_hours": 71.69
+          "memory_age_hours": 79.07
         },
         {
           "candidate_id": "c039e3d69ff3cb88d63a",
@@ -244,9 +240,9 @@
           "evidence_key": "7e6fd9c63e0fe2329672dfce",
           "first_seen_at": "2026-09-27T12:01:18.340Z",
           "last_seen_at": "2026-09-29T12:57:23.587Z",
-          "memory_weight": 0.5015,
+          "memory_weight": 0.4671,
           "memory_status": "CARRIED",
-          "memory_age_hours": 71.69
+          "memory_age_hours": 79.07
         },
         {
           "candidate_id": "ce3f73497e6b1040603b",
@@ -272,9 +268,9 @@
           "evidence_key": "0557236acccbc0ccb59bb720",
           "first_seen_at": "2026-09-29T01:01:40.349Z",
           "last_seen_at": "2026-09-29T12:57:23.587Z",
-          "memory_weight": 0.5015,
+          "memory_weight": 0.4671,
           "memory_status": "CARRIED",
-          "memory_age_hours": 71.69
+          "memory_age_hours": 79.07
         },
         {
           "candidate_id": "6232f431b30b8c25bbee",
@@ -300,9 +296,9 @@
           "evidence_key": "3cb7c47886fc8a5d430839c4",
           "first_seen_at": "2026-09-29T01:01:40.349Z",
           "last_seen_at": "2026-09-29T05:52:34.597Z",
-          "memory_weight": 0.4685,
+          "memory_weight": 0.4363,
           "memory_status": "CARRIED",
-          "memory_age_hours": 78.77
+          "memory_age_hours": 86.15
         },
         {
           "candidate_id": "b736a1e9c77474de8a4b",
@@ -328,9 +324,9 @@
           "evidence_key": "89b79830e1420e68b9540a4b",
           "first_seen_at": "2026-09-27T12:01:18.340Z",
           "last_seen_at": "2026-09-29T05:52:34.597Z",
-          "memory_weight": 0.4685,
+          "memory_weight": 0.4363,
           "memory_status": "CARRIED",
-          "memory_age_hours": 78.77
+          "memory_age_hours": 86.15
         },
         {
           "candidate_id": "f5b2b4b91ec0b38a23f3",
@@ -356,9 +352,9 @@
           "evidence_key": "7470581f5342f8ae681ecf88",
           "first_seen_at": "2026-09-28T21:15:26.610Z",
           "last_seen_at": "2026-09-29T05:52:34.597Z",
-          "memory_weight": 0.4685,
+          "memory_weight": 0.4363,
           "memory_status": "CARRIED",
-          "memory_age_hours": 78.77
+          "memory_age_hours": 86.15
         },
         {
           "candidate_id": "08161284e64c9f31b5a3",
@@ -384,9 +380,9 @@
           "evidence_key": "d2f6f79110e5fed4b6dcf434",
           "first_seen_at": "2026-09-28T21:15:26.610Z",
           "last_seen_at": "2026-09-28T21:20:49.963Z",
-          "memory_weight": 0.4315,
+          "memory_weight": 0.4019,
           "memory_status": "CARRIED",
-          "memory_age_hours": 87.29
+          "memory_age_hours": 94.68
         },
         {
           "candidate_id": "137e9bee11d08b713c58",
@@ -412,9 +408,9 @@
           "evidence_key": "b5bbcb986aca32ca5cd71a45",
           "first_seen_at": "2026-09-27T12:01:18.340Z",
           "last_seen_at": "2026-09-28T05:29:39.831Z",
-          "memory_weight": 0.3705,
+          "memory_weight": 0.345,
           "memory_status": "CARRIED",
-          "memory_age_hours": 103.15
+          "memory_age_hours": 110.53
         }
       ],
       "verified": [],
@@ -423,108 +419,87 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [
-        {
-          "id": "d5fc6957ad941bee604226",
-          "mechanism_id": "DIESEL_REFINING_CRISIS",
-          "run_id": "run_2026-10-02T12-31-34Z",
-          "phase": "CONFIRM",
-          "signal": "DISTILLATE_TIGHTNESS",
-          "claim": "LSGO cracks firm on Russia diesel ban, indicating elevated diesel price premium.",
-          "observed_at": "2026-09-30T20:36:47.000Z",
-          "ingested_at": "2026-10-02T12:38:30.966Z",
-          "source_count": 1,
-          "domains": [
-            "qcintel.com"
-          ],
-          "source_urls": [
-            "https://news.google.com/rss/articles/CBMimAFBVV95cUxOdGZWbXFIZW5kVWplMDZzdHdYWTJmSVBNdlV2NUtkTHpMZm51NFo3VkRkc083dEVBaHVMeFdVTXEtd2FaXzR6S3NqQ2xPNFJYZzVwZjltaFA2SEtaeU1ZUlNDdmV3eEs4SU9WSDFRUG5xVmJldVVscVBQQi0zbzdoTi1jb3BqSTBFeUthMnJIMjNHZmFJRno5NQ?oc=5"
-          ],
-          "official": false,
-          "representative_source": "Quantum Commodity Intelligence",
-          "representative_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOdGZWbXFIZW5kVWplMDZzdHdYWTJmSVBNdlV2NUtkTHpMZm51NFo3VkRkc083dEVBaHVMeFdVTXEtd2FaXzR6S3NqQ2xPNFJYZzVwZjltaFA2SEtaeU1ZUlNDdmV3eEs4SU9WSDFRUG5xVmJldVVscVBQQi0zbzdoTi1jb3BqSTBFeUthMnJIMjNHZmFJRno5NQ?oc=5",
-          "source_grade": 0.62
-        }
-      ],
+      "events": [],
       "event_stats": {
-        "observed_unique": 1,
+        "observed_unique": 0,
         "observed_duplicates": 0,
-        "memory_unique": 9,
+        "memory_unique": 8,
         "memory_duplicates": 0
       },
       "memory": {
         "observed_items": 1,
         "carried_items": 9,
-        "avg_carry_weight": 0.51,
-        "observed_score": 18,
-        "raw_combined_score": 76,
-        "decayed_score": 48
+        "avg_carry_weight": 0.468,
+        "observed_score": 0,
+        "raw_combined_score": 58,
+        "decayed_score": 27
       },
       "expected_next": [],
       "invalidation": [],
       "market": {
         "score": 56,
-        "crowding": 43.2,
-        "breadth": 0.75,
-        "relative_breadth": 0.75,
+        "crowding": 47.2,
+        "breadth": 1,
+        "relative_breadth": 0.875,
         "intraday_breadth": 0.375,
         "quality": "HIGH",
         "n": 8,
         "intraday_n": 8,
         "above20": 0.75,
-        "above50": 0.875,
+        "above50": 1,
         "benchmark": "XLE",
         "avg": {
-          "r1": 1.97,
-          "r5": 5.51,
-          "r20": 3.8,
-          "rel5": 5.47,
-          "rel20": 4.72,
-          "r30m": -0.4,
-          "r2h": -0.66,
-          "rel30m": -0.38,
-          "rel2h": -0.57,
-          "volumeZ": -0.05
+          "r1": -0.5,
+          "r5": 5.53,
+          "r20": 2.99,
+          "rel5": 5.2,
+          "rel20": 3.66,
+          "r30m": -0.14,
+          "r2h": -0.35,
+          "rel30m": -0.12,
+          "rel2h": -0.36,
+          "volumeZ": -0.4
         }
       },
       "crowd": {
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
-        "consensus": 67.5,
-        "consensus_delta": -3.1,
-        "priced_in": 41.5,
+        "consensus": 76.9,
+        "consensus_delta": 9.4,
+        "priced_in": 45.9,
         "discount": "PARTLY_PRICED",
-        "timing_score": 59.7,
+        "timing_score": 51,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0.75,
+          "relative_breadth": 0.875,
           "intraday_breadth": 0.375,
-          "breadth": 0.75,
+          "breadth": 1,
           "above20": 0.75,
-          "above50": 0.875,
-          "crowding": 43.2,
+          "above50": 1,
+          "crowding": 47.2,
           "lag_share": 0,
-          "rel5": 5.47,
-          "rel2h": -0.57
+          "rel5": 5.2,
+          "rel2h": -0.36
         }
       },
       "scout": {
         "eligible": false,
-        "score": 50.6,
+        "score": 40,
         "reasons": [
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
+          "ALREADY_PRICED",
           "MARKET_ALREADY_MOVED"
         ],
         "phase": "IN_SYNC",
-        "priced_in": 41.5
+        "priced_in": 45.9
       },
       "alpha": {
         "eligible": false,
-        "score": 52.8,
+        "score": 40.9,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -537,7 +512,7 @@
           "lead_to_confirm": 0.267
         },
         "crowd_phase": "IN_SYNC",
-        "priced_in": 41.5
+        "priced_in": 45.9
       },
       "reliability": {
         "samples": 3,
@@ -546,14 +521,14 @@
         "lead_to_confirm": 0.267
       },
       "hysteresis": {
-        "raw_state": "ARMING",
+        "raw_state": "WATCH",
         "pending": null,
-        "reason": "STABLE",
+        "reason": "DIRECT_NONCRITICAL_TRANSITION",
         "applied": false
       },
       "sensors": {
         "lead": 1,
-        "confirm": 2,
+        "confirm": 1,
         "lag": 0,
         "lag_share": 0,
         "domains": [
@@ -563,7 +538,7 @@
           "energyintel.com",
           "investinglive.com"
         ],
-        "events": 9,
+        "events": 8,
         "duplicates_removed": 0
       },
       "positive": [
@@ -578,13 +553,13 @@
         "UAL",
         "AAL"
       ],
-      "last_run": "2026-10-02T12:38:30.966Z",
+      "last_run": "2026-10-02T20:01:32.307Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1053,
-        "completion_tokens": 649,
-        "total_tokens": 1702,
-        "cost": 0.000121397,
+        "prompt_tokens": 1301,
+        "completion_tokens": 760,
+        "total_tokens": 2061,
+        "cost": 0.000091818,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -593,12 +568,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.000121397,
-          "upstream_inference_prompt_cost": 0.000030537,
-          "upstream_inference_completions_cost": 0.00009086
+          "upstream_inference_cost": 0.000091818,
+          "upstream_inference_prompt_cost": 0.000023418,
+          "upstream_inference_completions_cost": 0.0000684
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 544,
+          "reasoning_tokens": 657,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -696,7 +671,7 @@
             "google_news": {
               "ok": true,
               "count": 1,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 10
             }
           }
@@ -715,7 +690,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 10
             }
           }
@@ -726,8 +701,8 @@
       "id": "PRODUCT_TANKER_TONMILES",
       "label": "Product tanker ton-miles",
       "tier": "A",
-      "state": "DORMANT",
-      "raw_state": "DORMANT",
+      "state": "STALE",
+      "raw_state": "STALE",
       "score": 12,
       "previous_state": "DORMANT",
       "score_delta": -1,
@@ -984,11 +959,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 87,
+        "score": 66,
         "crowding": 100,
         "breadth": 1,
         "relative_breadth": 1,
-        "intraday_breadth": 0.8,
+        "intraday_breadth": 0.6,
         "quality": "HIGH",
         "n": 5,
         "intraday_n": 5,
@@ -996,40 +971,40 @@
         "above50": 1,
         "benchmark": "XLE",
         "avg": {
-          "r1": 3.02,
-          "r5": 11.01,
-          "r20": 11.58,
-          "rel5": 10.85,
-          "rel20": 15.27,
-          "r30m": 0.18,
-          "r2h": 0.11,
-          "rel30m": 0.28,
-          "rel2h": 0.47,
-          "volumeZ": 1.32
+          "r1": 1.56,
+          "r5": 12.89,
+          "r20": 14.31,
+          "rel5": 11.54,
+          "rel20": 17.01,
+          "r30m": -0.05,
+          "r2h": -0.06,
+          "rel30m": 0.01,
+          "rel2h": -0.11,
+          "volumeZ": -0.37
         }
       },
       "crowd": {
         "phase": "SATURATED",
         "position": "LATE",
-        "consensus": 95,
-        "consensus_delta": 0,
-        "priced_in": 85.1,
+        "consensus": 90,
+        "consensus_delta": -5,
+        "priced_in": 84.2,
         "discount": "PRICED_IN",
-        "timing_score": 38.1,
+        "timing_score": 37.4,
         "block_chase": true,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 1,
-          "intraday_breadth": 0.8,
+          "intraday_breadth": 0.6,
           "breadth": 1,
           "above20": 1,
           "above50": 1,
           "crowding": 100,
           "lag_share": 0,
-          "rel5": 10.85,
-          "rel2h": 0.47
+          "rel5": 11.54,
+          "rel2h": -0.11
         }
       },
       "scout": {
@@ -1166,8 +1141,8 @@
           }
         }
       ],
-      "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "stale": true,
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "CRUDE_TANKER_DISLOCATION": {
       "id": "CRUDE_TANKER_DISLOCATION",
@@ -1175,11 +1150,11 @@
       "tier": "A",
       "state": "WATCH",
       "raw_state": "WATCH",
-      "score": 41,
-      "previous_state": "ARMING",
-      "score_delta": -17,
-      "summary": "",
-      "material_change": true,
+      "score": 38,
+      "previous_state": "WATCH",
+      "score_delta": -3,
+      "summary": "No material evidence supporting increased VLCC/Suezmax ton-mile demand or fleet utilization from the provided candidates.",
+      "material_change": false,
       "observed_evidence": [],
       "evidence": [
         {
@@ -1206,9 +1181,9 @@
           "evidence_key": "56c4a9cec9bcea612d7c0068",
           "first_seen_at": "2026-10-02T09:46:49.904Z",
           "last_seen_at": "2026-10-02T09:54:51.717Z",
-          "memory_weight": 0.9741,
+          "memory_weight": 0.9072,
           "memory_status": "CARRIED",
-          "memory_age_hours": 2.73
+          "memory_age_hours": 10.11
         },
         {
           "candidate_id": "c7834b7726fbde502b2b",
@@ -1234,9 +1209,9 @@
           "evidence_key": "90da93d1d4f634bdfc6996d2",
           "first_seen_at": "2026-09-23T08:35:39.472Z",
           "last_seen_at": "2026-10-02T09:54:51.717Z",
-          "memory_weight": 0.9741,
+          "memory_weight": 0.9072,
           "memory_status": "CARRIED",
-          "memory_age_hours": 2.73
+          "memory_age_hours": 10.11
         },
         {
           "candidate_id": "9911abe7372d26cd067d",
@@ -1262,9 +1237,9 @@
           "evidence_key": "270f434a2554888ac5f46ac7",
           "first_seen_at": "2026-10-01T00:34:19.438Z",
           "last_seen_at": "2026-10-02T09:54:51.717Z",
-          "memory_weight": 0.9741,
+          "memory_weight": 0.9072,
           "memory_status": "CARRIED",
-          "memory_age_hours": 2.73
+          "memory_age_hours": 10.11
         },
         {
           "candidate_id": "951cb7e86cf9ce705fe0",
@@ -1290,9 +1265,9 @@
           "evidence_key": "2e637ded891b67b0c619bca5",
           "first_seen_at": "2026-10-01T00:34:19.438Z",
           "last_seen_at": "2026-10-02T09:54:51.717Z",
-          "memory_weight": 0.9741,
+          "memory_weight": 0.9072,
           "memory_status": "CARRIED",
-          "memory_age_hours": 2.73
+          "memory_age_hours": 10.11
         },
         {
           "candidate_id": "7728185a9d05eca9da5f",
@@ -1318,37 +1293,9 @@
           "evidence_key": "577bb87327d1efa0c75bb77b",
           "first_seen_at": "2026-10-01T05:50:09.703Z",
           "last_seen_at": "2026-10-02T09:54:51.717Z",
-          "memory_weight": 0.9741,
+          "memory_weight": 0.9072,
           "memory_status": "CARRIED",
-          "memory_age_hours": 2.73
-        },
-        {
-          "candidate_id": "2630da27c61f9d2cea73",
-          "query_id": "CRUDE_TANKER_DISLOCATION:confirm:vlcc_tce",
-          "phase": "CONFIRM",
-          "signal": "CRUDE_FREIGHT",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "Arabian Gulf crude freight outlook indicates high freight rates.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNOEs4REc4MmVkQkhwTEpOVTlUZTZRNHhJN0tZVmNHb19IbFcwLWFSQVNiS1pJOTFtTFdrcWFVZDZrT0YwWGFOSVdUa1lfejJOWUF6enBmLWF1ajB0ZElGLXRYQzBCdm9mUm5LVlRoVVpLZlRoT1ZXWkp4VnE2N1ZVU1Q4U09KdFVRbjVjZnVFZGk?oc=5",
-          "source_name": "Breakwave Advisors",
-          "source_domain": "breakwaveadvisors.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-10-01T07:31:47.000Z",
-          "retrieved_at": "2026-10-02T09:46:49.985Z",
-          "valid": true,
-          "evidence_key": "327cb651aade981e72c08218",
-          "first_seen_at": "2026-10-02T09:46:49.985Z",
-          "last_seen_at": "2026-10-02T09:54:51.717Z",
-          "memory_weight": 0.9488,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 2.73
+          "memory_age_hours": 10.11
         },
         {
           "candidate_id": "2565f648e701ed2ff39f",
@@ -1374,9 +1321,37 @@
           "evidence_key": "87b27f3e3441ed25c61ab057",
           "first_seen_at": "2026-10-02T05:35:16.698Z",
           "last_seen_at": "2026-10-02T05:42:21.544Z",
-          "memory_weight": 0.9354,
+          "memory_weight": 0.8712,
           "memory_status": "CARRIED",
-          "memory_age_hours": 6.94
+          "memory_age_hours": 14.32
+        },
+        {
+          "candidate_id": "2630da27c61f9d2cea73",
+          "query_id": "CRUDE_TANKER_DISLOCATION:confirm:vlcc_tce",
+          "phase": "CONFIRM",
+          "signal": "CRUDE_FREIGHT",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "Arabian Gulf crude freight outlook indicates high freight rates.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNOEs4REc4MmVkQkhwTEpOVTlUZTZRNHhJN0tZVmNHb19IbFcwLWFSQVNiS1pJOTFtTFdrcWFVZDZrT0YwWGFOSVdUa1lfejJOWUF6enBmLWF1ajB0ZElGLXRYQzBCdm9mUm5LVlRoVVpLZlRoT1ZXWkp4VnE2N1ZVU1Q4U09KdFVRbjVjZnVFZGk?oc=5",
+          "source_name": "Breakwave Advisors",
+          "source_domain": "breakwaveadvisors.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-10-01T07:31:47.000Z",
+          "retrieved_at": "2026-10-02T09:46:49.985Z",
+          "valid": true,
+          "evidence_key": "327cb651aade981e72c08218",
+          "first_seen_at": "2026-10-02T09:46:49.985Z",
+          "last_seen_at": "2026-10-02T09:54:51.717Z",
+          "memory_weight": 0.8231,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 10.11
         },
         {
           "candidate_id": "de4fe68ada1e6b015075",
@@ -1402,9 +1377,9 @@
           "evidence_key": "4eb0b9178fa25067687d9b79",
           "first_seen_at": "2026-09-29T09:50:46.815Z",
           "last_seen_at": "2026-10-01T10:15:06.824Z",
-          "memory_weight": 0.7756,
+          "memory_weight": 0.7224,
           "memory_status": "CARRIED",
-          "memory_age_hours": 26.39
+          "memory_age_hours": 33.77
         },
         {
           "candidate_id": "9c6b71163ef5da523b4b",
@@ -1430,9 +1405,9 @@
           "evidence_key": "03575f38f850187dfc664a8a",
           "first_seen_at": "2026-09-30T00:28:13.737Z",
           "last_seen_at": "2026-10-01T10:15:06.824Z",
-          "memory_weight": 0.7756,
+          "memory_weight": 0.7224,
           "memory_status": "CARRIED",
-          "memory_age_hours": 26.39
+          "memory_age_hours": 33.77
         },
         {
           "candidate_id": "f07ffdc892ce4c232fdd",
@@ -1458,9 +1433,9 @@
           "evidence_key": "25454a0b292b6f543760a1c5",
           "first_seen_at": "2026-09-29T05:42:45.286Z",
           "last_seen_at": "2026-10-01T10:15:06.824Z",
-          "memory_weight": 0.7756,
+          "memory_weight": 0.7224,
           "memory_status": "CARRIED",
-          "memory_age_hours": 26.39
+          "memory_age_hours": 33.77
         },
         {
           "candidate_id": "65f90043740f4a8cbb9a",
@@ -1486,9 +1461,9 @@
           "evidence_key": "e8bd18eb5ad60a0303ae68b1",
           "first_seen_at": "2026-09-30T00:28:13.737Z",
           "last_seen_at": "2026-10-01T00:43:00.824Z",
-          "memory_weight": 0.7076,
+          "memory_weight": 0.6591,
           "memory_status": "CARRIED",
-          "memory_age_hours": 35.93
+          "memory_age_hours": 43.31
         },
         {
           "candidate_id": "f9a9057b4202847abbbd",
@@ -1514,9 +1489,9 @@
           "evidence_key": "3c6241f9a9101bff4da50563",
           "first_seen_at": "2026-09-28T21:15:06.882Z",
           "last_seen_at": "2026-09-29T09:59:36.641Z",
-          "memory_weight": 0.4874,
+          "memory_weight": 0.454,
           "memory_status": "CARRIED",
-          "memory_age_hours": 74.65
+          "memory_age_hours": 82.03
         },
         {
           "candidate_id": "51c6c51f36445015d30b",
@@ -1542,9 +1517,9 @@
           "evidence_key": "5d98ed05805fdf4d904fe367",
           "first_seen_at": "2026-09-28T21:15:06.882Z",
           "last_seen_at": "2026-09-29T09:59:36.641Z",
-          "memory_weight": 0.4874,
+          "memory_weight": 0.454,
           "memory_status": "CARRIED",
-          "memory_age_hours": 74.65
+          "memory_age_hours": 82.03
         },
         {
           "candidate_id": "e712f55a8d7aff2082b8",
@@ -1570,9 +1545,9 @@
           "evidence_key": "d0d500538dd68515e2f378d1",
           "first_seen_at": "2026-09-27T05:17:41.026Z",
           "last_seen_at": "2026-09-27T12:08:20.488Z",
-          "memory_weight": 0.3135,
+          "memory_weight": 0.292,
           "memory_status": "CARRIED",
-          "memory_age_hours": 120.5
+          "memory_age_hours": 127.89
         },
         {
           "candidate_id": "df9041c08787c287cfc0",
@@ -1598,9 +1573,9 @@
           "evidence_key": "74e5698afcfae2353605d1dd",
           "first_seen_at": "2026-09-27T05:17:41.026Z",
           "last_seen_at": "2026-09-27T12:08:20.488Z",
-          "memory_weight": 0.3135,
+          "memory_weight": 0.292,
           "memory_status": "CARRIED",
-          "memory_age_hours": 120.5
+          "memory_age_hours": 127.89
         },
         {
           "candidate_id": "0b8c818c45a608d9acc8",
@@ -1626,9 +1601,9 @@
           "evidence_key": "5960bfc9d8d91768a9e8b990",
           "first_seen_at": "2026-09-23T08:35:39.472Z",
           "last_seen_at": "2026-09-27T05:24:29.833Z",
-          "memory_weight": 0.2938,
+          "memory_weight": 0.2736,
           "memory_status": "CARRIED",
-          "memory_age_hours": 127.23
+          "memory_age_hours": 134.62
         },
         {
           "candidate_id": "ff8242be2b33b9129161",
@@ -1654,9 +1629,9 @@
           "evidence_key": "a75d86da4f663ed73d801329",
           "first_seen_at": "2026-09-27T05:17:41.026Z",
           "last_seen_at": "2026-09-27T05:24:29.833Z",
-          "memory_weight": 0.2938,
+          "memory_weight": 0.2736,
           "memory_status": "CARRIED",
-          "memory_age_hours": 127.23
+          "memory_age_hours": 134.62
         }
       ],
       "verified": [],
@@ -1675,19 +1650,19 @@
       "memory": {
         "observed_items": 0,
         "carried_items": 17,
-        "avg_carry_weight": 0.705,
+        "avg_carry_weight": 0.653,
         "observed_score": 0,
         "raw_combined_score": 58,
-        "decayed_score": 41
+        "decayed_score": 38
       },
       "expected_next": [],
       "invalidation": [],
       "market": {
         "score": 79,
-        "crowding": 82.1,
+        "crowding": 82.5,
         "breadth": 0.833,
         "relative_breadth": 0.833,
-        "intraday_breadth": 1,
+        "intraday_breadth": 0.833,
         "quality": "HIGH",
         "n": 6,
         "intraday_n": 6,
@@ -1695,45 +1670,45 @@
         "above50": 0.833,
         "benchmark": "XLE",
         "avg": {
-          "r1": 3.79,
-          "r5": 6.54,
-          "r20": 13.69,
-          "rel5": 6.38,
-          "rel20": 17.38,
-          "r30m": -0.06,
-          "r2h": 0.11,
-          "rel30m": 0.04,
-          "rel2h": 0.47,
-          "volumeZ": 0.31
+          "r1": 0.92,
+          "r5": 7.63,
+          "r20": 14.73,
+          "rel5": 6.28,
+          "rel20": 17.43,
+          "r30m": 0.05,
+          "r2h": 0.45,
+          "rel30m": 0.11,
+          "rel2h": 0.4,
+          "volumeZ": 0.55
         }
       },
       "crowd": {
         "phase": "SATURATED",
         "position": "LATE",
-        "consensus": 87.5,
-        "consensus_delta": 4.2,
-        "priced_in": 71.6,
+        "consensus": 83.3,
+        "consensus_delta": -4.2,
+        "priced_in": 71.1,
         "discount": "PRICED_IN",
-        "timing_score": 53.1,
+        "timing_score": 51,
         "block_chase": true,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.833,
-          "intraday_breadth": 1,
+          "intraday_breadth": 0.833,
           "breadth": 0.833,
           "above20": 0.833,
           "above50": 0.833,
-          "crowding": 82.1,
+          "crowding": 82.5,
           "lag_share": 0,
-          "rel5": 6.38,
-          "rel2h": 0.47
+          "rel5": 6.28,
+          "rel2h": 0.4
         }
       },
       "scout": {
         "eligible": false,
-        "score": 41.6,
+        "score": 39.8,
         "reasons": [
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
@@ -1741,11 +1716,11 @@
           "MARKET_ALREADY_MOVED"
         ],
         "phase": "SATURATED",
-        "priced_in": 71.6
+        "priced_in": 71.1
       },
       "alpha": {
         "eligible": false,
-        "score": 41.4,
+        "score": 40.4,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -1760,7 +1735,7 @@
           "lead_to_confirm": 0.071
         },
         "crowd_phase": "SATURATED",
-        "priced_in": 71.6
+        "priced_in": 71.1
       },
       "reliability": {
         "samples": 0,
@@ -1771,7 +1746,7 @@
       "hysteresis": {
         "raw_state": "WATCH",
         "pending": null,
-        "reason": "DIRECT_NONCRITICAL_TRANSITION",
+        "reason": "STABLE",
         "applied": false
       },
       "sensors": {
@@ -1807,13 +1782,13 @@
         "PSHG"
       ],
       "negative": [],
-      "last_run": "2026-10-02T12:38:30.966Z",
+      "last_run": "2026-10-02T20:01:32.307Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 567,
-        "completion_tokens": 247,
-        "total_tokens": 814,
-        "cost": 0.000032436,
+        "prompt_tokens": 4178,
+        "completion_tokens": 431,
+        "total_tokens": 4609,
+        "cost": 0.000113994,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -1822,17 +1797,17 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.000032436,
-          "upstream_inference_prompt_cost": 0.000010206,
-          "upstream_inference_completions_cost": 0.00002223
+          "upstream_inference_cost": 0.000113994,
+          "upstream_inference_prompt_cost": 0.000075204,
+          "upstream_inference_completions_cost": 0.00003879
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 223,
+          "reasoning_tokens": 386,
           "image_tokens": 0,
           "audio_tokens": 0
         }
       },
-      "candidate_count": 8,
+      "candidate_count": 7,
       "official_candidate_count": 0,
       "query_trace": [
         {
@@ -1867,7 +1842,7 @@
             },
             "google_news": {
               "ok": true,
-              "count": 8,
+              "count": 7,
               "cached": false,
               "ttl_hours": 5
             }
@@ -1887,7 +1862,7 @@
             "google_news": {
               "ok": true,
               "count": 1,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 10
             }
           }
@@ -2153,50 +2128,50 @@
       "market": {
         "score": 0,
         "crowding": 0,
-        "breadth": 0.143,
-        "relative_breadth": 0.143,
+        "breadth": 0.286,
+        "relative_breadth": 0.286,
         "intraday_breadth": 0.286,
         "quality": "HIGH",
         "n": 7,
         "intraday_n": 7,
-        "above20": 0.143,
+        "above20": 0.286,
         "above50": 0.571,
         "benchmark": "XLE",
         "avg": {
-          "r1": -0.44,
-          "r5": -4.14,
-          "r20": -5.59,
-          "rel5": -4.3,
-          "rel20": -1.9,
-          "r30m": -0.57,
-          "r2h": -0.92,
-          "rel30m": -0.47,
-          "rel2h": -0.56,
+          "r1": 0.01,
+          "r5": -1.55,
+          "r20": -3.66,
+          "rel5": -2.9,
+          "rel20": -0.96,
+          "r30m": -0.11,
+          "r2h": -0.68,
+          "rel30m": -0.05,
+          "rel2h": -0.73,
           "volumeZ": -0.49
         }
       },
       "crowd": {
-        "phase": "DISCOVERY",
-        "position": "OBSERVE",
-        "consensus": 24.3,
-        "consensus_delta": -16.4,
-        "priced_in": 4.4,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 32.9,
+        "consensus_delta": 8.6,
+        "priced_in": 5.9,
         "discount": "UNPRICED",
-        "timing_score": 47.8,
+        "timing_score": 49.1,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0.143,
+          "relative_breadth": 0.286,
           "intraday_breadth": 0.286,
-          "breadth": 0.143,
-          "above20": 0.143,
+          "breadth": 0.286,
+          "above20": 0.286,
           "above50": 0.571,
           "crowding": 0,
           "lag_share": 0,
-          "rel5": -4.3,
-          "rel2h": -0.56
+          "rel5": -2.9,
+          "rel2h": -0.73
         }
       },
       "scout": {
@@ -2329,49 +2304,20 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "CEYHAN_BYPASS": {
       "id": "CEYHAN_BYPASS",
       "label": "Ceyhan / Kurdistan bypass",
       "tier": "A",
-      "state": "WATCH",
-      "raw_state": "WATCH",
-      "score": 25,
+      "state": "DORMANT",
+      "raw_state": "DORMANT",
+      "score": 21,
       "previous_state": "WATCH",
-      "score_delta": -3,
-      "summary": "Oil exports from the Kurdistan Region to the Ceyhan port resumed on 27 September 2025 via pipeline, indicating sustained physical flow through Iraq‑Turkey‑Ceyhan.",
-      "material_change": false,
-      "observed_evidence": [
-        {
-          "candidate_id": "67b49ff51a0f3be73d83",
-          "query_id": "CEYHAN_BYPASS:lead:iraq_turkey",
-          "phase": "LEAD",
-          "signal": "POLITICAL_CLEARANCE",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Oil exports from the Kurdistan Region to the Ceyhan port resumed on 27 September 2025 via pipeline.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "Resumption of pipeline flow indicates sustained physical flow through Iraq‑Turkey‑Ceyhan.",
-          "source_url": "https://rudawrc.net/en/pdf/article/kurdistan-region-oil-exports-to-the-ceyhan-port-dimensions-and-implications-2025-09-28",
-          "source_name": "The Resumption of Oil Exports from the Kurdistan Region to the Ceyhan Port: Impacts and Implications.",
-          "source_domain": "rudawrc.net",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-10-02T12:32:54.089Z",
-          "valid": true,
-          "evidence_key": "d1e2963e0e358eb7bd7bf6b7",
-          "first_seen_at": "2026-10-02T12:32:54.089Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
+      "score_delta": -4,
+      "summary": "",
+      "material_change": true,
+      "observed_evidence": [],
       "evidence": [
         {
           "candidate_id": "67b49ff51a0f3be73d83",
@@ -2397,9 +2343,9 @@
           "evidence_key": "d1e2963e0e358eb7bd7bf6b7",
           "first_seen_at": "2026-10-02T12:32:54.089Z",
           "last_seen_at": "2026-10-02T12:38:30.966Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9314,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 7.38
         },
         {
           "candidate_id": "e1dfb6fe15e7de6f231b",
@@ -2425,9 +2371,9 @@
           "evidence_key": "8201d8e4aad1e8751375ea76",
           "first_seen_at": "2026-10-02T09:47:03.687Z",
           "last_seen_at": "2026-10-02T09:54:51.717Z",
-          "memory_weight": 0.9741,
+          "memory_weight": 0.9072,
           "memory_status": "CARRIED",
-          "memory_age_hours": 2.73
+          "memory_age_hours": 10.11
         },
         {
           "candidate_id": "1684b3d8899e80bcdd67",
@@ -2453,9 +2399,9 @@
           "evidence_key": "ab684266ecfd92584b90e656",
           "first_seen_at": "2026-10-02T09:47:03.687Z",
           "last_seen_at": "2026-10-02T09:54:51.717Z",
-          "memory_weight": 0.9741,
+          "memory_weight": 0.9072,
           "memory_status": "CARRIED",
-          "memory_age_hours": 2.73
+          "memory_age_hours": 10.11
         },
         {
           "candidate_id": "dc895924d5239590c82c",
@@ -2481,9 +2427,9 @@
           "evidence_key": "227709de25c71fbcea0245b8",
           "first_seen_at": "2026-10-01T05:50:19.486Z",
           "last_seen_at": "2026-10-01T10:15:06.824Z",
-          "memory_weight": 0.7756,
+          "memory_weight": 0.7224,
           "memory_status": "CARRIED",
-          "memory_age_hours": 26.39
+          "memory_age_hours": 33.77
         },
         {
           "candidate_id": "80be61df5952101ed5a6",
@@ -2509,9 +2455,9 @@
           "evidence_key": "ee955d41057d3413007e839f",
           "first_seen_at": "2026-10-01T05:50:19.486Z",
           "last_seen_at": "2026-10-01T10:15:06.824Z",
-          "memory_weight": 0.7756,
+          "memory_weight": 0.7224,
           "memory_status": "CARRIED",
-          "memory_age_hours": 26.39
+          "memory_age_hours": 33.77
         },
         {
           "candidate_id": "94513f725d78bf8b36ba",
@@ -2537,9 +2483,9 @@
           "evidence_key": "85ec7bf899310a51c6245faa",
           "first_seen_at": "2026-09-27T09:16:34.624Z",
           "last_seen_at": "2026-09-28T13:59:56.729Z",
-          "memory_weight": 0.4021,
+          "memory_weight": 0.3745,
           "memory_status": "CARRIED",
-          "memory_age_hours": 94.64
+          "memory_age_hours": 102.03
         },
         {
           "candidate_id": "4ee7f0e4d165483b1bf8",
@@ -2565,9 +2511,9 @@
           "evidence_key": "45fd0eb9c89515271b27e22a",
           "first_seen_at": "2026-09-28T09:47:21.138Z",
           "last_seen_at": "2026-09-28T09:54:51.927Z",
-          "memory_weight": 0.3866,
+          "memory_weight": 0.36,
           "memory_status": "CARRIED",
-          "memory_age_hours": 98.73
+          "memory_age_hours": 106.11
         },
         {
           "candidate_id": "8bb30428827aa78dc723",
@@ -2593,9 +2539,9 @@
           "evidence_key": "5bd55f3f90257c0c40e535f9",
           "first_seen_at": "2026-09-28T09:47:21.138Z",
           "last_seen_at": "2026-09-28T09:54:51.927Z",
-          "memory_weight": 0.3866,
+          "memory_weight": 0.36,
           "memory_status": "CARRIED",
-          "memory_age_hours": 98.73
+          "memory_age_hours": 106.11
         }
       ],
       "verified": [],
@@ -2604,53 +2550,29 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [
-        {
-          "id": "69bbe18149a751d90798d7",
-          "mechanism_id": "CEYHAN_BYPASS",
-          "run_id": "run_2026-10-02T12-31-34Z",
-          "phase": "LEAD",
-          "signal": "POLITICAL_CLEARANCE",
-          "claim": "Oil exports from the Kurdistan Region to the Ceyhan port resumed on 27 September 2025 via pipeline.",
-          "observed_at": null,
-          "ingested_at": "2026-10-02T12:38:30.966Z",
-          "source_count": 1,
-          "domains": [
-            "rudawrc.net"
-          ],
-          "source_urls": [
-            "https://rudawrc.net/en/pdf/article/kurdistan-region-oil-exports-to-the-ceyhan-port-dimensions-and-implications-2025-09-28"
-          ],
-          "official": false,
-          "representative_source": "The Resumption of Oil Exports from the Kurdistan Region to the Ceyhan Port: Impacts and Implications.",
-          "representative_url": "https://rudawrc.net/en/pdf/article/kurdistan-region-oil-exports-to-the-ceyhan-port-dimensions-and-implications-2025-09-28",
-          "source_grade": 0.62
-        }
-      ],
+      "events": [],
       "event_stats": {
-        "observed_unique": 1,
+        "observed_unique": 0,
         "observed_duplicates": 0,
         "memory_unique": 8,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 1,
-        "carried_items": 7,
-        "avg_carry_weight": 0.668,
-        "observed_score": 12,
+        "observed_items": 0,
+        "carried_items": 8,
+        "avg_carry_weight": 0.661,
+        "observed_score": 0,
         "raw_combined_score": 32,
-        "decayed_score": 25
+        "decayed_score": 21
       },
-      "expected_next": [
-        "CEYHAN_FLOW"
-      ],
+      "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 19,
-        "crowding": 15.8,
+        "score": 4,
+        "crowding": 11.8,
         "breadth": 0,
         "relative_breadth": 0,
-        "intraday_breadth": 1,
+        "intraday_breadth": 0,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -2658,54 +2580,55 @@
         "above50": 0.667,
         "benchmark": "XLE",
         "avg": {
-          "r1": -0.21,
-          "r5": -4.49,
-          "r20": 2.79,
-          "rel5": -4.65,
-          "rel20": 6.48,
-          "r30m": 0.09,
-          "r2h": -0.17,
-          "rel30m": 0.19,
-          "rel2h": 0.19,
-          "volumeZ": -1.17
+          "r1": -0.3,
+          "r5": -4.58,
+          "r20": 2.68,
+          "rel5": -5.93,
+          "rel20": 5.38,
+          "r30m": -0.54,
+          "r2h": -0.63,
+          "rel30m": -0.48,
+          "rel2h": -0.68,
+          "volumeZ": -0.4
         }
       },
       "crowd": {
-        "phase": "EARLY_WAVE",
-        "position": "EARLY",
-        "consensus": 35,
-        "consensus_delta": 0,
-        "priced_in": 17,
+        "phase": "DISCOVERY",
+        "position": "OBSERVE",
+        "consensus": 10,
+        "consensus_delta": -25,
+        "priced_in": 9.8,
         "discount": "UNPRICED",
-        "timing_score": 49,
+        "timing_score": 44,
         "block_chase": false,
-        "ahead_of_wave": true,
+        "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0,
-          "intraday_breadth": 1,
+          "intraday_breadth": 0,
           "breadth": 0,
           "above20": 0,
           "above50": 0.667,
-          "crowding": 15.8,
+          "crowding": 11.8,
           "lag_share": 0,
-          "rel5": -4.65,
-          "rel2h": 0.19
+          "rel5": -5.93,
+          "rel2h": -0.68
         }
       },
       "scout": {
         "eligible": false,
-        "score": 42,
+        "score": 39.3,
         "reasons": [
+          "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
         ],
-        "phase": "EARLY_WAVE",
-        "priced_in": 17
+        "phase": "DISCOVERY",
+        "priced_in": 9.8
       },
       "alpha": {
         "eligible": false,
-        "score": 37.8,
+        "score": 34.8,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -2719,8 +2642,8 @@
           "avg_return": null,
           "lead_to_confirm": 0
         },
-        "crowd_phase": "EARLY_WAVE",
-        "priced_in": 17
+        "crowd_phase": "DISCOVERY",
+        "priced_in": 9.8
       },
       "reliability": {
         "samples": 0,
@@ -2729,9 +2652,9 @@
         "lead_to_confirm": 0
       },
       "hysteresis": {
-        "raw_state": "WATCH",
+        "raw_state": "DORMANT",
         "pending": null,
-        "reason": "STABLE",
+        "reason": "DIRECT_NONCRITICAL_TRANSITION",
         "applied": false
       },
       "sensors": {
@@ -2757,13 +2680,13 @@
         "DNO.OL"
       ],
       "negative": [],
-      "last_run": "2026-10-02T12:38:30.966Z",
+      "last_run": "2026-10-02T20:01:32.307Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 2506,
-        "completion_tokens": 1270,
-        "total_tokens": 3776,
-        "cost": 0.000159408,
+        "prompt_tokens": 567,
+        "completion_tokens": 252,
+        "total_tokens": 819,
+        "cost": 0.000032886,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -2772,12 +2695,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.000159408,
-          "upstream_inference_prompt_cost": 0.000045108,
-          "upstream_inference_completions_cost": 0.0001143
+          "upstream_inference_cost": 0.000032886,
+          "upstream_inference_prompt_cost": 0.000010206,
+          "upstream_inference_completions_cost": 0.00002268
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 1115,
+          "reasoning_tokens": 228,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -2837,7 +2760,7 @@
             "google_news": {
               "ok": true,
               "count": 1,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 10
             }
           }
@@ -3384,37 +3307,37 @@
       "invalidation": [],
       "market": {
         "score": 15,
-        "crowding": 4,
-        "breadth": 0.25,
+        "crowding": 0,
+        "breadth": 0.5,
         "relative_breadth": 0.25,
         "intraday_breadth": 0.75,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
         "above20": 0,
-        "above50": 0.5,
+        "above50": 0.25,
         "benchmark": "XLE",
         "avg": {
-          "r1": 1.16,
-          "r5": -2.14,
-          "r20": -9.66,
-          "rel5": -2.3,
-          "rel20": -5.97,
-          "r30m": -1.24,
-          "r2h": -0.19,
-          "rel30m": -1.14,
-          "rel2h": 0.17,
-          "volumeZ": 0.44
+          "r1": 0.56,
+          "r5": -0.15,
+          "r20": -7.59,
+          "rel5": -1.5,
+          "rel20": -4.89,
+          "r30m": -0.1,
+          "r2h": -0.01,
+          "rel30m": -0.04,
+          "rel2h": -0.05,
+          "volumeZ": -0.47
         }
       },
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 37.5,
-        "consensus_delta": -6.3,
-        "priced_in": 9.5,
+        "consensus_delta": 0,
+        "priced_in": 6.8,
         "discount": "UNPRICED",
-        "timing_score": 54.5,
+        "timing_score": 55.2,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -3422,13 +3345,13 @@
         "inputs": {
           "relative_breadth": 0.25,
           "intraday_breadth": 0.75,
-          "breadth": 0.25,
+          "breadth": 0.5,
           "above20": 0,
-          "above50": 0.5,
-          "crowding": 4,
+          "above50": 0.25,
+          "crowding": 0,
           "lag_share": 0,
-          "rel5": -2.3,
-          "rel2h": 0.17
+          "rel5": -1.5,
+          "rel2h": -0.05
         }
       },
       "scout": {
@@ -3561,7 +3484,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "ARSENAL_DEPLETION": {
       "id": "ARSENAL_DEPLETION",
@@ -4105,11 +4028,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 0,
-        "crowding": 0,
+        "score": 45,
+        "crowding": 3.8,
         "breadth": 0,
-        "relative_breadth": 0.5,
-        "intraday_breadth": 0,
+        "relative_breadth": 0.75,
+        "intraday_breadth": 1,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -4117,40 +4040,40 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": -0.28,
-          "r5": -2.94,
-          "r20": -7.33,
-          "rel5": -0.72,
-          "rel20": -0.47,
-          "r30m": -0.07,
-          "r2h": -0.1,
-          "rel30m": 0.15,
-          "rel2h": -0.27,
-          "volumeZ": -0.06
+          "r1": -0.19,
+          "r5": -3.14,
+          "r20": -8.03,
+          "rel5": -0.37,
+          "rel20": -0.02,
+          "r30m": 0.15,
+          "r2h": 0.17,
+          "rel30m": 0.23,
+          "rel2h": 0.28,
+          "volumeZ": 0.26
         }
       },
       "crowd": {
-        "phase": "DISCOVERY",
-        "position": "OBSERVE",
-        "consensus": 15,
-        "consensus_delta": 0,
-        "priced_in": 2.7,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 47.5,
+        "consensus_delta": 32.5,
+        "priced_in": 11.1,
         "discount": "UNPRICED",
-        "timing_score": 43.2,
+        "timing_score": 47.6,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0.5,
-          "intraday_breadth": 0,
+          "relative_breadth": 0.75,
+          "intraday_breadth": 1,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 0,
+          "crowding": 3.8,
           "lag_share": 0,
-          "rel5": -0.72,
-          "rel2h": -0.27
+          "rel5": -0.37,
+          "rel2h": 0.28
         }
       },
       "scout": {
@@ -4301,7 +4224,9 @@
             }
           }
         }
-      ]
+      ],
+      "stale": false,
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "ROCKET_MOTOR_SHORTAGE": {
       "id": "ROCKET_MOTOR_SHORTAGE",
@@ -4751,9 +4676,9 @@
       ],
       "invalidation": [],
       "market": {
-        "score": 0,
-        "crowding": 0,
-        "breadth": 0.333,
+        "score": 8,
+        "crowding": 5.4,
+        "breadth": 0,
         "relative_breadth": 0.333,
         "intraday_breadth": 0.333,
         "quality": "HIGH",
@@ -4763,26 +4688,26 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": -0.42,
-          "r5": -4.61,
-          "r20": -12.62,
-          "rel5": -2.39,
-          "rel20": -5.76,
-          "r30m": 0.22,
-          "r2h": 0.16,
-          "rel30m": 0.45,
-          "rel2h": -0.01,
-          "volumeZ": -0.03
+          "r1": 1.91,
+          "r5": -3.63,
+          "r20": -11.57,
+          "rel5": -0.86,
+          "rel20": -3.56,
+          "r30m": 0.09,
+          "r2h": -0.2,
+          "rel30m": 0.16,
+          "rel2h": -0.09,
+          "volumeZ": 0.9
         }
       },
       "crowd": {
         "phase": "DISCOVERY",
         "position": "OBSERVE",
-        "consensus": 23.3,
-        "consensus_delta": -8.4,
-        "priced_in": 4.2,
+        "consensus": 18.3,
+        "consensus_delta": -5,
+        "priced_in": 7,
         "discount": "UNPRICED",
-        "timing_score": 50.8,
+        "timing_score": 49.1,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -4790,13 +4715,13 @@
         "inputs": {
           "relative_breadth": 0.333,
           "intraday_breadth": 0.333,
-          "breadth": 0.333,
+          "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 0,
+          "crowding": 5.4,
           "lag_share": 0,
-          "rel5": -2.39,
-          "rel2h": -0.01
+          "rel5": -0.86,
+          "rel2h": -0.09
         }
       },
       "scout": {
@@ -4943,7 +4868,9 @@
             }
           }
         }
-      ]
+      ],
+      "stale": false,
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "ENERGETICS_SHORTAGE": {
       "id": "ENERGETICS_SHORTAGE",
@@ -4953,8 +4880,8 @@
       "raw_state": "WATCH",
       "score": 32,
       "previous_state": "WATCH",
-      "score_delta": 1,
-      "summary": "Energetics shortage evidence",
+      "score_delta": 0,
+      "summary": "The available evidence indicates that U.S. and European energetic material production is constrained, with limited domestic RDX output, reliance on a single European TNT source, and plans to expand capacity in the coming years.",
       "material_change": true,
       "observed_evidence": [
         {
@@ -4964,7 +4891,7 @@
           "signal": "ENERGETICS_CAPACITY",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Polish TNT producer Nitro‑Chem plans to expand production to the United Kingdom in partnership with BAE Systems.",
+          "claim": "Polish TNT producer Nitro‑Chem currently produces 10,000 metric tons of TNT annually and plans to double output with a new production line.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
@@ -4976,11 +4903,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-10-02T12:32:54.089Z",
+          "retrieved_at": "2026-10-02T19:58:31.221Z",
           "valid": true,
           "evidence_key": "ef7ffdeab6976bfd9a792945",
-          "first_seen_at": "2026-10-02T12:32:54.089Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
+          "first_seen_at": "2026-10-02T19:58:31.221Z",
+          "last_seen_at": "2026-10-02T20:01:32.307Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -4992,7 +4919,7 @@
           "signal": "ENERGETICS_CAPACITY",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Western powers are racing to bring the production of explosives back home.",
+          "claim": "The United States is building TNT plants in Europe, and the United Kingdom plans to complete at least six new energetics factories by 2030.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
@@ -5004,11 +4931,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-10-02T12:32:54.089Z",
+          "retrieved_at": "2026-10-02T19:58:31.221Z",
           "valid": true,
           "evidence_key": "3b309f16bfb6425f3920be7a",
-          "first_seen_at": "2026-10-02T12:32:54.089Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
+          "first_seen_at": "2026-10-02T19:58:31.221Z",
+          "last_seen_at": "2026-10-02T20:01:32.307Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -5032,11 +4959,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-10-02T12:32:54.089Z",
+          "retrieved_at": "2026-10-02T19:58:31.221Z",
           "valid": true,
           "evidence_key": "4cae0505ba2ed3e06acc1652",
-          "first_seen_at": "2026-10-02T12:32:54.089Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
+          "first_seen_at": "2026-10-02T19:58:31.221Z",
+          "last_seen_at": "2026-10-02T20:01:32.307Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -5048,7 +4975,7 @@
           "signal": "ENERGETICS_CAPACITY",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Nitrocellulose shortages are also limiting ammunition production.",
+          "claim": "The United States has not produced TNT since 1986, and the few European factories are insufficient to meet the growing demand for ammunition.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
@@ -5060,39 +4987,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-10-02T12:32:54.089Z",
+          "retrieved_at": "2026-10-02T19:58:31.221Z",
           "valid": true,
           "evidence_key": "6ef4a8d28706862ba0815344",
-          "first_seen_at": "2026-10-02T12:32:54.089Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "446de2f6be1db6c99952",
-          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
-          "phase": "LEAD",
-          "signal": "ENERGETICS_CAPACITY",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "The market for RDX, HMX, and C‑4 explosives is projected to grow at a 6.0 % CAGR from 2025 to 2026.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://world.einnews.com/pr_news/918890360/rdx-hmx-and-c-4-market-future-demand-and-top-key-players-analysis-2030",
-          "source_name": "RDX, HMX, And C-4 Market: Future Demand and Top Key Players Analysis | 2030 - World News Report - EIN Presswire",
-          "source_domain": "world.einnews.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-10-02T12:32:54.089Z",
-          "valid": true,
-          "evidence_key": "16c1288a761d38ba3313669b",
-          "first_seen_at": "2026-10-02T12:32:54.089Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
+          "first_seen_at": "2026-10-02T19:58:31.221Z",
+          "last_seen_at": "2026-10-02T20:01:32.307Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -5106,7 +5005,7 @@
           "signal": "ENERGETICS_CAPACITY",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Polish TNT producer Nitro‑Chem plans to expand production to the United Kingdom in partnership with BAE Systems.",
+          "claim": "Polish TNT producer Nitro‑Chem currently produces 10,000 metric tons of TNT annually and plans to double output with a new production line.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
@@ -5118,11 +5017,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-10-02T12:32:54.089Z",
+          "retrieved_at": "2026-10-02T19:58:31.221Z",
           "valid": true,
           "evidence_key": "ef7ffdeab6976bfd9a792945",
           "first_seen_at": "2026-09-24T08:28:49.406Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
+          "last_seen_at": "2026-10-02T20:01:32.307Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -5134,7 +5033,7 @@
           "signal": "ENERGETICS_CAPACITY",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Western powers are racing to bring the production of explosives back home.",
+          "claim": "The United States is building TNT plants in Europe, and the United Kingdom plans to complete at least six new energetics factories by 2030.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
@@ -5146,11 +5045,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-10-02T12:32:54.089Z",
+          "retrieved_at": "2026-10-02T19:58:31.221Z",
           "valid": true,
           "evidence_key": "3b309f16bfb6425f3920be7a",
           "first_seen_at": "2026-09-19T04:36:32.991Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
+          "last_seen_at": "2026-10-02T20:01:32.307Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -5174,11 +5073,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-10-02T12:32:54.089Z",
+          "retrieved_at": "2026-10-02T19:58:31.221Z",
           "valid": true,
           "evidence_key": "4cae0505ba2ed3e06acc1652",
           "first_seen_at": "2026-09-19T08:04:12.864Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
+          "last_seen_at": "2026-10-02T20:01:32.307Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -5190,7 +5089,7 @@
           "signal": "ENERGETICS_CAPACITY",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Nitrocellulose shortages are also limiting ammunition production.",
+          "claim": "The United States has not produced TNT since 1986, and the few European factories are insufficient to meet the growing demand for ammunition.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
@@ -5202,11 +5101,11 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-10-02T12:32:54.089Z",
+          "retrieved_at": "2026-10-02T19:58:31.221Z",
           "valid": true,
           "evidence_key": "6ef4a8d28706862ba0815344",
           "first_seen_at": "2026-10-02T00:48:52.998Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
+          "last_seen_at": "2026-10-02T20:01:32.307Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -5235,9 +5134,9 @@
           "evidence_key": "16c1288a761d38ba3313669b",
           "first_seen_at": "2026-09-24T08:28:49.406Z",
           "last_seen_at": "2026-10-02T12:38:30.966Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9314,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 7.38
         },
         {
           "candidate_id": "7808036ac5694a706e6b",
@@ -5263,9 +5162,9 @@
           "evidence_key": "d6415660e29648233368cc02",
           "first_seen_at": "2026-10-01T13:11:03.662Z",
           "last_seen_at": "2026-10-01T13:17:06.169Z",
-          "memory_weight": 0.7986,
+          "memory_weight": 0.7438,
           "memory_status": "CARRIED",
-          "memory_age_hours": 23.36
+          "memory_age_hours": 30.74
         },
         {
           "candidate_id": "5b951f5dfe0f58b68d47",
@@ -5291,9 +5190,9 @@
           "evidence_key": "77fbbd08527f1e85074ba8fd",
           "first_seen_at": "2026-09-26T04:56:40.068Z",
           "last_seen_at": "2026-10-01T13:17:06.169Z",
-          "memory_weight": 0.7986,
+          "memory_weight": 0.7438,
           "memory_status": "CARRIED",
-          "memory_age_hours": 23.36
+          "memory_age_hours": 30.74
         },
         {
           "candidate_id": "4e83a093b4bb80376194",
@@ -5319,9 +5218,9 @@
           "evidence_key": "850942249679524b88e11900",
           "first_seen_at": "2026-09-28T13:52:00.205Z",
           "last_seen_at": "2026-09-29T01:11:27.259Z",
-          "memory_weight": 0.4478,
+          "memory_weight": 0.4171,
           "memory_status": "CARRIED",
-          "memory_age_hours": 83.45
+          "memory_age_hours": 90.83
         },
         {
           "candidate_id": "2414c1408203885af739",
@@ -5347,9 +5246,9 @@
           "evidence_key": "8c47079a6c68964fbc40f510",
           "first_seen_at": "2026-09-29T01:01:40.349Z",
           "last_seen_at": "2026-09-29T01:11:27.259Z",
-          "memory_weight": 0.4478,
+          "memory_weight": 0.4171,
           "memory_status": "CARRIED",
-          "memory_age_hours": 83.45
+          "memory_age_hours": 90.83
         },
         {
           "candidate_id": "73ad8eb60301596d8567",
@@ -5375,9 +5274,9 @@
           "evidence_key": "735a78aca31f6b5b65fa39ab",
           "first_seen_at": "2026-09-19T04:36:32.991Z",
           "last_seen_at": "2026-09-27T12:08:20.488Z",
-          "memory_weight": 0.3135,
+          "memory_weight": 0.292,
           "memory_status": "CARRIED",
-          "memory_age_hours": 120.5
+          "memory_age_hours": 127.89
         }
       ],
       "verified": [],
@@ -5388,14 +5287,14 @@
       },
       "events": [
         {
-          "id": "ddf20fb6f6e74dcc157de7",
+          "id": "a8e2a8a1053edec710de1a",
           "mechanism_id": "ENERGETICS_SHORTAGE",
-          "run_id": "run_2026-10-02T12-31-34Z",
+          "run_id": "run_2026-10-02T19-56-55Z",
           "phase": "LEAD",
           "signal": "ENERGETICS_CAPACITY",
-          "claim": "Polish TNT producer Nitro‑Chem plans to expand production to the United Kingdom in partnership with BAE Systems.",
+          "claim": "Polish TNT producer Nitro‑Chem currently produces 10,000 metric tons of TNT annually and plans to double output with a new production line.",
           "observed_at": null,
-          "ingested_at": "2026-10-02T12:38:30.966Z",
+          "ingested_at": "2026-10-02T20:01:32.307Z",
           "source_count": 1,
           "domains": [
             "reuters.com"
@@ -5409,14 +5308,14 @@
           "source_grade": 0.92
         },
         {
-          "id": "bafb732e8b89db4ee0fbac",
+          "id": "35ab5ba8b841457e2dba6a",
           "mechanism_id": "ENERGETICS_SHORTAGE",
-          "run_id": "run_2026-10-02T12-31-34Z",
+          "run_id": "run_2026-10-02T19-56-55Z",
           "phase": "LEAD",
           "signal": "ENERGETICS_CAPACITY",
-          "claim": "Western powers are racing to bring the production of explosives back home.",
+          "claim": "The United States is building TNT plants in Europe, and the United Kingdom plans to complete at least six new energetics factories by 2030.",
           "observed_at": null,
-          "ingested_at": "2026-10-02T12:38:30.966Z",
+          "ingested_at": "2026-10-02T20:01:32.307Z",
           "source_count": 1,
           "domains": [
             "wsj.com"
@@ -5432,12 +5331,12 @@
         {
           "id": "2d1ac7a3ca46e27f1f15d5",
           "mechanism_id": "ENERGETICS_SHORTAGE",
-          "run_id": "run_2026-10-02T12-31-34Z",
+          "run_id": "run_2026-10-02T19-56-55Z",
           "phase": "LEAD",
           "signal": "ENERGETICS_CAPACITY",
           "claim": "All U.S. TNT supply depends on a single European source.",
           "observed_at": null,
-          "ingested_at": "2026-10-02T12:38:30.966Z",
+          "ingested_at": "2026-10-02T20:01:32.307Z",
           "source_count": 1,
           "domains": [
             "integratedsynergyconsulting.com"
@@ -5451,14 +5350,14 @@
           "source_grade": 0.62
         },
         {
-          "id": "f4dd59abdd3dc398bca950",
+          "id": "ad7a72cd9d1892204861eb",
           "mechanism_id": "ENERGETICS_SHORTAGE",
-          "run_id": "run_2026-10-02T12-31-34Z",
+          "run_id": "run_2026-10-02T19-56-55Z",
           "phase": "LEAD",
           "signal": "ENERGETICS_CAPACITY",
-          "claim": "Nitrocellulose shortages are also limiting ammunition production.",
+          "claim": "The United States has not produced TNT since 1986, and the few European factories are insufficient to meet the growing demand for ammunition.",
           "observed_at": null,
-          "ingested_at": "2026-10-02T12:38:30.966Z",
+          "ingested_at": "2026-10-02T20:01:32.307Z",
           "source_count": 1,
           "domains": [
             "fw-mag.com"
@@ -5470,39 +5369,18 @@
           "representative_source": "FW-MAG Future Warfare Magazine - shownews  - TNT and nitrocellulose shortage: the new challenge for ammunition production ",
           "representative_url": "https://fw-mag.com/shownews/545/tnt-and-nitrocellulose-shortage-the-new-challenge-for-ammunition-production",
           "source_grade": 0.62
-        },
-        {
-          "id": "a1e8a757466e955c1c58ac",
-          "mechanism_id": "ENERGETICS_SHORTAGE",
-          "run_id": "run_2026-10-02T12-31-34Z",
-          "phase": "LEAD",
-          "signal": "ENERGETICS_CAPACITY",
-          "claim": "The market for RDX, HMX, and C‑4 explosives is projected to grow at a 6.0 % CAGR from 2025 to 2026.",
-          "observed_at": null,
-          "ingested_at": "2026-10-02T12:38:30.966Z",
-          "source_count": 1,
-          "domains": [
-            "world.einnews.com"
-          ],
-          "source_urls": [
-            "https://world.einnews.com/pr_news/918890360/rdx-hmx-and-c-4-market-future-demand-and-top-key-players-analysis-2030"
-          ],
-          "official": false,
-          "representative_source": "RDX, HMX, And C-4 Market: Future Demand and Top Key Players Analysis | 2030 - World News Report - EIN Presswire",
-          "representative_url": "https://world.einnews.com/pr_news/918890360/rdx-hmx-and-c-4-market-future-demand-and-top-key-players-analysis-2030",
-          "source_grade": 0.62
         }
       ],
       "event_stats": {
-        "observed_unique": 5,
+        "observed_unique": 4,
         "observed_duplicates": 0,
         "memory_unique": 10,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 5,
-        "carried_items": 5,
-        "avg_carry_weight": 0.561,
+        "observed_items": 4,
+        "carried_items": 6,
+        "avg_carry_weight": 0.591,
         "observed_score": 32,
         "raw_combined_score": 32,
         "decayed_score": 32
@@ -5510,72 +5388,71 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 0,
-        "crowding": 0,
+        "score": 45,
+        "crowding": 4.7,
         "breadth": 0,
-        "relative_breadth": 0.5,
-        "intraday_breadth": 0,
+        "relative_breadth": 0.75,
+        "intraday_breadth": 1,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
-        "above20": 0.25,
+        "above20": 0,
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": -0.09,
-          "r5": -2.73,
-          "r20": -7.71,
-          "rel5": -0.51,
-          "rel20": -0.84,
-          "r30m": 0.05,
-          "r2h": -0.66,
-          "rel30m": 0.28,
-          "rel2h": -0.83,
-          "volumeZ": -0.49
+          "r1": -0.28,
+          "r5": -2.9,
+          "r20": -7.97,
+          "rel5": -0.13,
+          "rel20": 0.04,
+          "r30m": -0.13,
+          "r2h": 0.24,
+          "rel30m": -0.06,
+          "rel2h": 0.35,
+          "volumeZ": 0.31
         }
       },
       "crowd": {
-        "phase": "DISCOVERY",
-        "position": "OBSERVE",
-        "consensus": 18.8,
-        "consensus_delta": -16.3,
-        "priced_in": 3.4,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 47.5,
+        "consensus_delta": 28.7,
+        "priced_in": 11.7,
         "discount": "UNPRICED",
-        "timing_score": 52.3,
+        "timing_score": 56,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0.5,
-          "intraday_breadth": 0,
+          "relative_breadth": 0.75,
+          "intraday_breadth": 1,
           "breadth": 0,
-          "above20": 0.25,
+          "above20": 0,
           "above50": 0,
-          "crowding": 0,
+          "crowding": 4.7,
           "lag_share": 0,
-          "rel5": -0.51,
-          "rel2h": -0.83
+          "rel5": -0.13,
+          "rel2h": 0.35
         }
       },
       "scout": {
         "eligible": false,
-        "score": 47.3,
+        "score": 48.1,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
-        "phase": "DISCOVERY",
-        "priced_in": 3.4
+        "phase": "EARLY_WAVE",
+        "priced_in": 11.7
       },
       "alpha": {
         "eligible": false,
-        "score": 40.5,
+        "score": 47.9,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
-          "NO_CONFIRM",
-          "MARKET_NOT_CONFIRMING"
+          "NO_CONFIRM"
         ],
         "empirical": {
           "samples": 0,
@@ -5583,8 +5460,8 @@
           "avg_return": null,
           "lead_to_confirm": null
         },
-        "crowd_phase": "DISCOVERY",
-        "priced_in": 3.4
+        "crowd_phase": "EARLY_WAVE",
+        "priced_in": 11.7
       },
       "reliability": {
         "samples": 0,
@@ -5625,13 +5502,13 @@
         "GD"
       ],
       "negative": [],
-      "last_run": "2026-10-02T12:38:30.966Z",
+      "last_run": "2026-10-02T20:01:32.307Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
         "prompt_tokens": 1867,
-        "completion_tokens": 1104,
-        "total_tokens": 2971,
-        "cost": 0.00014774,
+        "completion_tokens": 1234,
+        "total_tokens": 3101,
+        "cost": 0.00016074,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -5640,12 +5517,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00014774,
+          "upstream_inference_cost": 0.00016074,
           "upstream_inference_prompt_cost": 0.00003734,
-          "upstream_inference_completions_cost": 0.0001104
+          "upstream_inference_completions_cost": 0.0001234
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 479,
+          "reasoning_tokens": 795,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -5705,7 +5582,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -5919,10 +5796,10 @@
       "invalidation": [],
       "market": {
         "score": 0,
-        "crowding": 2,
+        "crowding": 0,
         "breadth": 0,
         "relative_breadth": 0.5,
-        "intraday_breadth": 0.5,
+        "intraday_breadth": 0,
         "quality": "MEDIUM",
         "n": 2,
         "intraday_n": 2,
@@ -5930,40 +5807,40 @@
         "above50": 0,
         "benchmark": "XME",
         "avg": {
-          "r1": 0.09,
-          "r5": -3.52,
-          "r20": -20.74,
-          "rel5": -0.12,
-          "rel20": -8.04,
-          "r30m": -0.12,
-          "r2h": 0.43,
-          "rel30m": -0.44,
-          "rel2h": 0.07,
-          "volumeZ": 0.24
+          "r1": -0.67,
+          "r5": -4.68,
+          "r20": -21.44,
+          "rel5": -2.28,
+          "rel20": -10.75,
+          "r30m": -0.11,
+          "r2h": -0.57,
+          "rel30m": -0.03,
+          "rel2h": -0.48,
+          "volumeZ": -0.83
         }
       },
       "crowd": {
-        "phase": "EARLY_WAVE",
-        "position": "EARLY",
-        "consensus": 26.1,
-        "consensus_delta": 0,
-        "priced_in": 6.1,
+        "phase": "DISCOVERY",
+        "position": "OBSERVE",
+        "consensus": 14.2,
+        "consensus_delta": -11.9,
+        "priced_in": 2.6,
         "discount": "UNPRICED",
-        "timing_score": 51.3,
+        "timing_score": 49.8,
         "block_chase": false,
-        "ahead_of_wave": true,
+        "ahead_of_wave": false,
         "quality": "MEDIUM",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.5,
-          "intraday_breadth": 0.5,
+          "intraday_breadth": 0,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 2,
+          "crowding": 0,
           "lag_share": 0,
-          "rel5": -0.12,
-          "rel2h": 0.07
+          "rel5": -2.28,
+          "rel2h": -0.48
         }
       },
       "scout": {
@@ -6114,7 +5991,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "RARE_EARTH_MAGNET_SHORTAGE": {
       "id": "RARE_EARTH_MAGNET_SHORTAGE",
@@ -6499,11 +6376,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 26,
-        "crowding": 10.2,
+        "score": 8,
+        "crowding": 5.2,
         "breadth": 0,
         "relative_breadth": 0,
-        "intraday_breadth": 0.667,
+        "intraday_breadth": 0.333,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -6511,40 +6388,40 @@
         "above50": 0,
         "benchmark": "XME",
         "avg": {
-          "r1": -1,
-          "r5": -6.94,
-          "r20": -18.75,
-          "rel5": -3.54,
-          "rel20": -6.05,
-          "r30m": 0.58,
-          "r2h": 1.03,
-          "rel30m": 0.26,
-          "rel2h": 0.67,
-          "volumeZ": 0.8
+          "r1": 1.46,
+          "r5": -6.11,
+          "r20": -17.83,
+          "rel5": -3.71,
+          "rel20": -7.14,
+          "r30m": 0.37,
+          "r2h": 0.37,
+          "rel30m": 0.45,
+          "rel2h": 0.47,
+          "volumeZ": 0.24
         }
       },
       "crowd": {
         "phase": "DISCOVERY",
         "position": "OBSERVE",
-        "consensus": 16.7,
-        "consensus_delta": -8.3,
-        "priced_in": 9.9,
+        "consensus": 8.3,
+        "consensus_delta": -8.4,
+        "priced_in": 5,
         "discount": "UNPRICED",
-        "timing_score": 48,
+        "timing_score": 47.6,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0,
-          "intraday_breadth": 0.667,
+          "intraday_breadth": 0.333,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 10.2,
+          "crowding": 5.2,
           "lag_share": 0,
-          "rel5": -3.54,
-          "rel2h": 0.67
+          "rel5": -3.71,
+          "rel2h": 0.47
         }
       },
       "scout": {
@@ -6732,7 +6609,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "CHEAP_DRONE_SCALING": {
       "id": "CHEAP_DRONE_SCALING",
@@ -6984,11 +6861,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 10,
-        "crowding": 0.2,
+        "score": 23,
+        "crowding": 3.3,
         "breadth": 0,
         "relative_breadth": 0,
-        "intraday_breadth": 0.667,
+        "intraday_breadth": 1,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -6996,40 +6873,40 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": -1.02,
-          "r5": -9.11,
-          "r20": -12.6,
-          "rel5": -6.89,
-          "rel20": -5.74,
-          "r30m": 0.68,
-          "r2h": 0.2,
-          "rel30m": 0.91,
-          "rel2h": 0.03,
-          "volumeZ": -0.09
+          "r1": 0.47,
+          "r5": -5.83,
+          "r20": -13.47,
+          "rel5": -3.06,
+          "rel20": -5.46,
+          "r30m": 0.41,
+          "r2h": 0.31,
+          "rel30m": 0.48,
+          "rel2h": 0.42,
+          "volumeZ": -0.48
         }
       },
       "crowd": {
-        "phase": "DISCOVERY",
-        "position": "OBSERVE",
-        "consensus": 16.7,
-        "consensus_delta": -8.3,
-        "priced_in": 3.1,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 25,
+        "consensus_delta": 8.3,
+        "priced_in": 6.7,
         "discount": "UNPRICED",
-        "timing_score": 49.3,
+        "timing_score": 50,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0,
-          "intraday_breadth": 0.667,
+          "intraday_breadth": 1,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 0.2,
+          "crowding": 3.3,
           "lag_share": 0,
-          "rel5": -6.89,
-          "rel2h": 0.03
+          "rel5": -3.06,
+          "rel2h": 0.42
         }
       },
       "scout": {
@@ -7178,7 +7055,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "COUNTER_UAS_COST_CURVE": {
       "id": "COUNTER_UAS_COST_CURVE",
@@ -8789,10 +8666,10 @@
       "invalidation": [],
       "market": {
         "score": 14,
-        "crowding": 7.2,
+        "crowding": 8.2,
         "breadth": 0,
         "relative_breadth": 0.6,
-        "intraday_breadth": 0,
+        "intraday_breadth": 0.4,
         "quality": "HIGH",
         "n": 5,
         "intraday_n": 5,
@@ -8800,40 +8677,40 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": -0.26,
-          "r5": -2.96,
-          "r20": -3.61,
-          "rel5": -0.74,
-          "rel20": 3.25,
-          "r30m": -0.11,
-          "r2h": -0.53,
-          "rel30m": 0.12,
-          "rel2h": -0.7,
-          "volumeZ": -1.03
+          "r1": -0.65,
+          "r5": -2.88,
+          "r20": -4.27,
+          "rel5": -0.11,
+          "rel20": 3.74,
+          "r30m": -0.3,
+          "r2h": -0.54,
+          "rel30m": -0.23,
+          "rel2h": -0.43,
+          "volumeZ": -0.49
         }
       },
       "crowd": {
-        "phase": "DISCOVERY",
-        "position": "OBSERVE",
-        "consensus": 21,
-        "consensus_delta": -30,
-        "priced_in": 8.7,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 31,
+        "consensus_delta": 10,
+        "priced_in": 11.2,
         "discount": "UNPRICED",
-        "timing_score": 51,
+        "timing_score": 52.4,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.6,
-          "intraday_breadth": 0,
+          "intraday_breadth": 0.4,
           "breadth": 0,
           "above20": 0.2,
           "above50": 0,
-          "crowding": 7.2,
+          "crowding": 8.2,
           "lag_share": 0,
-          "rel5": -0.74,
-          "rel2h": -0.7
+          "rel5": -0.11,
+          "rel2h": -0.43
         }
       },
       "scout": {
@@ -9010,7 +8887,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "UNDERWATER_SECURITY": {
       "id": "UNDERWATER_SECURITY",
@@ -9582,11 +9459,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 41,
-        "crowding": 35.6,
+        "score": 34,
+        "crowding": 28.6,
         "breadth": 0.25,
-        "relative_breadth": 1,
-        "intraday_breadth": 0,
+        "relative_breadth": 0.75,
+        "intraday_breadth": 0.25,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -9594,40 +9471,40 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": -0.88,
-          "r5": -0.2,
-          "r20": 0.2,
-          "rel5": 2.02,
-          "rel20": 7.06,
-          "r30m": -0.11,
-          "r2h": -0.98,
-          "rel30m": 0.12,
-          "rel2h": -1.15,
-          "volumeZ": -1.6
+          "r1": -1.49,
+          "r5": -0.79,
+          "r20": -0.41,
+          "rel5": 1.98,
+          "rel20": 7.6,
+          "r30m": -0.42,
+          "r2h": -0.77,
+          "rel30m": -0.35,
+          "rel2h": -0.66,
+          "volumeZ": -0.07
         }
       },
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
-        "consensus": 37.5,
-        "consensus_delta": -25,
-        "priced_in": 31,
+        "consensus": 36.2,
+        "consensus_delta": -1.3,
+        "priced_in": 26,
         "discount": "PARTLY_PRICED",
-        "timing_score": 42.9,
+        "timing_score": 43.9,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 1,
-          "intraday_breadth": 0,
+          "relative_breadth": 0.75,
+          "intraday_breadth": 0.25,
           "breadth": 0.25,
           "above20": 0.25,
           "above50": 0,
-          "crowding": 35.6,
+          "crowding": 28.6,
           "lag_share": 0,
-          "rel5": 2.02,
-          "rel2h": -1.15
+          "rel5": 1.98,
+          "rel2h": -0.66
         }
       },
       "scout": {
@@ -9783,7 +9660,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "AI_TIME_TO_POWER": {
       "id": "AI_TIME_TO_POWER",
@@ -9791,41 +9668,12 @@
       "tier": "A",
       "state": "WATCH",
       "raw_state": "WATCH",
-      "score": 43,
+      "score": 40,
       "previous_state": "WATCH",
-      "score_delta": 4,
-      "summary": "Electricity/interconnection constraints, not GPU supply, are the primary limiting factor for AI infrastructure expansion.",
+      "score_delta": -3,
+      "summary": "The provided candidates do not provide evidence that electricity/interconnection is the binding constraint on AI infrastructure. The Federal Register rule indicates a regulatory change that may affect interconnection timing but does not directly support the mechanism.",
       "material_change": false,
-      "observed_evidence": [
-        {
-          "candidate_id": "2348d6232a93a615666d",
-          "query_id": "AI_TIME_TO_POWER:lead:grid_deposit",
-          "phase": "LEAD",
-          "signal": "REAL_POWER_COMMITMENT",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Electricity/interconnection is the binding constraint on AI infrastructure, not GPU supply.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "Time to power, not cost of power, explains most design decisions for AI data center projects.",
-          "source_url": "https://www.wlanddevelopment.com/market-tracker",
-          "source_name": "Texas AI Data Center & Private Power Market Tracker | W Land",
-          "source_domain": "wlanddevelopment.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-10-02T12:32:54.089Z",
-          "valid": true,
-          "evidence_key": "376246eff82f1184c42b228d",
-          "first_seen_at": "2026-10-02T12:32:54.089Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
+      "observed_evidence": [],
       "evidence": [
         {
           "candidate_id": "2348d6232a93a615666d",
@@ -9851,9 +9699,9 @@
           "evidence_key": "376246eff82f1184c42b228d",
           "first_seen_at": "2026-09-22T00:08:14.338Z",
           "last_seen_at": "2026-10-02T12:38:30.966Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9314,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 7.38
         },
         {
           "candidate_id": "6d8dd0f8cb3514708dbe",
@@ -9879,9 +9727,9 @@
           "evidence_key": "09de4d47b6b6a109d1af203a",
           "first_seen_at": "2026-09-19T04:36:32.991Z",
           "last_seen_at": "2026-10-02T00:55:22.571Z",
-          "memory_weight": 0.8933,
+          "memory_weight": 0.832,
           "memory_status": "CARRIED",
-          "memory_age_hours": 11.72
+          "memory_age_hours": 19.1
         },
         {
           "candidate_id": "7e24959801ff776faf29",
@@ -9907,9 +9755,9 @@
           "evidence_key": "bb8542c0d3ea06a2f5f33886",
           "first_seen_at": "2026-09-27T05:17:58.748Z",
           "last_seen_at": "2026-10-02T00:55:22.571Z",
-          "memory_weight": 0.8933,
+          "memory_weight": 0.832,
           "memory_status": "CARRIED",
-          "memory_age_hours": 11.72
+          "memory_age_hours": 19.1
         },
         {
           "candidate_id": "e7d3b382033b1edb278c",
@@ -9935,9 +9783,9 @@
           "evidence_key": "cb104be47273b788770a6f9f",
           "first_seen_at": "2026-09-26T13:46:21.276Z",
           "last_seen_at": "2026-10-02T00:55:22.571Z",
-          "memory_weight": 0.8933,
+          "memory_weight": 0.832,
           "memory_status": "CARRIED",
-          "memory_age_hours": 11.72
+          "memory_age_hours": 19.1
         },
         {
           "candidate_id": "01e125e828168dee81c1",
@@ -9963,9 +9811,9 @@
           "evidence_key": "5d44bc4a1d85201baaf38ad0",
           "first_seen_at": "2026-10-02T00:48:52.998Z",
           "last_seen_at": "2026-10-02T00:55:22.571Z",
-          "memory_weight": 0.8933,
+          "memory_weight": 0.832,
           "memory_status": "CARRIED",
-          "memory_age_hours": 11.72
+          "memory_age_hours": 19.1
         },
         {
           "candidate_id": "f54238f5d6791e589640",
@@ -9991,9 +9839,9 @@
           "evidence_key": "cb7d84565640a705b6c18095",
           "first_seen_at": "2026-10-01T13:11:03.662Z",
           "last_seen_at": "2026-10-01T13:17:06.169Z",
-          "memory_weight": 0.7986,
+          "memory_weight": 0.7438,
           "memory_status": "CARRIED",
-          "memory_age_hours": 23.36
+          "memory_age_hours": 30.74
         },
         {
           "candidate_id": "ee186a0053da115383ba",
@@ -10019,9 +9867,9 @@
           "evidence_key": "5a088a865418faf3036c17f3",
           "first_seen_at": "2026-10-01T13:11:03.662Z",
           "last_seen_at": "2026-10-01T13:17:06.169Z",
-          "memory_weight": 0.7986,
+          "memory_weight": 0.7438,
           "memory_status": "CARRIED",
-          "memory_age_hours": 23.36
+          "memory_age_hours": 30.74
         },
         {
           "candidate_id": "e4eb0656b5c14301e931",
@@ -10047,9 +9895,9 @@
           "evidence_key": "45d2b32a74d24395000f63c2",
           "first_seen_at": "2026-09-30T05:31:14.241Z",
           "last_seen_at": "2026-10-01T13:17:06.169Z",
-          "memory_weight": 0.7986,
+          "memory_weight": 0.7438,
           "memory_status": "CARRIED",
-          "memory_age_hours": 23.36
+          "memory_age_hours": 30.74
         },
         {
           "candidate_id": "004b7aac0a435c5f643d",
@@ -10075,9 +9923,9 @@
           "evidence_key": "051634486951ed652762eaad",
           "first_seen_at": "2026-10-01T13:11:03.662Z",
           "last_seen_at": "2026-10-01T13:17:06.169Z",
-          "memory_weight": 0.7986,
+          "memory_weight": 0.7438,
           "memory_status": "CARRIED",
-          "memory_age_hours": 23.36
+          "memory_age_hours": 30.74
         },
         {
           "candidate_id": "4500d98eceecbe4a8719",
@@ -10103,9 +9951,9 @@
           "evidence_key": "f00e519002885f4628ca6698",
           "first_seen_at": "2026-10-01T10:09:15.565Z",
           "last_seen_at": "2026-10-01T10:15:06.824Z",
-          "memory_weight": 0.7756,
+          "memory_weight": 0.7224,
           "memory_status": "CARRIED",
-          "memory_age_hours": 26.39
+          "memory_age_hours": 33.77
         },
         {
           "candidate_id": "9dd9b403be59c2102e58",
@@ -10131,9 +9979,9 @@
           "evidence_key": "1ee6f4a31b61b6b523db1bd6",
           "first_seen_at": "2026-10-01T10:09:10.385Z",
           "last_seen_at": "2026-10-01T10:15:06.824Z",
-          "memory_weight": 0.7756,
+          "memory_weight": 0.7224,
           "memory_status": "CARRIED",
-          "memory_age_hours": 26.39
+          "memory_age_hours": 33.77
         },
         {
           "candidate_id": "1b46c1adbb84fe0be48c",
@@ -10159,9 +10007,9 @@
           "evidence_key": "86f382c245d7486663294364",
           "first_seen_at": "2026-09-30T05:31:14.241Z",
           "last_seen_at": "2026-09-30T05:39:03.246Z",
-          "memory_weight": 0.589,
+          "memory_weight": 0.5485,
           "memory_status": "CARRIED",
-          "memory_age_hours": 54.99
+          "memory_age_hours": 62.37
         },
         {
           "candidate_id": "b2ffcc020b9ad1d07a6b",
@@ -10187,9 +10035,9 @@
           "evidence_key": "7e6ca52bceb2b6fc99687e57",
           "first_seen_at": "2026-09-30T05:31:14.241Z",
           "last_seen_at": "2026-09-30T05:39:03.246Z",
-          "memory_weight": 0.589,
+          "memory_weight": 0.5485,
           "memory_status": "CARRIED",
-          "memory_age_hours": 54.99
+          "memory_age_hours": 62.37
         },
         {
           "candidate_id": "1ca01e05e30cdf07aa71",
@@ -10215,9 +10063,9 @@
           "evidence_key": "43e8ce5a8492af8aabfd5b7b",
           "first_seen_at": "2026-09-28T09:47:21.138Z",
           "last_seen_at": "2026-09-29T12:57:23.587Z",
-          "memory_weight": 0.5015,
+          "memory_weight": 0.4671,
           "memory_status": "CARRIED",
-          "memory_age_hours": 71.69
+          "memory_age_hours": 79.07
         },
         {
           "candidate_id": "5b4d0375424623e0a0f7",
@@ -10243,9 +10091,9 @@
           "evidence_key": "77c3bb3a2356ce59e2ee39e7",
           "first_seen_at": "2026-09-29T01:01:40.349Z",
           "last_seen_at": "2026-09-29T12:57:23.587Z",
-          "memory_weight": 0.5015,
+          "memory_weight": 0.4671,
           "memory_status": "CARRIED",
-          "memory_age_hours": 71.69
+          "memory_age_hours": 79.07
         },
         {
           "candidate_id": "242b927de7fb3319bd2c",
@@ -10271,9 +10119,9 @@
           "evidence_key": "de9748c57a26b9e0ac428197",
           "first_seen_at": "2026-09-29T01:01:40.349Z",
           "last_seen_at": "2026-09-29T01:11:27.259Z",
-          "memory_weight": 0.4478,
+          "memory_weight": 0.4171,
           "memory_status": "CARRIED",
-          "memory_age_hours": 83.45
+          "memory_age_hours": 90.83
         },
         {
           "candidate_id": "5cfe6aae0d5ad3debf3c",
@@ -10299,9 +10147,9 @@
           "evidence_key": "a89b253ad5b6f6c60df195d0",
           "first_seen_at": "2026-09-29T01:01:40.349Z",
           "last_seen_at": "2026-09-29T01:11:27.259Z",
-          "memory_weight": 0.4478,
+          "memory_weight": 0.4171,
           "memory_status": "CARRIED",
-          "memory_age_hours": 83.45
+          "memory_age_hours": 90.83
         },
         {
           "candidate_id": "320a2df0faa52183cb28",
@@ -10327,9 +10175,9 @@
           "evidence_key": "9298dedd16f7b925427402bb",
           "first_seen_at": "2026-09-26T04:56:38.409Z",
           "last_seen_at": "2026-09-28T13:59:56.729Z",
-          "memory_weight": 0.4021,
+          "memory_weight": 0.3745,
           "memory_status": "CARRIED",
-          "memory_age_hours": 94.64
+          "memory_age_hours": 102.03
         },
         {
           "candidate_id": "9abc6fd15ac41a714888",
@@ -10355,93 +10203,9 @@
           "evidence_key": "9c4a8ebd49a14070915439b9",
           "first_seen_at": "2026-09-27T12:01:18.340Z",
           "last_seen_at": "2026-09-28T13:59:56.729Z",
-          "memory_weight": 0.4021,
+          "memory_weight": 0.3745,
           "memory_status": "CARRIED",
-          "memory_age_hours": 94.64
-        },
-        {
-          "candidate_id": "2b91ccea65bf4ae6fb0c",
-          "query_id": "AI_TIME_TO_POWER:lead:grid_deposit",
-          "phase": "LEAD",
-          "signal": "REAL_POWER_COMMITMENT",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Federal regulators order grid operators to speed power to AI data centers.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "FERC order indicates interconnection is a constraint.",
-          "source_url": "https://www.yahoo.com/news/us/articles/federal-regulators-order-grid-operators-024557830.html?fr=sycsrp_catchall",
-          "source_name": "Federal regulators order grid operators to speed power to energy-hungry AI data centers",
-          "source_domain": "yahoo.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-26T13:46:21.276Z",
-          "valid": true,
-          "evidence_key": "ee07df0b99e111e58c832179",
-          "first_seen_at": "2026-09-26T13:46:21.276Z",
-          "last_seen_at": "2026-09-26T13:52:58.381Z",
-          "memory_weight": 0.253,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 142.76
-        },
-        {
-          "candidate_id": "b4cd5a47d1e8032e2f56",
-          "query_id": "AI_TIME_TO_POWER:lead:grid_deposit",
-          "phase": "LEAD",
-          "signal": "REAL_POWER_COMMITMENT",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Federal regulators order grid operators to speed power to AI data centers.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "FERC order indicates interconnection is a constraint.",
-          "source_url": "https://ca.finance.yahoo.com/news/federal-regulators-back-trumps-plan-152821780.html",
-          "source_name": "Federal regulators order grid operators to speed power to energy-hungry AI data centers",
-          "source_domain": "ca.finance.yahoo.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-26T13:46:21.276Z",
-          "valid": true,
-          "evidence_key": "c497e13d30005bb5c90a5195",
-          "first_seen_at": "2026-09-26T13:46:21.276Z",
-          "last_seen_at": "2026-09-26T13:52:58.381Z",
-          "memory_weight": 0.253,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 142.76
-        },
-        {
-          "candidate_id": "aff1032e6f63d75c3c82",
-          "query_id": "AI_TIME_TO_POWER:lead:grid_deposit",
-          "phase": "LEAD",
-          "signal": "REAL_POWER_COMMITMENT",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "FERC to issue guidance on AI data center grid connections.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "FERC guidance indicates interconnection is a constraint.",
-          "source_url": "https://finance.yahoo.com/energy/articles/ferc-set-issue-long-awaited-180034967.html",
-          "source_name": "FERC Set To Issue Long-Awaited AI Data Center Grid Guidance",
-          "source_domain": "finance.yahoo.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-26T13:46:21.276Z",
-          "valid": true,
-          "evidence_key": "170392e35acf82b95e097c5f",
-          "first_seen_at": "2026-09-22T00:08:14.338Z",
-          "last_seen_at": "2026-09-26T13:52:58.381Z",
-          "memory_weight": 0.253,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 142.76
+          "memory_age_hours": 102.03
         }
       ],
       "verified": [],
@@ -10450,110 +10214,85 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [
-        {
-          "id": "f10e0955280091c6f05593",
-          "mechanism_id": "AI_TIME_TO_POWER",
-          "run_id": "run_2026-10-02T12-31-34Z",
-          "phase": "LEAD",
-          "signal": "REAL_POWER_COMMITMENT",
-          "claim": "Electricity/interconnection is the binding constraint on AI infrastructure, not GPU supply.",
-          "observed_at": null,
-          "ingested_at": "2026-10-02T12:38:30.966Z",
-          "source_count": 1,
-          "domains": [
-            "wlanddevelopment.com"
-          ],
-          "source_urls": [
-            "https://www.wlanddevelopment.com/market-tracker"
-          ],
-          "official": false,
-          "representative_source": "Texas AI Data Center & Private Power Market Tracker | W Land",
-          "representative_url": "https://www.wlanddevelopment.com/market-tracker",
-          "source_grade": 0.62
-        }
-      ],
+      "events": [],
       "event_stats": {
-        "observed_unique": 1,
+        "observed_unique": 0,
         "observed_duplicates": 0,
-        "memory_unique": 19,
-        "memory_duplicates": 3
+        "memory_unique": 17,
+        "memory_duplicates": 2
       },
       "memory": {
-        "observed_items": 1,
-        "carried_items": 21,
-        "avg_carry_weight": 0.617,
-        "observed_score": 12,
+        "observed_items": 0,
+        "carried_items": 19,
+        "avg_carry_weight": 0.647,
+        "observed_score": 0,
         "raw_combined_score": 62,
-        "decayed_score": 43
+        "decayed_score": 40
       },
-      "expected_next": [
-        "Electricity/interconnection constraints will remain a key limiting factor for AI infrastructure growth."
-      ],
+      "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 51,
-        "crowding": 12.4,
+        "score": 41,
+        "crowding": 10.7,
         "breadth": 0.6,
         "relative_breadth": 0.6,
-        "intraday_breadth": 0.6,
+        "intraday_breadth": 0.2,
         "quality": "HIGH",
         "n": 5,
         "intraday_n": 5,
-        "above20": 0.8,
-        "above50": 0.6,
+        "above20": 1,
+        "above50": 0.8,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 2.82,
-          "r5": 1.11,
-          "r20": 7.03,
-          "rel5": 0.98,
-          "rel20": 2.41,
-          "r30m": 0.28,
-          "r2h": 0.48,
-          "rel30m": -0.07,
-          "rel2h": 0.16,
-          "volumeZ": -0.27
+          "r1": 1.42,
+          "r5": 1.88,
+          "r20": 5.89,
+          "rel5": 1.24,
+          "rel20": 1.49,
+          "r30m": -0.41,
+          "r2h": -0.15,
+          "rel30m": -0.37,
+          "rel2h": -0.18,
+          "volumeZ": -0.77
         }
       },
       "crowd": {
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
-        "consensus": 63,
-        "consensus_delta": -5,
-        "priced_in": 19.8,
+        "consensus": 59,
+        "consensus_delta": -4,
+        "priced_in": 17.9,
         "discount": "UNPRICED",
-        "timing_score": 62,
+        "timing_score": 60.3,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.6,
-          "intraday_breadth": 0.6,
+          "intraday_breadth": 0.2,
           "breadth": 0.6,
-          "above20": 0.8,
-          "above50": 0.6,
-          "crowding": 12.4,
+          "above20": 1,
+          "above50": 0.8,
+          "crowding": 10.7,
           "lag_share": 0,
-          "rel5": 0.98,
-          "rel2h": 0.16
+          "rel5": 1.24,
+          "rel2h": -0.18
         }
       },
       "scout": {
         "eligible": false,
-        "score": 62.8,
+        "score": 61.4,
         "reasons": [
           "WAVE_NOT_EARLY",
-          "CAUSAL_TOO_WEAK",
-          "MARKET_ALREADY_MOVED"
+          "CAUSAL_TOO_WEAK"
         ],
         "phase": "IN_SYNC",
-        "priced_in": 19.8
+        "priced_in": 17.9
       },
       "alpha": {
         "eligible": false,
-        "score": 56.6,
+        "score": 54.1,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -10567,7 +10306,7 @@
           "lead_to_confirm": 0
         },
         "crowd_phase": "IN_SYNC",
-        "priced_in": 19.8
+        "priced_in": 17.9
       },
       "reliability": {
         "samples": 0,
@@ -10601,12 +10340,10 @@
           "venkatapagadala.com",
           "brownstoneresearch.com",
           "galaxy.com",
-          "computelaw.blog",
-          "yahoo.com",
-          "finance.yahoo.com"
+          "computelaw.blog"
         ],
-        "events": 19,
-        "duplicates_removed": 3
+        "events": 17,
+        "duplicates_removed": 2
       },
       "positive": [
         "POWL",
@@ -10616,13 +10353,13 @@
         "PWR"
       ],
       "negative": [],
-      "last_run": "2026-10-02T12:38:30.966Z",
+      "last_run": "2026-10-02T20:01:32.307Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 2216,
-        "completion_tokens": 686,
-        "total_tokens": 2902,
-        "cost": 0.000101628,
+        "prompt_tokens": 1188,
+        "completion_tokens": 1133,
+        "total_tokens": 2321,
+        "cost": 0.000123354,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -10631,17 +10368,17 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.000101628,
-          "upstream_inference_prompt_cost": 0.000039888,
-          "upstream_inference_completions_cost": 0.00006174
+          "upstream_inference_cost": 0.000123354,
+          "upstream_inference_prompt_cost": 0.000021384,
+          "upstream_inference_completions_cost": 0.00010197
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 548,
+          "reasoning_tokens": 991,
           "image_tokens": 0,
           "audio_tokens": 0
         }
       },
-      "candidate_count": 7,
+      "candidate_count": 2,
       "official_candidate_count": 1,
       "query_trace": [
         {
@@ -10676,7 +10413,7 @@
             },
             "google_news": {
               "ok": true,
-              "count": 0,
+              "count": 1,
               "cached": false,
               "ttl_hours": 5
             }
@@ -10696,7 +10433,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -11049,52 +10786,52 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 55,
-        "crowding": 9.5,
+        "score": 41,
+        "crowding": 8.6,
         "breadth": 0.667,
         "relative_breadth": 0.667,
-        "intraday_breadth": 0.667,
+        "intraday_breadth": 0.333,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
-        "above20": 0.667,
-        "above50": 0.333,
+        "above20": 1,
+        "above50": 0.667,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 3.07,
-          "r5": 1.06,
-          "r20": 4.92,
-          "rel5": 0.93,
-          "rel20": 0.3,
-          "r30m": 0.34,
-          "r2h": 0.72,
-          "rel30m": -0.01,
-          "rel2h": 0.4,
-          "volumeZ": -0.14
+          "r1": 1.81,
+          "r5": 2.08,
+          "r20": 3.57,
+          "rel5": 1.44,
+          "rel20": -0.83,
+          "r30m": -0.41,
+          "r2h": -0.05,
+          "rel30m": -0.37,
+          "rel2h": -0.08,
+          "volumeZ": -0.68
         }
       },
       "crowd": {
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
-        "consensus": 61.7,
-        "consensus_delta": -8.3,
-        "priced_in": 17.6,
+        "consensus": 63.3,
+        "consensus_delta": 1.6,
+        "priced_in": 17.3,
         "discount": "UNPRICED",
-        "timing_score": 56.4,
+        "timing_score": 56.9,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.667,
-          "intraday_breadth": 0.667,
+          "intraday_breadth": 0.333,
           "breadth": 0.667,
-          "above20": 0.667,
-          "above50": 0.333,
-          "crowding": 9.5,
+          "above20": 1,
+          "above50": 0.667,
+          "crowding": 8.6,
           "lag_share": 0,
-          "rel5": 0.93,
-          "rel2h": 0.4
+          "rel5": 1.44,
+          "rel2h": -0.08
         }
       },
       "scout": {
@@ -11251,7 +10988,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "BEHIND_METER_AI_POWER": {
       "id": "BEHIND_METER_AI_POWER",
@@ -11963,52 +11700,52 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 59,
-        "crowding": 14.8,
+        "score": 15,
+        "crowding": 5.1,
         "breadth": 0.8,
-        "relative_breadth": 0.8,
-        "intraday_breadth": 0.6,
+        "relative_breadth": 0.4,
+        "intraday_breadth": 0,
         "quality": "HIGH",
         "n": 5,
         "intraday_n": 5,
-        "above20": 0.6,
+        "above20": 0.8,
         "above50": 0.6,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 1.62,
-          "r5": 1.93,
-          "r20": 5.78,
-          "rel5": 1.8,
-          "rel20": 1.16,
-          "r30m": 0.42,
-          "r2h": 0.36,
-          "rel30m": 0.07,
-          "rel2h": 0.04,
-          "volumeZ": 0.2
+          "r1": 2.27,
+          "r5": 1.32,
+          "r20": 4.85,
+          "rel5": 0.68,
+          "rel20": 0.45,
+          "r30m": -0.36,
+          "r2h": -0.26,
+          "rel30m": -0.32,
+          "rel2h": -0.29,
+          "volumeZ": -0.71
         }
       },
       "crowd": {
-        "phase": "IN_SYNC",
-        "position": "SYNCHRONIZED",
-        "consensus": 69,
-        "consensus_delta": -10,
-        "priced_in": 22.5,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 45,
+        "consensus_delta": -24,
+        "priced_in": 11.6,
         "discount": "UNPRICED",
-        "timing_score": 51.3,
+        "timing_score": 49.2,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0.8,
-          "intraday_breadth": 0.6,
+          "relative_breadth": 0.4,
+          "intraday_breadth": 0,
           "breadth": 0.8,
-          "above20": 0.6,
+          "above20": 0.8,
           "above50": 0.6,
-          "crowding": 14.8,
+          "crowding": 5.1,
           "lag_share": 0,
-          "rel5": 1.8,
-          "rel2h": 0.04
+          "rel5": 0.68,
+          "rel2h": -0.29
         }
       },
       "scout": {
@@ -12178,7 +11915,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "ROBOTICS_ACTUATOR_SCALE": {
       "id": "ROBOTICS_ACTUATOR_SCALE",
@@ -12358,11 +12095,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 45,
-        "crowding": 9,
+        "score": 33,
+        "crowding": 1.6,
         "breadth": 0.75,
         "relative_breadth": 0.75,
-        "intraday_breadth": 0.5,
+        "intraday_breadth": 0.25,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -12370,40 +12107,40 @@
         "above50": 0.5,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 0.04,
-          "r5": 1.35,
-          "r20": 1.5,
-          "rel5": 1.23,
-          "rel20": -3.12,
-          "r30m": -0.11,
-          "r2h": 0.53,
-          "rel30m": -0.46,
-          "rel2h": 0.21,
-          "volumeZ": -0.96
+          "r1": 0.18,
+          "r5": 0.91,
+          "r20": 1.62,
+          "rel5": 0.26,
+          "rel20": -2.78,
+          "r30m": -0.3,
+          "r2h": -0.4,
+          "rel30m": -0.26,
+          "rel2h": -0.43,
+          "volumeZ": -0.7
         }
       },
       "crowd": {
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
-        "consensus": 65,
-        "consensus_delta": -6.2,
-        "priced_in": 17.8,
+        "consensus": 58.7,
+        "consensus_delta": -6.3,
+        "priced_in": 11.7,
         "discount": "UNPRICED",
-        "timing_score": 50.7,
+        "timing_score": 51,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.75,
-          "intraday_breadth": 0.5,
+          "intraday_breadth": 0.25,
           "breadth": 0.75,
           "above20": 0.75,
           "above50": 0.5,
-          "crowding": 9,
+          "crowding": 1.6,
           "lag_share": 0,
-          "rel5": 1.23,
-          "rel2h": 0.21
+          "rel5": 0.26,
+          "rel2h": -0.43
         }
       },
       "scout": {
@@ -12538,7 +12275,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "ROBOTICS_DECOUPLING": {
       "id": "ROBOTICS_DECOUPLING",
@@ -12902,11 +12639,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 45,
-        "crowding": 9,
+        "score": 33,
+        "crowding": 1.6,
         "breadth": 0.75,
         "relative_breadth": 0.75,
-        "intraday_breadth": 0.5,
+        "intraday_breadth": 0.25,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
@@ -12914,40 +12651,40 @@
         "above50": 0.5,
         "benchmark": "QQQ",
         "avg": {
-          "r1": 0.04,
-          "r5": 1.35,
-          "r20": 1.5,
-          "rel5": 1.23,
-          "rel20": -3.12,
-          "r30m": -0.11,
-          "r2h": 0.53,
-          "rel30m": -0.46,
-          "rel2h": 0.21,
-          "volumeZ": -0.97
+          "r1": 0.18,
+          "r5": 0.9,
+          "r20": 1.62,
+          "rel5": 0.27,
+          "rel20": -2.78,
+          "r30m": -0.3,
+          "r2h": -0.4,
+          "rel30m": -0.26,
+          "rel2h": -0.43,
+          "volumeZ": -0.7
         }
       },
       "crowd": {
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
-        "consensus": 65,
-        "consensus_delta": -6.2,
-        "priced_in": 17.8,
+        "consensus": 58.7,
+        "consensus_delta": -6.3,
+        "priced_in": 11.7,
         "discount": "UNPRICED",
-        "timing_score": 56.6,
+        "timing_score": 56.9,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.75,
-          "intraday_breadth": 0.5,
+          "intraday_breadth": 0.25,
           "breadth": 0.75,
           "above20": 0.75,
           "above50": 0.5,
-          "crowding": 9,
+          "crowding": 1.6,
           "lag_share": 0,
-          "rel5": 1.23,
-          "rel2h": 0.21
+          "rel5": 0.27,
+          "rel2h": -0.43
         }
       },
       "scout": {
@@ -13103,18 +12840,18 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "JAPAN_CARRY_UNWIND": {
       "id": "JAPAN_CARRY_UNWIND",
       "label": "Japan carry unwind",
       "tier": "A",
       "state": "ARMING",
-      "raw_state": "ACTIVE",
-      "score": 65,
+      "raw_state": "ARMING",
+      "score": 63,
       "previous_state": "ARMING",
-      "score_delta": 16,
-      "summary": "Extracted claims from candidates",
+      "score_delta": -2,
+      "summary": "The two LEAD candidates provide the following atomic claims:",
       "material_change": true,
       "observed_evidence": [
         {
@@ -13124,11 +12861,11 @@
           "signal": "CAPITAL_REPATRIATION",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Capital repatriation is being considered as a source of bond market angst in Japan",
+          "claim": "Capital repatriation is cited as a source of bond market angst in Japan.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "The article title suggests capital repatriation is a source of bond market angst.",
+          "why_upstream": "",
           "source_url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNY21SUzlHREVfUjhxaDh6LW5aR3dQcjVkQnhic3V1S1E0Zkh2YlliNVRubnlDNlNNSHVldm9sOXBDdS1WRll0dlE4SGRVbTh3UWJlc0tUdXNYVlFRWktQVl84RU9QQ3RBYWdfdWdTM3JWUnVOTi12WTA0VHBmQ1RqcVdRMFo?oc=5",
           "source_name": "The Dark Side Of The Boom",
           "source_domain": "thedarksideoftheboom.substack.com",
@@ -13136,11 +12873,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-30T20:05:45.000Z",
-          "retrieved_at": "2026-10-02T12:32:49.455Z",
+          "retrieved_at": "2026-10-02T19:58:23.261Z",
           "valid": true,
           "evidence_key": "14d5b4f5253a3a6d60619bdc",
-          "first_seen_at": "2026-10-02T12:32:49.455Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
+          "first_seen_at": "2026-10-02T19:58:23.261Z",
+          "last_seen_at": "2026-10-02T20:01:32.307Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -13152,11 +12889,11 @@
           "signal": "BOJ_TIGHTENING",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "USD/JPY traded at 158.33, up 0.6%, following the BoJ Summary of Opinions that cut bets on an October hike",
+          "claim": "USD/JPY rose to 158.33 after the BoJ Summary of Opinions cut bets on an October hike.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "The article headline reports the USD/JPY level and BoJ policy signal.",
+          "why_upstream": "",
           "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOV2lTUzVEd0NWSkZqMFVUWkhTNXJqS0stSDNEV1h6Nkc0N3c5MHFWbEJoY2VhUDlxZUdLZ013RHRsU1hEWi16bkZWdG5qNTlQVEZxQ042eV9GalJLSUk5OEl3U0lBY3JNdHVXU3l2UVUyeTlGdDQ2aGd6ZmdMTXR0REtRaUVRT21k?oc=5",
           "source_name": "TradingNEWS",
           "source_domain": "tradingnews.com",
@@ -13164,11 +12901,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-10-01T20:13:18.000Z",
-          "retrieved_at": "2026-10-02T12:32:49.159Z",
+          "retrieved_at": "2026-10-02T19:58:22.962Z",
           "valid": true,
           "evidence_key": "ba184c3611db9c18c6c9aa92",
-          "first_seen_at": "2026-10-02T12:32:49.159Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
+          "first_seen_at": "2026-10-02T19:58:22.962Z",
+          "last_seen_at": "2026-10-02T20:01:32.307Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -13182,11 +12919,11 @@
           "signal": "CAPITAL_REPATRIATION",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Capital repatriation is being considered as a source of bond market angst in Japan",
+          "claim": "Capital repatriation is cited as a source of bond market angst in Japan.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "The article title suggests capital repatriation is a source of bond market angst.",
+          "why_upstream": "",
           "source_url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNY21SUzlHREVfUjhxaDh6LW5aR3dQcjVkQnhic3V1S1E0Zkh2YlliNVRubnlDNlNNSHVldm9sOXBDdS1WRll0dlE4SGRVbTh3UWJlc0tUdXNYVlFRWktQVl84RU9QQ3RBYWdfdWdTM3JWUnVOTi12WTA0VHBmQ1RqcVdRMFo?oc=5",
           "source_name": "The Dark Side Of The Boom",
           "source_domain": "thedarksideoftheboom.substack.com",
@@ -13194,11 +12931,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-09-30T20:05:45.000Z",
-          "retrieved_at": "2026-10-02T12:32:49.455Z",
+          "retrieved_at": "2026-10-02T19:58:23.261Z",
           "valid": true,
           "evidence_key": "14d5b4f5253a3a6d60619bdc",
           "first_seen_at": "2026-10-01T05:50:15.460Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
+          "last_seen_at": "2026-10-02T20:01:32.307Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -13210,11 +12947,11 @@
           "signal": "BOJ_TIGHTENING",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "USD/JPY traded at 158.33, up 0.6%, following the BoJ Summary of Opinions that cut bets on an October hike",
+          "claim": "USD/JPY rose to 158.33 after the BoJ Summary of Opinions cut bets on an October hike.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "The article headline reports the USD/JPY level and BoJ policy signal.",
+          "why_upstream": "",
           "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOV2lTUzVEd0NWSkZqMFVUWkhTNXJqS0stSDNEV1h6Nkc0N3c5MHFWbEJoY2VhUDlxZUdLZ013RHRsU1hEWi16bkZWdG5qNTlQVEZxQ042eV9GalJLSUk5OEl3U0lBY3JNdHVXU3l2UVUyeTlGdDQ2aGd6ZmdMTXR0REtRaUVRT21k?oc=5",
           "source_name": "TradingNEWS",
           "source_domain": "tradingnews.com",
@@ -13222,42 +12959,14 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-10-01T20:13:18.000Z",
-          "retrieved_at": "2026-10-02T12:32:49.159Z",
+          "retrieved_at": "2026-10-02T19:58:22.962Z",
           "valid": true,
           "evidence_key": "ba184c3611db9c18c6c9aa92",
           "first_seen_at": "2026-10-02T00:48:47.959Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
+          "last_seen_at": "2026-10-02T20:01:32.307Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "e2ba2e11356729aed78c",
-          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
-          "phase": "CONFIRM",
-          "signal": "JGB_YEN_CONFIRM",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "USD/JPY moved sharply on 30 Sep 2026, reflecting shifting central bank expectations.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "CONFIRM signal JGB_YEN_CONFIRM",
-          "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPTGY5clczVUNYanhZZWduczVUSnhETFhXekJYYjZLa0pnNFgwRmpRUEI2RnlBZExQb2pjeEMzMzFESjNGbGwwS0d0bl9IVUNVMlA2dUVRY2ltdFQ2ekxsTGc3Qy05dlluUWFLanMtNnpHQXJHZTNLUXAxSmN3MmdiVTVIeDFLbFBKTFNzeUFR?oc=5",
-          "source_name": "TradingKey",
-          "source_domain": "tradingkey.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-30T02:30:42.000Z",
-          "retrieved_at": "2026-10-02T00:48:48.120Z",
-          "valid": true,
-          "evidence_key": "731a7a9b6451b92b6a0e120c",
-          "first_seen_at": "2026-10-01T13:10:58.738Z",
-          "last_seen_at": "2026-10-02T00:55:22.571Z",
-          "memory_weight": 0.798,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 11.72
         },
         {
           "candidate_id": "c1a384625123fabf0289",
@@ -13283,9 +12992,9 @@
           "evidence_key": "01e971e98959c94eec577b25",
           "first_seen_at": "2026-09-30T05:31:09.004Z",
           "last_seen_at": "2026-09-30T05:39:03.246Z",
-          "memory_weight": 0.797,
+          "memory_weight": 0.7731,
           "memory_status": "CARRIED",
-          "memory_age_hours": 54.99
+          "memory_age_hours": 62.37
         },
         {
           "candidate_id": "f474411b204e0b2b52c9",
@@ -13311,9 +13020,9 @@
           "evidence_key": "4b7b6fa4dda761d5d8debb58",
           "first_seen_at": "2026-09-30T05:31:09.004Z",
           "last_seen_at": "2026-09-30T05:39:03.246Z",
-          "memory_weight": 0.797,
+          "memory_weight": 0.7731,
           "memory_status": "CARRIED",
-          "memory_age_hours": 54.99
+          "memory_age_hours": 62.37
         },
         {
           "candidate_id": "da227302689322cb0e7c",
@@ -13339,9 +13048,9 @@
           "evidence_key": "98f316e5f6deda9476b62ffe",
           "first_seen_at": "2026-09-30T05:31:09.004Z",
           "last_seen_at": "2026-09-30T05:39:03.246Z",
-          "memory_weight": 0.797,
+          "memory_weight": 0.7731,
           "memory_status": "CARRIED",
-          "memory_age_hours": 54.99
+          "memory_age_hours": 62.37
         },
         {
           "candidate_id": "d90142c4356e1bbf0935",
@@ -13367,9 +13076,37 @@
           "evidence_key": "7fa18954117a9fcdc41d14dd",
           "first_seen_at": "2026-10-01T05:50:15.460Z",
           "last_seen_at": "2026-10-01T05:56:09.974Z",
-          "memory_weight": 0.7441,
+          "memory_weight": 0.693,
           "memory_status": "CARRIED",
-          "memory_age_hours": 30.71
+          "memory_age_hours": 38.09
+        },
+        {
+          "candidate_id": "e2ba2e11356729aed78c",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "USD/JPY moved sharply on 30 Sep 2026, reflecting shifting central bank expectations.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "CONFIRM signal JGB_YEN_CONFIRM",
+          "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPTGY5clczVUNYanhZZWduczVUSnhETFhXekJYYjZLa0pnNFgwRmpRUEI2RnlBZExQb2pjeEMzMzFESjNGbGwwS0d0bl9IVUNVMlA2dUVRY2ltdFQ2ekxsTGc3Qy05dlluUWFLanMtNnpHQXJHZTNLUXAxSmN3MmdiVTVIeDFLbFBKTFNzeUFR?oc=5",
+          "source_name": "TradingKey",
+          "source_domain": "tradingkey.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-09-30T02:30:42.000Z",
+          "retrieved_at": "2026-10-02T00:48:48.120Z",
+          "valid": true,
+          "evidence_key": "731a7a9b6451b92b6a0e120c",
+          "first_seen_at": "2026-10-01T13:10:58.738Z",
+          "last_seen_at": "2026-10-02T00:55:22.571Z",
+          "memory_weight": 0.6923,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 19.1
         },
         {
           "candidate_id": "c49d5328297d0658e735",
@@ -13395,9 +13132,9 @@
           "evidence_key": "0ee3069a47a83bea22f24982",
           "first_seen_at": "2026-09-27T05:17:53.759Z",
           "last_seen_at": "2026-09-27T05:24:29.833Z",
-          "memory_weight": 0.5916,
+          "memory_weight": 0.5738,
           "memory_status": "CARRIED",
-          "memory_age_hours": 127.23
+          "memory_age_hours": 134.62
         },
         {
           "candidate_id": "d99a38b3498337c399ed",
@@ -13423,9 +13160,9 @@
           "evidence_key": "913473ef7126457dded69e21",
           "first_seen_at": "2026-09-27T05:17:53.759Z",
           "last_seen_at": "2026-09-27T05:24:29.833Z",
-          "memory_weight": 0.5916,
+          "memory_weight": 0.5738,
           "memory_status": "CARRIED",
-          "memory_age_hours": 127.23
+          "memory_age_hours": 134.62
         },
         {
           "candidate_id": "2324282fd97b8144b738",
@@ -13451,9 +13188,9 @@
           "evidence_key": "ff51ab76883a999bdedc5b0f",
           "first_seen_at": "2026-09-28T21:15:18.597Z",
           "last_seen_at": "2026-09-30T05:39:03.246Z",
-          "memory_weight": 0.589,
+          "memory_weight": 0.5485,
           "memory_status": "CARRIED",
-          "memory_age_hours": 54.99
+          "memory_age_hours": 62.37
         },
         {
           "candidate_id": "62ce40e2d6de115228f8",
@@ -13479,9 +13216,9 @@
           "evidence_key": "b34de61abe57eede2469d899",
           "first_seen_at": "2026-09-29T05:42:51.694Z",
           "last_seen_at": "2026-09-29T09:59:36.641Z",
-          "memory_weight": 0.4874,
+          "memory_weight": 0.454,
           "memory_status": "CARRIED",
-          "memory_age_hours": 74.65
+          "memory_age_hours": 82.03
         },
         {
           "candidate_id": "1dbf9ecf6a73b9f4fde8",
@@ -13507,9 +13244,9 @@
           "evidence_key": "ea9a0fddced4a9a0206eae2e",
           "first_seen_at": "2026-09-27T12:01:18.340Z",
           "last_seen_at": "2026-09-27T12:08:20.488Z",
-          "memory_weight": 0.3135,
+          "memory_weight": 0.292,
           "memory_status": "CARRIED",
-          "memory_age_hours": 120.5
+          "memory_age_hours": 127.89
         }
       ],
       "verified": [],
@@ -13520,14 +13257,14 @@
       },
       "events": [
         {
-          "id": "3e1831964c7421cc671d06",
+          "id": "4b577beb4e3e2a660cef8d",
           "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "run_id": "run_2026-10-02T12-31-34Z",
+          "run_id": "run_2026-10-02T19-56-55Z",
           "phase": "LEAD",
           "signal": "BOJ_TIGHTENING",
-          "claim": "USD/JPY traded at 158.33, up 0.6%, following the BoJ Summary of Opinions that cut bets on an October hike",
+          "claim": "USD/JPY rose to 158.33 after the BoJ Summary of Opinions cut bets on an October hike.",
           "observed_at": "2026-10-01T20:13:18.000Z",
-          "ingested_at": "2026-10-02T12:38:30.966Z",
+          "ingested_at": "2026-10-02T20:01:32.307Z",
           "source_count": 1,
           "domains": [
             "tradingnews.com"
@@ -13541,14 +13278,14 @@
           "source_grade": 0.62
         },
         {
-          "id": "1871cd15a5623a23b9741c",
+          "id": "21e49224c062baf0309306",
           "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "run_id": "run_2026-10-02T12-31-34Z",
+          "run_id": "run_2026-10-02T19-56-55Z",
           "phase": "LEAD",
           "signal": "CAPITAL_REPATRIATION",
-          "claim": "Capital repatriation is being considered as a source of bond market angst in Japan",
+          "claim": "Capital repatriation is cited as a source of bond market angst in Japan.",
           "observed_at": "2026-09-30T20:05:45.000Z",
-          "ingested_at": "2026-10-02T12:38:30.966Z",
+          "ingested_at": "2026-10-02T20:01:32.307Z",
           "source_count": 1,
           "domains": [
             "thedarksideoftheboom.substack.com"
@@ -13571,16 +13308,16 @@
       "memory": {
         "observed_items": 2,
         "carried_items": 10,
-        "avg_carry_weight": 0.651,
+        "avg_carry_weight": 0.615,
         "observed_score": 40,
         "raw_combined_score": 78,
-        "decayed_score": 65
+        "decayed_score": 63
       },
       "expected_next": [],
       "invalidation": [],
       "market": {
         "score": 0,
-        "crowding": 4.5,
+        "crowding": 1.3,
         "breadth": 0.333,
         "relative_breadth": 0.333,
         "intraday_breadth": 0.333,
@@ -13591,28 +13328,28 @@
         "above50": 0.333,
         "benchmark": "EWJ",
         "avg": {
-          "r1": -0.97,
-          "r5": -2.14,
-          "r20": -1.43,
-          "rel5": -2.69,
-          "rel20": -1.9,
-          "r30m": -0.54,
-          "r2h": -0.32,
-          "rel30m": -0.51,
-          "rel2h": -0.64,
-          "volumeZ": 0.75
+          "r1": -0.88,
+          "r5": -2.07,
+          "r20": -1.27,
+          "rel5": -2.4,
+          "rel20": -1.61,
+          "r30m": -0.38,
+          "r2h": -0.07,
+          "rel30m": -0.38,
+          "rel2h": -0.16,
+          "volumeZ": 0.22
         }
       },
       "crowd": {
-        "phase": "DIVERGENCE",
-        "position": "CONFLICT",
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
         "consensus": 33.3,
         "consensus_delta": 0,
-        "priced_in": 12.6,
+        "priced_in": 10.4,
         "discount": "UNPRICED",
-        "timing_score": 65.3,
-        "block_chase": true,
-        "ahead_of_wave": false,
+        "timing_score": 64.9,
+        "block_chase": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
@@ -13621,28 +13358,27 @@
           "breadth": 0.333,
           "above20": 0.333,
           "above50": 0.333,
-          "crowding": 4.5,
+          "crowding": 1.3,
           "lag_share": 0.25,
-          "rel5": -2.69,
-          "rel2h": -0.64
+          "rel5": -2.4,
+          "rel2h": -0.16
         }
       },
       "scout": {
-        "eligible": false,
-        "score": 68.2,
+        "eligible": true,
+        "score": 67.7,
         "reasons": [
-          "WAVE_NOT_EARLY"
+          "CAUSAL_LEAD_BEFORE_PRICE_SATURATION"
         ],
-        "phase": "DIVERGENCE",
-        "priced_in": 12.6
+        "phase": "EARLY_WAVE",
+        "priced_in": 10.4
       },
       "alpha": {
         "eligible": false,
-        "score": 54.1,
+        "score": 54.2,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
-          "CROWD_LATE_OR_PRICED_IN",
           "MARKET_NOT_CONFIRMING"
         ],
         "empirical": {
@@ -13651,8 +13387,8 @@
           "avg_return": -13.64,
           "lead_to_confirm": 0.412
         },
-        "crowd_phase": "DIVERGENCE",
-        "priced_in": 12.6
+        "crowd_phase": "EARLY_WAVE",
+        "priced_in": 10.4
       },
       "reliability": {
         "samples": 2,
@@ -13661,14 +13397,10 @@
         "lead_to_confirm": 0.412
       },
       "hysteresis": {
-        "raw_state": "ACTIVE",
-        "pending": {
-          "candidate": "ACTIVE",
-          "streak": 1,
-          "required": 2
-        },
-        "reason": "AWAITING_ACTIVE_CONFIRMATION",
-        "applied": true
+        "raw_state": "ARMING",
+        "pending": null,
+        "reason": "STABLE",
+        "applied": false
       },
       "sensors": {
         "lead": 2,
@@ -13697,27 +13429,27 @@
       "negative": [
         "TLT"
       ],
-      "last_run": "2026-10-02T12:38:30.966Z",
+      "last_run": "2026-10-02T20:01:32.307Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1240,
-        "completion_tokens": 406,
-        "total_tokens": 1646,
-        "cost": 0.0000928,
+        "prompt_tokens": 1235,
+        "completion_tokens": 664,
+        "total_tokens": 1899,
+        "cost": 0.00012337,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 0,
+          "cached_tokens": 32,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.0000928,
-          "upstream_inference_prompt_cost": 0.00003596,
-          "upstream_inference_completions_cost": 0.00005684
+          "upstream_inference_cost": 0.00012337,
+          "upstream_inference_prompt_cost": 0.00003705,
+          "upstream_inference_completions_cost": 0.00008632
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 199,
+          "reasoning_tokens": 483,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -13777,7 +13509,7 @@
             "google_news": {
               "ok": true,
               "count": 1,
-              "cached": true,
+              "cached": false,
               "ttl_hours": 10
             }
           }
@@ -13934,11 +13666,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 76,
-        "crowding": 31.9,
+        "score": 64,
+        "crowding": 29.8,
         "breadth": 1,
         "relative_breadth": 1,
-        "intraday_breadth": 1,
+        "intraday_breadth": 0,
         "quality": "LOW",
         "n": 1,
         "intraday_n": 1,
@@ -13946,40 +13678,40 @@
         "above50": 1,
         "benchmark": "IWM",
         "avg": {
-          "r1": 0.09,
-          "r5": 2.15,
-          "r20": 5.17,
-          "rel5": 1.21,
-          "rel20": 0.07,
-          "r30m": -0.63,
-          "r2h": -0.67,
-          "rel30m": -0.1,
-          "rel2h": 0.04,
-          "volumeZ": 2.7
+          "r1": 0.35,
+          "r5": 2.38,
+          "r20": 5.65,
+          "rel5": 2.17,
+          "rel20": 0.97,
+          "r30m": -0.15,
+          "r2h": 0.07,
+          "rel30m": -0.22,
+          "rel2h": -0.02,
+          "volumeZ": 1.1
         }
       },
       "crowd": {
         "phase": "IN_SYNC",
         "position": "SYNCHRONIZED",
-        "consensus": 87.8,
-        "consensus_delta": 0,
-        "priced_in": 37.5,
+        "consensus": 65.8,
+        "consensus_delta": -22,
+        "priced_in": 32.1,
         "discount": "PARTLY_PRICED",
-        "timing_score": 49,
+        "timing_score": 46,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "LOW",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 1,
-          "intraday_breadth": 1,
+          "intraday_breadth": 0,
           "breadth": 1,
           "above20": 1,
           "above50": 1,
-          "crowding": 31.9,
+          "crowding": 29.8,
           "lag_share": 0,
-          "rel5": 1.21,
-          "rel2h": 0.04
+          "rel5": 2.17,
+          "rel2h": -0.02
         }
       },
       "scout": {
@@ -14127,7 +13859,9 @@
             }
           }
         }
-      ]
+      ],
+      "stale": false,
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "OT_CYBER_SHOCK": {
       "id": "OT_CYBER_SHOCK",
@@ -14166,10 +13900,10 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 29,
-        "crowding": 25,
+        "score": 56,
+        "crowding": 70,
         "breadth": 1,
-        "relative_breadth": 0.667,
+        "relative_breadth": 1,
         "intraday_breadth": 0.333,
         "quality": "HIGH",
         "n": 3,
@@ -14178,40 +13912,40 @@
         "above50": 1,
         "benchmark": "QQQ",
         "avg": {
-          "r1": -0.35,
-          "r5": 0.76,
-          "r20": 13.91,
-          "rel5": 0.63,
-          "rel20": 9.29,
-          "r30m": 0.12,
-          "r2h": 0.42,
-          "rel30m": -0.23,
-          "rel2h": 0.1,
-          "volumeZ": -0.55
+          "r1": 1.61,
+          "r5": 7.24,
+          "r20": 14.59,
+          "rel5": 6.6,
+          "rel20": 10.19,
+          "r30m": -0.16,
+          "r2h": -0.01,
+          "rel30m": -0.12,
+          "rel2h": -0.04,
+          "volumeZ": -1.1
         }
       },
       "crowd": {
-        "phase": "IN_SYNC",
-        "position": "SYNCHRONIZED",
-        "consensus": 73.3,
-        "consensus_delta": -16.7,
-        "priced_in": 30.2,
-        "discount": "PARTLY_PRICED",
-        "timing_score": 42.1,
-        "block_chase": false,
+        "phase": "LATE_WAVE",
+        "position": "LATE",
+        "consensus": 83.3,
+        "consensus_delta": 10,
+        "priced_in": 62.6,
+        "discount": "MOSTLY_PRICED",
+        "timing_score": 36,
+        "block_chase": true,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0.667,
+          "relative_breadth": 1,
           "intraday_breadth": 0.333,
           "breadth": 1,
           "above20": 1,
           "above50": 1,
-          "crowding": 25,
+          "crowding": 70,
           "lag_share": 0,
-          "rel5": 0.63,
-          "rel2h": 0.1
+          "rel5": 6.6,
+          "rel2h": -0.04
         }
       },
       "scout": {
@@ -14343,7 +14077,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "NUCLEAR_FUEL_SOVEREIGNTY": {
       "id": "NUCLEAR_FUEL_SOVEREIGNTY",
@@ -15113,11 +14847,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 28,
-        "crowding": 11.3,
+        "score": 0,
+        "crowding": 0,
         "breadth": 0,
         "relative_breadth": 0.333,
-        "intraday_breadth": 1,
+        "intraday_breadth": 0.333,
         "quality": "HIGH",
         "n": 3,
         "intraday_n": 3,
@@ -15125,40 +14859,40 @@
         "above50": 0,
         "benchmark": "URA",
         "avg": {
-          "r1": -1.11,
-          "r5": -4.11,
-          "r20": -18.69,
-          "rel5": -1,
-          "rel20": -8.02,
-          "r30m": 0.37,
-          "r2h": 1.28,
-          "rel30m": 0.74,
-          "rel2h": 1.41,
-          "volumeZ": -0.01
+          "r1": -0.33,
+          "r5": -4.42,
+          "r20": -19.75,
+          "rel5": -1.58,
+          "rel20": -6.73,
+          "r30m": 0.04,
+          "r2h": -0.47,
+          "rel30m": 0.24,
+          "rel2h": -0.12,
+          "volumeZ": -0.26
         }
       },
       "crowd": {
-        "phase": "EARLY_WAVE",
-        "position": "EARLY",
-        "consensus": 35,
-        "consensus_delta": 0,
-        "priced_in": 14,
+        "phase": "PRE_WAVE",
+        "position": "AHEAD",
+        "consensus": 18.3,
+        "consensus_delta": -16.7,
+        "priced_in": 3.3,
         "discount": "UNPRICED",
-        "timing_score": 67.8,
+        "timing_score": 67.1,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.333,
-          "intraday_breadth": 1,
+          "intraday_breadth": 0.333,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 11.3,
+          "crowding": 0,
           "lag_share": 0,
-          "rel5": -1,
-          "rel2h": 1.41
+          "rel5": -1.58,
+          "rel2h": -0.12
         }
       },
       "scout": {
@@ -15319,7 +15053,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "MILITARY_ENERGY_AUTONOMY": {
       "id": "MILITARY_ENERGY_AUTONOMY",
@@ -15555,52 +15289,52 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 62,
-        "crowding": 15.2,
-        "breadth": 0.5,
+        "score": 34,
+        "crowding": 8.8,
+        "breadth": 0.25,
         "relative_breadth": 0.75,
-        "intraday_breadth": 0.75,
+        "intraday_breadth": 0.5,
         "quality": "HIGH",
         "n": 4,
         "intraday_n": 4,
-        "above20": 0.25,
+        "above20": 0.5,
         "above50": 0.25,
         "benchmark": "ITA",
         "avg": {
-          "r1": 1.36,
-          "r5": -0.8,
-          "r20": -7,
-          "rel5": 1.42,
-          "rel20": -0.14,
-          "r30m": 0.29,
-          "r2h": 0.94,
-          "rel30m": 0.52,
-          "rel2h": 0.77,
-          "volumeZ": 0.09
+          "r1": 0.29,
+          "r5": -1.3,
+          "r20": -8.87,
+          "rel5": 1.47,
+          "rel20": -0.86,
+          "r30m": -0.19,
+          "r2h": -0.28,
+          "rel30m": -0.12,
+          "rel2h": -0.17,
+          "volumeZ": -0.44
         }
       },
       "crowd": {
-        "phase": "IN_SYNC",
-        "position": "SYNCHRONIZED",
-        "consensus": 56.3,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 50,
         "consensus_delta": -6.3,
-        "priced_in": 20.5,
+        "priced_in": 15,
         "discount": "UNPRICED",
-        "timing_score": 52.8,
+        "timing_score": 53,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.75,
-          "intraday_breadth": 0.75,
-          "breadth": 0.5,
-          "above20": 0.25,
+          "intraday_breadth": 0.5,
+          "breadth": 0.25,
+          "above20": 0.5,
           "above50": 0.25,
-          "crowding": 15.2,
+          "crowding": 8.8,
           "lag_share": 0,
-          "rel5": 1.42,
-          "rel2h": 0.77
+          "rel5": 1.47,
+          "rel2h": -0.17
         }
       },
       "scout": {
@@ -15754,7 +15488,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "EUROPE_STRATEGIC_AUTONOMY": {
       "id": "EUROPE_STRATEGIC_AUTONOMY",
@@ -16322,10 +16056,10 @@
       "invalidation": [],
       "market": {
         "score": 0,
-        "crowding": 2.4,
+        "crowding": 4,
         "breadth": 0.125,
         "relative_breadth": 0.375,
-        "intraday_breadth": 0,
+        "intraday_breadth": 0.375,
         "quality": "HIGH",
         "n": 8,
         "intraday_n": 8,
@@ -16333,40 +16067,40 @@
         "above50": 0,
         "benchmark": "ITA",
         "avg": {
-          "r1": -0.16,
-          "r5": -3.24,
-          "r20": -5.79,
-          "rel5": -1.02,
-          "rel20": 1.08,
-          "r30m": -0.13,
-          "r2h": -0.92,
-          "rel30m": 0.1,
-          "rel2h": -1.08,
-          "volumeZ": -1.36
+          "r1": -0.63,
+          "r5": -3.67,
+          "r20": -6.21,
+          "rel5": -0.9,
+          "rel20": 1.8,
+          "r30m": -0.39,
+          "r2h": -0.42,
+          "rel30m": -0.32,
+          "rel2h": -0.3,
+          "volumeZ": -0.03
         }
       },
       "crowd": {
         "phase": "DISCOVERY",
         "position": "OBSERVE",
-        "consensus": 15,
-        "consensus_delta": -19.4,
-        "priced_in": 4.3,
+        "consensus": 24.4,
+        "consensus_delta": 9.4,
+        "priced_in": 7.1,
         "discount": "UNPRICED",
-        "timing_score": 51.3,
+        "timing_score": 52.5,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0.375,
-          "intraday_breadth": 0,
+          "intraday_breadth": 0.375,
           "breadth": 0.125,
           "above20": 0.125,
           "above50": 0,
-          "crowding": 2.4,
+          "crowding": 4,
           "lag_share": 0,
-          "rel5": -1.02,
-          "rel2h": -1.08
+          "rel5": -0.9,
+          "rel2h": -0.3
         }
       },
       "scout": {
@@ -16527,7 +16261,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     },
     "OIL_SERVICE_CAPEX_SECOND_WAVE": {
       "id": "OIL_SERVICE_CAPEX_SECOND_WAVE",
@@ -17136,11 +16870,11 @@
       "expected_next": [],
       "invalidation": [],
       "market": {
-        "score": 23,
-        "crowding": 6.8,
+        "score": 0,
+        "crowding": 0,
         "breadth": 0,
         "relative_breadth": 0,
-        "intraday_breadth": 0.75,
+        "intraday_breadth": 0,
         "quality": "HIGH",
         "n": 8,
         "intraday_n": 8,
@@ -17148,40 +16882,40 @@
         "above50": 0,
         "benchmark": "XLE",
         "avg": {
-          "r1": 1.35,
-          "r5": -3.36,
-          "r20": -13.75,
-          "rel5": -3.52,
-          "rel20": -10.06,
-          "r30m": 0.25,
-          "r2h": 0.29,
-          "rel30m": 0.35,
-          "rel2h": 0.65,
-          "volumeZ": 0.27
+          "r1": -0.88,
+          "r5": -3.79,
+          "r20": -13.16,
+          "rel5": -5.14,
+          "rel20": -10.46,
+          "r30m": -0.14,
+          "r2h": -0.62,
+          "rel30m": -0.08,
+          "rel2h": -0.67,
+          "volumeZ": -1.18
         }
       },
       "crowd": {
         "phase": "DISCOVERY",
         "position": "OBSERVE",
-        "consensus": 18.8,
-        "consensus_delta": -3.1,
-        "priced_in": 8,
+        "consensus": 0,
+        "consensus_delta": -18.8,
+        "priced_in": 0,
         "discount": "UNPRICED",
-        "timing_score": 49.8,
+        "timing_score": 48,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0,
-          "intraday_breadth": 0.75,
+          "intraday_breadth": 0,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 6.8,
+          "crowding": 0,
           "lag_share": 0,
-          "rel5": -3.52,
-          "rel2h": 0.65
+          "rel5": -5.14,
+          "rel2h": -0.67
         }
       },
       "scout": {
@@ -17342,7 +17076,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-02T12:31:35.585Z"
+      "updated_market_at": "2026-10-02T19:56:56.289Z"
     }
   }
 }
