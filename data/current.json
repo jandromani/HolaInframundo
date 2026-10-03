@@ -1,7 +1,7 @@
 {
   "version": "2.9.0",
-  "updated_at": "2026-10-03T11:44:25.562Z",
-  "run_id": "run_2026-10-03T11-37-12Z",
+  "updated_at": "2026-10-03T14:24:52.720Z",
+  "run_id": "run_2026-10-03T14-18-55Z",
   "health": {
     "retrieval_errors": 2,
     "upstream_errors": 0,
@@ -15,34 +15,11 @@
   "transitions": [
     {
       "mechanism_id": "CEYHAN_BYPASS",
-      "from": "DORMANT",
-      "to": "WATCH",
-      "raw_to": "WATCH",
-      "score": 27,
-      "delta": 8,
-      "hysteresis": {
-        "raw_state": "WATCH",
-        "pending": null,
-        "reason": "DIRECT_NONCRITICAL_TRANSITION",
-        "applied": false
-      },
-      "memory": {
-        "observed_items": 2,
-        "carried_items": 6,
-        "avg_carry_weight": 0.494,
-        "observed_score": 23,
-        "raw_combined_score": 32,
-        "decayed_score": 27
-      },
-      "at": "2026-10-03T11:44:25.562Z"
-    },
-    {
-      "mechanism_id": "ENERGETICS_SHORTAGE",
       "from": "WATCH",
       "to": "DORMANT",
       "raw_to": "DORMANT",
-      "score": 24,
-      "delta": -6,
+      "score": 19,
+      "delta": -8,
       "hysteresis": {
         "raw_state": "DORMANT",
         "pending": null,
@@ -51,21 +28,44 @@
       },
       "memory": {
         "observed_items": 0,
-        "carried_items": 10,
-        "avg_carry_weight": 0.742,
+        "carried_items": 8,
+        "avg_carry_weight": 0.605,
         "observed_score": 0,
         "raw_combined_score": 32,
-        "decayed_score": 24
+        "decayed_score": 19
       },
-      "at": "2026-10-03T11:44:25.562Z"
+      "at": "2026-10-03T14:24:52.720Z"
+    },
+    {
+      "mechanism_id": "AI_TIME_TO_POWER",
+      "from": "WATCH",
+      "to": "ARMING",
+      "raw_to": "ARMING",
+      "score": 45,
+      "delta": 11,
+      "hysteresis": {
+        "raw_state": "ARMING",
+        "pending": null,
+        "reason": "DIRECT_NONCRITICAL_TRANSITION",
+        "applied": false
+      },
+      "memory": {
+        "observed_items": 3,
+        "carried_items": 17,
+        "avg_carry_weight": 0.523,
+        "observed_score": 27,
+        "raw_combined_score": 62,
+        "decayed_score": 45
+      },
+      "at": "2026-10-03T14:24:52.720Z"
     },
     {
       "mechanism_id": "GLOBAL_REFINANCING_STRESS",
       "from": "ARMING",
       "to": "ARMING",
       "raw_to": "ARMING",
-      "score": 54,
-      "delta": -10,
+      "score": 64,
+      "delta": 10,
       "hysteresis": {
         "raw_state": "ARMING",
         "pending": null,
@@ -75,12 +75,12 @@
       "memory": {
         "observed_items": 2,
         "carried_items": 5,
-        "avg_carry_weight": 0.544,
-        "observed_score": 30,
+        "avg_carry_weight": 0.53,
+        "observed_score": 51,
         "raw_combined_score": 75,
-        "decayed_score": 54
+        "decayed_score": 64
       },
-      "at": "2026-10-03T11:44:25.562Z"
+      "at": "2026-10-03T14:24:52.720Z"
     }
   ],
   "wave_transitions": [],
@@ -624,7 +624,9 @@
             }
           }
         }
-      ]
+      ],
+      "stale": false,
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "PRODUCT_TANKER_TONMILES": {
       "id": "PRODUCT_TANKER_TONMILES",
@@ -957,7 +959,9 @@
             }
           }
         }
-      ]
+      ],
+      "stale": false,
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "CRUDE_TANKER_DISLOCATION": {
       "id": "CRUDE_TANKER_DISLOCATION",
@@ -965,10 +969,10 @@
       "tier": "A",
       "state": "ARMING",
       "raw_state": "ARMING",
-      "score": 47,
+      "score": 48,
       "previous_state": "ARMING",
-      "score_delta": 0,
-      "summary": "Crude oil exports from the Strait of Hormuz are returning to pre‑war levels, indicating a reduction in dislocation and a shift back toward normal crude sourcing patterns.",
+      "score_delta": 1,
+      "summary": "Crude sourcing shifts in the Middle East are returning to pre-war levels, indicating increased VLCC/Suezmax ton-mile demand and fleet utilization.",
       "material_change": false,
       "observed_evidence": [
         {
@@ -978,11 +982,11 @@
           "signal": "STS_ACTIVITY",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Crude oil exports from the Strait of Hormuz largely return to pre‑war levels.",
-          "direction": "UNKNOWN",
+          "claim": "Crude oil exports from the Strait of Hormuz largely return to pre-war levels.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "None",
+          "why_upstream": "",
           "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQcGNCX0VlMWRST1A0YVJxWVlHTGI2VGE2UUtRZXpnTTMwQW0zWmpDakdpTUI3ZFcwd0VLQ0xMemFfRkg1VkdjUGh1YUppeVNTdkZSbFVPX3lhMjZSR3ZITVJObHRJdC0ycklwUmF2d042VU5UeHlWWm1KNVJuVUQ4VW9PNHpfZHVRRW5iMzRiekdxWWhmWE42R011RXF6SjZUZktEdjZQZVdObkJXbVZqSlR3?oc=5",
           "source_name": "theguardian.com",
           "source_domain": "theguardian.com",
@@ -990,11 +994,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-10-01T15:53:00.000Z",
-          "retrieved_at": "2026-10-03T11:38:14.906Z",
+          "retrieved_at": "2026-10-03T14:19:58.498Z",
           "valid": true,
           "evidence_key": "87b27f3e3441ed25c61ab057",
-          "first_seen_at": "2026-10-03T11:38:14.906Z",
-          "last_seen_at": "2026-10-03T11:44:25.562Z",
+          "first_seen_at": "2026-10-03T14:19:58.498Z",
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -1006,11 +1010,11 @@
           "signal": "STS_ACTIVITY",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Middle East oil supply is nearly back to pre‑Iran war levels.",
-          "direction": "UNKNOWN",
+          "claim": "Middle East oil supply is nearly back to pre-Iran war levels.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "None",
+          "why_upstream": "",
           "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE90ZGd5a0xEbEptX1djYjA1SVFKczdKTnVCNzBQRVpGWWZUUWplZDY5VEpBd1dpVDRVa1JKamR5dmRUSVFwTUdHcUxuRzdoaFE0ZG1VTHdWaVBmSzA?oc=5",
           "source_name": "BBC",
           "source_domain": "bbc.com",
@@ -1018,11 +1022,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-10-02T15:29:28.000Z",
-          "retrieved_at": "2026-10-03T11:38:14.906Z",
+          "retrieved_at": "2026-10-03T14:19:58.498Z",
           "valid": true,
           "evidence_key": "b0ae704fbf74ef410f1fa3a0",
-          "first_seen_at": "2026-10-03T11:38:14.906Z",
-          "last_seen_at": "2026-10-03T11:44:25.562Z",
+          "first_seen_at": "2026-10-03T14:19:58.498Z",
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -1034,11 +1038,11 @@
           "signal": "STS_ACTIVITY",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Iran’s oil lifeline is choking while Gulf rivals restore the flow.",
-          "direction": "UNKNOWN",
+          "claim": "Iran’s oil lifeline is choking — while Gulf rivals restore the flow: Kpler data.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "None",
+          "why_upstream": "",
           "source_url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQR3JFX3c0dEtGZDEwaUV2VVpnbjNCSnBzTTJ0aEJxVTYydHl2QkxQUEk1ZlRPUEktbnRWbF9CdE9WcDRqUGxsb0pRYWlBZmlEWk9iQm9Od1h1c2ZGWElsTW9rdG02aDRpVnZ4b0FZZjdrQ2RhYzBuT1E3RHVWRklwRks1aGlQSFpGX1lIOS1kcXRlOWhFeFBMVlJOSjZ1dVpDN0llVkUtYUt2Vmt1UXpSUlRlNlN5TUl3anBqLXVfa19iejNENUlYZUNfaW50Z9IBzgFBVV95cUxQR3JFX3c0dEtGZDEwaUV2VVpnbjNCSnBzTTJ0aEJxVTYydHl2QkxQUEk1ZlRPUEktbnRWbF9CdE9WcDRqUGxsb0pRYWlBZmlEWk9iQm9Od1h1c2ZGWElsTW9rdG02aDRpVnZ4b0FZZjdrQ2RhYzBuT1E3RHVWRklwRks1aGlQSFpGX1lIOS1kcXRlOWhFeFBMVlJOSjZ1dVpDN0llVkUtYUt2Vmt1UXpSUlRlNlN5TUl3anBqLXVfa19iejNENUlYZUNfaW50Zw?oc=5",
           "source_name": "Gulf News",
           "source_domain": "gulfnews.com",
@@ -1046,11 +1050,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-10-02T04:56:57.000Z",
-          "retrieved_at": "2026-10-03T11:38:14.906Z",
+          "retrieved_at": "2026-10-03T14:19:58.498Z",
           "valid": true,
           "evidence_key": "786f83a27a0efe0157417970",
-          "first_seen_at": "2026-10-03T11:38:14.906Z",
-          "last_seen_at": "2026-10-03T11:44:25.562Z",
+          "first_seen_at": "2026-10-03T14:19:58.498Z",
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -1064,11 +1068,11 @@
           "signal": "STS_ACTIVITY",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Crude oil exports from the Strait of Hormuz largely return to pre‑war levels.",
-          "direction": "UNKNOWN",
+          "claim": "Crude oil exports from the Strait of Hormuz largely return to pre-war levels.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "None",
+          "why_upstream": "",
           "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQcGNCX0VlMWRST1A0YVJxWVlHTGI2VGE2UUtRZXpnTTMwQW0zWmpDakdpTUI3ZFcwd0VLQ0xMemFfRkg1VkdjUGh1YUppeVNTdkZSbFVPX3lhMjZSR3ZITVJObHRJdC0ycklwUmF2d042VU5UeHlWWm1KNVJuVUQ4VW9PNHpfZHVRRW5iMzRiekdxWWhmWE42R011RXF6SjZUZktEdjZQZVdObkJXbVZqSlR3?oc=5",
           "source_name": "theguardian.com",
           "source_domain": "theguardian.com",
@@ -1076,11 +1080,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-10-01T15:53:00.000Z",
-          "retrieved_at": "2026-10-03T11:38:14.906Z",
+          "retrieved_at": "2026-10-03T14:19:58.498Z",
           "valid": true,
           "evidence_key": "87b27f3e3441ed25c61ab057",
           "first_seen_at": "2026-10-02T05:35:16.698Z",
-          "last_seen_at": "2026-10-03T11:44:25.562Z",
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -1092,11 +1096,11 @@
           "signal": "STS_ACTIVITY",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Middle East oil supply is nearly back to pre‑Iran war levels.",
-          "direction": "UNKNOWN",
+          "claim": "Middle East oil supply is nearly back to pre-Iran war levels.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "None",
+          "why_upstream": "",
           "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE90ZGd5a0xEbEptX1djYjA1SVFKczdKTnVCNzBQRVpGWWZUUWplZDY5VEpBd1dpVDRVa1JKamR5dmRUSVFwTUdHcUxuRzdoaFE0ZG1VTHdWaVBmSzA?oc=5",
           "source_name": "BBC",
           "source_domain": "bbc.com",
@@ -1104,11 +1108,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-10-02T15:29:28.000Z",
-          "retrieved_at": "2026-10-03T11:38:14.906Z",
+          "retrieved_at": "2026-10-03T14:19:58.498Z",
           "valid": true,
           "evidence_key": "b0ae704fbf74ef410f1fa3a0",
           "first_seen_at": "2026-10-03T05:17:17.875Z",
-          "last_seen_at": "2026-10-03T11:44:25.562Z",
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -1120,11 +1124,11 @@
           "signal": "STS_ACTIVITY",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Iran’s oil lifeline is choking while Gulf rivals restore the flow.",
-          "direction": "UNKNOWN",
+          "claim": "Iran’s oil lifeline is choking — while Gulf rivals restore the flow: Kpler data.",
+          "direction": "UP",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "None",
+          "why_upstream": "",
           "source_url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQR3JFX3c0dEtGZDEwaUV2VVpnbjNCSnBzTTJ0aEJxVTYydHl2QkxQUEk1ZlRPUEktbnRWbF9CdE9WcDRqUGxsb0pRYWlBZmlEWk9iQm9Od1h1c2ZGWElsTW9rdG02aDRpVnZ4b0FZZjdrQ2RhYzBuT1E3RHVWRklwRks1aGlQSFpGX1lIOS1kcXRlOWhFeFBMVlJOSjZ1dVpDN0llVkUtYUt2Vmt1UXpSUlRlNlN5TUl3anBqLXVfa19iejNENUlYZUNfaW50Z9IBzgFBVV95cUxQR3JFX3c0dEtGZDEwaUV2VVpnbjNCSnBzTTJ0aEJxVTYydHl2QkxQUEk1ZlRPUEktbnRWbF9CdE9WcDRqUGxsb0pRYWlBZmlEWk9iQm9Od1h1c2ZGWElsTW9rdG02aDRpVnZ4b0FZZjdrQ2RhYzBuT1E3RHVWRklwRks1aGlQSFpGX1lIOS1kcXRlOWhFeFBMVlJOSjZ1dVpDN0llVkUtYUt2Vmt1UXpSUlRlNlN5TUl3anBqLXVfa19iejNENUlYZUNfaW50Zw?oc=5",
           "source_name": "Gulf News",
           "source_domain": "gulfnews.com",
@@ -1132,11 +1136,11 @@
           "official": false,
           "engine": "google_news",
           "published_at": "2026-10-02T04:56:57.000Z",
-          "retrieved_at": "2026-10-03T11:38:14.906Z",
+          "retrieved_at": "2026-10-03T14:19:58.498Z",
           "valid": true,
           "evidence_key": "786f83a27a0efe0157417970",
           "first_seen_at": "2026-10-03T05:17:17.875Z",
-          "last_seen_at": "2026-10-03T11:44:25.562Z",
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
           "memory_weight": 1,
           "memory_status": "OBSERVED",
           "memory_age_hours": 0
@@ -1165,9 +1169,9 @@
           "evidence_key": "56c4a9cec9bcea612d7c0068",
           "first_seen_at": "2026-10-02T09:46:49.904Z",
           "last_seen_at": "2026-10-03T09:19:27.799Z",
-          "memory_weight": 0.977,
+          "memory_weight": 0.9522,
           "memory_status": "CARRIED",
-          "memory_age_hours": 2.42
+          "memory_age_hours": 5.09
         },
         {
           "candidate_id": "9c67fe02f6da80f67732",
@@ -1193,9 +1197,9 @@
           "evidence_key": "51dabacf974da15f48b5661e",
           "first_seen_at": "2026-10-03T05:17:17.875Z",
           "last_seen_at": "2026-10-03T09:19:27.799Z",
-          "memory_weight": 0.977,
+          "memory_weight": 0.9522,
           "memory_status": "CARRIED",
-          "memory_age_hours": 2.42
+          "memory_age_hours": 5.09
         },
         {
           "candidate_id": "c7834b7726fbde502b2b",
@@ -1221,9 +1225,9 @@
           "evidence_key": "90da93d1d4f634bdfc6996d2",
           "first_seen_at": "2026-09-23T08:35:39.472Z",
           "last_seen_at": "2026-10-02T09:54:51.717Z",
-          "memory_weight": 0.7799,
+          "memory_weight": 0.76,
           "memory_status": "CARRIED",
-          "memory_age_hours": 25.83
+          "memory_age_hours": 28.5
         },
         {
           "candidate_id": "9911abe7372d26cd067d",
@@ -1249,9 +1253,9 @@
           "evidence_key": "270f434a2554888ac5f46ac7",
           "first_seen_at": "2026-10-01T00:34:19.438Z",
           "last_seen_at": "2026-10-02T09:54:51.717Z",
-          "memory_weight": 0.7799,
+          "memory_weight": 0.76,
           "memory_status": "CARRIED",
-          "memory_age_hours": 25.83
+          "memory_age_hours": 28.5
         },
         {
           "candidate_id": "951cb7e86cf9ce705fe0",
@@ -1277,9 +1281,9 @@
           "evidence_key": "2e637ded891b67b0c619bca5",
           "first_seen_at": "2026-10-01T00:34:19.438Z",
           "last_seen_at": "2026-10-02T09:54:51.717Z",
-          "memory_weight": 0.7799,
+          "memory_weight": 0.76,
           "memory_status": "CARRIED",
-          "memory_age_hours": 25.83
+          "memory_age_hours": 28.5
         },
         {
           "candidate_id": "7728185a9d05eca9da5f",
@@ -1305,9 +1309,9 @@
           "evidence_key": "577bb87327d1efa0c75bb77b",
           "first_seen_at": "2026-10-01T05:50:09.703Z",
           "last_seen_at": "2026-10-02T09:54:51.717Z",
-          "memory_weight": 0.7799,
+          "memory_weight": 0.76,
           "memory_status": "CARRIED",
-          "memory_age_hours": 25.83
+          "memory_age_hours": 28.5
         },
         {
           "candidate_id": "de4fe68ada1e6b015075",
@@ -1333,9 +1337,9 @@
           "evidence_key": "4eb0b9178fa25067687d9b79",
           "first_seen_at": "2026-09-29T09:50:46.815Z",
           "last_seen_at": "2026-10-01T10:15:06.824Z",
-          "memory_weight": 0.621,
+          "memory_weight": 0.6052,
           "memory_status": "CARRIED",
-          "memory_age_hours": 49.49
+          "memory_age_hours": 52.16
         },
         {
           "candidate_id": "9c6b71163ef5da523b4b",
@@ -1361,9 +1365,9 @@
           "evidence_key": "03575f38f850187dfc664a8a",
           "first_seen_at": "2026-09-30T00:28:13.737Z",
           "last_seen_at": "2026-10-01T10:15:06.824Z",
-          "memory_weight": 0.621,
+          "memory_weight": 0.6052,
           "memory_status": "CARRIED",
-          "memory_age_hours": 49.49
+          "memory_age_hours": 52.16
         },
         {
           "candidate_id": "f07ffdc892ce4c232fdd",
@@ -1389,9 +1393,9 @@
           "evidence_key": "25454a0b292b6f543760a1c5",
           "first_seen_at": "2026-09-29T05:42:45.286Z",
           "last_seen_at": "2026-10-01T10:15:06.824Z",
-          "memory_weight": 0.621,
+          "memory_weight": 0.6052,
           "memory_status": "CARRIED",
-          "memory_age_hours": 49.49
+          "memory_age_hours": 52.16
         },
         {
           "candidate_id": "2630da27c61f9d2cea73",
@@ -1417,9 +1421,9 @@
           "evidence_key": "327cb651aade981e72c08218",
           "first_seen_at": "2026-10-02T09:46:49.985Z",
           "last_seen_at": "2026-10-02T09:54:51.717Z",
-          "memory_weight": 0.6082,
+          "memory_weight": 0.5777,
           "memory_status": "CARRIED",
-          "memory_age_hours": 25.83
+          "memory_age_hours": 28.5
         },
         {
           "candidate_id": "65f90043740f4a8cbb9a",
@@ -1445,9 +1449,9 @@
           "evidence_key": "e8bd18eb5ad60a0303ae68b1",
           "first_seen_at": "2026-09-30T00:28:13.737Z",
           "last_seen_at": "2026-10-01T00:43:00.824Z",
-          "memory_weight": 0.5665,
+          "memory_weight": 0.5521,
           "memory_status": "CARRIED",
-          "memory_age_hours": 59.02
+          "memory_age_hours": 61.7
         },
         {
           "candidate_id": "f9a9057b4202847abbbd",
@@ -1473,9 +1477,9 @@
           "evidence_key": "3c6241f9a9101bff4da50563",
           "first_seen_at": "2026-09-28T21:15:06.882Z",
           "last_seen_at": "2026-09-29T09:59:36.641Z",
-          "memory_weight": 0.3902,
+          "memory_weight": 0.3803,
           "memory_status": "CARRIED",
-          "memory_age_hours": 97.75
+          "memory_age_hours": 100.42
         },
         {
           "candidate_id": "51c6c51f36445015d30b",
@@ -1501,65 +1505,9 @@
           "evidence_key": "5d98ed05805fdf4d904fe367",
           "first_seen_at": "2026-09-28T21:15:06.882Z",
           "last_seen_at": "2026-09-29T09:59:36.641Z",
-          "memory_weight": 0.3902,
+          "memory_weight": 0.3803,
           "memory_status": "CARRIED",
-          "memory_age_hours": 97.75
-        },
-        {
-          "candidate_id": "e712f55a8d7aff2082b8",
-          "query_id": "CRUDE_TANKER_DISLOCATION:lead:sts",
-          "phase": "LEAD",
-          "signal": "STS_ACTIVITY",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Gulf nations have found ways to keep oil flowing through the Iran war, but the costs are mounting",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxORDMwRERwOWtFTHQ3MlZ3ck5BT2NDeWhlRWw4WElXVDFKSl9pZ0l3SzUta1BxYjlTRXJDdXV2eDVNd1lFQVBsVlJ4TW1pejNIdWJ2bHZTTUlfWWlGMUFJSVBDUi1vVEdnSjc4bk9ReE1pVEM4RVgwanBWaExid1BLaWdieGdnaDZCM29DX1hoZk5wUS1aMnYwRmlhLWpsMk3SAaQBQVVfeXFMT2loQnZjd2cySXF2Q1FyZlh0NmRFMkY3bEdfbjI4UnRfbFFRTEUwVUExYnNIa19EQnduZHA1VHZJS1lRM3lOSV9Wcng4Mzktc295UFotWHA4Nnp4NEluRUVYdE05Qk54VllQamRDZHlzYnNJS0VBLWVXbkhoSkxtc0wtSHIxVl9XNHg1SnpuZXByWHBtNDhYc2hrUEdueG1JeTk5aGg?oc=5",
-          "source_name": "ABC News - Breaking News, Latest News and Videos",
-          "source_domain": "abcnews.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-25T23:05:23.000Z",
-          "retrieved_at": "2026-09-27T12:01:05.780Z",
-          "valid": true,
-          "evidence_key": "d0d500538dd68515e2f378d1",
-          "first_seen_at": "2026-09-27T05:17:41.026Z",
-          "last_seen_at": "2026-09-27T12:08:20.488Z",
-          "memory_weight": 0.251,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 143.6
-        },
-        {
-          "candidate_id": "df9041c08787c287cfc0",
-          "query_id": "CRUDE_TANKER_DISLOCATION:lead:sts",
-          "phase": "LEAD",
-          "signal": "STS_ACTIVITY",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Saudi Arabia’s return to Hormuz puts oil transfer network to the test",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPaVk5RUwxVG10cEVQYXdZdTdpQUxtc2dVQk0tQzhMa3JReVFuQk9PRkg4TFozcGtqWWpEckpuMGdPWk9EWXlSdnoxcWVBZEpiUHhqN1M0YTNNWTN0QmFJTU9XaEpqVVNnR1FhdldFVHM3Y0R1Z1NRdWFVYkstWUx0TlhNUzgyZ3BvcW5IMUl2MXBxN3R5VTZqMFVZQkFuYTlKQ1Vkb0t3?oc=5",
-          "source_name": "Al-Monitor",
-          "source_domain": "al-monitor.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-09-25T20:59:50.000Z",
-          "retrieved_at": "2026-09-27T12:01:05.780Z",
-          "valid": true,
-          "evidence_key": "74e5698afcfae2353605d1dd",
-          "first_seen_at": "2026-09-27T05:17:41.026Z",
-          "last_seen_at": "2026-09-27T12:08:20.488Z",
-          "memory_weight": 0.251,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 143.6
+          "memory_age_hours": 100.42
         }
       ],
       "verified": [],
@@ -1570,14 +1518,14 @@
       },
       "events": [
         {
-          "id": "dbb5e72d51d1c444ad77d6",
+          "id": "64430e6677b9fe5f4ecc2d",
           "mechanism_id": "CRUDE_TANKER_DISLOCATION",
-          "run_id": "run_2026-10-03T11-37-12Z",
+          "run_id": "run_2026-10-03T14-18-55Z",
           "phase": "LEAD",
           "signal": "STS_ACTIVITY",
-          "claim": "Middle East oil supply is nearly back to pre‑Iran war levels.",
+          "claim": "Middle East oil supply is nearly back to pre-Iran war levels.",
           "observed_at": "2026-10-02T15:29:28.000Z",
-          "ingested_at": "2026-10-03T11:44:25.562Z",
+          "ingested_at": "2026-10-03T14:24:52.720Z",
           "source_count": 1,
           "domains": [
             "bbc.com"
@@ -1591,14 +1539,14 @@
           "source_grade": 0.62
         },
         {
-          "id": "b3e35b6c3bfc4e430e0c1a",
+          "id": "ce3241cabacb8ab76c6c17",
           "mechanism_id": "CRUDE_TANKER_DISLOCATION",
-          "run_id": "run_2026-10-03T11-37-12Z",
+          "run_id": "run_2026-10-03T14-18-55Z",
           "phase": "LEAD",
           "signal": "STS_ACTIVITY",
-          "claim": "Iran’s oil lifeline is choking while Gulf rivals restore the flow.",
+          "claim": "Iran’s oil lifeline is choking — while Gulf rivals restore the flow: Kpler data.",
           "observed_at": "2026-10-02T04:56:57.000Z",
-          "ingested_at": "2026-10-03T11:44:25.562Z",
+          "ingested_at": "2026-10-03T14:24:52.720Z",
           "source_count": 1,
           "domains": [
             "gulfnews.com"
@@ -1612,14 +1560,14 @@
           "source_grade": 0.62
         },
         {
-          "id": "46b8809ef5586cf82f48eb",
+          "id": "15839ea14c1b118148b50b",
           "mechanism_id": "CRUDE_TANKER_DISLOCATION",
-          "run_id": "run_2026-10-03T11-37-12Z",
+          "run_id": "run_2026-10-03T14-18-55Z",
           "phase": "LEAD",
           "signal": "STS_ACTIVITY",
-          "claim": "Crude oil exports from the Strait of Hormuz largely return to pre‑war levels.",
+          "claim": "Crude oil exports from the Strait of Hormuz largely return to pre-war levels.",
           "observed_at": "2026-10-01T15:53:00.000Z",
-          "ingested_at": "2026-10-03T11:44:25.562Z",
+          "ingested_at": "2026-10-03T14:24:52.720Z",
           "source_count": 1,
           "domains": [
             "theguardian.com"
@@ -1636,16 +1584,16 @@
       "event_stats": {
         "observed_unique": 3,
         "observed_duplicates": 0,
-        "memory_unique": 16,
+        "memory_unique": 14,
         "memory_duplicates": 0
       },
       "memory": {
         "observed_items": 3,
-        "carried_items": 15,
-        "avg_carry_weight": 0.626,
+        "carried_items": 13,
+        "avg_carry_weight": 0.665,
         "observed_score": 28,
         "raw_combined_score": 58,
-        "decayed_score": 47
+        "decayed_score": 48
       },
       "expected_next": [],
       "invalidation": [],
@@ -1681,7 +1629,7 @@
         "consensus_delta": 0,
         "priced_in": 70.5,
         "discount": "PRICED_IN",
-        "timing_score": 55.2,
+        "timing_score": 55.6,
         "block_chase": true,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -1700,7 +1648,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 44.5,
+        "score": 45,
         "reasons": [
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
@@ -1712,7 +1660,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 43.6,
+        "score": 44,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -1758,11 +1706,9 @@
           "oilandgasmiddleeast.com",
           "windward.ai",
           "agbi.com",
-          "operativmm.az",
-          "abcnews.com",
-          "al-monitor.com"
+          "operativmm.az"
         ],
-        "events": 16,
+        "events": 14,
         "duplicates_removed": 0
       },
       "positive": [
@@ -1774,13 +1720,13 @@
         "PSHG"
       ],
       "negative": [],
-      "last_run": "2026-10-03T11:44:25.562Z",
+      "last_run": "2026-10-03T14:24:52.720Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1991,
-        "completion_tokens": 873,
-        "total_tokens": 2864,
-        "cost": 0.00018195,
+        "prompt_tokens": 2004,
+        "completion_tokens": 1300,
+        "total_tokens": 3304,
+        "cost": 0.00017008,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -1789,12 +1735,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00018195,
-          "upstream_inference_prompt_cost": 0.00005973,
-          "upstream_inference_completions_cost": 0.00012222
+          "upstream_inference_cost": 0.00017008,
+          "upstream_inference_prompt_cost": 0.00004008,
+          "upstream_inference_completions_cost": 0.00013
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 673,
+          "reasoning_tokens": 0,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -1816,7 +1762,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -1835,7 +1781,7 @@
             "google_news": {
               "ok": true,
               "count": 3,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -1854,7 +1800,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 10
             }
           }
@@ -2292,77 +2238,20 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "CEYHAN_BYPASS": {
       "id": "CEYHAN_BYPASS",
       "label": "Ceyhan / Kurdistan bypass",
       "tier": "A",
-      "state": "WATCH",
-      "raw_state": "WATCH",
-      "score": 27,
-      "previous_state": "DORMANT",
-      "score_delta": 8,
-      "summary": "Physical flow through the Iraq‑Turkey‑Ceyhan pipeline has resumed, with new operator arrangements maintaining continuity.",
+      "state": "DORMANT",
+      "raw_state": "DORMANT",
+      "score": 19,
+      "previous_state": "WATCH",
+      "score_delta": -8,
+      "summary": "No candidate provides verifiable evidence of sustained physical oil flow through the Iraq‑Turkey‑Ceyhan route with reported barrel volumes. All available sources are either lead‑level political statements or non‑official reports lacking quantitative flow data.",
       "material_change": true,
-      "observed_evidence": [
-        {
-          "candidate_id": "67b49ff51a0f3be73d83",
-          "query_id": "CEYHAN_BYPASS:lead:iraq_turkey",
-          "phase": "LEAD",
-          "signal": "POLITICAL_CLEARANCE",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Oil exports from the Kurdistan Region to the Ceyhan port resumed on 27 September 2025 via pipeline.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "Resumption of exports indicates increased physical flow through the pipeline.",
-          "source_url": "https://rudawrc.net/en/pdf/article/kurdistan-region-oil-exports-to-the-ceyhan-port-dimensions-and-implications-2025-09-28",
-          "source_name": "The Resumption of Oil Exports from the Kurdistan Region to the Ceyhan Port: Impacts and Implications.",
-          "source_domain": "rudawrc.net",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-10-03T11:38:33.093Z",
-          "valid": true,
-          "evidence_key": "d1e2963e0e358eb7bd7bf6b7",
-          "first_seen_at": "2026-10-03T11:38:33.093Z",
-          "last_seen_at": "2026-10-03T11:44:25.562Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "e1dfb6fe15e7de6f231b",
-          "query_id": "CEYHAN_BYPASS:lead:iraq_turkey",
-          "phase": "LEAD",
-          "signal": "POLITICAL_CLEARANCE",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Agreement reached with KRG to resume exports via Ceyhan, flows expected to begin at 10:00 AM the following day at a rate of 160,000 to 200,000 barrels per day.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "Barrel flow increase indicates sustained physical flow.",
-          "source_url": "https://www.pukmedia.com/EN/Details/80835",
-          "source_name": "Iraqi Parliament Reviews Oil Export Crisis Amid Ongoing Disruptions",
-          "source_domain": "pukmedia.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-10-03T11:38:33.093Z",
-          "valid": true,
-          "evidence_key": "8201d8e4aad1e8751375ea76",
-          "first_seen_at": "2026-10-03T11:38:33.093Z",
-          "last_seen_at": "2026-10-03T11:44:25.562Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
+      "observed_evidence": [],
       "evidence": [
         {
           "candidate_id": "67b49ff51a0f3be73d83",
@@ -2388,9 +2277,9 @@
           "evidence_key": "d1e2963e0e358eb7bd7bf6b7",
           "first_seen_at": "2026-10-02T12:32:54.089Z",
           "last_seen_at": "2026-10-03T11:44:25.562Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9746,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.67
         },
         {
           "candidate_id": "e1dfb6fe15e7de6f231b",
@@ -2416,9 +2305,9 @@
           "evidence_key": "8201d8e4aad1e8751375ea76",
           "first_seen_at": "2026-10-02T09:47:03.687Z",
           "last_seen_at": "2026-10-03T11:44:25.562Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9746,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.67
         },
         {
           "candidate_id": "1684b3d8899e80bcdd67",
@@ -2444,9 +2333,9 @@
           "evidence_key": "ab684266ecfd92584b90e656",
           "first_seen_at": "2026-10-02T09:47:03.687Z",
           "last_seen_at": "2026-10-02T09:54:51.717Z",
-          "memory_weight": 0.7799,
+          "memory_weight": 0.76,
           "memory_status": "CARRIED",
-          "memory_age_hours": 25.83
+          "memory_age_hours": 28.5
         },
         {
           "candidate_id": "dc895924d5239590c82c",
@@ -2472,9 +2361,9 @@
           "evidence_key": "227709de25c71fbcea0245b8",
           "first_seen_at": "2026-10-01T05:50:19.486Z",
           "last_seen_at": "2026-10-01T10:15:06.824Z",
-          "memory_weight": 0.621,
+          "memory_weight": 0.6052,
           "memory_status": "CARRIED",
-          "memory_age_hours": 49.49
+          "memory_age_hours": 52.16
         },
         {
           "candidate_id": "80be61df5952101ed5a6",
@@ -2500,9 +2389,9 @@
           "evidence_key": "ee955d41057d3413007e839f",
           "first_seen_at": "2026-10-01T05:50:19.486Z",
           "last_seen_at": "2026-10-01T10:15:06.824Z",
-          "memory_weight": 0.621,
+          "memory_weight": 0.6052,
           "memory_status": "CARRIED",
-          "memory_age_hours": 49.49
+          "memory_age_hours": 52.16
         },
         {
           "candidate_id": "94513f725d78bf8b36ba",
@@ -2528,9 +2417,9 @@
           "evidence_key": "85ec7bf899310a51c6245faa",
           "first_seen_at": "2026-09-27T09:16:34.624Z",
           "last_seen_at": "2026-09-28T13:59:56.729Z",
-          "memory_weight": 0.3219,
+          "memory_weight": 0.3137,
           "memory_status": "CARRIED",
-          "memory_age_hours": 117.74
+          "memory_age_hours": 120.42
         },
         {
           "candidate_id": "4ee7f0e4d165483b1bf8",
@@ -2556,9 +2445,9 @@
           "evidence_key": "45fd0eb9c89515271b27e22a",
           "first_seen_at": "2026-09-28T09:47:21.138Z",
           "last_seen_at": "2026-09-28T09:54:51.927Z",
-          "memory_weight": 0.3095,
+          "memory_weight": 0.3016,
           "memory_status": "CARRIED",
-          "memory_age_hours": 121.83
+          "memory_age_hours": 124.5
         },
         {
           "candidate_id": "8bb30428827aa78dc723",
@@ -2584,9 +2473,9 @@
           "evidence_key": "5bd55f3f90257c0c40e535f9",
           "first_seen_at": "2026-09-28T09:47:21.138Z",
           "last_seen_at": "2026-09-28T09:54:51.927Z",
-          "memory_weight": 0.3095,
+          "memory_weight": 0.3016,
           "memory_status": "CARRIED",
-          "memory_age_hours": 121.83
+          "memory_age_hours": 124.5
         }
       ],
       "verified": [],
@@ -2595,63 +2484,20 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [
-        {
-          "id": "a6f3a73c04a81cf2db67eb",
-          "mechanism_id": "CEYHAN_BYPASS",
-          "run_id": "run_2026-10-03T11-37-12Z",
-          "phase": "LEAD",
-          "signal": "POLITICAL_CLEARANCE",
-          "claim": "Oil exports from the Kurdistan Region to the Ceyhan port resumed on 27 September 2025 via pipeline.",
-          "observed_at": null,
-          "ingested_at": "2026-10-03T11:44:25.562Z",
-          "source_count": 1,
-          "domains": [
-            "rudawrc.net"
-          ],
-          "source_urls": [
-            "https://rudawrc.net/en/pdf/article/kurdistan-region-oil-exports-to-the-ceyhan-port-dimensions-and-implications-2025-09-28"
-          ],
-          "official": false,
-          "representative_source": "The Resumption of Oil Exports from the Kurdistan Region to the Ceyhan Port: Impacts and Implications.",
-          "representative_url": "https://rudawrc.net/en/pdf/article/kurdistan-region-oil-exports-to-the-ceyhan-port-dimensions-and-implications-2025-09-28",
-          "source_grade": 0.62
-        },
-        {
-          "id": "c50c3eb97a7c9afe383baf",
-          "mechanism_id": "CEYHAN_BYPASS",
-          "run_id": "run_2026-10-03T11-37-12Z",
-          "phase": "LEAD",
-          "signal": "POLITICAL_CLEARANCE",
-          "claim": "Agreement reached with KRG to resume exports via Ceyhan, flows expected to begin at 10:00 AM the following day at a rate of 160,000 to 200,000 barrels per day.",
-          "observed_at": null,
-          "ingested_at": "2026-10-03T11:44:25.562Z",
-          "source_count": 1,
-          "domains": [
-            "pukmedia.com"
-          ],
-          "source_urls": [
-            "https://www.pukmedia.com/EN/Details/80835"
-          ],
-          "official": false,
-          "representative_source": "Iraqi Parliament Reviews Oil Export Crisis Amid Ongoing Disruptions",
-          "representative_url": "https://www.pukmedia.com/EN/Details/80835",
-          "source_grade": 0.62
-        }
-      ],
+      "events": [],
       "event_stats": {
-        "observed_unique": 2,
+        "observed_unique": 0,
         "observed_duplicates": 0,
         "memory_unique": 8,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 2,
-        "carried_items": 6,
-        "avg_carry_weight": 0.494,
-        "observed_score": 23,
+        "observed_items": 0,
+        "carried_items": 8,
+        "avg_carry_weight": 0.605,
+        "observed_score": 0,
         "raw_combined_score": 32,
-        "decayed_score": 27
+        "decayed_score": 19
       },
       "expected_next": [],
       "invalidation": [],
@@ -2687,7 +2533,7 @@
         "consensus_delta": 0,
         "priced_in": 10,
         "discount": "UNPRICED",
-        "timing_score": 46.7,
+        "timing_score": 43.1,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -2706,8 +2552,9 @@
       },
       "scout": {
         "eligible": false,
-        "score": 42.3,
+        "score": 38.3,
         "reasons": [
+          "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "DISCOVERY",
@@ -2715,7 +2562,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 36.8,
+        "score": 34.1,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -2739,7 +2586,7 @@
         "lead_to_confirm": 0
       },
       "hysteresis": {
-        "raw_state": "WATCH",
+        "raw_state": "DORMANT",
         "pending": null,
         "reason": "DIRECT_NONCRITICAL_TRANSITION",
         "applied": false
@@ -2767,32 +2614,32 @@
         "DNO.OL"
       ],
       "negative": [],
-      "last_run": "2026-10-03T11:44:25.562Z",
+      "last_run": "2026-10-03T14:24:52.720Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 2140,
-        "completion_tokens": 1300,
-        "total_tokens": 3440,
-        "cost": 0.00015552,
+        "prompt_tokens": 2349,
+        "completion_tokens": 244,
+        "total_tokens": 2593,
+        "cost": 0.00010219,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 0,
+          "cached_tokens": 32,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00015552,
-          "upstream_inference_prompt_cost": 0.00003852,
-          "upstream_inference_completions_cost": 0.000117
+          "upstream_inference_cost": 0.00010219,
+          "upstream_inference_prompt_cost": 0.00007047,
+          "upstream_inference_completions_cost": 0.00003172
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 1085,
+          "reasoning_tokens": 199,
           "image_tokens": 0,
           "audio_tokens": 0
         }
       },
-      "candidate_count": 6,
+      "candidate_count": 7,
       "official_candidate_count": 0,
       "query_trace": [
         {
@@ -2809,7 +2656,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -2828,8 +2675,27 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
+            }
+          }
+        },
+        {
+          "query_id": "CEYHAN_BYPASS:confirm:ceyhan_flow",
+          "phase": "CONFIRM",
+          "signal": "CEYHAN_FLOW",
+          "q": "Ceyhan Iraq Turkey pipeline exports barrels per day loading cargo",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 1,
+              "cached": false,
+              "ttl_hours": 10
             }
           }
         }
@@ -3588,7 +3454,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "ARSENAL_DEPLETION": {
       "id": "ARSENAL_DEPLETION",
@@ -4139,7 +4005,9 @@
             }
           }
         }
-      ]
+      ],
+      "stale": false,
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "ROCKET_MOTOR_SHORTAGE": {
       "id": "ROCKET_MOTOR_SHORTAGE",
@@ -4631,7 +4499,9 @@
             }
           }
         }
-      ]
+      ],
+      "stale": false,
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "ENERGETICS_SHORTAGE": {
       "id": "ENERGETICS_SHORTAGE",
@@ -5151,7 +5021,9 @@
             }
           }
         }
-      ]
+      ],
+      "stale": false,
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "STRATEGIC_ALUMINIUM": {
       "id": "STRATEGIC_ALUMINIUM",
@@ -5712,7 +5584,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "RARE_EARTH_MAGNET_SHORTAGE": {
       "id": "RARE_EARTH_MAGNET_SHORTAGE",
@@ -6211,7 +6083,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "CHEAP_DRONE_SCALING": {
       "id": "CHEAP_DRONE_SCALING",
@@ -6606,7 +6478,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "COUNTER_UAS_COST_CURVE": {
       "id": "COUNTER_UAS_COST_CURVE",
@@ -8349,7 +8221,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "UNDERWATER_SECURITY": {
       "id": "UNDERWATER_SECURITY",
@@ -9276,21 +9148,48 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "AI_TIME_TO_POWER": {
       "id": "AI_TIME_TO_POWER",
       "label": "AI time-to-power",
       "tier": "A",
-      "state": "WATCH",
-      "raw_state": "WATCH",
-      "score": 34,
+      "state": "ARMING",
+      "raw_state": "ARMING",
+      "score": 45,
       "previous_state": "WATCH",
-      "score_delta": -1,
-      "summary": "",
-      "material_change": false,
-      "observed_evidence": [],
-      "evidence": [
+      "score_delta": 11,
+      "summary": "Evidence indicates that electricity and interconnection constraints, rather than GPU supply, are the primary limiting factor for AI infrastructure development.",
+      "material_change": true,
+      "observed_evidence": [
+        {
+          "candidate_id": "019e839aede446f7e72f",
+          "query_id": "AI_TIME_TO_POWER:lead:grid_deposit",
+          "phase": "LEAD",
+          "signal": "REAL_POWER_COMMITMENT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "PJM, the grid covering the mid‑Atlantic and Midwest, hosts the nation’s highest concentration of data centers and is already running fast‑track interconnection processes.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://247wallst.com/investing/2026/07/06/3-utility-etfs-to-buy-now-as-ai-data-centers-trigger-a-1970s-scale-power-buildout/",
+          "source_name": "3 Utility ETFs to Buy Now as AI Data Centers Trigger a 1970s-Scale Power Buildout - 24/7 Wall St.",
+          "source_domain": "247wallst.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-10-03T14:20:06.610Z",
+          "valid": true,
+          "evidence_key": "d0f6c79b2bfd2c5be44ff9f4",
+          "first_seen_at": "2026-10-03T14:20:06.610Z",
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
         {
           "candidate_id": "2348d6232a93a615666d",
           "query_id": "AI_TIME_TO_POWER:lead:grid_deposit",
@@ -9298,11 +9197,11 @@
           "signal": "REAL_POWER_COMMITMENT",
           "family": "PHYSICAL",
           "fact_type": "FACT",
-          "claim": "Electricity/interconnection is the binding constraint on AI infrastructure, not GPU supply.",
+          "claim": "Across the projects tracked in Texas, the single constraint—time to power, not cost of power—explains most of the design decisions for AI data centers.",
           "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "Time to power, not cost of power, explains most design decisions for AI data center projects.",
+          "why_upstream": "",
           "source_url": "https://www.wlanddevelopment.com/market-tracker",
           "source_name": "Texas AI Data Center & Private Power Market Tracker | W Land",
           "source_domain": "wlanddevelopment.com",
@@ -9310,14 +9209,128 @@
           "official": false,
           "engine": "openrouter_web_fallback",
           "published_at": null,
-          "retrieved_at": "2026-10-02T12:32:54.089Z",
+          "retrieved_at": "2026-10-03T14:20:06.610Z",
+          "valid": true,
+          "evidence_key": "376246eff82f1184c42b228d",
+          "first_seen_at": "2026-10-03T14:20:06.610Z",
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "9406e7ad7e9cc763b3df",
+          "query_id": "AI_TIME_TO_POWER:lead:grid_deposit",
+          "phase": "LEAD",
+          "signal": "REAL_POWER_COMMITMENT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Texas Governor Greg Abbott signed a bill mandating data centers to contribute to interconnection costs when using the state’s electricity grid.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.datacenterdynamics.com/en/news/texas-governor-approves-bill-mandating-data-centers-to-contribute-to-costs-of-interconnection",
+          "source_name": "Texas Governor approves bill mandating data centers to contribute to costs of interconnection - DCD",
+          "source_domain": "datacenterdynamics.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-10-03T14:20:06.610Z",
+          "valid": true,
+          "evidence_key": "cb7d84565640a705b6c18095",
+          "first_seen_at": "2026-10-03T14:20:06.610Z",
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
+      "evidence": [
+        {
+          "candidate_id": "019e839aede446f7e72f",
+          "query_id": "AI_TIME_TO_POWER:lead:grid_deposit",
+          "phase": "LEAD",
+          "signal": "REAL_POWER_COMMITMENT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "PJM, the grid covering the mid‑Atlantic and Midwest, hosts the nation’s highest concentration of data centers and is already running fast‑track interconnection processes.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://247wallst.com/investing/2026/07/06/3-utility-etfs-to-buy-now-as-ai-data-centers-trigger-a-1970s-scale-power-buildout/",
+          "source_name": "3 Utility ETFs to Buy Now as AI Data Centers Trigger a 1970s-Scale Power Buildout - 24/7 Wall St.",
+          "source_domain": "247wallst.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-10-03T14:20:06.610Z",
+          "valid": true,
+          "evidence_key": "d0f6c79b2bfd2c5be44ff9f4",
+          "first_seen_at": "2026-10-03T14:20:06.610Z",
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "2348d6232a93a615666d",
+          "query_id": "AI_TIME_TO_POWER:lead:grid_deposit",
+          "phase": "LEAD",
+          "signal": "REAL_POWER_COMMITMENT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Across the projects tracked in Texas, the single constraint—time to power, not cost of power—explains most of the design decisions for AI data centers.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.wlanddevelopment.com/market-tracker",
+          "source_name": "Texas AI Data Center & Private Power Market Tracker | W Land",
+          "source_domain": "wlanddevelopment.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-10-03T14:20:06.610Z",
           "valid": true,
           "evidence_key": "376246eff82f1184c42b228d",
           "first_seen_at": "2026-09-22T00:08:14.338Z",
-          "last_seen_at": "2026-10-02T12:38:30.966Z",
-          "memory_weight": 0.8006,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 23.1
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "9406e7ad7e9cc763b3df",
+          "query_id": "AI_TIME_TO_POWER:lead:grid_deposit",
+          "phase": "LEAD",
+          "signal": "REAL_POWER_COMMITMENT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Texas Governor Greg Abbott signed a bill mandating data centers to contribute to interconnection costs when using the state’s electricity grid.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.datacenterdynamics.com/en/news/texas-governor-approves-bill-mandating-data-centers-to-contribute-to-costs-of-interconnection",
+          "source_name": "Texas Governor approves bill mandating data centers to contribute to costs of interconnection - DCD",
+          "source_domain": "datacenterdynamics.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-10-03T14:20:06.610Z",
+          "valid": true,
+          "evidence_key": "cb7d84565640a705b6c18095",
+          "first_seen_at": "2026-10-01T13:11:03.662Z",
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
         },
         {
           "candidate_id": "6d8dd0f8cb3514708dbe",
@@ -9343,9 +9356,9 @@
           "evidence_key": "09de4d47b6b6a109d1af203a",
           "first_seen_at": "2026-09-19T04:36:32.991Z",
           "last_seen_at": "2026-10-02T00:55:22.571Z",
-          "memory_weight": 0.7152,
+          "memory_weight": 0.697,
           "memory_status": "CARRIED",
-          "memory_age_hours": 34.82
+          "memory_age_hours": 37.49
         },
         {
           "candidate_id": "7e24959801ff776faf29",
@@ -9371,9 +9384,9 @@
           "evidence_key": "bb8542c0d3ea06a2f5f33886",
           "first_seen_at": "2026-09-27T05:17:58.748Z",
           "last_seen_at": "2026-10-02T00:55:22.571Z",
-          "memory_weight": 0.7152,
+          "memory_weight": 0.697,
           "memory_status": "CARRIED",
-          "memory_age_hours": 34.82
+          "memory_age_hours": 37.49
         },
         {
           "candidate_id": "e7d3b382033b1edb278c",
@@ -9399,9 +9412,9 @@
           "evidence_key": "cb104be47273b788770a6f9f",
           "first_seen_at": "2026-09-26T13:46:21.276Z",
           "last_seen_at": "2026-10-02T00:55:22.571Z",
-          "memory_weight": 0.7152,
+          "memory_weight": 0.697,
           "memory_status": "CARRIED",
-          "memory_age_hours": 34.82
+          "memory_age_hours": 37.49
         },
         {
           "candidate_id": "01e125e828168dee81c1",
@@ -9427,37 +9440,9 @@
           "evidence_key": "5d44bc4a1d85201baaf38ad0",
           "first_seen_at": "2026-10-02T00:48:52.998Z",
           "last_seen_at": "2026-10-02T00:55:22.571Z",
-          "memory_weight": 0.7152,
+          "memory_weight": 0.697,
           "memory_status": "CARRIED",
-          "memory_age_hours": 34.82
-        },
-        {
-          "candidate_id": "f54238f5d6791e589640",
-          "query_id": "AI_TIME_TO_POWER:lead:grid_deposit",
-          "phase": "LEAD",
-          "signal": "REAL_POWER_COMMITMENT",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Texas Governor Greg Abbott signed a bill mandating data centers to contribute to interconnection costs when using the state's electricity grid.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://www.datacenterdynamics.com/en/news/texas-governor-approves-bill-mandating-data-centers-to-contribute-to-costs-of-interconnection/",
-          "source_name": "Texas Governor approves bill mandating data centers to contribute to costs of interconnection - DCD",
-          "source_domain": "datacenterdynamics.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-10-01T13:11:03.662Z",
-          "valid": true,
-          "evidence_key": "cb7d84565640a705b6c18095",
-          "first_seen_at": "2026-10-01T13:11:03.662Z",
-          "last_seen_at": "2026-10-01T13:17:06.169Z",
-          "memory_weight": 0.6394,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 46.46
+          "memory_age_hours": 37.49
         },
         {
           "candidate_id": "ee186a0053da115383ba",
@@ -9483,9 +9468,9 @@
           "evidence_key": "5a088a865418faf3036c17f3",
           "first_seen_at": "2026-10-01T13:11:03.662Z",
           "last_seen_at": "2026-10-01T13:17:06.169Z",
-          "memory_weight": 0.6394,
+          "memory_weight": 0.6231,
           "memory_status": "CARRIED",
-          "memory_age_hours": 46.46
+          "memory_age_hours": 49.13
         },
         {
           "candidate_id": "e4eb0656b5c14301e931",
@@ -9511,9 +9496,9 @@
           "evidence_key": "45d2b32a74d24395000f63c2",
           "first_seen_at": "2026-09-30T05:31:14.241Z",
           "last_seen_at": "2026-10-01T13:17:06.169Z",
-          "memory_weight": 0.6394,
+          "memory_weight": 0.6231,
           "memory_status": "CARRIED",
-          "memory_age_hours": 46.46
+          "memory_age_hours": 49.13
         },
         {
           "candidate_id": "004b7aac0a435c5f643d",
@@ -9539,9 +9524,9 @@
           "evidence_key": "051634486951ed652762eaad",
           "first_seen_at": "2026-10-01T13:11:03.662Z",
           "last_seen_at": "2026-10-01T13:17:06.169Z",
-          "memory_weight": 0.6394,
+          "memory_weight": 0.6231,
           "memory_status": "CARRIED",
-          "memory_age_hours": 46.46
+          "memory_age_hours": 49.13
         },
         {
           "candidate_id": "4500d98eceecbe4a8719",
@@ -9567,9 +9552,9 @@
           "evidence_key": "f00e519002885f4628ca6698",
           "first_seen_at": "2026-10-01T10:09:15.565Z",
           "last_seen_at": "2026-10-01T10:15:06.824Z",
-          "memory_weight": 0.621,
+          "memory_weight": 0.6052,
           "memory_status": "CARRIED",
-          "memory_age_hours": 49.49
+          "memory_age_hours": 52.16
         },
         {
           "candidate_id": "9dd9b403be59c2102e58",
@@ -9595,9 +9580,9 @@
           "evidence_key": "1ee6f4a31b61b6b523db1bd6",
           "first_seen_at": "2026-10-01T10:09:10.385Z",
           "last_seen_at": "2026-10-01T10:15:06.824Z",
-          "memory_weight": 0.621,
+          "memory_weight": 0.6052,
           "memory_status": "CARRIED",
-          "memory_age_hours": 49.49
+          "memory_age_hours": 52.16
         },
         {
           "candidate_id": "1b46c1adbb84fe0be48c",
@@ -9623,9 +9608,9 @@
           "evidence_key": "86f382c245d7486663294364",
           "first_seen_at": "2026-09-30T05:31:14.241Z",
           "last_seen_at": "2026-09-30T05:39:03.246Z",
-          "memory_weight": 0.4715,
+          "memory_weight": 0.4595,
           "memory_status": "CARRIED",
-          "memory_age_hours": 78.09
+          "memory_age_hours": 80.76
         },
         {
           "candidate_id": "b2ffcc020b9ad1d07a6b",
@@ -9651,9 +9636,9 @@
           "evidence_key": "7e6ca52bceb2b6fc99687e57",
           "first_seen_at": "2026-09-30T05:31:14.241Z",
           "last_seen_at": "2026-09-30T05:39:03.246Z",
-          "memory_weight": 0.4715,
+          "memory_weight": 0.4595,
           "memory_status": "CARRIED",
-          "memory_age_hours": 78.09
+          "memory_age_hours": 80.76
         },
         {
           "candidate_id": "1ca01e05e30cdf07aa71",
@@ -9679,9 +9664,9 @@
           "evidence_key": "43e8ce5a8492af8aabfd5b7b",
           "first_seen_at": "2026-09-28T09:47:21.138Z",
           "last_seen_at": "2026-09-29T12:57:23.587Z",
-          "memory_weight": 0.4015,
+          "memory_weight": 0.3913,
           "memory_status": "CARRIED",
-          "memory_age_hours": 94.78
+          "memory_age_hours": 97.46
         },
         {
           "candidate_id": "5b4d0375424623e0a0f7",
@@ -9707,9 +9692,9 @@
           "evidence_key": "77c3bb3a2356ce59e2ee39e7",
           "first_seen_at": "2026-09-29T01:01:40.349Z",
           "last_seen_at": "2026-09-29T12:57:23.587Z",
-          "memory_weight": 0.4015,
+          "memory_weight": 0.3913,
           "memory_status": "CARRIED",
-          "memory_age_hours": 94.78
+          "memory_age_hours": 97.46
         },
         {
           "candidate_id": "242b927de7fb3319bd2c",
@@ -9735,9 +9720,9 @@
           "evidence_key": "de9748c57a26b9e0ac428197",
           "first_seen_at": "2026-09-29T01:01:40.349Z",
           "last_seen_at": "2026-09-29T01:11:27.259Z",
-          "memory_weight": 0.3585,
+          "memory_weight": 0.3494,
           "memory_status": "CARRIED",
-          "memory_age_hours": 106.55
+          "memory_age_hours": 109.22
         },
         {
           "candidate_id": "5cfe6aae0d5ad3debf3c",
@@ -9763,9 +9748,9 @@
           "evidence_key": "a89b253ad5b6f6c60df195d0",
           "first_seen_at": "2026-09-29T01:01:40.349Z",
           "last_seen_at": "2026-09-29T01:11:27.259Z",
-          "memory_weight": 0.3585,
+          "memory_weight": 0.3494,
           "memory_status": "CARRIED",
-          "memory_age_hours": 106.55
+          "memory_age_hours": 109.22
         },
         {
           "candidate_id": "320a2df0faa52183cb28",
@@ -9791,9 +9776,9 @@
           "evidence_key": "9298dedd16f7b925427402bb",
           "first_seen_at": "2026-09-26T04:56:38.409Z",
           "last_seen_at": "2026-09-28T13:59:56.729Z",
-          "memory_weight": 0.3219,
+          "memory_weight": 0.3137,
           "memory_status": "CARRIED",
-          "memory_age_hours": 117.74
+          "memory_age_hours": 120.42
         },
         {
           "candidate_id": "9abc6fd15ac41a714888",
@@ -9819,9 +9804,9 @@
           "evidence_key": "9c4a8ebd49a14070915439b9",
           "first_seen_at": "2026-09-27T12:01:18.340Z",
           "last_seen_at": "2026-09-28T13:59:56.729Z",
-          "memory_weight": 0.3219,
+          "memory_weight": 0.3137,
           "memory_status": "CARRIED",
-          "memory_age_hours": 117.74
+          "memory_age_hours": 120.42
         }
       ],
       "verified": [],
@@ -9830,20 +9815,84 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [],
+      "events": [
+        {
+          "id": "0d51b79ee9f725751ca90a",
+          "mechanism_id": "AI_TIME_TO_POWER",
+          "run_id": "run_2026-10-03T14-18-55Z",
+          "phase": "LEAD",
+          "signal": "REAL_POWER_COMMITMENT",
+          "claim": "PJM, the grid covering the mid‑Atlantic and Midwest, hosts the nation’s highest concentration of data centers and is already running fast‑track interconnection processes.",
+          "observed_at": null,
+          "ingested_at": "2026-10-03T14:24:52.720Z",
+          "source_count": 1,
+          "domains": [
+            "247wallst.com"
+          ],
+          "source_urls": [
+            "https://247wallst.com/investing/2026/07/06/3-utility-etfs-to-buy-now-as-ai-data-centers-trigger-a-1970s-scale-power-buildout/"
+          ],
+          "official": false,
+          "representative_source": "3 Utility ETFs to Buy Now as AI Data Centers Trigger a 1970s-Scale Power Buildout - 24/7 Wall St.",
+          "representative_url": "https://247wallst.com/investing/2026/07/06/3-utility-etfs-to-buy-now-as-ai-data-centers-trigger-a-1970s-scale-power-buildout/",
+          "source_grade": 0.62
+        },
+        {
+          "id": "7600b44e6383c18c3c34a8",
+          "mechanism_id": "AI_TIME_TO_POWER",
+          "run_id": "run_2026-10-03T14-18-55Z",
+          "phase": "LEAD",
+          "signal": "REAL_POWER_COMMITMENT",
+          "claim": "Across the projects tracked in Texas, the single constraint—time to power, not cost of power—explains most of the design decisions for AI data centers.",
+          "observed_at": null,
+          "ingested_at": "2026-10-03T14:24:52.720Z",
+          "source_count": 1,
+          "domains": [
+            "wlanddevelopment.com"
+          ],
+          "source_urls": [
+            "https://www.wlanddevelopment.com/market-tracker"
+          ],
+          "official": false,
+          "representative_source": "Texas AI Data Center & Private Power Market Tracker | W Land",
+          "representative_url": "https://www.wlanddevelopment.com/market-tracker",
+          "source_grade": 0.62
+        },
+        {
+          "id": "0e34a0d67c0008189a4a96",
+          "mechanism_id": "AI_TIME_TO_POWER",
+          "run_id": "run_2026-10-03T14-18-55Z",
+          "phase": "LEAD",
+          "signal": "REAL_POWER_COMMITMENT",
+          "claim": "Texas Governor Greg Abbott signed a bill mandating data centers to contribute to interconnection costs when using the state’s electricity grid.",
+          "observed_at": null,
+          "ingested_at": "2026-10-03T14:24:52.720Z",
+          "source_count": 1,
+          "domains": [
+            "datacenterdynamics.com"
+          ],
+          "source_urls": [
+            "https://www.datacenterdynamics.com/en/news/texas-governor-approves-bill-mandating-data-centers-to-contribute-to-costs-of-interconnection"
+          ],
+          "official": false,
+          "representative_source": "Texas Governor approves bill mandating data centers to contribute to costs of interconnection - DCD",
+          "representative_url": "https://www.datacenterdynamics.com/en/news/texas-governor-approves-bill-mandating-data-centers-to-contribute-to-costs-of-interconnection",
+          "source_grade": 0.62
+        }
+      ],
       "event_stats": {
-        "observed_unique": 0,
+        "observed_unique": 3,
         "observed_duplicates": 0,
-        "memory_unique": 17,
-        "memory_duplicates": 2
+        "memory_unique": 19,
+        "memory_duplicates": 1
       },
       "memory": {
-        "observed_items": 0,
-        "carried_items": 19,
-        "avg_carry_weight": 0.556,
-        "observed_score": 0,
+        "observed_items": 3,
+        "carried_items": 17,
+        "avg_carry_weight": 0.523,
+        "observed_score": 27,
         "raw_combined_score": 62,
-        "decayed_score": 34
+        "decayed_score": 45
       },
       "expected_next": [],
       "invalidation": [],
@@ -9879,7 +9928,7 @@
         "consensus_delta": 0,
         "priced_in": 17.9,
         "discount": "UNPRICED",
-        "timing_score": 57.6,
+        "timing_score": 62.6,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -9898,7 +9947,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 58.4,
+        "score": 63.9,
         "reasons": [
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK"
@@ -9908,7 +9957,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 52,
+        "score": 55.8,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -9931,9 +9980,9 @@
         "lead_to_confirm": 0
       },
       "hysteresis": {
-        "raw_state": "WATCH",
+        "raw_state": "ARMING",
         "pending": null,
-        "reason": "STABLE",
+        "reason": "DIRECT_NONCRITICAL_TRANSITION",
         "applied": false
       },
       "sensors": {
@@ -9945,11 +9994,12 @@
           "federalregister.gov",
           "reuters.com",
           "news.market.us",
+          "247wallst.com",
           "wlanddevelopment.com",
+          "datacenterdynamics.com",
           "enr.com",
           "thehill.com",
           "elpasomatters.org",
-          "datacenterdynamics.com",
           "lppc.org",
           "reutersevents.com",
           "thetexasdispatch.com",
@@ -9958,8 +10008,8 @@
           "galaxy.com",
           "computelaw.blog"
         ],
-        "events": 17,
-        "duplicates_removed": 2
+        "events": 19,
+        "duplicates_removed": 1
       },
       "positive": [
         "POWL",
@@ -9969,27 +10019,27 @@
         "PWR"
       ],
       "negative": [],
-      "last_run": "2026-10-03T11:44:25.562Z",
+      "last_run": "2026-10-03T14:24:52.720Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 319,
-        "completion_tokens": 282,
-        "total_tokens": 601,
-        "cost": 0.00005123,
+        "prompt_tokens": 1900,
+        "completion_tokens": 1300,
+        "total_tokens": 3200,
+        "cost": 0.000168,
         "is_byok": false,
         "prompt_tokens_details": {
-          "cached_tokens": 64,
+          "cached_tokens": 0,
           "cache_write_tokens": 0,
           "audio_tokens": 0,
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00005123,
-          "upstream_inference_prompt_cost": 0.00000893,
-          "upstream_inference_completions_cost": 0.0000423
+          "upstream_inference_cost": 0.000168,
+          "upstream_inference_prompt_cost": 0.000038,
+          "upstream_inference_completions_cost": 0.00013
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 255,
+          "reasoning_tokens": 1111,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -10011,7 +10061,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -10030,7 +10080,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -10049,7 +10099,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 10
             }
           }
@@ -10571,7 +10621,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "BEHIND_METER_AI_POWER": {
       "id": "BEHIND_METER_AI_POWER",
@@ -11447,7 +11497,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "ROBOTICS_ACTUATOR_SCALE": {
       "id": "ROBOTICS_ACTUATOR_SCALE",
@@ -11804,7 +11854,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "ROBOTICS_DECOUPLING": {
       "id": "ROBOTICS_DECOUPLING",
@@ -12336,7 +12386,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "JAPAN_CARRY_UNWIND": {
       "id": "JAPAN_CARRY_UNWIND",
@@ -12344,41 +12394,12 @@
       "tier": "A",
       "state": "ARMING",
       "raw_state": "ARMING",
-      "score": 50,
+      "score": 49,
       "previous_state": "ARMING",
-      "score_delta": 0,
-      "summary": "Atomic claims extracted from the provided candidates that relate to the Japan carry unwind mechanism, including evidence of yen strength, BoJ policy tightening, and JGB yield movements.",
+      "score_delta": -1,
+      "summary": "Repair syntax and normalize field names only. Do not introduce new claims.",
       "material_change": false,
-      "observed_evidence": [
-        {
-          "candidate_id": "3feae00e9bf8e1c6354f",
-          "query_id": "JAPAN_CARRY_UNWIND:lead:boj_signal",
-          "phase": "LEAD",
-          "signal": "BOJ_TIGHTENING",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "USD/JPY traded at 158.33, up 0.6%, after the Bank of Japan Summary of Opinions cut bets on an October rate hike.",
-          "direction": "UP",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "Indicates yen strengthening.",
-          "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOV2lTUzVEd0NWSkZqMFVUWkhTNXJqS0stSDNEV1h6Nkc0N3c5MHFWbEJoY2VhUDlxZUdLZ013RHRsU1hEWi16bkZWdG5qNTlQVEZxQ042eV9GalJLSUk5OEl3U0lBY3JNdHVXU3l2UVUyeTlGdDQ2aGd6ZmdMTXR0REtRaUVRT21k?oc=5",
-          "source_name": "TradingNEWS",
-          "source_domain": "tradingnews.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-10-01T20:13:18.000Z",
-          "retrieved_at": "2026-10-03T11:38:26.956Z",
-          "valid": true,
-          "evidence_key": "ba184c3611db9c18c6c9aa92",
-          "first_seen_at": "2026-10-03T11:38:26.956Z",
-          "last_seen_at": "2026-10-03T11:44:25.562Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
+      "observed_evidence": [],
       "evidence": [
         {
           "candidate_id": "3feae00e9bf8e1c6354f",
@@ -12404,9 +12425,9 @@
           "evidence_key": "ba184c3611db9c18c6c9aa92",
           "first_seen_at": "2026-10-03T09:12:42.293Z",
           "last_seen_at": "2026-10-03T11:44:25.562Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
+          "memory_weight": 0.9746,
+          "memory_status": "CARRIED",
+          "memory_age_hours": 2.67
         },
         {
           "candidate_id": "98dabe4a2c5992791dd5",
@@ -12432,9 +12453,9 @@
           "evidence_key": "14d5b4f5253a3a6d60619bdc",
           "first_seen_at": "2026-10-01T05:50:15.460Z",
           "last_seen_at": "2026-10-03T00:39:45.093Z",
-          "memory_weight": 0.8988,
+          "memory_weight": 0.876,
           "memory_status": "CARRIED",
-          "memory_age_hours": 11.08
+          "memory_age_hours": 13.75
         },
         {
           "candidate_id": "c1a384625123fabf0289",
@@ -12460,9 +12481,9 @@
           "evidence_key": "01e971e98959c94eec577b25",
           "first_seen_at": "2026-09-30T05:31:09.004Z",
           "last_seen_at": "2026-09-30T05:39:03.246Z",
-          "memory_weight": 0.7246,
+          "memory_weight": 0.7166,
           "memory_status": "CARRIED",
-          "memory_age_hours": 78.09
+          "memory_age_hours": 80.76
         },
         {
           "candidate_id": "f474411b204e0b2b52c9",
@@ -12488,9 +12509,9 @@
           "evidence_key": "4b7b6fa4dda761d5d8debb58",
           "first_seen_at": "2026-09-30T05:31:09.004Z",
           "last_seen_at": "2026-09-30T05:39:03.246Z",
-          "memory_weight": 0.7246,
+          "memory_weight": 0.7166,
           "memory_status": "CARRIED",
-          "memory_age_hours": 78.09
+          "memory_age_hours": 80.76
         },
         {
           "candidate_id": "da227302689322cb0e7c",
@@ -12516,9 +12537,9 @@
           "evidence_key": "98f316e5f6deda9476b62ffe",
           "first_seen_at": "2026-09-30T05:31:09.004Z",
           "last_seen_at": "2026-09-30T05:39:03.246Z",
-          "memory_weight": 0.7246,
+          "memory_weight": 0.7166,
           "memory_status": "CARRIED",
-          "memory_age_hours": 78.09
+          "memory_age_hours": 80.76
         },
         {
           "candidate_id": "d90142c4356e1bbf0935",
@@ -12544,9 +12565,9 @@
           "evidence_key": "7fa18954117a9fcdc41d14dd",
           "first_seen_at": "2026-10-01T05:50:15.460Z",
           "last_seen_at": "2026-10-01T05:56:09.974Z",
-          "memory_weight": 0.5957,
+          "memory_weight": 0.5806,
           "memory_status": "CARRIED",
-          "memory_age_hours": 53.8
+          "memory_age_hours": 56.48
         },
         {
           "candidate_id": "c49d5328297d0658e735",
@@ -12572,9 +12593,9 @@
           "evidence_key": "0ee3069a47a83bea22f24982",
           "first_seen_at": "2026-09-27T05:17:53.759Z",
           "last_seen_at": "2026-09-27T05:24:29.833Z",
-          "memory_weight": 0.5378,
+          "memory_weight": 0.5319,
           "memory_status": "CARRIED",
-          "memory_age_hours": 150.33
+          "memory_age_hours": 153.01
         },
         {
           "candidate_id": "d99a38b3498337c399ed",
@@ -12600,9 +12621,9 @@
           "evidence_key": "913473ef7126457dded69e21",
           "first_seen_at": "2026-09-27T05:17:53.759Z",
           "last_seen_at": "2026-09-27T05:24:29.833Z",
-          "memory_weight": 0.5378,
+          "memory_weight": 0.5319,
           "memory_status": "CARRIED",
-          "memory_age_hours": 150.33
+          "memory_age_hours": 153.01
         },
         {
           "candidate_id": "e2ba2e11356729aed78c",
@@ -12628,9 +12649,9 @@
           "evidence_key": "731a7a9b6451b92b6a0e120c",
           "first_seen_at": "2026-10-01T13:10:58.738Z",
           "last_seen_at": "2026-10-02T00:55:22.571Z",
-          "memory_weight": 0.5115,
+          "memory_weight": 0.4858,
           "memory_status": "CARRIED",
-          "memory_age_hours": 34.82
+          "memory_age_hours": 37.49
         },
         {
           "candidate_id": "2324282fd97b8144b738",
@@ -12656,9 +12677,9 @@
           "evidence_key": "ff51ab76883a999bdedc5b0f",
           "first_seen_at": "2026-09-28T21:15:18.597Z",
           "last_seen_at": "2026-09-30T05:39:03.246Z",
-          "memory_weight": 0.4715,
+          "memory_weight": 0.4595,
           "memory_status": "CARRIED",
-          "memory_age_hours": 78.09
+          "memory_age_hours": 80.76
         },
         {
           "candidate_id": "62ce40e2d6de115228f8",
@@ -12684,37 +12705,9 @@
           "evidence_key": "b34de61abe57eede2469d899",
           "first_seen_at": "2026-09-29T05:42:51.694Z",
           "last_seen_at": "2026-09-29T09:59:36.641Z",
-          "memory_weight": 0.3902,
+          "memory_weight": 0.3803,
           "memory_status": "CARRIED",
-          "memory_age_hours": 97.75
-        },
-        {
-          "candidate_id": "1dbf9ecf6a73b9f4fde8",
-          "query_id": "JAPAN_CARRY_UNWIND:lead:boj_signal",
-          "phase": "LEAD",
-          "signal": "BOJ_TIGHTENING",
-          "family": "PHYSICAL",
-          "fact_type": "FACT",
-          "claim": "Bank of Japan raised rates on 18 Sep 2026, issuing mixed signals about future moves.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://www.japantimes.co.jp/tag/boj/",
-          "source_name": " Tag - The Japan Times ",
-          "source_domain": "japantimes.co.jp",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "openrouter_web_fallback",
-          "published_at": null,
-          "retrieved_at": "2026-09-27T12:01:18.340Z",
-          "valid": true,
-          "evidence_key": "ea9a0fddced4a9a0206eae2e",
-          "first_seen_at": "2026-09-27T12:01:18.340Z",
-          "last_seen_at": "2026-09-27T12:08:20.488Z",
-          "memory_weight": 0.251,
-          "memory_status": "CARRIED",
-          "memory_age_hours": 143.6
+          "memory_age_hours": 100.42
         }
       ],
       "verified": [],
@@ -12723,42 +12716,20 @@
         "summary": "",
         "next_check": ""
       },
-      "events": [
-        {
-          "id": "6bee05257896b55cac8fab",
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "run_id": "run_2026-10-03T11-37-12Z",
-          "phase": "LEAD",
-          "signal": "BOJ_TIGHTENING",
-          "claim": "USD/JPY traded at 158.33, up 0.6%, after the Bank of Japan Summary of Opinions cut bets on an October rate hike.",
-          "observed_at": "2026-10-01T20:13:18.000Z",
-          "ingested_at": "2026-10-03T11:44:25.562Z",
-          "source_count": 1,
-          "domains": [
-            "tradingnews.com"
-          ],
-          "source_urls": [
-            "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOV2lTUzVEd0NWSkZqMFVUWkhTNXJqS0stSDNEV1h6Nkc0N3c5MHFWbEJoY2VhUDlxZUdLZ013RHRsU1hEWi16bkZWdG5qNTlQVEZxQ042eV9GalJLSUk5OEl3U0lBY3JNdHVXU3l2UVUyeTlGdDQ2aGd6ZmdMTXR0REtRaUVRT21k?oc=5"
-          ],
-          "official": false,
-          "representative_source": "TradingNEWS",
-          "representative_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOV2lTUzVEd0NWSkZqMFVUWkhTNXJqS0stSDNEV1h6Nkc0N3c5MHFWbEJoY2VhUDlxZUdLZ013RHRsU1hEWi16bkZWdG5qNTlQVEZxQ042eV9GalJLSUk5OEl3U0lBY3JNdHVXU3l2UVUyeTlGdDQ2aGd6ZmdMTXR0REtRaUVRT21k?oc=5",
-          "source_grade": 0.62
-        }
-      ],
+      "events": [],
       "event_stats": {
-        "observed_unique": 1,
+        "observed_unique": 0,
         "observed_duplicates": 0,
-        "memory_unique": 11,
+        "memory_unique": 10,
         "memory_duplicates": 0
       },
       "memory": {
-        "observed_items": 1,
+        "observed_items": 0,
         "carried_items": 11,
-        "avg_carry_weight": 0.579,
-        "observed_score": 12,
+        "avg_carry_weight": 0.634,
+        "observed_score": 0,
         "raw_combined_score": 77,
-        "decayed_score": 50
+        "decayed_score": 49
       },
       "expected_next": [],
       "invalidation": [],
@@ -12794,7 +12765,7 @@
         "consensus_delta": 0,
         "priced_in": 13.9,
         "discount": "UNPRICED",
-        "timing_score": 59.8,
+        "timing_score": 59.4,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -12813,7 +12784,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 61.2,
+        "score": 60.7,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -12822,7 +12793,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 52.5,
+        "score": 52.2,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -12864,10 +12835,9 @@
           "m.economictimes.com",
           "businessupturn.com",
           "breakingthenews.net",
-          "cryptorank.io",
-          "japantimes.co.jp"
+          "cryptorank.io"
         ],
-        "events": 11,
+        "events": 10,
         "duplicates_removed": 0
       },
       "positive": [
@@ -12877,13 +12847,13 @@
       "negative": [
         "TLT"
       ],
-      "last_run": "2026-10-03T11:44:25.562Z",
+      "last_run": "2026-10-03T14:24:52.720Z",
       "model": "openai/gpt-oss-120b",
       "usage": {
-        "prompt_tokens": 2313,
-        "completion_tokens": 1300,
-        "total_tokens": 3613,
-        "cost": 0.00046,
+        "prompt_tokens": 306,
+        "completion_tokens": 344,
+        "total_tokens": 650,
+        "cost": 0.000069802,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -12892,12 +12862,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00046,
-          "upstream_inference_prompt_cost": 0.00010372759080126088,
-          "upstream_inference_completions_cost": 0.0003562724091987391
+          "upstream_inference_cost": 0.000069802,
+          "upstream_inference_prompt_cost": 0.000011322,
+          "upstream_inference_completions_cost": 0.00005848
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 992,
+          "reasoning_tokens": 362,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -12919,7 +12889,7 @@
             "google_news": {
               "ok": true,
               "count": 1,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -12938,7 +12908,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -12957,7 +12927,7 @@
             "google_news": {
               "ok": true,
               "count": 1,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 10
             }
           }
@@ -12970,126 +12940,12 @@
       "tier": "A",
       "state": "ARMING",
       "raw_state": "ARMING",
-      "score": 54,
+      "score": 64,
       "previous_state": "ARMING",
-      "score_delta": -10,
-      "summary": "Extracted atomic claims supporting evidence of credit market stress and bond‑market volatility, but no direct evidence linking bond volatility to corporate cash flow or credit quality transmission.",
+      "score_delta": 10,
+      "summary": "ECB policy signals tightening credit conditions in the euro area, while high‑yield bond markets have entered distressed territory with funds taking bankruptcy bets, indicating deteriorating credit quality and increased bond‑market volatility.",
       "material_change": true,
       "observed_evidence": [
-        {
-          "candidate_id": "23ce52d2e5963f4be633",
-          "query_id": "GLOBAL_REFINANCING_STRESS:confirm:spreads",
-          "phase": "CONFIRM",
-          "signal": "CREDIT_MARKET_STRESS",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "High‑yield bonds are now holding bankruptcy bets.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOMVdrQ19zYXA3X1ZfWXRSVFNXLVNKaGxjRFhKalJ5Yjl6M1AtNUIzLVh3c3lOOV8xdWI3M1hBcU9wTjBsZFNiaWdOT3gwYlNZd2Nad0NTc2hrd0N5T1RfaUg5TVVuS3FpNW1ueU4yenBVb1d0Ym5vX3Vvak82czdSTzVQb1E3NDlXUjBBeE45aGlPMk5YVzdBRm9YZXhwVmZaUVRCZDJFUDZVOElrNVVtSS10UVpCZ05wdldVbW1fWjhlSXhlSFA1b0VrZU01eTQ?oc=5",
-          "source_name": "Tech Times",
-          "source_domain": "techtimes.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-10-01T18:05:20.000Z",
-          "retrieved_at": "2026-10-03T11:38:28.354Z",
-          "valid": true,
-          "evidence_key": "bc837eb0344ca48d14db2fb2",
-          "first_seen_at": "2026-10-03T11:38:28.354Z",
-          "last_seen_at": "2026-10-03T11:44:25.562Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "85e71b8fc001dd7b0723",
-          "query_id": "GLOBAL_REFINANCING_STRESS:confirm:spreads",
-          "phase": "CONFIRM",
-          "signal": "CREDIT_MARKET_STRESS",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "Bonds are setting the speed limit.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPN3c0N0Fjc18xT0pjUnAtNnhkVEN4S05FRjEteDNLakJ5ck02Um9ZTU5iYktVTXljcUc2c2k5S1BvbVQxajhCejJFcXNYSlB0aEcwblVJd3dUdTNJQlBqX2tHM2VGbHAxMFk5MmhVcjUyTFU0bzF3cUNnaVBCZTY2UVNB?oc=5",
-          "source_name": "The Dark Side Of The Boom",
-          "source_domain": "thedarksideoftheboom.substack.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-10-02T21:38:04.000Z",
-          "retrieved_at": "2026-10-03T11:38:28.354Z",
-          "valid": true,
-          "evidence_key": "4ba097c368c6d5c0e8e06670",
-          "first_seen_at": "2026-10-03T11:38:28.354Z",
-          "last_seen_at": "2026-10-03T11:44:25.562Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        }
-      ],
-      "evidence": [
-        {
-          "candidate_id": "23ce52d2e5963f4be633",
-          "query_id": "GLOBAL_REFINANCING_STRESS:confirm:spreads",
-          "phase": "CONFIRM",
-          "signal": "CREDIT_MARKET_STRESS",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "High‑yield bonds are now holding bankruptcy bets.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOMVdrQ19zYXA3X1ZfWXRSVFNXLVNKaGxjRFhKalJ5Yjl6M1AtNUIzLVh3c3lOOV8xdWI3M1hBcU9wTjBsZFNiaWdOT3gwYlNZd2Nad0NTc2hrd0N5T1RfaUg5TVVuS3FpNW1ueU4yenBVb1d0Ym5vX3Vvak82czdSTzVQb1E3NDlXUjBBeE45aGlPMk5YVzdBRm9YZXhwVmZaUVRCZDJFUDZVOElrNVVtSS10UVpCZ05wdldVbW1fWjhlSXhlSFA1b0VrZU01eTQ?oc=5",
-          "source_name": "Tech Times",
-          "source_domain": "techtimes.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-10-01T18:05:20.000Z",
-          "retrieved_at": "2026-10-03T11:38:28.354Z",
-          "valid": true,
-          "evidence_key": "bc837eb0344ca48d14db2fb2",
-          "first_seen_at": "2026-10-03T00:31:27.689Z",
-          "last_seen_at": "2026-10-03T11:44:25.562Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
-        {
-          "candidate_id": "85e71b8fc001dd7b0723",
-          "query_id": "GLOBAL_REFINANCING_STRESS:confirm:spreads",
-          "phase": "CONFIRM",
-          "signal": "CREDIT_MARKET_STRESS",
-          "family": "PRICE",
-          "fact_type": "FACT",
-          "claim": "Bonds are setting the speed limit.",
-          "direction": "UNKNOWN",
-          "relevance": 1,
-          "contradiction": false,
-          "why_upstream": "",
-          "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPN3c0N0Fjc18xT0pjUnAtNnhkVEN4S05FRjEteDNLakJ5ck02Um9ZTU5iYktVTXljcUc2c2k5S1BvbVQxajhCejJFcXNYSlB0aEcwblVJd3dUdTNJQlBqX2tHM2VGbHAxMFk5MmhVcjUyTFU0bzF3cUNnaVBCZTY2UVNB?oc=5",
-          "source_name": "The Dark Side Of The Boom",
-          "source_domain": "thedarksideoftheboom.substack.com",
-          "source_grade": 0.62,
-          "official": false,
-          "engine": "google_news",
-          "published_at": "2026-10-02T21:38:04.000Z",
-          "retrieved_at": "2026-10-03T11:38:28.354Z",
-          "valid": true,
-          "evidence_key": "4ba097c368c6d5c0e8e06670",
-          "first_seen_at": "2026-10-03T00:31:27.689Z",
-          "last_seen_at": "2026-10-03T11:44:25.562Z",
-          "memory_weight": 1,
-          "memory_status": "OBSERVED",
-          "memory_age_hours": 0
-        },
         {
           "candidate_id": "2f92595be79983d55e4b",
           "query_id": "OFFICIAL:ECB_PRESS:GLOBAL_REFINANCING_STRESS:EURO_CREDIT_CONDITIONS",
@@ -13097,11 +12953,11 @@
           "signal": "EURO_CREDIT_CONDITIONS",
           "family": "OFFICIAL",
           "fact_type": "FACT",
-          "claim": "ECB Governor Isabel Schnabel said monetary policy is operating amid overlapping shocks, indicating tightening euro credit conditions.",
-          "direction": "UP",
+          "claim": "ECB signals tightening credit conditions in the euro area.",
+          "direction": "UNKNOWN",
           "relevance": 1,
           "contradiction": false,
-          "why_upstream": "LEAD signal – EURO_CREDIT_CONDITIONS from an official ECB source.",
+          "why_upstream": "ECB press release notes tightening credit conditions amid overlapping shocks.",
           "source_url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260930_1~7c6c120482.en.html",
           "source_name": "European Central Bank news",
           "source_domain": "ecb.europa.eu",
@@ -13109,14 +12965,128 @@
           "official": true,
           "engine": "official_rss",
           "published_at": "2026-09-30T15:45:00.000Z",
-          "retrieved_at": "2026-10-03T09:13:09.865Z",
+          "retrieved_at": "2026-10-03T14:20:04.171Z",
+          "valid": true,
+          "evidence_key": "6d1bc8a0be4e2a1470e62364",
+          "first_seen_at": "2026-10-03T14:20:04.171Z",
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "23ce52d2e5963f4be633",
+          "query_id": "GLOBAL_REFINANCING_STRESS:confirm:spreads",
+          "phase": "CONFIRM",
+          "signal": "CREDIT_MARKET_STRESS",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "High‑yield bond market has entered distressed territory, with funds holding bankruptcy bets.",
+          "direction": "DOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Tech Times article reports high‑yield funds now hold bankruptcy bets, indicating credit quality deterioration.",
+          "source_url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOMVdrQ19zYXA3X1ZfWXRSVFNXLVNKaGxjRFhKalJ5Yjl6M1AtNUIzLVh3c3lOOV8xdWI3M1hBcU9wTjBsZFNiaWdOT3gwYlNZd2Nad0NTc2hrd0N5T1RfaUg5TVVuS3FpNW1ueU4yenBVb1d0Ym5vX3Vvak82czdSTzVQb1E3NDlXUjBBeE45aGlPMk5YVzdBRm9YZXhwVmZaUVRCZDJFUDZVOElrNVVtSS10UVpCZ05wdldVbW1fWjhlSXhlSFA1b0VrZU01eTQ?oc=5",
+          "source_name": "Tech Times",
+          "source_domain": "techtimes.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-10-01T18:05:20.000Z",
+          "retrieved_at": "2026-10-03T14:20:02.732Z",
+          "valid": true,
+          "evidence_key": "bc837eb0344ca48d14db2fb2",
+          "first_seen_at": "2026-10-03T14:20:02.732Z",
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        }
+      ],
+      "evidence": [
+        {
+          "candidate_id": "2f92595be79983d55e4b",
+          "query_id": "OFFICIAL:ECB_PRESS:GLOBAL_REFINANCING_STRESS:EURO_CREDIT_CONDITIONS",
+          "phase": "LEAD",
+          "signal": "EURO_CREDIT_CONDITIONS",
+          "family": "OFFICIAL",
+          "fact_type": "FACT",
+          "claim": "ECB signals tightening credit conditions in the euro area.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "ECB press release notes tightening credit conditions amid overlapping shocks.",
+          "source_url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260930_1~7c6c120482.en.html",
+          "source_name": "European Central Bank news",
+          "source_domain": "ecb.europa.eu",
+          "source_grade": 1,
+          "official": true,
+          "engine": "official_rss",
+          "published_at": "2026-09-30T15:45:00.000Z",
+          "retrieved_at": "2026-10-03T14:20:04.171Z",
           "valid": true,
           "evidence_key": "6d1bc8a0be4e2a1470e62364",
           "first_seen_at": "2026-10-03T09:13:09.865Z",
-          "last_seen_at": "2026-10-03T09:19:27.799Z",
-          "memory_weight": 0.977,
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "23ce52d2e5963f4be633",
+          "query_id": "GLOBAL_REFINANCING_STRESS:confirm:spreads",
+          "phase": "CONFIRM",
+          "signal": "CREDIT_MARKET_STRESS",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "High‑yield bond market has entered distressed territory, with funds holding bankruptcy bets.",
+          "direction": "DOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Tech Times article reports high‑yield funds now hold bankruptcy bets, indicating credit quality deterioration.",
+          "source_url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOMVdrQ19zYXA3X1ZfWXRSVFNXLVNKaGxjRFhKalJ5Yjl6M1AtNUIzLVh3c3lOOV8xdWI3M1hBcU9wTjBsZFNiaWdOT3gwYlNZd2Nad0NTc2hrd0N5T1RfaUg5TVVuS3FpNW1ueU4yenBVb1d0Ym5vX3Vvak82czdSTzVQb1E3NDlXUjBBeE45aGlPMk5YVzdBRm9YZXhwVmZaUVRCZDJFUDZVOElrNVVtSS10UVpCZ05wdldVbW1fWjhlSXhlSFA1b0VrZU01eTQ?oc=5",
+          "source_name": "Tech Times",
+          "source_domain": "techtimes.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-10-01T18:05:20.000Z",
+          "retrieved_at": "2026-10-03T14:20:02.732Z",
+          "valid": true,
+          "evidence_key": "bc837eb0344ca48d14db2fb2",
+          "first_seen_at": "2026-10-03T00:31:27.689Z",
+          "last_seen_at": "2026-10-03T14:24:52.720Z",
+          "memory_weight": 1,
+          "memory_status": "OBSERVED",
+          "memory_age_hours": 0
+        },
+        {
+          "candidate_id": "85e71b8fc001dd7b0723",
+          "query_id": "GLOBAL_REFINANCING_STRESS:confirm:spreads",
+          "phase": "CONFIRM",
+          "signal": "CREDIT_MARKET_STRESS",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "Bonds are setting the speed limit.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPN3c0N0Fjc18xT0pjUnAtNnhkVEN4S05FRjEteDNLakJ5ck02Um9ZTU5iYktVTXljcUc2c2k5S1BvbVQxajhCejJFcXNYSlB0aEcwblVJd3dUdTNJQlBqX2tHM2VGbHAxMFk5MmhVcjUyTFU0bzF3cUNnaVBCZTY2UVNB?oc=5",
+          "source_name": "The Dark Side Of The Boom",
+          "source_domain": "thedarksideoftheboom.substack.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "2026-10-02T21:38:04.000Z",
+          "retrieved_at": "2026-10-03T11:38:28.354Z",
+          "valid": true,
+          "evidence_key": "4ba097c368c6d5c0e8e06670",
+          "first_seen_at": "2026-10-03T00:31:27.689Z",
+          "last_seen_at": "2026-10-03T11:44:25.562Z",
+          "memory_weight": 0.9498,
           "memory_status": "CARRIED",
-          "memory_age_hours": 2.42
+          "memory_age_hours": 2.67
         },
         {
           "candidate_id": "19624acefd79c2351035",
@@ -13142,9 +13112,9 @@
           "evidence_key": "143a5f77538ec37f75e6997f",
           "first_seen_at": "2026-10-01T00:34:24.416Z",
           "last_seen_at": "2026-10-01T00:43:00.824Z",
-          "memory_weight": 0.5665,
+          "memory_weight": 0.5521,
           "memory_status": "CARRIED",
-          "memory_age_hours": 59.02
+          "memory_age_hours": 61.7
         },
         {
           "candidate_id": "d1965e88957252beb9ad",
@@ -13170,9 +13140,9 @@
           "evidence_key": "55c5464aa3df2bfbbe893770",
           "first_seen_at": "2026-09-29T12:50:48.678Z",
           "last_seen_at": "2026-09-29T12:57:23.587Z",
-          "memory_weight": 0.4015,
+          "memory_weight": 0.3913,
           "memory_status": "CARRIED",
-          "memory_age_hours": 94.78
+          "memory_age_hours": 97.46
         },
         {
           "candidate_id": "43145b13412440ea71f0",
@@ -13198,9 +13168,9 @@
           "evidence_key": "43998579e41c71fa1ef83fd0",
           "first_seen_at": "2026-09-28T21:15:19.493Z",
           "last_seen_at": "2026-09-29T12:57:23.587Z",
-          "memory_weight": 0.4015,
+          "memory_weight": 0.3913,
           "memory_status": "CARRIED",
-          "memory_age_hours": 94.78
+          "memory_age_hours": 97.46
         },
         {
           "candidate_id": "6c11e9bd54f60b806ea7",
@@ -13226,9 +13196,9 @@
           "evidence_key": "a1c3405124df7ca94df65f85",
           "first_seen_at": "2026-09-28T21:15:19.493Z",
           "last_seen_at": "2026-09-29T05:52:34.597Z",
-          "memory_weight": 0.3751,
+          "memory_weight": 0.3655,
           "memory_status": "CARRIED",
-          "memory_age_hours": 101.86
+          "memory_age_hours": 104.54
         }
       ],
       "verified": [],
@@ -13239,35 +13209,35 @@
       },
       "events": [
         {
-          "id": "35a2438c60d02f0863e481",
+          "id": "e11626be9622c4cf770fc3",
           "mechanism_id": "GLOBAL_REFINANCING_STRESS",
-          "run_id": "run_2026-10-03T11-37-12Z",
-          "phase": "CONFIRM",
-          "signal": "CREDIT_MARKET_STRESS",
-          "claim": "Bonds are setting the speed limit.",
-          "observed_at": "2026-10-02T21:38:04.000Z",
-          "ingested_at": "2026-10-03T11:44:25.562Z",
+          "run_id": "run_2026-10-03T14-18-55Z",
+          "phase": "LEAD",
+          "signal": "EURO_CREDIT_CONDITIONS",
+          "claim": "ECB signals tightening credit conditions in the euro area.",
+          "observed_at": "2026-09-30T15:45:00.000Z",
+          "ingested_at": "2026-10-03T14:24:52.720Z",
           "source_count": 1,
           "domains": [
-            "thedarksideoftheboom.substack.com"
+            "ecb.europa.eu"
           ],
           "source_urls": [
-            "https://news.google.com/rss/articles/CBMiggFBVV95cUxPN3c0N0Fjc18xT0pjUnAtNnhkVEN4S05FRjEteDNLakJ5ck02Um9ZTU5iYktVTXljcUc2c2k5S1BvbVQxajhCejJFcXNYSlB0aEcwblVJd3dUdTNJQlBqX2tHM2VGbHAxMFk5MmhVcjUyTFU0bzF3cUNnaVBCZTY2UVNB?oc=5"
+            "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260930_1~7c6c120482.en.html"
           ],
-          "official": false,
-          "representative_source": "The Dark Side Of The Boom",
-          "representative_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPN3c0N0Fjc18xT0pjUnAtNnhkVEN4S05FRjEteDNLakJ5ck02Um9ZTU5iYktVTXljcUc2c2k5S1BvbVQxajhCejJFcXNYSlB0aEcwblVJd3dUdTNJQlBqX2tHM2VGbHAxMFk5MmhVcjUyTFU0bzF3cUNnaVBCZTY2UVNB?oc=5",
-          "source_grade": 0.62
+          "official": true,
+          "representative_source": "European Central Bank news",
+          "representative_url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260930_1~7c6c120482.en.html",
+          "source_grade": 1
         },
         {
-          "id": "9d9cc0131ab8e13b554a48",
+          "id": "23721eab98b22fb62b8fe2",
           "mechanism_id": "GLOBAL_REFINANCING_STRESS",
-          "run_id": "run_2026-10-03T11-37-12Z",
+          "run_id": "run_2026-10-03T14-18-55Z",
           "phase": "CONFIRM",
           "signal": "CREDIT_MARKET_STRESS",
-          "claim": "High‑yield bonds are now holding bankruptcy bets.",
+          "claim": "High‑yield bond market has entered distressed territory, with funds holding bankruptcy bets.",
           "observed_at": "2026-10-01T18:05:20.000Z",
-          "ingested_at": "2026-10-03T11:44:25.562Z",
+          "ingested_at": "2026-10-03T14:24:52.720Z",
           "source_count": 1,
           "domains": [
             "techtimes.com"
@@ -13290,14 +13260,12 @@
       "memory": {
         "observed_items": 2,
         "carried_items": 5,
-        "avg_carry_weight": 0.544,
-        "observed_score": 30,
+        "avg_carry_weight": 0.53,
+        "observed_score": 51,
         "raw_combined_score": 75,
-        "decayed_score": 54
+        "decayed_score": 64
       },
-      "expected_next": [
-        "ARMING"
-      ],
+      "expected_next": [],
       "invalidation": [],
       "market": {
         "score": 79,
@@ -13331,7 +13299,7 @@
         "consensus_delta": 0,
         "priced_in": 38,
         "discount": "PARTLY_PRICED",
-        "timing_score": 67.4,
+        "timing_score": 71.9,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "LOW",
@@ -13350,7 +13318,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 61.8,
+        "score": 66.8,
         "reasons": [
           "WAVE_NOT_EARLY",
           "MARKET_ALREADY_MOVED"
@@ -13360,11 +13328,10 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 61.1,
+        "score": 64.5,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
-          "CAUSAL_TOO_WEAK",
           "TOO_CROWDED"
         ],
         "empirical": {
@@ -13408,13 +13375,13 @@
         "TLT",
         "IWM"
       ],
-      "last_run": "2026-10-03T11:44:25.562Z",
+      "last_run": "2026-10-03T14:24:52.720Z",
       "model": "openai/gpt-oss-20b",
       "usage": {
-        "prompt_tokens": 1766,
-        "completion_tokens": 921,
-        "total_tokens": 2687,
-        "cost": 0.00012742,
+        "prompt_tokens": 2014,
+        "completion_tokens": 780,
+        "total_tokens": 2794,
+        "cost": 0.000106452,
         "is_byok": false,
         "prompt_tokens_details": {
           "cached_tokens": 0,
@@ -13423,12 +13390,12 @@
           "video_tokens": 0
         },
         "cost_details": {
-          "upstream_inference_cost": 0.00012742,
-          "upstream_inference_prompt_cost": 0.00003532,
-          "upstream_inference_completions_cost": 0.0000921
+          "upstream_inference_cost": 0.000106452,
+          "upstream_inference_prompt_cost": 0.000036252,
+          "upstream_inference_completions_cost": 0.0000702
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 0,
+          "reasoning_tokens": 575,
           "image_tokens": 0,
           "audio_tokens": 0
         }
@@ -13450,7 +13417,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -13469,7 +13436,7 @@
             "google_news": {
               "ok": true,
               "count": 0,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 5
             }
           }
@@ -13488,7 +13455,7 @@
             "google_news": {
               "ok": true,
               "count": 2,
-              "cached": false,
+              "cached": true,
               "ttl_hours": 10
             }
           }
@@ -13790,7 +13757,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "NUCLEAR_FUEL_SOVEREIGNTY": {
       "id": "NUCLEAR_FUEL_SOVEREIGNTY",
@@ -14479,7 +14446,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "MILITARY_ENERGY_AUTONOMY": {
       "id": "MILITARY_ENERGY_AUTONOMY",
@@ -15043,7 +15010,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "EUROPE_STRATEGIC_AUTONOMY": {
       "id": "EUROPE_STRATEGIC_AUTONOMY",
@@ -15569,7 +15536,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     },
     "OIL_SERVICE_CAPEX_SECOND_WAVE": {
       "id": "OIL_SERVICE_CAPEX_SECOND_WAVE",
@@ -16396,7 +16363,7 @@
         }
       ],
       "stale": false,
-      "updated_market_at": "2026-10-03T11:37:12.668Z"
+      "updated_market_at": "2026-10-03T14:18:56.019Z"
     }
   }
 }
