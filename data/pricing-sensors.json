@@ -1,11 +1,11 @@
 {
   "version": "4.4.0",
-  "generated_at": "2026-10-08T23:23:07.089Z",
+  "generated_at": "2026-10-09T01:24:32.673Z",
   "observations": {
     "AISSTREAM": {
       "source": "AISSTREAM",
       "family": "PHYSICAL",
-      "observed_at": "2026-10-08T23:23:07.089Z",
+      "observed_at": "2026-10-09T01:24:32.673Z",
       "status": "NOT_CONFIGURED",
       "quality": "PRIMARY_PHYSICAL",
       "error": "AISSTREAM_API_KEY missing",
@@ -14,7 +14,7 @@
     "ACER_LNG": {
       "source": "ACER_LNG",
       "family": "MARKET",
-      "observed_at": "2026-10-08T23:23:07.089Z",
+      "observed_at": "2026-10-09T01:24:32.673Z",
       "status": "OK",
       "quality": "PRIMARY_OFFICIAL",
       "metric": "ACER_EU_LNG_ASSESSMENT",
@@ -134,7 +134,7 @@
     "KALSHI": {
       "source": "KALSHI",
       "family": "PREDICTION",
-      "observed_at": "2026-10-08T23:23:07.089Z",
+      "observed_at": "2026-10-09T01:24:32.673Z",
       "status": "OK",
       "quality": "PREDICTION_PUBLIC",
       "metric": "KALSHI_EVENT_CONSENSUS",
@@ -176,7 +176,7 @@
           "semantic_quality": "NO_RELEVANT_MARKET"
         }
       },
-      "rejected_semantic_hits": 14
+      "rejected_semantic_hits": 17
     },
     "EIA": {
       "status": "ERROR",
@@ -187,12 +187,12 @@
       "fallback": true,
       "source": "EIA",
       "family": "PHYSICAL",
-      "observed_at": "2026-10-08T23:23:07.089Z"
+      "observed_at": "2026-10-09T01:24:32.673Z"
     },
     "MOF_JGB": {
       "source": "MOF_JGB",
       "family": "MARKET",
-      "observed_at": "2026-10-08T23:23:07.089Z",
+      "observed_at": "2026-10-09T01:24:32.673Z",
       "status": "ERROR",
       "quality": "PRIMARY_OFFICIAL",
       "error": "no MOF auction results parsed",
@@ -201,16 +201,51 @@
     "MOF_FLOWS": {
       "source": "MOF_FLOWS",
       "family": "MARKET",
-      "observed_at": "2026-10-08T23:23:07.089Z",
-      "status": "ERROR",
+      "observed_at": "2026-10-09T01:24:32.673Z",
+      "status": "OK",
       "quality": "PRIMARY_OFFICIAL",
-      "error": "The operation was aborted due to timeout",
-      "pricing_score": null
+      "metric": "JAPAN_WEEKLY_SECURITIES_FLOWS",
+      "pricing_score": null,
+      "note": "Official weekly flow files discovered. Binary spreadsheet parsing intentionally fail-closed until a stable machine-readable table is exposed.",
+      "files": [
+        {
+          "url": "https://www.mof.go.jp/policy/international_policy/reference/itn_transactions_in_securities/week.csv",
+          "label": "Historical Data"
+        },
+        {
+          "url": "https://www.mof.go.jp/policy/international_policy/reference/itn_transactions_in_securities/montha1.csv",
+          "label": "Monthly"
+        },
+        {
+          "url": "https://www.mof.go.jp/policy/international_policy/reference/itn_transactions_in_securities/montha2.csv",
+          "label": "Ten days of a month"
+        },
+        {
+          "url": "https://www.mof.go.jp/policy/international_policy/reference/itn_transactions_in_securities/monthb1.csv",
+          "label": "Total"
+        },
+        {
+          "url": "https://www.mof.go.jp/policy/international_policy/reference/itn_transactions_in_securities/monthb2.csv",
+          "label": "Equity and Investment Fund Shares"
+        },
+        {
+          "url": "https://www.mof.go.jp/policy/international_policy/reference/itn_transactions_in_securities/monthb3.csv",
+          "label": "Long-term Debt Securities"
+        },
+        {
+          "url": "https://www.mof.go.jp/policy/international_policy/reference/itn_transactions_in_securities/monthb4.csv",
+          "label": "Short-term Debt Securities"
+        },
+        {
+          "url": "https://www.mof.go.jp/policy/international_policy/reference/itn_transactions_in_securities/si.csv",
+          "label": "Historical Data"
+        }
+      ]
     },
     "CFTC_COT": {
       "source": "CFTC_COT",
       "family": "MARKET",
-      "observed_at": "2026-10-08T23:23:07.089Z",
+      "observed_at": "2026-10-09T01:24:32.673Z",
       "status": "ERROR",
       "quality": "PRIMARY_OFFICIAL",
       "error": "HTTP 403",
@@ -219,7 +254,7 @@
     "USA_SPENDING": {
       "source": "USA_SPENDING",
       "family": "PROCUREMENT",
-      "observed_at": "2026-10-08T23:23:07.089Z",
+      "observed_at": "2026-10-09T01:24:32.673Z",
       "status": "OK",
       "quality": "PRIMARY_OFFICIAL",
       "metric": "US_DEFENSE_PROCUREMENT_90D",
@@ -244,26 +279,31 @@
     "SAM_GOV": {
       "source": "SAM_GOV",
       "family": "PROCUREMENT",
-      "observed_at": "2026-10-08T23:23:07.089Z",
+      "observed_at": "2026-10-09T01:24:32.673Z",
       "status": "NOT_CONFIGURED",
       "quality": "PRIMARY_OFFICIAL",
       "error": "GSA_API_KEY missing"
     },
     "UKMTO": {
-      "status": "ERROR",
+      "status": "OK",
       "quality": "PRIMARY_OFFICIAL_PUBLIC",
       "metric": "UKMTO_RECENT_INCIDENTS_HOME",
       "pricing_score": null,
-      "error": "HTTP 403",
+      "mentions": {
+        "hormuz": 0,
+        "attack": 0,
+        "mine": 0
+      },
+      "source_url": "https://www.ukmto.org/",
       "fallback": true,
       "source": "UKMTO",
       "family": "PHYSICAL",
-      "observed_at": "2026-10-08T23:23:07.089Z"
+      "observed_at": "2026-10-09T01:24:32.673Z"
     },
     "ENTSOE": {
       "source": "ENTSOE",
       "family": "PHYSICAL",
-      "observed_at": "2026-10-08T23:23:07.089Z",
+      "observed_at": "2026-10-09T01:24:32.673Z",
       "status": "NOT_CONFIGURED",
       "quality": "PRIMARY_OFFICIAL",
       "error": "ENTSOE_API_KEY missing"
@@ -271,7 +311,7 @@
     "UN_COMTRADE": {
       "source": "UN_COMTRADE",
       "family": "PHYSICAL",
-      "observed_at": "2026-10-08T23:23:07.089Z",
+      "observed_at": "2026-10-09T01:24:32.673Z",
       "status": "OK",
       "quality": "PRIMARY_OFFICIAL",
       "metric": "CHINA_PERMANENT_MAGNET_EXPORTS",
@@ -485,7 +525,7 @@
           "source": "UKMTO",
           "family": "PHYSICAL",
           "access": "FREE_PUBLIC",
-          "status": "ERROR",
+          "status": "OK",
           "score": null,
           "metric": "UKMTO_RECENT_INCIDENTS_HOME",
           "quality": "PRIMARY_OFFICIAL_PUBLIC",
@@ -496,7 +536,7 @@
       "pricing_method": "NO_PRIMARY_OBSERVATION",
       "blind_reasons": [
         "AISSTREAM:NOT_CONFIGURED",
-        "UKMTO:ERROR"
+        "UKMTO:OK"
       ]
     },
     "LNG_REROUTING": {
@@ -755,7 +795,7 @@
           "source": "UKMTO",
           "family": "PHYSICAL",
           "access": "FREE_PUBLIC",
-          "status": "ERROR",
+          "status": "OK",
           "score": null,
           "metric": "UKMTO_RECENT_INCIDENTS_HOME",
           "quality": "PRIMARY_OFFICIAL_PUBLIC",
@@ -795,7 +835,7 @@
       "total_sources": 4,
       "pricing_method": "PRIMARY_MULTI_SENSOR",
       "blind_reasons": [
-        "UKMTO:ERROR",
+        "UKMTO:OK",
         "AISSTREAM:NOT_CONFIGURED",
         "KALSHI:OK"
       ]
@@ -1102,9 +1142,9 @@
           "source": "MOF_FLOWS",
           "family": "MARKET",
           "access": "FREE_PUBLIC",
-          "status": "ERROR",
+          "status": "OK",
           "score": null,
-          "metric": null,
+          "metric": "JAPAN_WEEKLY_SECURITIES_FLOWS",
           "quality": "PRIMARY_OFFICIAL",
           "weight": 1.25
         },
@@ -1133,7 +1173,7 @@
       "pricing_method": "NO_PRIMARY_OBSERVATION",
       "blind_reasons": [
         "MOF_JGB:ERROR",
-        "MOF_FLOWS:ERROR",
+        "MOF_FLOWS:OK",
         "CFTC_COT:ERROR",
         "KALSHI:OK"
       ]
@@ -1250,7 +1290,7 @@
   },
   "coverage": {
     "mechanisms": 26,
-    "live_sources": 4,
+    "live_sources": 6,
     "scored_sources": 2,
     "configured_sources": 16,
     "blocks": {
@@ -1258,14 +1298,14 @@
       "eia": "ERROR",
       "mof_japan": [
         "ERROR",
-        "ERROR"
+        "OK"
       ],
       "us_procurement": [
         "OK",
         "NOT_CONFIGURED"
       ],
       "cftc": "ERROR",
-      "ukmto": "ERROR",
+      "ukmto": "OK",
       "entsoe": "NOT_CONFIGURED",
       "comtrade": "OK"
     },
@@ -1274,7 +1314,7 @@
       "kalshi": "OK"
     },
     "quality": {
-      "kalshi_rejected_semantic_hits": 14,
+      "kalshi_rejected_semantic_hits": 17,
       "eia_public_fallback": true,
       "ukmto_public_fallback": true,
       "mof_public_fallback": false
