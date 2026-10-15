@@ -5,7 +5,7 @@ import {bayesianUpdate,monteCarlo,brierScore} from '../lib/canary-probability.mj
 import {buildCanaryEconomics} from '../lib/canary-001-economics.mjs';
 const frozen=await fs.readFile('experiments/CANARY-001.preregistered.json');
 const hash=crypto.createHash('sha1').update('blob '+frozen.length+'\0').update(frozen).digest('hex');
-assert.equal(hash,'aa9b19f1efe5e077079a402a21f0f69c01','never revise prereg after experiment starts');
+assert.equal(hash,'aa9b19f1efe5e077079a402a52402a21f0f69c01','never revise prereg after experiment starts');
 const cfg=JSON.parse(await fs.readFile('config/canary-001-economic-scenarios.json','utf8'));
 const r=buildCanaryEconomics(cfg,{asOf:'2026-10-15T23:59:59Z'});
 assert.equal(r.experiment_id,'CANARY-001');
