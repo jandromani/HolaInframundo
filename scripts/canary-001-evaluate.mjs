@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import {measureMarketOutcome} from '../lib/canary-001-judge.mjs';
 const path='data/experiments/CANARY-001.observations.json';
 const prereg=JSON.parse(await fs.readFile('experiments/CANARY-001.preregistered.json','utf8'));
-if(prereg.status!=='PREREGISTERED_RESEARCH_ONLY'||prereg.market?.entry_rule)throw new Error('Canary preregistration schema mismatch');
+if(prereg.status!=='PREREGISTERED_RESEARCH_ONLY'||prereg.preregistered_claims?.market?.entry_rule!=='FIRST_NEXT_REGULAR_SESSION_OPEN_AFTER_GIT_PREREGISTRATION')throw new Error('Canary preregistration schema mismatch');
 const get=async ticker=>{
  const url='https://query1.finance.yahoo.com/v8/finance/chart/'+encodeURIComponent(ticker)+'?range=3mo&interval=1d&events=div%2Csplits';
  const r=await fetch(url,{headers:{'User-Agent':'Mozilla/5.0 GearWatchCanary-001/1.0','Accept':'application/json'},
