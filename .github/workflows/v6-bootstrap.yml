@@ -1,0 +1,46 @@
+name: GearWatch V6 — first publish after merge
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'index.html'
+      - 'lib/v6-*.mjs'
+      - 'scripts/publish-v6.mjs'
+      - 'config/shock-groups.v6.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: gearwatch-v6-first-publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: V6 safety contracts
+        run: npm run v6:test
+      - name: Publish V6 projections from last coherent source run
+        run: npm run v6:publish
+      - name: Commit initial V6 output without changing V5 data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name gearwatch-bot
+          git config user.email gearwatch-bot@users.noreply.github.com
+          git add data/v6/
+          if git diff --cached --quiet; then
+            echo "V6 snapshot already current"
+          else
+            git commit -m "data(v6): publish World to Money snapshot"
+            git fetch origin master
+            git rebase origin/master
+            git push origin HEAD:master
+          fi
