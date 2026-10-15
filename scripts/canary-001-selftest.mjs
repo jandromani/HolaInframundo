@@ -1,0 +1,46 @@
+// Canary-001: verifiable research experiment, no broker integration.
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import {measureMarketOutcome,sanitizeBars} from '../lib/canary-001-judge.mjs';
+const prereg=JSON.parse(await fs.readFile('experiments/CANARY-001.preregistered.json','utf8'));
+const mechanism=JSON.parse(await fs.readFile('config/mechanisms.json','utf8'));
+const investment=JSON.parse(await fs.readFile('data/investment-layer.json','utf8'));
+assert.equal(prereg.experiment_id,'CANARY-001');
+assert.equal(prereg.status,'PREREGISTERED_RESEARCH_ONLY');
+assert.equal(prereg.immutable_forecast,true);
+assert.equal(prereg.monitoring.automatic_broker_orders,false);
+assert.ok(!mechanism.mechanisms.some(x=>/fertiliz|fertiliz|nitrogen/i.test(x.id)),'true open-world out-of-universe hypothesis');
+assert.ok(!Object.values(investment.strategies||{}).some(s=>(s.top_candidates||[]).some(x=>x.symbol==='LXU')));
+assert.equal(prereg.frozen_price_reference.price_usd.LXU_regular_close,10.46);
+assert.equal(prereg.preregistered_claims.market.entry_rule,'FIRST_NEXT_REGULAR_SESSION_OPEN_AFTER_GIT_PREREGISTRATION');
+assert.equal(prereg.preregistered_claims.market.benchmark_primary,'CF');
+assert.equal(prereg.preregistered_claims.adversarial.prior_art.includes('already described'),true);
+assert.deepEqual(prereg.preregistered_claims.market.evaluation_sessions_after_entry,[5,10,20]);
+const weekdays=[];
+for(let i=0;i<35;i++){
+ const d=new Date(Date.UTC(2026,9,16+i));if(d.getUTCDay()===0||d.getUTCDay()===6)continue;
+ weekdays.push(d.toISOString().slice(0,10));
+}
+const lx=weekdays.map((date,i)=>({date,open:i===0?10.5:10.5+i*.1,close:10.5+i*.12}));
+const cf=weekdays.map((date,i)=>({date,open:i===0?120:120+i*.3,close:120+i*.3}));
+const before=new Date('2026-10-16T13:00:00Z');
+assert.equal(sanitizeBars(lx,before).length,0,'never record intraday as completed regular-session close');
+assert.equal(measureMarketOutcome({lxu:lx,cf,now:before}).status,'WAITING_ENTRY','future data must be invisible');
+const after=new Date('2026-11-30T22:00:00Z');
+const result=measureMarketOutcome({lxu:lx,cf,now:after,referenceClose:10.46});
+assert.equal(result.entry.session,'2026-10-16');
+assert.equal(result.entry.lxu_open_usd,10.5);
+assert.equal(result.entry.cf_open_usd,120);
+assert.equal(result.status,'MARKET_CONDITION_MET_NOT_CAUSAL_PROOF');
+assert.equal(result.horizons.length,3);
+assert.equal(result.horizons[2].status,'OBSERVED');
+assert.equal(result.horizons[2].market_rule_met,true);
+const gap=measureMarketOutcome({lxu:lx.map((x,i)=>({...x,open:i===0?12:x.open})),cf,now:after,referenceClose:10.46});
+assert.equal(gap.status,'ALREADY_MOVED_ENTRY','gap must invalidate early status');
+const weak=measureMarketOutcome({lxu:lx.map((x,i)=>({...x,close:10.5-i*.1})),cf,now:after,referenceClose:10.46});
+assert.equal(weak.status,'MARKET_CONDITION_FAILED');
+const script=await fs.readFile('scripts/canary-001-evaluate.mjs','utf8');
+assert.ok(!/placeOrder|executeOrder|submitOrder/i.test(script),'never place trades');
+assert.ok(script.includes('data/experiments/CANARY-001.observations.json'));
+assert.ok(!script.includes("writeFile('experiments/CANARY-001.preregistered.json'"));
+console.log('CANARY-001 preregistration, no-lookahead, benchmark and trading-safety tests passed');

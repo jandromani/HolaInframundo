@@ -1,0 +1,47 @@
+name: Canary-001 · forward observation
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'experiments/CANARY-001.preregistered.json'
+      - 'scripts/canary-001-*.mjs'
+      - 'lib/canary-001-*.mjs'
+  schedule:
+    - cron: '15 22 * * 1-5'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: gearwatch-canary-001-observer
+  cancel-in-progress: false
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify immutable preregistered experiment
+        run: npm run canary:test
+      - name: Observe completed US regular sessions without orders
+        run: npm run canary:observe
+      - name: Persist forward-only observations
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name gearwatch-bot
+          git config user.email gearwatch-bot@users.noreply.github.com
+          git add data/experiments/CANARY-001.observations.json
+          if git diff --cached --quiet; then
+            echo "No new Canary-001 observations"
+          else
+            git commit -m "data(canary): forward observation CANARY-001"
+            git fetch origin master
+            git rebase origin/master
+            git push origin HEAD:master
+          fi

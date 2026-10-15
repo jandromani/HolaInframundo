@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "selftest": "node scripts/selftest.mjs && node scripts/guards-selftest.mjs && node scripts/pricing-sensors-selftest.mjs && node scripts/pricing-quality-selftest.mjs && node scripts/execution-selftest.mjs && node scripts/backtest-selftest.mjs && npm run v6:test",
+    "selftest": "node scripts/selftest.mjs && node scripts/guards-selftest.mjs && node scripts/pricing-sensors-selftest.mjs && node scripts/pricing-quality-selftest.mjs && node scripts/execution-selftest.mjs && node scripts/backtest-selftest.mjs && npm run v6:test && npm run canary:test",
     "uiux:audit": "node scripts/uiux-audit.mjs && node scripts/economist-human-selftest.mjs",
     "audit:v3": "node scripts/audit-v3.mjs",
     "health": "node scripts/healthcheck.mjs",
@@ -36,7 +36,9 @@
     "scan:v2": "npm run scan:v3",
     "scan": "npm run scan:v3",
     "v6:test": "node scripts/v6-selftest.mjs",
-    "v6:publish": "node scripts/publish-v6.mjs"
+    "v6:publish": "node scripts/publish-v6.mjs",
+    "canary:test": "node scripts/canary-001-selftest.mjs",
+    "canary:observe": "node scripts/canary-001-evaluate.mjs"
   },
   "engines": {
     "node": ">=22"
