@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#08141c"><title>GearWatch · CANARY-001 | Laboratorio económico</title>
+<style>
+:root{color-scheme:dark;--bg:#07121a;--card:#10212e;--stroke:#33505d;--text:#f0f6f6;--dim:#a6c0c9;--accent:#7ce6d4;--amber:#edc58c}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top left,#1d3c49 0,transparent 55%),var(--bg);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text)}a{color:var(--accent);text-underline-offset:4px}header{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;max-width:1100px;margin:auto;padding:22px 18px;border-bottom:1px solid var(--stroke)}header strong{font-size:17px;letter-spacing:-.02em}header span{color:var(--accent)}.shell{max-width:1100px;margin:0 auto;padding:24px 18px 65px}h1{font-size:clamp(35px,5vw,67px);line-height:1.04;letter-spacing:-.055em;margin:6px 0 14px}h2{font-size:24px;letter-spacing:-.035em;margin:8px 0 14px}h3{font-size:17px;margin:5px 0 11px}.kicker{color:var(--accent);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800}.muted{color:var(--dim)}.hero{margin:22px 0 23px}.hero p{max-width:820px;color:var(--dim);font-size:17px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:23px 0}.card{background:#10212ee6;border:1px solid var(--stroke);padding:19px;border-radius:16px;min-width:0}.card strong.stat{font-size:29px;letter-spacing:-.04em;display:block;margin:4px 0}.label{font-size:11px;color:var(--dim)}.badge{display:inline-block;border:1px solid #8c754e;color:var(--amber);border-radius:20px;padding:5px 10px;font-size:11px;font-weight:800}.warning{background:#36291ce8;padding:16px 18px;border:1px solid #836a43;border-radius:12px;color:#ebd4b0}.row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.two{display:grid;grid-template-columns:1.25fr 1fr;gap:14px}.scenarios{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:14px 0}.choice{border:1px solid var(--stroke);background:#172e3b;color:var(--text);border-radius:10px;padding:13px 10px;cursor:pointer;text-align:left;font-weight:700}.choice[aria-pressed=true]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);background:#194345}.choice small{font-weight:400;color:var(--dim);display:block}.metric{font-size:clamp(28px,3.8vw,45px);font-weight:900;letter-spacing:-.05em;line-height:1.1}.layout{display:grid;grid-template-columns:1fr 1fr;gap:15px}.strip{padding:14px 17px;background:#081721;border:1px solid #274454;border-radius:10px;margin:12px 0}.data-table{width:100%;border-collapse:collapse}.data-table th,.data-table td{text-align:left;padding:10px 7px;border-bottom:1px solid #294250;font-size:13px}.data-table th{color:var(--dim);font-size:11px}.status{color:var(--amber);font-weight:800}.fixed{padding:11px 14px;border-left:3px solid #70c8b9;background:#11312f;border-radius:8px}.note{font-size:12px;color:var(--dim)}.loading{min-height:100px;padding:30px;border:1px dashed var(--stroke);border-radius:12px}.fail{color:#ef9fa3}.links{display:flex;gap:20px;flex-wrap:wrap}.footer{font-size:12px;color:var(--dim);border-top:1px solid var(--stroke);margin-top:25px;padding-top:18px}
+@media(max-width:760px){.cards,.two,.layout{grid-template-columns:1fr}.scenarios{grid-template-columns:1fr}}
+</style></head>
+<body><header><strong>GEAR<span>WATCH</span> <small style="color:#8cb2bf">/ CANARY-001</small></strong><nav class="links"><a href="/">← Volver al mando</a><a href="/legacy/v5.html">Laboratorio V5</a><a target="_blank" rel="noopener noreferrer" href="https://github.com/jandromani/HolaInframundo/blob/master/experiments/CANARY-001.preregistered.json">Preregistro original ↗</a></nav></header>
+<main class="shell">
+<div class="hero"><div class="kicker">Un solo experimento · Falsable · 16 octubre 2026</div><h1>¿Dónde se convierte<br>un shock en <span style="color:var(--accent)">dinero?</span></h1><p>LSB Industries (LXU) frente a CF. Reconstruimos el negocio con datos publicados antes de la apertura, calculamos el efecto económico de cada escenario y separamos lo medido de lo que todavía no podemos afirmar.</p></div>
+<div class="warning"><strong>RESEARCH ONLY · NO EXISTE PROBABILIDAD CALIBRADA DE QUE LXU SUBA.</strong><div>Los tres escenarios son sensibilidades hipotéticas de ventas netback, no pronósticos, márgenes EBITDA, flujo de caja, recomendaciones ni precios objetivo. La hipótesis original está congelada.</div></div>
+<div class="cards" id="summary"><div class="card loading">Cargando observaciones…</div></div>
+<div class="two">
+ <section class="card"><div class="kicker">02 · ECONOMÍA CAUSAL</div><h2>Explorar tres futuros posibles</h2><p class="muted">Pruebas de sensibilidad basadas en precios y volúmenes publicados de AN/ácido nítrico, UAN y amoníaco en Q2.</p><div class="scenarios" id="scenario-buttons"></div><div id="scenario-detail" class="loading">Cargando modelo de sensibilidad…</div></section>
+ <section class="card"><div class="kicker">03 · INCERTIDUMBRE</div><h2>¿Qué sabemos y qué no?</h2><div id="uncertainty" class="loading">Cargando estado bayesiano…</div><div class="strip"><strong>Dos dimensiones distintas</strong><p class="note">La probabilidad de que continúe la disrupción no es la probabilidad de que suba LXU. Incluso con un modelo perfecto del mundo, faltaría una valoración frente a expectativas.</p></div></section>
+</div>
+<div class="cards" id="evidence"><div class="card"><div class="kicker">04 · HECHOS</div><p>Verificando fuente corporativa…</p></div></div>
+<div class="card" style="margin-top:14px"><div class="kicker">05 · PRUEBA DE MERCADO</div><h2>¿Llegamos antes o llegamos tarde?</h2><div id="market">Cargando LXU y CF…</div><p class="note">El registro inicial está fechado y congelado. Sólo se utilizan sesiones regulares completas posteriores al 16 de octubre. Los retornos de las dos acciones no demuestran por sí solos causalidad ni constituyen retornos totales ajustados si el proveedor sólo facilita cierres sin dividendos.</p></div>
+<footer class="footer">No realizamos operaciones. No hay predicciones probabilísticas verificadas hasta obtener priors y distribuciones calibradas fuera de muestra. Los datos de LXU Q2 son históricos y pueden no representar su estructura futura de costes.</footer>
+</main>
+<script>
+const ROOT='https://raw.githubusercontent.com/jandromani/HolaInframundo/master/';
+const $=s=>document.querySelector(s);
+const safe=s=>String(s??'—').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const dollars=n=>typeof n==='number'&&Number.isFinite(n)?new Intl.NumberFormat('es-ES',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n):'Sin estimar';
+const millions=n=>typeof n==='number'&&Number.isFinite(n)?(n/1e6).toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2})+' M$':'Sin estimar';
+const pct=n=>typeof n==='number'&&Number.isFinite(n)?n.toLocaleString('es-ES',{maximumFractionDigits:2})+'%':'Sin estimar';
+async function read(path){const r=await fetch(ROOT+path+'?cache='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('Falta '+path+' ('+r.status+')');return r.json();}
+function scenarioMarkup(s){
+ const lines=s.product_lines.map(l=>'<tr><td>'+safe(l.id)+'</td><td>'+pct(l.price_shift_pct)+'</td><td>'+pct(l.volume_shift_pct)+'</td><td>'+millions(l.delta_product_netback_usd)+'</td></tr>').join('');
+ return '<div class="layout"><div><div class="kicker">Δ ventas netback Q2 equivalente</div><div class="metric">'+millions(s.delta_netback_sales_usd)+'</div><p class="note">Incremento sobre el trimestre base por cambio simultáneo de precios y volúmenes. No es caja libre.</p></div>'+
+ '<div><div class="kicker">Netback hipotético</div><div class="metric">'+millions(s.stressed_netback_sales_usd)+'</div><p class="note">EBITDA incremental: <strong>sin estimar</strong><br>Cash flow incremental: <strong>sin estimar</strong></p></div></div>'+
+ '<div style="overflow:auto"><table class="data-table"><thead><tr><th>Producto</th><th>Δ precio</th><th>Δ volumen</th><th>Δ netback</th></tr></thead><tbody>'+lines+'</tbody></table></div>';
+}
+function showScenario(model,id){
+ const buttons=$('#scenario-buttons');const s=model.scenarios.find(x=>x.id===id)||model.scenarios[1];
+ buttons.innerHTML=model.scenarios.map(x=>'<button type="button" class="choice" data-s="'+safe(x.id)+'" aria-pressed="'+String(x.id===s.id)+'">'+safe(x.title)+'<small>Sin probabilidad asignada</small></button>').join('');
+ $('#scenario-detail').innerHTML=scenarioMarkup(s);
+ buttons.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>showScenario(model,b.dataset.s)));
+}
+function render(model,observations){
+ if(model.experiment_id!=='CANARY-001'||model.preregistration_git_blob_sha!=='aa9b19f1efe5e077079a402a52402a21f0f69c01')throw Error('Preregistro incoherente');
+ const b=model.baseline,obs=observations?.assessments?.at(-1),latest=obs?.status||'SIN OBSERVACIONES';
+ $('#summary').innerHTML=
+ '<div class="card"><div class="label">Ventas netback Q2 · reportadas</div><strong class="stat">'+millions(b.reported_netback_sales_usd)+'</strong><div class="label">Ingresos netback, NO flujo de caja</div></div>'+
+ '<div class="card"><div class="label">EBITDA ajustado Q2 · histórico</div><strong class="stat">'+millions(b.reported_adjusted_ebitda_usd)+'</strong><div class="label">Impactado por paradas planificadas</div></div>'+
+ '<div class="card"><div class="label">Deuda neta Q2 aproximada</div><strong class="stat">'+millions(b.net_debt_usd)+'</strong><div class="label">Deuda menos caja e inversiones a corto plazo</div></div>';
+ showScenario(model,'UNCHANGED_NETBACK');
+ const p=model.bayesian_state,m=model.stochastic_model;
+ $('#uncertainty').innerHTML=
+ '<div class="strip"><span class="kicker">BAYES</span><h3>'+safe(p.status)+'</h3><p class="note">'+safe(p.reason||'Sin calibración suficiente para intervalo de confianza')+'</p></div>'+
+ '<div class="strip"><span class="kicker">MONTE CARLO</span><h3>'+safe(m.status)+'</h3><p class="note">'+safe(m.reason||'Solo condicionado a distribución empírica independiente')+'</p></div>'+
+ '<div class="strip"><span class="kicker">EXPECTATIVAS DE MERCADO</span><h3>'+safe(model.market_expectations_status)+'</h3><p class="note">Sin consenso fechado y valoración comparable no se puede calcular la oportunidad.</p></div>';
+ const rows=b.products.map(line=>'<tr><td>'+safe(line.label)+'</td><td>'+Number(line.volume_short_tons).toLocaleString('es-ES')+' t cortas</td><td>'+dollars(line.netback_usd_per_short_ton)+'/t</td></tr>').join('');
+ $('#evidence').innerHTML=
+ '<div class="card"><div class="kicker">COSTE DE GAS REALIZADO</div><h3>'+safe(b.realized_gas_input_cost_usd_per_mmbtu)+' $/MMBtu</h3><p class="note">Q2 histórico; falta MMBtu utilizados por tonelada y contratos. Prohibido derivar automáticamente EBITDA.</p></div>'+
+ '<div class="card" style="grid-column:span 2"><div class="kicker">PRECIOS Y VOLÚMENES PUBLICADOS · Q2</div><div style="overflow:auto"><table class="data-table"><thead><tr><th>Producto</th><th>Toneladas</th><th>Netback</th></tr></thead><tbody>'+rows+'</tbody></table></div><a href="'+safe(model.source.url)+'" target="_blank" rel="noopener noreferrer">Ver resultados oficiales de LSB ↗</a></div>';
+ $('#market').innerHTML='<div class="row"><div><strong class="badge">'+safe(latest)+'</strong><p class="note">Estado de la observación de LXU frente a CF.</p></div><div>'+
+ '<strong>Entrada regular:</strong> '+(obs?.entry?dollars(obs.entry.lxu_open_usd):'Pendiente de cierre validado')+'</div></div>'+
+ ((obs?.horizons?.length)?'<div style="overflow:auto"><table class="data-table"><thead><tr><th>Sesiones</th><th>Estado</th><th>LXU</th><th>CF</th><th>Exceso vs CF</th></tr></thead><tbody>'+
+ obs.horizons.map(h=>'<tr><td>'+safe(h.sessions_after_entry)+'</td><td>'+safe(h.status)+'</td><td>'+pct(h.LXU_return_pct)+'</td><td>'+pct(h.CF_return_pct)+'</td><td>'+pct(h.alpha_vs_CF_pp)+'</td></tr>').join('')+'</tbody></table></div>':
+ '<p class="muted">Todavía no hay horizonte bursátil completado y verificado.</p>');
+}
+Promise.allSettled([read('data/experiments/CANARY-001.model.json'),read('data/experiments/CANARY-001.observations.json')])
+ .then(([m,o])=>{if(m.status!=='fulfilled')throw m.reason;render(m.value,o.status==='fulfilled'?o.value:null)})
+ .catch(e=>{document.querySelector('#summary').innerHTML='<div class="card fail">No hay un modelo válido publicado: '+safe(e.message)+'</div>';document.querySelector('#scenario-detail').textContent='Sin datos verificables';document.querySelector('#uncertainty').textContent='Probabilidades desconocidas';});
+</script></body></html>
