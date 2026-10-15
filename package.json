@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "selftest": "node scripts/selftest.mjs && node scripts/guards-selftest.mjs && node scripts/pricing-sensors-selftest.mjs && node scripts/pricing-quality-selftest.mjs && node scripts/execution-selftest.mjs && node scripts/backtest-selftest.mjs",
+    "selftest": "node scripts/selftest.mjs && node scripts/guards-selftest.mjs && node scripts/pricing-sensors-selftest.mjs && node scripts/pricing-quality-selftest.mjs && node scripts/execution-selftest.mjs && node scripts/backtest-selftest.mjs && npm run v6:test",
     "uiux:audit": "node scripts/uiux-audit.mjs && node scripts/economist-human-selftest.mjs",
     "audit:v3": "node scripts/audit-v3.mjs",
     "health": "node scripts/healthcheck.mjs",
@@ -32,9 +32,11 @@
     "paper": "node scripts/paper-execution.mjs",
     "briefing": "node scripts/briefing.mjs",
     "window:snapshot": "node scripts/window-snapshot.mjs",
-    "scan:v3": "npm run quota && npm run market && npm run broker && npm run fundamentals && npm run retrieve && npm run upstream && npm run discover && npm run extract && npm run sensor:rescue && npm run semantic:guard && npm run verify && npm run assemble && npm run correlate && npm run transmission && npm run investment && npm run pricing:sensors && npm run pricing:overlay && npm run backtest && npm run window:research && npm run portfolio && npm run paper && npm run audit:v3 && npm run briefing && npm run health && npm run window:snapshot",
+    "scan:v3": "npm run quota && npm run market && npm run broker && npm run fundamentals && npm run retrieve && npm run upstream && npm run discover && npm run extract && npm run sensor:rescue && npm run semantic:guard && npm run verify && npm run assemble && npm run correlate && npm run transmission && npm run investment && npm run pricing:sensors && npm run pricing:overlay && npm run backtest && npm run window:research && npm run portfolio && npm run paper && npm run audit:v3 && npm run briefing && npm run health && npm run window:snapshot && npm run v6:publish",
     "scan:v2": "npm run scan:v3",
-    "scan": "npm run scan:v3"
+    "scan": "npm run scan:v3",
+    "v6:test": "node scripts/v6-selftest.mjs",
+    "v6:publish": "node scripts/publish-v6.mjs"
   },
   "engines": {
     "node": ">=22"
