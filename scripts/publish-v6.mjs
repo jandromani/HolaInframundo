@@ -57,6 +57,41 @@ history.runs=(history.runs||[]).filter(r=>r.run_id!==out.run_id);
 history.runs.push(checkpoint);
 history.runs=history.runs.sort((a,b)=>a.as_of.localeCompare(b.as_of)).slice(-800);
 await fs.writeFile(histPath,JSON.stringify(history,null,2)+'\n');
+// Historical case study: point-in-time engine telemetry and ex-post price closes are separate.
+// A later market price must never be represented as information known at the earlier run.
+const series=await read('data/series.json',{points:[]});
+const caseMechanisms=['CRUDE_TANKER_DISLOCATION','ATLANTIC_BARREL_PREMIUM','LNG_REROUTING','DIESEL_REFINING_CRISIS','PRODUCT_TANKER_TONMILES'];
+const daily=new Map();
+for(const point of series.points||[]){
+ const ts=point.ts||point.timestamp;
+ if(!ts || ts<'2026-10-02T00:00:00' || ts>'2026-10-15T23:59:59')continue;
+ const day=ts.slice(0,10),prev=daily.get(day);
+ if(prev && prev.timestamp>=ts)continue;
+ daily.set(day,{date:day,timestamp:ts,run_id:point.run_id,
+  mechanisms:Object.fromEntries(caseMechanisms.map(id=>{const m=point.mechanisms?.[id];
+    return [id,m?{score:m.score,state:m.state,market_score:m.market_score,
+      priced_in_proxy:m.priced_in,wave_phase:m.wave_phase}:null]}))
+ });
+}
+const closingPrices={};
+for(const ticker of ['GTE','PSHG']){
+ const bars=market.metrics?.[ticker]?.daily_bars||[];
+ closingPrices[ticker]=bars.filter(p=>(p.t||'')>='2026-10-02' && (p.t||'')<='2026-10-15T23:59:59')
+  .map(p=>({date:String(p.t).slice(0,10),close:p.close}))
+  .filter(p=>Number.isFinite(p.close));
+}
+const hormuzCase={
+ schema_version:'6.0.0',case_id:'HORMUZ_OCT_2026',
+ series_provenance:'CONTEMPORANEOUS_ENGINE_SNAPSHOTS',
+ prices_provenance:'EX_POST_HISTORICAL_MARKET_BARS',
+ no_lookahead:true,
+ generated_at:now,
+ warning:'Historical market prices were retrieved later, cannot be treated as live signals on the corresponding date. Engine score snapshots are not proof that specific physical events were verified.',
+ checkpoints:[...daily.values()].sort((a,b)=>a.timestamp.localeCompare(b.timestamp)),
+ ex_post_closes:closingPrices
+};
+await fs.writeFile('data/v6/history/hormuz-case.json',JSON.stringify(hormuzCase,null,2)+'\n');
+
 console.log('GearWatch V6 published: '+out.run_id+', shocks '+out.shocks.length+
  ', companies '+out.companies.company_count+', alerts '+out.alerts.length+
  ', integrity '+out.health.source_integrity);
