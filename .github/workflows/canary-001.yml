@@ -6,6 +6,8 @@ on:
       - 'experiments/CANARY-001.preregistered.json'
       - 'scripts/canary-001-*.mjs'
       - 'lib/canary-001-*.mjs'
+      - 'lib/canary-probability.mjs'
+      - 'config/canary-001-economic-scenarios.json'
   schedule:
     - cron: '15 22 * * 1-5'
   workflow_dispatch:
@@ -30,13 +32,15 @@ jobs:
         run: npm run canary:test
       - name: Observe completed US regular sessions without orders
         run: npm run canary:observe
+      - name: Compile calibrated-or-unknown financial model
+        run: npm run canary:model
       - name: Persist forward-only observations
         shell: bash
         run: |
           set -euo pipefail
           git config user.name gearwatch-bot
           git config user.email gearwatch-bot@users.noreply.github.com
-          git add data/experiments/CANARY-001.observations.json
+          git add data/experiments/CANARY-001.observations.json data/experiments/CANARY-001.model.json
           if git diff --cached --quiet; then
             echo "No new Canary-001 observations"
           else
