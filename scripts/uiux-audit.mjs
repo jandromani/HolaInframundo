@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
-const html=await fs.readFile('index.html','utf8');
+const html=await fs.readFile('legacy/v5.html','utf8');
+const v6html=await fs.readFile('index.html','utf8');
 const js=await fs.readFile('lib/product-dashboard.mjs','utf8');
 const bootstrap=await fs.readFile('lib/bootstrap.mjs','utf8').catch(()=>'');
 const audit=await fs.readFile('lib/economist-shock-audit.mjs','utf8').catch(()=>'');
@@ -11,6 +12,7 @@ const research=JSON.parse(await fs.readFile('data/window-research.json','utf8').
 const history=JSON.parse(await fs.readFile('data/history/window-snapshots.json','utf8').catch(()=>'{"snapshots":[]}'));
 const src=html+'\n'+js+'\n'+bootstrap+'\n'+audit+'\n'+liveEvidence,fail=[];
 const gate=(n,ok,w)=>{if(!ok)fail.push(n+': '+w);console.log((ok?'PASS':'FAIL')+' · '+n)};
+gate('V6 three-view shell',v6html.includes('data-view="world"')&&v6html.includes('data-view="transmission"')&&v6html.includes('data-view="theses"'),'V6 must expose World, Transmission and Theses');
 gate('Human product identity',html.includes('Hechos → causas → consecuencias → empresas → decisión')&&html.includes('ENTIENDE QUÉ MUEVE EL'),'Landing must explain the product before jargon');
 gate('World-at-a-glance layer',html.includes('id="world"')&&js.includes('renderWorld'),'Top-level macro translation');
 gate('Three human stories',html.includes('id="stories"')&&js.includes('renderStories')&&js.includes('VER POR QUÉ'),'Top causal stories must be explainable');
