@@ -49,5 +49,6 @@ assert.ok(html.includes('GearWatch V6'));
 const js=await fs.readFile('lib/v6-dashboard.mjs','utf8');
 assert.ok(js.includes('localStorage')&&js.includes('data/v6/homepage.json'));
 const workflow=await fs.readFile('.github/workflows/scan.yml','utf8');
-assert.ok(workflow.includes('npm run v6:publish')&&workflow.includes('npm run v6:test'));
+const pkg=JSON.parse(await fs.readFile('package.json','utf8'));
+assert.ok(workflow.includes('npm run v6:publish')&&pkg.scripts.selftest.includes('npm run v6:test'));
 console.log('GearWatch V6 contract checks passed');
