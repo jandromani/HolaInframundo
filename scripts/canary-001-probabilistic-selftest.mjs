@@ -33,7 +33,7 @@ assert.ok(down.delta_netback_sales_usd<0);
 assert.equal(up.incremental_ebitda_usd,null);
 assert.equal(down.expected_stock_return,null);
 const uan=up.product_lines.find(x=>x.id==='UAN');
-assert.equal(uan.stressed_volume_short_tons,130818*1.1);
+assert.equal(uan.stressed_volume_short_tons,Number((130818*1.1).toFixed(2)));
 assert.equal(uan.stressed_netback_per_short_ton,497.95);
 const corrupt=structuredClone(cfg);corrupt.historical_baseline.product_lines[0].volume_short_tons=-1;
 assert.throws(()=>buildCanaryEconomics(corrupt,{asOf:'2026-10-15T23:59:59Z'}),/Invalid/);
