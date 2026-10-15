@@ -27,7 +27,7 @@ for(const e of graph.edges||[])if(!enabled.has(e.from)||!enabled.has(e.to)){
 const out=projectV6({current,investment,pricing,previous,groups:conf.groups,edges:graph.edges});
 out.health.market_snapshot_asof=market.generated_at||null;
 out.health.company_source_asof=investment.generated_at||null;
-out.health.source_integrity=(!investment.run_id||market.run_id===current.run_id) && Object.keys(investment.strategies||{}).length===26?'COMPLETE':'PARTIAL';
+out.health.source_integrity=(investment.run_id===current.run_id && market.run_id===current.run_id && Object.keys(investment.strategies||{}).length===26)?'COMPLETE':'PARTIAL';
 const now=new Date().toISOString();
 out.generated_at=now;
 await fs.mkdir('data/v6/history',{recursive:true});
