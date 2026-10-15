@@ -1,0 +1,707 @@
+{
+  "version": "2.4.0",
+  "run_id": "run_2026-10-15T21-20-45Z",
+  "generated_at": "2026-10-15T21:25:55.740Z",
+  "model_chain": [
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-120b"
+  ],
+  "concurrency": 3,
+  "repair_policy": {
+    "local_syntax_repair": true,
+    "llm_repair_attempts": 1,
+    "response_healing_account_plugin": "recommended"
+  },
+  "quota": {
+    "extraction_daily_cap": 124,
+    "remaining_before": 7,
+    "run_cap": 7,
+    "selected": 26,
+    "paid_cap_usd": 0.05,
+    "paid_before_usd": 0.020826,
+    "paid_after_usd": 0.021541
+  },
+  "mechanisms": {
+    "JAPAN_CARRY_UNWIND": {
+      "id": "JAPAN_CARRY_UNWIND",
+      "label": "Japan carry unwind",
+      "tier": "A",
+      "summary": "The candidate set contains two pieces of evidence relevant to the Japan carry unwind mechanism. The first confirms that the dollar‑yen pair is tightly anchored at 158.42, reflecting the interplay of carry trade dynamics and potential intervention, with a 159‑cap upside and a 157‑open on soft CPI data. The second indicates that Japanese insurers are gradually repatriating capital, signalling a potential outward‑flow reversal. Both pieces of evidence support the hypothesis that rising Japanese yields and yen strength, along with capital repatriation, are tightening global financial conditions.",
+      "evidence": [
+        {
+          "candidate_id": "80a986ea1c906a37f883",
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "Dollar‑yen is pinned at 158.42, reflecting carry trade dynamics and potential intervention, with a 159‑cap upside and a 157‑open on soft CPI.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "carry trade, intervention, yen strength",
+          "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOdUZYcmZzZHdranBRT21EdFJSNDB0V1BQMWxZeXBrdm96SGFZWG9EWG84SG1Nck5iUWhobHE4eVJndFZ6QVJJVXdTclRkZ25nM3dyRmdyQTFsdnNvUkdsWG1zc05YeTdUMHBiel82dm9PQ1ZCQjJ2ZDVBalAxRGF3VDZJRXB1S3ZvUDJTdXBGTXpXQWgwY09wdExsQmpSaXdqam4tMUx3?oc=5",
+          "source_name": "TradingNEWS",
+          "source_domain": "tradingnews.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "Tue, 13 Oct 2026 20:32:39 GMT",
+          "retrieved_at": "2026-10-15T21:21:58.198Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "2d66477689008167d162",
+          "query_id": "JAPAN_CARRY_UNWIND:lead:japan_flows",
+          "phase": "LEAD",
+          "signal": "CAPITAL_REPATRIATION",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Japanese insurers are gradually repatriating capital, indicating a potential outward‑flow reversal.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "capital repatriation",
+          "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQQ3R1dVN1dGo0bW9PU256TlpaSnVVNVNzTEpnbUJ0LTRDWFBlN3BRTkZwNE5rVDVDLWRIVjdleEpvMDRUTl9ya3NQQWZOel9aNDRORDFtTHl4NmwzUWpEcjlNTzNrNEkzaTBDbGRGekJKcXhndnFlWmk4NkZXSTg2RVNzUzlKMWZ2WlhhOGo2Q0lOQzdpY1RYN01KOWwyWGVRemFtbTFn?oc=5",
+          "source_name": "WTVB",
+          "source_domain": "wtvbam.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "Thu, 15 Oct 2026 05:18:50 GMT",
+          "retrieved_at": "2026-10-15T21:21:58.117Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [
+        "WATCH"
+      ],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000153,
+      "usage": {
+        "prompt_tokens": 1289,
+        "completion_tokens": 1271,
+        "total_tokens": 2560,
+        "cost": 0.00015288,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00015288,
+          "upstream_inference_prompt_cost": 0.00002578,
+          "upstream_inference_completions_cost": 0.0001271
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 823,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 2,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "JAPAN_CARRY_UNWIND:lead:boj_signal",
+          "phase": "LEAD",
+          "signal": "BOJ_TIGHTENING",
+          "q": "Bank of Japan rate hike hawkish JGB purchase reduction inflation wage policy",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-10-15T21:21:58.037Z",
+          "finished_at": "2026-10-15T21:21:58.117Z"
+        },
+        {
+          "query_id": "JAPAN_CARRY_UNWIND:lead:japan_flows",
+          "phase": "LEAD",
+          "signal": "CAPITAL_REPATRIATION",
+          "q": "Japan investors sell foreign bonds buy JGB weekly securities flows Ministry Finance",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 1,
+              "cached": true,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-10-15T21:21:58.117Z",
+          "finished_at": "2026-10-15T21:21:58.198Z"
+        },
+        {
+          "query_id": "JAPAN_CARRY_UNWIND:confirm:jgb_yen",
+          "phase": "CONFIRM",
+          "signal": "JGB_YEN_CONFIRM",
+          "q": "JGB 10 year 30 year yield yen USDJPY carry trade unwind",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 1,
+              "cached": true,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-10-15T21:21:58.198Z",
+          "finished_at": "2026-10-15T21:21:58.278Z"
+        }
+      ]
+    },
+    "ROCKET_MOTOR_SHORTAGE": {
+      "id": "ROCKET_MOTOR_SHORTAGE",
+      "label": "Rocket motor bottleneck",
+      "tier": "A",
+      "summary": "L3Harris expanding solid rocket motor production capacity, indicating mitigation of rocket motor shortage.",
+      "evidence": [
+        {
+          "candidate_id": "d23758a8276f0fbcb49c",
+          "query_id": "ROCKET_MOTOR_SHORTAGE:lead:motor_permit",
+          "phase": "LEAD",
+          "signal": "MOTOR_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "L3Harris is expanding its solid rocket motor production facilities, increasing capacity.",
+          "direction": "DOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "The company announced a $25 million investment adding 130,000 sq ft of manufacturing space, expanding its footprint to ~670,000 sq ft across three sites, thereby increasing solid rocket motor production capacity.",
+          "source_url": "https://markets.ft.com/data/announce/detail?dockey=600-202606011000BIZWIRE_USPRX____20260601_BW509174-1",
+          "source_name": "L3Harris Continues Expansion of Solid Rocket Motor Facilities in Huntsville – Company Announcement - FT.com",
+          "source_domain": "markets.ft.com",
+          "source_grade": 0.92,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-10-15T21:22:03.847Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000087,
+      "usage": {
+        "prompt_tokens": 2294,
+        "completion_tokens": 503,
+        "total_tokens": 2797,
+        "cost": 0.000086562,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000086562,
+          "upstream_inference_prompt_cost": 0.000041292,
+          "upstream_inference_completions_cost": 0.00004527
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 355,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "ROCKET_MOTOR_SHORTAGE:lead:motor_permit",
+          "phase": "LEAD",
+          "signal": "MOTOR_CAPACITY",
+          "q": "solid rocket motor factory expansion permit hiring qualification Aerojet L3Harris Northrop",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-10-15T21:21:55.055Z",
+          "finished_at": "2026-10-15T21:21:55.135Z"
+        },
+        {
+          "query_id": "ROCKET_MOTOR_SHORTAGE:lead:propellant",
+          "phase": "LEAD",
+          "signal": "PROPELLANT_INPUT",
+          "q": "ammonium perchlorate solid propellant shortage tender rocket motor supply chain",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-10-15T21:21:55.135Z",
+          "finished_at": "2026-10-15T21:21:55.216Z"
+        },
+        {
+          "query_id": "ROCKET_MOTOR_SHORTAGE:confirm:motor_award",
+          "phase": "CONFIRM",
+          "signal": "GOVERNMENT_CAPACITY_AWARD",
+          "q": "DoD investment solid rocket motor capacity L3Harris Aerojet production award",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-10-15T21:21:55.216Z",
+          "finished_at": "2026-10-15T21:21:55.296Z"
+        }
+      ]
+    },
+    "ROBOTICS_DECOUPLING": {
+      "id": "ROBOTICS_DECOUPLING",
+      "label": "Robotics decoupling",
+      "tier": "B",
+      "summary": "",
+      "evidence": [],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema+repair",
+      "repaired": true,
+      "cost_usd": 0.000176,
+      "usage": {
+        "prompt_tokens": 319,
+        "completion_tokens": 318,
+        "total_tokens": 637,
+        "cost": 0.00003818,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00003818,
+          "upstream_inference_prompt_cost": 0.00000638,
+          "upstream_inference_completions_cost": 0.0000318
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 353,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "ROBOTICS_DECOUPLING:lead:robot_tariff",
+          "phase": "LEAD",
+          "signal": "ROBOTICS_TRADE_BARRIER",
+          "q": "US tariff Chinese robots humanoid drones components national security procurement restriction",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-10-15T21:21:57.796Z",
+          "finished_at": "2026-10-15T21:21:57.877Z"
+        },
+        {
+          "query_id": "ROBOTICS_DECOUPLING:lead:local_content",
+          "phase": "LEAD",
+          "signal": "LOCAL_CONTENT",
+          "q": "robotics domestic content mandate government procurement China supplier exclusion US Europe",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-10-15T21:21:57.877Z",
+          "finished_at": "2026-10-15T21:21:57.957Z"
+        },
+        {
+          "query_id": "ROBOTICS_DECOUPLING:confirm:reshore_order",
+          "phase": "CONFIRM",
+          "signal": "ROBOTICS_RESHORING",
+          "q": "robotics supplier new US factory reshoring actuator reducer motor contract",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 11
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 11
+            }
+          },
+          "started_at": "2026-10-15T21:21:57.957Z",
+          "finished_at": "2026-10-15T21:21:58.037Z"
+        }
+      ]
+    },
+    "CEYHAN_BYPASS": {
+      "id": "CEYHAN_BYPASS",
+      "label": "Ceyhan / Kurdistan bypass",
+      "tier": "A",
+      "summary": "Iraq resumed oil exports from Kurdistan to Turkey via Ceyhan port at approximately 180,000 to 190,000 barrels per day after a two‑year halt.",
+      "evidence": [
+        {
+          "candidate_id": "cd4f379c788fbbced6b1",
+          "query_id": "CEYHAN_BYPASS:lead:iraq_turkey",
+          "phase": "LEAD",
+          "signal": "POLITICAL_CLEARANCE",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Iraq resumed oil exports from Kurdistan to Turkey via Ceyhan port at approximately 180,000 to 190,000 barrels per day.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Resumption of exports after a two‑year halt indicates increased flow through the Ceyhan bypass.",
+          "source_url": "http://vista.sahafi.jo/art.php?id=2400e6630a4487f7aac9d6723641fb0fe77ce27f",
+          "source_name": " Iraq resumes oil exports from Kurdistan to Turkey after two-year halt - Jordan Vista",
+          "source_domain": "vista.sahafi.jo",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-10-15T21:22:03.847Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [
+        "continued flow at 180,000 to 190,000 barrels per day"
+      ],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000112,
+      "usage": {
+        "prompt_tokens": 2006,
+        "completion_tokens": 846,
+        "total_tokens": 2852,
+        "cost": 0.000112248,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000112248,
+          "upstream_inference_prompt_cost": 0.000036108,
+          "upstream_inference_completions_cost": 0.00007614
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 676,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "CEYHAN_BYPASS:lead:iraq_turkey",
+          "phase": "LEAD",
+          "signal": "POLITICAL_CLEARANCE",
+          "q": "Iraq Turkey pipeline Ceyhan agreement Kurdish oil payments SOMO export settlement",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-10-15T21:21:54.414Z",
+          "finished_at": "2026-10-15T21:21:54.494Z"
+        },
+        {
+          "query_id": "CEYHAN_BYPASS:lead:kurd_prod",
+          "phase": "LEAD",
+          "signal": "KURDISTAN_PRODUCTION",
+          "q": "Kurdistan oil production restart DNO Gulf Keystone Genel pipeline Ceyhan",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-10-15T21:21:54.494Z",
+          "finished_at": "2026-10-15T21:21:54.574Z"
+        }
+      ]
+    },
+    "ARSENAL_DEPLETION": {
+      "id": "ARSENAL_DEPLETION",
+      "label": "Arsenal depletion / replenishment",
+      "tier": "A",
+      "summary": "",
+      "evidence": [],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema+repair",
+      "repaired": true,
+      "cost_usd": 0.000187,
+      "usage": {
+        "prompt_tokens": 567,
+        "completion_tokens": 236,
+        "total_tokens": 803,
+        "cost": 0.000031446,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000031446,
+          "upstream_inference_prompt_cost": 0.000010206,
+          "upstream_inference_completions_cost": 0.00002124
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 212,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "ARSENAL_DEPLETION:lead:proc_rfq",
+          "phase": "LEAD",
+          "signal": "PROCUREMENT_CHANGE",
+          "q": "Pentagon RFQ multiyear procurement Patriot THAAD Tomahawk SM-6 AMRAAM JASSM LRASM 155mm",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-10-15T21:21:54.895Z",
+          "finished_at": "2026-10-15T21:21:54.975Z"
+        },
+        {
+          "query_id": "ARSENAL_DEPLETION:lead:inventory",
+          "phase": "LEAD",
+          "signal": "INVENTORY_STRESS",
+          "q": "Patriot THAAD interceptor inventory stockpile depletion production target Pentagon",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-10-15T21:21:54.975Z",
+          "finished_at": "2026-10-15T21:21:55.055Z"
+        }
+      ]
+    }
+  },
+  "errors": [
+    {
+      "mechanism_id": "AI_TIME_TO_POWER",
+      "error": "MODEL_CHAIN_EXHAUSTED | openai/gpt-oss-20b: The operation was aborted due to timeout | openai/gpt-oss-120b: The operation was aborted due to timeout"
+    },
+    {
+      "mechanism_id": "GLOBAL_REFINANCING_STRESS",
+      "error": "MODEL_CHAIN_EXHAUSTED | openai/gpt-oss-20b: The operation was aborted due to timeout | openai/gpt-oss-120b: The operation was aborted due to timeout"
+    }
+  ],
+  "deferred": [
+    {
+      "mechanism_id": "CRUDE_TANKER_DISLOCATION",
+      "reason": "QUOTA_ROTATION",
+      "priority": 93.5
+    },
+    {
+      "mechanism_id": "DIESEL_REFINING_CRISIS",
+      "reason": "QUOTA_ROTATION",
+      "priority": 93.5
+    },
+    {
+      "mechanism_id": "ENERGETICS_SHORTAGE",
+      "reason": "QUOTA_ROTATION",
+      "priority": 93.5
+    },
+    {
+      "mechanism_id": "PRODUCT_TANKER_TONMILES",
+      "reason": "QUOTA_ROTATION",
+      "priority": 93.5
+    },
+    {
+      "mechanism_id": "ATLANTIC_BARREL_PREMIUM",
+      "reason": "QUOTA_ROTATION",
+      "priority": 83.5
+    },
+    {
+      "mechanism_id": "COUNTER_UAS_COST_CURVE",
+      "reason": "QUOTA_ROTATION",
+      "priority": 83.5
+    },
+    {
+      "mechanism_id": "LNG_REROUTING",
+      "reason": "QUOTA_ROTATION",
+      "priority": 83.5
+    },
+    {
+      "mechanism_id": "RARE_EARTH_MAGNET_SHORTAGE",
+      "reason": "QUOTA_ROTATION",
+      "priority": 83.5
+    },
+    {
+      "mechanism_id": "STRATEGIC_ALUMINIUM",
+      "reason": "QUOTA_ROTATION",
+      "priority": 83.5
+    },
+    {
+      "mechanism_id": "NUCLEAR_FUEL_SOVEREIGNTY",
+      "reason": "QUOTA_ROTATION",
+      "priority": 69.7
+    },
+    {
+      "mechanism_id": "OIL_SERVICE_CAPEX_SECOND_WAVE",
+      "reason": "QUOTA_ROTATION",
+      "priority": 69.7
+    },
+    {
+      "mechanism_id": "OT_CYBER_SHOCK",
+      "reason": "QUOTA_ROTATION",
+      "priority": 68.5
+    },
+    {
+      "mechanism_id": "AI_GHOST_DEMAND",
+      "reason": "QUOTA_ROTATION",
+      "priority": 58.5
+    },
+    {
+      "mechanism_id": "BEHIND_METER_AI_POWER",
+      "reason": "QUOTA_ROTATION",
+      "priority": 58.5
+    },
+    {
+      "mechanism_id": "CHEAP_DRONE_SCALING",
+      "reason": "QUOTA_ROTATION",
+      "priority": 58.5
+    },
+    {
+      "mechanism_id": "EUROPE_STRATEGIC_AUTONOMY",
+      "reason": "QUOTA_ROTATION",
+      "priority": 58.5
+    },
+    {
+      "mechanism_id": "MILITARY_ENERGY_AUTONOMY",
+      "reason": "QUOTA_ROTATION",
+      "priority": 58.5
+    },
+    {
+      "mechanism_id": "UNDERWATER_SECURITY",
+      "reason": "QUOTA_ROTATION",
+      "priority": 58.5
+    },
+    {
+      "mechanism_id": "ROBOTICS_ACTUATOR_SCALE",
+      "reason": "QUOTA_ROTATION",
+      "priority": 33.5
+    }
+  ],
+  "api_calls": 12
+}
