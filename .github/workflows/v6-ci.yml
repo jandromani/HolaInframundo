@@ -1,0 +1,37 @@
+name: GearWatch V6 — checks and dry-run publish
+on:
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  v6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Regression suite with V6 contracts
+        run: npm run selftest
+      - name: Preserve V5 lab + audit V6 UI
+        run: npm run uiux:audit
+      - name: Build V6 projection from committed source snapshot
+        run: npm run v6:publish
+      - name: Validate V6 published contracts
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          const home=JSON.parse(fs.readFileSync('data/v6/homepage.json','utf8'));
+          const world=JSON.parse(fs.readFileSync('data/v6/world-current.json','utf8'));
+          const companies=JSON.parse(fs.readFileSync('data/v6/companies.json','utf8'));
+          const history=JSON.parse(fs.readFileSync('data/v6/history/checkpoints.json','utf8'));
+          if(home.run_id!==world.run_id||home.run_id!==companies.run_id)throw Error('incoherent V6 run_id');
+          if(home.shocks.length<3)throw Error('missing root shocks');
+          if(Object.keys(world.world_variables).length!==26)throw Error('missing mechanisms');
+          if(companies.company_count<1)throw Error('missing enterprise layer');
+          if(!history.runs.length)throw Error('missing replay checkpoints');
+          console.log('V6 READY',home.run_id,home.shocks.length,companies.company_count);
+          JS
