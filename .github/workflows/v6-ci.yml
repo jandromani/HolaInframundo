@@ -20,6 +20,22 @@ jobs:
         run: npm run uiux:audit
       - name: Build V6 projection from committed source snapshot
         run: npm run v6:publish
+      - name: Generate Canary-001 economic snapshot from frozen prior data
+        run: npm run canary:model
+      - name: Validate Canary-001 no-fake-probability contract
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          const model=JSON.parse(fs.readFileSync('data/experiments/CANARY-001.model.json','utf8'));
+          if(model.experiment_id!=='CANARY-001')throw Error('wrong Canary');
+          if(model.scenarios.length!==3||model.baseline.products.length!==3)throw Error('incomplete product economics');
+          if(model.preregistration_git_blob_sha!=='aa9b19f1efe5e077079a402a52402a21f0f69c01')throw Error('prereg changed');
+          if(model.probabilistic_status!=='UNIDENTIFIED'||model.expected_return_pct!==null||model.expected_free_cash_flow_usd!==null)throw Error('fake investment precision');
+          if(model.bayesian_state.probability!==null||model.stochastic_model.quantiles!==null)throw Error('uncalibrated probability published');
+          if(!fs.readFileSync('lib/v6-dashboard.mjs','utf8').includes('/canary.html'))throw Error('lab not reachable from UI');
+          if(!fs.readFileSync('canary.html','utf8').includes('CANARY-001'))throw Error('missing lab');
+          console.log('CANARY-001 generated, source-anchored and probability-gated');
+          JS
       - name: Validate V6 published contracts
         run: |
           node --input-type=module <<'JS'
