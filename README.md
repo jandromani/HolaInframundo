@@ -1,3 +1,13 @@
+# GearWatch V6 — WORLD → MONEY
+
+**Three public views:** `AHORA` (world state), `TRANSMISIÓN` (causal graph + company economics) and `MIS TESIS` (private browser-local tracking). Full V5 research lab: [`/legacy/v5.html`](./legacy/v5.html).
+
+Detailed implementation, source integrity, agents, privacy and known limitations: [`docs/GEARWATCH-V6.md`](./docs/GEARWATCH-V6.md).
+
+**Safety:** no live trades, no push delivery promised, no company cash-flow capture invented from market capitalization, and no physical measurements inferred from a causal score. The 26-mechanism V5 pipeline remains operational under the redesigned interface.
+
+---
+
 # GearWatch V2 — Causal Alpha Radar
 
 GearWatch is a read-only market-intelligence system built around **mechanisms**, not headlines.
