@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0.0",
+  "experiment_id": "CANARY-001",
+  "source": {
+    "issuer": "LSB Industries",
+    "period_end": "2026-06-30",
+    "published_at": "2026-07-29",
+    "url": "https://investors.lsbindustries.com/news-releases/news-release-details/lsb-industries-inc-reports-operating-results-2026-second-quarter",
+    "note": "Public quarterly company disclosures available before Oct 16, 2026; not a forward earnings forecast."
+  },
+  "historical_baseline": {
+    "currency": "USD",
+    "period": "2026-Q2",
+    "time_unit": "QUARTER",
+    "product_lines": [
+      {
+        "id": "AN_NITRIC_ACID",
+        "label": "AN & nitric acid",
+        "volume_short_tons": 179339,
+        "netback_usd_per_short_ton": 333
+      },
+      {
+        "id": "UAN",
+        "label": "Urea ammonium nitrate",
+        "volume_short_tons": 130818,
+        "netback_usd_per_short_ton": 433
+      },
+      {
+        "id": "AMMONIA",
+        "label": "Ammonia",
+        "volume_short_tons": 35667,
+        "netback_usd_per_short_ton": 658
+      }
+    ],
+    "reported_netback_sales_usd": 139883000,
+    "reported_adjusted_ebitda_usd": 53100000,
+    "realized_gas_input_cost_usd_per_mmbtu": 2.96,
+    "balance_sheet": {
+      "cash_plus_short_term_usd": 218000000,
+      "total_debt_usd": 441300000
+    },
+    "baseline_is_not_normalized": true,
+    "base_historical_quarter_affected_by_plant_turnarounds": true
+  },
+  "scenarios": [
+    {
+      "id": "LOWER_REALIZATION",
+      "title": "Compresión de precios y volumen",
+      "kind": "HYPOTHETICAL_STRESS_NOT_FORECAST",
+      "shifts": {
+        "AN_NITRIC_ACID": {
+          "price_pct": -5,
+          "volume_pct": 0
+        },
+        "UAN": {
+          "price_pct": -15,
+          "volume_pct": -8
+        },
+        "AMMONIA": {
+          "price_pct": -15,
+          "volume_pct": -5
+        }
+      }
+    },
+    {
+      "id": "UNCHANGED_NETBACK",
+      "title": "Sin cambio frente al trimestre base",
+      "kind": "HYPOTHETICAL_REFERENCE_NOT_FORECAST",
+      "shifts": {
+        "AN_NITRIC_ACID": {
+          "price_pct": 0,
+          "volume_pct": 0
+        },
+        "UAN": {
+          "price_pct": 0,
+          "volume_pct": 0
+        },
+        "AMMONIA": {
+          "price_pct": 0,
+          "volume_pct": 0
+        }
+      }
+    },
+    {
+      "id": "HIGHER_REALIZATION",
+      "title": "Mayor realización y recuperación operativa",
+      "kind": "HYPOTHETICAL_STRESS_NOT_FORECAST",
+      "shifts": {
+        "AN_NITRIC_ACID": {
+          "price_pct": 5,
+          "volume_pct": 5
+        },
+        "UAN": {
+          "price_pct": 15,
+          "volume_pct": 10
+        },
+        "AMMONIA": {
+          "price_pct": 20,
+          "volume_pct": 8
+        }
+      }
+    }
+  ],
+  "calibration_requirements": {
+    "scenario_weights": "Out-of-sample base rates conditioned on comparable fertilizer supply disruptions",
+    "netback_distributions": "Dated series of company realized netbacks and corresponding commodity price realization lags",
+    "volumes": "Plant uptime, contract and product mix distributions, not unrestricted extrapolation",
+    "gas_input": "Verified gas energy consumption/MMBtu plus pass-through and hedging",
+    "cash_flow": "Variable costs, capex, taxes, interest, working capital, shares/dilution",
+    "market_expectations": "Dated consensus and price-implied analysis; not an arbitrary upside assumption",
+    "benchmark": "CF company economics before estimating relative stock alpha"
+  },
+  "constraints": {
+    "scenario_probabilities": null,
+    "capital_expected_return": null,
+    "forecast_is_pre_registered": false,
+    "original_canary_frozen": "experiments/CANARY-001.preregistered.json",
+    "no_orders": true
+  }
+}
