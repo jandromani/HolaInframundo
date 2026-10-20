@@ -1,11 +1,11 @@
 {
   "version": "4.4.0",
-  "generated_at": "2026-10-20T11:42:55.589Z",
+  "generated_at": "2026-10-20T17:10:08.126Z",
   "observations": {
     "AISSTREAM": {
       "source": "AISSTREAM",
       "family": "PHYSICAL",
-      "observed_at": "2026-10-20T11:42:55.589Z",
+      "observed_at": "2026-10-20T17:10:08.126Z",
       "status": "NOT_CONFIGURED",
       "quality": "PRIMARY_PHYSICAL",
       "error": "AISSTREAM_API_KEY missing",
@@ -14,7 +14,7 @@
     "ACER_LNG": {
       "source": "ACER_LNG",
       "family": "MARKET",
-      "observed_at": "2026-10-20T11:42:55.589Z",
+      "observed_at": "2026-10-20T17:10:08.126Z",
       "status": "OK",
       "quality": "PRIMARY_OFFICIAL",
       "metric": "ACER_EU_LNG_ASSESSMENT",
@@ -25,7 +25,7 @@
       "pricing_score": 98,
       "sample": [
         {
-          "date": "2026.10.19",
+          "date": "2026.10.20",
           "nwe": 82.836,
           "south": 83.457,
           "eu": 83.187,
@@ -134,7 +134,7 @@
     "KALSHI": {
       "source": "KALSHI",
       "family": "PREDICTION",
-      "observed_at": "2026-10-20T11:42:55.589Z",
+      "observed_at": "2026-10-20T17:10:08.126Z",
       "status": "OK",
       "quality": "PREDICTION_PUBLIC",
       "metric": "KALSHI_EVENT_CONSENSUS",
@@ -176,7 +176,7 @@
           "semantic_quality": "NO_RELEVANT_MARKET"
         }
       },
-      "rejected_semantic_hits": 40
+      "rejected_semantic_hits": 42
     },
     "EIA": {
       "status": "ERROR",
@@ -187,12 +187,12 @@
       "fallback": true,
       "source": "EIA",
       "family": "PHYSICAL",
-      "observed_at": "2026-10-20T11:42:55.589Z"
+      "observed_at": "2026-10-20T17:10:08.126Z"
     },
     "MOF_JGB": {
       "source": "MOF_JGB",
       "family": "MARKET",
-      "observed_at": "2026-10-20T11:42:55.589Z",
+      "observed_at": "2026-10-20T17:10:08.126Z",
       "status": "ERROR",
       "quality": "PRIMARY_OFFICIAL",
       "error": "no MOF auction results parsed",
@@ -201,7 +201,7 @@
     "MOF_FLOWS": {
       "source": "MOF_FLOWS",
       "family": "MARKET",
-      "observed_at": "2026-10-20T11:42:55.589Z",
+      "observed_at": "2026-10-20T17:10:08.126Z",
       "status": "OK",
       "quality": "PRIMARY_OFFICIAL",
       "metric": "JAPAN_WEEKLY_SECURITIES_FLOWS",
@@ -245,16 +245,22 @@
     "CFTC_COT": {
       "source": "CFTC_COT",
       "family": "MARKET",
-      "observed_at": "2026-10-20T11:42:55.589Z",
-      "status": "ERROR",
+      "observed_at": "2026-10-20T17:10:08.126Z",
+      "status": "OK",
       "quality": "PRIMARY_OFFICIAL",
-      "error": "HTTP 403",
-      "pricing_score": null
+      "metric": "CFTC_COT_DISCOVERY",
+      "pricing_score": null,
+      "annual_archive": "https://www.cftc.gov/files/dea/history/fut_fin_txt_2026.zip",
+      "index_mentions": {
+        "yen": 0,
+        "oil": 0
+      },
+      "note": "Official archive is reachable; ZIP parsing is deferred rather than guessing positioning from HTML."
     },
     "USA_SPENDING": {
       "source": "USA_SPENDING",
       "family": "PROCUREMENT",
-      "observed_at": "2026-10-20T11:42:55.589Z",
+      "observed_at": "2026-10-20T17:10:08.126Z",
       "status": "OK",
       "quality": "PRIMARY_OFFICIAL",
       "metric": "US_DEFENSE_PROCUREMENT_90D",
@@ -279,7 +285,7 @@
     "SAM_GOV": {
       "source": "SAM_GOV",
       "family": "PROCUREMENT",
-      "observed_at": "2026-10-20T11:42:55.589Z",
+      "observed_at": "2026-10-20T17:10:08.126Z",
       "status": "NOT_CONFIGURED",
       "quality": "PRIMARY_OFFICIAL",
       "error": "GSA_API_KEY missing"
@@ -293,12 +299,12 @@
       "fallback": true,
       "source": "UKMTO",
       "family": "PHYSICAL",
-      "observed_at": "2026-10-20T11:42:55.589Z"
+      "observed_at": "2026-10-20T17:10:08.126Z"
     },
     "ENTSOE": {
       "source": "ENTSOE",
       "family": "PHYSICAL",
-      "observed_at": "2026-10-20T11:42:55.589Z",
+      "observed_at": "2026-10-20T17:10:08.126Z",
       "status": "NOT_CONFIGURED",
       "quality": "PRIMARY_OFFICIAL",
       "error": "ENTSOE_API_KEY missing"
@@ -306,7 +312,7 @@
     "UN_COMTRADE": {
       "source": "UN_COMTRADE",
       "family": "PHYSICAL",
-      "observed_at": "2026-10-20T11:42:55.589Z",
+      "observed_at": "2026-10-20T17:10:08.126Z",
       "status": "OK",
       "quality": "PRIMARY_OFFICIAL",
       "metric": "CHINA_PERMANENT_MAGNET_EXPORTS",
@@ -388,9 +394,9 @@
           "source": "CFTC_COT",
           "family": "MARKET",
           "access": "FREE_PUBLIC",
-          "status": "ERROR",
+          "status": "OK",
           "score": null,
-          "metric": null,
+          "metric": "CFTC_COT_DISCOVERY",
           "quality": "PRIMARY_OFFICIAL",
           "weight": 0.85
         }
@@ -399,7 +405,7 @@
       "pricing_method": "NO_PRIMARY_OBSERVATION",
       "blind_reasons": [
         "EIA:ERROR",
-        "CFTC_COT:ERROR"
+        "CFTC_COT:OK"
       ]
     },
     "PRODUCT_TANKER_TONMILES": {
@@ -421,9 +427,9 @@
           "source": "CFTC_COT",
           "family": "MARKET",
           "access": "FREE_PUBLIC",
-          "status": "ERROR",
+          "status": "OK",
           "score": null,
-          "metric": null,
+          "metric": "CFTC_COT_DISCOVERY",
           "quality": "PRIMARY_OFFICIAL",
           "weight": 0.85
         }
@@ -432,7 +438,7 @@
       "pricing_method": "NO_PRIMARY_OBSERVATION",
       "blind_reasons": [
         "AISSTREAM:NOT_CONFIGURED",
-        "CFTC_COT:ERROR"
+        "CFTC_COT:OK"
       ]
     },
     "CRUDE_TANKER_DISLOCATION": {
@@ -454,9 +460,9 @@
           "source": "CFTC_COT",
           "family": "MARKET",
           "access": "FREE_PUBLIC",
-          "status": "ERROR",
+          "status": "OK",
           "score": null,
-          "metric": null,
+          "metric": "CFTC_COT_DISCOVERY",
           "quality": "PRIMARY_OFFICIAL",
           "weight": 0.85
         }
@@ -465,7 +471,7 @@
       "pricing_method": "NO_PRIMARY_OBSERVATION",
       "blind_reasons": [
         "AISSTREAM:NOT_CONFIGURED",
-        "CFTC_COT:ERROR"
+        "CFTC_COT:OK"
       ]
     },
     "ATLANTIC_BARREL_PREMIUM": {
@@ -1050,9 +1056,9 @@
           "source": "CFTC_COT",
           "family": "MARKET",
           "access": "FREE_PUBLIC",
-          "status": "ERROR",
+          "status": "OK",
           "score": null,
-          "metric": null,
+          "metric": "CFTC_COT_DISCOVERY",
           "quality": "PRIMARY_OFFICIAL",
           "weight": 0.85
         }
@@ -1061,7 +1067,7 @@
       "pricing_method": "NO_PRIMARY_OBSERVATION",
       "blind_reasons": [
         "UN_COMTRADE:OK",
-        "CFTC_COT:ERROR"
+        "CFTC_COT:OK"
       ]
     },
     "RARE_EARTH_MAGNET_SHORTAGE": {
@@ -1147,9 +1153,9 @@
           "source": "CFTC_COT",
           "family": "MARKET",
           "access": "FREE_PUBLIC",
-          "status": "ERROR",
+          "status": "OK",
           "score": null,
-          "metric": null,
+          "metric": "CFTC_COT_DISCOVERY",
           "quality": "PRIMARY_OFFICIAL",
           "weight": 0.85
         },
@@ -1169,7 +1175,7 @@
       "blind_reasons": [
         "MOF_JGB:ERROR",
         "MOF_FLOWS:OK",
-        "CFTC_COT:ERROR",
+        "CFTC_COT:OK",
         "KALSHI:OK"
       ]
     },
@@ -1182,9 +1188,9 @@
           "source": "CFTC_COT",
           "family": "MARKET",
           "access": "FREE_PUBLIC",
-          "status": "ERROR",
+          "status": "OK",
           "score": null,
-          "metric": null,
+          "metric": "CFTC_COT_DISCOVERY",
           "quality": "PRIMARY_OFFICIAL",
           "weight": 0.85
         },
@@ -1202,7 +1208,7 @@
       "total_sources": 2,
       "pricing_method": "NO_PRIMARY_OBSERVATION",
       "blind_reasons": [
-        "CFTC_COT:ERROR",
+        "CFTC_COT:OK",
         "KALSHI:OK"
       ]
     },
@@ -1268,9 +1274,9 @@
           "source": "CFTC_COT",
           "family": "MARKET",
           "access": "FREE_PUBLIC",
-          "status": "ERROR",
+          "status": "OK",
           "score": null,
-          "metric": null,
+          "metric": "CFTC_COT_DISCOVERY",
           "quality": "PRIMARY_OFFICIAL",
           "weight": 0.85
         }
@@ -1279,13 +1285,13 @@
       "pricing_method": "NO_PRIMARY_OBSERVATION",
       "blind_reasons": [
         "EIA:ERROR",
-        "CFTC_COT:ERROR"
+        "CFTC_COT:OK"
       ]
     }
   },
   "coverage": {
     "mechanisms": 26,
-    "live_sources": 5,
+    "live_sources": 6,
     "scored_sources": 2,
     "configured_sources": 16,
     "blocks": {
@@ -1299,7 +1305,7 @@
         "OK",
         "NOT_CONFIGURED"
       ],
-      "cftc": "ERROR",
+      "cftc": "OK",
       "ukmto": "ERROR",
       "entsoe": "NOT_CONFIGURED",
       "comtrade": "OK"
@@ -1309,7 +1315,7 @@
       "kalshi": "OK"
     },
     "quality": {
-      "kalshi_rejected_semantic_hits": 40,
+      "kalshi_rejected_semantic_hits": 42,
       "eia_public_fallback": true,
       "ukmto_public_fallback": true,
       "mof_public_fallback": false
