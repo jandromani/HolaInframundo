@@ -1,53 +1,72 @@
 {
   "schema_version": "6.0.0",
-  "run_id": "run_2026-10-23T21-22-41Z",
-  "as_of": "2026-10-23T21:32:59.354Z",
-  "generated_at": "2026-10-23T21:33:32.763Z",
+  "run_id": "run_2026-10-24T04-33-08Z",
+  "as_of": "2026-10-24T04:40:31.877Z",
+  "generated_at": "2026-10-24T04:40:56.953Z",
   "homepage": {
-    "primary": "FINANCIAL_CONDITIONS",
+    "primary": "HORMUZ_ENERGY",
     "secondary": [
-      "DEFENSE_SUPPLY",
-      "HORMUZ_ENERGY"
+      "INDUSTRIAL_SOVEREIGNTY",
+      "DEFENSE_SUPPLY"
     ]
   },
   "shocks": [
     {
-      "id": "FINANCIAL_CONDITIONS",
-      "title": "Coste global del capital",
-      "subtitle": "Japón, divisas, deuda y financiación empresarial",
-      "group": "MACRO",
-      "priority_score": 47,
-      "observed_mechanisms": 2,
+      "id": "HORMUZ_ENERGY",
+      "title": "Hormuz y seguridad energética",
+      "subtitle": "Rutas, crudo, diésel, LNG y sustitución de suministro",
+      "group": "ENERGY_SECURITY",
+      "priority_score": 70,
+      "observed_mechanisms": 6,
       "mechanism_ids": [
-        "JAPAN_CARRY_UNWIND",
-        "GLOBAL_REFINANCING_STRESS"
+        "CRUDE_TANKER_DISLOCATION",
+        "PRODUCT_TANKER_TONMILES",
+        "ATLANTIC_BARREL_PREMIUM",
+        "DIESEL_REFINING_CRISIS",
+        "LNG_REROUTING",
+        "CEYHAN_BYPASS",
+        "OIL_SERVICE_CAPEX_SECOND_WAVE"
       ],
-      "lead_mechanism": "GLOBAL_REFINANCING_STRESS",
-      "causal_max": 60,
-      "evidence_quality": "EVIDENCE_PENDING",
-      "evidence_as_of": "2026-10-23T21:32:59.354Z",
+      "lead_mechanism": "DIESEL_REFINING_CRISIS",
+      "causal_max": 68,
+      "evidence_quality": "RECENT_CORROBORATED_IN_PART",
+      "evidence_as_of": "2026-10-24T04:40:31.877Z",
       "market_phase": "EARLY_WAVE",
-      "market_priced_in_proxy": 9,
+      "market_priced_in_proxy": 11,
       "drivers": [
         {
-          "mechanism_id": "GLOBAL_REFINANCING_STRESS",
-          "score": 60,
-          "state": "ARMING",
-          "recent_domains": 1,
-          "freshness": "AGING"
+          "mechanism_id": "DIESEL_REFINING_CRISIS",
+          "score": 68,
+          "state": "WATCH",
+          "recent_domains": 2,
+          "freshness": "FRESH"
         },
         {
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "mechanism_id": "CRUDE_TANKER_DISLOCATION",
           "score": 36,
           "state": "WATCH",
           "recent_domains": 1,
           "freshness": "FRESH"
+        },
+        {
+          "mechanism_id": "CEYHAN_BYPASS",
+          "score": 36,
+          "state": "WATCH",
+          "recent_domains": 0,
+          "freshness": "AGING"
+        },
+        {
+          "mechanism_id": "LNG_REROUTING",
+          "score": 31,
+          "state": "WATCH",
+          "recent_domains": 0,
+          "freshness": "STALE"
         }
       ],
       "transmission_hypotheses": [
         {
-          "from": "JAPAN_CARRY_UNWIND",
-          "to": "GLOBAL_REFINANCING_STRESS",
+          "from": "DIESEL_REFINING_CRISIS",
+          "to": "PRODUCT_TANKER_TONMILES",
           "expected_lag_runs": [
             0,
             1,
@@ -55,66 +74,310 @@
           ],
           "sign": 1,
           "kind": "HYPOTHESIS_NOT_CERTAINTY"
+        },
+        {
+          "from": "PRODUCT_TANKER_TONMILES",
+          "to": "CRUDE_TANKER_DISLOCATION",
+          "expected_lag_runs": [
+            0,
+            1,
+            2
+          ],
+          "sign": 0,
+          "kind": "HYPOTHESIS_NOT_CERTAINTY"
+        },
+        {
+          "from": "CRUDE_TANKER_DISLOCATION",
+          "to": "ATLANTIC_BARREL_PREMIUM",
+          "expected_lag_runs": [
+            0,
+            1,
+            2
+          ],
+          "sign": 1,
+          "kind": "HYPOTHESIS_NOT_CERTAINTY"
+        },
+        {
+          "from": "ATLANTIC_BARREL_PREMIUM",
+          "to": "CEYHAN_BYPASS",
+          "expected_lag_runs": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "sign": 0,
+          "kind": "HYPOTHESIS_NOT_CERTAINTY"
+        },
+        {
+          "from": "LNG_REROUTING",
+          "to": "GLOBAL_REFINANCING_STRESS",
+          "expected_lag_runs": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "sign": 1,
+          "kind": "HYPOTHESIS_NOT_CERTAINTY"
+        },
+        {
+          "from": "DIESEL_REFINING_CRISIS",
+          "to": "GLOBAL_REFINANCING_STRESS",
+          "expected_lag_runs": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "sign": 1,
+          "kind": "HYPOTHESIS_NOT_CERTAINTY"
         }
       ],
       "companies": [
         {
-          "ticker": "BX",
-          "mechanism_id": "GLOBAL_REFINANCING_STRESS",
-          "transmission_score": 39,
-          "fit": 52
+          "ticker": "DINO",
+          "mechanism_id": "DIESEL_REFINING_CRISIS",
+          "transmission_score": 76,
+          "fit": 83
         },
         {
-          "ticker": "ARES",
-          "mechanism_id": "GLOBAL_REFINANCING_STRESS",
-          "transmission_score": 44,
-          "fit": 60
+          "ticker": "PSX",
+          "mechanism_id": "DIESEL_REFINING_CRISIS",
+          "transmission_score": 75,
+          "fit": 85
         },
         {
-          "ticker": "OWL",
-          "mechanism_id": "GLOBAL_REFINANCING_STRESS",
-          "transmission_score": 44,
-          "fit": 50
+          "ticker": "MPC",
+          "mechanism_id": "DIESEL_REFINING_CRISIS",
+          "transmission_score": 72,
+          "fit": 86
         },
         {
-          "ticker": "KKR",
-          "mechanism_id": "GLOBAL_REFINANCING_STRESS",
-          "transmission_score": 43,
-          "fit": 56
+          "ticker": "DK",
+          "mechanism_id": "DIESEL_REFINING_CRISIS",
+          "transmission_score": 75,
+          "fit": 89
         },
         {
-          "ticker": "CBOE",
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "transmission_score": 49,
-          "fit": 60
+          "ticker": "ECO",
+          "mechanism_id": "CRUDE_TANKER_DISLOCATION",
+          "transmission_score": 75,
+          "fit": 76
         },
         {
-          "ticker": "CME",
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "transmission_score": 47,
-          "fit": 62
+          "ticker": "FRO",
+          "mechanism_id": "CRUDE_TANKER_DISLOCATION",
+          "transmission_score": 86,
+          "fit": 97
         },
         {
-          "ticker": "NDAQ",
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "transmission_score": 46,
-          "fit": 50
+          "ticker": "DHT",
+          "mechanism_id": "CRUDE_TANKER_DISLOCATION",
+          "transmission_score": 74,
+          "fit": 95
         },
         {
-          "ticker": "ICE",
-          "mechanism_id": "JAPAN_CARRY_UNWIND",
-          "transmission_score": 46,
-          "fit": 55
+          "ticker": "TNK",
+          "mechanism_id": "CRUDE_TANKER_DISLOCATION",
+          "transmission_score": 77,
+          "fit": 90
+        },
+        {
+          "ticker": "DNO.OL",
+          "mechanism_id": "CEYHAN_BYPASS",
+          "transmission_score": 77,
+          "fit": 94
+        },
+        {
+          "ticker": "GKP.L",
+          "mechanism_id": "CEYHAN_BYPASS",
+          "transmission_score": 91,
+          "fit": 99
+        },
+        {
+          "ticker": "GENL.L",
+          "mechanism_id": "CEYHAN_BYPASS",
+          "transmission_score": 83,
+          "fit": 97
+        },
+        {
+          "ticker": "LNG",
+          "mechanism_id": "LNG_REROUTING",
+          "transmission_score": 81,
+          "fit": 98
         }
       ],
       "falsifiers": [
-        "Financiación y diferenciales se estabilizan sostenidamente",
-        "Repatriaciones no confirmadas por flujos primarios"
+        "Tráfico normalizado y seguro durante varias ventanas independientes",
+        "Fletes spot y primas de riesgo descienden con estabilidad",
+        "Inventarios de productos se recuperan sin reservas extraordinarias"
       ],
       "next_checks": [
-        "JGB y yen medidos directamente",
-        "Flujos de cartera del MOF",
-        "Diferenciales de crédito y refinanciación"
+        "Incidentes UKMTO con fecha de ocurrencia",
+        "AIS de Hormuz y Bab el-Mandeb con cobertura verificada",
+        "TCE spot por clase y cobertura contractual",
+        "Crack spreads e inventarios EIA"
+      ],
+      "warning": "Priority is an internal research index, not an event probability or expected return."
+    },
+    {
+      "id": "INDUSTRIAL_SOVEREIGNTY",
+      "title": "Soberanía energética y materiales",
+      "subtitle": "Combustible nuclear, tierras raras, aluminio y microredes militares",
+      "group": "INDUSTRIAL",
+      "priority_score": 53,
+      "observed_mechanisms": 3,
+      "mechanism_ids": [
+        "NUCLEAR_FUEL_SOVEREIGNTY",
+        "MILITARY_ENERGY_AUTONOMY",
+        "RARE_EARTH_MAGNET_SHORTAGE",
+        "STRATEGIC_ALUMINIUM"
+      ],
+      "lead_mechanism": "NUCLEAR_FUEL_SOVEREIGNTY",
+      "causal_max": 54,
+      "evidence_quality": "INCOMPLETE_OR_STALE",
+      "evidence_as_of": "2026-10-24T04:40:31.877Z",
+      "market_phase": "PRE_WAVE",
+      "market_priced_in_proxy": 52,
+      "drivers": [
+        {
+          "mechanism_id": "NUCLEAR_FUEL_SOVEREIGNTY",
+          "score": 54,
+          "state": "ARMING",
+          "recent_domains": 1,
+          "freshness": "FRESH"
+        },
+        {
+          "mechanism_id": "STRATEGIC_ALUMINIUM",
+          "score": 31,
+          "state": "WATCH",
+          "recent_domains": 0,
+          "freshness": "AGING"
+        },
+        {
+          "mechanism_id": "RARE_EARTH_MAGNET_SHORTAGE",
+          "score": 25,
+          "state": "WATCH",
+          "recent_domains": 1,
+          "freshness": "AGING"
+        },
+        {
+          "mechanism_id": "MILITARY_ENERGY_AUTONOMY",
+          "score": 14,
+          "state": "DORMANT",
+          "recent_domains": 0,
+          "freshness": "UNKNOWN"
+        }
+      ],
+      "transmission_hypotheses": [
+        {
+          "from": "RARE_EARTH_MAGNET_SHORTAGE",
+          "to": "ROBOTICS_ACTUATOR_SCALE",
+          "expected_lag_runs": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "sign": -1,
+          "kind": "HYPOTHESIS_NOT_CERTAINTY"
+        },
+        {
+          "from": "NUCLEAR_FUEL_SOVEREIGNTY",
+          "to": "MILITARY_ENERGY_AUTONOMY",
+          "expected_lag_runs": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "sign": 1,
+          "kind": "HYPOTHESIS_NOT_CERTAINTY"
+        }
+      ],
+      "companies": [
+        {
+          "ticker": "CCJ",
+          "mechanism_id": "NUCLEAR_FUEL_SOVEREIGNTY",
+          "transmission_score": 85,
+          "fit": 88
+        },
+        {
+          "ticker": "NXE",
+          "mechanism_id": "NUCLEAR_FUEL_SOVEREIGNTY",
+          "transmission_score": 83,
+          "fit": 80
+        },
+        {
+          "ticker": "LEU",
+          "mechanism_id": "MILITARY_ENERGY_AUTONOMY",
+          "transmission_score": 71,
+          "fit": 76
+        },
+        {
+          "ticker": "UEC",
+          "mechanism_id": "NUCLEAR_FUEL_SOVEREIGNTY",
+          "transmission_score": 77,
+          "fit": 84
+        },
+        {
+          "ticker": "CENX",
+          "mechanism_id": "STRATEGIC_ALUMINIUM",
+          "transmission_score": 79,
+          "fit": 98
+        },
+        {
+          "ticker": "AA",
+          "mechanism_id": "STRATEGIC_ALUMINIUM",
+          "transmission_score": 74,
+          "fit": 92
+        },
+        {
+          "ticker": "CSTM",
+          "mechanism_id": "STRATEGIC_ALUMINIUM",
+          "transmission_score": 74,
+          "fit": 87
+        },
+        {
+          "ticker": "KALU",
+          "mechanism_id": "STRATEGIC_ALUMINIUM",
+          "transmission_score": 73,
+          "fit": 83
+        },
+        {
+          "ticker": "MP",
+          "mechanism_id": "RARE_EARTH_MAGNET_SHORTAGE",
+          "transmission_score": 78,
+          "fit": 100
+        },
+        {
+          "ticker": "NB",
+          "mechanism_id": "RARE_EARTH_MAGNET_SHORTAGE",
+          "transmission_score": 80,
+          "fit": 75
+        },
+        {
+          "ticker": "LYC.AX",
+          "mechanism_id": "RARE_EARTH_MAGNET_SHORTAGE",
+          "transmission_score": 80,
+          "fit": 68
+        },
+        {
+          "ticker": "CRML",
+          "mechanism_id": "RARE_EARTH_MAGNET_SHORTAGE",
+          "transmission_score": 77,
+          "fit": 70
+        }
+      ],
+      "falsifiers": [
+        "Restricciones de suministro resueltas por capacidad operativa real",
+        "Proyectos pierden financiación o autorización"
+      ],
+      "next_checks": [
+        "Producción y contratos de HALEU",
+        "Cualificación real de separación y metales de tierras raras",
+        "Capacidad de fundición y adquisición pública"
       ],
       "warning": "Priority is an internal research index, not an event probability or expected return."
     },
@@ -123,8 +386,8 @@
       "title": "Reposición militar y cuellos industriales",
       "subtitle": "Motores, propelentes, drones, minas y compras públicas",
       "group": "DEFENSE",
-      "priority_score": 35,
-      "observed_mechanisms": 5,
+      "priority_score": 45,
+      "observed_mechanisms": 3,
       "mechanism_ids": [
         "ARSENAL_DEPLETION",
         "ROCKET_MOTOR_SHORTAGE",
@@ -134,38 +397,38 @@
         "UNDERWATER_SECURITY",
         "EUROPE_STRATEGIC_AUTONOMY"
       ],
-      "lead_mechanism": "CHEAP_DRONE_SCALING",
-      "causal_max": 40,
+      "lead_mechanism": "ROCKET_MOTOR_SHORTAGE",
+      "causal_max": 57,
       "evidence_quality": "INCOMPLETE_OR_STALE",
-      "evidence_as_of": "2026-10-23T21:32:59.354Z",
-      "market_phase": "DISCOVERY",
-      "market_priced_in_proxy": 49,
+      "evidence_as_of": "2026-10-24T04:40:31.877Z",
+      "market_phase": "SATURATED",
+      "market_priced_in_proxy": 85,
       "drivers": [
         {
+          "mechanism_id": "ROCKET_MOTOR_SHORTAGE",
+          "score": 57,
+          "state": "ARMING",
+          "recent_domains": 1,
+          "freshness": "AGING"
+        },
+        {
           "mechanism_id": "CHEAP_DRONE_SCALING",
-          "score": 40,
+          "score": 32,
           "state": "WATCH",
           "recent_domains": 0,
           "freshness": "STALE"
         },
         {
-          "mechanism_id": "ROCKET_MOTOR_SHORTAGE",
-          "score": 34,
+          "mechanism_id": "COUNTER_UAS_COST_CURVE",
+          "score": 31,
           "state": "WATCH",
           "recent_domains": 1,
           "freshness": "AGING"
         },
         {
           "mechanism_id": "EUROPE_STRATEGIC_AUTONOMY",
-          "score": 31,
-          "state": "WATCH",
-          "recent_domains": 0,
-          "freshness": "UNKNOWN"
-        },
-        {
-          "mechanism_id": "ENERGETICS_SHORTAGE",
-          "score": 29,
-          "state": "WATCH",
+          "score": 23,
+          "state": "DORMANT",
           "recent_domains": 0,
           "freshness": "UNKNOWN"
         }
@@ -258,22 +521,10 @@
       ],
       "companies": [
         {
-          "ticker": "PLTR",
-          "mechanism_id": "CHEAP_DRONE_SCALING",
-          "transmission_score": 62,
-          "fit": 62
-        },
-        {
           "ticker": "LHX",
           "mechanism_id": "ARSENAL_DEPLETION",
           "transmission_score": 76,
           "fit": 91
-        },
-        {
-          "ticker": "AVAV",
-          "mechanism_id": "CHEAP_DRONE_SCALING",
-          "transmission_score": 68,
-          "fit": 100
         },
         {
           "ticker": "NOC",
@@ -294,10 +545,28 @@
           "fit": 98
         },
         {
+          "ticker": "PLTR",
+          "mechanism_id": "CHEAP_DRONE_SCALING",
+          "transmission_score": 62,
+          "fit": 62
+        },
+        {
+          "ticker": "AVAV",
+          "mechanism_id": "CHEAP_DRONE_SCALING",
+          "transmission_score": 68,
+          "fit": 100
+        },
+        {
           "ticker": "SAAB-B.ST",
           "mechanism_id": "UNDERWATER_SECURITY",
           "transmission_score": 67,
           "fit": 80
+        },
+        {
+          "ticker": "RHM.DE",
+          "mechanism_id": "ENERGETICS_SHORTAGE",
+          "transmission_score": 82,
+          "fit": 96
         },
         {
           "ticker": "HO.PA",
@@ -312,22 +581,16 @@
           "fit": 75
         },
         {
-          "ticker": "RHM.DE",
-          "mechanism_id": "COUNTER_UAS_COST_CURVE",
-          "transmission_score": 74,
-          "fit": 86
+          "ticker": "LMT",
+          "mechanism_id": "ARSENAL_DEPLETION",
+          "transmission_score": 76,
+          "fit": 97
         },
         {
           "ticker": "CHG.L",
           "mechanism_id": "ENERGETICS_SHORTAGE",
           "transmission_score": 80,
           "fit": 98
-        },
-        {
-          "ticker": "GD",
-          "mechanism_id": "ENERGETICS_SHORTAGE",
-          "transmission_score": 78,
-          "fit": 90
         }
       ],
       "falsifiers": [
@@ -342,285 +605,46 @@
       "warning": "Priority is an internal research index, not an event probability or expected return."
     },
     {
-      "id": "HORMUZ_ENERGY",
-      "title": "Hormuz y seguridad energética",
-      "subtitle": "Rutas, crudo, diésel, LNG y sustitución de suministro",
-      "group": "ENERGY_SECURITY",
-      "priority_score": 33,
-      "observed_mechanisms": 4,
-      "mechanism_ids": [
-        "CRUDE_TANKER_DISLOCATION",
-        "PRODUCT_TANKER_TONMILES",
-        "ATLANTIC_BARREL_PREMIUM",
-        "DIESEL_REFINING_CRISIS",
-        "LNG_REROUTING",
-        "CEYHAN_BYPASS",
-        "OIL_SERVICE_CAPEX_SECOND_WAVE"
-      ],
-      "lead_mechanism": "CEYHAN_BYPASS",
-      "causal_max": 36,
-      "evidence_quality": "INCOMPLETE_OR_STALE",
-      "evidence_as_of": "2026-10-23T21:32:59.354Z",
-      "market_phase": "EARLY_WAVE",
-      "market_priced_in_proxy": 8,
-      "drivers": [
-        {
-          "mechanism_id": "CEYHAN_BYPASS",
-          "score": 36,
-          "state": "WATCH",
-          "recent_domains": 0,
-          "freshness": "AGING"
-        },
-        {
-          "mechanism_id": "PRODUCT_TANKER_TONMILES",
-          "score": 32,
-          "state": "WATCH",
-          "recent_domains": 0,
-          "freshness": "UNKNOWN"
-        },
-        {
-          "mechanism_id": "DIESEL_REFINING_CRISIS",
-          "score": 31,
-          "state": "WATCH",
-          "recent_domains": 0,
-          "freshness": "AGING"
-        },
-        {
-          "mechanism_id": "CRUDE_TANKER_DISLOCATION",
-          "score": 26,
-          "state": "WATCH",
-          "recent_domains": 1,
-          "freshness": "FRESH"
-        }
-      ],
-      "transmission_hypotheses": [
-        {
-          "from": "DIESEL_REFINING_CRISIS",
-          "to": "PRODUCT_TANKER_TONMILES",
-          "expected_lag_runs": [
-            0,
-            1,
-            2
-          ],
-          "sign": 1,
-          "kind": "HYPOTHESIS_NOT_CERTAINTY"
-        },
-        {
-          "from": "PRODUCT_TANKER_TONMILES",
-          "to": "CRUDE_TANKER_DISLOCATION",
-          "expected_lag_runs": [
-            0,
-            1,
-            2
-          ],
-          "sign": 0,
-          "kind": "HYPOTHESIS_NOT_CERTAINTY"
-        },
-        {
-          "from": "CRUDE_TANKER_DISLOCATION",
-          "to": "ATLANTIC_BARREL_PREMIUM",
-          "expected_lag_runs": [
-            0,
-            1,
-            2
-          ],
-          "sign": 1,
-          "kind": "HYPOTHESIS_NOT_CERTAINTY"
-        },
-        {
-          "from": "ATLANTIC_BARREL_PREMIUM",
-          "to": "CEYHAN_BYPASS",
-          "expected_lag_runs": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "sign": 0,
-          "kind": "HYPOTHESIS_NOT_CERTAINTY"
-        },
-        {
-          "from": "LNG_REROUTING",
-          "to": "GLOBAL_REFINANCING_STRESS",
-          "expected_lag_runs": [
-            1,
-            2,
-            3,
-            4
-          ],
-          "sign": 1,
-          "kind": "HYPOTHESIS_NOT_CERTAINTY"
-        },
-        {
-          "from": "DIESEL_REFINING_CRISIS",
-          "to": "GLOBAL_REFINANCING_STRESS",
-          "expected_lag_runs": [
-            1,
-            2,
-            3,
-            4
-          ],
-          "sign": 1,
-          "kind": "HYPOTHESIS_NOT_CERTAINTY"
-        }
-      ],
-      "companies": [
-        {
-          "ticker": "DNO.OL",
-          "mechanism_id": "CEYHAN_BYPASS",
-          "transmission_score": 77,
-          "fit": 94
-        },
-        {
-          "ticker": "GKP.L",
-          "mechanism_id": "CEYHAN_BYPASS",
-          "transmission_score": 91,
-          "fit": 99
-        },
-        {
-          "ticker": "GENL.L",
-          "mechanism_id": "CEYHAN_BYPASS",
-          "transmission_score": 83,
-          "fit": 97
-        },
-        {
-          "ticker": "HAFN",
-          "mechanism_id": "PRODUCT_TANKER_TONMILES",
-          "transmission_score": 85,
-          "fit": 95
-        },
-        {
-          "ticker": "STNG",
-          "mechanism_id": "PRODUCT_TANKER_TONMILES",
-          "transmission_score": 87,
-          "fit": 97
-        },
-        {
-          "ticker": "TRMD",
-          "mechanism_id": "PRODUCT_TANKER_TONMILES",
-          "transmission_score": 82,
-          "fit": 96
-        },
-        {
-          "ticker": "ASC",
-          "mechanism_id": "PRODUCT_TANKER_TONMILES",
-          "transmission_score": 74,
-          "fit": 92
-        },
-        {
-          "ticker": "DINO",
-          "mechanism_id": "DIESEL_REFINING_CRISIS",
-          "transmission_score": 76,
-          "fit": 83
-        },
-        {
-          "ticker": "PSX",
-          "mechanism_id": "DIESEL_REFINING_CRISIS",
-          "transmission_score": 75,
-          "fit": 85
-        },
-        {
-          "ticker": "MPC",
-          "mechanism_id": "DIESEL_REFINING_CRISIS",
-          "transmission_score": 72,
-          "fit": 86
-        },
-        {
-          "ticker": "DK",
-          "mechanism_id": "DIESEL_REFINING_CRISIS",
-          "transmission_score": 75,
-          "fit": 89
-        },
-        {
-          "ticker": "ECO",
-          "mechanism_id": "CRUDE_TANKER_DISLOCATION",
-          "transmission_score": 75,
-          "fit": 76
-        }
-      ],
-      "falsifiers": [
-        "Tráfico normalizado y seguro durante varias ventanas independientes",
-        "Fletes spot y primas de riesgo descienden con estabilidad",
-        "Inventarios de productos se recuperan sin reservas extraordinarias"
-      ],
-      "next_checks": [
-        "Incidentes UKMTO con fecha de ocurrencia",
-        "AIS de Hormuz y Bab el-Mandeb con cobertura verificada",
-        "TCE spot por clase y cobertura contractual",
-        "Crack spreads e inventarios EIA"
-      ],
-      "warning": "Priority is an internal research index, not an event probability or expected return."
-    },
-    {
-      "id": "INDUSTRIAL_SOVEREIGNTY",
-      "title": "Soberanía energética y materiales",
-      "subtitle": "Combustible nuclear, tierras raras, aluminio y microredes militares",
-      "group": "INDUSTRIAL",
-      "priority_score": 25,
+      "id": "FINANCIAL_CONDITIONS",
+      "title": "Coste global del capital",
+      "subtitle": "Japón, divisas, deuda y financiación empresarial",
+      "group": "MACRO",
+      "priority_score": 41,
       "observed_mechanisms": 2,
       "mechanism_ids": [
-        "NUCLEAR_FUEL_SOVEREIGNTY",
-        "MILITARY_ENERGY_AUTONOMY",
-        "RARE_EARTH_MAGNET_SHORTAGE",
-        "STRATEGIC_ALUMINIUM"
+        "JAPAN_CARRY_UNWIND",
+        "GLOBAL_REFINANCING_STRESS"
       ],
-      "lead_mechanism": "NUCLEAR_FUEL_SOVEREIGNTY",
-      "causal_max": 29,
-      "evidence_quality": "INCOMPLETE_OR_STALE",
-      "evidence_as_of": "2026-10-23T21:32:59.354Z",
+      "lead_mechanism": "GLOBAL_REFINANCING_STRESS",
+      "causal_max": 48,
+      "evidence_quality": "EVIDENCE_PENDING",
+      "evidence_as_of": "2026-10-24T04:40:31.877Z",
       "market_phase": "EARLY_WAVE",
-      "market_priced_in_proxy": 55,
+      "market_priced_in_proxy": 9,
       "drivers": [
         {
-          "mechanism_id": "NUCLEAR_FUEL_SOVEREIGNTY",
-          "score": 29,
-          "state": "WATCH",
-          "recent_domains": 1,
-          "freshness": "FRESH"
-        },
-        {
-          "mechanism_id": "RARE_EARTH_MAGNET_SHORTAGE",
-          "score": 26,
-          "state": "WATCH",
+          "mechanism_id": "GLOBAL_REFINANCING_STRESS",
+          "score": 48,
+          "state": "ARMING",
           "recent_domains": 1,
           "freshness": "AGING"
         },
         {
-          "mechanism_id": "MILITARY_ENERGY_AUTONOMY",
-          "score": 24,
-          "state": "DORMANT",
-          "recent_domains": 0,
-          "freshness": "UNKNOWN"
-        },
-        {
-          "mechanism_id": "STRATEGIC_ALUMINIUM",
-          "score": 22,
-          "state": "DORMANT",
-          "recent_domains": 0,
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "score": 42,
+          "state": "WATCH",
+          "recent_domains": 1,
           "freshness": "AGING"
         }
       ],
       "transmission_hypotheses": [
         {
-          "from": "RARE_EARTH_MAGNET_SHORTAGE",
-          "to": "ROBOTICS_ACTUATOR_SCALE",
+          "from": "JAPAN_CARRY_UNWIND",
+          "to": "GLOBAL_REFINANCING_STRESS",
           "expected_lag_runs": [
             0,
             1,
-            2,
-            3
-          ],
-          "sign": -1,
-          "kind": "HYPOTHESIS_NOT_CERTAINTY"
-        },
-        {
-          "from": "NUCLEAR_FUEL_SOVEREIGNTY",
-          "to": "MILITARY_ENERGY_AUTONOMY",
-          "expected_lag_runs": [
-            1,
-            2,
-            3,
-            4
+            2
           ],
           "sign": 1,
           "kind": "HYPOTHESIS_NOT_CERTAINTY"
@@ -628,86 +652,62 @@
       ],
       "companies": [
         {
-          "ticker": "NXE",
-          "mechanism_id": "NUCLEAR_FUEL_SOVEREIGNTY",
-          "transmission_score": 83,
-          "fit": 80
+          "ticker": "BX",
+          "mechanism_id": "GLOBAL_REFINANCING_STRESS",
+          "transmission_score": 39,
+          "fit": 52
         },
         {
-          "ticker": "CCJ",
-          "mechanism_id": "NUCLEAR_FUEL_SOVEREIGNTY",
-          "transmission_score": 85,
-          "fit": 88
+          "ticker": "ARES",
+          "mechanism_id": "GLOBAL_REFINANCING_STRESS",
+          "transmission_score": 44,
+          "fit": 60
         },
         {
-          "ticker": "LEU",
-          "mechanism_id": "MILITARY_ENERGY_AUTONOMY",
-          "transmission_score": 71,
-          "fit": 76
+          "ticker": "OWL",
+          "mechanism_id": "GLOBAL_REFINANCING_STRESS",
+          "transmission_score": 44,
+          "fit": 50
         },
         {
-          "ticker": "UEC",
-          "mechanism_id": "NUCLEAR_FUEL_SOVEREIGNTY",
-          "transmission_score": 77,
-          "fit": 84
+          "ticker": "KKR",
+          "mechanism_id": "GLOBAL_REFINANCING_STRESS",
+          "transmission_score": 43,
+          "fit": 56
         },
         {
-          "ticker": "NB",
-          "mechanism_id": "RARE_EARTH_MAGNET_SHORTAGE",
-          "transmission_score": 80,
-          "fit": 75
+          "ticker": "CBOE",
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "transmission_score": 49,
+          "fit": 60
         },
         {
-          "ticker": "MP",
-          "mechanism_id": "RARE_EARTH_MAGNET_SHORTAGE",
-          "transmission_score": 78,
-          "fit": 100
+          "ticker": "CME",
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "transmission_score": 47,
+          "fit": 62
         },
         {
-          "ticker": "LYC.AX",
-          "mechanism_id": "RARE_EARTH_MAGNET_SHORTAGE",
-          "transmission_score": 80,
-          "fit": 68
+          "ticker": "NDAQ",
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "transmission_score": 46,
+          "fit": 50
         },
         {
-          "ticker": "CRML",
-          "mechanism_id": "RARE_EARTH_MAGNET_SHORTAGE",
-          "transmission_score": 77,
-          "fit": 70
-        },
-        {
-          "ticker": "CMI",
-          "mechanism_id": "MILITARY_ENERGY_AUTONOMY",
-          "transmission_score": 73,
-          "fit": 80
-        },
-        {
-          "ticker": "BWXT",
-          "mechanism_id": "MILITARY_ENERGY_AUTONOMY",
-          "transmission_score": 76,
-          "fit": 100
-        },
-        {
-          "ticker": "GEV",
-          "mechanism_id": "MILITARY_ENERGY_AUTONOMY",
-          "transmission_score": 79,
-          "fit": 83
-        },
-        {
-          "ticker": "AA",
-          "mechanism_id": "STRATEGIC_ALUMINIUM",
-          "transmission_score": 74,
-          "fit": 92
+          "ticker": "ICE",
+          "mechanism_id": "JAPAN_CARRY_UNWIND",
+          "transmission_score": 46,
+          "fit": 55
         }
       ],
       "falsifiers": [
-        "Restricciones de suministro resueltas por capacidad operativa real",
-        "Proyectos pierden financiación o autorización"
+        "Financiación y diferenciales se estabilizan sostenidamente",
+        "Repatriaciones no confirmadas por flujos primarios"
       ],
       "next_checks": [
-        "Producción y contratos de HALEU",
-        "Cualificación real de separación y metales de tierras raras",
-        "Capacidad de fundición y adquisición pública"
+        "JGB y yen medidos directamente",
+        "Flujos de cartera del MOF",
+        "Diferenciales de crédito y refinanciación"
       ],
       "warning": "Priority is an internal research index, not an event probability or expected return."
     },
@@ -716,7 +716,7 @@
       "title": "La electricidad detrás de la IA",
       "subtitle": "Interconexión, generación, demanda real y financiación",
       "group": "AI_INFRASTRUCTURE",
-      "priority_score": 21,
+      "priority_score": 20,
       "observed_mechanisms": 1,
       "mechanism_ids": [
         "AI_TIME_TO_POWER",
@@ -726,9 +726,9 @@
       "lead_mechanism": "BEHIND_METER_AI_POWER",
       "causal_max": 30,
       "evidence_quality": "INCOMPLETE_OR_STALE",
-      "evidence_as_of": "2026-10-23T21:32:59.354Z",
+      "evidence_as_of": "2026-10-24T04:40:31.877Z",
       "market_phase": "DISCOVERY",
-      "market_priced_in_proxy": 3,
+      "market_priced_in_proxy": 4,
       "drivers": [
         {
           "mechanism_id": "BEHIND_METER_AI_POWER",
@@ -738,17 +738,17 @@
           "freshness": "UNKNOWN"
         },
         {
-          "mechanism_id": "AI_TIME_TO_POWER",
-          "score": 22,
+          "mechanism_id": "AI_GHOST_DEMAND",
+          "score": 21,
           "state": "DORMANT",
-          "recent_domains": 1,
+          "recent_domains": 0,
           "freshness": "AGING"
         },
         {
-          "mechanism_id": "AI_GHOST_DEMAND",
-          "score": 22,
+          "mechanism_id": "AI_TIME_TO_POWER",
+          "score": 20,
           "state": "DORMANT",
-          "recent_domains": 0,
+          "recent_domains": 1,
           "freshness": "AGING"
         }
       ],
@@ -798,9 +798,9 @@
         },
         {
           "ticker": "GEV",
-          "mechanism_id": "AI_GHOST_DEMAND",
-          "transmission_score": 81,
-          "fit": 92
+          "mechanism_id": "AI_TIME_TO_POWER",
+          "transmission_score": 85,
+          "fit": 96
         },
         {
           "ticker": "WMB",
@@ -816,21 +816,21 @@
         },
         {
           "ticker": "EMR",
-          "mechanism_id": "AI_GHOST_DEMAND",
-          "transmission_score": 61,
-          "fit": 74
+          "mechanism_id": "AI_TIME_TO_POWER",
+          "transmission_score": 81,
+          "fit": 80
         },
         {
           "ticker": "HUBB",
-          "mechanism_id": "AI_GHOST_DEMAND",
-          "transmission_score": 75,
-          "fit": 82
+          "mechanism_id": "AI_TIME_TO_POWER",
+          "transmission_score": 80,
+          "fit": 86
         },
         {
           "ticker": "POWL",
-          "mechanism_id": "AI_GHOST_DEMAND",
-          "transmission_score": 83,
-          "fit": 96
+          "mechanism_id": "AI_TIME_TO_POWER",
+          "transmission_score": 88,
+          "fit": 100
         }
       ],
       "falsifiers": [
@@ -857,29 +857,29 @@
         "OT_CYBER_SHOCK"
       ],
       "lead_mechanism": "ROBOTICS_DECOUPLING",
-      "causal_max": 30,
+      "causal_max": 27,
       "evidence_quality": "INCOMPLETE_OR_STALE",
-      "evidence_as_of": "2026-10-23T21:32:59.354Z",
+      "evidence_as_of": "2026-10-24T04:40:31.877Z",
       "market_phase": "DISCOVERY",
-      "market_priced_in_proxy": 10,
+      "market_priced_in_proxy": 9,
       "drivers": [
         {
           "mechanism_id": "ROBOTICS_DECOUPLING",
-          "score": 30,
+          "score": 27,
           "state": "WATCH",
           "recent_domains": 0,
           "freshness": "UNKNOWN"
         },
         {
           "mechanism_id": "ROBOTICS_ACTUATOR_SCALE",
-          "score": 19,
+          "score": 22,
           "state": "DORMANT",
           "recent_domains": 0,
           "freshness": "UNKNOWN"
         },
         {
           "mechanism_id": "OT_CYBER_SHOCK",
-          "score": 11,
+          "score": 10,
           "state": "DORMANT",
           "recent_domains": 0,
           "freshness": "UNKNOWN"
@@ -986,12 +986,12 @@
   "health": {
     "pipeline": {
       "retrieval_errors": 2,
-      "upstream_errors": 0,
+      "upstream_errors": 1,
       "extraction_errors": 0,
-      "verification_errors": 0,
+      "verification_errors": 2,
       "market_errors": 1,
       "mechanisms": 26,
-      "scout_windows": 1,
+      "scout_windows": 2,
       "alpha_windows": 0
     },
     "source_integrity": "COMPLETE",
@@ -1021,7 +1021,7 @@
         "kalshi": "OK"
       },
       "quality": {
-        "kalshi_rejected_semantic_hits": 34,
+        "kalshi_rejected_semantic_hits": 38,
         "eia_public_fallback": true,
         "ukmto_public_fallback": true,
         "mof_public_fallback": false
