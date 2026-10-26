@@ -1,7 +1,7 @@
 {
   "version": "3.2.0",
-  "generated_at": "2026-10-25T20:56:45.664Z",
-  "run_id": "run_2026-10-25T20-48-34Z",
+  "generated_at": "2026-10-26T04:51:57.492Z",
+  "run_id": "run_2026-10-26T04-43-15Z",
   "broker": {
     "mode": "CURATED_T212_UNIVERSE",
     "authoritative": false,
@@ -37,12 +37,12 @@
   "openai_jury": {
     "configured": true,
     "model": "gpt-5-nano",
-    "calls_before": 4,
-    "usd_before": 0.002091,
+    "calls_before": 0,
+    "usd_before": 0,
     "call_cap": 4,
     "usd_cap": 0.01,
     "calls_after": 4,
-    "usd_after": 0.002091
+    "usd_after": 0.002099
   },
   "strategies": {
     "DIESEL_REFINING_CRISIS": {
@@ -50,9 +50,9 @@
       "label": "Diesel / refining crisis",
       "tier": "A",
       "state": "ARMING",
-      "action": "SCOUT_WINDOW",
-      "opportunity_score": 66,
-      "causal_score": 60,
+      "action": "PREPARE",
+      "opportunity_score": 61,
+      "causal_score": 51,
       "market_score": 22,
       "crowding": 13.6,
       "crowd": {
@@ -62,7 +62,7 @@
         "consensus_delta": 0,
         "priced_in": 15.4,
         "discount": "UNPRICED",
-        "timing_score": 65,
+        "timing_score": 61,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -80,10 +80,10 @@
         }
       },
       "scout": {
-        "eligible": true,
-        "score": 59.8,
+        "eligible": false,
+        "score": 55.3,
         "reasons": [
-          "CAUSAL_LEAD_BEFORE_PRICE_SATURATION"
+          "CAUSAL_TOO_WEAK"
         ],
         "phase": "EARLY_WAVE",
         "priced_in": 15.4
@@ -91,7 +91,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 12,
       "crowd_consensus": 34.4,
-      "timing_score": 65,
+      "timing_score": 61,
       "transmission_score": 73.8,
       "structural_score": 84,
       "financial_score": 58.4,
@@ -116,10 +116,11 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 58,
+        "score": 55,
         "market_floor": 20,
         "reasons": [
-          "STATE_NOT_STABLY_ACTIVE"
+          "STATE_NOT_STABLY_ACTIVE",
+          "CAUSAL_TOO_WEAK"
         ],
         "empirical": {
           "samples": 3,
@@ -2277,16 +2278,35 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Evidence of tightening middle‑distillate markets linked to high refinery utilization and multiple refinery‐level disruptions in 2026.",
+      "summary": "",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
-        "STATE_NOT_STABLY_ACTIVE"
+        "STATE_NOT_STABLY_ACTIVE",
+        "CAUSAL_TOO_WEAK"
       ],
       "scout_blockers": [
-        "CAUSAL_LEAD_BEFORE_PRICE_SATURATION"
+        "CAUSAL_TOO_WEAK"
       ],
-      "jury": null,
+      "jury": {
+        "model": "gpt-5-nano-2025-08-07",
+        "usage": {
+          "prompt_tokens": 2490,
+          "completion_tokens": 1000,
+          "total_tokens": 3490,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1000,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "cost_usd": 0.000525
+      },
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
       "equity_priced_in": 15.4,
       "primary_priced_in": 0,
@@ -2348,7 +2368,7 @@
           "crowding": 16.1,
           "lag_share": 0,
           "rel5": 2.24,
-          "rel2h": 0
+          "rel2h": -0.02
         }
       },
       "scout": {
@@ -2816,7 +2836,7 @@
             "name": "TRMD"
           },
           "market": {
-            "score": 88,
+            "score": 87,
             "quality": "LIVE",
             "price": 39.89,
             "ret1": 3.53,
@@ -2824,7 +2844,7 @@
             "ret20": 16.23,
             "rel5": 2.82,
             "rel20": 4.48,
-            "rel2h": 0.5,
+            "rel2h": 0.4,
             "volumeZ": -0.38,
             "above20": true,
             "above50": true,
@@ -3946,7 +3966,7 @@
             "name": "TRMD"
           },
           "market": {
-            "score": 88,
+            "score": 87,
             "quality": "LIVE",
             "price": 39.89,
             "ret1": 3.53,
@@ -3954,7 +3974,7 @@
             "ret20": 16.23,
             "rel5": 2.82,
             "rel20": 4.48,
-            "rel2h": 0.5,
+            "rel2h": 0.4,
             "volumeZ": -0.38,
             "above20": true,
             "above50": true,
@@ -4273,7 +4293,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "No material evidence supporting a change in refined-product cargo distances or fleet supply tightening was found in the provided candidates.",
+      "summary": "",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -4323,10 +4343,10 @@
       "id": "CRUDE_TANKER_DISLOCATION",
       "label": "Crude tanker dislocation",
       "tier": "A",
-      "state": "WATCH",
-      "action": "WATCH",
-      "opportunity_score": 52,
-      "causal_score": 28,
+      "state": "ARMING",
+      "action": "PREPARE",
+      "opportunity_score": 62,
+      "causal_score": 47,
       "market_score": 71,
       "crowding": 15.1,
       "crowd": {
@@ -4336,7 +4356,7 @@
         "consensus_delta": 0,
         "priced_in": 24.4,
         "discount": "UNPRICED",
-        "timing_score": 57.2,
+        "timing_score": 65.7,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -4355,7 +4375,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 51.2,
+        "score": 60.7,
         "reasons": [
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
@@ -4367,7 +4387,7 @@
       "wave_phase": "IN_SYNC",
       "priced_in": 18,
       "crowd_consensus": 78.3,
-      "timing_score": 57.2,
+      "timing_score": 65.7,
       "transmission_score": 75.6,
       "structural_score": 87.4,
       "financial_score": 58,
@@ -4392,7 +4412,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 51.6,
+        "score": 58,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -6274,8 +6294,10 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Lead‑phase evidence of crude‑tanker dislocation showing shifts in sourcing that are raising VLCC and Suezmax ton‑mile demand and fleet utilization.",
-      "trigger": [],
+      "summary": "The following atomic claims are directly supported by the provided candidates and relate to the mechanism of crude tanker dislocation, specifically indicating shifts in crude sourcing that increase VLCC/Suezmax ton‑mile demand and fleet utilization.",
+      "trigger": [
+        "WATCH"
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -6288,7 +6310,25 @@
         "CAUSAL_TOO_WEAK",
         "MARKET_ALREADY_MOVED"
       ],
-      "jury": null,
+      "jury": {
+        "model": "gpt-5-nano-2025-08-07",
+        "usage": {
+          "prompt_tokens": 2416,
+          "completion_tokens": 1000,
+          "total_tokens": 3416,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1000,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "cost_usd": 0.000521
+      },
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
       "equity_priced_in": 24.4,
       "primary_priced_in": 0,
@@ -6325,8 +6365,8 @@
       "tier": "B",
       "state": "DORMANT",
       "action": "RESEARCH_ONLY",
-      "opportunity_score": 43,
-      "causal_score": 16,
+      "opportunity_score": 42,
+      "causal_score": 14,
       "market_score": 51,
       "crowding": 5.5,
       "crowd": {
@@ -6336,7 +6376,7 @@
         "consensus_delta": 0,
         "priced_in": 15.9,
         "discount": "UNPRICED",
-        "timing_score": 51.8,
+        "timing_score": 50.9,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -6350,12 +6390,12 @@
           "crowding": 5.5,
           "lag_share": 0,
           "rel5": 0.8,
-          "rel2h": -0.15
+          "rel2h": -0.12
         }
       },
       "scout": {
         "eligible": false,
-        "score": 41.1,
+        "score": 40.1,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "WAVE_NOT_EARLY",
@@ -6368,7 +6408,7 @@
       "wave_phase": "IN_SYNC",
       "priced_in": 12,
       "crowd_consensus": 67.8,
-      "timing_score": 51.8,
+      "timing_score": 50.9,
       "transmission_score": 68.4,
       "structural_score": 78,
       "financial_score": 54,
@@ -6393,7 +6433,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 41.3,
+        "score": 40.6,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -6543,7 +6583,7 @@
             "ret20": 28.42,
             "rel5": -0.98,
             "rel20": 16.67,
-            "rel2h": 0.18,
+            "rel2h": 0.37,
             "volumeZ": 0.41,
             "above20": true,
             "above50": true,
@@ -7530,7 +7570,7 @@
             "ret20": 18.46,
             "rel5": 1.33,
             "rel20": 6.71,
-            "rel2h": -0.08,
+            "rel2h": -0.09,
             "volumeZ": 0.33,
             "above20": true,
             "above50": true,
@@ -7955,7 +7995,7 @@
             "ret20": 28.42,
             "rel5": -0.98,
             "rel20": 16.67,
-            "rel2h": 0.18,
+            "rel2h": 0.37,
             "volumeZ": 0.41,
             "above20": true,
             "above50": true,
@@ -8556,7 +8596,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "",
+      "summary": "Evidence indicates a structural shift in crude oil sourcing from Gulf barrels to Atlantic Basin barrels, driven by increased non‑OPEC+ output from the Americas. The IEA Oil Market Report (September 2026) notes that demand has shifted towards Atlantic Basin barrels and that the Americas Quintet added 1.4 mb/d of non‑OPEC+ output in 2026.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -9559,10 +9599,8 @@
       "quality": "MIXED",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The available evidence indicates that Iraq and the Kurdistan Region have resumed crude oil exports via Turkey’s Ceyhan port under a temporary agreement, with daily volumes reported in the range of 180,000–200,000 barrels per day.",
-      "trigger": [
-        "CONFIRM"
-      ],
+      "summary": "Two atomic claims of sustained physical flow through the Iraq‑Turkey‑Ceyhan pipeline are supported by the candidate set. Both claims include explicit daily barrel volumes and reference the same reopening date (27 September 2025).",
+      "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -9610,18 +9648,18 @@
       "tier": "B",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 51,
-      "causal_score": 28,
+      "opportunity_score": 52,
+      "causal_score": 30,
       "market_score": 4,
-      "crowding": 2.1,
+      "crowding": 1.8,
       "crowd": {
         "phase": "EARLY_WAVE",
         "position": "EARLY",
         "consensus": 38.7,
         "consensus_delta": 0,
-        "priced_in": 8.4,
+        "priced_in": 8.2,
         "discount": "UNPRICED",
-        "timing_score": 53.2,
+        "timing_score": 54.2,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -9632,25 +9670,25 @@
           "breadth": 0.75,
           "above20": 0.25,
           "above50": 0.25,
-          "crowding": 2.1,
+          "crowding": 1.8,
           "lag_share": 0,
           "rel5": -0.91,
-          "rel2h": 0.13
+          "rel2h": 0.09
         }
       },
       "scout": {
         "eligible": false,
-        "score": 46,
+        "score": 47.1,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "EARLY_WAVE",
-        "priced_in": 8.4
+        "priced_in": 8.2
       },
       "wave_phase": "EARLY_WAVE",
       "priced_in": 42,
       "crowd_consensus": 38.7,
-      "timing_score": 53.2,
+      "timing_score": 54.2,
       "transmission_score": 74.4,
       "structural_score": 79.2,
       "financial_score": 65.2,
@@ -9675,7 +9713,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 39.1,
+        "score": 39.9,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -9690,7 +9728,7 @@
           "lead_to_confirm": 0
         },
         "crowd_phase": "EARLY_WAVE",
-        "priced_in": 8.4
+        "priced_in": 8.2
       },
       "benchmark": "XLE",
       "candidate_target": 8,
@@ -9818,7 +9856,7 @@
             "name": "LNG"
           },
           "market": {
-            "score": 74,
+            "score": 73,
             "quality": "LIVE",
             "price": 298.67,
             "ret1": 4.06,
@@ -9826,7 +9864,7 @@
             "ret20": 11.22,
             "rel5": 1.59,
             "rel20": -0.53,
-            "rel2h": -0.58,
+            "rel2h": -0.72,
             "volumeZ": 0.75,
             "above20": true,
             "above50": true,
@@ -10948,7 +10986,7 @@
             "name": "LNG"
           },
           "market": {
-            "score": 74,
+            "score": 73,
             "quality": "LIVE",
             "price": 298.67,
             "ret1": 4.06,
@@ -10956,7 +10994,7 @@
             "ret20": 11.22,
             "rel5": 1.59,
             "rel20": -0.53,
-            "rel2h": -0.58,
+            "rel2h": -0.72,
             "volumeZ": 0.75,
             "above20": true,
             "above50": true,
@@ -11557,10 +11595,8 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The available evidence indicates that the closure of the Strait of Hormuz has led to carrier rerouting and diversion of LNG traffic to alternative hubs, creating congestion at those ports and reshaping vessel deployment across the region.",
-      "trigger": [
-        "CONFIRM"
-      ],
+      "summary": "The Gulf LNG disruption has led to a halt in Qatar’s LNG operations, a significant reduction in LNG transit through the Strait of Hormuz, and the approach of several Qatari LNG vessels toward the strait. The strait was reopened after a ceasefire agreement.",
+      "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -11573,7 +11609,7 @@
       ],
       "jury": null,
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
-      "equity_priced_in": 8.4,
+      "equity_priced_in": 8.2,
       "primary_priced_in": 86,
       "pricing_confidence": 34,
       "pricing_sources": [
@@ -12837,7 +12873,7 @@
             "ret20": -4.91,
             "rel5": 2.29,
             "rel20": 0.51,
-            "rel2h": 0.11,
+            "rel2h": 0.02,
             "volumeZ": -0.04,
             "above20": false,
             "above50": false,
@@ -12970,7 +13006,7 @@
             "name": "CW"
           },
           "market": {
-            "score": 21,
+            "score": 20,
             "quality": "LIVE",
             "price": 464.94,
             "ret1": -1.97,
@@ -12978,7 +13014,7 @@
             "ret20": -13.86,
             "rel5": -4.17,
             "rel20": -8.44,
-            "rel2h": 0.25,
+            "rel2h": 0.05,
             "volumeZ": 1.35,
             "above20": false,
             "above50": false,
@@ -13863,7 +13899,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "..",
+      "summary": "",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -13928,8 +13964,8 @@
       "tier": "A",
       "state": "WATCH",
       "action": "DO_NOT_CHASE",
-      "opportunity_score": 50,
-      "causal_score": 33,
+      "opportunity_score": 49,
+      "causal_score": 31,
       "market_score": 79,
       "crowding": 83.5,
       "crowd": {
@@ -13939,7 +13975,7 @@
         "consensus_delta": 0,
         "priced_in": 73.9,
         "discount": "PRICED_IN",
-        "timing_score": 50.4,
+        "timing_score": 49.5,
         "block_chase": true,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -13958,7 +13994,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 37.8,
+        "score": 36.8,
         "reasons": [
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
@@ -13971,7 +14007,7 @@
       "wave_phase": "SATURATED",
       "priced_in": 85,
       "crowd_consensus": 95,
-      "timing_score": 50.4,
+      "timing_score": 49.5,
       "transmission_score": 69.8,
       "structural_score": 78,
       "financial_score": 57.6,
@@ -13996,7 +14032,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 38.2,
+        "score": 37.5,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -14703,7 +14739,7 @@
             "name": "CW"
           },
           "market": {
-            "score": 21,
+            "score": 20,
             "quality": "LIVE",
             "price": 464.94,
             "ret1": -1.97,
@@ -14711,7 +14747,7 @@
             "ret20": -13.86,
             "rel5": -4.17,
             "rel20": -8.44,
-            "rel2h": 0.25,
+            "rel2h": 0.05,
             "volumeZ": 1.35,
             "above20": false,
             "above50": false,
@@ -15551,7 +15587,7 @@
             "name": "CW"
           },
           "market": {
-            "score": 21,
+            "score": 20,
             "quality": "LIVE",
             "price": 464.94,
             "ret1": -1.97,
@@ -15559,7 +15595,7 @@
             "ret20": -13.86,
             "rel5": -4.17,
             "rel20": -8.44,
-            "rel2h": 0.25,
+            "rel2h": 0.05,
             "volumeZ": 1.35,
             "above20": false,
             "above50": false,
@@ -15596,13 +15632,9 @@
       "quality": "MIXED",
       "broker_strict": false,
       "deployable": false,
-      "summary": "...",
-      "trigger": [
-        "..."
-      ],
-      "invalidation": [
-        "..."
-      ],
+      "summary": "",
+      "trigger": [],
+      "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
         "CROWD_LATE_OR_PRICED_IN",
@@ -17600,7 +17632,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Evidence indicates shortages in TNT, nitrocellulose, and other energetic materials across the US, NATO, and EU, with bottlenecks at key facilities and plans to expand capacity.",
+      "summary": "Material evidence of shortages in explosives, propellants, primers and energetic materials that could limit ammunition and missile output.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -17660,18 +17692,18 @@
       "tier": "B",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 55,
-      "causal_score": 42,
-      "market_score": 8,
-      "crowding": 3.6,
+      "opportunity_score": 53,
+      "causal_score": 38,
+      "market_score": 0,
+      "crowding": 2.9,
       "crowd": {
         "phase": "DISCOVERY",
         "position": "OBSERVE",
         "consensus": 11.8,
         "consensus_delta": 0,
-        "priced_in": 4.6,
+        "priced_in": 4.1,
         "discount": "UNPRICED",
-        "timing_score": 55.1,
+        "timing_score": 53.4,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "MEDIUM",
@@ -17682,25 +17714,25 @@
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 3.6,
+          "crowding": 2.9,
           "lag_share": 0,
           "rel5": -4.92,
-          "rel2h": 0.34
+          "rel2h": 0.24
         }
       },
       "scout": {
         "eligible": false,
-        "score": 56.5,
+        "score": 54.7,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "DISCOVERY",
-        "priced_in": 4.6
+        "priced_in": 4.1
       },
       "wave_phase": "DISCOVERY",
       "priced_in": 3,
       "crowd_consensus": 11.8,
-      "timing_score": 55.1,
+      "timing_score": 53.4,
       "transmission_score": 69.8,
       "structural_score": 78,
       "financial_score": 57.2,
@@ -17725,7 +17757,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 47.8,
+        "score": 45,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -17740,7 +17772,7 @@
           "lead_to_confirm": 0
         },
         "crowd_phase": "DISCOVERY",
-        "priced_in": 4.6
+        "priced_in": 4.1
       },
       "benchmark": "XME",
       "candidate_target": 6,
@@ -17750,7 +17782,7 @@
           "name": "CENX",
           "exposure": "DIRECT",
           "fit": 98,
-          "rank_score": 62,
+          "rank_score": 61,
           "transmission": {
             "score": 79,
             "risk_adjusted_score": 76,
@@ -17868,7 +17900,7 @@
             "name": "CENX"
           },
           "market": {
-            "score": 17,
+            "score": 16,
             "quality": "LIVE",
             "price": 31.42,
             "ret1": -3.77,
@@ -17876,7 +17908,7 @@
             "ret20": -18.16,
             "rel5": -5.8,
             "rel20": -7.12,
-            "rel2h": 0.79,
+            "rel2h": 0.6,
             "volumeZ": 0.74,
             "above20": false,
             "above50": false,
@@ -18598,7 +18630,7 @@
           "name": "CENX",
           "exposure": "DIRECT",
           "fit": 98,
-          "rank_score": 62,
+          "rank_score": 61,
           "transmission": {
             "score": 79,
             "risk_adjusted_score": 76,
@@ -18716,7 +18748,7 @@
             "name": "CENX"
           },
           "market": {
-            "score": 17,
+            "score": 16,
             "quality": "LIVE",
             "price": 31.42,
             "ret1": -3.77,
@@ -18724,7 +18756,7 @@
             "ret20": -18.16,
             "rel5": -5.8,
             "rel20": -7.12,
-            "rel2h": 0.79,
+            "rel2h": 0.6,
             "volumeZ": 0.74,
             "above20": false,
             "above50": false,
@@ -19325,10 +19357,8 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The two available LEAD‑phase candidates provide evidence that U.S. high‑purity (defence‑grade) aluminium supply is constrained and that domestic smelting capacity is considered critical for national security. No official sources are present, and no contradictory evidence is reported.",
-      "trigger": [
-        "CONFIRM"
-      ],
+      "summary": "The only candidate that directly addresses high‑purity (defence‑grade) aluminium supply is the Discovery Alert article. It states that the real supply gap in U.S. primary aluminium is defence‑grade aluminium, implying limited domestic capacity for this high‑purity material.",
+      "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -19341,7 +19371,7 @@
       ],
       "jury": null,
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
-      "equity_priced_in": 4.6,
+      "equity_priced_in": 4.1,
       "primary_priced_in": 0,
       "pricing_confidence": 0,
       "pricing_sources": [
@@ -19368,7 +19398,7 @@
       ],
       "pricing_method": "PRIMARY_PLUS_EQUITY",
       "pricing_regime": "LOW_CONFIDENCE",
-      "pricing_gap": -5
+      "pricing_gap": -4
     },
     "RARE_EARTH_MAGNET_SHORTAGE": {
       "id": "RARE_EARTH_MAGNET_SHORTAGE",
@@ -19376,51 +19406,51 @@
       "tier": "B",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 51,
+      "opportunity_score": 52,
       "causal_score": 29,
-      "market_score": 0,
-      "crowding": 2.4,
+      "market_score": 18,
+      "crowding": 3.3,
       "crowd": {
-        "phase": "DISCOVERY",
-        "position": "OBSERVE",
-        "consensus": 8.3,
-        "consensus_delta": 0,
-        "priced_in": 3.1,
+        "phase": "EARLY_WAVE",
+        "position": "EARLY",
+        "consensus": 26.7,
+        "consensus_delta": 18.4,
+        "priced_in": 7,
         "discount": "UNPRICED",
-        "timing_score": 48.9,
+        "timing_score": 51.6,
         "block_chase": false,
-        "ahead_of_wave": false,
+        "ahead_of_wave": true,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
-          "relative_breadth": 0,
-          "intraday_breadth": 0.333,
+          "relative_breadth": 0.333,
+          "intraday_breadth": 0.667,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 2.4,
+          "crowding": 3.3,
           "lag_share": 0,
-          "rel5": -2.66,
-          "rel2h": 0.09
+          "rel5": -1.56,
+          "rel2h": 0.42
         }
       },
       "scout": {
         "eligible": false,
-        "score": 44.8,
+        "score": 45.7,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
-        "phase": "DISCOVERY",
-        "priced_in": 3.1
+        "phase": "EARLY_WAVE",
+        "priced_in": 7
       },
-      "wave_phase": "DISCOVERY",
-      "priced_in": 2,
-      "crowd_consensus": 8.3,
-      "timing_score": 48.9,
+      "wave_phase": "EARLY_WAVE",
+      "priced_in": 5,
+      "crowd_consensus": 26.7,
+      "timing_score": 51.6,
       "transmission_score": 77.8,
       "structural_score": 86.2,
       "financial_score": 62.4,
-      "transmission_best": 81,
+      "transmission_best": 80,
       "transmission_path": {
         "mode": "COMPONENT_BOTTLENECK",
         "shock": "non-Chinese mining/separation/magnet capacity becomes strategically scarce",
@@ -19441,7 +19471,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 39.1,
+        "score": 42.2,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -19455,12 +19485,153 @@
           "avg_return": null,
           "lead_to_confirm": 0.143
         },
-        "crowd_phase": "DISCOVERY",
-        "priced_in": 3.1
+        "crowd_phase": "EARLY_WAVE",
+        "priced_in": 7
       },
       "benchmark": "XME",
       "candidate_target": 6,
       "top_candidates": [
+        {
+          "symbol": "LYC.AX",
+          "name": "LYC.AX",
+          "exposure": "DIRECT",
+          "fit": 68,
+          "rank_score": 67,
+          "transmission": {
+            "score": 80,
+            "risk_adjusted_score": 79,
+            "label": "STRONG",
+            "confidence": 91,
+            "fragility": 18,
+            "components": {
+              "exposure": 68,
+              "bottleneck": 89,
+              "margin_capture": 86,
+              "operating_leverage": 96,
+              "cash_conversion": 75,
+              "balance": 88,
+              "capex_readiness": 76,
+              "convexity": 62
+            },
+            "passes": {
+              "structural": {
+                "score": 79,
+                "components": {
+                  "exposure": 68,
+                  "bottleneck": 89,
+                  "margin_capture": 86
+                },
+                "fit": 68,
+                "direct": true
+              },
+              "financial": {
+                "score": 83,
+                "coverage": 0.85,
+                "weight_applied": 0.34,
+                "delta": 1,
+                "quality": "LIVE_YAHOO",
+                "components": {
+                  "operating_leverage": 96,
+                  "cash_conversion": 75,
+                  "balance": 88,
+                  "capex_readiness": 76,
+                  "convexity": 62
+                },
+                "observed": {
+                  "operating_leverage": true,
+                  "cash_conversion": true,
+                  "balance": true,
+                  "capex_readiness": false,
+                  "convexity": true
+                },
+                "prior_score": 70
+              },
+              "final": {
+                "score": 80,
+                "delta": 1,
+                "risk_adjusted_score": 79
+              }
+            },
+            "financials": {
+              "operating_margin": 25.64,
+              "fcf_margin": 14.37,
+              "liabilities_to_assets": 0.194,
+              "cash_to_debt": 3.57,
+              "cfo_to_capex": null,
+              "market_cap": 11173036804
+            },
+            "fundamental_quality": "LIVE_YAHOO",
+            "fundamental_coverage": 0.85,
+            "path": {
+              "shock": "non-Chinese mining/separation/magnet capacity becomes strategically scarce",
+              "earnings_channel": "scarce domestic separation/refining/magnet capacity can capture price, contract and subsidy economics",
+              "bridge": [
+                "export/licensing constraint tightens",
+                "non-Chinese supply premium rises",
+                "offtake/stockpile contracts increase",
+                "capacity utilization/ramp accelerates",
+                "unit economics and FCF improve"
+              ],
+              "diluters": [
+                "long commissioning timelines",
+                "metallurgical execution",
+                "commodity-price reversal",
+                "equity dilution for project funding"
+              ]
+            },
+            "strongest": [
+              {
+                "factor": "operating_leverage",
+                "value": 96
+              },
+              {
+                "factor": "bottleneck",
+                "value": 89
+              },
+              {
+                "factor": "balance",
+                "value": 88
+              }
+            ],
+            "weakest": [
+              {
+                "factor": "convexity",
+                "value": 62
+              },
+              {
+                "factor": "exposure",
+                "value": 68
+              }
+            ],
+            "explanation": "Pass 1 79/100 (direct structural transmission). Pass 2 83/100 with 85% observed financial coverage; final 80/100 (+1).",
+            "caveat": null
+          },
+          "fundamental": {
+            "quality": "LIVE_YAHOO",
+            "coverage": 0.875,
+            "period_end": "2026-06-30",
+            "market_cap": 10835376242,
+            "name": "LYC.AX"
+          },
+          "market": {
+            "score": 45,
+            "quality": "LIVE",
+            "price": 11.085,
+            "ret1": 3.5,
+            "ret5": -2.33,
+            "ret20": -19.5,
+            "rel5": 2.18,
+            "rel20": -8.46,
+            "rel2h": 0.6,
+            "volumeZ": 0.31,
+            "above20": false,
+            "above50": false,
+            "above200": false
+          },
+          "broker_verified": false,
+          "broker_available": true,
+          "verification_source": "USER_CURATED_T212_UNIVERSE"
+        },
         {
           "symbol": "NB",
           "name": "NB",
@@ -19735,147 +19906,6 @@
             "rel20": -10.52,
             "rel2h": 0.8,
             "volumeZ": -1.22,
-            "above20": false,
-            "above50": false,
-            "above200": false
-          },
-          "broker_verified": false,
-          "broker_available": true,
-          "verification_source": "USER_CURATED_T212_UNIVERSE"
-        },
-        {
-          "symbol": "LYC.AX",
-          "name": "LYC.AX",
-          "exposure": "DIRECT",
-          "fit": 68,
-          "rank_score": 62,
-          "transmission": {
-            "score": 80,
-            "risk_adjusted_score": 79,
-            "label": "STRONG",
-            "confidence": 91,
-            "fragility": 18,
-            "components": {
-              "exposure": 68,
-              "bottleneck": 89,
-              "margin_capture": 86,
-              "operating_leverage": 96,
-              "cash_conversion": 75,
-              "balance": 88,
-              "capex_readiness": 76,
-              "convexity": 62
-            },
-            "passes": {
-              "structural": {
-                "score": 79,
-                "components": {
-                  "exposure": 68,
-                  "bottleneck": 89,
-                  "margin_capture": 86
-                },
-                "fit": 68,
-                "direct": true
-              },
-              "financial": {
-                "score": 83,
-                "coverage": 0.85,
-                "weight_applied": 0.34,
-                "delta": 1,
-                "quality": "LIVE_YAHOO",
-                "components": {
-                  "operating_leverage": 96,
-                  "cash_conversion": 75,
-                  "balance": 88,
-                  "capex_readiness": 76,
-                  "convexity": 62
-                },
-                "observed": {
-                  "operating_leverage": true,
-                  "cash_conversion": true,
-                  "balance": true,
-                  "capex_readiness": false,
-                  "convexity": true
-                },
-                "prior_score": 70
-              },
-              "final": {
-                "score": 80,
-                "delta": 1,
-                "risk_adjusted_score": 79
-              }
-            },
-            "financials": {
-              "operating_margin": 25.64,
-              "fcf_margin": 14.37,
-              "liabilities_to_assets": 0.194,
-              "cash_to_debt": 3.57,
-              "cfo_to_capex": null,
-              "market_cap": 10795058563
-            },
-            "fundamental_quality": "LIVE_YAHOO",
-            "fundamental_coverage": 0.85,
-            "path": {
-              "shock": "non-Chinese mining/separation/magnet capacity becomes strategically scarce",
-              "earnings_channel": "scarce domestic separation/refining/magnet capacity can capture price, contract and subsidy economics",
-              "bridge": [
-                "export/licensing constraint tightens",
-                "non-Chinese supply premium rises",
-                "offtake/stockpile contracts increase",
-                "capacity utilization/ramp accelerates",
-                "unit economics and FCF improve"
-              ],
-              "diluters": [
-                "long commissioning timelines",
-                "metallurgical execution",
-                "commodity-price reversal",
-                "equity dilution for project funding"
-              ]
-            },
-            "strongest": [
-              {
-                "factor": "operating_leverage",
-                "value": 96
-              },
-              {
-                "factor": "bottleneck",
-                "value": 89
-              },
-              {
-                "factor": "balance",
-                "value": 88
-              }
-            ],
-            "weakest": [
-              {
-                "factor": "convexity",
-                "value": 62
-              },
-              {
-                "factor": "exposure",
-                "value": 68
-              }
-            ],
-            "explanation": "Pass 1 79/100 (direct structural transmission). Pass 2 83/100 with 85% observed financial coverage; final 80/100 (+1).",
-            "caveat": null
-          },
-          "fundamental": {
-            "quality": "LIVE_YAHOO",
-            "coverage": 0.875,
-            "period_end": "2026-06-30",
-            "market_cap": 10835376242,
-            "name": "LYC.AX"
-          },
-          "market": {
-            "score": 27,
-            "quality": "LIVE",
-            "price": 10.71,
-            "ret1": 0,
-            "ret5": -5.64,
-            "ret20": -22.22,
-            "rel5": -1.13,
-            "rel20": -11.18,
-            "rel2h": -0.37,
-            "volumeZ": 1.59,
             "above20": false,
             "above50": false,
             "above200": false
@@ -20310,6 +20340,147 @@
       ],
       "top5": [
         {
+          "symbol": "LYC.AX",
+          "name": "LYC.AX",
+          "exposure": "DIRECT",
+          "fit": 68,
+          "rank_score": 67,
+          "transmission": {
+            "score": 80,
+            "risk_adjusted_score": 79,
+            "label": "STRONG",
+            "confidence": 91,
+            "fragility": 18,
+            "components": {
+              "exposure": 68,
+              "bottleneck": 89,
+              "margin_capture": 86,
+              "operating_leverage": 96,
+              "cash_conversion": 75,
+              "balance": 88,
+              "capex_readiness": 76,
+              "convexity": 62
+            },
+            "passes": {
+              "structural": {
+                "score": 79,
+                "components": {
+                  "exposure": 68,
+                  "bottleneck": 89,
+                  "margin_capture": 86
+                },
+                "fit": 68,
+                "direct": true
+              },
+              "financial": {
+                "score": 83,
+                "coverage": 0.85,
+                "weight_applied": 0.34,
+                "delta": 1,
+                "quality": "LIVE_YAHOO",
+                "components": {
+                  "operating_leverage": 96,
+                  "cash_conversion": 75,
+                  "balance": 88,
+                  "capex_readiness": 76,
+                  "convexity": 62
+                },
+                "observed": {
+                  "operating_leverage": true,
+                  "cash_conversion": true,
+                  "balance": true,
+                  "capex_readiness": false,
+                  "convexity": true
+                },
+                "prior_score": 70
+              },
+              "final": {
+                "score": 80,
+                "delta": 1,
+                "risk_adjusted_score": 79
+              }
+            },
+            "financials": {
+              "operating_margin": 25.64,
+              "fcf_margin": 14.37,
+              "liabilities_to_assets": 0.194,
+              "cash_to_debt": 3.57,
+              "cfo_to_capex": null,
+              "market_cap": 11173036804
+            },
+            "fundamental_quality": "LIVE_YAHOO",
+            "fundamental_coverage": 0.85,
+            "path": {
+              "shock": "non-Chinese mining/separation/magnet capacity becomes strategically scarce",
+              "earnings_channel": "scarce domestic separation/refining/magnet capacity can capture price, contract and subsidy economics",
+              "bridge": [
+                "export/licensing constraint tightens",
+                "non-Chinese supply premium rises",
+                "offtake/stockpile contracts increase",
+                "capacity utilization/ramp accelerates",
+                "unit economics and FCF improve"
+              ],
+              "diluters": [
+                "long commissioning timelines",
+                "metallurgical execution",
+                "commodity-price reversal",
+                "equity dilution for project funding"
+              ]
+            },
+            "strongest": [
+              {
+                "factor": "operating_leverage",
+                "value": 96
+              },
+              {
+                "factor": "bottleneck",
+                "value": 89
+              },
+              {
+                "factor": "balance",
+                "value": 88
+              }
+            ],
+            "weakest": [
+              {
+                "factor": "convexity",
+                "value": 62
+              },
+              {
+                "factor": "exposure",
+                "value": 68
+              }
+            ],
+            "explanation": "Pass 1 79/100 (direct structural transmission). Pass 2 83/100 with 85% observed financial coverage; final 80/100 (+1).",
+            "caveat": null
+          },
+          "fundamental": {
+            "quality": "LIVE_YAHOO",
+            "coverage": 0.875,
+            "period_end": "2026-06-30",
+            "market_cap": 10835376242,
+            "name": "LYC.AX"
+          },
+          "market": {
+            "score": 45,
+            "quality": "LIVE",
+            "price": 11.085,
+            "ret1": 3.5,
+            "ret5": -2.33,
+            "ret20": -19.5,
+            "rel5": 2.18,
+            "rel20": -8.46,
+            "rel2h": 0.6,
+            "volumeZ": 0.31,
+            "above20": false,
+            "above50": false,
+            "above200": false
+          },
+          "broker_verified": false,
+          "broker_available": true,
+          "verification_source": "USER_CURATED_T212_UNIVERSE"
+        },
+        {
           "symbol": "NB",
           "name": "NB",
           "exposure": "DIRECT",
@@ -20583,147 +20754,6 @@
             "rel20": -10.52,
             "rel2h": 0.8,
             "volumeZ": -1.22,
-            "above20": false,
-            "above50": false,
-            "above200": false
-          },
-          "broker_verified": false,
-          "broker_available": true,
-          "verification_source": "USER_CURATED_T212_UNIVERSE"
-        },
-        {
-          "symbol": "LYC.AX",
-          "name": "LYC.AX",
-          "exposure": "DIRECT",
-          "fit": 68,
-          "rank_score": 62,
-          "transmission": {
-            "score": 80,
-            "risk_adjusted_score": 79,
-            "label": "STRONG",
-            "confidence": 91,
-            "fragility": 18,
-            "components": {
-              "exposure": 68,
-              "bottleneck": 89,
-              "margin_capture": 86,
-              "operating_leverage": 96,
-              "cash_conversion": 75,
-              "balance": 88,
-              "capex_readiness": 76,
-              "convexity": 62
-            },
-            "passes": {
-              "structural": {
-                "score": 79,
-                "components": {
-                  "exposure": 68,
-                  "bottleneck": 89,
-                  "margin_capture": 86
-                },
-                "fit": 68,
-                "direct": true
-              },
-              "financial": {
-                "score": 83,
-                "coverage": 0.85,
-                "weight_applied": 0.34,
-                "delta": 1,
-                "quality": "LIVE_YAHOO",
-                "components": {
-                  "operating_leverage": 96,
-                  "cash_conversion": 75,
-                  "balance": 88,
-                  "capex_readiness": 76,
-                  "convexity": 62
-                },
-                "observed": {
-                  "operating_leverage": true,
-                  "cash_conversion": true,
-                  "balance": true,
-                  "capex_readiness": false,
-                  "convexity": true
-                },
-                "prior_score": 70
-              },
-              "final": {
-                "score": 80,
-                "delta": 1,
-                "risk_adjusted_score": 79
-              }
-            },
-            "financials": {
-              "operating_margin": 25.64,
-              "fcf_margin": 14.37,
-              "liabilities_to_assets": 0.194,
-              "cash_to_debt": 3.57,
-              "cfo_to_capex": null,
-              "market_cap": 10795058563
-            },
-            "fundamental_quality": "LIVE_YAHOO",
-            "fundamental_coverage": 0.85,
-            "path": {
-              "shock": "non-Chinese mining/separation/magnet capacity becomes strategically scarce",
-              "earnings_channel": "scarce domestic separation/refining/magnet capacity can capture price, contract and subsidy economics",
-              "bridge": [
-                "export/licensing constraint tightens",
-                "non-Chinese supply premium rises",
-                "offtake/stockpile contracts increase",
-                "capacity utilization/ramp accelerates",
-                "unit economics and FCF improve"
-              ],
-              "diluters": [
-                "long commissioning timelines",
-                "metallurgical execution",
-                "commodity-price reversal",
-                "equity dilution for project funding"
-              ]
-            },
-            "strongest": [
-              {
-                "factor": "operating_leverage",
-                "value": 96
-              },
-              {
-                "factor": "bottleneck",
-                "value": 89
-              },
-              {
-                "factor": "balance",
-                "value": 88
-              }
-            ],
-            "weakest": [
-              {
-                "factor": "convexity",
-                "value": 62
-              },
-              {
-                "factor": "exposure",
-                "value": 68
-              }
-            ],
-            "explanation": "Pass 1 79/100 (direct structural transmission). Pass 2 83/100 with 85% observed financial coverage; final 80/100 (+1).",
-            "caveat": null
-          },
-          "fundamental": {
-            "quality": "LIVE_YAHOO",
-            "coverage": 0.875,
-            "period_end": "2026-06-30",
-            "market_cap": 10835376242,
-            "name": "LYC.AX"
-          },
-          "market": {
-            "score": 27,
-            "quality": "LIVE",
-            "price": 10.71,
-            "ret1": 0,
-            "ret5": -5.64,
-            "ret20": -22.22,
-            "rel5": -1.13,
-            "rel20": -11.18,
-            "rel2h": -0.37,
-            "volumeZ": 1.59,
             "above20": false,
             "above50": false,
             "above200": false
@@ -21017,20 +21047,20 @@
       ],
       "model_pie": [
         {
-          "symbol": "NB",
+          "symbol": "LYC.AX",
           "weight": 24
+        },
+        {
+          "symbol": "NB",
+          "weight": 23
         },
         {
           "symbol": "MP",
-          "weight": 24
-        },
-        {
-          "symbol": "LYC.AX",
-          "weight": 21
+          "weight": 23
         },
         {
           "symbol": "CRML",
-          "weight": 18
+          "weight": 17
         },
         {
           "symbol": "USAR",
@@ -21041,7 +21071,7 @@
       "quality": "MIXED",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The available evidence indicates that China has imposed export controls on medium and heavy rare earth elements, which has led to a sharp decline in exports to Japan and the United States. These controls are affecting the supply chain for rare‑earth magnets, prompting magnet manufacturers to adjust capacity. The controls are framed as a national‑security measure.",
+      "summary": "The available evidence indicates that China has imposed export restrictions on medium and heavy rare earth elements, leading to a sharp decline in exports to Japan and the United States. Japan’s defense and aerospace sectors are heavily dependent on these imports, and the restrictions have prompted domestic magnet manufacturers to expand capacity.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -21055,7 +21085,7 @@
       ],
       "jury": null,
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
-      "equity_priced_in": 3.1,
+      "equity_priced_in": 7,
       "primary_priced_in": 0,
       "pricing_confidence": 0,
       "pricing_sources": [
@@ -21072,7 +21102,7 @@
       ],
       "pricing_method": "PRIMARY_PLUS_EQUITY",
       "pricing_regime": "LOW_CONFIDENCE",
-      "pricing_gap": -3
+      "pricing_gap": -7
     },
     "CHEAP_DRONE_SCALING": {
       "id": "CHEAP_DRONE_SCALING",
@@ -21080,8 +21110,8 @@
       "tier": "B",
       "state": "DORMANT",
       "action": "RESEARCH_ONLY",
-      "opportunity_score": 40,
-      "causal_score": 19,
+      "opportunity_score": 39,
+      "causal_score": 18,
       "market_score": 0,
       "crowding": 1.1,
       "crowd": {
@@ -21091,7 +21121,7 @@
         "consensus_delta": 0,
         "priced_in": 4.9,
         "discount": "UNPRICED",
-        "timing_score": 47,
+        "timing_score": 46.5,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -21110,7 +21140,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 40.9,
+        "score": 40.4,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
@@ -21121,7 +21151,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 49,
       "crowd_consensus": 23.3,
-      "timing_score": 47,
+      "timing_score": 46.5,
       "transmission_score": 59,
       "structural_score": 57.8,
       "financial_score": 60.4,
@@ -21146,7 +21176,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 35.8,
+        "score": 35.4,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -22017,7 +22047,7 @@
           "name": "UMAC",
           "exposure": "DIRECT",
           "fit": 78,
-          "rank_score": 56,
+          "rank_score": 55,
           "transmission": {
             "score": 60,
             "risk_adjusted_score": 58,
@@ -22135,7 +22165,7 @@
             "name": "UMAC"
           },
           "market": {
-            "score": 40,
+            "score": 39,
             "quality": "LIVE",
             "price": 17.02,
             "ret1": 4.61,
@@ -22143,7 +22173,7 @@
             "ret20": -29.23,
             "rel5": 7.62,
             "rel20": -23.81,
-            "rel2h": 0.26,
+            "rel2h": 0.03,
             "volumeZ": -0.7,
             "above20": false,
             "above50": false,
@@ -23028,13 +23058,9 @@
       "quality": "WEAK",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Evidence of real procurement volume for a drone company.",
-      "trigger": [
-        "CHEAP_DRONE_SCALING"
-      ],
-      "invalidation": [
-        "CHEAP_DRONE_SCALING"
-      ],
+      "summary": "No candidate provides evidence of real procurement volumes or unit economics for cheap drone scaling. All candidates are LEAD phase and discuss procurement emphasis or announcements but do not contain concrete procurement data or unit cost figures.",
+      "trigger": [],
+      "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
         "CAUSAL_TOO_WEAK",
@@ -23092,10 +23118,10 @@
       "id": "COUNTER_UAS_COST_CURVE",
       "label": "Counter-UAS cost curve",
       "tier": "B",
-      "state": "DORMANT",
-      "action": "RESEARCH_ONLY",
-      "opportunity_score": 49,
-      "causal_score": 24,
+      "state": "WATCH",
+      "action": "WATCH",
+      "opportunity_score": 52,
+      "causal_score": 31,
       "market_score": 22,
       "crowding": 10.2,
       "crowd": {
@@ -23105,7 +23131,7 @@
         "consensus_delta": 0,
         "priced_in": 14.9,
         "discount": "UNPRICED",
-        "timing_score": 50.9,
+        "timing_score": 54,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -23124,9 +23150,8 @@
       },
       "scout": {
         "eligible": false,
-        "score": 42.9,
+        "score": 46.4,
         "reasons": [
-          "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "EARLY_WAVE",
@@ -23135,7 +23160,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 59,
       "crowd_consensus": 44,
-      "timing_score": 50.9,
+      "timing_score": 54,
       "transmission_score": 74.8,
       "structural_score": 80.6,
       "financial_score": 65.6,
@@ -23160,7 +23185,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 39.2,
+        "score": 41.6,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -25041,7 +25066,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The following atomic claims provide evidence that militaries are deploying cheaper counter‑UAS solutions—lasers, microwaves, directed‑energy weapons, and rapid interceptors—in place of or alongside costly missile interceptors.",
+      "summary": "Evidence shows militaries and defense firms are pursuing cheaper counter‑UAS solutions (EW, lasers, ground robots, interceptor drones) to avoid the high cost of traditional missile interceptors.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -25050,7 +25075,6 @@
         "NO_CONFIRM"
       ],
       "scout_blockers": [
-        "STATE_NOT_SCOUTABLE",
         "CAUSAL_TOO_WEAK"
       ],
       "jury": null,
@@ -25091,8 +25115,8 @@
       "tier": "B",
       "state": "DORMANT",
       "action": "RESEARCH_ONLY",
-      "opportunity_score": 44,
-      "causal_score": 16,
+      "opportunity_score": 45,
+      "causal_score": 18,
       "market_score": 23,
       "crowding": 21.9,
       "crowd": {
@@ -25102,7 +25126,7 @@
         "consensus_delta": 0,
         "priced_in": 24.1,
         "discount": "UNPRICED",
-        "timing_score": 46.4,
+        "timing_score": 47.3,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -25121,7 +25145,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 37.4,
+        "score": 38.4,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
@@ -25132,7 +25156,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 54,
       "crowd_consensus": 51.3,
-      "timing_score": 46.4,
+      "timing_score": 47.3,
       "transmission_score": 73.2,
       "structural_score": 78.6,
       "financial_score": 64.6,
@@ -25157,7 +25181,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 31.9,
+        "score": 32.6,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -26897,12 +26921,14 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The candidate set contains lead‑stage evidence indicating heightened mine risk in the Strait of Hormuz and the use of conventional minesweepers and state‑of‑the‑art underwater drones to clear them. No confirmed procurement or physical incident beyond the reported mine strikes is present.",
+      "summary": "The only candidate that provides lead evidence relevant to underwater security and autonomous systems is the Washington Institute article. It reports that Naval Forces Central Command has formed Task Force 59 to test and integrate unmanned air, surface, and underwater technologies, including autonomous systems, within the 5th Fleet’s area of responsibility.",
       "trigger": [
         "CONFIRM",
         "LAG"
       ],
-      "invalidation": [],
+      "invalidation": [
+        "No confirmed physical incidents or procurement of mine countermeasure systems are reported in the provided candidates."
+      ],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
         "CAUSAL_TOO_WEAK",
@@ -26970,8 +26996,8 @@
       "tier": "A",
       "state": "DORMANT",
       "action": "RESEARCH_ONLY",
-      "opportunity_score": 48,
-      "causal_score": 20,
+      "opportunity_score": 45,
+      "causal_score": 14,
       "market_score": 8,
       "crowding": 6.2,
       "crowd": {
@@ -26981,7 +27007,7 @@
         "consensus_delta": 0,
         "priced_in": 4.2,
         "discount": "UNPRICED",
-        "timing_score": 42.9,
+        "timing_score": 40.2,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -26995,12 +27021,12 @@
           "crowding": 6.2,
           "lag_share": 0,
           "rel5": -8.43,
-          "rel2h": -0.52
+          "rel2h": -0.53
         }
       },
       "scout": {
         "eligible": false,
-        "score": 39.2,
+        "score": 36.2,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
@@ -27011,7 +27037,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 3,
       "crowd_consensus": 0,
-      "timing_score": 42.9,
+      "timing_score": 40.2,
       "transmission_score": 83.6,
       "structural_score": 90.6,
       "financial_score": 73.4,
@@ -27036,7 +27062,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 36.9,
+        "score": 34.8,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -28033,7 +28059,7 @@
             "ret20": -15.82,
             "rel5": -12.76,
             "rel20": -10.43,
-            "rel2h": -0.71,
+            "rel2h": -0.76,
             "volumeZ": 1.8,
             "above20": false,
             "above50": false,
@@ -28448,7 +28474,7 @@
             "name": "CAT"
           },
           "market": {
-            "score": 9,
+            "score": 10,
             "quality": "LIVE",
             "price": 687,
             "ret1": -2.42,
@@ -28456,7 +28482,7 @@
             "ret20": -16.38,
             "rel5": -5.23,
             "rel20": -10.99,
-            "rel2h": -0.06,
+            "rel2h": 0.05,
             "volumeZ": 0.52,
             "above20": false,
             "above50": false,
@@ -29200,7 +29226,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Electricity supply is a binding constraint on AI infrastructure, supported by a $6B investment to expand the power grid; a regulatory rule change concerning OCC cybersecurity obligations is unrelated.",
+      "summary": "",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -29250,8 +29276,8 @@
       "tier": "B",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 49,
-      "causal_score": 27,
+      "opportunity_score": 55,
+      "causal_score": 38,
       "market_score": 8,
       "crowding": 6.4,
       "crowd": {
@@ -29261,7 +29287,7 @@
         "consensus_delta": 0,
         "priced_in": 4.4,
         "discount": "UNPRICED",
-        "timing_score": 46.1,
+        "timing_score": 51,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -29280,7 +29306,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 47.9,
+        "score": 53.4,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -29290,7 +29316,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 3,
       "crowd_consensus": 0,
-      "timing_score": 46.1,
+      "timing_score": 51,
       "transmission_score": 76,
       "structural_score": 77.8,
       "financial_score": 73.4,
@@ -29315,7 +29341,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 42.2,
+        "score": 45.9,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -30453,7 +30479,7 @@
             "ret20": -15.82,
             "rel5": -12.76,
             "rel20": -10.43,
-            "rel2h": -0.71,
+            "rel2h": -0.76,
             "volumeZ": 1.8,
             "above20": false,
             "above50": false,
@@ -31197,10 +31223,8 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Evidence of a large fall in requested GW after deposit requirements, indicating a bearish signal for speculative developers and a potential positive impact for suppliers with contracted backlog.",
-      "trigger": [
-        "CONFIRM"
-      ],
+      "summary": "Both candidates report project attrition signals—delays and feasibility concerns—implying a bearish outlook for speculative developers and potential positive impact for suppliers with contracted backlog.",
+      "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -31238,47 +31262,47 @@
       "tier": "B",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 51,
-      "causal_score": 32,
+      "opportunity_score": 50,
+      "causal_score": 31,
       "market_score": 8,
       "crowding": 6.1,
       "crowd": {
         "phase": "DISCOVERY",
         "position": "OBSERVE",
-        "consensus": 0,
-        "consensus_delta": -5,
-        "priced_in": 4.1,
+        "consensus": 5,
+        "consensus_delta": 5,
+        "priced_in": 5,
         "discount": "UNPRICED",
-        "timing_score": 48.4,
+        "timing_score": 48.7,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0,
-          "intraday_breadth": 0,
+          "intraday_breadth": 0.2,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
           "crowding": 6.1,
           "lag_share": 0,
           "rel5": -6.97,
-          "rel2h": -0.18
+          "rel2h": -0.16
         }
       },
       "scout": {
         "eligible": false,
-        "score": 45.2,
+        "score": 45,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "DISCOVERY",
-        "priced_in": 4.1
+        "priced_in": 5
       },
       "wave_phase": "DISCOVERY",
-      "priced_in": 3,
-      "crowd_consensus": 0,
-      "timing_score": 48.4,
+      "priced_in": 4,
+      "crowd_consensus": 5,
+      "timing_score": 48.7,
       "transmission_score": 73.6,
       "structural_score": 80.2,
       "financial_score": 63.2,
@@ -31303,7 +31327,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 41,
+        "score": 40.5,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -31318,7 +31342,7 @@
           "lead_to_confirm": 0
         },
         "crowd_phase": "DISCOVERY",
-        "priced_in": 4.1
+        "priced_in": 5
       },
       "benchmark": "QQQ",
       "candidate_target": 8,
@@ -31751,7 +31775,7 @@
           "name": "CAT",
           "exposure": "DIRECT",
           "fit": 86,
-          "rank_score": 55,
+          "rank_score": 56,
           "transmission": {
             "score": 75,
             "risk_adjusted_score": 72,
@@ -31869,7 +31893,7 @@
             "name": "CAT"
           },
           "market": {
-            "score": 9,
+            "score": 10,
             "quality": "LIVE",
             "price": 687,
             "ret1": -2.42,
@@ -31877,7 +31901,7 @@
             "ret20": -16.38,
             "rel5": -5.23,
             "rel20": -10.99,
-            "rel2h": -0.06,
+            "rel2h": 0.05,
             "volumeZ": 0.52,
             "above20": false,
             "above50": false,
@@ -32441,7 +32465,7 @@
             "ret20": -15.82,
             "rel5": -12.76,
             "rel20": -10.43,
-            "rel2h": -0.71,
+            "rel2h": -0.76,
             "volumeZ": 1.8,
             "above20": false,
             "above50": false,
@@ -32881,7 +32905,7 @@
           "name": "CAT",
           "exposure": "DIRECT",
           "fit": 86,
-          "rank_score": 55,
+          "rank_score": 56,
           "transmission": {
             "score": 75,
             "risk_adjusted_score": 72,
@@ -32999,7 +33023,7 @@
             "name": "CAT"
           },
           "market": {
-            "score": 9,
+            "score": 10,
             "quality": "LIVE",
             "price": 687,
             "ret1": -2.42,
@@ -33007,7 +33031,7 @@
             "ret20": -16.38,
             "rel5": -5.23,
             "rel20": -10.99,
-            "rel2h": -0.06,
+            "rel2h": 0.05,
             "volumeZ": 0.52,
             "above20": false,
             "above50": false,
@@ -33162,7 +33186,7 @@
       "model_pie": [
         {
           "symbol": "CMI",
-          "weight": 27
+          "weight": 26
         },
         {
           "symbol": "GEV",
@@ -33174,7 +33198,7 @@
         },
         {
           "symbol": "CAT",
-          "weight": 17
+          "weight": 18
         },
         {
           "symbol": "BE",
@@ -33185,10 +33209,8 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The candidates collectively provide evidence that data‑center developers are increasingly turning to behind‑the‑meter (BTM) power solutions—such as on‑site generation, microgrids, solar, battery storage, and even hydrogen co‑location—to avoid long grid interconnection queues and meet the rapid AI‑driven power demand. The evidence also indicates that a significant share of AI data centers will face electricity constraints by 2027, prompting the adoption of diverse on‑site generation sources, including gas turbines.",
-      "trigger": [
-        "WATCH"
-      ],
+      "summary": "Evidence indicates increasing adoption of behind-the-meter and onsite power generation by data centers to bypass grid queues.",
+      "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -33201,7 +33223,7 @@
       ],
       "jury": null,
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
-      "equity_priced_in": 4.1,
+      "equity_priced_in": 5,
       "primary_priced_in": 0,
       "pricing_confidence": 0,
       "pricing_sources": [
@@ -33228,7 +33250,7 @@
       ],
       "pricing_method": "PRIMARY_PLUS_EQUITY",
       "pricing_regime": "LOW_CONFIDENCE",
-      "pricing_gap": -4
+      "pricing_gap": -5
     },
     "ROBOTICS_ACTUATOR_SCALE": {
       "id": "ROBOTICS_ACTUATOR_SCALE",
@@ -33236,48 +33258,48 @@
       "tier": "C",
       "state": "DORMANT",
       "action": "RESEARCH_ONLY",
-      "opportunity_score": 46,
-      "causal_score": 22,
-      "market_score": 21,
-      "crowding": 17,
+      "opportunity_score": 43,
+      "causal_score": 16,
+      "market_score": 0,
+      "crowding": 0,
       "crowd": {
         "phase": "DISCOVERY",
         "position": "OBSERVE",
-        "consensus": 12.5,
-        "consensus_delta": 0,
-        "priced_in": 13.8,
+        "consensus": 6.3,
+        "consensus_delta": -6.3,
+        "priced_in": 1.1,
         "discount": "UNPRICED",
-        "timing_score": 43.9,
+        "timing_score": 43.2,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0,
-          "intraday_breadth": 0.5,
+          "intraday_breadth": 0.25,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 17,
+          "crowding": 0,
           "lag_share": 0,
-          "rel5": -6.3,
-          "rel2h": 1.46
+          "rel5": -4.6,
+          "rel2h": -0.39
         }
       },
       "scout": {
         "eligible": false,
-        "score": 39,
+        "score": 38.6,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "DISCOVERY",
-        "priced_in": 13.8
+        "priced_in": 1.1
       },
       "wave_phase": "DISCOVERY",
-      "priced_in": 10,
-      "crowd_consensus": 12.5,
-      "timing_score": 43.9,
+      "priced_in": 1,
+      "crowd_consensus": 6.3,
+      "timing_score": 43.2,
       "transmission_score": 73.8,
       "structural_score": 77.2,
       "financial_score": 68.2,
@@ -33302,12 +33324,13 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 37.2,
+        "score": 35.3,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
-          "NO_CONFIRM"
+          "NO_CONFIRM",
+          "MARKET_NOT_CONFIRMING"
         ],
         "empirical": {
           "samples": 0,
@@ -33316,7 +33339,7 @@
           "lead_to_confirm": null
         },
         "crowd_phase": "DISCOVERY",
-        "priced_in": 13.8
+        "priced_in": 1.1
       },
       "benchmark": "QQQ",
       "candidate_target": 8,
@@ -35175,13 +35198,14 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The only candidate providing concrete order or capacity evidence is 0da39cffcc3117e162bf. It reports a U.S. customer expected to order 50,000 harmonic reducers by the end of 2026, up from roughly 10,000 units in 2025, and indicates Main Drive’s capacity plan expanding from 100 000 to 10 million units. It also notes that a humanoid robot of Optimus’s architecture uses about 14 harmonic reducers.",
+      "summary": "Extracted claims from candidates 4633efe566757d435b31 and 0da39cffcc3117e162bf indicating paid orders",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
         "CAUSAL_TOO_WEAK",
-        "NO_CONFIRM"
+        "NO_CONFIRM",
+        "MARKET_NOT_CONFIRMING"
       ],
       "scout_blockers": [
         "STATE_NOT_SCOUTABLE",
@@ -35189,7 +35213,7 @@
       ],
       "jury": null,
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
-      "equity_priced_in": 13.8,
+      "equity_priced_in": 1.1,
       "primary_priced_in": 0,
       "pricing_confidence": 0,
       "pricing_sources": [
@@ -35206,55 +35230,55 @@
       ],
       "pricing_method": "PRIMARY_PLUS_EQUITY",
       "pricing_regime": "LOW_CONFIDENCE",
-      "pricing_gap": -14
+      "pricing_gap": -1
     },
     "ROBOTICS_DECOUPLING": {
       "id": "ROBOTICS_DECOUPLING",
       "label": "Robotics decoupling",
       "tier": "B",
       "state": "ARMING",
-      "action": "SCOUT_WINDOW",
-      "opportunity_score": 61,
-      "causal_score": 52,
-      "market_score": 21,
-      "crowding": 17,
+      "action": "PREPARE",
+      "opportunity_score": 60,
+      "causal_score": 49,
+      "market_score": 0,
+      "crowding": 0,
       "crowd": {
         "phase": "DISCOVERY",
         "position": "OBSERVE",
-        "consensus": 12.5,
-        "consensus_delta": 0,
-        "priced_in": 13.8,
+        "consensus": 6.3,
+        "consensus_delta": -6.3,
+        "priced_in": 1.1,
         "discount": "UNPRICED",
-        "timing_score": 57.4,
+        "timing_score": 58,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0,
-          "intraday_breadth": 0.5,
+          "intraday_breadth": 0.25,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 17,
+          "crowding": 0,
           "lag_share": 0,
-          "rel5": -6.3,
-          "rel2h": 1.45
+          "rel5": -4.6,
+          "rel2h": -0.39
         }
       },
       "scout": {
-        "eligible": true,
-        "score": 59.3,
+        "eligible": false,
+        "score": 60.4,
         "reasons": [
-          "CAUSAL_LEAD_BEFORE_PRICE_SATURATION"
+          "CAUSAL_TOO_WEAK"
         ],
         "phase": "DISCOVERY",
-        "priced_in": 13.8
+        "priced_in": 1.1
       },
       "wave_phase": "DISCOVERY",
-      "priced_in": 10,
-      "crowd_consensus": 12.5,
-      "timing_score": 57.4,
+      "priced_in": 1,
+      "crowd_consensus": 6.3,
+      "timing_score": 58,
       "transmission_score": 74,
       "structural_score": 78,
       "financial_score": 68.2,
@@ -35279,21 +35303,22 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 50.4,
+        "score": 49.5,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
-          "NO_CONFIRM"
+          "NO_CONFIRM",
+          "MARKET_NOT_CONFIRMING"
         ],
         "empirical": {
           "samples": 0,
           "hit_rate": null,
           "avg_return": null,
-          "lead_to_confirm": null
+          "lead_to_confirm": 0
         },
         "crowd_phase": "DISCOVERY",
-        "priced_in": 13.8
+        "priced_in": 1.1
       },
       "benchmark": "QQQ",
       "candidate_target": 8,
@@ -37152,20 +37177,39 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "JSON object with claims extracted from candidates, no extra text.",
+      "summary": "Extracted claims supporting robotics decoupling policy and regulation details.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
         "CAUSAL_TOO_WEAK",
-        "NO_CONFIRM"
+        "NO_CONFIRM",
+        "MARKET_NOT_CONFIRMING"
       ],
       "scout_blockers": [
-        "CAUSAL_LEAD_BEFORE_PRICE_SATURATION"
+        "CAUSAL_TOO_WEAK"
       ],
-      "jury": null,
+      "jury": {
+        "model": "gpt-5-nano-2025-08-07",
+        "usage": {
+          "prompt_tokens": 2403,
+          "completion_tokens": 1000,
+          "total_tokens": 3403,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1000,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "cost_usd": 0.00052
+      },
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
-      "equity_priced_in": 13.8,
+      "equity_priced_in": 1.1,
       "primary_priced_in": 0,
       "pricing_confidence": 0,
       "pricing_sources": [
@@ -37182,7 +37226,7 @@
       ],
       "pricing_method": "PRIMARY_PLUS_EQUITY",
       "pricing_regime": "LOW_CONFIDENCE",
-      "pricing_gap": -14
+      "pricing_gap": -1
     },
     "JAPAN_CARRY_UNWIND": {
       "id": "JAPAN_CARRY_UNWIND",
@@ -37190,47 +37234,47 @@
       "tier": "A",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 46,
-      "causal_score": 41,
-      "market_score": 31,
-      "crowding": 12.2,
+      "opportunity_score": 47,
+      "causal_score": 43,
+      "market_score": 0,
+      "crowding": 0,
       "crowd": {
         "phase": "DISCOVERY",
         "position": "OBSERVE",
-        "consensus": 16.7,
-        "consensus_delta": 0,
-        "priced_in": 11.3,
+        "consensus": 0,
+        "consensus_delta": -16.7,
+        "priced_in": 0,
         "discount": "UNPRICED",
-        "timing_score": 54,
+        "timing_score": 54.4,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
           "relative_breadth": 0,
-          "intraday_breadth": 0.667,
+          "intraday_breadth": 0,
           "breadth": 0,
           "above20": 0,
           "above50": 0,
-          "crowding": 12.2,
+          "crowding": 0,
           "lag_share": 0,
-          "rel5": -3.64,
-          "rel2h": 0.77
+          "rel5": -3.28,
+          "rel2h": -0.5
         }
       },
       "scout": {
         "eligible": false,
-        "score": 54.8,
+        "score": 57,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "DISCOVERY",
-        "priced_in": 11.3
+        "priced_in": 0
       },
       "wave_phase": "DISCOVERY",
-      "priced_in": 8,
-      "crowd_consensus": 16.7,
-      "timing_score": 54,
+      "priced_in": 0,
+      "crowd_consensus": 0,
+      "timing_score": 54.4,
       "transmission_score": 47.2,
       "structural_score": 29.4,
       "financial_score": 74,
@@ -37254,12 +37298,13 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 49.8,
+        "score": 47.6,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
-          "NO_CONFIRM"
+          "NO_CONFIRM",
+          "MARKET_NOT_CONFIRMING"
         ],
         "empirical": {
           "samples": 3,
@@ -37268,7 +37313,7 @@
           "lead_to_confirm": 0.5
         },
         "crowd_phase": "DISCOVERY",
-        "priced_in": 11.3
+        "priced_in": 0
       },
       "benchmark": "EWJ",
       "candidate_target": 5,
@@ -38702,13 +38747,14 @@
       "quality": "WEAK",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Material evidence of rising Japanese yields, yen strength and carry‑trade unwind that could tighten global financial conditions",
+      "summary": "Atomic claims supporting Japan carry unwind mechanism",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
         "CAUSAL_TOO_WEAK",
-        "NO_CONFIRM"
+        "NO_CONFIRM",
+        "MARKET_NOT_CONFIRMING"
       ],
       "scout_blockers": [
         "CAUSAL_TOO_WEAK"
@@ -38716,7 +38762,7 @@
       "jury": null,
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
       "exposure_warning": "Fewer than three high-fit DIRECT companies clear the Transmission floor; do not manufacture diversification with weak proxies.",
-      "equity_priced_in": 11.3,
+      "equity_priced_in": 0,
       "primary_priced_in": 0,
       "pricing_confidence": 0,
       "pricing_sources": [
@@ -38763,7 +38809,7 @@
       ],
       "pricing_method": "PRIMARY_PLUS_EQUITY",
       "pricing_regime": "LOW_CONFIDENCE",
-      "pricing_gap": -11
+      "pricing_gap": 0
     },
     "GLOBAL_REFINANCING_STRESS": {
       "id": "GLOBAL_REFINANCING_STRESS",
@@ -38771,8 +38817,8 @@
       "tier": "A",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 43,
-      "causal_score": 37,
+      "opportunity_score": 44,
+      "causal_score": 38,
       "market_score": 22,
       "crowding": 10.1,
       "crowd": {
@@ -38782,7 +38828,7 @@
         "consensus_delta": 0,
         "priced_in": 11.6,
         "discount": "UNPRICED",
-        "timing_score": 54,
+        "timing_score": 54.5,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "LOW",
@@ -38801,7 +38847,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 53.7,
+        "score": 54.2,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -38811,7 +38857,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 9,
       "crowd_consensus": 26.3,
-      "timing_score": 54,
+      "timing_score": 54.5,
       "transmission_score": 43,
       "structural_score": 29.6,
       "financial_score": 65.6,
@@ -38835,7 +38881,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 50.6,
+        "score": 50.9,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -40282,7 +40328,7 @@
       "quality": "WEAK",
       "broker_strict": false,
       "deployable": false,
-      "summary": "",
+      "summary": "The following atomic claims are directly supported by the provided candidate sources. Each claim is tied to its originating candidate ID and contains only information present in the candidate snippet.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -40330,8 +40376,8 @@
       "tier": "B",
       "state": "DORMANT",
       "action": "DO_NOT_CHASE",
-      "opportunity_score": 39,
-      "causal_score": 5,
+      "opportunity_score": 44,
+      "causal_score": 16,
       "market_score": 72,
       "crowding": 100,
       "crowd": {
@@ -40341,7 +40387,7 @@
         "consensus_delta": 0,
         "priced_in": 84.2,
         "discount": "PRICED_IN",
-        "timing_score": 34.2,
+        "timing_score": 39.1,
         "block_chase": true,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -40355,17 +40401,16 @@
           "crowding": 100,
           "lag_share": 0,
           "rel5": 13.28,
-          "rel2h": 0.49
+          "rel2h": 0.48
         }
       },
       "scout": {
         "eligible": false,
-        "score": 20.7,
+        "score": 26.2,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
-          "INSUFFICIENT_SOURCES",
           "ALREADY_PRICED",
           "MARKET_ALREADY_MOVED"
         ],
@@ -40375,7 +40420,7 @@
       "wave_phase": "SATURATED",
       "priced_in": 89,
       "crowd_consensus": 90,
-      "timing_score": 34.2,
+      "timing_score": 39.1,
       "transmission_score": 80,
       "structural_score": 83.8,
       "financial_score": 74.4,
@@ -40400,14 +40445,13 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 11.9,
+        "score": 18.6,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CROWD_LATE_OR_PRICED_IN",
           "CAUSAL_TOO_WEAK",
           "NO_CONFIRM",
-          "INSUFFICIENT_SOURCES",
           "TOO_CROWDED"
         ],
         "empirical": {
@@ -40694,7 +40738,7 @@
             "ret20": 1.55,
             "rel5": 12.03,
             "rel20": 6.94,
-            "rel2h": 0.38,
+            "rel2h": 0.35,
             "volumeZ": 0.29,
             "above20": false,
             "above50": true,
@@ -41117,7 +41161,7 @@
             "ret20": 32.17,
             "rel5": 23.8,
             "rel20": 37.56,
-            "rel2h": 0.72,
+            "rel2h": 0.79,
             "volumeZ": 0.68,
             "above20": true,
             "above50": true,
@@ -41258,7 +41302,7 @@
             "ret20": 21.17,
             "rel5": 16.11,
             "rel20": 26.56,
-            "rel2h": 0.26,
+            "rel2h": 0.18,
             "volumeZ": 3.19,
             "above20": true,
             "above50": true,
@@ -41399,7 +41443,7 @@
             "ret20": 7.24,
             "rel5": 11.97,
             "rel20": 12.63,
-            "rel2h": 0.62,
+            "rel2h": 0.2,
             "volumeZ": 1.69,
             "above20": true,
             "above50": true,
@@ -41540,7 +41584,7 @@
             "ret20": 9.15,
             "rel5": 14.53,
             "rel20": 14.54,
-            "rel2h": 0.15,
+            "rel2h": 0.22,
             "volumeZ": -0.28,
             "above20": true,
             "above50": true,
@@ -41824,7 +41868,7 @@
             "ret20": 1.55,
             "rel5": 12.03,
             "rel20": 6.94,
-            "rel2h": 0.38,
+            "rel2h": 0.35,
             "volumeZ": 0.29,
             "above20": false,
             "above50": true,
@@ -42247,7 +42291,7 @@
             "ret20": 32.17,
             "rel5": 23.8,
             "rel20": 37.56,
-            "rel2h": 0.72,
+            "rel2h": 0.79,
             "volumeZ": 0.68,
             "above20": true,
             "above50": true,
@@ -42284,7 +42328,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "No evidence of operational or physical consequence for OT_CYBER_SHOCK.",
+      "summary": "A cyber attack disrupted operations at a major oil refinery in Texas, shutting down processing units.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -42292,14 +42336,12 @@
         "CROWD_LATE_OR_PRICED_IN",
         "CAUSAL_TOO_WEAK",
         "NO_CONFIRM",
-        "INSUFFICIENT_SOURCES",
         "TOO_CROWDED"
       ],
       "scout_blockers": [
         "STATE_NOT_SCOUTABLE",
         "WAVE_NOT_EARLY",
         "CAUSAL_TOO_WEAK",
-        "INSUFFICIENT_SOURCES",
         "ALREADY_PRICED",
         "MARKET_ALREADY_MOVED"
       ],
@@ -42350,21 +42392,21 @@
       "label": "Nuclear fuel sovereignty",
       "tier": "C",
       "state": "ARMING",
-      "action": "SCOUT_WINDOW",
-      "opportunity_score": 62,
-      "causal_score": 52,
+      "action": "PREPARE",
+      "opportunity_score": 60,
+      "causal_score": 47,
       "market_score": 0,
       "crowding": 3,
       "crowd": {
-        "phase": "PRE_WAVE",
-        "position": "AHEAD",
+        "phase": "DISCOVERY",
+        "position": "OBSERVE",
         "consensus": 8.3,
         "consensus_delta": 0,
         "priced_in": 3.5,
         "discount": "UNPRICED",
-        "timing_score": 59.2,
+        "timing_score": 56.9,
         "block_chase": false,
-        "ahead_of_wave": true,
+        "ahead_of_wave": false,
         "quality": "HIGH",
         "wisdom_source": "REAL_CAPITAL_CROSS_SECTION",
         "inputs": {
@@ -42376,22 +42418,22 @@
           "crowding": 3,
           "lag_share": 0,
           "rel5": -6.02,
-          "rel2h": -0.58
+          "rel2h": -0.65
         }
       },
       "scout": {
-        "eligible": true,
-        "score": 61.5,
+        "eligible": false,
+        "score": 53.7,
         "reasons": [
-          "CAUSAL_LEAD_BEFORE_PRICE_SATURATION"
+          "CAUSAL_TOO_WEAK"
         ],
-        "phase": "PRE_WAVE",
+        "phase": "DISCOVERY",
         "priced_in": 3.5
       },
-      "wave_phase": "PRE_WAVE",
+      "wave_phase": "DISCOVERY",
       "priced_in": 52,
       "crowd_consensus": 8.3,
-      "timing_score": 59.2,
+      "timing_score": 56.9,
       "transmission_score": 76.6,
       "structural_score": 89.6,
       "financial_score": 55,
@@ -42416,7 +42458,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 53.4,
+        "score": 48.7,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -42429,7 +42471,7 @@
           "avg_return": -1.82,
           "lead_to_confirm": 0.167
         },
-        "crowd_phase": "PRE_WAVE",
+        "crowd_phase": "DISCOVERY",
         "priced_in": 3.5
       },
       "benchmark": "URA",
@@ -42863,7 +42905,7 @@
           "name": "UEC",
           "exposure": "DIRECT",
           "fit": 84,
-          "rank_score": 56,
+          "rank_score": 55,
           "transmission": {
             "score": 68,
             "risk_adjusted_score": 66,
@@ -42981,7 +43023,7 @@
             "name": "UEC"
           },
           "market": {
-            "score": 22,
+            "score": 21,
             "quality": "LIVE",
             "price": 7.35,
             "ret1": -1.74,
@@ -42989,7 +43031,7 @@
             "ret20": -21.89,
             "rel5": -3.35,
             "rel20": -5.27,
-            "rel2h": 0.15,
+            "rel2h": 0.01,
             "volumeZ": -0.77,
             "above20": false,
             "above50": false,
@@ -43263,7 +43305,7 @@
             "name": "BWXT"
           },
           "market": {
-            "score": 44,
+            "score": 42,
             "quality": "LIVE",
             "price": 127.19,
             "ret1": -0.09,
@@ -43271,7 +43313,7 @@
             "ret20": -8.15,
             "rel5": -3.44,
             "rel20": 8.47,
-            "rel2h": 0.42,
+            "rel2h": 0.19,
             "volumeZ": -0.19,
             "above20": false,
             "above50": false,
@@ -43993,7 +44035,7 @@
           "name": "UEC",
           "exposure": "DIRECT",
           "fit": 84,
-          "rank_score": 56,
+          "rank_score": 55,
           "transmission": {
             "score": 68,
             "risk_adjusted_score": 66,
@@ -44111,7 +44153,7 @@
             "name": "UEC"
           },
           "market": {
-            "score": 22,
+            "score": 21,
             "quality": "LIVE",
             "price": 7.35,
             "ret1": -1.74,
@@ -44119,7 +44161,7 @@
             "ret20": -21.89,
             "rel5": -3.35,
             "rel20": -5.27,
-            "rel2h": 0.15,
+            "rel2h": 0.01,
             "volumeZ": -0.77,
             "above20": false,
             "above50": false,
@@ -44278,7 +44320,7 @@
         },
         {
           "symbol": "NXE",
-          "weight": 26
+          "weight": 27
         },
         {
           "symbol": "LEU",
@@ -44286,7 +44328,7 @@
         },
         {
           "symbol": "UEC",
-          "weight": 15
+          "weight": 14
         },
         {
           "symbol": "DNN",
@@ -44297,8 +44339,10 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The candidates provide evidence that U.S. enrichment and HALEU fuel supply activities are underway, indicating that fuel availability is being addressed but not yet confirmed as the primary constraint on reactor deployment.",
-      "trigger": [],
+      "summary": "The candidate set provides evidence that U.S. enrichment capacity is expanding and that the government is actively funding HALEU and LEU production, indicating that fuel availability is a key focus and may become a binding constraint as reactor construction proceeds.",
+      "trigger": [
+        "CONFIRM"
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -44306,9 +44350,27 @@
         "MARKET_NOT_CONFIRMING"
       ],
       "scout_blockers": [
-        "CAUSAL_LEAD_BEFORE_PRICE_SATURATION"
+        "CAUSAL_TOO_WEAK"
       ],
-      "jury": null,
+      "jury": {
+        "model": "gpt-5-nano-2025-08-07",
+        "usage": {
+          "prompt_tokens": 2672,
+          "completion_tokens": 1000,
+          "total_tokens": 3672,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1000,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "cost_usd": 0.000534
+      },
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
       "equity_priced_in": 3.5,
       "primary_priced_in": 94,
@@ -44371,7 +44433,7 @@
           "crowding": 5.8,
           "lag_share": 0,
           "rel5": -5.59,
-          "rel2h": -0.18
+          "rel2h": -0.24
         }
       },
       "scout": {
@@ -44577,7 +44639,7 @@
           "name": "BWXT",
           "exposure": "DIRECT",
           "fit": 100,
-          "rank_score": 64,
+          "rank_score": 63,
           "transmission": {
             "score": 76,
             "risk_adjusted_score": 73,
@@ -44695,7 +44757,7 @@
             "name": "BWXT"
           },
           "market": {
-            "score": 28,
+            "score": 27,
             "quality": "LIVE",
             "price": 127.19,
             "ret1": -0.09,
@@ -44703,7 +44765,7 @@
             "ret20": -8.15,
             "rel5": -3.9,
             "rel20": -2.73,
-            "rel2h": 0.82,
+            "rel2h": 0.59,
             "volumeZ": -0.19,
             "above20": false,
             "above50": false,
@@ -45566,7 +45628,7 @@
           "name": "BWXT",
           "exposure": "DIRECT",
           "fit": 100,
-          "rank_score": 64,
+          "rank_score": 63,
           "transmission": {
             "score": 76,
             "risk_adjusted_score": 73,
@@ -45684,7 +45746,7 @@
             "name": "BWXT"
           },
           "market": {
-            "score": 28,
+            "score": 27,
             "quality": "LIVE",
             "price": 127.19,
             "ret1": -0.09,
@@ -45692,7 +45754,7 @@
             "ret20": -8.15,
             "rel5": -3.9,
             "rel20": -2.73,
-            "rel2h": 0.82,
+            "rel2h": 0.59,
             "volumeZ": -0.19,
             "above20": false,
             "above50": false,
@@ -46133,11 +46195,11 @@
         },
         {
           "symbol": "BWXT",
-          "weight": 28
+          "weight": 27
         },
         {
           "symbol": "GEV",
-          "weight": 19
+          "weight": 20
         },
         {
           "symbol": "LEU",
@@ -46152,7 +46214,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Atomic claims that support the transition of U.S. militaries toward deployable autonomous power at bases, drawn directly from the provided candidate set.",
+      "summary": "The candidates provide evidence that the U.S. military is advancing toward deployable autonomous power at bases, primarily through the procurement and deployment of microreactors and microgrids.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -48431,8 +48493,10 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Material evidence of European governments initiating procurement actions that explicitly aim to reduce strategic dependence on non‑European suppliers.",
-      "trigger": [],
+      "summary": "No evidence of European governments explicitly reducing strategic dependence on non-European suppliers in the provided candidates.",
+      "trigger": [
+        "DORMANT"
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -48479,10 +48543,10 @@
       "id": "OIL_SERVICE_CAPEX_SECOND_WAVE",
       "label": "Oil-service CAPEX second wave",
       "tier": "C",
-      "state": "DORMANT",
-      "action": "RESEARCH_ONLY",
-      "opportunity_score": 47,
-      "causal_score": 19,
+      "state": "WATCH",
+      "action": "WATCH",
+      "opportunity_score": 55,
+      "causal_score": 35,
       "market_score": 48,
       "crowding": 24.4,
       "crowd": {
@@ -48492,7 +48556,7 @@
         "consensus_delta": 0,
         "priced_in": 29,
         "discount": "PARTLY_PRICED",
-        "timing_score": 50.1,
+        "timing_score": 57.3,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -48506,14 +48570,13 @@
           "crowding": 24.4,
           "lag_share": 0,
           "rel5": 3.37,
-          "rel2h": -0.1
+          "rel2h": -0.14
         }
       },
       "scout": {
         "eligible": false,
-        "score": 44.6,
+        "score": 52.6,
         "reasons": [
-          "STATE_NOT_SCOUTABLE",
           "WAVE_NOT_EARLY",
           "CAUSAL_TOO_WEAK",
           "MARKET_ALREADY_MOVED"
@@ -48524,7 +48587,7 @@
       "wave_phase": "IN_SYNC",
       "priced_in": 22,
       "crowd_consensus": 68.8,
-      "timing_score": 50.1,
+      "timing_score": 57.3,
       "transmission_score": 75.4,
       "structural_score": 83.2,
       "financial_score": 64.2,
@@ -48549,7 +48612,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 41.8,
+        "score": 47.2,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -48855,7 +48918,7 @@
           "name": "HAL",
           "exposure": "DIRECT",
           "fit": 80,
-          "rank_score": 72,
+          "rank_score": 71,
           "transmission": {
             "score": 75,
             "risk_adjusted_score": 72,
@@ -48973,7 +49036,7 @@
             "name": "HAL"
           },
           "market": {
-            "score": 68,
+            "score": 66,
             "quality": "LIVE",
             "price": 34.92,
             "ret1": 5.21,
@@ -48981,7 +49044,7 @@
             "ret20": 6.59,
             "rel5": 2.64,
             "rel20": -5.16,
-            "rel2h": -0.33,
+            "rel2h": -0.62,
             "volumeZ": 0.66,
             "above20": true,
             "above50": true,
@@ -50267,7 +50330,7 @@
           "name": "HAL",
           "exposure": "DIRECT",
           "fit": 80,
-          "rank_score": 72,
+          "rank_score": 71,
           "transmission": {
             "score": 75,
             "risk_adjusted_score": 72,
@@ -50385,7 +50448,7 @@
             "name": "HAL"
           },
           "market": {
-            "score": 68,
+            "score": 66,
             "quality": "LIVE",
             "price": 34.92,
             "ret1": 5.21,
@@ -50393,7 +50456,7 @@
             "ret20": 6.59,
             "rel5": 2.64,
             "rel20": -5.16,
-            "rel2h": -0.33,
+            "rel2h": -0.62,
             "volumeZ": 0.66,
             "above20": true,
             "above50": true,
@@ -50689,7 +50752,7 @@
       "model_pie": [
         {
           "symbol": "OIS",
-          "weight": 26
+          "weight": 27
         },
         {
           "symbol": "SLB",
@@ -50697,7 +50760,7 @@
         },
         {
           "symbol": "HAL",
-          "weight": 21
+          "weight": 20
         },
         {
           "symbol": "BORR",
@@ -50712,7 +50775,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "No evidence found linking sustained high oil prices to producer CAPEX, drilling, or completion orders in the provided candidates.",
+      "summary": "The following claims are directly supported by the provided candidate snippets and relate to service tenders that could indicate a second‑wave oil‑service CAPEX activity driven by higher oil prices.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -50721,7 +50784,6 @@
         "NO_CONFIRM"
       ],
       "scout_blockers": [
-        "STATE_NOT_SCOUTABLE",
         "WAVE_NOT_EARLY",
         "CAUSAL_TOO_WEAK",
         "MARKET_ALREADY_MOVED"
@@ -50761,9 +50823,9 @@
   "summary": {
     "strategies": 26,
     "deploy_window": 0,
-    "scout_window": 3,
-    "prepare": 0,
-    "watch": 11,
+    "scout_window": 0,
+    "prepare": 4,
+    "watch": 12,
     "do_not_chase": 3,
     "early_wave": 8,
     "in_sync": 5,
@@ -50775,7 +50837,7 @@
   },
   "pricing_sensors": {
     "version": "4.4.0",
-    "generated_at": "2026-10-25T20:56:45.818Z",
+    "generated_at": "2026-10-26T04:52:36.358Z",
     "coverage": {
       "mechanisms": 26,
       "live_sources": 6,
@@ -50802,7 +50864,7 @@
         "kalshi": "OK"
       },
       "quality": {
-        "kalshi_rejected_semantic_hits": 39,
+        "kalshi_rejected_semantic_hits": 14,
         "eia_public_fallback": true,
         "ukmto_public_fallback": true,
         "mof_public_fallback": false
