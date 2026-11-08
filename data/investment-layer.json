@@ -1,7 +1,7 @@
 {
   "version": "3.2.0",
-  "generated_at": "2026-11-08T06:02:43.370Z",
-  "run_id": "run_2026-11-08T05-57-22Z",
+  "generated_at": "2026-11-08T13:27:19.917Z",
+  "run_id": "run_2026-11-08T13-20-16Z",
   "broker": {
     "mode": "CURATED_T212_UNIVERSE",
     "authoritative": false,
@@ -37,22 +37,22 @@
   "openai_jury": {
     "configured": true,
     "model": "gpt-5-nano",
-    "calls_before": 0,
-    "usd_before": 0,
+    "calls_before": 2,
+    "usd_before": 0.001036,
     "call_cap": 4,
     "usd_cap": 0.01,
-    "calls_after": 2,
-    "usd_after": 0.001036
+    "calls_after": 4,
+    "usd_after": 0.002082
   },
   "strategies": {
     "DIESEL_REFINING_CRISIS": {
       "id": "DIESEL_REFINING_CRISIS",
       "label": "Diesel / refining crisis",
       "tier": "A",
-      "state": "WATCH",
-      "action": "WATCH",
-      "opportunity_score": 50,
-      "causal_score": 32,
+      "state": "DORMANT",
+      "action": "RESEARCH_ONLY",
+      "opportunity_score": 38,
+      "causal_score": 8,
       "market_score": 28,
       "crowding": 8.2,
       "crowd": {
@@ -62,7 +62,7 @@
         "consensus_delta": 0,
         "priced_in": 11.5,
         "discount": "UNPRICED",
-        "timing_score": 53.1,
+        "timing_score": 42.3,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -81,8 +81,9 @@
       },
       "scout": {
         "eligible": false,
-        "score": 46.7,
+        "score": 34.7,
         "reasons": [
+          "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "EARLY_WAVE",
@@ -91,7 +92,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 9,
       "crowd_consensus": 33.1,
-      "timing_score": 53.1,
+      "timing_score": 42.3,
       "transmission_score": 68.2,
       "structural_score": 72.4,
       "financial_score": 61.8,
@@ -116,11 +117,12 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 47.5,
+        "score": 33.9,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
-          "CAUSAL_TOO_WEAK"
+          "CAUSAL_TOO_WEAK",
+          "NO_CONFIRM"
         ],
         "empirical": {
           "samples": 4,
@@ -535,7 +537,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 105942800390,
+            "market_cap": 100266783160,
             "name": "PSX"
           },
           "market": {
@@ -676,7 +678,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 21170190780,
+            "market_cap": 21101007150,
             "name": "NESTE.HE"
           },
           "market": {
@@ -817,7 +819,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 23858181798,
+            "market_cap": 23481818162,
             "name": "OMV.VI"
           },
           "market": {
@@ -1240,7 +1242,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 19498645050,
+            "market_cap": 18120668700,
             "name": "DINO"
           },
           "market": {
@@ -1522,7 +1524,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 4322505000,
+            "market_cap": 3832065000,
             "name": "CVI"
           },
           "market": {
@@ -1947,7 +1949,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 105942800390,
+            "market_cap": 100266783160,
             "name": "PSX"
           },
           "market": {
@@ -2088,7 +2090,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 21170190780,
+            "market_cap": 21101007150,
             "name": "NESTE.HE"
           },
           "market": {
@@ -2229,7 +2231,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 23858181798,
+            "market_cap": 23481818162,
             "name": "OMV.VI"
           },
           "market": {
@@ -2278,16 +2280,18 @@
       "quality": "MIXED",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The only official evidence indicates that U.S. refineries are reallocating output from gasoline toward middle‑distillate products, driven by high refinery margins for distillate fuel oil and jet fuel. No price data are provided in the official source, so the claim about premium pricing remains unverified in the current candidate set.",
+      "summary": "The official EIA data indicate refineries are producing more middle distillates at the expense of gasoline, suggesting increased demand for distillates. However, Quantum Commodity Intelligence reports that Singapore HSFO supply has loosened due to rising Gulf supply, implying a supply-side expansion rather than tightening. These two pieces of evidence are contradictory regarding middle-distillate scarcity.",
       "trigger": [
-        "CONFIRM"
+        "WATCH"
       ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
-        "CAUSAL_TOO_WEAK"
+        "CAUSAL_TOO_WEAK",
+        "NO_CONFIRM"
       ],
       "scout_blockers": [
+        "STATE_NOT_SCOUTABLE",
         "CAUSAL_TOO_WEAK"
       ],
       "jury": null,
@@ -2327,8 +2331,8 @@
       "tier": "A",
       "state": "DORMANT",
       "action": "RESEARCH_ONLY",
-      "opportunity_score": 46,
-      "causal_score": 17,
+      "opportunity_score": 44,
+      "causal_score": 14,
       "market_score": 18,
       "crowding": 2.4,
       "crowd": {
@@ -2338,7 +2342,7 @@
         "consensus_delta": 0,
         "priced_in": 4.3,
         "discount": "UNPRICED",
-        "timing_score": 44.6,
+        "timing_score": 43.2,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -2357,7 +2361,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 39.2,
+        "score": 37.7,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
@@ -2368,7 +2372,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 3,
       "crowd_consensus": 15,
-      "timing_score": 44.6,
+      "timing_score": 43.2,
       "transmission_score": 80.2,
       "structural_score": 91.6,
       "financial_score": 63.4,
@@ -2393,7 +2397,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 38.5,
+        "score": 37.5,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -3519,7 +3523,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 1391808226,
+            "market_cap": 1334113611,
             "name": "TEN"
           },
           "market": {
@@ -4275,7 +4279,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "",
+      "summary": "The following atomic claims are directly supported by the provided candidates and relate to the mechanism of product tanker ton‑miles and fleet supply tightening.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -4326,7 +4330,7 @@
       "state": "ARMING",
       "action": "PREPARE",
       "opportunity_score": 59,
-      "causal_score": 46,
+      "causal_score": 45,
       "market_score": 19,
       "crowding": 16.4,
       "crowd": {
@@ -4336,7 +4340,7 @@
         "consensus_delta": 0,
         "priced_in": 15.7,
         "discount": "UNPRICED",
-        "timing_score": 56.8,
+        "timing_score": 56.3,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -4355,7 +4359,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 57.1,
+        "score": 56.6,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -4365,7 +4369,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 12,
       "crowd_consensus": 25,
-      "timing_score": 56.8,
+      "timing_score": 56.3,
       "transmission_score": 76.8,
       "structural_score": 86.8,
       "financial_score": 62.4,
@@ -4390,7 +4394,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 47.9,
+        "score": 47.6,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -4529,7 +4533,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 81354067,
+            "market_cap": 80964813,
             "name": "PSHG"
           },
           "market": {
@@ -5093,7 +5097,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 2765680326,
+            "market_cap": 2712256112,
             "name": "ECO"
           },
           "market": {
@@ -5375,7 +5379,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 1391808226,
+            "market_cap": 1334113611,
             "name": "TEN"
           },
           "market": {
@@ -5659,7 +5663,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 81354067,
+            "market_cap": 80964813,
             "name": "PSHG"
           },
           "market": {
@@ -6223,7 +6227,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 2765680326,
+            "market_cap": 2712256112,
             "name": "ECO"
           },
           "market": {
@@ -6272,7 +6276,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The following atomic claims are directly supported by the provided candidates and relate to the mechanism of crude tanker dislocation, specifically indicating increased VLCC/Suezmax ton‑mile demand and fleet utilisation. No contradictions are present among the evidence.",
+      "summary": "Material evidence of crude sourcing shifts increasing VLCC/Suezmax ton‑mile demand and fleet utilization",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -6287,9 +6291,9 @@
       "jury": {
         "model": "gpt-5-nano-2025-08-07",
         "usage": {
-          "prompt_tokens": 2283,
+          "prompt_tokens": 2427,
           "completion_tokens": 1000,
-          "total_tokens": 3283,
+          "total_tokens": 3427,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
@@ -6301,7 +6305,7 @@
             "rejected_prediction_tokens": 0
           }
         },
-        "cost_usd": 0.000514
+        "cost_usd": 0.000521
       },
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
       "equity_priced_in": 15.7,
@@ -6339,8 +6343,8 @@
       "tier": "B",
       "state": "DORMANT",
       "action": "RESEARCH_ONLY",
-      "opportunity_score": 39,
-      "causal_score": 13,
+      "opportunity_score": 35,
+      "causal_score": 6,
       "market_score": 0,
       "crowding": 3.2,
       "crowd": {
@@ -6350,7 +6354,7 @@
         "consensus_delta": 0,
         "priced_in": 5.8,
         "discount": "UNPRICED",
-        "timing_score": 43.4,
+        "timing_score": 40.3,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -6369,10 +6373,11 @@
       },
       "scout": {
         "eligible": false,
-        "score": 37.3,
+        "score": 33.8,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
-          "CAUSAL_TOO_WEAK"
+          "CAUSAL_TOO_WEAK",
+          "INSUFFICIENT_SOURCES"
         ],
         "phase": "DISCOVERY",
         "priced_in": 5.8
@@ -6380,7 +6385,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 4,
       "crowd_consensus": 20,
-      "timing_score": 43.4,
+      "timing_score": 40.3,
       "transmission_score": 64.4,
       "structural_score": 66.2,
       "financial_score": 61.2,
@@ -6405,12 +6410,13 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 28.5,
+        "score": 23.1,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
           "CAUSAL_TOO_WEAK",
           "NO_CONFIRM",
+          "INSUFFICIENT_SOURCES",
           "MARKET_NOT_CONFIRMING"
         ],
         "empirical": {
@@ -6685,7 +6691,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 104140053840,
+            "market_cap": 101853336300,
             "name": "CNQ"
           },
           "market": {
@@ -6826,7 +6832,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 87888800000,
+            "market_cap": 83862800000,
             "name": "SU"
           },
           "market": {
@@ -7108,7 +7114,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 402599003520,
+            "market_cap": 394526982570,
             "name": "CVX"
           },
           "market": {
@@ -7249,7 +7255,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 171646895240,
+            "market_cap": 170807086420,
             "name": "COP"
           },
           "market": {
@@ -8097,7 +8103,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 104140053840,
+            "market_cap": 101853336300,
             "name": "CNQ"
           },
           "market": {
@@ -8238,7 +8244,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 87888800000,
+            "market_cap": 83862800000,
             "name": "SU"
           },
           "market": {
@@ -8520,7 +8526,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 402599003520,
+            "market_cap": 394526982570,
             "name": "CVX"
           },
           "market": {
@@ -8569,7 +8575,7 @@
       "quality": "MIXED",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The candidate set provides several pieces of evidence that South Korea and Japan are increasingly sourcing crude oil and condensate from the Americas and other non‑Middle Eastern regions, indicating a structural shift away from Gulf barrels rather than a one‑off substitution.",
+      "summary": "Evidence indicates a structural shift in Asian imports from Gulf to U.S. and other sources, supporting the Atlantic barrels replacing Gulf supply mechanism.",
       "trigger": [
         "CONFIRM"
       ],
@@ -8578,11 +8584,13 @@
         "STATE_NOT_STABLY_ACTIVE",
         "CAUSAL_TOO_WEAK",
         "NO_CONFIRM",
+        "INSUFFICIENT_SOURCES",
         "MARKET_NOT_CONFIRMING"
       ],
       "scout_blockers": [
         "STATE_NOT_SCOUTABLE",
-        "CAUSAL_TOO_WEAK"
+        "CAUSAL_TOO_WEAK",
+        "INSUFFICIENT_SOURCES"
       ],
       "jury": null,
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
@@ -8622,8 +8630,8 @@
       "tier": "A",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 53,
-      "causal_score": 28,
+      "opportunity_score": 51,
+      "causal_score": 25,
       "market_score": 14,
       "crowding": 13.6,
       "crowd": {
@@ -8633,7 +8641,7 @@
         "consensus_delta": 0,
         "priced_in": 14.3,
         "discount": "UNPRICED",
-        "timing_score": 49.7,
+        "timing_score": 48.3,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -8652,7 +8660,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 43.5,
+        "score": 42,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -8662,7 +8670,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 11,
       "crowd_consensus": 28.3,
-      "timing_score": 49.7,
+      "timing_score": 48.3,
       "transmission_score": 83.7,
       "structural_score": 96.3,
       "financial_score": 65.3,
@@ -8687,7 +8695,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 38.4,
+        "score": 37.4,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -9108,7 +9116,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 22269000000,
+            "market_cap": 19773000000,
             "name": "DNO.OL"
           },
           "market": {
@@ -9533,7 +9541,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 22269000000,
+            "market_cap": 19773000000,
             "name": "DNO.OL"
           },
           "market": {
@@ -9574,7 +9582,7 @@
       "quality": "MIXED",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The following atomic claims provide evidence of sustained physical flow through the Iraq‑Turkey‑Ceyhan pipeline in October 2026. Each claim is directly supported by the specified candidate source and includes the reported barrel‑per‑day figure. No contradictory evidence is present in the provided candidates.",
+      "summary": "",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -9623,8 +9631,8 @@
       "tier": "B",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 49,
-      "causal_score": 28,
+      "opportunity_score": 50,
+      "causal_score": 31,
       "market_score": 41,
       "crowding": 35.5,
       "crowd": {
@@ -9634,7 +9642,7 @@
         "consensus_delta": 0,
         "priced_in": 30.2,
         "discount": "PARTLY_PRICED",
-        "timing_score": 46.8,
+        "timing_score": 48.1,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -9653,7 +9661,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 40.1,
+        "score": 41.6,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -9663,7 +9671,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 45,
       "crowd_consensus": 33.7,
-      "timing_score": 46.8,
+      "timing_score": 48.1,
       "transmission_score": 74.4,
       "structural_score": 81.4,
       "financial_score": 63.8,
@@ -9688,7 +9696,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 38.3,
+        "score": 39.3,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -11569,7 +11577,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Evidence shows LNG STS transfers and alternative routing are being used to mitigate the Hormuz blockade, indicating increased LNG rerouting.",
+      "summary": "The available evidence indicates that Gulf LNG exporters are employing ship‑to‑ship (STS) transfers and other rerouting measures to mitigate the impact of the Hormuz blockade, but there is no direct evidence that demand is shifting toward Atlantic LNG. The following atomic claims are supported by the candidate set.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -11638,8 +11646,8 @@
       "tier": "A",
       "state": "DORMANT",
       "action": "RESEARCH_ONLY",
-      "opportunity_score": 42,
-      "causal_score": 16,
+      "opportunity_score": 41,
+      "causal_score": 14,
       "market_score": 4,
       "crowding": 17.1,
       "crowd": {
@@ -11649,7 +11657,7 @@
         "consensus_delta": 0,
         "priced_in": 14.3,
         "discount": "UNPRICED",
-        "timing_score": 41.6,
+        "timing_score": 40.7,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -11668,7 +11676,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 36.2,
+        "score": 35.2,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
@@ -11679,7 +11687,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 54,
       "crowd_consensus": 15,
-      "timing_score": 41.6,
+      "timing_score": 40.7,
       "transmission_score": 72.6,
       "structural_score": 79.2,
       "financial_score": 62.4,
@@ -11704,7 +11712,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 26.9,
+        "score": 26.3,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -12407,7 +12415,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-09-30",
-            "market_cap": 70822416000,
+            "market_cap": 69665982000,
             "name": "TDG"
           },
           "market": {
@@ -12830,7 +12838,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 86705360000,
+            "market_cap": 83558860000,
             "name": "HWM"
           },
           "market": {
@@ -12971,7 +12979,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 17014104030,
+            "market_cap": 17440839570,
             "name": "CW"
           },
           "market": {
@@ -13112,7 +13120,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 134927100000,
+            "market_cap": 132182820000,
             "name": "BA"
           },
           "market": {
@@ -13819,7 +13827,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-09-30",
-            "market_cap": 70822416000,
+            "market_cap": 69665982000,
             "name": "TDG"
           },
           "market": {
@@ -13868,7 +13876,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Evidence that U.S. government procurement architecture and production targets are being altered due to constrained inventories.",
+      "summary": "The following atomic claims are supported by the provided candidates and illustrate how governments are adjusting procurement or production plans in response to constrained inventories.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -14701,7 +14709,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 17014104030,
+            "market_cap": 17440839570,
             "name": "CW"
           },
           "market": {
@@ -15549,7 +15557,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 17014104030,
+            "market_cap": 17440839570,
             "name": "CW"
           },
           "market": {
@@ -15598,8 +15606,10 @@
       "quality": "MIXED",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The candidate set provides evidence that L3Harris is expanding solid rocket motor production capacity across multiple sites, indicating a response to motor supply constraints. No direct evidence confirms that rocket propulsion is the binding constraint on higher missile output, but the expansion activities suggest motor capacity is a key focus.",
-      "trigger": [],
+      "summary": "The following atomic claims are supported by the provided candidate set and relate to the rocket motor bottleneck mechanism. Each claim is linked to the specific candidate that provides the evidence.",
+      "trigger": [
+        "CONFIRM"
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -16844,7 +16854,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 14082000000,
+            "market_cap": 13032000000,
             "name": "CSG.AS"
           },
           "market": {
@@ -17600,8 +17610,10 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The candidates provide evidence of planned expansions and new production facilities for energetic materials, indicating a response to supply constraints for ammunition and missile systems.",
-      "trigger": [],
+      "summary": "The following claims are directly supported by the provided candidate set and pertain to the Energetics Shortage mechanism. Each claim is an atomic statement extracted from the source text and is linked to its originating candidate ID.",
+      "trigger": [
+        "WATCH"
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -18149,7 +18161,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 86705360000,
+            "market_cap": 83558860000,
             "name": "HWM"
           },
           "market": {
@@ -18997,7 +19009,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 86705360000,
+            "market_cap": 83558860000,
             "name": "HWM"
           },
           "market": {
@@ -19328,7 +19340,7 @@
       "quality": "MIXED",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Evidence indicates that U.S. military demand for high‑purity aluminium is increasing while domestic production capacity remains constrained, raising shortage risk.",
+      "summary": "The evidence indicates that U.S. high‑purity aluminium supply for defense is under pressure, with the DLA allocating $2 billion to a stockpile and Pentagon war‑game analyses highlighting a critical risk to the supply chain. The Pentagon’s concerns have been amplified by recent Middle East conflict and the August 2026 war‑game findings.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -19378,10 +19390,10 @@
       "id": "RARE_EARTH_MAGNET_SHORTAGE",
       "label": "Rare-earth magnets",
       "tier": "B",
-      "state": "WATCH",
-      "action": "WATCH",
-      "opportunity_score": 50,
-      "causal_score": 25,
+      "state": "DORMANT",
+      "action": "RESEARCH_ONLY",
+      "opportunity_score": 49,
+      "causal_score": 23,
       "market_score": 23,
       "crowding": 10.2,
       "crowd": {
@@ -19391,7 +19403,7 @@
         "consensus_delta": 0,
         "priced_in": 15,
         "discount": "UNPRICED",
-        "timing_score": 51.5,
+        "timing_score": 50.6,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -19410,8 +19422,9 @@
       },
       "scout": {
         "eligible": false,
-        "score": 43.5,
+        "score": 42.5,
         "reasons": [
+          "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "EARLY_WAVE",
@@ -19420,7 +19433,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 11,
       "crowd_consensus": 45,
-      "timing_score": 51.5,
+      "timing_score": 50.6,
       "transmission_score": 77.8,
       "structural_score": 86.2,
       "financial_score": 62.4,
@@ -19445,7 +19458,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 39.8,
+        "score": 39.1,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -19583,7 +19596,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 0.875,
             "period_end": "2026-06-30",
-            "market_cap": 13052848589,
+            "market_cap": 12407765725,
             "name": "LYC.AX"
           },
           "market": {
@@ -20431,7 +20444,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 0.875,
             "period_end": "2026-06-30",
-            "market_cap": 13052848589,
+            "market_cap": 12407765725,
             "name": "LYC.AX"
           },
           "market": {
@@ -21044,7 +21057,7 @@
       "quality": "MIXED",
       "broker_strict": false,
       "deployable": false,
-      "summary": "China’s recent export‑control announcements target both the supply of key heavy‑rare‑earth elements and the technologies required to produce rare‑earth magnets, creating a bottleneck that directly affects the availability of high‑performance magnets used in defense, drones and robotics.",
+      "summary": "",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -21053,6 +21066,7 @@
         "NO_CONFIRM"
       ],
       "scout_blockers": [
+        "STATE_NOT_SCOUTABLE",
         "CAUSAL_TOO_WEAK"
       ],
       "jury": null,
@@ -21082,8 +21096,8 @@
       "tier": "B",
       "state": "DORMANT",
       "action": "RESEARCH_ONLY",
-      "opportunity_score": 42,
-      "causal_score": 24,
+      "opportunity_score": 41,
+      "causal_score": 22,
       "market_score": 18,
       "crowding": 5.3,
       "crowd": {
@@ -21093,7 +21107,7 @@
         "consensus_delta": 0,
         "priced_in": 6.6,
         "discount": "UNPRICED",
-        "timing_score": 47.5,
+        "timing_score": 46.6,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -21112,7 +21126,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 47.5,
+        "score": 46.5,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
@@ -21123,7 +21137,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 50,
       "crowd_consensus": 16.7,
-      "timing_score": 47.5,
+      "timing_score": 46.6,
       "transmission_score": 60,
       "structural_score": 68,
       "financial_score": 48.2,
@@ -21148,7 +21162,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 43.1,
+        "score": 42.5,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -22274,7 +22288,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 440444324900,
+            "market_cap": 411406294860,
             "name": "PLTR"
           },
           "market": {
@@ -23295,7 +23309,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 0.875,
             "period_end": "2025-12-31",
-            "market_cap": 316993424000,
+            "market_cap": 295004424000,
             "name": "KOG.OL"
           },
           "market": {
@@ -23859,7 +23873,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 355129156800,
+            "market_cap": 326574160000,
             "name": "SAAB-B.ST"
           },
           "market": {
@@ -24425,7 +24439,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 0.875,
             "period_end": "2025-12-31",
-            "market_cap": 316993424000,
+            "market_cap": 295004424000,
             "name": "KOG.OL"
           },
           "market": {
@@ -24989,7 +25003,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 355129156800,
+            "market_cap": 326574160000,
             "name": "SAAB-B.ST"
           },
           "market": {
@@ -25038,7 +25052,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The available evidence indicates that several U.S. military counter‑UAS initiatives are focused on deploying cheaper, lower‑tier interceptors rather than relying on expensive missile systems such as Patriot or THAAD. The claims below are directly supported by the cited candidates and contain no invented details.",
+      "summary": "The available evidence indicates that militaries are adopting lower-cost counter-UAS solutions—specifically AI‑powered interceptor drones and the Merops anti‑drone system—to reduce reliance on expensive missile interceptors.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -25086,10 +25100,10 @@
       "id": "UNDERWATER_SECURITY",
       "label": "Mine / underwater security",
       "tier": "B",
-      "state": "ARMING",
-      "action": "PREPARE",
-      "opportunity_score": 59,
-      "causal_score": 46,
+      "state": "WATCH",
+      "action": "WATCH",
+      "opportunity_score": 55,
+      "causal_score": 39,
       "market_score": 23,
       "crowding": 11.7,
       "crowd": {
@@ -25099,7 +25113,7 @@
         "consensus_delta": 0,
         "priced_in": 13.8,
         "discount": "UNPRICED",
-        "timing_score": 58.7,
+        "timing_score": 55.6,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -25118,7 +25132,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 58.3,
+        "score": 54.8,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -25128,7 +25142,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 48,
       "crowd_consensus": 32.5,
-      "timing_score": 58.7,
+      "timing_score": 55.6,
       "transmission_score": 74,
       "structural_score": 79.4,
       "financial_score": 65.6,
@@ -25153,7 +25167,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 49.8,
+        "score": 47.4,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -25291,7 +25305,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 0.875,
             "period_end": "2025-12-31",
-            "market_cap": 316993424000,
+            "market_cap": 295004424000,
             "name": "KOG.OL"
           },
           "market": {
@@ -25996,7 +26010,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 355129156800,
+            "market_cap": 326574160000,
             "name": "SAAB-B.ST"
           },
           "market": {
@@ -26280,7 +26294,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 0.875,
             "period_end": "2025-12-31",
-            "market_cap": 316993424000,
+            "market_cap": 295004424000,
             "name": "KOG.OL"
           },
           "market": {
@@ -26893,8 +26907,10 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Evidence indicates sustained demand for underwater security and mine countermeasure solutions, driven by procurement of advanced technologies, deployment of mine-clearing assets, and recent mine-related incidents in strategic waterways.",
-      "trigger": [],
+      "summary": "Atomic claims extracted from candidate set",
+      "trigger": [
+        "CONFIRM"
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -26904,25 +26920,7 @@
       "scout_blockers": [
         "CAUSAL_TOO_WEAK"
       ],
-      "jury": {
-        "model": "gpt-5-nano-2025-08-07",
-        "usage": {
-          "prompt_tokens": 2443,
-          "completion_tokens": 1000,
-          "total_tokens": 3443,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 1000,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "cost_usd": 0.000522
-      },
+      "jury": null,
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
       "equity_priced_in": 13.8,
       "primary_priced_in": 94,
@@ -26979,9 +26977,9 @@
       "label": "AI time-to-power",
       "tier": "A",
       "state": "ARMING",
-      "action": "SCOUT_WINDOW",
-      "opportunity_score": 65,
-      "causal_score": 53,
+      "action": "PREPARE",
+      "opportunity_score": 62,
+      "causal_score": 47,
       "market_score": 30,
       "crowding": 13.8,
       "crowd": {
@@ -26991,7 +26989,7 @@
         "consensus_delta": 0,
         "priced_in": 12.1,
         "discount": "UNPRICED",
-        "timing_score": 58.8,
+        "timing_score": 56.1,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -27009,10 +27007,10 @@
         }
       },
       "scout": {
-        "eligible": true,
-        "score": 60.5,
+        "eligible": false,
+        "score": 57.5,
         "reasons": [
-          "CAUSAL_LEAD_BEFORE_PRICE_SATURATION"
+          "CAUSAL_TOO_WEAK"
         ],
         "phase": "DISCOVERY",
         "priced_in": 12.1
@@ -27020,7 +27018,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 9,
       "crowd_consensus": 15,
-      "timing_score": 58.8,
+      "timing_score": 56.1,
       "transmission_score": 82.8,
       "structural_score": 90.2,
       "financial_score": 72.2,
@@ -27045,7 +27043,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 53.3,
+        "score": 51.3,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -27131,7 +27129,7 @@
               "liabilities_to_assets": 0.516,
               "cash_to_debt": 0.11,
               "cfo_to_capex": 7.19,
-              "market_cap": 92003745000
+              "market_cap": 91240700000
             },
             "fundamental_quality": "LIVE_YAHOO",
             "fundamental_coverage": 1,
@@ -27183,7 +27181,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-09-30",
-            "market_cap": 96588348000,
+            "market_cap": 91240700000,
             "name": "EMR"
           },
           "market": {
@@ -27324,7 +27322,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 23446910000,
+            "market_cap": 22975575000,
             "name": "HUBB"
           },
           "market": {
@@ -28029,7 +28027,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 201870550000,
+            "market_cap": 190577450000,
             "name": "APH"
           },
           "market": {
@@ -28543,7 +28541,7 @@
               "liabilities_to_assets": 0.516,
               "cash_to_debt": 0.11,
               "cfo_to_capex": 7.19,
-              "market_cap": 92003745000
+              "market_cap": 91240700000
             },
             "fundamental_quality": "LIVE_YAHOO",
             "fundamental_coverage": 1,
@@ -28595,7 +28593,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-09-30",
-            "market_cap": 96588348000,
+            "market_cap": 91240700000,
             "name": "EMR"
           },
           "market": {
@@ -28736,7 +28734,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 23446910000,
+            "market_cap": 22975575000,
             "name": "HUBB"
           },
           "market": {
@@ -29208,7 +29206,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The available evidence indicates that electricity supply and interconnection capacity are the primary constraints on AI infrastructure development, rather than GPU supply. All cited sources describe power shortages, grid connection freezes, large power purchase agreements, and regulatory actions aimed at addressing the growing demand for electricity from AI data centers.",
+      "summary": "Multiple recent reports highlight that electricity supply and grid interconnection, not GPU availability, are emerging as the primary bottleneck for AI data‑center expansion.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -29217,9 +29215,27 @@
         "NO_CONFIRM"
       ],
       "scout_blockers": [
-        "CAUSAL_LEAD_BEFORE_PRICE_SATURATION"
+        "CAUSAL_TOO_WEAK"
       ],
-      "jury": null,
+      "jury": {
+        "model": "gpt-5-nano-2025-08-07",
+        "usage": {
+          "prompt_tokens": 2494,
+          "completion_tokens": 1000,
+          "total_tokens": 3494,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1000,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "cost_usd": 0.000525
+      },
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
       "equity_priced_in": 12.1,
       "primary_priced_in": 0,
@@ -29256,8 +29272,8 @@
       "tier": "B",
       "state": "DORMANT",
       "action": "RESEARCH_ONLY",
-      "opportunity_score": 47,
-      "causal_score": 24,
+      "opportunity_score": 44,
+      "causal_score": 18,
       "market_score": 30,
       "crowding": 13.8,
       "crowd": {
@@ -29267,7 +29283,7 @@
         "consensus_delta": 0,
         "priced_in": 12.4,
         "discount": "UNPRICED",
-        "timing_score": 46,
+        "timing_score": 43.3,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -29286,7 +29302,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 46.1,
+        "score": 37.8,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
@@ -29297,7 +29313,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 9,
       "crowd_consensus": 16.7,
-      "timing_score": 46,
+      "timing_score": 43.3,
       "transmission_score": 75.2,
       "structural_score": 77.2,
       "financial_score": 72.2,
@@ -29322,7 +29338,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 43.4,
+        "score": 38.4,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -29460,7 +29476,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 23446910000,
+            "market_cap": 22975575000,
             "name": "HUBB"
           },
           "market": {
@@ -29549,7 +29565,7 @@
               "liabilities_to_assets": 0.516,
               "cash_to_debt": 0.11,
               "cfo_to_capex": 7.19,
-              "market_cap": 92003745000
+              "market_cap": 91240700000
             },
             "fundamental_quality": "LIVE_YAHOO",
             "fundamental_coverage": 1,
@@ -29601,7 +29617,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-09-30",
-            "market_cap": 96588348000,
+            "market_cap": 91240700000,
             "name": "EMR"
           },
           "market": {
@@ -30590,7 +30606,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 23446910000,
+            "market_cap": 22975575000,
             "name": "HUBB"
           },
           "market": {
@@ -30679,7 +30695,7 @@
               "liabilities_to_assets": 0.516,
               "cash_to_debt": 0.11,
               "cfo_to_capex": 7.19,
-              "market_cap": 92003745000
+              "market_cap": 91240700000
             },
             "fundamental_quality": "LIVE_YAHOO",
             "fundamental_coverage": 1,
@@ -30731,7 +30747,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-09-30",
-            "market_cap": 96588348000,
+            "market_cap": 91240700000,
             "name": "EMR"
           },
           "market": {
@@ -31203,7 +31219,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "No candidate evidence directly supports the specified mechanism regarding speculative interconnection requests, deposit requirements, or the impact on speculative developers versus suppliers with contracted backlog.",
+      "summary": "The candidate set provides evidence of significant interconnection queue attrition across the U.S., with many large‑load requests either withdrawn or lacking a clear end‑use, and a recent Texas audit that has halted new data‑center grid connections. These facts support the view that speculative developers face a bearish environment while suppliers with contracted backlog may benefit.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -31242,8 +31258,8 @@
       "tier": "B",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 52,
-      "causal_score": 30,
+      "opportunity_score": 50,
+      "causal_score": 26,
       "market_score": 22,
       "crowding": 10.2,
       "crowd": {
@@ -31253,7 +31269,7 @@
         "consensus_delta": 0,
         "priced_in": 9.6,
         "discount": "UNPRICED",
-        "timing_score": 49.1,
+        "timing_score": 47.3,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -31272,7 +31288,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 44.4,
+        "score": 42.4,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -31282,7 +31298,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 7,
       "crowd_consensus": 15,
-      "timing_score": 49.1,
+      "timing_score": 47.3,
       "transmission_score": 78.4,
       "structural_score": 86.8,
       "financial_score": 65.6,
@@ -31307,7 +31323,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 41.8,
+        "score": 40.4,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -32432,7 +32448,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 83128500000,
+            "market_cap": 78498000000,
             "name": "WMB"
           },
           "market": {
@@ -33188,7 +33204,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "Evidence supporting the use of behind‑the‑meter (BTM) power generation and microgrids by AI data centers to bypass utility interconnection queues.",
+      "summary": "The following atomic claims are supported by the provided candidate set and relate to the use of behind‑the‑meter (BTM) power solutions for AI data centers, indicating that data centers are deploying onsite generation and microgrids to bypass utility interconnection queues.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -33236,8 +33252,8 @@
       "tier": "C",
       "state": "DORMANT",
       "action": "RESEARCH_ONLY",
-      "opportunity_score": 45,
-      "causal_score": 19,
+      "opportunity_score": 44,
+      "causal_score": 18,
       "market_score": 8,
       "crowding": 6.4,
       "crowd": {
@@ -33247,7 +33263,7 @@
         "consensus_delta": -0.1,
         "priced_in": 10,
         "discount": "UNPRICED",
-        "timing_score": 47.3,
+        "timing_score": 46.9,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -33266,7 +33282,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 40.4,
+        "score": 39.9,
         "reasons": [
           "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
@@ -33277,7 +33293,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 8,
       "crowd_consensus": 31.3,
-      "timing_score": 47.3,
+      "timing_score": 46.9,
       "transmission_score": 72.6,
       "structural_score": 78,
       "financial_score": 64,
@@ -33302,7 +33318,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 35.9,
+        "score": 35.6,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -34146,7 +34162,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 54829196310,
+            "market_cap": 52881995530,
             "name": "AME"
           },
           "market": {
@@ -35176,7 +35192,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "No evidence of paid orders, deliveries, repeat demand, or measurable industrial utilization for robotics actuators was found in the provided candidate sources.",
+      "summary": "No material evidence of paid orders, deliveries, repeat demand, or measurable industrial utilization for robotics actuators was found in the provided candidates.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -35985,7 +36001,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 54829196310,
+            "market_cap": 52881995530,
             "name": "AME"
           },
           "market": {
@@ -37107,7 +37123,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 54829196310,
+            "market_cap": 52881995530,
             "name": "AME"
           },
           "market": {
@@ -37196,8 +37212,8 @@
       "tier": "A",
       "state": "WATCH",
       "action": "WATCH",
-      "opportunity_score": 39,
-      "causal_score": 27,
+      "opportunity_score": 42,
+      "causal_score": 32,
       "market_score": 8,
       "crowding": 7.3,
       "crowd": {
@@ -37207,7 +37223,7 @@
         "consensus_delta": 0,
         "priced_in": 6.5,
         "discount": "UNPRICED",
-        "timing_score": 47.2,
+        "timing_score": 49.4,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -37226,7 +37242,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 43,
+        "score": 45.5,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -37236,7 +37252,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 5,
       "crowd_consensus": 8.3,
-      "timing_score": 47.2,
+      "timing_score": 49.4,
       "transmission_score": 47.2,
       "structural_score": 29.4,
       "financial_score": 74,
@@ -37260,7 +37276,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 42.4,
+        "score": 44.1,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -38708,7 +38724,7 @@
       "quality": "WEAK",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The candidates provide evidence that the Bank of Japan (BOJ) is tightening policy, that Japanese government bond (JGB) yields are moving, and that the Japanese yen is reacting to those movements.  The evidence includes a 31‑year high policy rate, calls for faster hikes, a statement that the government is ready to intervene in the currency market, and a recent instance where lower JGB yields coincided with a weaker yen.  These facts support the Japan carry‑unwind mechanism (rising yields and yen strength tightening global conditions) while also showing a recent yield decline that could signal a temporary reversal of the carry trade.",
+      "summary": "The evidence set contains mixed signals about Japanese monetary policy and yen movements. Some sources indicate a tightening stance and rising yields, while others show a decline in yields and a weaker yen. The data does not conclusively confirm the Japan carry‑unwind mechanism but provides relevant observations for",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -38775,10 +38791,10 @@
       "id": "GLOBAL_REFINANCING_STRESS",
       "label": "Global refinancing stress",
       "tier": "A",
-      "state": "WATCH",
-      "action": "WATCH",
-      "opportunity_score": 42,
-      "causal_score": 34,
+      "state": "ARMING",
+      "action": "PREPARE",
+      "opportunity_score": 49,
+      "causal_score": 48,
       "market_score": 15,
       "crowding": 0.8,
       "crowd": {
@@ -38788,7 +38804,7 @@
         "consensus_delta": 0,
         "priced_in": 4.5,
         "discount": "UNPRICED",
-        "timing_score": 53.6,
+        "timing_score": 59.9,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "LOW",
@@ -38807,7 +38823,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 53.6,
+        "score": 60.6,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -38817,7 +38833,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 3,
       "crowd_consensus": 21.9,
-      "timing_score": 53.6,
+      "timing_score": 59.9,
       "transmission_score": 43,
       "structural_score": 29.6,
       "financial_score": 65.6,
@@ -38841,7 +38857,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 47,
+        "score": 51.7,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -40290,8 +40306,10 @@
       "quality": "WEAK",
       "broker_strict": false,
       "deployable": false,
-      "summary": "",
-      "trigger": [],
+      "summary": "The following atomic claims are directly supported by the provided candidates and relate to the mechanism of global refinancing stress, highlighting how bond‑market volatility may or may not translate into corporate cash‑flow and credit‑quality impacts.",
+      "trigger": [
+        "WATCH"
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -40547,7 +40565,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 16202391636,
+            "market_cap": 15846270960,
             "name": "CHKP"
           },
           "market": {
@@ -41393,7 +41411,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2026-07-31",
-            "market_cap": 35959552360,
+            "market_cap": 31668887540,
             "name": "ZS"
           },
           "market": {
@@ -41534,7 +41552,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2026-01-31",
-            "market_cap": 34253354500,
+            "market_cap": 30244430100,
             "name": "OKTA"
           },
           "market": {
@@ -41677,7 +41695,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 16202391636,
+            "market_cap": 15846270960,
             "name": "CHKP"
           },
           "market": {
@@ -42290,7 +42308,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "",
+      "summary": "No confirmed operational or physical consequence evidence found for OT_CYBER_SHOCK mechanism in the provided candidates.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -42351,10 +42369,10 @@
       "id": "NUCLEAR_FUEL_SOVEREIGNTY",
       "label": "Nuclear fuel sovereignty",
       "tier": "C",
-      "state": "WATCH",
-      "action": "WATCH",
-      "opportunity_score": 52,
-      "causal_score": 30,
+      "state": "ARMING",
+      "action": "SCOUT_WINDOW",
+      "opportunity_score": 69,
+      "causal_score": 64,
       "market_score": 18,
       "crowding": 9.1,
       "crowd": {
@@ -42364,7 +42382,7 @@
         "consensus_delta": 0,
         "priced_in": 11.9,
         "discount": "UNPRICED",
-        "timing_score": 51.9,
+        "timing_score": 67.2,
         "block_chase": false,
         "ahead_of_wave": true,
         "quality": "HIGH",
@@ -42382,10 +42400,10 @@
         }
       },
       "scout": {
-        "eligible": false,
-        "score": 50.7,
+        "eligible": true,
+        "score": 67.7,
         "reasons": [
-          "CAUSAL_TOO_WEAK"
+          "CAUSAL_LEAD_BEFORE_PRICE_SATURATION"
         ],
         "phase": "EARLY_WAVE",
         "priced_in": 11.9
@@ -42393,7 +42411,7 @@
       "wave_phase": "EARLY_WAVE",
       "priced_in": 56,
       "crowd_consensus": 31.7,
-      "timing_score": 51.9,
+      "timing_score": 67.2,
       "transmission_score": 76.8,
       "structural_score": 90.4,
       "financial_score": 54.2,
@@ -42418,11 +42436,10 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 47.6,
+        "score": 59.1,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
-          "CAUSAL_TOO_WEAK",
           "MARKET_NOT_CONFIRMING"
         ],
         "empirical": {
@@ -42556,7 +42573,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 4707167480,
+            "market_cap": 4854266464,
             "name": "NXE"
           },
           "market": {
@@ -42979,7 +42996,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 1891826000,
+            "market_cap": 1963554000,
             "name": "DNN"
           },
           "market": {
@@ -43543,7 +43560,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 134540001,
+            "market_cap": 117722501,
             "name": "EU"
           },
           "market": {
@@ -43686,7 +43703,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 4707167480,
+            "market_cap": 4854266464,
             "name": "NXE"
           },
           "market": {
@@ -44109,7 +44126,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 1891826000,
+            "market_cap": 1963554000,
             "name": "DNN"
           },
           "market": {
@@ -44299,16 +44316,17 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The available evidence indicates that enrichment capacity and procurement activities are expanding, suggesting that fuel availability is becoming a more significant constraint than reactor construction.",
-      "trigger": [],
+      "summary": "The available evidence indicates that U.S. enrichment capacity is expanding and that commercial LEU+ production is underway, suggesting that fuel availability is becoming a key constraint for nuclear power deployment.",
+      "trigger": [
+        "CONFIRM"
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
-        "CAUSAL_TOO_WEAK",
         "MARKET_NOT_CONFIRMING"
       ],
       "scout_blockers": [
-        "CAUSAL_TOO_WEAK"
+        "CAUSAL_LEAD_BEFORE_PRICE_SATURATION"
       ],
       "jury": null,
       "warning": "Trading 212 availability gate is unavailable; deployability remains blocked.",
@@ -44346,10 +44364,10 @@
       "id": "MILITARY_ENERGY_AUTONOMY",
       "label": "Military energy autonomy",
       "tier": "C",
-      "state": "WATCH",
-      "action": "WATCH",
-      "opportunity_score": 50,
-      "causal_score": 30,
+      "state": "DORMANT",
+      "action": "RESEARCH_ONLY",
+      "opportunity_score": 46,
+      "causal_score": 23,
       "market_score": 12,
       "crowding": 11.5,
       "crowd": {
@@ -44359,7 +44377,7 @@
         "consensus_delta": -0.1,
         "priced_in": 12.1,
         "discount": "UNPRICED",
-        "timing_score": 50.2,
+        "timing_score": 47.1,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -44378,8 +44396,9 @@
       },
       "scout": {
         "eligible": false,
-        "score": 49.9,
+        "score": 46.4,
         "reasons": [
+          "STATE_NOT_SCOUTABLE",
           "CAUSAL_TOO_WEAK"
         ],
         "phase": "DISCOVERY",
@@ -44388,7 +44407,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 57,
       "crowd_consensus": 23.8,
-      "timing_score": 50.2,
+      "timing_score": 47.1,
       "transmission_score": 71.4,
       "structural_score": 76.6,
       "financial_score": 63.8,
@@ -44413,7 +44432,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 42.3,
+        "score": 39.9,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -46154,7 +46173,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The following atomic claims are directly supported by the provided candidates and pertain to the movement of militaries toward deployable autonomous power at bases.",
+      "summary": "The candidates provide evidence that the U.S. military is moving from pilot projects toward deployable autonomous power at bases.  The evidence includes microreactor and microgrid procurement and deployment at several installations, as well as R&D partnerships for microreactor technology.",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -46164,6 +46183,7 @@
         "MARKET_NOT_CONFIRMING"
       ],
       "scout_blockers": [
+        "STATE_NOT_SCOUTABLE",
         "CAUSAL_TOO_WEAK"
       ],
       "jury": null,
@@ -46408,7 +46428,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 0.875,
             "period_end": "2025-12-31",
-            "market_cap": 316993424000,
+            "market_cap": 295004424000,
             "name": "KOG.OL"
           },
           "market": {
@@ -46690,7 +46710,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 152895266185,
+            "market_cap": 155331213939,
             "name": "AIR.PA"
           },
           "market": {
@@ -47254,7 +47274,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 355129156800,
+            "market_cap": 326574160000,
             "name": "SAAB-B.ST"
           },
           "market": {
@@ -47536,7 +47556,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 9607120000,
+            "market_cap": 8983040000,
             "name": "HAG.DE"
           },
           "market": {
@@ -47820,7 +47840,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 0.875,
             "period_end": "2025-12-31",
-            "market_cap": 316993424000,
+            "market_cap": 295004424000,
             "name": "KOG.OL"
           },
           "market": {
@@ -48102,7 +48122,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 152895266185,
+            "market_cap": 155331213939,
             "name": "AIR.PA"
           },
           "market": {
@@ -48433,7 +48453,7 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "France’s new long‑range land strike capability will be supplied by the European companies MBDA and Safran, as approved by the French Defence Procurement Agency.",
+      "summary": "European strategic autonomy procurement evidence",
       "trigger": [],
       "invalidation": [],
       "alpha_blockers": [
@@ -48481,10 +48501,10 @@
       "id": "OIL_SERVICE_CAPEX_SECOND_WAVE",
       "label": "Oil-service CAPEX second wave",
       "tier": "C",
-      "state": "WATCH",
-      "action": "WATCH",
-      "opportunity_score": 50,
-      "causal_score": 27,
+      "state": "ARMING",
+      "action": "PREPARE",
+      "opportunity_score": 59,
+      "causal_score": 45,
       "market_score": 0,
       "crowding": 0.7,
       "crowd": {
@@ -48494,7 +48514,7 @@
         "consensus_delta": 0,
         "priced_in": 3.6,
         "discount": "UNPRICED",
-        "timing_score": 49.7,
+        "timing_score": 57.8,
         "block_chase": false,
         "ahead_of_wave": false,
         "quality": "HIGH",
@@ -48513,7 +48533,7 @@
       },
       "scout": {
         "eligible": false,
-        "score": 44.6,
+        "score": 58.9,
         "reasons": [
           "CAUSAL_TOO_WEAK"
         ],
@@ -48523,7 +48543,7 @@
       "wave_phase": "DISCOVERY",
       "priced_in": 3,
       "crowd_consensus": 17.5,
-      "timing_score": 49.7,
+      "timing_score": 57.8,
       "transmission_score": 75.8,
       "structural_score": 85.4,
       "financial_score": 61.4,
@@ -48548,7 +48568,7 @@
       },
       "alpha": {
         "eligible": false,
-        "score": 38.7,
+        "score": 47.8,
         "market_floor": 20,
         "reasons": [
           "STATE_NOT_STABLY_ACTIVE",
@@ -48828,7 +48848,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 74091720000,
+            "market_cap": 71735040000,
             "name": "SLB"
           },
           "market": {
@@ -49110,7 +49130,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 28149000000,
+            "market_cap": 27159520000,
             "name": "HAL"
           },
           "market": {
@@ -49392,7 +49412,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 49570780000,
+            "market_cap": 47582780000,
             "name": "BKR"
           },
           "market": {
@@ -49815,7 +49835,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 2130026769,
+            "market_cap": 1937271495,
             "name": "LBRT"
           },
           "market": {
@@ -49956,7 +49976,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-09-30",
-            "market_cap": 3584711920,
+            "market_cap": 3496359840,
             "name": "HP"
           },
           "market": {
@@ -50240,7 +50260,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 74091720000,
+            "market_cap": 71735040000,
             "name": "SLB"
           },
           "market": {
@@ -50522,7 +50542,7 @@
             "quality": "LIVE_YAHOO",
             "coverage": 1,
             "period_end": "2025-12-31",
-            "market_cap": 28149000000,
+            "market_cap": 27159520000,
             "name": "HAL"
           },
           "market": {
@@ -50712,8 +50732,10 @@
       "quality": "CLEAN",
       "broker_strict": false,
       "deployable": false,
-      "summary": "The candidate set contains two concrete service‑tender events that support the OIL_SERVICE_CAPEX_SECOND_WAVE mechanism: a new drilling contract for ADES in Indonesia and a subsea systems contract awarded to SLB OneSubsea. No explicit producer CAPEX intent is confirmed in the available excerpts.",
-      "trigger": [],
+      "summary": "The following atomic claims are directly supported by the provided candidates and relate to the OIL_SERVICE_CAPEX_SECOND_WAVE mechanism. Each claim is tied to its source candidate and preserves the evidence hierarchy.",
+      "trigger": [
+        "OIL_SERVICE_CAPEX_SECOND_WAVE"
+      ],
       "invalidation": [],
       "alpha_blockers": [
         "STATE_NOT_STABLY_ACTIVE",
@@ -50760,8 +50782,8 @@
     "strategies": 26,
     "deploy_window": 0,
     "scout_window": 1,
-    "prepare": 2,
-    "watch": 12,
+    "prepare": 4,
+    "watch": 7,
     "do_not_chase": 1,
     "early_wave": 10,
     "in_sync": 1,
@@ -50773,7 +50795,7 @@
   },
   "pricing_sensors": {
     "version": "4.4.0",
-    "generated_at": "2026-11-08T06:02:54.176Z",
+    "generated_at": "2026-11-08T13:27:30.491Z",
     "coverage": {
       "mechanisms": 26,
       "live_sources": 6,
@@ -50800,7 +50822,7 @@
         "kalshi": "OK"
       },
       "quality": {
-        "kalshi_rejected_semantic_hits": 48,
+        "kalshi_rejected_semantic_hits": 33,
         "eia_public_fallback": true,
         "ukmto_public_fallback": true,
         "mof_public_fallback": false
