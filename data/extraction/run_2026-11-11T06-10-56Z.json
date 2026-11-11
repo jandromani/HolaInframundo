@@ -1,0 +1,3933 @@
+{
+  "version": "2.4.0",
+  "run_id": "run_2026-11-11T06-10-56Z",
+  "generated_at": "2026-11-11T06:14:37.866Z",
+  "model_chain": [
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-120b"
+  ],
+  "concurrency": 3,
+  "repair_policy": {
+    "local_syntax_repair": true,
+    "llm_repair_attempts": 1,
+    "response_healing_account_plugin": "recommended"
+  },
+  "quota": {
+    "extraction_daily_cap": 124,
+    "remaining_before": 124,
+    "run_cap": 42,
+    "selected": 26,
+    "paid_cap_usd": 0.05,
+    "paid_before_usd": 0,
+    "paid_after_usd": 0.004983
+  },
+  "mechanisms": {
+    "CRUDE_TANKER_DISLOCATION": {
+      "id": "CRUDE_TANKER_DISLOCATION",
+      "label": "Crude tanker dislocation",
+      "tier": "A",
+      "summary": "No candidate provides direct evidence supporting an increase in VLCC/Suezmax ton‑mile demand or fleet utilization due to crude sourcing shifts.",
+      "evidence": [],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000062,
+      "usage": {
+        "prompt_tokens": 1761,
+        "completion_tokens": 345,
+        "total_tokens": 2106,
+        "cost": 0.000062172,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000062172,
+          "upstream_inference_prompt_cost": 0.000031122,
+          "upstream_inference_completions_cost": 0.00003105
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 280,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 3,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "CRUDE_TANKER_DISLOCATION:lead:vlcc_route",
+          "phase": "LEAD",
+          "signal": "CRUDE_ROUTE_SHIFT",
+          "q": "VLCC fixture West Africa Brazil Guyana US Gulf Asia Cape route STS Oman",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:09.188Z",
+          "finished_at": "2026-11-11T06:12:09.493Z"
+        },
+        {
+          "query_id": "CRUDE_TANKER_DISLOCATION:lead:sts",
+          "phase": "LEAD",
+          "signal": "STS_ACTIVITY",
+          "q": "ship to ship crude transfer Oman Fujairah Saudi Aramco China Hormuz",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 3,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:09.493Z",
+          "finished_at": "2026-11-11T06:12:09.770Z"
+        },
+        {
+          "query_id": "CRUDE_TANKER_DISLOCATION:confirm:vlcc_tce",
+          "phase": "CONFIRM",
+          "signal": "CRUDE_FREIGHT",
+          "q": "VLCC Suezmax TCE rates ton mile demand vessel availability",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:09.770Z",
+          "finished_at": "2026-11-11T06:12:10.005Z"
+        }
+      ]
+    },
+    "DIESEL_REFINING_CRISIS": {
+      "id": "DIESEL_REFINING_CRISIS",
+      "label": "Diesel / refining crisis",
+      "tier": "A",
+      "summary": "The evidence indicates refinery availability constraints that could tighten middle‑distillate supply, but there is no direct evidence of diesel or jet price premiums in the provided candidates.",
+      "evidence": [
+        {
+          "candidate_id": "97466fe44d7a4666be1f",
+          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
+          "phase": "LEAD",
+          "signal": "REFINERY_AVAILABILITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Heating oil supply remains exposed to a single refinery outage, indicating refinery availability constraints.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "http://www.stonex.com/en/insights/heating-oil-supply-stays-exposed-to-a-single-refinery-outage",
+          "source_name": "Heating Oil Supply Stays Exposed to a Single Refinery Outage",
+          "source_domain": "stonex.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "ad0841f62737d4298b1d",
+          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
+          "phase": "LEAD",
+          "signal": "REFINERY_AVAILABILITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Refinery maintenance season sharpens diesel exposure to shortages, with a diesel supply gap of 1 to 1.5 million barrels per day left by outages in Russia and the Middle East.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.stonex.com/en/insights/refinery-maintenance-season-sharpens-diesel-s-exposure-to-shortages/",
+          "source_name": "Refinery Maintenance Season Sharpens Diesel's Exposure to Shortages",
+          "source_domain": "stonex.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "2c6a9cc9d2bcad80ea60",
+          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
+          "phase": "LEAD",
+          "signal": "REFINERY_AVAILABILITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Galp shut its Sines hydrocracker for scheduled maintenance through 30 October, reducing refining capacity.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.qcintel.com/article/galp-shuts-sines-hydrocracker-for-scheduled-october-maintenance-74636.html",
+          "source_name": "Galp shuts Sines hydrocracker for scheduled October maintenance",
+          "source_domain": "qcintel.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "8b542aa846b30187ac77",
+          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
+          "phase": "LEAD",
+          "signal": "REFINERY_AVAILABILITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Ukraine's renewed attacks on Russian oil refineries deplete Russian diesel supply, contributing to domestic fuel shortages.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "http://www.marketscreener.com/news/renewed-refinery-attacks-deplete-russian-diesel-supply-as-us-deal-in-focus-ce785fddd889f527",
+          "source_name": "Renewed refinery attacks deplete Russian diesel supply as US deal in focus | MarketScreener",
+          "source_domain": "marketscreener.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000153,
+      "usage": {
+        "prompt_tokens": 2059,
+        "completion_tokens": 1300,
+        "total_tokens": 3359,
+        "cost": 0.000153486,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000153486,
+          "upstream_inference_prompt_cost": 0.000036486,
+          "upstream_inference_completions_cost": 0.000117
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 7,
+      "official_candidate_count": 1,
+      "query_trace": [
+        {
+          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_maint",
+          "phase": "LEAD",
+          "signal": "REFINERY_AVAILABILITY",
+          "q": "refinery hydrocracker outage maintenance extension diesel gasoil jet fuel",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "error": "The operation was aborted due to timeout",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:11:53.562Z",
+          "finished_at": "2026-11-11T06:12:00.528Z"
+        },
+        {
+          "query_id": "DIESEL_REFINING_CRISIS:lead:diesel_tender",
+          "phase": "LEAD",
+          "signal": "PHYSICAL_CARGO_DEMAND",
+          "q": "diesel gasoil jet fuel tender cargo Mediterranean Europe Turkey",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "error": "The operation was aborted due to timeout",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:00.528Z",
+          "finished_at": "2026-11-11T06:12:07.436Z"
+        },
+        {
+          "query_id": "DIESEL_REFINING_CRISIS:lead:france_retail_shortage",
+          "phase": "LEAD",
+          "signal": "RETAIL_FUEL_AVAILABILITY",
+          "q": "France diesel station shortages purchase limits fuel rationing TotalEnergies prix-carburants.gouv.fr gazole rupture",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:07.436Z",
+          "finished_at": "2026-11-11T06:12:07.737Z"
+        },
+        {
+          "query_id": "DIESEL_REFINING_CRISIS:lead:eu_diesel_policy",
+          "phase": "LEAD",
+          "signal": "POLICY_SUPPLY_RESPONSE",
+          "q": "France EU emergency diesel fuel quality waiver B7 B10 kerosene desulphurisation refinery rules supply shortage",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:07.737Z",
+          "finished_at": "2026-11-11T06:12:08.033Z"
+        },
+        {
+          "query_id": "DIESEL_REFINING_CRISIS:confirm:diesel_stock",
+          "phase": "CONFIRM",
+          "signal": "DISTILLATE_TIGHTNESS",
+          "q": "ARA gasoil stocks distillate inventories diesel crack Brent Europe Singapore gasoil crack",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:08.033Z",
+          "finished_at": "2026-11-11T06:12:08.318Z"
+        },
+        {
+          "query_id": "DIESEL_REFINING_CRISIS:confirm:eu_station_data",
+          "phase": "CONFIRM",
+          "signal": "OFFICIAL_RETAIL_AVAILABILITY",
+          "q": "France official fuel station availability diesel shortages gazole rupture stations data economie gouv",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:08.318Z",
+          "finished_at": "2026-11-11T06:12:08.604Z"
+        }
+      ]
+    },
+    "AI_TIME_TO_POWER": {
+      "id": "AI_TIME_TO_POWER",
+      "label": "AI time-to-power",
+      "tier": "A",
+      "summary": "",
+      "evidence": [],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema+repair",
+      "repaired": true,
+      "cost_usd": 0.000311,
+      "usage": {
+        "prompt_tokens": 306,
+        "completion_tokens": 238,
+        "total_tokens": 544,
+        "cost": 0.0000425,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0000425,
+          "upstream_inference_prompt_cost": 0.00000918,
+          "upstream_inference_completions_cost": 0.00003332
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 259,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 7,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "AI_TIME_TO_POWER:lead:grid_deposit",
+          "phase": "LEAD",
+          "signal": "REAL_POWER_COMMITMENT",
+          "q": "data center utility interconnection deposit substation permit transformer order gigawatt",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:17.322Z",
+          "finished_at": "2026-11-11T06:12:17.584Z"
+        },
+        {
+          "query_id": "AI_TIME_TO_POWER:lead:lead_time",
+          "phase": "LEAD",
+          "signal": "EQUIPMENT_LEAD_TIME",
+          "q": "large power transformer lead time switchgear lead time data center utility",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 1,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:17.584Z",
+          "finished_at": "2026-11-11T06:12:17.877Z"
+        },
+        {
+          "query_id": "AI_TIME_TO_POWER:confirm:power_order",
+          "phase": "CONFIRM",
+          "signal": "POWER_EQUIPMENT_ORDERS",
+          "q": "data center transformer switchgear gas turbine order backlog Powell Vertiv GE Vernova Eaton",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:17.877Z",
+          "finished_at": "2026-11-11T06:12:18.157Z"
+        }
+      ]
+    },
+    "CEYHAN_BYPASS": {
+      "id": "CEYHAN_BYPASS",
+      "label": "Ceyhan / Kurdistan bypass",
+      "tier": "A",
+      "summary": "",
+      "evidence": [],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema+repair",
+      "repaired": true,
+      "cost_usd": 0.000324,
+      "usage": {
+        "prompt_tokens": 319,
+        "completion_tokens": 276,
+        "total_tokens": 595,
+        "cost": 0.00005033,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00005033,
+          "upstream_inference_prompt_cost": 0.00000893,
+          "upstream_inference_completions_cost": 0.0000414
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 249,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 4,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "CEYHAN_BYPASS:lead:iraq_turkey",
+          "phase": "LEAD",
+          "signal": "POLITICAL_CLEARANCE",
+          "q": "Iraq Turkey pipeline Ceyhan agreement Kurdish oil payments SOMO export settlement",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 1,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:10.639Z",
+          "finished_at": "2026-11-11T06:12:10.942Z"
+        },
+        {
+          "query_id": "CEYHAN_BYPASS:lead:kurd_prod",
+          "phase": "LEAD",
+          "signal": "KURDISTAN_PRODUCTION",
+          "q": "Kurdistan oil production restart DNO Gulf Keystone Genel pipeline Ceyhan",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:10.942Z",
+          "finished_at": "2026-11-11T06:12:11.211Z"
+        },
+        {
+          "query_id": "CEYHAN_BYPASS:confirm:ceyhan_flow",
+          "phase": "CONFIRM",
+          "signal": "CEYHAN_FLOW",
+          "q": "Ceyhan Iraq Turkey pipeline exports barrels per day loading cargo",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 3,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:11.211Z",
+          "finished_at": "2026-11-11T06:12:11.520Z"
+        }
+      ]
+    },
+    "GLOBAL_REFINANCING_STRESS": {
+      "id": "GLOBAL_REFINANCING_STRESS",
+      "label": "Global refinancing stress",
+      "tier": "A",
+      "summary": "Refinancing is recovering faster than sales.",
+      "evidence": [
+        {
+          "candidate_id": "ac9d422a853d68951880",
+          "query_id": "GLOBAL_REFINANCING_STRESS:lead:cre_refi",
+          "phase": "LEAD",
+          "signal": "CRE_REFINANCING",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Refinancing is recovering faster than sales.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPUjlNbnpJOGpTd2k1RExPbEN4LTVrVWZBZTh5Ml8wdXBFN0JuMmVlZ21oRjd4VFRCd1pPMFBRMVg4bnJXd2ctYXhhaUlXaFd5RnpKU0d2V1E5Z1BIUDBCQi1CS0pBQ2w1TU40OGFxX0VmQWpQaEJEb2kwclM1ZnlINm5BT25TeklNRmJpZm5EYw?oc=5",
+          "source_name": "CommercialSearch",
+          "source_domain": "commercialsearch.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "Mon, 09 Nov 2026 12:25:58 GMT",
+          "retrieved_at": "2026-11-11T06:12:21.580Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000086,
+      "usage": {
+        "prompt_tokens": 1319,
+        "completion_tokens": 695,
+        "total_tokens": 2014,
+        "cost": 0.000085716,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000085716,
+          "upstream_inference_prompt_cost": 0.000023166,
+          "upstream_inference_completions_cost": 0.00006255
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 3,
+      "official_candidate_count": 1,
+      "query_trace": [
+        {
+          "query_id": "GLOBAL_REFINANCING_STRESS:lead:amend_extend",
+          "phase": "LEAD",
+          "signal": "REFINANCING_FRICTION",
+          "q": "amend and extend refinancing private credit covenant maturity wall leveraged loan",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 1,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:21.074Z",
+          "finished_at": "2026-11-11T06:12:21.359Z"
+        },
+        {
+          "query_id": "GLOBAL_REFINANCING_STRESS:lead:cre_refi",
+          "phase": "LEAD",
+          "signal": "CRE_REFINANCING",
+          "q": "commercial real estate refinancing default maturity extension cap rate debt service",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 1,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:21.359Z",
+          "finished_at": "2026-11-11T06:12:21.660Z"
+        },
+        {
+          "query_id": "GLOBAL_REFINANCING_STRESS:confirm:spreads",
+          "phase": "CONFIRM",
+          "signal": "CREDIT_MARKET_STRESS",
+          "q": "high yield spread investment grade spread MOVE index Treasury 10 year 30 year refinancing",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:21.660Z",
+          "finished_at": "2026-11-11T06:12:21.950Z"
+        }
+      ]
+    },
+    "ENERGETICS_SHORTAGE": {
+      "id": "ENERGETICS_SHORTAGE",
+      "label": "Energetics / explosives shortage",
+      "tier": "A",
+      "summary": "The following atomic claims are directly supported by the provided candidate set and relate to the Energetics Shortage mechanism. Each claim references the exact candidate ID and includes the phase, signal, and a concise excerpt that evidences the claim. No additional information or URLs are invented.",
+      "evidence": [
+        {
+          "candidate_id": "dd5b7da4866f52f04438",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The UK government is commissioning new energetics factories that will produce explosives, propellants and pyrotechnics essential for conventional weapons and the nuclear deterrent.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.gov.uk/guidance/new-energetics-factories-for-the-uk",
+          "source_name": "New energetics factories for the UK - GOV.UK",
+          "source_domain": "gov.uk",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "02136792e85c71c32bdf",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Nitradyn has secured a $581 million U.S. contract to build a Kentucky explosives campus with an 8 million‑pound annual IMX‑104 capacity by 2030, which will restore U.S. energetics capacity.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://defence-industry.eu/nitradyn-secures-581-million-u-s-contract-for-kentucky-explosives-campus-with-8-million-pound-annual-imx-104-capacity-by-2030/",
+          "source_name": "Nitradyn secures $581 million U.S. contract for Kentucky explosives campus with 8 million-pound annual IMX-104 capacity by 2030",
+          "source_domain": "defence-industry.eu",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "23b13ad4f04aeacf9ee0",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Nalagx plans a new explosives campus near Belledune, N.B., that will double NATO’s TNT production capacity to 10 000 tonnes per year, thereby addressing supply imbalance.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.bnnbloomberg.ca/business/company-news/2026/08/27/canadian-firm-chooses-new-brunswick-site-for-new-explosives-factory/",
+          "source_name": "N.B. news: New explosives factory opening near Belledune",
+          "source_domain": "bnnbloomberg.ca",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "28c4b6dbb6b7032703b7",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The U.S. Army has added $77.9 million to Repkon’s Graham, Kentucky plant, the first domestic TNT source since the 1980s, to hedge against single‑source supply risk.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://integratedsynergyconsulting.com/topics/energetics-and-propellants",
+          "source_name": "Energetics, Explosives and Propellants | ISC Defence Intelligence",
+          "source_domain": "integratedsynergyconsulting.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "608ca014c39f3f3cff35",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Poland’s Nitro‑Chem has signed a letter of intent with BAE Systems to build a production plant in Britain, with an annual capacity of 10 000 metric tons of TNT.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://live.euronext.com/en/financial-news/polish-tnt-producer-nitro-chem-plans-expansion-uk-bae-systems",
+          "source_name": "Polish TNT producer Nitro-Chem plans expansion to UK with BAE Systems | live",
+          "source_domain": "live.euronext.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "73ad8eb60301596d8567",
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The UK government is funding feasibility studies for 22 companies to develop new production facilities for explosives, propellants and pyrotechnics, aiming to establish a sovereign supply chain for munitions.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.euractiv.com/news/uk-taps-22-companies-funds-plans-for-energetic-materials-factories",
+          "source_name": "UK taps 22 companies, funds plans for energetic materials factories | Euractiv",
+          "source_domain": "euractiv.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [
+        "DORMANT"
+      ],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000105,
+      "usage": {
+        "prompt_tokens": 1811,
+        "completion_tokens": 816,
+        "total_tokens": 2627,
+        "cost": 0.000105462,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000105462,
+          "upstream_inference_prompt_cost": 0.000032022,
+          "upstream_inference_completions_cost": 0.00007344
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_hire",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_CAPACITY",
+          "q": "RDX HMX TNT nitrocellulose propellant energetics plant expansion hiring Europe US",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:13.238Z",
+          "finished_at": "2026-11-11T06:12:13.512Z"
+        },
+        {
+          "query_id": "ENERGETICS_SHORTAGE:lead:energetics_tender",
+          "phase": "LEAD",
+          "signal": "ENERGETICS_PROCUREMENT",
+          "q": "energetics explosive propellant procurement tender NATO ammunition supplier",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:13.512Z",
+          "finished_at": "2026-11-11T06:12:13.768Z"
+        }
+      ]
+    },
+    "PRODUCT_TANKER_TONMILES": {
+      "id": "PRODUCT_TANKER_TONMILES",
+      "label": "Product tanker ton-miles",
+      "tier": "A",
+      "summary": "No candidate provides evidence that refined‑product cargoes are traveling materially farther or that fleet supply is tightening. All available sources describe Russian diesel tankers changing course or stalling, but none report ton‑mile distances or supply constraints.",
+      "evidence": [],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.00009,
+      "usage": {
+        "prompt_tokens": 1833,
+        "completion_tokens": 249,
+        "total_tokens": 2082,
+        "cost": 0.00008985,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00008985,
+          "upstream_inference_prompt_cost": 0.00005499,
+          "upstream_inference_completions_cost": 0.00003486
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 225,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "PRODUCT_TANKER_TONMILES:lead:mr_fixture",
+          "phase": "LEAD",
+          "signal": "MR_FIXTURES",
+          "q": "MR tanker fixture diesel cargo US Gulf Europe India Europe Cape route",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:08.604Z",
+          "finished_at": "2026-11-11T06:12:08.909Z"
+        },
+        {
+          "query_id": "PRODUCT_TANKER_TONMILES:lead:war_risk",
+          "phase": "LEAD",
+          "signal": "SHIPPING_RISK",
+          "q": "tanker war risk premium P&I Hormuz exclusion charter cancellation Fujairah",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:08.909Z",
+          "finished_at": "2026-11-11T06:12:09.188Z"
+        }
+      ]
+    },
+    "ARSENAL_DEPLETION": {
+      "id": "ARSENAL_DEPLETION",
+      "label": "Arsenal depletion / replenishment",
+      "tier": "A",
+      "summary": "Evidence shows that U.S. governments are altering procurement plans and production targets in response to constrained inventories of key weapons systems.",
+      "evidence": [
+        {
+          "candidate_id": "bb0191a9fbbffd99c123",
+          "query_id": "ARSENAL_DEPLETION:lead:proc_rfq",
+          "phase": "LEAD",
+          "signal": "PROCUREMENT_CHANGE",
+          "family": "PHYSICAL",
+          "fact_type": "INFERENCE",
+          "claim": "U.S. inventories of Patriot interceptors fell from about 2,330 before the Iran war to between 759 and 827 by the end of July 2026.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Inventory depletion prompted procurement review.",
+          "source_url": "https://www.defensenews.com/pentagon/2026/09/21/the-pentagon-asked-industry-how-fast-it-could-make-more-weapons-the-numbers-remain-private",
+          "source_name": "The Pentagon asked industry how fast it could make more weapons. The numbers remain private. - Defense News",
+          "source_domain": "defensenews.com",
+          "source_grade": 0.82,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": false
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000274,
+      "usage": {
+        "prompt_tokens": 2695,
+        "completion_tokens": 1300,
+        "total_tokens": 3995,
+        "cost": 0.00027377,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 208,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00027377,
+          "upstream_inference_prompt_cost": 0.00007877,
+          "upstream_inference_completions_cost": 0.000195
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1138,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 7,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "ARSENAL_DEPLETION:lead:proc_rfq",
+          "phase": "LEAD",
+          "signal": "PROCUREMENT_CHANGE",
+          "q": "Pentagon RFQ multiyear procurement Patriot THAAD Tomahawk SM-6 AMRAAM JASSM LRASM 155mm",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:12.107Z",
+          "finished_at": "2026-11-11T06:12:12.392Z"
+        },
+        {
+          "query_id": "ARSENAL_DEPLETION:lead:inventory",
+          "phase": "LEAD",
+          "signal": "INVENTORY_STRESS",
+          "q": "Patriot THAAD interceptor inventory stockpile depletion production target Pentagon",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 1,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:12.392Z",
+          "finished_at": "2026-11-11T06:12:12.679Z"
+        }
+      ]
+    },
+    "JAPAN_CARRY_UNWIND": {
+      "id": "JAPAN_CARRY_UNWIND",
+      "label": "Japan carry unwind",
+      "tier": "A",
+      "summary": "Material evidence from the two TradingNEWS articles indicating market expectations of a stronger yen and higher USD/JPY levels following BOJ tightening and record intervention data.",
+      "evidence": [
+        {
+          "candidate_id": "45ae1a45cdb0f5926522",
+          "query_id": "JAPAN_CARRY_UNWIND:lead:boj_signal",
+          "phase": "LEAD",
+          "signal": "BOJ_TIGHTENING",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "USD/JPY pair slipped to 157.884 after record intervention data, with a target of 156.10.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "BOJ_TIGHTENING",
+          "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQSm9ROVlyQ1BtQXNsYnp0Q3RIeHZYaW0xaDRGREFaNjlSalRrTl9lUlVTYVYtajdnd1RKSnM5eDBrQi1KZjZfUkRoWU9Dc2tNakZidmRaaktZUDc0aGl5M1NURG02eWVCeWFBQ0sxLW9hVEtvTTZ4c0N4dk9NQnNxY1BNOEFIbktSNGRIU09jTnNaVUg4U1hiVVJtRFFRQmst?oc=5",
+          "source_name": "TradingNEWS",
+          "source_domain": "tradingnews.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "Mon, 09 Nov 2026 21:11:22 GMT",
+          "retrieved_at": "2026-11-11T06:12:20.709Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "f5d15912b7f43f5b8016",
+          "query_id": "JAPAN_CARRY_UNWIND:lead:boj_signal",
+          "phase": "LEAD",
+          "signal": "BOJ_TIGHTENING",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "USD/JPY forecast to hit 158.80 on hot US CPI, with 159 resistance and 160 upside target.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "BOJ_TIGHTENING",
+          "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNeXhRYWhWSzgtUm4wckxjVThhS2pQQ0ZzUUtOUDBKdmczbkhSOWtIWFdIUE9lNF9iQXRnSTNFMFMyQUlzR0JKWHhVSkFGZVRBQkZRU19oTmpZWmZTcWYzamlZQ3pVQTJRREZScjhQTFRHLWhaVmVOc1FINnFpaFdYdnozSzBiZUlFUnpPMkV0M1JWdGZmejdEUDRFWjlob0lza1l2SFl1S0I1dTBuT01EMUxPTjNTdw?oc=5",
+          "source_name": "TradingNEWS",
+          "source_domain": "tradingnews.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "Tue, 10 Nov 2026 21:35:27 GMT",
+          "retrieved_at": "2026-11-11T06:12:20.709Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000222,
+      "usage": {
+        "prompt_tokens": 1350,
+        "completion_tokens": 1300,
+        "total_tokens": 2650,
+        "cost": 0.0002225,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0002225,
+          "upstream_inference_prompt_cost": 0.0000405,
+          "upstream_inference_completions_cost": 0.000182
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 828,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 2,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "JAPAN_CARRY_UNWIND:lead:boj_signal",
+          "phase": "LEAD",
+          "signal": "BOJ_TIGHTENING",
+          "q": "Bank of Japan rate hike hawkish JGB purchase reduction inflation wage policy",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 2,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:20.461Z",
+          "finished_at": "2026-11-11T06:12:20.788Z"
+        },
+        {
+          "query_id": "JAPAN_CARRY_UNWIND:lead:japan_flows",
+          "phase": "LEAD",
+          "signal": "CAPITAL_REPATRIATION",
+          "q": "Japan investors sell foreign bonds buy JGB weekly securities flows Ministry Finance",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:20.788Z",
+          "finished_at": "2026-11-11T06:12:21.074Z"
+        }
+      ]
+    },
+    "CHEAP_DRONE_SCALING": {
+      "id": "CHEAP_DRONE_SCALING",
+      "label": "Cheap-drone scaling",
+      "tier": "B",
+      "summary": "No evidence supporting the CHEAP_DRONE_SCALING mechanism was found in the provided candidates. All candidates are LEAD signals about drone capacity but do not provide procurement volumes or unit economics required to activate the mechanism.",
+      "evidence": [],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000091,
+      "usage": {
+        "prompt_tokens": 1972,
+        "completion_tokens": 224,
+        "total_tokens": 2196,
+        "cost": 0.00009052,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00009052,
+          "upstream_inference_prompt_cost": 0.00005916,
+          "upstream_inference_completions_cost": 0.00003136
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 179,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 3,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "CHEAP_DRONE_SCALING:lead:drone_rfq",
+          "phase": "LEAD",
+          "signal": "DRONE_PROCUREMENT",
+          "q": "military drone tender tens thousands attritable autonomous drones procurement Taiwan US Europe",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:15.366Z",
+          "finished_at": "2026-11-11T06:12:15.645Z"
+        },
+        {
+          "query_id": "CHEAP_DRONE_SCALING:lead:drone_factory",
+          "phase": "LEAD",
+          "signal": "DRONE_CAPACITY",
+          "q": "drone factory capacity expansion hiring production line low cost military autonomous",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 3,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:15.645Z",
+          "finished_at": "2026-11-11T06:12:15.944Z"
+        },
+        {
+          "query_id": "CHEAP_DRONE_SCALING:confirm:drone_award",
+          "phase": "CONFIRM",
+          "signal": "DRONE_AWARD",
+          "q": "contract award thousands drones unit cost AeroVironment Kratos Red Cat",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 11
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 11
+            }
+          },
+          "started_at": "2026-11-11T06:12:15.944Z",
+          "finished_at": "2026-11-11T06:12:16.025Z"
+        }
+      ]
+    },
+    "ROCKET_MOTOR_SHORTAGE": {
+      "id": "ROCKET_MOTOR_SHORTAGE",
+      "label": "Rocket motor bottleneck",
+      "tier": "A",
+      "summary": "The candidate set provides evidence that solid rocket motor production is a key constraint on U.S. tactical missile output. The claims below are directly supported by the cited sources and are presented as atomic statements.",
+      "evidence": [
+        {
+          "candidate_id": "585aa39284c92ca93a9b",
+          "query_id": "ROCKET_MOTOR_SHORTAGE:lead:motor_permit",
+          "phase": "LEAD",
+          "signal": "MOTOR_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Lockheed Martin’s GMLRS production capacity is approaching 14,000 rockets per year.",
+          "direction": "DOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.credenceresearch.com/news/lockheed-martin-100000th-gmlrs-rocket-14000-per-year-camden-arkansas",
+          "source_name": "Lockheed Martin Delivers 100,000th GMLRS Rocket, Nears 14,000-a-Year Output",
+          "source_domain": "credenceresearch.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "585aa39284c92ca93a9b",
+          "query_id": "ROCKET_MOTOR_SHORTAGE:lead:motor_permit",
+          "phase": "LEAD",
+          "signal": "MOTOR_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Lockheed Martin delivered its 100,000th GMLRS rocket.",
+          "direction": "DOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.credenceresearch.com/news/lockheed-martin-100000th-gmlrs-rocket-14000-per-year-camden-arkansas",
+          "source_name": "Lockheed Martin Delivers 100,000th GMLRS Rocket, Nears 14,000-a-Year Output",
+          "source_domain": "credenceresearch.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "585aa39284c92ca93a9b",
+          "query_id": "ROCKET_MOTOR_SHORTAGE:lead:motor_permit",
+          "phase": "LEAD",
+          "signal": "MOTOR_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Solid rocket motors are the most closely watched bottleneck in U.S. tactical missile production.",
+          "direction": "DOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.credenceresearch.com/news/lockheed-martin-100000th-gmlrs-rocket-14000-per-year-camden-arkansas",
+          "source_name": "Lockheed Martin Delivers 100,000th GMLRS Rocket, Nears 14,000-a-Year Output",
+          "source_domain": "credenceresearch.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "585aa39284c92ca93a9b",
+          "query_id": "ROCKET_MOTOR_SHORTAGE:lead:motor_permit",
+          "phase": "LEAD",
+          "signal": "MOTOR_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Northrop Grumman and Aerojet Rocketdyne are the only two U.S. suppliers of solid rocket motors.",
+          "direction": "DOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.credenceresearch.com/news/lockheed-martin-100000th-gmlrs-rocket-14000-per-year-camden-arkansas",
+          "source_name": "Lockheed Martin Delivers 100,000th GMLRS Rocket, Nears 14,000-a-Year Output",
+          "source_domain": "credenceresearch.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "3f07844a2c2a6acb6b13",
+          "query_id": "ROCKET_MOTOR_SHORTAGE:lead:motor_permit",
+          "phase": "LEAD",
+          "signal": "MOTOR_CAPACITY",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "L3Harris is expanding production capacity by almost 1 million square feet for a new GMLRS factory.",
+          "direction": "DOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://stockanalysis.com/stocks/lhx/transcripts/658185-q2-2026/",
+          "source_name": "L3Harris Technologies (LHX) Q2 2026 Earnings Call Transcript & Audio",
+          "source_domain": "stockanalysis.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000234,
+      "usage": {
+        "prompt_tokens": 1724,
+        "completion_tokens": 1300,
+        "total_tokens": 3024,
+        "cost": 0.00023372,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00023372,
+          "upstream_inference_prompt_cost": 0.00005172,
+          "upstream_inference_completions_cost": 0.000182
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 796,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "ROCKET_MOTOR_SHORTAGE:lead:motor_permit",
+          "phase": "LEAD",
+          "signal": "MOTOR_CAPACITY",
+          "q": "solid rocket motor factory expansion permit hiring qualification Aerojet L3Harris Northrop",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:12.679Z",
+          "finished_at": "2026-11-11T06:12:12.966Z"
+        },
+        {
+          "query_id": "ROCKET_MOTOR_SHORTAGE:lead:propellant",
+          "phase": "LEAD",
+          "signal": "PROPELLANT_INPUT",
+          "q": "ammonium perchlorate solid propellant shortage tender rocket motor supply chain",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 5
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 5
+            }
+          },
+          "started_at": "2026-11-11T06:12:12.966Z",
+          "finished_at": "2026-11-11T06:12:13.238Z"
+        }
+      ]
+    },
+    "RARE_EARTH_MAGNET_SHORTAGE": {
+      "id": "RARE_EARTH_MAGNET_SHORTAGE",
+      "label": "Rare-earth magnets",
+      "tier": "B",
+      "summary": "Two recent reports highlight rare‑earth supply strains and changes in supply arithmetic, indicating a bottleneck in the supply chain that could impact magnet production for defense, drones and robotics.",
+      "evidence": [
+        {
+          "candidate_id": "f1476f82f41676f37de9",
+          "query_id": "RARE_EARTH_MAGNET_SHORTAGE:confirm:ree_trade",
+          "phase": "CONFIRM",
+          "signal": "RARE_EARTH_TRADE",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "Rare Earth Price Gap Flags Supply Strains Ahead of Trump‑Xi Meet",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Price gap signals supply strain in rare‑earth market.",
+          "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNbjJUdy10X1VrSHc3RXJjNi0yaXp0WlQydjdMZUwxQTRRX3pRSnZpWWx2RzUxMGxFV1gzTkpPcmlfZ2UxQlA4dGJKLWVwbFphbHoyQ0NTVVIzZWY5VzlvcnlXSU5HWEtmUzBvSEdHNG81T3pxbGRLbzk4bnp5NTVISGkwSEYyYVdnMmMycG55RWl1dndXNGN6MTQyQ3R5VHkyelc0TDJycW5GWjNzcHdHRjREWlVKMmFXaEFnN3FoT2Q?oc=5",
+          "source_name": "Bloomberg.com",
+          "source_domain": "bloomberg.com",
+          "source_grade": 0.92,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "Tue, 10 Nov 2026 06:00:00 GMT",
+          "retrieved_at": "2026-11-11T06:12:15.206Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "0cdd5e1d9446ba1779bb",
+          "query_id": "RARE_EARTH_MAGNET_SHORTAGE:confirm:ree_trade",
+          "phase": "CONFIRM",
+          "signal": "RARE_EARTH_TRADE",
+          "family": "PRICE",
+          "fact_type": "FACT",
+          "claim": "Critical Minerals Report: Two Elections and Two Deadlines Changed the Arithmetic for Western Supply",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "Election and deadline changes altered supply arithmetic, indicating supply strain.",
+          "source_url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOWW9Rc29kMmRHVW9Uc2J5ZUUyWjVLNGR4ZWdTTktFOEt5Wk5senUyQ0s2ZXRxbGJrTEozTE53WUxtd1NOY1UyTmdDUkl1S0Q2YVRTYWF2d2V1Y0xfVEozSmNtX3VmWEtrN0NHdEhLWmdZT2NySjJITVFHSGc0U0E5eGViZWZweWUyU3lGZDlCV0RtQVJGcnhXeTNuMW0tNkdVdnVaTUNvNWl3RTIzOVVHZWZ3UTNmcFZjRmJMeWJNSV9KVS1nbHpVVkkybURLRlFhc19DbGg5bGpRdWlpOUdPQmN0X0hUY0tZT3c?oc=5",
+          "source_name": "InvestorNews",
+          "source_domain": "investornews.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "Sun, 08 Nov 2026 21:31:02 GMT",
+          "retrieved_at": "2026-11-11T06:12:15.206Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000352,
+      "usage": {
+        "prompt_tokens": 1725,
+        "completion_tokens": 742,
+        "total_tokens": 2467,
+        "cost": 0.000351975,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000351975,
+          "upstream_inference_prompt_cost": 0.000129375,
+          "upstream_inference_completions_cost": 0.0002226
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 535,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 2,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "RARE_EARTH_MAGNET_SHORTAGE:lead:china_license",
+          "phase": "LEAD",
+          "signal": "EXPORT_RESTRICTION",
+          "q": "China rare earth export license dysprosium terbium NdFeB magnet restrictions Japan US",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:14.390Z",
+          "finished_at": "2026-11-11T06:12:14.671Z"
+        },
+        {
+          "query_id": "RARE_EARTH_MAGNET_SHORTAGE:lead:magnet_supply",
+          "phase": "LEAD",
+          "signal": "MAGNET_SUPPLY",
+          "q": "permanent magnet shortage lead time NdFeB defense drone robot motor supplier",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:14.671Z",
+          "finished_at": "2026-11-11T06:12:14.923Z"
+        },
+        {
+          "query_id": "RARE_EARTH_MAGNET_SHORTAGE:lead:greenland_tanbreez",
+          "phase": "LEAD",
+          "signal": "GREENLAND_STRATEGIC_MINERALS",
+          "q": "Greenland Tanbreez Critical Metals CRML rare earth US Denmark strategic minerals investment",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:14.923Z",
+          "finished_at": "2026-11-11T06:12:15.206Z"
+        },
+        {
+          "query_id": "RARE_EARTH_MAGNET_SHORTAGE:confirm:ree_trade",
+          "phase": "CONFIRM",
+          "signal": "RARE_EARTH_TRADE",
+          "q": "China dysprosium terbium magnet exports customs Japan United States rare earth volumes",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 11
+            },
+            "google_news": {
+              "ok": true,
+              "count": 2,
+              "cached": true,
+              "ttl_hours": 11
+            }
+          },
+          "started_at": "2026-11-11T06:12:15.206Z",
+          "finished_at": "2026-11-11T06:12:15.286Z"
+        },
+        {
+          "query_id": "RARE_EARTH_MAGNET_SHORTAGE:confirm:greenland_funding",
+          "phase": "CONFIRM",
+          "signal": "GREENLAND_PROJECT_FINANCING",
+          "q": "Greenland rare earth mining financing offtake US EU Tanbreez Critical Metals project funding",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 11
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 11
+            }
+          },
+          "started_at": "2026-11-11T06:12:15.286Z",
+          "finished_at": "2026-11-11T06:12:15.366Z"
+        }
+      ]
+    },
+    "NUCLEAR_FUEL_SOVEREIGNTY": {
+      "id": "NUCLEAR_FUEL_SOVEREIGNTY",
+      "label": "Nuclear fuel sovereignty",
+      "tier": "C",
+      "summary": "The available evidence indicates that U.S. enrichment capacity is expanding and that fuel supply is becoming a more pressing constraint than reactor construction.",
+      "evidence": [
+        {
+          "candidate_id": "1e0f5ceea0317ae34e88",
+          "query_id": "NUCLEAR_FUEL_SOVEREIGNTY:lead:haleu_tender",
+          "phase": "LEAD",
+          "signal": "ENRICHMENT_PROCUREMENT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Urenco USA received NRC authorization in September 2025 to enrich uranium up to 10 % U‑235, enabling it to produce LEU+.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "ENRICHMENT_PROCUREMENT",
+          "source_url": "https://www.urenco.com/news/usa/2026/urenco-usa-produces-first-commercial-cylinder-of-leu-plus",
+          "source_name": "Urenco USA Produces First Commercial Cylinder of LEU+",
+          "source_domain": "urenco.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "9b07c35ee18115be540c",
+          "query_id": "NUCLEAR_FUEL_SOVEREIGNTY:lead:haleu_tender",
+          "phase": "LEAD",
+          "signal": "ENRICHMENT_PROCUREMENT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Centrus Energy announced a multi‑billion‑dollar expansion to produce large‑scale HALEU and LEU, and signed a multi‑year HALEU supply contract with Antares.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "ENRICHMENT_PROCUREMENT",
+          "source_url": "https://investors.centrusenergy.com/news-releases/news-release-details/centrus-and-antares-sign-multi-year-haleu-supply-contract",
+          "source_name": "Centrus and Antares Sign Multi-Year HALEU Supply Contract | Centrus Energy Corp.",
+          "source_domain": "investors.centrusenergy.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000235,
+      "usage": {
+        "prompt_tokens": 1760,
+        "completion_tokens": 1300,
+        "total_tokens": 3060,
+        "cost": 0.0002348,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0002348,
+          "upstream_inference_prompt_cost": 0.0000528,
+          "upstream_inference_completions_cost": 0.000182
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 924,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "NUCLEAR_FUEL_SOVEREIGNTY:lead:haleu_tender",
+          "phase": "LEAD",
+          "signal": "ENRICHMENT_PROCUREMENT",
+          "q": "DOE HALEU LEU enrichment solicitation centrifuge capacity uranium contract",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 22
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 22
+            }
+          },
+          "started_at": "2026-11-11T06:12:22.447Z",
+          "finished_at": "2026-11-11T06:12:22.702Z"
+        },
+        {
+          "query_id": "NUCLEAR_FUEL_SOVEREIGNTY:lead:uranium_restrict",
+          "phase": "LEAD",
+          "signal": "URANIUM_SUPPLY_POLICY",
+          "q": "Russian uranium restriction enriched uranium import waiver United States Europe",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 22
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 22
+            }
+          },
+          "started_at": "2026-11-11T06:12:22.702Z",
+          "finished_at": "2026-11-11T06:12:22.972Z"
+        },
+        {
+          "query_id": "NUCLEAR_FUEL_SOVEREIGNTY:confirm:enrich_award",
+          "phase": "CONFIRM",
+          "signal": "ENRICHMENT_CAPACITY",
+          "q": "Centrus enrichment contract HALEU production award DOE capacity",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 11
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 11
+            }
+          },
+          "started_at": "2026-11-11T06:12:22.972Z",
+          "finished_at": "2026-11-11T06:12:23.052Z"
+        }
+      ]
+    },
+    "COUNTER_UAS_COST_CURVE": {
+      "id": "COUNTER_UAS_COST_CURVE",
+      "label": "Counter-UAS cost curve",
+      "tier": "B",
+      "summary": "The following claims provide evidence that militaries are testing or procuring lower‑cost counter‑UAS solutions—missiles, interceptors, lasers, and modular systems—rather than relying solely on expensive missile intercepts.",
+      "evidence": [
+        {
+          "candidate_id": "1c9e064b1670712575cb",
+          "query_id": "COUNTER_UAS_COST_CURVE:lead:cuas_trial",
+          "phase": "LEAD",
+          "signal": "COUNTER_UAS_TRIAL",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Each Mk‑III interceptor missile tested by the U.S. Army cost roughly $2,500 to build.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://defence-blog.com/u-s-army-tests-a-cheap-missile-made-to-intercept-drones",
+          "source_name": "U.S. Army tests a cheap missile made to intercept drones",
+          "source_domain": "defence-blog.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema+repair",
+      "repaired": true,
+      "cost_usd": 0.000375,
+      "usage": {
+        "prompt_tokens": 445,
+        "completion_tokens": 896,
+        "total_tokens": 1341,
+        "cost": 0.00013879,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00013879,
+          "upstream_inference_prompt_cost": 0.00001335,
+          "upstream_inference_completions_cost": 0.00012544
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 798,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "COUNTER_UAS_COST_CURVE:lead:cuas_trial",
+          "phase": "LEAD",
+          "signal": "COUNTER_UAS_TRIAL",
+          "q": "counter UAS test cheap interceptor electronic warfare laser gun cost per intercept trial",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:16.025Z",
+          "finished_at": "2026-11-11T06:12:16.290Z"
+        },
+        {
+          "query_id": "COUNTER_UAS_COST_CURVE:lead:cuas_rfq",
+          "phase": "LEAD",
+          "signal": "COUNTER_UAS_PROCUREMENT",
+          "q": "counter drone RFQ radar electronic warfare cheap interceptor procurement",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:16.290Z",
+          "finished_at": "2026-11-11T06:12:16.564Z"
+        },
+        {
+          "query_id": "COUNTER_UAS_COST_CURVE:confirm:cuas_award",
+          "phase": "CONFIRM",
+          "signal": "COUNTER_UAS_AWARD",
+          "q": "counter UAS contract award quantity cost per intercept Saab Kongsberg Leonardo RTX",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 11
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 11
+            }
+          },
+          "started_at": "2026-11-11T06:12:16.564Z",
+          "finished_at": "2026-11-11T06:12:16.644Z"
+        }
+      ]
+    },
+    "STRATEGIC_ALUMINIUM": {
+      "id": "STRATEGIC_ALUMINIUM",
+      "label": "Strategic aluminium",
+      "tier": "B",
+      "summary": "The available evidence indicates that the U.S. Defense Logistics Agency (DLA) has committed $2 billion in fiscal 2026 to acquire strategic and critical materials for the National Defense Stockpile, including high‑purity aluminium. The Department of Defense (DoD) conducted a wargame in July 2025 to assess aluminium resilience for a potential 2027 conflict, concluding that short‑term high‑purity aluminium (HPA) needs cannot be met within two years. High‑purity aluminium imports are vulnerable, as demonstrated by drone attacks on a UAE plant, and domestic production faces significant challenges and long lead times for new facilities. These facts collectively suggest a collision between military/electrical demand for high‑purity aluminium and limited domestic capacity.",
+      "evidence": [
+        {
+          "candidate_id": "3dd5a280d726a1338c2a",
+          "query_id": "STRATEGIC_ALUMINIUM:lead:hpa_stock",
+          "phase": "LEAD",
+          "signal": "HPA_STOCKPILE",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Defense Logistics Agency committed $2 billion in fiscal 2026 to buy strategic and critical materials for the National Defense Stockpile.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://defence-industry.eu/pentagon-says-defense-logistics-agency-directed-2-billion-to-stockpile-critical-materials/",
+          "source_name": "Pentagon says Defense Logistics Agency directed $2 billion to stockpile critical materials",
+          "source_domain": "defence-industry.eu",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "3dd5a280d726a1338c2a",
+          "query_id": "STRATEGIC_ALUMINIUM:lead:hpa_stock",
+          "phase": "LEAD",
+          "signal": "HPA_STOCKPILE",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The National Defense Stockpile includes high‑purity aluminium.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://defence-industry.eu/pentagon-says-defense-logistics-agency-directed-2-billion-to-stockpile-critical-materials/",
+          "source_name": "Pentagon says Defense Logistics Agency directed $2 billion to stockpile critical materials",
+          "source_domain": "defence-industry.eu",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "c75425302d79b635632b",
+          "query_id": "STRATEGIC_ALUMINIUM:lead:hpa_stock",
+          "phase": "LEAD",
+          "signal": "HPA_STOCKPILE",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The National Defense Stockpile includes high‑purity aluminium.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://jumpseataerospacenews.com/2026/11/pentagon-invests-2b-in-critical-materials-stockpile/",
+          "source_name": "Pentagon Invests $2B in Critical Materials Stockpile | Jumpseat Aerospace News",
+          "source_domain": "jumpseataerospacenews.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "0cc697abe50a3208b7da",
+          "query_id": "STRATEGIC_ALUMINIUM:lead:hpa_stock",
+          "phase": "LEAD",
+          "signal": "HPA_STOCKPILE",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "DoD ran a wargame in July 2025 to examine the country's aluminium resilience for a large‑scale conflict in 2027.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.reuters.com/commentary/reuters-open-interest/us-needs-more-aluminium-it-needs-it-now-2026-08-27",
+          "source_name": "The US needs more aluminium — and it needs it now | Reuters",
+          "source_domain": "reuters.com",
+          "source_grade": 0.92,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "0cc697abe50a3208b7da",
+          "query_id": "STRATEGIC_ALUMINIUM:lead:hpa_stock",
+          "phase": "LEAD",
+          "signal": "HPA_STOCKPILE",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "DoD concluded that short‑term high‑purity aluminium requirements within two years cannot be met.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.reuters.com/commentary/reuters-open-interest/us-needs-more-aluminium-it-needs-it-now-2026-08-27",
+          "source_name": "The US needs more aluminium — and it needs it now | Reuters",
+          "source_domain": "reuters.com",
+          "source_grade": 0.92,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "a1b851f13176b02e1836",
+          "query_id": "STRATEGIC_ALUMINIUM:lead:hpa_stock",
+          "phase": "LEAD",
+          "signal": "HPA_STOCKPILE",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "High‑purity aluminium imports are vulnerable after drones damaged a UAE plant.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.bloomberg.com/news/articles/2026-08-05/iran-war-exposes-us-military-aluminum-risk-shown-in-pentagon-war-game",
+          "source_name": "Iran War Exposes US Military Aluminum Risk Shown in Pentagon War Game - Bloomberg",
+          "source_domain": "bloomberg.com",
+          "source_grade": 0.92,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "02959479c67022d332d5",
+          "query_id": "STRATEGIC_ALUMINIUM:lead:hpa_stock",
+          "phase": "LEAD",
+          "signal": "HPA_STOCKPILE",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Domestic production of high‑purity aluminium faces significant challenges and long lead times for new facilities.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://cssm.etimg.com/news/international/world-news/the-us-needs-more-aluminium-and-it-needs-it-now/articleshow/133587051.cms",
+          "source_name": "The US needs more aluminium and it needs it now - The Economic Times",
+          "source_domain": "cssm.etimg.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [
+        "WATCH"
+      ],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000224,
+      "usage": {
+        "prompt_tokens": 1742,
+        "completion_tokens": 1227,
+        "total_tokens": 2969,
+        "cost": 0.00022404,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00022404,
+          "upstream_inference_prompt_cost": 0.00005226,
+          "upstream_inference_completions_cost": 0.00017178
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 593,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "STRATEGIC_ALUMINIUM:lead:hpa_stock",
+          "phase": "LEAD",
+          "signal": "HPA_STOCKPILE",
+          "q": "high purity aluminium defense stockpile shortage Pentagon HPA United States",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:13.768Z",
+          "finished_at": "2026-11-11T06:12:14.021Z"
+        },
+        {
+          "query_id": "STRATEGIC_ALUMINIUM:lead:smelter",
+          "phase": "LEAD",
+          "signal": "SMELTER_CAPACITY",
+          "q": "aluminium smelter outage capacity high purity military Century Aluminum Emirates",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:14.021Z",
+          "finished_at": "2026-11-11T06:12:14.310Z"
+        },
+        {
+          "query_id": "STRATEGIC_ALUMINIUM:confirm:al_premium",
+          "phase": "CONFIRM",
+          "signal": "ALUMINIUM_PREMIUM",
+          "q": "US Midwest aluminium premium high purity aluminium price defense demand",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 11
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 11
+            }
+          },
+          "started_at": "2026-11-11T06:12:14.310Z",
+          "finished_at": "2026-11-11T06:12:14.390Z"
+        }
+      ]
+    },
+    "UNDERWATER_SECURITY": {
+      "id": "UNDERWATER_SECURITY",
+      "label": "Mine / underwater security",
+      "tier": "B",
+      "summary": "Physical incidents of naval mines in the Strait of Hormuz reported in November 2026, indicating ongoing mine‑countermeasure demand.",
+      "evidence": [
+        {
+          "candidate_id": "4795dcbb03f2240bd5d8",
+          "query_id": "UNDERWATER_SECURITY:lead:mine_incident",
+          "phase": "LEAD",
+          "signal": "MINE_RISK",
+          "family": "PHYSICAL",
+          "fact_type": "INFERENCE",
+          "claim": "Two tankers struck mines in the Strait of Hormuz on 2026‑11‑07, causing fires and disabling the vessels.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "MINE_RISK",
+          "source_url": "https://hamerintel.com/data/alerts/29539",
+          "source_name": "Alert: Tanker Hit Naval Mine Near Hormuz, Fire Disables Vessel",
+          "source_domain": "hamerintel.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": false
+        },
+        {
+          "candidate_id": "4795dcbb03f2240bd5d8",
+          "query_id": "UNDERWATER_SECURITY:lead:mine_incident",
+          "phase": "LEAD",
+          "signal": "MINE_RISK",
+          "family": "PHYSICAL",
+          "fact_type": "INFERENCE",
+          "claim": "An oil tanker was disabled and caught fire after striking a naval mine east of the Strait of Hormuz.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "MINE_RISK",
+          "source_url": "https://hamerintel.com/data/alerts/29539",
+          "source_name": "Alert: Tanker Hit Naval Mine Near Hormuz, Fire Disables Vessel",
+          "source_domain": "hamerintel.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": false
+        },
+        {
+          "candidate_id": "57557f634fe867280201",
+          "query_id": "UNDERWATER_SECURITY:lead:mine_incident",
+          "phase": "LEAD",
+          "signal": "MINE_RISK",
+          "family": "PHYSICAL",
+          "fact_type": "INFERENCE",
+          "claim": "UKMTO reported two incidents involving tankers in the Strait of Hormuz, both involving mines and resulting in fires.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "MINE_RISK",
+          "source_url": "https://tass.com/world/2214475",
+          "source_name": "UKMTO reports two incidents with tankers in Strait of Hormuz -  World - TASS",
+          "source_domain": "tass.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": false
+        },
+        {
+          "candidate_id": "3fb5da2ece71c19ddef6",
+          "query_id": "UNDERWATER_SECURITY:lead:mine_incident",
+          "phase": "LEAD",
+          "signal": "MINE_RISK",
+          "family": "PHYSICAL",
+          "fact_type": "INFERENCE",
+          "claim": "Iran reported that two tankers caught fire in the Strait of Hormuz after hitting mines.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "MINE_RISK",
+          "source_url": "https://english.aawsat.com/world/5338803-iran-says-two-tankers-caught-fire-hormuz-after-hitting-mines",
+          "source_name": "Iran Says Two Tankers Caught Fire in Hormuz after Hitting Mines",
+          "source_domain": "english.aawsat.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": false
+        },
+        {
+          "candidate_id": "a33fd89f6917b43f224a",
+          "query_id": "UNDERWATER_SECURITY:lead:mine_incident",
+          "phase": "LEAD",
+          "signal": "MINE_RISK",
+          "family": "PHYSICAL",
+          "fact_type": "INFERENCE",
+          "claim": "Iran’s Revolutionary Guards Navy said two oil tankers hit mines in the Strait of Hormuz and a third tanker caught fire.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "MINE_RISK",
+          "source_url": "https://marketontology.com/catalysts/2026-11-08/iran-s-revolutionary-guards-navy-says-two-oil-tankers-hit-mines-in-the-strait-of-b4a493",
+          "source_name": "Iran’s Revolutionary Guards Navy says two oil tankers hit mines in the — BALTIC-TANKER, USO catalyst (2026-11-08)",
+          "source_domain": "marketontology.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": false
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000252,
+      "usage": {
+        "prompt_tokens": 2342,
+        "completion_tokens": 1300,
+        "total_tokens": 3642,
+        "cost": 0.00025226,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00025226,
+          "upstream_inference_prompt_cost": 0.00007026,
+          "upstream_inference_completions_cost": 0.000182
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 693,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 7,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "UNDERWATER_SECURITY:lead:mine_incident",
+          "phase": "LEAD",
+          "signal": "MINE_RISK",
+          "q": "naval mine incident Hormuz Black Sea Baltic shipping lane mine warning",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:16.644Z",
+          "finished_at": "2026-11-11T06:12:16.950Z"
+        },
+        {
+          "query_id": "UNDERWATER_SECURITY:lead:subsea_incident",
+          "phase": "LEAD",
+          "signal": "SUBSEA_RISK",
+          "q": "submarine cable pipeline sabotage Baltic North Sea underwater infrastructure incident",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 1,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:16.950Z",
+          "finished_at": "2026-11-11T06:12:17.242Z"
+        },
+        {
+          "query_id": "UNDERWATER_SECURITY:confirm:mcm_award",
+          "phase": "CONFIRM",
+          "signal": "UNDERWATER_PROCUREMENT",
+          "q": "mine countermeasure UUV USV sonar contract award navy Fincantieri Kongsberg Saab Thales",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 11
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 11
+            }
+          },
+          "started_at": "2026-11-11T06:12:17.242Z",
+          "finished_at": "2026-11-11T06:12:17.322Z"
+        }
+      ]
+    },
+    "AI_GHOST_DEMAND": {
+      "id": "AI_GHOST_DEMAND",
+      "label": "AI ghost demand",
+      "tier": "B",
+      "summary": "NextDC has paused uncontracted projects and cut A$140 million in expenditures, indicating a reduction in speculative interconnection requests.",
+      "evidence": [
+        {
+          "candidate_id": "060ab6e02fe698318bb3",
+          "query_id": "AI_GHOST_DEMAND:lead:project_cancel",
+          "phase": "LEAD",
+          "signal": "PROJECT_ATTRITION",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "NextDC paused uncontracted projects and cut A$140 million in expenditures",
+          "direction": "DOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQMzBzenlGZHRjRWtpV3ZqT1ZWSTFrd0w1U2I1Sm9kejVHaEowU1VOQ182OThOOVh5TmNCVTl6d19GY0JhNHJyWThiYWZnaXJZWGFtVkw0bFlvbXNzNWxTR045MW9YTVlpTndmNjAxaWVxbEZLY0VJejQ1WDFXbXg0OGV6R2pqWVp0?oc=5",
+          "source_name": "shattered.io",
+          "source_domain": "shattered.io",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "Mon, 09 Nov 2026 13:33:53 GMT",
+          "retrieved_at": "2026-11-11T06:12:18.653Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000079,
+      "usage": {
+        "prompt_tokens": 2006,
+        "completion_tokens": 480,
+        "total_tokens": 2486,
+        "cost": 0.000078732,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000078732,
+          "upstream_inference_prompt_cost": 0.000035532,
+          "upstream_inference_completions_cost": 0.0000432
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 4,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "AI_GHOST_DEMAND:lead:queue_withdraw",
+          "phase": "LEAD",
+          "signal": "QUEUE_ATTRITION",
+          "q": "data center interconnection request withdrawn duplicate utility deposit queue cancellation",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:18.157Z",
+          "finished_at": "2026-11-11T06:12:18.435Z"
+        },
+        {
+          "query_id": "AI_GHOST_DEMAND:lead:project_cancel",
+          "phase": "LEAD",
+          "signal": "PROJECT_ATTRITION",
+          "q": "AI data center project cancelled delayed tenant commitment financing power",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 4,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:18.435Z",
+          "finished_at": "2026-11-11T06:12:18.733Z"
+        }
+      ]
+    },
+    "BEHIND_METER_AI_POWER": {
+      "id": "BEHIND_METER_AI_POWER",
+      "label": "Behind-the-meter AI power",
+      "tier": "B",
+      "summary": "The provided candidates contain two lead‑stage signals related to onsite power for data centers. Neither source is marked as official, so the evidence is limited to the titles and brief descriptions. The Substack article raises the question of who owns the power behind data centers, while the Seeking Alpha piece reports on Bloom Energy’s high electricity demand, implying significant onsite generation or microgrid use. No definitive confirmation of behind‑the‑meter AI power usage is present in these sources.",
+      "evidence": [
+        {
+          "candidate_id": "ba5d403c1513d3c02fe5",
+          "query_id": "BEHIND_METER_AI_POWER:lead:onsite_permit",
+          "phase": "LEAD",
+          "signal": "ONSITE_POWER_PERMIT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The Substack article titled \"The $5.34 Billion Question: Who Actually Owns the Power Behind Data Centers?\" discusses ownership of power used by data centers.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5VQ2h6Z3dhY1BvYmxuVTVwN1dPaVd5eXZnOVJTUFVxdkphWTZnUFBybjd4cXdrUUxTZkI1NTNaOW9HblRtU2RaRG1ubXhkWFQyYmdzYXMwRUF6OV9PdTVSdkV5R0VhYVhSVExnV1JjWE45US15TWtjSEJROVk4Zw?oc=5",
+          "source_name": "Substack",
+          "source_domain": "avanzaenergy.substack.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "Tue, 10 Nov 2026 15:25:33 GMT",
+          "retrieved_at": "2026-11-11T06:12:18.948Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "cedfa5d12c9895400021",
+          "query_id": "BEHIND_METER_AI_POWER:lead:onsite_permit",
+          "phase": "LEAD",
+          "signal": "ONSITE_POWER_PERMIT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The Seeking Alpha article titled \"Bloom Energy Blooming With Huge Electricity Demand (NYSE:BE)\" reports that Bloom Energy has a large electricity demand, suggesting significant onsite generation or microgrid use.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOTnB1ZHQ5TlBhODFZLXNkcHB0aF90RVZncTJzVEo3RTBxWV93bzN5QWZiem5HMWU5VWJmQVUyQ2RiTnl0Q21scWw1eDQzY1VyNVdDNW1OZUtyQWNrWjBjNDBOb1daU2ZsdXpmb25aZ005dE92a3FMUy1LZllHTklpTkpGMURLUFRaWk1UMWQ2SnRSNm1ZeUE?oc=5",
+          "source_name": "Seeking Alpha",
+          "source_domain": "seekingalpha.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "google_news",
+          "published_at": "Mon, 09 Nov 2026 20:27:00 GMT",
+          "retrieved_at": "2026-11-11T06:12:18.948Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000075,
+      "usage": {
+        "prompt_tokens": 1205,
+        "completion_tokens": 601,
+        "total_tokens": 1806,
+        "cost": 0.000075204,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000075204,
+          "upstream_inference_prompt_cost": 0.000021114,
+          "upstream_inference_completions_cost": 0.00005409
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 309,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 2,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "BEHIND_METER_AI_POWER:lead:onsite_permit",
+          "phase": "LEAD",
+          "signal": "ONSITE_POWER_PERMIT",
+          "q": "data center onsite power microgrid gas turbine fuel cell permit behind the meter",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 2,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:18.733Z",
+          "finished_at": "2026-11-11T06:12:19.029Z"
+        },
+        {
+          "query_id": "BEHIND_METER_AI_POWER:lead:turbine_reservation",
+          "phase": "LEAD",
+          "signal": "ONSITE_EQUIPMENT_ORDER",
+          "q": "data center gas turbine reservation generator order microgrid Bloom GE Vernova Caterpillar",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:19.029Z",
+          "finished_at": "2026-11-11T06:12:19.322Z"
+        }
+      ]
+    },
+    "LNG_REROUTING": {
+      "id": "LNG_REROUTING",
+      "label": "LNG rerouting",
+      "tier": "B",
+      "summary": "The Gulf LNG disruption has led to the use of ship‑to‑ship (STS) transfers to reroute LNG cargoes outside the Strait of Hormuz, indicating a logistics response to the blockade.",
+      "evidence": [
+        {
+          "candidate_id": "fa0a0e86277a74f58da9",
+          "query_id": "LNG_REROUTING:lead:lng_sts",
+          "phase": "LEAD",
+          "signal": "LNG_STS",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Three LNG cargoes loaded in Qatar and the United Arab Emirates were transferred via ship‑to‑ship outside the Strait of Hormuz in August.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.reuters.com/business/energy/qatari-uae-lng-cargoes-transferred-via-ship-to-ship-outside-strait-hormuz-2026-09-02",
+          "source_name": "Qatari, UAE LNG cargoes transferred via ship-to-ship outside Strait of Hormuz | Reuters",
+          "source_domain": "reuters.com",
+          "source_grade": 0.92,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "95fa9fc7785cafc6dda9",
+          "query_id": "LNG_REROUTING:lead:lng_sts",
+          "phase": "LEAD",
+          "signal": "LNG_STS",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Qatar and the UAE are rerouting damaged LNG tankers via ship‑to‑ship transfers to keep gas flowing to buyers worldwide, adding more than $1 million per transfer and up to 35 hours of additional sailing time.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.euronews.com/business/2026/09/08/six-months-into-hormuz-blockade-qatar-and-uae-test-ways-to-keep-lng-moving",
+          "source_name": "Six months into Hormuz blockade, Qatar and UAE test ways to keep LNG moving | Euronews",
+          "source_domain": "euronews.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000084,
+      "usage": {
+        "prompt_tokens": 1905,
+        "completion_tokens": 561,
+        "total_tokens": 2466,
+        "cost": 0.000084204,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000084204,
+          "upstream_inference_prompt_cost": 0.000033714,
+          "upstream_inference_completions_cost": 0.00005049
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "LNG_REROUTING:lead:lng_sts",
+          "phase": "LEAD",
+          "signal": "LNG_STS",
+          "q": "Qatar LNG ship to ship Oman Fujairah Hormuz transfer cargo diversion",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:11.520Z",
+          "finished_at": "2026-11-11T06:12:11.818Z"
+        },
+        {
+          "query_id": "LNG_REROUTING:lead:lng_route",
+          "phase": "LEAD",
+          "signal": "LNG_ROUTE_SHIFT",
+          "q": "LNG vessel Cape route Qatar UAE Atlantic Pacific rerouting",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:11.818Z",
+          "finished_at": "2026-11-11T06:12:12.107Z"
+        }
+      ]
+    },
+    "ATLANTIC_BARREL_PREMIUM": {
+      "id": "ATLANTIC_BARREL_PREMIUM",
+      "label": "Atlantic barrels replace Gulf supply",
+      "tier": "B",
+      "summary": "The available evidence indicates that Gulf supply disruptions—stemming from the Strait of Hormuz closure, the Iran‑US conflict, and the breakdown of the mid‑June ceasefire—have reduced Middle East crude exports. This has prompted a shift toward American barrels, as domestic shale production has already replaced most Middle Eastern light crude, and U.S. crude prices have risen in response to Middle East supply losses. The evidence supports a structural import‑origin shift rather than a one‑off substitution.",
+      "evidence": [
+        {
+          "candidate_id": "3e1c46e73ab56eb8ad50",
+          "query_id": "ATLANTIC_BARREL_PREMIUM:lead:origin_shift",
+          "phase": "LEAD",
+          "signal": "IMPORT_ORIGIN_SHIFT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Gulf exports have been disrupted by the US‑Iran conflict, reducing Middle East crude shipments from 18 m bpd to about 11 m bpd, prompting buyers to seek alternative sources.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.thedailystar.net/business/news/why-isnt-oil-above-100-despite-supply-disruptions-4267741",
+          "source_name": "Why isn't oil above $100 despite supply disruptions? | The Daily Star",
+          "source_domain": "thedailystar.net",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "4dc42308ca237ff44d72",
+          "query_id": "ATLANTIC_BARREL_PREMIUM:lead:origin_shift",
+          "phase": "LEAD",
+          "signal": "IMPORT_ORIGIN_SHIFT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Domestic shale production has replaced most Middle Eastern light crude imports a decade ago, leaving only medium‑sour grades that Gulf Coast refineries can use at higher cost.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://straits.live/regions/united-states",
+          "source_name": "United States & the Strait of Hormuz: exposure, suppliers, reserves | Straits",
+          "source_domain": "straits.live",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000244,
+      "usage": {
+        "prompt_tokens": 1706,
+        "completion_tokens": 1300,
+        "total_tokens": 3006,
+        "cost": 0.0002441,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 208,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0002441,
+          "upstream_inference_prompt_cost": 0.0000491,
+          "upstream_inference_completions_cost": 0.000195
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 980,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "ATLANTIC_BARREL_PREMIUM:lead:origin_shift",
+          "phase": "LEAD",
+          "signal": "IMPORT_ORIGIN_SHIFT",
+          "q": "Japan Korea crude imports United States Brazil Guyana Angola Gabon replace Middle East barrels",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:10.009Z",
+          "finished_at": "2026-11-11T06:12:10.360Z"
+        },
+        {
+          "query_id": "ATLANTIC_BARREL_PREMIUM:lead:diffs",
+          "phase": "LEAD",
+          "signal": "ATLANTIC_DIFFERENTIALS",
+          "q": "West Africa crude differential Angola Gabon Brazil Guyana premium Brent Asia Europe",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:10.360Z",
+          "finished_at": "2026-11-11T06:12:10.639Z"
+        }
+      ]
+    },
+    "OIL_SERVICE_CAPEX_SECOND_WAVE": {
+      "id": "OIL_SERVICE_CAPEX_SECOND_WAVE",
+      "label": "Oil-service CAPEX second wave",
+      "tier": "C",
+      "summary": "The candidates provide evidence of active drilling and completion activity in 3Q 2026, indicating ongoing oil‑service CAPEX activity. The Dallas Fed report shows sustained cost pressures for service firms, supporting the premise that high oil prices are translating into CAPEX and service orders.",
+      "evidence": [
+        {
+          "candidate_id": "542ef6c76db919083e27",
+          "query_id": "OIL_SERVICE_CAPEX_SECOND_WAVE:lead:service_tender",
+          "phase": "LEAD",
+          "signal": "SERVICE_TENDERS",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Devon Energy averaged 32 operated drilling rigs and 8 completion crews in 3Q 2026 and placed 124 net operated wells online.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.shaleexperts.com/articles/Devon-Talks-3Q26-Runs-32-Rigs-8-Frac-Crews-Brings-124-Net-Wells-Online_999998023",
+          "source_name": "Devon Talks 3Q'26; Runs 32 Rigs, 8 Frac Crews, Brings 124 Net Wells Online",
+          "source_domain": "shaleexperts.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "b2ada5f0b0b761ec35cf",
+          "query_id": "OIL_SERVICE_CAPEX_SECOND_WAVE:lead:service_tender",
+          "phase": "LEAD",
+          "signal": "SERVICE_TENDERS",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Ring Energy drilled eight and completed seven horizontal wells in 3Q 2026.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.shaleexperts.com/articles/Ring-Energy-Talks-3Q26-Completes-7-Wells-First-2-Mile-Laterals-Online_999938023",
+          "source_name": "Ring Energy Talks 3Q'26; Completes 7 Wells, First 2-Mile Laterals Online",
+          "source_domain": "shaleexperts.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "4cd6ed1582c090a75f8b",
+          "query_id": "OIL_SERVICE_CAPEX_SECOND_WAVE:lead:service_tender",
+          "phase": "LEAD",
+          "signal": "SERVICE_TENDERS",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "SandRidge completed 7 of 8 planned wells in 3Q 2026.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.shaleexperts.com/articles/SandRidge-Talks-3Q26-Completes-7-of-8-Planned-Wells-Closes-Cherokee-Bolt-On_999978023",
+          "source_name": "SandRidge Talks 3Q'26; Completes 7 of 8 Planned Wells, Closes Cherokee Bolt-On",
+          "source_domain": "shaleexperts.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "b889bcb85f26ea7643a0",
+          "query_id": "OIL_SERVICE_CAPEX_SECOND_WAVE:lead:service_tender",
+          "phase": "LEAD",
+          "signal": "SERVICE_TENDERS",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Cost pressures continue to affect both E&Ps and service firms, with the input cost index for oil field services firms staying elevated at 60.4.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.aogr.com/web-exclusives/exclusive-story/dallas-feds-third-quarter-survey-highlights-continued-growth",
+          "source_name": "Dallas Fed’s Third Quarter Survey Highlights Continued Growth",
+          "source_domain": "aogr.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [
+        "WATCH"
+      ],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000198,
+      "usage": {
+        "prompt_tokens": 2013,
+        "completion_tokens": 984,
+        "total_tokens": 2997,
+        "cost": 0.00019815,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00019815,
+          "upstream_inference_prompt_cost": 0.00006039,
+          "upstream_inference_completions_cost": 0.00013776
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 605,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "OIL_SERVICE_CAPEX_SECOND_WAVE:lead:service_tender",
+          "phase": "LEAD",
+          "signal": "SERVICE_TENDERS",
+          "q": "oilfield services tender drilling completion frac fleet offshore rig contract award",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 22
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 22
+            }
+          },
+          "started_at": "2026-11-11T06:12:24.232Z",
+          "finished_at": "2026-11-11T06:12:24.489Z"
+        },
+        {
+          "query_id": "OIL_SERVICE_CAPEX_SECOND_WAVE:lead:service_hiring",
+          "phase": "LEAD",
+          "signal": "SERVICE_CAPACITY_PREP",
+          "q": "oilfield services hiring frac crew drilling crew capacity expansion pressure pumping",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 22
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 22
+            }
+          },
+          "started_at": "2026-11-11T06:12:24.489Z",
+          "finished_at": "2026-11-11T06:12:24.769Z"
+        },
+        {
+          "query_id": "OIL_SERVICE_CAPEX_SECOND_WAVE:lead:producer_budget",
+          "phase": "LEAD",
+          "signal": "PRODUCER_CAPEX_INTENT",
+          "q": "oil producer increase capex drilling budget high oil price sustained Brent rig program",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 22
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 22
+            }
+          },
+          "started_at": "2026-11-11T06:12:24.769Z",
+          "finished_at": "2026-11-11T06:12:25.042Z"
+        },
+        {
+          "query_id": "OIL_SERVICE_CAPEX_SECOND_WAVE:confirm:activity",
+          "phase": "CONFIRM",
+          "signal": "PHYSICAL_SERVICE_ACTIVITY",
+          "q": "US rig count frac spread count completion activity offshore dayrate oilfield service utilization",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 11
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 11
+            }
+          },
+          "started_at": "2026-11-11T06:12:25.042Z",
+          "finished_at": "2026-11-11T06:12:25.122Z"
+        },
+        {
+          "query_id": "OIL_SERVICE_CAPEX_SECOND_WAVE:confirm:orders",
+          "phase": "CONFIRM",
+          "signal": "SERVICE_ORDER_CONFIRM",
+          "q": "oilfield services bookings backlog pressure pumping drilling equipment orders utilization",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 11
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 11
+            }
+          },
+          "started_at": "2026-11-11T06:12:25.122Z",
+          "finished_at": "2026-11-11T06:12:25.202Z"
+        }
+      ]
+    },
+    "OT_CYBER_SHOCK": {
+      "id": "OT_CYBER_SHOCK",
+      "label": "Cyber to physical infrastructure",
+      "tier": "B",
+      "summary": "No confirmed operational or physical consequence evidence found for OT_CYBER_SHOCK mechanism in the provided candidate set.",
+      "evidence": [],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000046,
+      "usage": {
+        "prompt_tokens": 1742,
+        "completion_tokens": 171,
+        "total_tokens": 1913,
+        "cost": 0.00004617,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00004617,
+          "upstream_inference_prompt_cost": 0.00003078,
+          "upstream_inference_completions_cost": 0.00001539
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "OT_CYBER_SHOCK:lead:ics_advisory",
+          "phase": "LEAD",
+          "signal": "OT_VULNERABILITY",
+          "q": "CISA ICS advisory energy utility refinery pipeline PLC vulnerability active exploitation",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:21.950Z",
+          "finished_at": "2026-11-11T06:12:22.196Z"
+        },
+        {
+          "query_id": "OT_CYBER_SHOCK:lead:intrusion",
+          "phase": "LEAD",
+          "signal": "OT_INTRUSION",
+          "q": "utility refinery pipeline cyber intrusion operational technology disruption",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:22.196Z",
+          "finished_at": "2026-11-11T06:12:22.447Z"
+        }
+      ]
+    },
+    "MILITARY_ENERGY_AUTONOMY": {
+      "id": "MILITARY_ENERGY_AUTONOMY",
+      "label": "Military energy autonomy",
+      "tier": "C",
+      "summary": "The candidates collectively provide evidence that the U.S. military is advancing from pilot projects to deployable autonomous power systems at bases, including nuclear microreactors, radioisotope power systems, and integrated microgrids, while also pursuing private investment for energy resilience.",
+      "evidence": [
+        {
+          "candidate_id": "7d8bbf322fa43db96c04",
+          "query_id": "MILITARY_ENERGY_AUTONOMY:lead:base_microgrid",
+          "phase": "LEAD",
+          "signal": "BASE_RESILIENCE_PROCUREMENT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "US Army selected five companies to build nuclear microreactors at installations across the U.S. as part of a nuclear energy push.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.armytimes.com/industry/techwatch/2026/08/26/us-army-taps-5-firms-to-build-on-base-microreactors-in-nuclear-energy-push/?contentFeatureId=f0fmoahPVC2AbfL-2-1-8&contentQuery=%7B%22includeSections%22%3A%22%2Fhome%22%2C%22excludeSections%22%3A%22%22%2C%22feedSize%22%3A10%2C%22feedOffset%22%3A5%7D",
+          "source_name": "US Army taps 5 firms to build on-base microreactors in nuclear energy push",
+          "source_domain": "armytimes.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "344140581c0f1e8aff58",
+          "query_id": "MILITARY_ENERGY_AUTONOMY:lead:base_microgrid",
+          "phase": "LEAD",
+          "signal": "BASE_RESILIENCE_PROCUREMENT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Army is investing $2.2 billion on microreactors at five bases, with one expected online by September 2028.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://mgrid.org/2026/08/27/the-army-bets-2-2-billion-on-microreactors-at-five-bases-with-one-due-online-by-september-2028",
+          "source_name": "The Army Bets $2.2 Billion on Microreactors at Five Bases, With One Due Online by September 2028",
+          "source_domain": "mgrid.org",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "25e0da532b1c43191ad7",
+          "query_id": "MILITARY_ENERGY_AUTONOMY:lead:base_microgrid",
+          "phase": "LEAD",
+          "signal": "BASE_RESILIENCE_PROCUREMENT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Westinghouse eVinci microreactor is transportable and designed for energy generation at military facilities, providing process heat and electricity.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://aris.iaea.org/api/DSR/Download?DSRRequestId=111",
+          "source_name": "ARIS - eVinci",
+          "source_domain": "aris.iaea.org",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "bbe3817b9258d72ae858",
+          "query_id": "MILITARY_ENERGY_AUTONOMY:lead:base_microgrid",
+          "phase": "LEAD",
+          "signal": "BASE_RESILIENCE_PROCUREMENT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Project Omega is developing next‑generation radioisotope power systems under DARPA’s Rads to Watts program, with first field tests planned in Hawaii with PACOM.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.tectonicdefense.com/project-omega-raises-80m-to-turn-nuclear-waste-into-the-pentagons-next-power-supply/",
+          "source_name": "Project Omega Raises $80M to Turn Nuclear Waste Into the Pentagon’s Next Power Supply",
+          "source_domain": "tectonicdefense.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "331aedebf06453baa78f",
+          "query_id": "MILITARY_ENERGY_AUTONOMY:lead:base_microgrid",
+          "phase": "LEAD",
+          "signal": "BASE_RESILIENCE_PROCUREMENT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "ABM and RavenVolt were selected by the U.S. Army Corps of Engineers to build an energy‑resilience microgrid at White Sands Missile Range, integrating solar, battery storage, and on‑site generation.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://finance.yahoo.com/energy/articles/abm-announces-aacon-ravenvolt-jv-130000237.html",
+          "source_name": "ABM Announces AACON-RavenVolt JV Selection by U.S. Army Corps of Engineers for Energy Resilience Microgrid at White Sands Missile Range",
+          "source_domain": "finance.yahoo.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "88b3a5d7b8fdaf6bfb2c",
+          "query_id": "MILITARY_ENERGY_AUTONOMY:lead:base_microgrid",
+          "phase": "LEAD",
+          "signal": "BASE_RESILIENCE_PROCUREMENT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The Pentagon’s FORTRESS America plan includes a sovereign energy independence pillar, seeking private investment to enable bases to operate independently from civilian grid cutoffs.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://petersworld.org/fortress-america-base-hardening-plan/",
+          "source_name": "FORTRESS America Base Hardening Plan and Who Pays for It",
+          "source_domain": "petersworld.org",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [
+        "CONFIRM"
+      ],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000221,
+      "usage": {
+        "prompt_tokens": 1858,
+        "completion_tokens": 1183,
+        "total_tokens": 3041,
+        "cost": 0.00022136,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00022136,
+          "upstream_inference_prompt_cost": 0.00005574,
+          "upstream_inference_completions_cost": 0.00016562
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 675,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "MILITARY_ENERGY_AUTONOMY:lead:base_microgrid",
+          "phase": "LEAD",
+          "signal": "BASE_RESILIENCE_PROCUREMENT",
+          "q": "DoD military base microgrid microreactor resilient power solicitation",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 22
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 22
+            }
+          },
+          "started_at": "2026-11-11T06:12:23.052Z",
+          "finished_at": "2026-11-11T06:12:23.318Z"
+        },
+        {
+          "query_id": "MILITARY_ENERGY_AUTONOMY:lead:microreactor_test",
+          "phase": "LEAD",
+          "signal": "MICROREACTOR_MILESTONE",
+          "q": "Army microreactor test deployment Janus Pele BWXT nuclear base power",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 22
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 22
+            }
+          },
+          "started_at": "2026-11-11T06:12:23.318Z",
+          "finished_at": "2026-11-11T06:12:23.601Z"
+        },
+        {
+          "query_id": "MILITARY_ENERGY_AUTONOMY:confirm:base_award",
+          "phase": "CONFIRM",
+          "signal": "MILITARY_POWER_AWARD",
+          "q": "military microreactor contract award base microgrid deployment BWXT",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 11
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": true,
+              "ttl_hours": 11
+            }
+          },
+          "started_at": "2026-11-11T06:12:23.601Z",
+          "finished_at": "2026-11-11T06:12:23.681Z"
+        }
+      ]
+    },
+    "EUROPE_STRATEGIC_AUTONOMY": {
+      "id": "EUROPE_STRATEGIC_AUTONOMY",
+      "label": "European strategic autonomy",
+      "tier": "C",
+      "summary": "Seven NATO member states have procured sovereign satellite systems from ICEYE, indicating European governments are reducing strategic dependence on non‑European suppliers.",
+      "evidence": [
+        {
+          "candidate_id": "ea80e9e72a30e7f68dc2",
+          "query_id": "EUROPE_STRATEGIC_AUTONOMY:lead:eu_tender",
+          "phase": "LEAD",
+          "signal": "EU_LOCAL_PROCUREMENT",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Seven NATO member states have procured sovereign satellite systems from ICEYE.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://nordicdefencesector.com/en/article/from-satellite-to-target-in-minutes-iceye-on-long-range-targeting-in-the-nordics",
+          "source_name": "From satellite to target in minutes: ICEYE on long-range targeting in the Nordics",
+          "source_domain": "nordicdefencesector.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000183,
+      "usage": {
+        "prompt_tokens": 1661,
+        "completion_tokens": 953,
+        "total_tokens": 2614,
+        "cost": 0.00018325,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00018325,
+          "upstream_inference_prompt_cost": 0.00004983,
+          "upstream_inference_completions_cost": 0.00013342
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1015,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "EUROPE_STRATEGIC_AUTONOMY:lead:eu_tender",
+          "phase": "LEAD",
+          "signal": "EU_LOCAL_PROCUREMENT",
+          "q": "European preference procurement satellite missile air defense drone sovereign cloud contract EU supplier",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 22
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 22
+            }
+          },
+          "started_at": "2026-11-11T06:12:23.681Z",
+          "finished_at": "2026-11-11T06:12:23.966Z"
+        },
+        {
+          "query_id": "EUROPE_STRATEGIC_AUTONOMY:lead:eu_funding",
+          "phase": "LEAD",
+          "signal": "EU_STRATEGIC_FUNDING",
+          "q": "European Defence Fund strategic autonomy funding satellite communications IRIS2 missile drone",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 22
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 22
+            }
+          },
+          "started_at": "2026-11-11T06:12:23.966Z",
+          "finished_at": "2026-11-11T06:12:24.231Z"
+        }
+      ]
+    },
+    "ROBOTICS_ACTUATOR_SCALE": {
+      "id": "ROBOTICS_ACTUATOR_SCALE",
+      "label": "Robotics actuator scale",
+      "tier": "C",
+      "summary": "Evidence of paid orders, repeat demand, and industrial utilization for humanoid robot actuators.",
+      "evidence": [
+        {
+          "candidate_id": "789fa745b34d4db3d830",
+          "query_id": "ROBOTICS_ACTUATOR_SCALE:lead:supplier_order",
+          "phase": "LEAD",
+          "signal": "ROBOT_COMPONENT_ORDER",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The marketplace listing indicates at least 50 interested customers for humanoid robot actuators, with an 11% reorder rate, demonstrating repeat demand and paid orders.",
+          "direction": "UP",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.accio.com/plp/precision-gears-and-reducers-for-humanoid-robots-market",
+          "source_name": "Precision Gears & Reducers for Humanoid Robots Market",
+          "source_domain": "accio.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000234,
+      "usage": {
+        "prompt_tokens": 1747,
+        "completion_tokens": 1300,
+        "total_tokens": 3047,
+        "cost": 0.00023441,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00023441,
+          "upstream_inference_prompt_cost": 0.00005241,
+          "upstream_inference_completions_cost": 0.000182
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1281,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 6,
+      "official_candidate_count": 0,
+      "query_trace": [
+        {
+          "query_id": "ROBOTICS_ACTUATOR_SCALE:lead:supplier_order",
+          "phase": "LEAD",
+          "signal": "ROBOT_COMPONENT_ORDER",
+          "q": "humanoid robot actuator harmonic reducer servo ball screw supplier order factory qualification",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 22
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 22
+            }
+          },
+          "started_at": "2026-11-11T06:12:19.322Z",
+          "finished_at": "2026-11-11T06:12:19.592Z"
+        },
+        {
+          "query_id": "ROBOTICS_ACTUATOR_SCALE:lead:robot_repeat",
+          "phase": "LEAD",
+          "signal": "REPEAT_ROBOT_ORDER",
+          "q": "industrial humanoid repeat order paid deployment utilization hours factory ROI",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 22
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 22
+            }
+          },
+          "started_at": "2026-11-11T06:12:19.592Z",
+          "finished_at": "2026-11-11T06:12:19.838Z"
+        }
+      ]
+    },
+    "ROBOTICS_DECOUPLING": {
+      "id": "ROBOTICS_DECOUPLING",
+      "label": "Robotics decoupling",
+      "tier": "B",
+      "summary": "The available evidence indicates that the U.S. policy is creating a protected Western robotics supply chain by banning Chinese imports of new humanoid and quadruped robots and by exempting non‑Chinese suppliers. Chinese robotics firms can still access the U.S. market by establishing operations in Singapore.",
+      "evidence": [
+        {
+          "candidate_id": "2b09217b8e8e12a0bb64",
+          "query_id": "ROBOTICS_DECOUPLING:lead:robot_tariff",
+          "phase": "LEAD",
+          "signal": "ROBOTICS_TRADE_BARRIER",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The FCC bars imports of new Chinese humanoid and quadruped robots.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.reuters.com/world/trump-administration-ban-new-chinese-robots-inverters-protecting-us-ai-buildout-2026-07-28",
+          "source_name": "EXCLUSIVE: Trump administration bans new Chinese humanoid robots, to protect US AI buildout | Reuters",
+          "source_domain": "reuters.com",
+          "source_grade": 0.92,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "2b09217b8e8e12a0bb64",
+          "query_id": "ROBOTICS_DECOUPLING:lead:robot_tariff",
+          "phase": "LEAD",
+          "signal": "ROBOTICS_TRADE_BARRIER",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The FCC is expected to exempt several non‑Chinese suppliers from its regulations.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.reuters.com/world/trump-administration-ban-new-chinese-robots-inverters-protecting-us-ai-buildout-2026-07-28",
+          "source_name": "EXCLUSIVE: Trump administration bans new Chinese humanoid robots, to protect US AI buildout | Reuters",
+          "source_domain": "reuters.com",
+          "source_grade": 0.92,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "b92af2355d9cc3c184c9",
+          "query_id": "ROBOTICS_DECOUPLING:lead:robot_tariff",
+          "phase": "LEAD",
+          "signal": "ROBOTICS_TRADE_BARRIER",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "The FCC is expected to exempt several non‑Chinese suppliers from its regulations.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://gigazine.net/gsc_news/en/20260729-trump-administration-bans-chinese-humanoid-robots",
+          "source_name": "The Trump administration banned imports of new humanoid robots and inverters from China to protect American AI development. - GIGAZINE",
+          "source_domain": "gigazine.net",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        },
+        {
+          "candidate_id": "8773814141e050757c3c",
+          "query_id": "ROBOTICS_DECOUPLING:lead:robot_tariff",
+          "phase": "LEAD",
+          "signal": "ROBOTICS_TRADE_BARRIER",
+          "family": "PHYSICAL",
+          "fact_type": "FACT",
+          "claim": "Chinese robotics companies can reach American buyers by building genuine operations in Singapore.",
+          "direction": "UNKNOWN",
+          "relevance": 1,
+          "contradiction": false,
+          "why_upstream": "",
+          "source_url": "https://www.cnbc.com/2026/08/26/temasek-unitree-humanoids-robotics-trump-ban-.html",
+          "source_name": "Temasek-backed VC firm sees Singapore as Chinese robots' path to U.S.",
+          "source_domain": "cnbc.com",
+          "source_grade": 0.62,
+          "official": false,
+          "engine": "openrouter_web_fallback",
+          "published_at": null,
+          "retrieved_at": "2026-11-11T06:12:27.447Z",
+          "valid": true
+        }
+      ],
+      "expected_next": [],
+      "invalidation": [],
+      "model": "openai/gpt-oss-20b",
+      "requested_model": "openai/gpt-oss-20b",
+      "format_mode": "json_schema",
+      "repaired": false,
+      "cost_usd": 0.000228,
+      "usage": {
+        "prompt_tokens": 1931,
+        "completion_tokens": 1148,
+        "total_tokens": 3079,
+        "cost": 0.00022805,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 208,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00022805,
+          "upstream_inference_prompt_cost": 0.00005585,
+          "upstream_inference_completions_cost": 0.0001722
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 793,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "candidate_count": 7,
+      "official_candidate_count": 1,
+      "query_trace": [
+        {
+          "query_id": "ROBOTICS_DECOUPLING:lead:robot_tariff",
+          "phase": "LEAD",
+          "signal": "ROBOTICS_TRADE_BARRIER",
+          "q": "US tariff Chinese robots humanoid drones components national security procurement restriction",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:19.838Z",
+          "finished_at": "2026-11-11T06:12:20.100Z"
+        },
+        {
+          "query_id": "ROBOTICS_DECOUPLING:lead:local_content",
+          "phase": "LEAD",
+          "signal": "LOCAL_CONTENT",
+          "q": "robotics domestic content mandate government procurement China supplier exclusion US Europe",
+          "engines": {
+            "gdelt": {
+              "ok": false,
+              "skipped": "CIRCUIT_OPEN",
+              "ttl_hours": 10
+            },
+            "google_news": {
+              "ok": true,
+              "count": 0,
+              "cached": false,
+              "ttl_hours": 10
+            }
+          },
+          "started_at": "2026-11-11T06:12:20.100Z",
+          "finished_at": "2026-11-11T06:12:20.461Z"
+        }
+      ]
+    }
+  },
+  "errors": [],
+  "deferred": [],
+  "api_calls": 29
+}
