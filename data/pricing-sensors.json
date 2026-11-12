@@ -1,11 +1,11 @@
 {
   "version": "4.4.0",
-  "generated_at": "2026-11-12T00:44:19.645Z",
+  "generated_at": "2026-11-12T15:16:19.548Z",
   "observations": {
     "AISSTREAM": {
       "source": "AISSTREAM",
       "family": "PHYSICAL",
-      "observed_at": "2026-11-12T00:44:19.645Z",
+      "observed_at": "2026-11-12T15:16:19.548Z",
       "status": "NOT_CONFIGURED",
       "quality": "PRIMARY_PHYSICAL",
       "error": "AISSTREAM_API_KEY missing",
@@ -14,18 +14,25 @@
     "ACER_LNG": {
       "source": "ACER_LNG",
       "family": "MARKET",
-      "observed_at": "2026-11-12T00:44:19.645Z",
+      "observed_at": "2026-11-12T15:16:19.548Z",
       "status": "OK",
       "quality": "PRIMARY_OFFICIAL",
       "metric": "ACER_EU_LNG_ASSESSMENT",
-      "value": 86.061,
+      "value": 84.573,
       "unit": "EUR/MWh",
-      "benchmark_spread": 1.329,
-      "change_window_pct": -1.14,
-      "pricing_score": 47,
+      "benchmark_spread": -2.079,
+      "change_window_pct": -2.91,
+      "pricing_score": 41,
       "sample": [
         {
           "date": "2026.11.11",
+          "nwe": 85.215,
+          "south": 84.653,
+          "eu": 84.573,
+          "benchmark": -2.079
+        },
+        {
+          "date": "2026.11.10",
           "nwe": 85.542,
           "south": 88.912,
           "eu": 86.061,
@@ -121,20 +128,13 @@
           "south": 85.315,
           "eu": 85.4,
           "benchmark": -2.026
-        },
-        {
-          "date": "2026.10.20",
-          "nwe": 82.795,
-          "south": 83.345,
-          "eu": 83.113,
-          "benchmark": -1.949
         }
       ]
     },
     "KALSHI": {
       "source": "KALSHI",
       "family": "PREDICTION",
-      "observed_at": "2026-11-12T00:44:19.645Z",
+      "observed_at": "2026-11-12T15:16:19.548Z",
       "status": "OK",
       "quality": "PREDICTION_PUBLIC",
       "metric": "KALSHI_EVENT_CONSENSUS",
@@ -152,16 +152,8 @@
         },
         "ARSENAL_DEPLETION": {
           "pricing_score": null,
-          "hits": [
-            {
-              "ticker": "KXMVECROSSCATEGORY-S2026OIWQTSS3LYWMKUTQ-PH2JAWYBW",
-              "title": "yes Tie,yes Hungary,yes Kosovo,yes Ukraine,yes Norway,yes Denmark,yes Romania,yes Bosnia and Herzegovina",
-              "last_price": 0,
-              "volume": 0,
-              "open_interest": 0
-            }
-          ],
-          "semantic_quality": "DOMAIN_MATCH"
+          "hits": [],
+          "semantic_quality": "NO_RELEVANT_MARKET"
         },
         "CHEAP_DRONE_SCALING": {
           "pricing_score": null,
@@ -184,7 +176,7 @@
           "semantic_quality": "NO_RELEVANT_MARKET"
         }
       },
-      "rejected_semantic_hits": 38
+      "rejected_semantic_hits": 49
     },
     "EIA": {
       "status": "ERROR",
@@ -195,12 +187,12 @@
       "fallback": true,
       "source": "EIA",
       "family": "PHYSICAL",
-      "observed_at": "2026-11-12T00:44:19.645Z"
+      "observed_at": "2026-11-12T15:16:19.548Z"
     },
     "MOF_JGB": {
       "source": "MOF_JGB",
       "family": "MARKET",
-      "observed_at": "2026-11-12T00:44:19.645Z",
+      "observed_at": "2026-11-12T15:16:19.548Z",
       "status": "ERROR",
       "quality": "PRIMARY_OFFICIAL",
       "error": "no MOF auction results parsed",
@@ -209,7 +201,7 @@
     "MOF_FLOWS": {
       "source": "MOF_FLOWS",
       "family": "MARKET",
-      "observed_at": "2026-11-12T00:44:19.645Z",
+      "observed_at": "2026-11-12T15:16:19.548Z",
       "status": "OK",
       "quality": "PRIMARY_OFFICIAL",
       "metric": "JAPAN_WEEKLY_SECURITIES_FLOWS",
@@ -253,7 +245,7 @@
     "CFTC_COT": {
       "source": "CFTC_COT",
       "family": "MARKET",
-      "observed_at": "2026-11-12T00:44:19.645Z",
+      "observed_at": "2026-11-12T15:16:19.548Z",
       "status": "OK",
       "quality": "PRIMARY_OFFICIAL",
       "metric": "CFTC_COT_DISCOVERY",
@@ -268,7 +260,7 @@
     "USA_SPENDING": {
       "source": "USA_SPENDING",
       "family": "PROCUREMENT",
-      "observed_at": "2026-11-12T00:44:19.645Z",
+      "observed_at": "2026-11-12T15:16:19.548Z",
       "status": "OK",
       "quality": "PRIMARY_OFFICIAL",
       "metric": "US_DEFENSE_PROCUREMENT_90D",
@@ -293,26 +285,31 @@
     "SAM_GOV": {
       "source": "SAM_GOV",
       "family": "PROCUREMENT",
-      "observed_at": "2026-11-12T00:44:19.645Z",
+      "observed_at": "2026-11-12T15:16:19.548Z",
       "status": "NOT_CONFIGURED",
       "quality": "PRIMARY_OFFICIAL",
       "error": "GSA_API_KEY missing"
     },
     "UKMTO": {
-      "status": "ERROR",
+      "status": "OK",
       "quality": "PRIMARY_OFFICIAL_PUBLIC",
       "metric": "UKMTO_RECENT_INCIDENTS_HOME",
       "pricing_score": null,
-      "error": "HTTP 403",
+      "mentions": {
+        "hormuz": 0,
+        "attack": 0,
+        "mine": 0
+      },
+      "source_url": "https://www.ukmto.org/",
       "fallback": true,
       "source": "UKMTO",
       "family": "PHYSICAL",
-      "observed_at": "2026-11-12T00:44:19.645Z"
+      "observed_at": "2026-11-12T15:16:19.548Z"
     },
     "ENTSOE": {
       "source": "ENTSOE",
       "family": "PHYSICAL",
-      "observed_at": "2026-11-12T00:44:19.645Z",
+      "observed_at": "2026-11-12T15:16:19.548Z",
       "status": "NOT_CONFIGURED",
       "quality": "PRIMARY_OFFICIAL",
       "error": "ENTSOE_API_KEY missing"
@@ -320,7 +317,7 @@
     "UN_COMTRADE": {
       "source": "UN_COMTRADE",
       "family": "PHYSICAL",
-      "observed_at": "2026-11-12T00:44:19.645Z",
+      "observed_at": "2026-11-12T15:16:19.548Z",
       "status": "OK",
       "quality": "PRIMARY_OFFICIAL",
       "metric": "CHINA_PERMANENT_MAGNET_EXPORTS",
@@ -534,7 +531,7 @@
           "source": "UKMTO",
           "family": "PHYSICAL",
           "access": "FREE_PUBLIC",
-          "status": "ERROR",
+          "status": "OK",
           "score": null,
           "metric": "UKMTO_RECENT_INCIDENTS_HOME",
           "quality": "PRIMARY_OFFICIAL_PUBLIC",
@@ -545,11 +542,11 @@
       "pricing_method": "NO_PRIMARY_OBSERVATION",
       "blind_reasons": [
         "AISSTREAM:NOT_CONFIGURED",
-        "UKMTO:ERROR"
+        "UKMTO:OK"
       ]
     },
     "LNG_REROUTING": {
-      "primary_priced_in": 47,
+      "primary_priced_in": 41,
       "pricing_confidence": 34,
       "observed_sources": 1,
       "sources": [
@@ -558,7 +555,7 @@
           "family": "MARKET",
           "access": "FREE_PUBLIC",
           "status": "OK",
-          "score": 47,
+          "score": 41,
           "metric": "ACER_EU_LNG_ASSESSMENT",
           "quality": "PRIMARY_OFFICIAL",
           "weight": 1.25
@@ -804,7 +801,7 @@
           "source": "UKMTO",
           "family": "PHYSICAL",
           "access": "FREE_PUBLIC",
-          "status": "ERROR",
+          "status": "OK",
           "score": null,
           "metric": "UKMTO_RECENT_INCIDENTS_HOME",
           "quality": "PRIMARY_OFFICIAL_PUBLIC",
@@ -844,7 +841,7 @@
       "total_sources": 4,
       "pricing_method": "PRIMARY_MULTI_SENSOR",
       "blind_reasons": [
-        "UKMTO:ERROR",
+        "UKMTO:OK",
         "AISSTREAM:NOT_CONFIGURED",
         "KALSHI:OK"
       ]
@@ -1299,7 +1296,7 @@
   },
   "coverage": {
     "mechanisms": 26,
-    "live_sources": 6,
+    "live_sources": 7,
     "scored_sources": 2,
     "configured_sources": 16,
     "blocks": {
@@ -1314,7 +1311,7 @@
         "NOT_CONFIGURED"
       ],
       "cftc": "OK",
-      "ukmto": "ERROR",
+      "ukmto": "OK",
       "entsoe": "NOT_CONFIGURED",
       "comtrade": "OK"
     },
@@ -1323,7 +1320,7 @@
       "kalshi": "OK"
     },
     "quality": {
-      "kalshi_rejected_semantic_hits": 38,
+      "kalshi_rejected_semantic_hits": 49,
       "eia_public_fallback": true,
       "ukmto_public_fallback": true,
       "mof_public_fallback": false
