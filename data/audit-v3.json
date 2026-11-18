@@ -1,27 +1,27 @@
 {
   "version": "3.2.0",
-  "generated_at": "2026-11-18T07:30:31.696Z",
-  "run_id": "run_2026-11-18T07-24-03Z",
+  "generated_at": "2026-11-18T20:35:39.941Z",
+  "run_id": "run_2026-11-18T20-28-14Z",
   "verdict": "NEEDS_ATTENTION",
   "summary": {
     "mechanisms": 26,
     "mechanism_grades": {
-      "A": 7,
+      "A": 4,
       "A-": 3,
-      "B": 12,
-      "C": 4,
+      "B": 13,
+      "C": 6,
       "F": 0
     },
     "seed_rows": 201,
     "unique_seed_symbols": 139,
     "mechanisms_below_target": 0,
     "mechanisms_direct_thin": 2,
-    "mechanisms_fallback_dependent": 14,
+    "mechanisms_fallback_dependent": 16,
     "mechanisms_no_retrieval_candidates": 0,
     "severity_counts": {
       "critical": 0,
-      "high": 4,
-      "medium": 18,
+      "high": 7,
+      "medium": 21,
       "low": 24
     }
   },
@@ -54,19 +54,19 @@
     "sgmoq_isolated": true,
     "live_execution_off": true,
     "market_entry_allowed": false,
-    "market_block_reason": "STALE_MARKET_DATA",
+    "market_block_reason": "MARKET_REGIME_BLOCK",
     "market_freshness": {
       "required": true,
       "max_age_hours": 2,
       "min_fresh_benchmarks": 3,
-      "fresh_count": 0,
+      "fresh_count": 4,
       "total": 4,
-      "fresh": false,
+      "fresh": true,
       "ages_hours": {
-        "spx": 10.51,
-        "nasdaq": 10.51,
-        "qqq": 6.51,
-        "iwm": 6.54
+        "spx": 0.11,
+        "nasdaq": 0.11,
+        "qqq": 0.1,
+        "iwm": 0.1
       }
     }
   },
@@ -91,11 +91,6 @@
       "detail": "Broker mode is CURATED_T212_UNIVERSE; curated availability is usable for shadow but not authoritative."
     },
     {
-      "code": "MARKET_TELEMETRY_STALE",
-      "severity": "LOW",
-      "detail": "Entry gate correctly closed because benchmarks are stale (weekend/closed market is expected)."
-    },
-    {
       "code": "CURRENT_RETRIEVAL_ERRORS",
       "severity": "MEDIUM",
       "detail": "2 retrieval errors in current health."
@@ -103,7 +98,7 @@
     {
       "code": "CURRENT_VERIFICATION_ERRORS",
       "severity": "LOW",
-      "detail": "1 verification errors in current health."
+      "detail": "2 verification errors in current health."
     }
   ],
   "mechanisms": [
@@ -121,13 +116,13 @@
         "proxy_seed_count": 2,
         "ranked_pool_count": 10,
         "top5_count": 5,
-        "top5_direct": 5,
+        "top5_direct": 4,
         "top5_symbols": [
-          "PARR",
-          "DK",
-          "VLO",
           "PSX",
-          "PBF"
+          "PARR",
+          "VLO",
+          "MPC",
+          "OMV.VI"
         ]
       },
       "search": {
@@ -149,17 +144,17 @@
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 1,
+        "observed": 0,
         "total": 7,
         "valid": 7,
         "unique_domains": 6,
-        "state": "ARMING",
-        "causal_score": 47
+        "state": "WATCH",
+        "causal_score": 37
       },
       "investment": {
-        "action": "PREPARE",
-        "opportunity_score": 60,
-        "transmission_score": 76.4,
+        "action": "WATCH",
+        "opportunity_score": 54,
+        "transmission_score": 71.4,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -174,6 +169,11 @@
           "code": "RETRIEVER_ERRORS",
           "severity": "MEDIUM",
           "detail": "2 engine failures (2 timeout/abort)."
+        },
+        {
+          "code": "NO_OBSERVED_EVIDENCE",
+          "severity": "LOW",
+          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
         }
       ]
     },
@@ -202,6 +202,75 @@
       },
       "search": {
         "configured_queries": 4,
+        "reported_queries": 2,
+        "reported_phases": [
+          "LEAD"
+        ],
+        "native_hits": 0,
+        "zero_native_queries": 2,
+        "zero_native_ratio": 1,
+        "engine_failures": 0,
+        "timeouts": 0,
+        "retrieval_candidates": 6,
+        "fallback_candidates": 6,
+        "official_candidates": 0,
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
+        "last_web_rescue_added": 6
+      },
+      "evidence": {
+        "observed": 1,
+        "total": 9,
+        "valid": 9,
+        "unique_domains": 9,
+        "state": "DORMANT",
+        "causal_score": 22
+      },
+      "investment": {
+        "action": "RESEARCH_ONLY",
+        "opportunity_score": 49,
+        "transmission_score": 80.2,
+        "quality": "CLEAN",
+        "broker_strict": false,
+        "broker_verified_top5": 0
+      },
+      "issues": [
+        {
+          "code": "NATIVE_SEARCH_MOSTLY_ZERO",
+          "severity": "MEDIUM",
+          "detail": "2/2 executed queries returned zero native-engine hits."
+        },
+        {
+          "code": "FALLBACK_DEPENDENT",
+          "severity": "LOW",
+          "detail": "6 fallback candidates rescued native search blindness."
+        }
+      ]
+    },
+    {
+      "id": "CRUDE_TANKER_DISLOCATION",
+      "label": "Crude tanker dislocation",
+      "tier": "A",
+      "grade": "B",
+      "companies": {
+        "seed_count": 8,
+        "target": 8,
+        "min_seed_count": 6,
+        "direct_seed_count": 8,
+        "min_direct_count": 4,
+        "proxy_seed_count": 0,
+        "ranked_pool_count": 8,
+        "top5_count": 5,
+        "top5_direct": 5,
+        "top5_symbols": [
+          "PSHG",
+          "FRO",
+          "TNK",
+          "INSW",
+          "ECO"
+        ]
+      },
+      "search": {
+        "configured_queries": 4,
         "reported_queries": 3,
         "reported_phases": [
           "LEAD",
@@ -215,21 +284,21 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 0,
-        "total": 8,
-        "valid": 8,
-        "unique_domains": 8,
-        "state": "DORMANT",
-        "causal_score": 20
+        "observed": 2,
+        "total": 14,
+        "valid": 12,
+        "unique_domains": 11,
+        "state": "WATCH",
+        "causal_score": 36
       },
       "investment": {
-        "action": "RESEARCH_ONLY",
-        "opportunity_score": 48,
-        "transmission_score": 80.2,
+        "action": "WATCH",
+        "opportunity_score": 55,
+        "transmission_score": 76.8,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -244,72 +313,8 @@
           "code": "FALLBACK_DEPENDENT",
           "severity": "LOW",
           "detail": "6 fallback candidates rescued native search blindness."
-        },
-        {
-          "code": "NO_OBSERVED_EVIDENCE",
-          "severity": "LOW",
-          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
         }
       ]
-    },
-    {
-      "id": "CRUDE_TANKER_DISLOCATION",
-      "label": "Crude tanker dislocation",
-      "tier": "A",
-      "grade": "A",
-      "companies": {
-        "seed_count": 8,
-        "target": 8,
-        "min_seed_count": 6,
-        "direct_seed_count": 8,
-        "min_direct_count": 4,
-        "proxy_seed_count": 0,
-        "ranked_pool_count": 8,
-        "top5_count": 5,
-        "top5_direct": 5,
-        "top5_symbols": [
-          "FRO",
-          "PSHG",
-          "INSW",
-          "TNK",
-          "DHT"
-        ]
-      },
-      "search": {
-        "configured_queries": 4,
-        "reported_queries": 3,
-        "reported_phases": [
-          "LEAD",
-          "CONFIRM"
-        ],
-        "native_hits": 1,
-        "zero_native_queries": 2,
-        "zero_native_ratio": 0.667,
-        "engine_failures": 0,
-        "timeouts": 0,
-        "retrieval_candidates": 7,
-        "fallback_candidates": 6,
-        "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
-        "last_web_rescue_added": 6
-      },
-      "evidence": {
-        "observed": 1,
-        "total": 14,
-        "valid": 12,
-        "unique_domains": 11,
-        "state": "WATCH",
-        "causal_score": 32
-      },
-      "investment": {
-        "action": "WATCH",
-        "opportunity_score": 53,
-        "transmission_score": 76.6,
-        "quality": "CLEAN",
-        "broker_strict": false,
-        "broker_verified_top5": 0
-      },
-      "issues": []
     },
     {
       "id": "ATLANTIC_BARREL_PREMIUM",
@@ -325,46 +330,45 @@
         "proxy_seed_count": 3,
         "ranked_pool_count": 10,
         "top5_count": 5,
-        "top5_direct": 3,
+        "top5_direct": 4,
         "top5_symbols": [
           "APA",
-          "SU",
-          "COP",
+          "PBR",
           "CNQ",
+          "SU",
           "TTE"
         ]
       },
       "search": {
         "configured_queries": 4,
-        "reported_queries": 3,
+        "reported_queries": 2,
         "reported_phases": [
-          "LEAD",
-          "CONFIRM"
+          "LEAD"
         ],
         "native_hits": 0,
-        "zero_native_queries": 3,
+        "zero_native_queries": 2,
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 0,
+        "observed": 5,
         "total": 15,
-        "valid": 14,
-        "unique_domains": 12,
+        "valid": 9,
+        "unique_domains": 8,
         "state": "DORMANT",
-        "causal_score": 20
+        "causal_score": 17
       },
       "investment": {
         "action": "RESEARCH_ONLY",
         "opportunity_score": 41,
-        "transmission_score": 60.6,
-        "quality": "WEAK",
+        "transmission_score": 65.4,
+        "quality": "MIXED",
         "broker_strict": false,
         "broker_verified_top5": 0
       },
@@ -372,17 +376,12 @@
         {
           "code": "NATIVE_SEARCH_MOSTLY_ZERO",
           "severity": "MEDIUM",
-          "detail": "3/3 executed queries returned zero native-engine hits."
+          "detail": "2/2 executed queries returned zero native-engine hits."
         },
         {
           "code": "FALLBACK_DEPENDENT",
           "severity": "LOW",
           "detail": "6 fallback candidates rescued native search blindness."
-        },
-        {
-          "code": "NO_OBSERVED_EVIDENCE",
-          "severity": "LOW",
-          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
         }
       ]
     },
@@ -402,8 +401,8 @@
         "top5_count": 3,
         "top5_direct": 3,
         "top5_symbols": [
-          "DNO.OL",
           "GKP.L",
+          "DNO.OL",
           "GENL.L"
         ]
       },
@@ -421,20 +420,20 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 6,
-        "total": 12,
-        "valid": 11,
-        "unique_domains": 11,
+        "observed": 5,
+        "total": 14,
+        "valid": 13,
+        "unique_domains": 13,
         "state": "DORMANT",
-        "causal_score": 21
+        "causal_score": 24
       },
       "investment": {
         "action": "RESEARCH_ONLY",
-        "opportunity_score": 50,
+        "opportunity_score": 51,
         "transmission_score": 83.7,
         "quality": "MIXED",
         "broker_strict": false,
@@ -457,7 +456,7 @@
       "id": "LNG_REROUTING",
       "label": "LNG rerouting",
       "tier": "B",
-      "grade": "A",
+      "grade": "C",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -471,9 +470,9 @@
         "top5_symbols": [
           "EE",
           "LNG",
-          "GLNG",
           "FLNG",
-          "NEXT"
+          "NEXT",
+          "GLNG"
         ]
       },
       "search": {
@@ -482,40 +481,56 @@
         "reported_phases": [
           "LEAD"
         ],
-        "native_hits": 1,
-        "zero_native_queries": 1,
-        "zero_native_ratio": 0.5,
+        "native_hits": 0,
+        "zero_native_queries": 2,
+        "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 7,
+        "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 1,
-        "total": 10,
-        "valid": 10,
-        "unique_domains": 7,
-        "state": "DORMANT",
-        "causal_score": 24
+        "observed": 4,
+        "total": 11,
+        "valid": 11,
+        "unique_domains": 8,
+        "state": "WATCH",
+        "causal_score": 32
       },
       "investment": {
-        "action": "RESEARCH_ONLY",
-        "opportunity_score": 49,
+        "action": "WATCH",
+        "opportunity_score": 54,
         "transmission_score": 79.2,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
       },
-      "issues": []
+      "issues": [
+        {
+          "code": "CONFIRM_NOT_RUN",
+          "severity": "HIGH",
+          "detail": "WATCH mechanism lacks a confirm-phase retrieval in the latest run."
+        },
+        {
+          "code": "NATIVE_SEARCH_MOSTLY_ZERO",
+          "severity": "MEDIUM",
+          "detail": "2/2 executed queries returned zero native-engine hits."
+        },
+        {
+          "code": "FALLBACK_DEPENDENT",
+          "severity": "LOW",
+          "detail": "6 fallback candidates rescued native search blindness."
+        }
+      ]
     },
     {
       "id": "ARSENAL_DEPLETION",
       "label": "Arsenal depletion / replenishment",
       "tier": "A",
-      "grade": "B",
+      "grade": "C",
       "companies": {
         "seed_count": 10,
         "target": 10,
@@ -525,64 +540,63 @@
         "proxy_seed_count": 4,
         "ranked_pool_count": 10,
         "top5_count": 5,
-        "top5_direct": 5,
+        "top5_direct": 4,
         "top5_symbols": [
           "RTX",
-          "NOC",
           "LMT",
+          "NOC",
           "GD",
-          "LHX"
+          "HWM"
         ]
       },
       "search": {
         "configured_queries": 4,
-        "reported_queries": 3,
+        "reported_queries": 2,
         "reported_phases": [
-          "LEAD",
-          "CONFIRM"
+          "LEAD"
         ],
         "native_hits": 0,
-        "zero_native_queries": 3,
+        "zero_native_queries": 2,
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 0,
-        "total": 13,
-        "valid": 5,
-        "unique_domains": 3,
-        "state": "DORMANT",
-        "causal_score": 19
+        "observed": 3,
+        "total": 14,
+        "valid": 8,
+        "unique_domains": 4,
+        "state": "WATCH",
+        "causal_score": 28
       },
       "investment": {
-        "action": "RESEARCH_ONLY",
-        "opportunity_score": 47,
-        "transmission_score": 76.4,
+        "action": "WATCH",
+        "opportunity_score": 50,
+        "transmission_score": 73.4,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
       },
       "issues": [
         {
+          "code": "CONFIRM_NOT_RUN",
+          "severity": "HIGH",
+          "detail": "WATCH mechanism lacks a confirm-phase retrieval in the latest run."
+        },
+        {
           "code": "NATIVE_SEARCH_MOSTLY_ZERO",
           "severity": "MEDIUM",
-          "detail": "3/3 executed queries returned zero native-engine hits."
+          "detail": "2/2 executed queries returned zero native-engine hits."
         },
         {
           "code": "FALLBACK_DEPENDENT",
           "severity": "LOW",
           "detail": "6 fallback candidates rescued native search blindness."
-        },
-        {
-          "code": "NO_OBSERVED_EVIDENCE",
-          "severity": "LOW",
-          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
         }
       ]
     },
@@ -590,7 +604,7 @@
       "id": "ROCKET_MOTOR_SHORTAGE",
       "label": "Rocket motor bottleneck",
       "tier": "A",
-      "grade": "A",
+      "grade": "B",
       "companies": {
         "seed_count": 6,
         "target": 6,
@@ -616,87 +630,28 @@
           "LEAD",
           "CONFIRM"
         ],
-        "native_hits": 1,
-        "zero_native_queries": 2,
-        "zero_native_ratio": 0.667,
-        "engine_failures": 0,
-        "timeouts": 0,
-        "retrieval_candidates": 7,
-        "fallback_candidates": 6,
-        "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
-        "last_web_rescue_added": 6
-      },
-      "evidence": {
-        "observed": 6,
-        "total": 17,
-        "valid": 17,
-        "unique_domains": 15,
-        "state": "ARMING",
-        "causal_score": 57
-      },
-      "investment": {
-        "action": "SCOUT_WINDOW",
-        "opportunity_score": 64,
-        "transmission_score": 69.8,
-        "quality": "MIXED",
-        "broker_strict": false,
-        "broker_verified_top5": 0
-      },
-      "issues": []
-    },
-    {
-      "id": "ENERGETICS_SHORTAGE",
-      "label": "Energetics / explosives shortage",
-      "tier": "A",
-      "grade": "B",
-      "companies": {
-        "seed_count": 8,
-        "target": 8,
-        "min_seed_count": 6,
-        "direct_seed_count": 5,
-        "min_direct_count": 4,
-        "proxy_seed_count": 3,
-        "ranked_pool_count": 8,
-        "top5_count": 5,
-        "top5_direct": 3,
-        "top5_symbols": [
-          "GD",
-          "BA.L",
-          "RTX",
-          "CHG.L",
-          "NOC"
-        ]
-      },
-      "search": {
-        "configured_queries": 4,
-        "reported_queries": 3,
-        "reported_phases": [
-          "LEAD",
-          "CONFIRM"
-        ],
         "native_hits": 0,
         "zero_native_queries": 3,
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 5,
-        "fallback_candidates": 5,
+        "retrieval_candidates": 6,
+        "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
-        "last_web_rescue_added": 5
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
+        "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 0,
-        "total": 10,
-        "valid": 10,
-        "unique_domains": 8,
-        "state": "DORMANT",
-        "causal_score": 20
+        "observed": 2,
+        "total": 16,
+        "valid": 16,
+        "unique_domains": 14,
+        "state": "ARMING",
+        "causal_score": 45
       },
       "investment": {
-        "action": "RESEARCH_ONLY",
-        "opportunity_score": 44,
+        "action": "PREPARE",
+        "opportunity_score": 57,
         "transmission_score": 69.8,
         "quality": "MIXED",
         "broker_strict": false,
@@ -711,12 +666,81 @@
         {
           "code": "FALLBACK_DEPENDENT",
           "severity": "LOW",
-          "detail": "5 fallback candidates rescued native search blindness."
+          "detail": "6 fallback candidates rescued native search blindness."
+        }
+      ]
+    },
+    {
+      "id": "ENERGETICS_SHORTAGE",
+      "label": "Energetics / explosives shortage",
+      "tier": "A",
+      "grade": "C",
+      "companies": {
+        "seed_count": 8,
+        "target": 8,
+        "min_seed_count": 6,
+        "direct_seed_count": 5,
+        "min_direct_count": 4,
+        "proxy_seed_count": 3,
+        "ranked_pool_count": 8,
+        "top5_count": 5,
+        "top5_direct": 3,
+        "top5_symbols": [
+          "CHG.L",
+          "GD",
+          "RTX",
+          "BA.L",
+          "NOC"
+        ]
+      },
+      "search": {
+        "configured_queries": 4,
+        "reported_queries": 2,
+        "reported_phases": [
+          "LEAD"
+        ],
+        "native_hits": 0,
+        "zero_native_queries": 2,
+        "zero_native_ratio": 1,
+        "engine_failures": 0,
+        "timeouts": 0,
+        "retrieval_candidates": 5,
+        "fallback_candidates": 5,
+        "official_candidates": 0,
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
+        "last_web_rescue_added": 5
+      },
+      "evidence": {
+        "observed": 4,
+        "total": 11,
+        "valid": 11,
+        "unique_domains": 8,
+        "state": "WATCH",
+        "causal_score": 30
+      },
+      "investment": {
+        "action": "WATCH",
+        "opportunity_score": 50,
+        "transmission_score": 69.8,
+        "quality": "MIXED",
+        "broker_strict": false,
+        "broker_verified_top5": 0
+      },
+      "issues": [
+        {
+          "code": "CONFIRM_NOT_RUN",
+          "severity": "HIGH",
+          "detail": "WATCH mechanism lacks a confirm-phase retrieval in the latest run."
         },
         {
-          "code": "NO_OBSERVED_EVIDENCE",
+          "code": "NATIVE_SEARCH_MOSTLY_ZERO",
+          "severity": "MEDIUM",
+          "detail": "2/2 executed queries returned zero native-engine hits."
+        },
+        {
+          "code": "FALLBACK_DEPENDENT",
           "severity": "LOW",
-          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
+          "detail": "5 fallback candidates rescued native search blindness."
         }
       ]
     },
@@ -724,7 +748,7 @@
       "id": "STRATEGIC_ALUMINIUM",
       "label": "Strategic aluminium",
       "tier": "B",
-      "grade": "A-",
+      "grade": "C",
       "companies": {
         "seed_count": 6,
         "target": 6,
@@ -745,33 +769,32 @@
       },
       "search": {
         "configured_queries": 4,
-        "reported_queries": 3,
+        "reported_queries": 2,
         "reported_phases": [
-          "LEAD",
-          "CONFIRM"
+          "LEAD"
         ],
-        "native_hits": 1,
+        "native_hits": 0,
         "zero_native_queries": 2,
-        "zero_native_ratio": 0.667,
+        "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 7,
+        "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 0,
-        "total": 12,
-        "valid": 12,
-        "unique_domains": 12,
-        "state": "DORMANT",
-        "causal_score": 22
+        "observed": 6,
+        "total": 11,
+        "valid": 11,
+        "unique_domains": 11,
+        "state": "WATCH",
+        "causal_score": 32
       },
       "investment": {
-        "action": "RESEARCH_ONLY",
-        "opportunity_score": 45,
+        "action": "WATCH",
+        "opportunity_score": 51,
         "transmission_score": 71.8,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -779,9 +802,19 @@
       },
       "issues": [
         {
-          "code": "NO_OBSERVED_EVIDENCE",
+          "code": "CONFIRM_NOT_RUN",
+          "severity": "HIGH",
+          "detail": "WATCH mechanism lacks a confirm-phase retrieval in the latest run."
+        },
+        {
+          "code": "NATIVE_SEARCH_MOSTLY_ZERO",
+          "severity": "MEDIUM",
+          "detail": "2/2 executed queries returned zero native-engine hits."
+        },
+        {
+          "code": "FALLBACK_DEPENDENT",
           "severity": "LOW",
-          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
+          "detail": "6 fallback candidates rescued native search blindness."
         }
       ]
     },
@@ -805,7 +838,7 @@
           "LYC.AX",
           "NB",
           "CRML",
-          "UUUU"
+          "USAR"
         ]
       },
       "search": {
@@ -815,29 +848,29 @@
           "LEAD",
           "CONFIRM"
         ],
-        "native_hits": 4,
-        "zero_native_queries": 1,
-        "zero_native_ratio": 0.2,
+        "native_hits": 2,
+        "zero_native_queries": 3,
+        "zero_native_ratio": 0.6,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 2,
-        "fallback_candidates": 0,
+        "retrieval_candidates": 7,
+        "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-16T06:25:11.752Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 1,
+        "observed": 2,
         "total": 6,
         "valid": 6,
         "unique_domains": 6,
         "state": "WATCH",
-        "causal_score": 40
+        "causal_score": 43
       },
       "investment": {
         "action": "WATCH",
-        "opportunity_score": 57,
-        "transmission_score": 77,
+        "opportunity_score": 58,
+        "transmission_score": 78,
         "quality": "MIXED",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -848,7 +881,7 @@
       "id": "CHEAP_DRONE_SCALING",
       "label": "Cheap-drone scaling",
       "tier": "B",
-      "grade": "C",
+      "grade": "B",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -861,40 +894,41 @@
         "top5_direct": 3,
         "top5_symbols": [
           "NOC",
-          "LHX",
           "AVAV",
           "KTOS",
+          "LHX",
           "RCAT"
         ]
       },
       "search": {
         "configured_queries": 4,
-        "reported_queries": 2,
+        "reported_queries": 3,
         "reported_phases": [
-          "LEAD"
+          "LEAD",
+          "CONFIRM"
         ],
         "native_hits": 0,
-        "zero_native_queries": 2,
+        "zero_native_queries": 3,
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
         "observed": 2,
-        "total": 10,
-        "valid": 10,
-        "unique_domains": 8,
+        "total": 11,
+        "valid": 11,
+        "unique_domains": 9,
         "state": "WATCH",
-        "causal_score": 25
+        "causal_score": 28
       },
       "investment": {
         "action": "WATCH",
-        "opportunity_score": 42,
+        "opportunity_score": 44,
         "transmission_score": 60,
         "quality": "MIXED",
         "broker_strict": false,
@@ -902,14 +936,9 @@
       },
       "issues": [
         {
-          "code": "CONFIRM_NOT_RUN",
-          "severity": "HIGH",
-          "detail": "WATCH mechanism lacks a confirm-phase retrieval in the latest run."
-        },
-        {
           "code": "NATIVE_SEARCH_MOSTLY_ZERO",
           "severity": "MEDIUM",
-          "detail": "2/2 executed queries returned zero native-engine hits."
+          "detail": "3/3 executed queries returned zero native-engine hits."
         },
         {
           "code": "FALLBACK_DEPENDENT",
@@ -922,7 +951,7 @@
       "id": "COUNTER_UAS_COST_CURVE",
       "label": "Counter-UAS cost curve",
       "tier": "B",
-      "grade": "C",
+      "grade": "B",
       "companies": {
         "seed_count": 8,
         "target": 8,
@@ -936,54 +965,50 @@
         "top5_symbols": [
           "RTX",
           "KOG.OL",
-          "LDO.MI",
           "LHX",
+          "LDO.MI",
           "SAAB-B.ST"
         ]
       },
       "search": {
         "configured_queries": 4,
-        "reported_queries": 2,
+        "reported_queries": 3,
         "reported_phases": [
-          "LEAD"
+          "LEAD",
+          "CONFIRM"
         ],
         "native_hits": 0,
-        "zero_native_queries": 2,
+        "zero_native_queries": 3,
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 4,
-        "total": 20,
-        "valid": 20,
-        "unique_domains": 12,
+        "observed": 5,
+        "total": 21,
+        "valid": 21,
+        "unique_domains": 13,
         "state": "WATCH",
-        "causal_score": 30
+        "causal_score": 32
       },
       "investment": {
         "action": "WATCH",
         "opportunity_score": 52,
-        "transmission_score": 73.8,
+        "transmission_score": 74,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
       },
       "issues": [
         {
-          "code": "CONFIRM_NOT_RUN",
-          "severity": "HIGH",
-          "detail": "WATCH mechanism lacks a confirm-phase retrieval in the latest run."
-        },
-        {
           "code": "NATIVE_SEARCH_MOSTLY_ZERO",
           "severity": "MEDIUM",
-          "detail": "2/2 executed queries returned zero native-engine hits."
+          "detail": "3/3 executed queries returned zero native-engine hits."
         },
         {
           "code": "FALLBACK_DEPENDENT",
@@ -1009,10 +1034,10 @@
         "top5_direct": 5,
         "top5_symbols": [
           "KOG.OL",
-          "LDO.MI",
           "HO.PA",
+          "LDO.MI",
           "HII",
-          "SAAB-B.ST"
+          "FCT.MI"
         ]
       },
       "search": {
@@ -1030,21 +1055,21 @@
         "retrieval_candidates": 7,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 3,
-        "total": 17,
+        "observed": 5,
+        "total": 22,
         "valid": 5,
         "unique_domains": 5,
         "state": "WATCH",
-        "causal_score": 26
+        "causal_score": 25
       },
       "investment": {
         "action": "WATCH",
-        "opportunity_score": 49,
-        "transmission_score": 72.4,
+        "opportunity_score": 48,
+        "transmission_score": 74,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -1069,9 +1094,9 @@
         "top5_symbols": [
           "POWL",
           "PWR",
-          "GEV",
-          "VRT",
-          "EMR"
+          "EMR",
+          "HUBB",
+          "VRT"
         ]
       },
       "search": {
@@ -1081,12 +1106,12 @@
           "LEAD",
           "CONFIRM"
         ],
-        "native_hits": 3,
+        "native_hits": 8,
         "zero_native_queries": 2,
         "zero_native_ratio": 0.667,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 3,
+        "retrieval_candidates": 8,
         "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-11-17T07:53:10.576Z",
@@ -1097,13 +1122,13 @@
         "total": 20,
         "valid": 20,
         "unique_domains": 14,
-        "state": "WATCH",
-        "causal_score": 26
+        "state": "DORMANT",
+        "causal_score": 22
       },
       "investment": {
-        "action": "WATCH",
-        "opportunity_score": 52,
-        "transmission_score": 82.8,
+        "action": "RESEARCH_ONLY",
+        "opportunity_score": 49,
+        "transmission_score": 81.8,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -1134,9 +1159,9 @@
         "top5_symbols": [
           "POWL",
           "PWR",
-          "GEV",
           "VRT",
-          "NVT"
+          "GEV",
+          "HUBB"
         ]
       },
       "search": {
@@ -1146,12 +1171,12 @@
           "LEAD",
           "CONFIRM"
         ],
-        "native_hits": 2,
+        "native_hits": 3,
         "zero_native_queries": 2,
         "zero_native_ratio": 0.667,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 2,
+        "retrieval_candidates": 3,
         "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-11-17T07:53:10.576Z",
@@ -1163,12 +1188,12 @@
         "valid": 12,
         "unique_domains": 8,
         "state": "WATCH",
-        "causal_score": 30
+        "causal_score": 27
       },
       "investment": {
         "action": "WATCH",
-        "opportunity_score": 52,
-        "transmission_score": 77.4,
+        "opportunity_score": 50,
+        "transmission_score": 77.8,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -1211,28 +1236,28 @@
           "LEAD",
           "CONFIRM"
         ],
-        "native_hits": 1,
-        "zero_native_queries": 2,
-        "zero_native_ratio": 0.667,
+        "native_hits": 2,
+        "zero_native_queries": 1,
+        "zero_native_ratio": 0.333,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 7,
-        "fallback_candidates": 6,
+        "retrieval_candidates": 2,
+        "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 3,
-        "total": 15,
-        "valid": 11,
-        "unique_domains": 8,
-        "state": "WATCH",
-        "causal_score": 29
+        "observed": 2,
+        "total": 16,
+        "valid": 12,
+        "unique_domains": 9,
+        "state": "ARMING",
+        "causal_score": 55
       },
       "investment": {
-        "action": "WATCH",
-        "opportunity_score": 50,
+        "action": "SCOUT_WINDOW",
+        "opportunity_score": 63,
         "transmission_score": 73.8,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -1259,8 +1284,8 @@
           "RRX",
           "ROK",
           "PH",
-          "SHA0.DE",
-          "AME"
+          "HON",
+          "SHA0.DE"
         ]
       },
       "search": {
@@ -1277,21 +1302,21 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
         "observed": 0,
-        "total": 2,
-        "valid": 2,
-        "unique_domains": 2,
-        "state": "DORMANT",
-        "causal_score": 6
+        "total": 0,
+        "valid": 0,
+        "unique_domains": 0,
+        "state": "UNKNOWN",
+        "causal_score": 0
       },
       "investment": {
         "action": "RESEARCH_ONLY",
-        "opportunity_score": 38,
-        "transmission_score": 73.4,
+        "opportunity_score": 35,
+        "transmission_score": 72.6,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -1330,9 +1355,9 @@
         "top5_count": 5,
         "top5_direct": 4,
         "top5_symbols": [
+          "HON",
           "RRX",
           "ROK",
-          "HON",
           "PH",
           "AME"
         ]
@@ -1352,20 +1377,20 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 4,
+        "observed": 0,
         "total": 11,
         "valid": 11,
         "unique_domains": 9,
-        "state": "WATCH",
-        "causal_score": 32
+        "state": "DORMANT",
+        "causal_score": 24
       },
       "investment": {
-        "action": "WATCH",
-        "opportunity_score": 50,
+        "action": "RESEARCH_ONLY",
+        "opportunity_score": 46,
         "transmission_score": 70.4,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -1381,6 +1406,11 @@
           "code": "FALLBACK_DEPENDENT",
           "severity": "LOW",
           "detail": "6 fallback candidates rescued native search blindness."
+        },
+        {
+          "code": "NO_OBSERVED_EVIDENCE",
+          "severity": "LOW",
+          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
         }
       ]
     },
@@ -1427,15 +1457,15 @@
       },
       "evidence": {
         "observed": 2,
-        "total": 13,
-        "valid": 11,
+        "total": 12,
+        "valid": 10,
         "unique_domains": 9,
         "state": "ARMING",
-        "causal_score": 64
+        "causal_score": 65
       },
       "investment": {
         "action": "SCOUT_WINDOW",
-        "opportunity_score": 59,
+        "opportunity_score": 60,
         "transmission_score": 47.2,
         "quality": "WEAK",
         "broker_strict": false,
@@ -1470,10 +1500,10 @@
         "top5_count": 5,
         "top5_direct": 0,
         "top5_symbols": [
-          "APO",
           "ARES",
-          "KKR",
+          "APO",
           "BX",
+          "KKR",
           "OWL"
         ]
       },
@@ -1488,23 +1518,23 @@
         "zero_native_ratio": 1,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 7,
-        "fallback_candidates": 6,
-        "official_candidates": 1,
+        "retrieval_candidates": 3,
+        "fallback_candidates": 0,
+        "official_candidates": 3,
         "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 0,
-        "total": 1,
-        "valid": 1,
-        "unique_domains": 1,
-        "state": "DORMANT",
-        "causal_score": 5
+        "observed": 2,
+        "total": 3,
+        "valid": 3,
+        "unique_domains": 2,
+        "state": "WATCH",
+        "causal_score": 27
       },
       "investment": {
-        "action": "RESEARCH_ONLY",
-        "opportunity_score": 28,
+        "action": "WATCH",
+        "opportunity_score": 39,
         "transmission_score": 43,
         "quality": "WEAK",
         "broker_strict": false,
@@ -1517,19 +1547,14 @@
           "detail": "0 DIRECT candidates; target-aware minimum 3."
         },
         {
+          "code": "CONFIRM_NOT_RUN",
+          "severity": "HIGH",
+          "detail": "WATCH mechanism lacks a confirm-phase retrieval in the latest run."
+        },
+        {
           "code": "NATIVE_SEARCH_MOSTLY_ZERO",
           "severity": "MEDIUM",
           "detail": "2/2 executed queries returned zero native-engine hits."
-        },
-        {
-          "code": "FALLBACK_DEPENDENT",
-          "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
-        },
-        {
-          "code": "NO_OBSERVED_EVIDENCE",
-          "severity": "LOW",
-          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
         },
         {
           "code": "TOP5_DIRECT_THIN",
@@ -1552,13 +1577,13 @@
         "proxy_seed_count": 1,
         "ranked_pool_count": 8,
         "top5_count": 5,
-        "top5_direct": 5,
+        "top5_direct": 4,
         "top5_symbols": [
-          "CHKP",
+          "TENB",
           "CRWD",
           "PANW",
-          "TENB",
-          "FTNT"
+          "CHKP",
+          "OKTA"
         ]
       },
       "search": {
@@ -1575,7 +1600,7 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
@@ -1588,8 +1613,8 @@
       },
       "investment": {
         "action": "RESEARCH_ONLY",
-        "opportunity_score": 38,
-        "transmission_score": 80.2,
+        "opportunity_score": 36,
+        "transmission_score": 77.2,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -1628,11 +1653,11 @@
         "top5_count": 5,
         "top5_direct": 4,
         "top5_symbols": [
+          "NXE",
           "CCJ",
           "LEU",
-          "NXE",
           "BWXT",
-          "UUUU"
+          "UEC"
         ]
       },
       "search": {
@@ -1643,28 +1668,28 @@
           "CONFIRM",
           "LAG"
         ],
-        "native_hits": 4,
-        "zero_native_queries": 1,
-        "zero_native_ratio": 0.25,
+        "native_hits": 5,
+        "zero_native_queries": 0,
+        "zero_native_ratio": 0,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 3,
+        "retrieval_candidates": 4,
         "fallback_candidates": 0,
         "official_candidates": 0,
         "last_web_rescue_at": "2026-11-17T07:53:10.576Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 3,
-        "total": 20,
-        "valid": 19,
-        "unique_domains": 15,
+        "observed": 4,
+        "total": 22,
+        "valid": 21,
+        "unique_domains": 17,
         "state": "ACTIVE",
-        "causal_score": 72
+        "causal_score": 80
       },
       "investment": {
         "action": "SCOUT_WINDOW",
-        "opportunity_score": 72,
+        "opportunity_score": 76,
         "transmission_score": 75,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -1676,7 +1701,7 @@
       "id": "MILITARY_ENERGY_AUTONOMY",
       "label": "Military energy autonomy",
       "tier": "C",
-      "grade": "B",
+      "grade": "A-",
       "companies": {
         "seed_count": 7,
         "target": 7,
@@ -1688,11 +1713,11 @@
         "top5_count": 5,
         "top5_direct": 4,
         "top5_symbols": [
-          "GEV",
           "BWXT",
+          "GEV",
           "CMI",
-          "VRT",
-          "LEU"
+          "LEU",
+          "VRT"
         ]
       },
       "search": {
@@ -1702,28 +1727,28 @@
           "LEAD",
           "CONFIRM"
         ],
-        "native_hits": 0,
-        "zero_native_queries": 3,
-        "zero_native_ratio": 1,
+        "native_hits": 1,
+        "zero_native_queries": 2,
+        "zero_native_ratio": 0.667,
         "engine_failures": 0,
         "timeouts": 0,
-        "retrieval_candidates": 6,
+        "retrieval_candidates": 7,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 5,
-        "total": 14,
-        "valid": 14,
+        "observed": 0,
+        "total": 13,
+        "valid": 13,
         "unique_domains": 13,
-        "state": "WATCH",
-        "causal_score": 32
+        "state": "DORMANT",
+        "causal_score": 21
       },
       "investment": {
-        "action": "WATCH",
-        "opportunity_score": 51,
+        "action": "RESEARCH_ONLY",
+        "opportunity_score": 45,
         "transmission_score": 71.4,
         "quality": "CLEAN",
         "broker_strict": false,
@@ -1731,14 +1756,9 @@
       },
       "issues": [
         {
-          "code": "NATIVE_SEARCH_MOSTLY_ZERO",
-          "severity": "MEDIUM",
-          "detail": "3/3 executed queries returned zero native-engine hits."
-        },
-        {
-          "code": "FALLBACK_DEPENDENT",
+          "code": "NO_OBSERVED_EVIDENCE",
           "severity": "LOW",
-          "detail": "6 fallback candidates rescued native search blindness."
+          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
         }
       ]
     },
@@ -1759,10 +1779,10 @@
         "top5_direct": 5,
         "top5_symbols": [
           "KOG.OL",
-          "LDO.MI",
           "RR.L",
           "HO.PA",
-          "SAAB-B.ST"
+          "LDO.MI",
+          "BA.L"
         ]
       },
       "search": {
@@ -1779,21 +1799,21 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 1,
+        "observed": 0,
         "total": 19,
         "valid": 19,
         "unique_domains": 14,
         "state": "DORMANT",
-        "causal_score": 24
+        "causal_score": 18
       },
       "investment": {
         "action": "RESEARCH_ONLY",
-        "opportunity_score": 49,
-        "transmission_score": 76.2,
+        "opportunity_score": 46,
+        "transmission_score": 76.6,
         "quality": "CLEAN",
         "broker_strict": false,
         "broker_verified_top5": 0
@@ -1808,6 +1828,11 @@
           "code": "FALLBACK_DEPENDENT",
           "severity": "LOW",
           "detail": "6 fallback candidates rescued native search blindness."
+        },
+        {
+          "code": "NO_OBSERVED_EVIDENCE",
+          "severity": "LOW",
+          "detail": "Candidates exist but none survived extraction/clustering as new evidence this cycle."
         }
       ]
     },
@@ -1828,9 +1853,9 @@
         "top5_direct": 5,
         "top5_symbols": [
           "KLXE",
-          "HAL",
-          "SLB",
           "OIS",
+          "SLB",
+          "HAL",
           "BORR"
         ]
       },
@@ -1849,20 +1874,20 @@
         "retrieval_candidates": 6,
         "fallback_candidates": 6,
         "official_candidates": 0,
-        "last_web_rescue_at": "2026-11-18T07:25:28.101Z",
+        "last_web_rescue_at": "2026-11-18T20:30:04.959Z",
         "last_web_rescue_added": 6
       },
       "evidence": {
-        "observed": 4,
-        "total": 15,
-        "valid": 11,
-        "unique_domains": 8,
-        "state": "ARMING",
-        "causal_score": 45
+        "observed": 1,
+        "total": 16,
+        "valid": 12,
+        "unique_domains": 9,
+        "state": "WATCH",
+        "causal_score": 40
       },
       "investment": {
-        "action": "PREPARE",
-        "opportunity_score": 59,
+        "action": "WATCH",
+        "opportunity_score": 57,
         "transmission_score": 76.8,
         "quality": "CLEAN",
         "broker_strict": false,
